@@ -1,0 +1,127 @@
+plugins {
+    id 'fabric-loom' version '1.14.10'
+    id 'org.jetbrains.kotlin.jvm' version '2.2.20'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '2.2.20'
+    id 'com.gradleup.shadow' version '8.3.5'
+    id 'maven-publish'
+}
+
+version = project.findProperty('mod_version') ?: '0.1.2'
+group = project.findProperty('maven_group') ?: 'su.catlean'
+
+base {
+    archivesName = project.findProperty('archives_base_name') ?: 'catlean'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'Fabric'
+        url = 'https://maven.fabricmc.net/'
+    }
+    maven {
+        name = 'Meteor Maven'
+        url = 'https://maven.meteordev.org/releases'
+    }
+    maven {
+        name = 'Meteor Maven Snapshots'
+        url = 'https://maven.meteordev.org/snapshots'
+    }
+    maven {
+        name = 'JitPack'
+        url = 'https://jitpack.io'
+    }
+}
+
+configurations {
+    shade
+    implementation.extendsFrom(shade)
+}
+
+dependencies {
+    // Minecraft & Fabric Loader (Extracted from META-INF/MANIFEST.MF and fabric.mod.json)
+    minecraft "com.mojang:minecraft:${project.findProperty('minecraft_version') ?: '1.21.11'}"
+    mappings "net.fabricmc:yarn:${project.findProperty('yarn_mappings') ?: '1.21.11+build.1'}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.findProperty('loader_version') ?: '0.18.2'}"
+
+    // Fabric API & Kotlin Language Adapter
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.findProperty('fabric_version') ?: '0.119.2+1.21.11'}"
+    modImplementation "net.fabricmc:fabric-language-kotlin:${project.findProperty('fabric_kotlin_version') ?: '1.13.6+kotlin.2.2.20'}"
+
+    // Kotlin Standard Library, Coroutines, Reflection & Serialization
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.2.20"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:2.2.20"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.10.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.8.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.8.0"
+
+    // Embedded / Shaded Third-Party Runtime Libraries (bundled in original JAR)
+    shade "org.joml:joml:1.10.8"
+    shade "com.squareup.okhttp3:okhttp-jvm:5.0.0-alpha.14"
+    shade "com.squareup.okio:okio-jvm:3.9.1"
+    shade "io.ktor:ktor-client-core-jvm:3.0.3"
+    shade "io.ktor:ktor-client-cio-jvm:3.0.3"
+    shade "io.ktor:ktor-client-websockets-jvm:3.0.3"
+    shade "org.apache.commons:commons-lang3:3.17.0"
+    shade "commons-io:commons-io:2.18.0"
+    shade "org.slf4j:slf4j-api:2.0.16"
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/catlean.accesswidener").exists()
+            ? file("src/main/resources/catlean.accesswidener")
+            : null
+
+    mixin {
+        defaultRefmapName = "catlean-refmap.json"
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    it.options.release = 21
+    it.options.compilerArgs.addAll(["-parameters"])
+}
+
+kotlin {
+    jvmToolchain(21)
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
+        javaParameters.set(true)
+        freeCompilerArgs.addAll([
+            "-Xjvm-default=all"
+        ])
+    }
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+shadowJar {
+    configurations = [project.configurations.shade]
+    archiveClassifier.set("dev-shadow")
+    exclude "META-INF/*.SF", "META-INF/*.DSA", "META-INF/*.RSA"
+}
+
+remapJar {
+    dependsOn shadowJar
+    inputFile.set(shadowJar.archiveFile)
+    archiveClassifier.set("")
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
+}
