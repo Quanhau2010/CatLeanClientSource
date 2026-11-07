@@ -56,7 +56,7 @@ public class BowMinecartModule extends Module {
     }
 
     private WindHopSwitchMode getSwitchMode() {
-        return (WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSwitchMode(WindHopSwitchMode value) {
@@ -64,7 +64,7 @@ public class BowMinecartModule extends Module {
     }
 
     private boolean getSelfDamageCheck() {
-        return (Boolean) selfDamageCheckSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) selfDamageCheckSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setSelfDamageCheck(boolean value) {
@@ -73,80 +73,80 @@ public class BowMinecartModule extends Module {
 
     private void onAfterSendPacket(AfterSendPacket arg0) {
         BlockPos blockPos = this.resolveMinecraftObject();
-        double var26 = SharedKt.getPlayer().method_55754();
-        double var27 = SharedKt.getPlayer().getEyePos().method_1022(blockPos.toCenterPos());
-        if (2.299999952316284D <= var27) {
+        double offset = SharedKt.getPlayer().method_55754();
+        double offset2 = SharedKt.getPlayer().getEyePos().method_1022(blockPos.toCenterPos());
+        if (2.299999952316284D <= offset2) {
         } else {
         }
         if (this.getSwitchMode() != WindHopSwitchMode.SILENT) {
             if (this.getSwitchMode() == WindHopSwitchMode.NORMAL) {
+            } else {
             }
-        } else {
         }
-        var26 = 0;
-        if (var26) {
-            Item[] var28 = new Item[4];
-            var28[0] = Items.field_8129;
-            var28[1] = Items.field_8848;
-            var28[2] = Items.field_8211;
-            var28[3] = Items.field_8655;
+        offset = 0;
+        if (offset) {
+            Item[] items = new Item[4];
+            items[0] = Items.field_8129;
+            items[1] = Items.field_8848;
+            items[2] = Items.field_8211;
+            items[3] = Items.field_8655;
         } else {
-            var28 = new Item[4];
-            var28[0] = Items.field_8129;
-            var28[1] = Items.field_8848;
-            var28[2] = Items.field_8211;
-            var28[3] = Items.field_8655;
+            items = new Item[4];
+            items[0] = Items.field_8129;
+            items[1] = Items.field_8848;
+            items[2] = Items.field_8211;
+            items[3] = Items.field_8655;
         }
-        var27 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        if (var26) {
-            Item[] var29 = new Item[1];
-            var29[0] = Items.field_8069;
+        offset2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+        if (offset) {
+            Item[] items2 = new Item[1];
+            items2[0] = Items.field_8069;
         } else {
-            var29 = new Item[1];
-            var29[0] = Items.field_8069;
+            items2 = new Item[1];
+            items2[0] = Items.field_8069;
         }
-        var28 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
+        items = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items2);
         SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(blockPos.up().toCenterPos()), 100, this::resolveUnit));
     }
 
     private BlockPos resolveMinecraftObject() {
-        double var12 = SharedKt.getPlayer().getX();
-        double var14 = (SharedKt.getPlayer().getEyePos().field_1351 - 0.1000000014901161D);
-        double var16 = SharedKt.getPlayer().getZ();
-        double var18 = Math.toRadians(SharedKt.getPlayer().method_36454());
-        double var20 = Math.toRadians(SharedKt.getPlayer().method_36455());
-        double var22 = (Math.sin() * Math.cos());
-        double var24 = Math.sin();
-        double var26 = (Math.cos() * Math.cos());
-        int var28 = (SharedKt.getPlayer().method_6048() / 20.0F);
-        var28 = (((var28 * var28) + (var28 * 2.0F)) / 3.0F);
-        if (var28 <= 1.0F) {
-            if (var28 == 0.0F) {
+        double offset = SharedKt.getPlayer().getX();
+        double offset2 = (SharedKt.getPlayer().getEyePos().field_1351 - 0.1000000014901161D);
+        double offset3 = SharedKt.getPlayer().getZ();
+        double offset4 = Math.toRadians(SharedKt.getPlayer().method_36454());
+        double offset5 = Math.toRadians(SharedKt.getPlayer().method_36455());
+        double offset6 = (Math.sin(offset4) * Math.cos(offset5));
+        double offset7 = Math.sin(offset5);
+        double offset8 = (Math.cos(offset4) * Math.cos(offset5));
+        int index = (SharedKt.getPlayer().method_6048() / 20.0F);
+        index = (((index * index) + (index * 2.0F)) / 3.0F);
+        if (index <= 1.0F) {
+            if (index == 0.0F) {
+                index = 1.0F;
             }
-            var28 = 1.0F;
         }
-        double var29 = Math.sqrt((((var22 * var22) + (var24 * var24)) + (var26 * var26)));
-        var22 = (var22 / var29);
-        var24 = (var24 / var29);
-        var26 = (var26 / var29);
-        float var31 = (var28 * 3);
-        var22 = (var22 * var31);
-        var24 = (var24 * var31);
-        var26 = (var26 * var31);
+        double offset9 = Math.sqrt((((offset6 * offset6) + (offset7 * offset7)) + (offset8 * offset8)));
+        offset6 = (offset6 / offset9);
+        offset7 = (offset7 / offset9);
+        offset8 = (offset8 / offset9);
+        int index2 = (index * 3);
+        offset6 = (offset6 * index2);
+        offset7 = (offset7 * index2);
+        offset8 = (offset8 * index2);
         if (!(SharedKt.getPlayer().isOnGround())) {
-            var24 = (var24 + SharedKt.getPlayer().method_18798().method_10214());
+            offset7 = (offset7 + SharedKt.getPlayer().method_18798().method_10214());
         }
-        int var33 = 0;
-        if (var33 < 300) {
-            Vec3d vec = new Vec3d();
-            var12 = (var12 + var22);
-            var14 = (var14 + var24);
-            var16 = (var16 + var26);
-            var22 = (var22 * 0.99D);
-            var24 = (var24 * 0.99D);
-            var26 = (var26 * 0.99D);
-            var24 = (var24 - 0.05000000074505806D);
-            Vec3d vec2 = new Vec3d();
+        int index3 = 0;
+        if (index3 < 300) {
+            Vec3d vec = new Vec3d(offset, offset2, offset3);
+            offset = (offset + offset6);
+            offset2 = (offset2 + offset7);
+            offset3 = (offset3 + offset8);
+            offset6 = (offset6 * 0.99D);
+            offset7 = (offset7 * 0.99D);
+            offset8 = (offset8 * 0.99D);
+            offset7 = (offset7 - 0.05000000074505806D);
+            Vec3d vec2 = new Vec3d(offset, offset2, offset3);
             Iterator iterator = SharedKt.getWorld().method_18112().iterator();
             while (iterator.hasNext()) {
                 Entity entity = iterator.next();
@@ -157,11 +157,11 @@ public class BowMinecartModule extends Module {
             }
             iterator = SharedKt.getWorld().method_17742(new class_3959(vec, vec2, class_3960.field_17558, class_242.field_1348, SharedKt.getPlayer()));
             if (iterator.method_17783() == class_240.field_1332) {
-                if (this.getSelfDamageCheck() && ExplosionPosEntityHelper.computeValue(iterator.method_17777().up().toCenterPos()) > (SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067())) {
+                if (this.getSelfDamageCheck() && ExplosionPosEntityHelper.computeValue(iterator.method_17777().up().toCenterPos(), null, 0, false, null, false) > (SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067())) {
                 } else {
                     return iterator.method_17777();
-                }
-                if (var14 > -65.0D) {
+                    if (offset2 > -65.0D) {
+                    }
                 }
             }
         }
@@ -170,19 +170,19 @@ public class BowMinecartModule extends Module {
 
     public boolean checkCondition(long arg0) {
         if (arg0 >= 0L) {
-            if (!(var12)) {
+            if (!(__UNDEF_KEY__)) {
             }
         }
         return StackServiceComponent3.checkCondition(SharedKt.getPlayer().method_6047(), class_1893.field_9126);
     }
 
     private static Unit resolveUnit(BlockPos arg0) {
-        SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808, new class_3965(new Vec3d((arg0.method_10263() + 0.5D), arg0.up().method_10264(), (arg0.method_10260() + 0.0D)), Direction.UP, arg0, 0));
+        SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808, new class_3965(Direction.UP, arg0, false));
         return Unit.INSTANCE;
     }
 
     private static Unit resolveUnit2(BlockPos arg0) {
-        SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808, new class_3965(new Vec3d((arg0.method_10263() + 0.5D), (arg0.up().method_10264() + 0.125D), (arg0.method_10260() + 0.5D)), Direction.UP, arg0.up(), 0));
+        SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808, new class_3965(Direction.UP, arg0.up(), false));
         return Unit.INSTANCE;
     }
 
@@ -193,10 +193,10 @@ public class BowMinecartModule extends Module {
     }
 
     static {
-        KProperty[] var28 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new BowMinecartModule();
         switchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch", WindHopSwitchMode.SILENT_FULL);
-        selfDamageCheckSetting = VisibleRenderHelper.registerSetting(INSTANCE, "check-self-damage");
+        selfDamageCheckSetting = VisibleRenderHelper.registerSetting(INSTANCE, "check-self-damage", false);
     }
 
 }

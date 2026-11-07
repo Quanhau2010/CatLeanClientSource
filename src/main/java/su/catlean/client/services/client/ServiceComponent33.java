@@ -8,10 +8,10 @@ public class ServiceComponent33 {
     private static String[] textValueArray;
 
     static {
-        Object var2 = new int[LogoutSpotsRenderMode.values()];
-        var2[LogoutSpotsRenderMode.GHOST.ordinal()] = 1;
-        var2[LogoutSpotsRenderMode.DEFAULT.ordinal()] = 2;
-        countValueArray = var2;
+        Object element = new int[LogoutSpotsRenderMode.values()];
+        element[LogoutSpotsRenderMode.GHOST.ordinal()] = 1;
+        element[LogoutSpotsRenderMode.DEFAULT.ordinal()] = 2;
+        countValueArray = element;
     }
 
     public static void updateValue(String[] arg0) {

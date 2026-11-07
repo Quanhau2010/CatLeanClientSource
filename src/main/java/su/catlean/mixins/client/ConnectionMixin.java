@@ -24,8 +24,8 @@ public class ConnectionMixin {
             return;
         }
         if (packet instanceof class_8042) {
-            class_8042 var4 = (class_8042) packet;
-            var4.method_48324().forEach(this::lambda$channelRead0$0);
+            class_8042 class8042 = ((class_8042) packet);
+            class8042.method_48324().forEach(this::lambda$channelRead0$0);
         } else {
             info.cancel();
         }

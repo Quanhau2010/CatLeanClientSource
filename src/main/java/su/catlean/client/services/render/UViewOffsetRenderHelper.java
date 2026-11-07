@@ -83,55 +83,55 @@ public class UViewOffsetRenderHelper implements class_11281 {
     }
 
     public static UViewOffsetRenderHelper resolveUViewOffsetRenderHelper(UViewOffsetRenderHelper arg0, class_241 arg1, class_241 arg2, Color arg3, float arg4, float arg5, short arg6, int arg7, float arg8, int arg9, Object arg10) {
-        if ((arg9 & 1)) {
+        if ((arg9 & 1) != 0) {
             arg1 = arg0.minecraftRef;
         }
         if (arg6 >= 0) {
-            if (var17 == null) {
-                if ((arg9 & 2)) {
+            if (__UNDEF_KEY__ == null) {
+                if ((arg9 & 2) != 0) {
                     arg2 = arg0.minecraftRef2;
                 }
             }
         }
         if (arg7 > 0) {
-            if (var17 == null) {
-                if ((arg9 & 4)) {
+            if (__UNDEF_KEY__ == null) {
+                if ((arg9 & 4) != 0) {
                     arg3 = arg0.colorValue;
                 }
             }
         }
-        if (arg6 >= 0 && var17 == null) {
-            if ((arg9 & 8)) {
+        if (arg6 >= 0 && __UNDEF_KEY__ == null) {
+            if ((arg9 & 8) != 0) {
                 arg4 = arg0.factorValue;
             }
         }
-        if ((arg9 & 16)) {
+        if ((arg9 & 16) != 0) {
             arg5 = arg0.factorValue2;
         }
-        if ((arg9 & 32)) {
+        if ((arg9 & 32) != 0) {
             arg8 = arg0.factorValue3;
         }
         return arg0.resolveUViewOffsetRenderHelper(arg1, arg2, arg3, arg4, arg5, arg8);
     }
 
     public String toString() {
-        float var3 = this.factorValue3;
-        float var4 = this.factorValue2;
-        float var5 = this.factorValue;
-        Color var6 = this.colorValue;
-        class_241 var7 = this.minecraftRef2;
-        class_241 var8 = this.minecraftRef;
-        return ("UniformData(uViewOffset=" + var8 + ", uHalfTexelSize=" + var7 + ", uColor=" + var6 + ", uBorder=" + var5 + ", alphaX=" + var4 + ", alphaY=" + var3 + ")");
+        float factor = this.factorValue3;
+        float factor2 = this.factorValue2;
+        float factor3 = this.factorValue;
+        Color color = this.colorValue;
+        class_241 class241 = this.minecraftRef2;
+        class_241 class2412 = this.minecraftRef;
+        return ("UniformData(uViewOffset=" + class2412 + ", uHalfTexelSize=" + class241 + ", uColor=" + color + ", uBorder=" + factor3 + ", alphaX=" + factor2 + ", alphaY=" + factor + ")");
     }
 
     public int hashCode() {
-        int var3 = this.minecraftRef.hashCode();
-        var3 = ((var3 * 31) + this.minecraftRef2.hashCode());
-        var3 = ((var3 * 31) + this.colorValue.hashCode());
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue3));
-        return var3;
+        int index = this.minecraftRef.hashCode();
+        index = ((index * 31) + this.minecraftRef2.hashCode());
+        index = ((index * 31) + this.colorValue.hashCode());
+        index = ((index * 31) + Float.hashCode(this.factorValue));
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -141,23 +141,23 @@ public class UViewOffsetRenderHelper implements class_11281 {
         if (!(other instanceof UViewOffsetRenderHelper)) {
             return false;
         }
-        UViewOffsetRenderHelper var5 = (UViewOffsetRenderHelper) other;
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        UViewOffsetRenderHelper uViewOffsetRenderHelper = ((UViewOffsetRenderHelper) other);
+        if (!(Intrinsics.areEqual(this.minecraftRef, uViewOffsetRenderHelper.minecraftRef))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.minecraftRef2, var5.minecraftRef2))) {
+        if (!(Intrinsics.areEqual(this.minecraftRef2, uViewOffsetRenderHelper.minecraftRef2))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue, var5.colorValue))) {
+        if (!(Intrinsics.areEqual(this.colorValue, uViewOffsetRenderHelper.colorValue))) {
             return false;
         }
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        if (Float.compare(this.factorValue, uViewOffsetRenderHelper.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, uViewOffsetRenderHelper.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, uViewOffsetRenderHelper.factorValue3)) {
             return false;
         }
         return true;

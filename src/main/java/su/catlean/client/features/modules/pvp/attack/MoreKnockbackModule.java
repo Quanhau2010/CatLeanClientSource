@@ -42,7 +42,7 @@ public class MoreKnockbackModule extends Module {
     }
 
     private boolean getInMove() {
-        return (Boolean) inMoveSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) inMoveSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setInMove(boolean value) {
@@ -50,7 +50,7 @@ public class MoreKnockbackModule extends Module {
     }
 
     private int getChance() {
-        return (Number) chanceSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) chanceSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setChance(int value) {
@@ -58,35 +58,35 @@ public class MoreKnockbackModule extends Module {
     }
 
     private void onSendPacket(SendPacket arg0) {
-        Packet var25 = arg0.getPacket();
-        if (!(var25 instanceof class_2824)) {
+        Packet packet = arg0.getPacket();
+        if (!(packet instanceof class_2824)) {
             return;
         }
-        Entity entity = CriticalsModule.INSTANCE.resolveMinecraftObject((class_2824) var25);
+        Entity entity = CriticalsModule.INSTANCE.resolveMinecraftObject(((class_2824) packet));
         if (EventPacketHelper2.INSTANCE.checkCondition()) {
         }
         if (SharedKt.getPlayer().method_5624()) {
-            PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12985));
+            PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12985)));
         }
-        PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12981));
-        SharedKt.getPlayer().method_5728(1);
-        SharedKt.getPlayer().field_3919 = 1;
+        PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12981)));
+        SharedKt.getPlayer().method_5728(true);
+        SharedKt.getPlayer().field_3919 = true;
     }
 
     private boolean checkCondition(int arg0, short arg1) {
         if (!(SharedKt.getPlayer().method_31549().field_7479) && !(SharedKt.getPlayer().isFallFlying()) && !(SharedKt.getPlayer().method_6059(class_1294.field_5919)) && !(Intrinsics.areEqual(SharedKt.getWorld().getBlockState(BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()))).getBlock(), Blocks.COBWEB)) && !(SharedKt.getPlayer().method_5771())) {
             if (SharedKt.getPlayer().method_5869()) {
+            } else {
             }
-        } else {
         }
-        int var14 = 0;
-        if (arg0 > 0 && var13 == null) {
+        int index = 0;
+        if (arg0 > 0 && __UNDEF_KEY__ == null) {
             if (SharedKt.getPlayer().method_7261(0.5F) < 0.9F) {
                 return false;
             }
         }
-        if (!(var14)) {
-            if (arg1 <= 0 && var13 == null) {
+        if (!(index)) {
+            if (arg1 <= 0 && __UNDEF_KEY__ == null) {
             }
             return SharedKt.getPlayer().field_6017 > 0.0D;
         }
@@ -94,9 +94,9 @@ public class MoreKnockbackModule extends Module {
     }
 
     static {
-        KProperty[] var28 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new MoreKnockbackModule();
-        inMoveSetting = VisibleRenderHelper.registerSetting(INSTANCE, "allow-while-move");
+        inMoveSetting = VisibleRenderHelper.registerSetting(INSTANCE, "allow-while-move", true);
         chanceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "chance", 100, new IntRange(0, 100));
     }
 

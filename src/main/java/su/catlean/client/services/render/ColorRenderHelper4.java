@@ -14,7 +14,7 @@ public class ColorRenderHelper4 implements KSerializer {
     private final SerialDescriptor serialDescriptor;
 
     public ColorRenderHelper4() {
-        this.serialDescriptor = SerialDescriptorsKt.PrimitiveSerialDescriptor("Color", (PrimitiveKind) INT.INSTANCE);
+        this.serialDescriptor = SerialDescriptorsKt.PrimitiveSerialDescriptor("Color", ((PrimitiveKind) INT.INSTANCE));
     }
 
     public SerialDescriptor getDescriptor() {
@@ -26,11 +26,11 @@ public class ColorRenderHelper4 implements KSerializer {
     }
 
     public Color resolveColor(Decoder decoder) {
-        return new Color(decoder.decodeInt(), 1);
+        return new Color(decoder.decodeInt(), true);
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (Color) value);
+        this.executeAction(encoder, ((Color) value));
     }
 
     public Object deserialize(Decoder decoder) {

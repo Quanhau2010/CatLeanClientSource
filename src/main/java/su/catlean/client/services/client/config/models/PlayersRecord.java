@@ -38,7 +38,7 @@ public class PlayersRecord {
     }
 
     public static PlayersRecord resolvePlayersRecord(PlayersRecord arg0, List arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
             arg1 = arg0.itemList;
         }
         return arg0.resolvePlayersRecord(arg1);
@@ -59,16 +59,15 @@ public class PlayersRecord {
         if (!(other instanceof PlayersRecord)) {
             return false;
         }
-        PlayersRecord var5 = (PlayersRecord) other;
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        PlayersRecord playersRecord = ((PlayersRecord) other);
+        if (!(Intrinsics.areEqual(this.itemList, playersRecord.itemList))) {
             return false;
         }
         return true;
     }
 
     public static void executeAction(PlayersRecord self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        Lazy[] var3 = lazyArray;
-        output.encodeSerializableElement(serialDesc, 0, (SerializationStrategy) var3[0].getValue(), self.itemList);
+        output.encodeSerializableElement(serialDesc, 0, ((SerializationStrategy) lazyArray[0].getValue()), self.itemList);
     }
 
     public PlayersRecord(int seen0, List players, SerializationConstructorMarker serializationConstructorMarker) {
@@ -79,7 +78,7 @@ public class PlayersRecord {
     }
 
     private static KSerializer getKSerializer() {
-        return (KSerializer) new ArrayListSerializer((KSerializer) StringSerializer.INSTANCE);
+        return ((KSerializer) new ArrayListSerializer(((KSerializer) StringSerializer.INSTANCE)));
     }
 
     public static Lazy[] process() {
@@ -88,9 +87,9 @@ public class PlayersRecord {
 
     static {
         serviceComponent24 = new ServiceComponent24();
-        Lazy[] var11 = new Lazy[1];
-        var11[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
-        lazyArray = var11;
+        Lazy[] items = new Lazy[1];
+        items[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
+        lazyArray = items;
     }
 
 }

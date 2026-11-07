@@ -91,7 +91,7 @@ public class BlinkModule extends Module {
     }
 
     private int getLimit() {
-        return (Number) limitSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) limitSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setLimit(int value) {
@@ -99,7 +99,7 @@ public class BlinkModule extends Module {
     }
 
     public BlinkAttackActionMode getAttackAction() {
-        return (BlinkAttackActionMode) attackActionSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((BlinkAttackActionMode) attackActionSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     public void setAttackAction(BlinkAttackActionMode value) {
@@ -107,7 +107,7 @@ public class BlinkModule extends Module {
     }
 
     private BlinkAttackActionMode getLimitAction() {
-        return (BlinkAttackActionMode) limitActionSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((BlinkAttackActionMode) limitActionSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setLimitAction(BlinkAttackActionMode value) {
@@ -115,43 +115,43 @@ public class BlinkModule extends Module {
     }
 
     private KeyRecord getCancel() {
-        return (KeyRecord) cancelSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((KeyRecord) cancelSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getShowPosition() {
-        return (Boolean) showPositionSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) showPositionSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getDelayOnlyMove() {
-        return (Boolean) delayOnlyMoveSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) delayOnlyMoveSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getIgnoreInventoryActions() {
-        return (Boolean) ignoreInventoryActionsSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) ignoreInventoryActionsSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private boolean getOnlyInRange() {
-        return (Boolean) onlyInRangeSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) onlyInRangeSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private float getRange() {
-        return (Number) rangeSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Number) rangeSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private SettingGroup getResetOn() {
-        return (SettingGroup) resetOnSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((SettingGroup) resetOnSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private boolean getVelocityReset() {
-        return (Boolean) velocityResetSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Boolean) velocityResetSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private boolean getLagBackReset() {
-        return (Boolean) lagBackResetSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Boolean) lagBackResetSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private boolean getOpenScreenReset() {
-        return (Boolean) openScreenResetSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Boolean) openScreenResetSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     public Vec3d getMinecraftObject() {
@@ -162,56 +162,43 @@ public class BlinkModule extends Module {
         vec3d2 = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = ((arg0 ^ 103451004335712L) >>> 56);
-        long var6 = (((arg0 ^ 103451004335712L) << 8) >>> 8);
-        long var8 = (arg0 ^ 78664982282145L);
-        long var10 = (arg0 ^ 20975573779856L);
-        long var12 = (arg0 ^ 67464996320865L);
-        if (arg0 > 0L) {
-            if (SharedKt.getMc().player != null && SharedKt.getMc().world != null) {
-            }
-            if (arg0 >= 0L && var14 == null) {
-                if (SharedKt.getMc().method_1496()) {
-                }
+    public void updateValue() {
+        if (SharedKt.getMc().player != null && SharedKt.getMc().world != null) {
+            if (SharedKt.getMc().method_1496()) {
                 this.updateValue2();
                 return;
             }
-            queue2.clear();
         }
+        queue2.clear();
         if (!(this.getOnlyInRange())) {
             vec3d2 = this.resolveMinecraftObject(SharedKt.getPlayer());
         }
         vec3d = SharedKt.getPlayer().method_18798();
         factorValue = SharedKt.getPlayer().method_36454();
         enabledFlag = SharedKt.getPlayer().method_5624();
-        atomicBoolean.set(0);
+        atomicBoolean.set(false);
         queue.clear();
         minecraftRef = SharedKt.getPlayer().field_3913;
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 65044256163258L);
-        long var5 = (arg0 ^ 29291705890158L);
-        PacketPacketHelper.handlePacket((Packet) queue.poll());
+    public void updateValue2() {
+        PacketPacketHelper.handlePacket(((Packet) queue.poll()));
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
         if (arg0.getPacket() instanceof class_2708 && this.getLagBackReset()) {
             this.updateValue2();
         }
-        if (arg0.getPacket() instanceof class_2743 && (class_2743) arg0.getPacket().method_11818() == SharedKt.getPlayer().method_5628() && this.getVelocityReset()) {
+        if (arg0.getPacket() instanceof class_2743 && ((class_2743) arg0.getPacket()).method_11818() == SharedKt.getPlayer().method_5628() && this.getVelocityReset()) {
             this.updateValue2();
         }
         if (arg0.getPacket() instanceof class_2664 && this.getVelocityReset()) {
-            if ((Vec3d) OptionalsKt.getOrNull((class_2664) arg0.getPacket().comp_2884()) != null) {
-                Vec3d vec = (Vec3d) OptionalsKt.getOrNull((class_2664) arg0.getPacket().comp_2884());
-                int var17 = 0;
+            if (((Vec3d) OptionalsKt.getOrNull(((class_2664) arg0.getPacket()).comp_2884())) != null) {
+                Vec3d vec = ((Vec3d) OptionalsKt.getOrNull(((class_2664) arg0.getPacket()).comp_2884()));
                 if (vec.field_1352 == 0.0D && vec.field_1351 == 0.0D) {
                     if (vec.field_1350 != 0.0D) {
+                        INSTANCE.updateValue2();
                     }
-                    INSTANCE.updateValue2();
                 }
             } else {
             }
@@ -237,14 +224,14 @@ public class BlinkModule extends Module {
             if (vec3d2 == null) {
                 vec3d2 = this.resolveMinecraftObject(SharedKt.getPlayer());
             }
-            double var34 = this.resolveMinecraftObject().method_1022(vec3d2);
-            double var36 = this.resolveMinecraftObject().method_1022(this.resolveMinecraftObject(SharedKt.getPlayer()));
-            if (var34 > var36) {
-                if (var34 < 1.0D) {
+            double offset = this.resolveMinecraftObject().method_1022(vec3d2);
+            double offset2 = this.resolveMinecraftObject().method_1022(this.resolveMinecraftObject(SharedKt.getPlayer()));
+            if (offset > offset2) {
+                if (offset < 1.0D) {
+                    this.updateValue2();
+                    vec3d2 = this.resolveMinecraftObject(SharedKt.getPlayer());
+                    return;
                 }
-                this.updateValue2();
-                vec3d2 = this.resolveMinecraftObject(SharedKt.getPlayer());
-                return;
             }
         }
         if (arg0.getPacket() instanceof PlayerMoveC2SPacket) {
@@ -252,22 +239,22 @@ public class BlinkModule extends Module {
                 enabledFlag2 = 0;
                 this.updateValue2();
                 return;
-            }
-            if (this.getDelayOnlyMove()) {
-                return;
+                if (this.getDelayOnlyMove()) {
+                    return;
+                }
             }
         }
         if (arg0.getPacket() instanceof class_2846) {
         }
-        if (arg0.getPacket() instanceof class_2813 || arg0.getPacket() instanceof class_2886 || (class_2846) arg0.getPacket().method_12363() == class_2847.field_12969 || arg0.getPacket() instanceof class_2868) {
+        if (arg0.getPacket() instanceof class_2813 || arg0.getPacket() instanceof class_2886 || ((class_2846) arg0.getPacket()).method_12363() == class_2847.field_12969 || arg0.getPacket() instanceof class_2868) {
             return;
         }
         if (!(arg0.getPacket() instanceof class_2824)) {
             if (arg0.getPacket() instanceof class_2879) {
-            }
-            if (!(ElytraTargetModule.INSTANCE.getEnabled())) {
-                this.updateValue2();
-                enabledFlag2 = 1;
+                if (!(ElytraTargetModule.INSTANCE.getEnabled())) {
+                    this.updateValue2();
+                    enabledFlag2 = 1;
+                }
             }
         }
         if (arg0.getPacket() instanceof class_6374) {
@@ -278,9 +265,7 @@ public class BlinkModule extends Module {
     }
 
     private void onTickEvent(TickEvent arg0) {
-        if (var10 == null) {
-            if (this.checkCondition()) {
-            }
+        if (this.checkCondition()) {
         }
         this.updateValue2();
     }
@@ -299,15 +284,13 @@ public class BlinkModule extends Module {
         if (!(this.checkCondition())) {
             return;
         }
-        atomicBoolean.set(1);
+        atomicBoolean.set(true);
         if (!(queue.isEmpty())) {
-            Packet var10 = (Packet) queue.poll();
-            PacketPacketHelper.handlePacket();
-            if (var9 == null) {
-                vec3d2 = new Vec3d((PlayerMoveC2SPacket) var10.method_12269(SharedKt.getPlayer().getX()), (PlayerMoveC2SPacket) var10.method_12268(SharedKt.getPlayer().getY()), (PlayerMoveC2SPacket) var10.method_12274(SharedKt.getPlayer().getZ()));
-            }
+            Packet packet = ((Packet) queue.poll());
+            PacketPacketHelper.handlePacket(packet);
+            vec3d2 = new Vec3d(((PlayerMoveC2SPacket) packet).method_12269(SharedKt.getPlayer().getX()), ((PlayerMoveC2SPacket) packet).method_12268(SharedKt.getPlayer().getY()), ((PlayerMoveC2SPacket) packet).method_12274(SharedKt.getPlayer().getZ()));
         }
-        atomicBoolean.set(0);
+        atomicBoolean.set(false);
         queue.clear();
     }
 
@@ -317,26 +300,24 @@ public class BlinkModule extends Module {
         SharedKt.getPlayer().method_18799(vec3d);
         SharedKt.getPlayer().method_36456(factorValue);
         SharedKt.getPlayer().method_5728(enabledFlag);
-        if (var9 == null) {
-            SharedKt.getPlayer().method_5660(0);
-            SharedKt.getMc().options.field_1832.method_23481(0);
+        if (__UNDEF_KEY__ == null) {
+            SharedKt.getPlayer().method_5660(false);
+            SharedKt.getMc().options.field_1832.method_23481(false);
             if (minecraftRef != null) {
+                SharedKt.getPlayer().field_3913 = minecraftRef;
             }
-            SharedKt.getPlayer().field_3913 = minecraftRef;
         }
-        atomicBoolean.set(1);
+        atomicBoolean.set(true);
         if (!(queue2.isEmpty())) {
-            PacketPacketHelper.handlePacket((Packet) queue2.poll());
+            PacketPacketHelper.handlePacket(((Packet) queue2.poll()));
         }
-        atomicBoolean.set(0);
+        atomicBoolean.set(false);
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
         if (vec3d2 != null) {
-            Vec3d vec = vec3d2;
-            int var17 = 0;
             if (!(Intrinsics.areEqual(vec3d2, INSTANCE.resolveMinecraftObject(SharedKt.getPlayer())))) {
-                TextShaderComponent2.render(arg0.getStack(), vec, (PlayerEntity) SharedKt.getPlayer(), 0.45F);
+                TextShaderComponent2.render(arg0.getStack(), vec3d2, ((PlayerEntity) SharedKt.getPlayer()), 0.45F, false);
             }
         } else {
         }
@@ -351,24 +332,24 @@ public class BlinkModule extends Module {
     }
 
     static {
-        KProperty[] var42 = new KProperty[13];
+        KProperty[] items = new KProperty[13];
         INSTANCE = new BlinkModule();
         limitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "limit", 15, new IntRange(1, 600));
         attackActionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "attack-action", BlinkAttackActionMode.NONE);
         limitActionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "limit-action", BlinkAttackActionMode.NONE);
-        cancelSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel-button", new KeyRecord());
-        showPositionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "show-position");
-        delayOnlyMoveSetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay-only-move");
-        ignoreInventoryActionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-inventory-actions", 1, null, this::isActive);
-        onlyInRangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-in-range");
+        cancelSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel-button", new KeyRecord(340, false, false));
+        showPositionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "show-position", true);
+        delayOnlyMoveSetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay-only-move", false);
+        ignoreInventoryActionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-inventory-actions", true, null, this::isActive);
+        onlyInRangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-in-range", false);
         rangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "range", 5.0F, RangesKt.rangeTo(2.0F, 10.0F), null, this::isActive2);
         resetOnSetting = VisibleRenderHelper.registerSetting(INSTANCE, "reset-on", OptionMode14.BOOLS);
-        velocityResetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "velocity", 1, INSTANCE.getResetOn());
-        lagBackResetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "lag-back", 1, INSTANCE.getResetOn());
-        openScreenResetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "open-screen", 1, INSTANCE.getResetOn());
+        velocityResetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "velocity", true, INSTANCE.getResetOn());
+        lagBackResetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "lag-back", true, INSTANCE.getResetOn());
+        openScreenResetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "open-screen", true, INSTANCE.getResetOn());
         vec3d = Vec3d.ZERO;
-        queue = (Queue) new LinkedList();
-        queue2 = (Queue) new LinkedList();
+        queue = ((Queue) new LinkedList());
+        queue2 = ((Queue) new LinkedList());
         atomicBoolean = new AtomicBoolean();
     }
 

@@ -28,28 +28,24 @@ public class MatrixStackRenderHelper {
     }
 
     public void render(MatrixStack matrixStack) {
-        Map var7 = lookupMap;
-        int var8 = 0;
-        Iterator iterator = var7.entrySet().iterator();
-        if (iterator.hasNext()) {
-            Entry var10 = (Entry) iterator.next();
-            Object var11 = var10;
-            int var12 = 0;
-            LineColorRenderHelper2 var13 = (LineColorRenderHelper2) var11.getKey();
-            long var14 = (Number) var11.getValue().longValue();
-            if (var6) {
-                if ((SharedKt.getNumericValue() - var14) > 300.0F) {
-                    lookupMap.remove();
+        Iterator iterator = lookupMap.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Entry entry = ((Entry) iterator.next());
+            LineColorRenderHelper2 lineColorRenderHelper2 = ((LineColorRenderHelper2) entry.getKey());
+            long time = ((Number) entry.getValue()).longValue();
+            if (__UNDEF_KEY__) {
+                if ((SharedKt.getNumericValue() - time) > 300.0F) {
+                    lookupMap.remove(lineColorRenderHelper2);
+                    if (!(__UNDEF_KEY__)) {
+                        lineColorRenderHelper2.render((SharedKt.getNumericValue() - time), matrixStack);
+                    }
                 }
-                if (!(var6)) {
-                }
-                var13.render((SharedKt.getNumericValue() - var14), matrixStack);
             }
         }
     }
 
     public void executeAction(BlockPos pos, Color lineColor, Color fillColor, BlockPlacementRenderAnimationMode animationMode, BlockPlacementRenderMode renderMode) {
-        if (var14) {
+        if (__UNDEF_KEY__) {
             if (renderMode == BlockPlacementRenderMode.NONE) {
                 return;
             }
@@ -66,12 +62,12 @@ public class MatrixStackRenderHelper {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {
         INSTANCE = new MatrixStackRenderHelper();
-        lookupMap = (Map) new ConcurrentHashMap();
+        lookupMap = ((Map) new ConcurrentHashMap());
     }
 
 }

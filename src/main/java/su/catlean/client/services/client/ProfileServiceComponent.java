@@ -23,7 +23,7 @@ public class ProfileServiceComponent {
     public ProfileServiceComponent(GameProfile profile, boolean announced) {
         this.gameProfile = profile;
         this.enabledFlag = announced;
-        this.minecraftRef = new class_640(this.gameProfile, 0);
+        this.minecraftRef = new class_640(this.gameProfile, false);
     }
 
     public GameProfile getGameProfile() {
@@ -50,19 +50,19 @@ public class ProfileServiceComponent {
     }
 
     private String resolveString2() {
-        String var9 = this.gameProfile.name();
-        this.enabledFlag = 0;
+        String text = this.gameProfile.name();
+        this.enabledFlag = false;
         return (class_124.field_1054 + " (near)" + class_124.field_1070);
-        class_640 var11 = SharedKt.getNetwork().method_2874();
+        class_640 class640 = SharedKt.getNetwork().method_2874(text);
         if (SharedKt.getNetwork().method_2880().stream().map(this::resolveString).noneMatch(this::checkCondition)) {
-            this.enabledFlag = 1;
+            this.enabledFlag = true;
             return (class_124.field_1061 + " Spec!" + class_124.field_1070);
         }
-        if (var11 != null && var11.method_2958() == class_1934.field_9219) {
-            this.enabledFlag = 0;
+        if (class640 != null && class640.method_2958() == class_1934.field_9219) {
+            this.enabledFlag = false;
             return (class_124.field_1054 + " (gm3)" + class_124.field_1070);
         }
-        this.enabledFlag = 0;
+        this.enabledFlag = false;
         return "";
     }
 
@@ -75,8 +75,8 @@ public class ProfileServiceComponent {
             return true;
         }
         if (other != null && Intrinsics.areEqual(this.getClass(), other.getClass())) {
-            ProfileServiceComponent var5 = (ProfileServiceComponent) other;
-            return Intrinsics.areEqual(this.gameProfile.name(), var5.gameProfile.name());
+            ProfileServiceComponent profileServiceComponent = ((ProfileServiceComponent) other);
+            return Intrinsics.areEqual(this.gameProfile.name(), profileServiceComponent.gameProfile.name());
         }
         return false;
     }
@@ -90,7 +90,7 @@ public class ProfileServiceComponent {
     }
 
     private static String resolveString(Function1 arg0, Object arg1) {
-        return (String) arg0.invoke(arg1);
+        return ((String) arg0.invoke(arg1));
     }
 
     private static boolean checkCondition(String arg0, String arg1) {
@@ -98,7 +98,7 @@ public class ProfileServiceComponent {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
 }

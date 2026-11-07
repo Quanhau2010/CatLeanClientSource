@@ -8,12 +8,12 @@ public class ServiceComponent64 {
     private static boolean enabledFlag;
 
     static {
-        Object var2 = new int[Direction.values()];
-        var2[Direction.NORTH.ordinal()] = 1;
-        var2[Direction.EAST.ordinal()] = 2;
-        var2[Direction.SOUTH.ordinal()] = 3;
-        var2[Direction.WEST.ordinal()] = 4;
-        countValueArray = var2;
+        Object element = new int[Direction.values()];
+        element[Direction.NORTH.ordinal()] = 1;
+        element[Direction.EAST.ordinal()] = 2;
+        element[Direction.SOUTH.ordinal()] = 3;
+        element[Direction.WEST.ordinal()] = 4;
+        countValueArray = element;
     }
 
     public static void updateValue(boolean arg0) {

@@ -1,6 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import su.catlean.client.services.render.SuggestionsRenderHelper2Impl;
 
 public class ServiceComponent7 {
@@ -14,10 +13,6 @@ public class ServiceComponent7 {
 
     public void updateValue(SuggestionsRenderHelper2Impl value) {
         SuggestionsRenderHelper2Impl.updateValue(value);
-    }
-
-    public ServiceComponent7(DefaultConstructorMarker $constructor_marker) {
-        this();
     }
 
 }

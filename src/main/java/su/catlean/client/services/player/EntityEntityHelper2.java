@@ -42,12 +42,12 @@ public class EntityEntityHelper2 {
         if (EntityHelper4.isFriend(this.playerEntity)) {
         } else {
         }
-        int var10 = TheNetherPacketHelper.INSTANCE.computeValue(this.playerEntity);
-        int var11 = MathKt.roundToInt(SharedKt.getPlayer().distanceTo(this.playerEntity));
-        int var12 = MathKt.roundToInt((this.playerEntity.method_6032() + this.playerEntity.method_6067()));
-        class_124 var13 = class_124.field_1070;
-        String var14 = this.playerEntity.method_7334().name();
-        return (class_124.field_1068 + var14 + var13 + " | " + var12 + " hp | " + var11 + " m | " + var10 + " ms");
+        int index = TheNetherPacketHelper.INSTANCE.computeValue(this.playerEntity);
+        int index2 = MathKt.roundToInt(SharedKt.getPlayer().distanceTo(this.playerEntity));
+        int index3 = MathKt.roundToInt((this.playerEntity.method_6032() + this.playerEntity.method_6067()));
+        class_124 class124 = class_124.field_1070;
+        String text = this.playerEntity.method_7334().name();
+        return (class_124.field_1068 + text + class124 + " | " + index3 + " hp | " + index2 + " m | " + index + " ms");
     }
 
     public PlayerEntity getMinecraftObject2() {
@@ -67,17 +67,17 @@ public class EntityEntityHelper2 {
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag;
-        EasingServiceComponent var4 = this.easingServiceComponent;
+        boolean flag = this.enabledFlag;
+        EasingServiceComponent easingServiceComponent = this.easingServiceComponent;
         PlayerEntity player = this.playerEntity;
-        return ("PlayerHolder(entity=" + player + ", animation=" + var4 + ", removing=" + var3 + ")");
+        return ("PlayerHolder(entity=" + player + ", animation=" + easingServiceComponent + ", removing=" + flag + ")");
     }
 
     public int hashCode() {
-        int var3 = this.playerEntity.hashCode();
-        var3 = ((var3 * 31) + this.easingServiceComponent.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        return var3;
+        int index = this.playerEntity.hashCode();
+        index = ((index * 31) + this.easingServiceComponent.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -87,14 +87,14 @@ public class EntityEntityHelper2 {
         if (!(other instanceof EntityEntityHelper2)) {
             return false;
         }
-        EntityEntityHelper2 var5 = (EntityEntityHelper2) other;
-        if (!(Intrinsics.areEqual(this.playerEntity, var5.playerEntity))) {
+        EntityEntityHelper2 entityEntityHelper2 = ((EntityEntityHelper2) other);
+        if (!(Intrinsics.areEqual(this.playerEntity, entityEntityHelper2.playerEntity))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.easingServiceComponent, var5.easingServiceComponent))) {
+        if (!(Intrinsics.areEqual(this.easingServiceComponent, entityEntityHelper2.easingServiceComponent))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != entityEntityHelper2.enabledFlag) {
             return false;
         }
         return true;

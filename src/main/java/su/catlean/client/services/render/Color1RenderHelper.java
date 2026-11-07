@@ -103,73 +103,73 @@ public class Color1RenderHelper implements class_11281 {
     }
 
     public static Color1RenderHelper resolveColor1RenderHelper(Color1RenderHelper arg0, float arg1, float arg2, Color arg3, char arg4, Color arg5, Color arg6, Color arg7, float arg8, long arg9, float arg10, int arg11, Object arg12) {
-        if ((arg11 & 1)) {
+        if ((arg11 & 1) != 0) {
             arg1 = arg0.factorValue;
         }
         if (arg4 >= 0) {
-            if (var19 == null) {
-                if ((arg11 & 2)) {
+            if (__UNDEF_KEY__ == null) {
+                if ((arg11 & 2) != 0) {
                     arg2 = arg0.factorValue2;
                 }
             }
         }
         if (arg4 >= 0) {
-            if (var19 == null) {
-                if ((arg11 & 4)) {
+            if (__UNDEF_KEY__ == null) {
+                if ((arg11 & 4) != 0) {
                     arg3 = arg0.colorValue;
                 }
             }
         }
         if (arg4 >= 0) {
-            if (var19 == null) {
-                if ((arg11 & 8)) {
+            if (__UNDEF_KEY__ == null) {
+                if ((arg11 & 8) != 0) {
                     arg5 = arg0.colorValue2;
                 }
             }
         }
         if (arg4 >= 0) {
-            if (var19 == null) {
-                if ((arg11 & 16)) {
+            if (__UNDEF_KEY__ == null) {
+                if ((arg11 & 16) != 0) {
                     arg6 = arg0.colorValue3;
                 }
             }
         }
-        if (arg9 >= 0L && var19 == null) {
-            if ((arg11 & 32)) {
+        if (arg9 >= 0L && __UNDEF_KEY__ == null) {
+            if ((arg11 & 32) != 0) {
                 arg7 = arg0.colorValue4;
             }
         }
-        if ((arg11 & 64)) {
+        if ((arg11 & 64) != 0) {
             arg8 = arg0.factorValue3;
         }
-        if ((arg11 & 128)) {
+        if ((arg11 & 128) != 0) {
             arg10 = arg0.factorValue4;
         }
         return arg0.resolveColor1RenderHelper(arg1, arg2, arg3, arg5, arg6, arg7, arg8, arg10);
     }
 
     public String toString() {
-        float var3 = this.factorValue4;
-        float var4 = this.factorValue3;
-        Color var5 = this.colorValue4;
-        Color var6 = this.colorValue3;
-        Color var7 = this.colorValue2;
-        Color var8 = this.colorValue;
-        float var9 = this.factorValue2;
-        float var10 = this.factorValue;
-        return ("UniformData(halfTexelSizeX=" + var10 + ", halfTexelSizeY=" + var9 + ", color1=" + var8 + ", color2=" + var7 + ", color3=" + var6 + ", color4=" + var5 + ", lineWidth=" + var4 + ", time=" + var3 + ")");
+        float factor = this.factorValue4;
+        float factor2 = this.factorValue3;
+        Color color = this.colorValue4;
+        Color color2 = this.colorValue3;
+        Color color3 = this.colorValue2;
+        Color color4 = this.colorValue;
+        float factor3 = this.factorValue2;
+        float factor4 = this.factorValue;
+        return ("UniformData(halfTexelSizeX=" + factor4 + ", halfTexelSizeY=" + factor3 + ", color1=" + color4 + ", color2=" + color3 + ", color3=" + color2 + ", color4=" + color + ", lineWidth=" + factor2 + ", time=" + factor + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + this.colorValue.hashCode());
-        var3 = ((var3 * 31) + this.colorValue2.hashCode());
-        var3 = ((var3 * 31) + this.colorValue3.hashCode());
-        var3 = ((var3 * 31) + this.colorValue4.hashCode());
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue3));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue4));
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + this.colorValue.hashCode());
+        index = ((index * 31) + this.colorValue2.hashCode());
+        index = ((index * 31) + this.colorValue3.hashCode());
+        index = ((index * 31) + this.colorValue4.hashCode());
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + Float.hashCode(this.factorValue4));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -179,29 +179,29 @@ public class Color1RenderHelper implements class_11281 {
         if (!(other instanceof Color1RenderHelper)) {
             return false;
         }
-        Color1RenderHelper var5 = (Color1RenderHelper) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        Color1RenderHelper color1RenderHelper = ((Color1RenderHelper) other);
+        if (Float.compare(this.factorValue, color1RenderHelper.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, color1RenderHelper.factorValue2)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue, var5.colorValue))) {
+        if (!(Intrinsics.areEqual(this.colorValue, color1RenderHelper.colorValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue2, var5.colorValue2))) {
+        if (!(Intrinsics.areEqual(this.colorValue2, color1RenderHelper.colorValue2))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue3, var5.colorValue3))) {
+        if (!(Intrinsics.areEqual(this.colorValue3, color1RenderHelper.colorValue3))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue4, var5.colorValue4))) {
+        if (!(Intrinsics.areEqual(this.colorValue4, color1RenderHelper.colorValue4))) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, color1RenderHelper.factorValue3)) {
             return false;
         }
-        if (Float.compare(this.factorValue4, var5.factorValue4)) {
+        if (Float.compare(this.factorValue4, color1RenderHelper.factorValue4)) {
             return false;
         }
         return true;

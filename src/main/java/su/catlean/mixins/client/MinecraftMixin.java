@@ -37,7 +37,7 @@ public class MinecraftMixin {
     }
 
     private void doAttackHook(CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(0));
+        cir.setReturnValue(Boolean.valueOf(false));
     }
 
     private void closeHook(CallbackInfo ci) {
@@ -45,7 +45,7 @@ public class MinecraftMixin {
     }
 
     private static void isAmbientOcclusionEnabledHook(CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(0));
+        cir.setReturnValue(Boolean.valueOf(false));
     }
 
     public void disconnect(Screen screen, boolean bl, boolean bl2, CallbackInfo ci) {

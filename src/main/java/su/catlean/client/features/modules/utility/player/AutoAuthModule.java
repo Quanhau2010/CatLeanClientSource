@@ -29,32 +29,32 @@ public class AutoAuthModule extends Module {
     }
 
     private String getPass() {
-        return (String) passSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((String) passSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        class_7439 var17 = (class_7439) arg0.getPacket();
-        String var18 = var17.comp_763().getString().toLowerCase(Locale.ROOT);
-        if (!((CharSequence) this.getPass().length())) {
-            MessageServiceComponent.S(this, (class_124.field_1061 + MessageServiceComponent.Z(this, "pass-is-empty", new Object[0])));
-            TitleRenderHelper.executeAction("Auto Auth", MessageServiceComponent.Z(this, "pass-is-empty", new Object[0]), 4, OptionMode16.ERROR);
+        class_7439 class7439 = ((class_7439) arg0.getPacket());
+        String text = class7439.comp_763().getString().toLowerCase(Locale.ROOT);
+        if (!(((CharSequence) this.getPass()).length())) {
+            MessageServiceComponent.S(this, (class_124.field_1061 + MessageServiceComponent.Z(this, "pass-is-empty", new Object[0], false)), false);
+            TitleRenderHelper.executeAction("Auto Auth", MessageServiceComponent.Z(this, "pass-is-empty", new Object[0], false), 4, OptionMode16.ERROR);
             return;
         }
-        if (!(StringsKt.contains$default((CharSequence) var18, (CharSequence) "/reg")) && !(StringsKt.contains$default((CharSequence) var18, (CharSequence) "/register"))) {
-            if (StringsKt.contains$default((CharSequence) var18, (CharSequence) "\u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0439\u0442\u0435\u0441\u044c")) {
+        if (!(StringsKt.contains$default(((CharSequence) text), ((CharSequence) "/reg"), false)) && !(StringsKt.contains$default(((CharSequence) text), ((CharSequence) "/register"), false))) {
+            if (StringsKt.contains$default(((CharSequence) text), ((CharSequence) "\u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0439\u0442\u0435\u0441\u044c"), false)) {
+                PacketPacketHelper.executeAction((null + this.getPass() + " " + this.getPass()));
+                TitleRenderHelper.executeAction("Auto Auth", MessageServiceComponent.Z(this, "reg-success", new Object[0], false), 4, OptionMode16.SUCCESS);
+            } else {
+                if (!(StringsKt.contains$default(((CharSequence) text), ((CharSequence) "\u0430\u0432\u0442\u043e\u0440\u0438\u0437\u0443\u0439\u0442\u0435\u0441\u044c"), false)) && !(StringsKt.contains$default(((CharSequence) text), ((CharSequence) "/l "), false))) {
+                }
+                PacketPacketHelper.executeAction(("login " + this.getPass()));
+                TitleRenderHelper.executeAction("Auto Auth", MessageServiceComponent.Z(this, "log-success", new Object[0], false), 4, OptionMode16.SUCCESS);
             }
-            PacketPacketHelper.executeAction((null + this.getPass() + " " + this.getPass()));
-            TitleRenderHelper.executeAction("Auto Auth", MessageServiceComponent.Z(this, "reg-success", new Object[0]), 4, OptionMode16.SUCCESS);
-        } else {
-            if (!(StringsKt.contains$default((CharSequence) var18, (CharSequence) "\u0430\u0432\u0442\u043e\u0440\u0438\u0437\u0443\u0439\u0442\u0435\u0441\u044c")) && !(StringsKt.contains$default((CharSequence) var18, (CharSequence) "/l "))) {
-            }
-            PacketPacketHelper.executeAction(("login " + this.getPass()));
-            TitleRenderHelper.executeAction("Auto Auth", MessageServiceComponent.Z(this, "log-success", new Object[0]), 4, OptionMode16.SUCCESS);
         }
     }
 
     static {
-        KProperty[] var26 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new AutoAuthModule();
         passSetting = VisibleRenderHelper.registerSetting(INSTANCE, "password", "c1a2t3l4e5a6n");
     }

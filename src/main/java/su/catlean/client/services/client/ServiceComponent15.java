@@ -19,18 +19,17 @@ public class ServiceComponent15 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var10 = 0;
-        String var11 = TranslatorModule.resolveString(this.minecraftRef.comp_945(), TranslatorModule.resolveTranslatorUrLangMode().name().toLowerCase(Locale.ROOT));
-        if (var9 == null) {
-            if (Objects.equals(this.minecraftRef.comp_945())) {
+        String text = TranslatorModule.resolveString(this.minecraftRef.comp_945(), TranslatorModule.resolveTranslatorUrLangMode().name().toLowerCase(Locale.ROOT));
+        if (__UNDEF_KEY__ == null) {
+            if (Objects.equals(this.minecraftRef.comp_945(), text)) {
                 TranslatorModule.updateValue(this.minecraftRef.comp_945());
-                MessageServiceComponent.executeAction((Module) TranslatorModule.INSTANCE, this.minecraftRef.comp_945(), 1);
-                if (var9 != null) {
+                MessageServiceComponent.executeAction(((Module) TranslatorModule.INSTANCE), this.minecraftRef.comp_945(), true);
+                if (__UNDEF_KEY__ != null) {
+                    TranslatorModule.updateValue(text);
+                    MessageServiceComponent.executeAction(((Module) TranslatorModule.INSTANCE), text, true);
+                    text.printStackTrace();
                 }
             }
-            TranslatorModule.updateValue();
-            MessageServiceComponent.executeAction((Module) TranslatorModule.INSTANCE, 1);
-            var11.printStackTrace();
         }
     }
 

@@ -65,11 +65,11 @@ public class AntiKnockBackModule extends Module {
     }
 
     private AntiKnockBackMode getMode() {
-        return (AntiKnockBackMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((AntiKnockBackMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getOldBreak() {
-        return (Boolean) oldBreakSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) oldBreakSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setOldBreak(boolean value) {
@@ -77,7 +77,7 @@ public class AntiKnockBackModule extends Module {
     }
 
     private boolean getPauseInWater() {
-        return (Boolean) pauseInWaterSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) pauseInWaterSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setPauseInWater(boolean value) {
@@ -85,7 +85,7 @@ public class AntiKnockBackModule extends Module {
     }
 
     private boolean getExplosions() {
-        return (Boolean) explosionsSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) explosionsSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setExplosions(boolean value) {
@@ -93,7 +93,7 @@ public class AntiKnockBackModule extends Module {
     }
 
     private boolean getCc() {
-        return (Boolean) ccSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) ccSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setCc(boolean value) {
@@ -101,7 +101,7 @@ public class AntiKnockBackModule extends Module {
     }
 
     private boolean getOnlyWalls() {
-        return (Boolean) onlyWallsSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) onlyWallsSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void setOnlyWalls(boolean value) {
@@ -109,7 +109,7 @@ public class AntiKnockBackModule extends Module {
     }
 
     private boolean getOnlyGround() {
-        return (Boolean) onlyGroundSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) onlyGroundSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setOnlyGround(boolean value) {
@@ -117,7 +117,7 @@ public class AntiKnockBackModule extends Module {
     }
 
     private boolean getNotMoving() {
-        return (Boolean) notMovingSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) notMovingSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private void setNotMoving(boolean value) {
@@ -125,7 +125,7 @@ public class AntiKnockBackModule extends Module {
     }
 
     private boolean getIgnoreRotations() {
-        return (Boolean) ignoreRotationsSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) ignoreRotationsSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private void setIgnoreRotations(boolean value) {
@@ -133,7 +133,7 @@ public class AntiKnockBackModule extends Module {
     }
 
     private float getVertical() {
-        return (Number) verticalSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Number) verticalSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private void setVertical(float value) {
@@ -141,7 +141,7 @@ public class AntiKnockBackModule extends Module {
     }
 
     private float getHorizontal() {
-        return (Number) horizontalSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Number) horizontalSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private void setHorizontal(float value) {
@@ -149,25 +149,25 @@ public class AntiKnockBackModule extends Module {
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        Packet var19 = arg0.getPacket();
-        if (var19 instanceof class_2743) {
-            if (var18 && var18) {
-                if ((class_2743) var19.method_11818() == SharedKt.getPlayer().method_5628()) {
-                    if (var18) {
+        Packet packet = arg0.getPacket();
+        if (packet instanceof class_2743) {
+            if (__UNDEF_KEY__ && __UNDEF_KEY__) {
+                if (((class_2743) packet).method_11818() == SharedKt.getPlayer().method_5628()) {
+                    if (__UNDEF_KEY__) {
                         if (!(this.checkCondition())) {
                             return;
                         }
                     }
-                    (ClientboundSetEntityMotionPacketAccessor) var19.setMovement(new Vec3d((((class_2743) var19.method_73085().field_1352 * this.getHorizontal()) / 100.0D), (((class_2743) var19.method_73085().field_1351 * this.getVertical()) / 100.0D), (((class_2743) var19.method_73085().field_1350 * this.getHorizontal()) / 100.0D)));
+                    ((ClientboundSetEntityMotionPacketAccessor) packet).setMovement(new Vec3d(((((class_2743) packet).method_73085().field_1352 * this.getHorizontal()) / 100.0D), ((((class_2743) packet).method_73085().field_1351 * this.getVertical()) / 100.0D), ((((class_2743) packet).method_73085().field_1350 * this.getHorizontal()) / 100.0D)));
                     arg0.cancel();
-                    if (!(var18) && !(var18)) {
+                    if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
                         arg0.cancel();
                         countValue = 6;
-                        if (var18) {
-                            if (!(var18) && EventPacketHelper2.INSTANCE.getNumericValue4() > 200L) {
+                        if (__UNDEF_KEY__) {
+                            if (!(__UNDEF_KEY__) && EventPacketHelper2.INSTANCE.getNumericValue4() > 200L) {
                                 arg0.cancel();
                                 enabledFlag = 1;
-                                if (!(var18)) {
+                                if (!(__UNDEF_KEY__)) {
                                 }
                             }
                         }
@@ -175,50 +175,50 @@ public class AntiKnockBackModule extends Module {
                 }
             }
         }
-        if (var18) {
-            if (var18) {
-            }
-            if (var19 instanceof class_2664 && this.getExplosions() && !(WindHopModule.INSTANCE.getEnabled())) {
-                ClientboundExplodePacketAccessor var20 = (ClientboundExplodePacketAccessor) arg0.getPacket();
-                if (var18) {
-                }
-                if (var18) {
-                }
-                if (var18) {
-                    if ((Vec3d) (class_2664) var19.comp_2884().get().field_1352 == 0.0D) {
+        if (__UNDEF_KEY__) {
+            if (__UNDEF_KEY__) {
+                if (packet instanceof class_2664 && this.getExplosions() && !(WindHopModule.INSTANCE.getEnabled())) {
+                    ClientboundExplodePacketAccessor clientboundExplodePacketAccessor = ((ClientboundExplodePacketAccessor) arg0.getPacket());
+                    if (__UNDEF_KEY__) {
                     }
-                } else {
-                }
-                if (!(this.checkCondition()) || !((class_2664) var19.comp_2884().isPresent()) || 0) {
-                    return;
-                }
-                var20.setPlayerKnockback(Optional.of(Vec3d.ZERO));
-                if (var18) {
-                    if (!(var18) && (class_2664) var19.comp_2884().isPresent()) {
+                    if (__UNDEF_KEY__) {
                     }
-                    Vec3d vec = (Vec3d) (class_2664) var19.comp_2884().get();
-                    var20.setPlayerKnockback(Optional.of(new Vec3d(((vec.field_1352 * this.getHorizontal()) / 100.0F), ((vec.field_1350 * this.getVertical()) / 100.0F), ((vec.field_1351 * this.getHorizontal()) / 100.0F))));
-                    if (var18) {
-                        if (!(var18) && EventPacketHelper2.INSTANCE.getNumericValue4() > 200L) {
-                            var20.setPlayerKnockback(Optional.of(Vec3d.ZERO));
+                    if (__UNDEF_KEY__) {
+                        if (((Vec3d) ((class_2664) packet).comp_2884().get()).field_1352 == 0.0D) {
+                        } else {
                         }
-                        enabledFlag = 1;
-                        if (!(var18) && !(var18)) {
+                    }
+                    if (!(this.checkCondition()) || !(((class_2664) packet).comp_2884().isPresent()) || 0) {
+                        return;
+                    }
+                    clientboundExplodePacketAccessor.setPlayerKnockback(Optional.of(Vec3d.ZERO));
+                    if (__UNDEF_KEY__) {
+                        if (!(__UNDEF_KEY__) && ((class_2664) packet).comp_2884().isPresent()) {
+                            Vec3d vec = ((Vec3d) ((class_2664) packet).comp_2884().get());
+                            clientboundExplodePacketAccessor.setPlayerKnockback(Optional.of(new Vec3d(((vec.field_1352 * this.getHorizontal()) / 100.0F), ((vec.field_1350 * this.getVertical()) / 100.0F), ((vec.field_1351 * this.getHorizontal()) / 100.0F))));
+                            if (__UNDEF_KEY__) {
+                                if (!(__UNDEF_KEY__) && EventPacketHelper2.INSTANCE.getNumericValue4() > 200L) {
+                                    clientboundExplodePacketAccessor.setPlayerKnockback(Optional.of(Vec3d.ZERO));
+                                    enabledFlag = 1;
+                                    if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
         }
-        if (var18) {
-            if (var18) {
-                if (this.getMode() == AntiKnockBackMode.OldGrim && var19 instanceof class_6373 && countValue > 0) {
+        if (__UNDEF_KEY__) {
+            if (__UNDEF_KEY__) {
+                if (this.getMode() == AntiKnockBackMode.OldGrim && packet instanceof class_6373 && countValue > 0) {
                     arg0.cancel();
-                    var20 = countValue;
-                    countValue = (var20 + -1);
+                    clientboundExplodePacketAccessor = countValue;
+                    countValue = (clientboundExplodePacketAccessor + -1);
                 }
             }
         }
-        if (var18) {
+        if (__UNDEF_KEY__) {
         }
         enabledFlag2 = 0;
     }
@@ -226,18 +226,18 @@ public class AntiKnockBackModule extends Module {
     private boolean checkCondition() {
         BlockPos blockPos = BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()));
         if (!(SharedKt.getWorld().getBlockState(blockPos).getBlock() instanceof class_2189)) {
-            if (!(var20)) {
+            if (!(__UNDEF_KEY__)) {
                 if (this.getOnlyGround()) {
-                    if (!(var20) && !(var20)) {
+                    if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
                         if (SharedKt.getPlayer().isOnGround()) {
+                            return true;
                         }
                     }
-                    return true;
                 }
             }
         }
         if (this.getNotMoving()) {
-            if (!(var20) && !(var20)) {
+            if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
                 if (!(EventPacketHelper2.INSTANCE.checkCondition())) {
                     enabledFlag2 = 1;
                     return true;
@@ -245,20 +245,20 @@ public class AntiKnockBackModule extends Module {
             }
         }
         if (!(SharedKt.getPlayer().method_5799())) {
-            if (!(var20) && !(var20)) {
+            if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
                 if (!(SharedKt.getPlayer().method_5869())) {
                     if (SharedKt.getPlayer().method_5771()) {
+                        if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
+                            if (this.getPauseInWater()) {
+                                return false;
+                            }
+                        }
                     }
-                }
-            }
-            if (!(var20) && !(var20)) {
-                if (this.getPauseInWater()) {
-                    return false;
                 }
             }
         }
         if (!(this.getNotMoving())) {
-            if (!(var20) && !(var20)) {
+            if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
                 if (!(this.getOnlyWalls())) {
                     return true;
                 }
@@ -268,65 +268,35 @@ public class AntiKnockBackModule extends Module {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        if (var27) {
-            if (!(SharedKt.getPlayer().method_5799())) {
-                if (SharedKt.getPlayer().method_5869()) {
+        if (!(SharedKt.getPlayer().method_5799())) {
+            if (SharedKt.getPlayer().method_5869()) {
+                return;
+            }
+        }
+        if (EventPacketHelper2.INSTANCE.checkCondition()) {
+            enabledFlag2 = 0;
+        }
+        if (AntiKnockBackModeWhenMappings.ENUM_SWITCH_MAP[this.getMode().ordinal()] == 4 && enabledFlag) {
+            if (!(SharedKt.getPlayer().method_20448())) {
+                if (this.getOldBreak()) {
+                } else {
                 }
             }
-            if (var27 && var27) {
-                if (this.getPauseInWater()) {
-                    return;
-                }
+            BlockPos blockPos = SharedKt.getPlayer().method_24515().up();
+            if (SharedKt.getWorld().method_22347(blockPos)) {
+                PacketPacketHelper.handlePacket(((Packet) new class_2830(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), EventPacketHelper2.INSTANCE.computeValue(), EventPacketHelper2.INSTANCE.computeValue2(), SharedKt.getPlayer().isOnGround(), SharedKt.getPlayer().field_5976)));
+                PacketPacketHelper.executeAction(this::resolveMinecraftObject);
             }
+            enabledFlag = 0;
         }
-        if (var27) {
-            if (EventPacketHelper2.INSTANCE.checkCondition()) {
-                enabledFlag2 = 0;
-            }
-        }
-        if (AntiKnockBackModeWhenMappings.ENUM_SWITCH_MAP[this.getMode().ordinal()] == 4) {
-            if (var27 && var27) {
-                if (enabledFlag) {
-                    if (var27) {
-                        if (!(SharedKt.getPlayer().method_20448())) {
-                            if (var27) {
-                            }
-                            if (this.getOldBreak()) {
-                            }
-                        }
-                    } else {
-                    }
-                    BlockPos blockPos = SharedKt.getPlayer().method_24515().up();
-                    Object var29 = blockPos;
-                    if (var27) {
-                        if (SharedKt.getWorld().method_22347()) {
-                            PacketPacketHelper.handlePacket((Packet) new class_2830(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), EventPacketHelper2.INSTANCE.computeValue(), EventPacketHelper2.INSTANCE.computeValue2(), SharedKt.getPlayer().isOnGround(), SharedKt.getPlayer().field_5976));
-                            PacketPacketHelper.executeAction(this::resolveMinecraftObject);
-                        }
-                    }
-                    enabledFlag = 0;
-                }
-            }
-        }
-        if (var27) {
-        }
-        int var28 = countValue;
-        countValue = (var28 + -1);
+        countValue = (countValue + -1);
     }
 
     private void onSendPacket(SendPacket arg0) {
-        if (!(var6)) {
-        }
-        if (!(var6)) {
-            if (!(var6)) {
-            }
-        }
         arg0.cancel();
     }
 
     public void executeAction() {
-        if (var8) {
-        }
         enabledFlag2 = 0;
     }
 
@@ -357,25 +327,24 @@ public class AntiKnockBackModule extends Module {
     private static Packet resolveMinecraftObject(int arg0) {
         if (!(SharedKt.getPlayer().method_20448())) {
             if (INSTANCE.getOldBreak()) {
+            } else {
             }
-        } else {
         }
-        class_2847.field_12973.<init>(BlockPos.ofFloored(INSTANCE.resolveMinecraftObject(SharedKt.getPlayer())), SharedKt.getPlayer().method_24515().up(), Direction.DOWN, arg0);
-        return (Packet) new class_2846;
+        return ((Packet) new class_2846(BlockPos.ofFloored(INSTANCE.resolveMinecraftObject(SharedKt.getPlayer())), SharedKt.getPlayer().method_24515().up(), Direction.DOWN, arg0));
     }
 
     static {
-        KProperty[] var41 = new KProperty[11];
+        KProperty[] items = new KProperty[11];
         INSTANCE = new AntiKnockBackModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", AntiKnockBackMode.GrimNew);
-        oldBreakSetting = VisibleRenderHelper.registerSetting(INSTANCE, "old-break", 0, null, this::isActive);
-        pauseInWaterSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-in-liquids");
-        explosionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "explosions");
-        ccSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-on-flag");
-        onlyWallsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-walls");
-        onlyGroundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-ground", 0, null, this::isActive2);
-        notMovingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "not-moving");
-        ignoreRotationsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-rotations", 0, null, this::isActive3);
+        oldBreakSetting = VisibleRenderHelper.registerSetting(INSTANCE, "old-break", false, null, this::isActive);
+        pauseInWaterSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-in-liquids", false);
+        explosionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "explosions", true);
+        ccSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-on-flag", false);
+        onlyWallsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-walls", false);
+        onlyGroundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-ground", false, null, this::isActive2);
+        notMovingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "not-moving", false);
+        ignoreRotationsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-rotations", false, null, this::isActive3);
         verticalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vertical", 0.0F, RangesKt.rangeTo(0.0F, 100.0F), null, this::isActive4);
         horizontalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "horizontal", 0.0F, RangesKt.rangeTo(0.0F, 100.0F), null, this::isActive5);
     }
@@ -389,8 +358,8 @@ public class AntiKnockBackModule extends Module {
     }
 
     public static boolean isActive7() {
-        boolean var0 = isActive6();
-        if (!(var0)) {
+        boolean flag = isActive6();
+        if (!(flag)) {
             return true;
         }
         return false;

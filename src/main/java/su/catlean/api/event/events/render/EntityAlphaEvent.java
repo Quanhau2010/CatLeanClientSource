@@ -33,7 +33,7 @@ public class EntityAlphaEvent extends Event {
     public boolean call(Vec3d pos) {
         pos = pos;
         alpha = 1.0F;
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }

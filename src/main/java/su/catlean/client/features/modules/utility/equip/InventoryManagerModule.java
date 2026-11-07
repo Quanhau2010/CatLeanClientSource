@@ -74,7 +74,7 @@ public class InventoryManagerModule extends Module {
     }
 
     private ActionServiceComponent2 getOpenManager() {
-        return (ActionServiceComponent2) openManagerSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((ActionServiceComponent2) openManagerSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setOpenManager(ActionServiceComponent2 value) {
@@ -85,7 +85,7 @@ public class InventoryManagerModule extends Module {
     }
 
     private ItemsServiceComponent2 getCleanerList() {
-        return (ItemsServiceComponent2) cleanerListSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((ItemsServiceComponent2) cleanerListSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setCleanerList(ItemsServiceComponent2 value) {
@@ -93,7 +93,7 @@ public class InventoryManagerModule extends Module {
     }
 
     private int getActionDelay() {
-        return (Number) actionDelaySetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) actionDelaySetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setActionDelay(int value) {
@@ -101,7 +101,7 @@ public class InventoryManagerModule extends Module {
     }
 
     private int getClicksPerAction() {
-        return (Number) clicksPerActionSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) clicksPerActionSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setClicksPerAction(int value) {
@@ -109,31 +109,31 @@ public class InventoryManagerModule extends Module {
     }
 
     private InventoryManagerCleanerMode getCleaner() {
-        return (InventoryManagerCleanerMode) cleanerSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((InventoryManagerCleanerMode) cleanerSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private int getCleanerDelay() {
-        return (Number) cleanerDelaySetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) cleanerDelaySetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getCleanChests() {
-        return (Boolean) cleanChestsSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) cleanChestsSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (countValue > 0) {
-            int var18 = countValue;
-            countValue = (var18 + -1);
+            int index = countValue;
+            countValue = (index + -1);
             return;
         }
         if (ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl3().resolveIdRecord4().getMap().isEmpty()) {
             return;
         }
-        var18 = 0;
+        index = 0;
         Iterator iterator = this.resolveArrayList(SharedKt.getPlayer().field_7512).iterator();
-        if (iterator.hasNext()) {
-            int var20 = (Number) iterator.next();
-            HandServiceComponent.e();
+        while (iterator.hasNext()) {
+            int index2 = ((Number) iterator.next());
+            HandServiceComponent.e(index2, 0, null, false);
         }
         countValue = this.getActionDelay();
     }
@@ -142,22 +142,22 @@ public class InventoryManagerModule extends Module {
         if (Intrinsics.areEqual(arg1.method_34255().getItem(), arg0)) {
             return -2;
         }
-        IntRange var14 = this.resolveIntRange(arg1.field_7761.size());
-        int var15 = arg3.getFirst();
-        int var16 = arg3.getLast();
-        if (Intrinsics.areEqual(arg1.method_7611().method_7677().getItem(), arg0)) {
+        IntRange intRange = this.resolveIntRange(arg1.field_7761.size());
+        int index = arg3.getFirst();
+        int index2 = arg3.getLast();
+        if (Intrinsics.areEqual(arg1.method_7611(index).method_7677().getItem(), arg0)) {
             if (!(arg3.getFirst())) {
             } else {
             }
             if (arg2 >= 0L) {
-                if (var13 != null) {
-                    if (!(Intrinsics.areEqual((var15 - arg3.getFirst()).get(Integer.valueOf((var14.getFirst() - 0))), arg0))) {
-                        return var15;
+                if (__UNDEF_KEY__ != null) {
+                    if (!(Intrinsics.areEqual((index - arg3.getFirst()).get(Integer.valueOf((intRange.getFirst() - 0))), arg0))) {
+                        return index;
                     }
                 }
             }
         }
-        if (var15 <= var16 && var15 != var16) {
+        if (index <= index2 && index != index2) {
         }
         return -1;
     }
@@ -171,41 +171,41 @@ public class InventoryManagerModule extends Module {
     }
 
     private ArrayList resolveArrayList(class_1703 arg0) {
-        List<BlockPos> positions = new ArrayList();
-        int var16 = arg0.field_7761.size();
-        if (var16 != 46 && var16 != 63 && var16 != 90) {
-            return positions;
+        List<BlockPos> list = new ArrayList();
+        int index = arg0.field_7761.size();
+        if (index != 46 && index != 63 && index != 90) {
+            return list;
         }
         Iterator iterator = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl3().resolveIdRecord4().getMap().keySet().iterator();
         while (iterator.hasNext()) {
-            int var18 = (Number) iterator.next();
-            Item var19 = (Item) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl3().resolveIdRecord4().getMap().get(Integer.valueOf());
-            if (Intrinsics.areEqual(Items.field_8162)) {
+            int index2 = ((Number) iterator.next());
+            Item item = ((Item) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl3().resolveIdRecord4().getMap().get(Integer.valueOf(index2)));
+            if (Intrinsics.areEqual(item, Items.field_8162)) {
             }
-            int var20 = (var18 + this.resolveIntRange().getFirst());
-            if (Intrinsics.areEqual((class_1735) arg0.field_7761.get().method_7677().getItem())) {
+            int index3 = (index2 + this.resolveIntRange(index).getFirst());
+            if (Intrinsics.areEqual(((class_1735) arg0.field_7761.get(index3)).method_7677().getItem(), item)) {
             }
-            int var21 = this.computeValue(arg0, this.resolveIntRange());
-            if (var21 == -2) {
-                positions.add(Integer.valueOf());
+            int index4 = this.computeValue(item, arg0, this.resolveIntRange(index));
+            if (index4 == -2) {
+                list.add(Integer.valueOf(index3));
             }
-            positions.add(Integer.valueOf());
-            positions.add(Integer.valueOf());
-            positions.add(Integer.valueOf());
+            list.add(Integer.valueOf(index4));
+            list.add(Integer.valueOf(index3));
+            list.add(Integer.valueOf(index4));
         }
-        return positions;
+        return list;
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
         if (SharedKt.getPlayer().field_7512 instanceof class_1707 && this.getCleanChests()) {
-            class_1707 var24 = (class_1707) SharedKt.getPlayer().field_7512;
-            String var25 = SharedKt.getMc().currentScreen.method_25440().getString();
-            int var26 = 0;
-            int var27 = var24.method_7629().method_5439();
-            if (var26 < var27) {
-                class_1735 var28 = var24.method_7611();
-                if (var28.method_7681() && this.getCleanerList().getList().contains(var28.method_7677().getItem()) && !(StringsKt.contains$default((CharSequence) var25, (CharSequence) "\u0410\u0443\u043a\u0446\u0438\u043e\u043d")) && !(StringsKt.contains$default((CharSequence) var25, (CharSequence) "\u043f\u043e\u043a\u0443\u043f\u043a\u0438"))) {
-                    this.executeAction();
+            class_1707 class1707 = ((class_1707) SharedKt.getPlayer().field_7512);
+            String text = SharedKt.getMc().currentScreen.method_25440().getString();
+            int index = 0;
+            int index2 = class1707.method_7629().method_5439();
+            if (index < index2) {
+                class_1735 class1735 = class1707.method_7611(index);
+                if (class1735.method_7681() && this.getCleanerList().getList().contains(class1735.method_7677().getItem()) && !(StringsKt.contains$default(((CharSequence) text), ((CharSequence) "\u0410\u0443\u043a\u0446\u0438\u043e\u043d"), false)) && !(StringsKt.contains$default(((CharSequence) text), ((CharSequence) "\u043f\u043e\u043a\u0443\u043f\u043a\u0438"), false))) {
+                    this.executeAction(index);
                 }
             }
         }
@@ -215,35 +215,35 @@ public class InventoryManagerModule extends Module {
         if (this.getCleaner() == InventoryManagerCleanerMode.NOT_IN_INVENTORY && SharedKt.getMc().currentScreen instanceof class_490) {
             return;
         }
-        var24 = 0;
-        if (var24 < 36) {
-            if (this.getCleanerList().getList().contains(SharedKt.getPlayer().method_31548().method_5438().getItem())) {
-                if (var24 < 9) {
+        class1707 = 0;
+        if (class1707 < 36) {
+            if (this.getCleanerList().getList().contains(SharedKt.getPlayer().method_31548().method_5438(class1707).getItem())) {
+                if (class1707 < 9) {
                 } else {
                 }
-                (var24 + 36).executeAction();
+                (class1707 + 36).executeAction(class1707);
             }
         }
-        PacketPacketHelper.handlePacket((Packet) new class_2815(SharedKt.getPlayer().field_7512.field_7763));
+        PacketPacketHelper.handlePacket(((Packet) new class_2815(SharedKt.getPlayer().field_7512.field_7763)));
         enabledFlag = 0;
     }
 
     public IdRecord4 resolveIdRecord4(String name) {
-        Map var12 = (Map) new LinkedHashMap();
-        int var13 = 9;
-        if (var13 < 45) {
-            var12.put(Integer.valueOf((var13 - 9)), (class_1735) SharedKt.getPlayer().field_7512.field_7761.get().method_7677().getItem());
+        Map map = ((Map) new LinkedHashMap());
+        int index = 9;
+        if (index < 45) {
+            map.put(Integer.valueOf((index - 9)), ((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(index)).method_7677().getItem());
         }
-        return new IdRecord4(name);
+        return new IdRecord4(name, map);
     }
 
     private void executeAction(int arg0) {
-        HandServiceComponent.e(arg0, 1, class_1713.field_7795);
+        HandServiceComponent.e(arg0, 1, class_1713.field_7795, false);
         enabledFlag = 1;
     }
 
     private static Unit getUnit() {
-        CatleanInterfaceRenderHelper.INSTANCE.updateValue((RenderHelper) new SelectRenderHelperImpl());
+        CatleanInterfaceRenderHelper.INSTANCE.updateValue(((RenderHelper) new SelectRenderHelperImpl()));
         return Unit.INSTANCE;
     }
 
@@ -256,7 +256,7 @@ public class InventoryManagerModule extends Module {
     }
 
     static {
-        KProperty[] var37 = new KProperty[7];
+        KProperty[] items = new KProperty[7];
         INSTANCE = new InventoryManagerModule();
         openManagerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "open-manager", this::getUnit);
         cleanerListSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cleaner-list", new ItemsServiceComponent2());
@@ -264,7 +264,7 @@ public class InventoryManagerModule extends Module {
         clicksPerActionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "click-per-action", 1, new IntRange(1, 3));
         cleanerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cleaner", InventoryManagerCleanerMode.OFF);
         cleanerDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "cleaner-delay", 50, new IntRange(0, 500), null, this::isActive);
-        cleanChestsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "clean-chests", 0, null, this::isActive2);
+        cleanChestsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "clean-chests", false, null, this::isActive2);
         serviceComponent10 = new ServiceComponent10();
     }
 

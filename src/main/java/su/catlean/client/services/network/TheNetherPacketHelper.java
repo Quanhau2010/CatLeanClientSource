@@ -68,17 +68,17 @@ public class TheNetherPacketHelper implements Contract9 {
     public float computeValue() {
         if (SharedKt.getNetwork().method_45734() != null && SharedKt.getNetwork().method_45734().field_3761 != null) {
         } else {
-        }
-        if (StringsKt.contains$default((CharSequence) SharedKt.getNetwork().method_45734().field_3761, (CharSequence) "pvp.mioclient.me") == 1) {
-        } else {
+            if (StringsKt.contains$default(((CharSequence) SharedKt.getNetwork().method_45734().field_3761), ((CharSequence) "pvp.mioclient.me"), false) == 1) {
+            } else {
+            }
         }
         return (1000.0F / RangesKt.coerceAtLeast(timestampValue, 1.0F));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         itemList.clear();
-        itemList.addAll((Collection) this.resolveList());
-        if (var11 != null) {
+        itemList.addAll(((Collection) this.resolveList()));
+        if (__UNDEF_KEY__ != null) {
             if (SharedKt.getMc().method_1562() != null && SharedKt.getMc().method_1562().method_2871(SharedKt.getPlayer().method_5667()) != null) {
             } else {
                 SharedKt.getMc().method_1562().method_2871(SharedKt.getPlayer().method_5667()).method_2959();
@@ -99,11 +99,11 @@ public class TheNetherPacketHelper implements Contract9 {
                     if (arrayDeque.size() >= 20) {
                         arrayDeque.removeFirst();
                     }
-                    float var11 = (20.0F * this.computeValue());
-                    if (!(Float.isNaN()) && !(Float.isInfinite())) {
-                        arrayDeque.add(Float.valueOf());
+                    float factor = (20.0F * this.computeValue());
+                    if (!(Float.isNaN(factor)) && !(Float.isInfinite(factor))) {
+                        arrayDeque.add(Float.valueOf(factor));
                     }
-                    factorValue = CollectionsKt.averageOfFloat((Iterable) arrayDeque);
+                    factorValue = CollectionsKt.averageOfFloat(((Iterable) arrayDeque));
                 }
             }
             timestampValue2 = SharedKt.getNumericValue();
@@ -118,80 +118,76 @@ public class TheNetherPacketHelper implements Contract9 {
             }
             return countValue;
         }
-        if (0L > 0) {
+        if (__UNDEF_KEY__ > 0) {
             if (SharedKt.getMc().method_1562().method_2871(pl.method_5667()) == null) {
                 SharedKt.getMc().method_1562().method_2871(pl.method_5667());
+                return 0;
             }
-            return 0;
         }
-        int var14 = FastLatencyModule.INSTANCE.getNumericValue();
-        return var14.method_2959();
+        int index = FastLatencyModule.INSTANCE.getNumericValue();
+        return index.method_2959();
     }
 
     public boolean checkCondition() {
         if (SharedKt.getMc().world != null && SharedKt.getMc().world.method_27983() != null && SharedKt.getMc().world.method_27983().method_29177() != null) {
             if (SharedKt.getMc().world.method_27983().method_29177().method_12832() == null) {
+                SharedKt.getMc().world.method_27983().method_29177().method_12832();
             }
-            SharedKt.getMc().world.method_27983().method_29177().method_12832();
         }
         return Intrinsics.areEqual("", "the_nether");
     }
 
     private List resolveList(int arg0) {
-        List positions = new ArrayList();
+        List list = new ArrayList();
         Iterator iterator = this.resolveList().iterator();
-        if (iterator.hasNext()) {
-            class_2818 var11 = (class_2818) iterator.next();
+        while (iterator.hasNext()) {
             if (arg0 >= 0) {
             } else {
             }
         }
-        return positions;
+        return list;
     }
 
     public List resolveList() {
-        List positions = new ArrayList();
-        int var11 = (Number) SharedKt.getMc().options.method_42503().method_41753();
-        int var12 = var11;
-        if (var12 <= var11) {
-            int var13 = var11;
-            if (var13 <= var11) {
-                if (SharedKt.getWorld().method_2935().method_21730(((SharedKt.getPlayer().getX() / 16) + var12), ((SharedKt.getPlayer().getZ() / 16) + var13)) != null) {
-                    class_2818 var14 = SharedKt.getWorld().method_2935().method_21730(((SharedKt.getPlayer().getX() / 16) + var12), ((SharedKt.getPlayer().getZ() / 16) + var13));
-                    int var15 = 0;
-                    positions.add();
+        List list = new ArrayList();
+        int index = ((Number) SharedKt.getMc().options.method_42503().method_41753());
+        int index2 = index;
+        if (index2 <= index) {
+            int index3 = index;
+            if (index3 <= index) {
+                if (SharedKt.getWorld().method_2935().method_21730(((SharedKt.getPlayer().getX() / 16) + index2), ((SharedKt.getPlayer().getZ() / 16) + index3)) != null) {
+                    class_2818 class2818 = SharedKt.getWorld().method_2935().method_21730(((SharedKt.getPlayer().getX() / 16) + index2), ((SharedKt.getPlayer().getZ() / 16) + index3));
+                    list.add(class2818);
                 } else {
                 }
-                if (var13 != var11) {
+                if (index3 != index) {
                 }
             }
-            if (var12 != var11) {
+            if (index2 != index) {
             }
         }
-        return positions;
+        return list;
     }
 
     public List resolveList2() {
-        List positions = new ArrayList();
-        int var9 = ((Number) SharedKt.getMc().options.method_42503().method_41753() + 2);
-        double var10 = (SharedKt.getPlayer().getX() >> 4);
-        double var11 = (SharedKt.getPlayer().getZ() >> 4);
-        int var12 = var9;
-        if (var12 <= var9) {
-            int var13 = var9;
-            positions.add(new class_1923((var10 + var12), (var11 + var13)));
-            if (var13 <= var9 && var13 != var9) {
+        List list = new ArrayList();
+        int index = (((Number) SharedKt.getMc().options.method_42503().method_41753()) + 2);
+        double offset = (SharedKt.getPlayer().getX() >> 4);
+        double offset2 = (SharedKt.getPlayer().getZ() >> 4);
+        int index2 = index;
+        if (index2 <= index) {
+            int index3 = index;
+            list.add(new class_1923((offset + index2), (offset2 + index3)));
+            if (index3 <= index && index3 != index) {
             }
-            if (var12 != var9) {
+            if (index2 != index) {
             }
         }
-        return positions;
+        return list;
     }
 
     public boolean checkCondition2() {
-        if (var3 != null) {
-            if (arrayDeque.size() < 20) {
-            }
+        if (arrayDeque.size() < 20) {
         } else {
         }
         return false;

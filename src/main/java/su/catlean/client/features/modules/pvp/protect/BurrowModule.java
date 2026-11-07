@@ -41,13 +41,10 @@ public class BurrowModule extends Module {
     }
 
     private boolean getOnce() {
-        return (Boolean) onceSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) onceSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 103451004335712L) >>> 56);
-        long var4 = (((arg0 ^ 103451004335712L) << 8) >>> 8);
-        long var6 = (arg0 ^ 67464996320865L);
+    public void updateValue() {
         blockPos = BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()));
     }
 
@@ -57,49 +54,49 @@ public class BurrowModule extends Module {
             this.updateValue2();
             return;
         }
-        Block[] var33 = new Block[1];
-        var33[0] = Blocks.OBSIDIAN;
-        StackServiceComponent2 var32 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        Block[] var34 = new Block[1];
-        var34[0] = Blocks.ENDER_CHEST;
-        var33 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        if (!(var32.isActive())) {
+        Block[] items = new Block[1];
+        items[0] = Blocks.OBSIDIAN;
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+        Block[] items2 = new Block[1];
+        items2[0] = Blocks.ENDER_CHEST;
+        items = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items2);
+        if (!(stackServiceComponent2.isActive())) {
         } else {
         }
-        var34 = var32.getNumericValue();
-        if (var34 != -1) {
+        items2 = stackServiceComponent2.getNumericValue();
+        if (items2 != -1) {
             if (SharedKt.getMc().method_1542()) {
+                this.updateValue2();
+                return;
             }
-            this.updateValue2();
-            return;
         }
-        float var35 = SharedKt.getPlayer().method_36455();
-        int var36 = (90 - var35);
-        this.executeAction(0.42D, (var35 + (var36 * 0.25F)));
-        this.executeAction(0.75D, (var35 + (var36 * 0.5F)));
-        this.executeAction(1.01D, (var35 + (var36 * 0.75F)));
-        this.executeAction(1.16D, (var35 + var36));
-        ItemPacketHelper.INSTANCE.executeAction();
+        float factor = SharedKt.getPlayer().method_36455();
+        int index = (90 - factor);
+        this.executeAction(0.42D, (factor + (index * 0.25F)));
+        this.executeAction(0.75D, (factor + (index * 0.5F)));
+        this.executeAction(1.01D, (factor + (index * 0.75F)));
+        this.executeAction(1.16D, (factor + index));
+        ItemPacketHelper.INSTANCE.executeAction(items2);
         PacketPacketHelper.executeAction(this::resolveMinecraftObject);
-        PacketPacketHelper.handlePacket((Packet) new class_2879(Hand.field_5808));
+        PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
         ItemPacketHelper.INSTANCE.updateValue2();
-        PacketPacketHelper.handlePacket((Packet) new class_2830(SharedKt.getPlayer().getX(), (SharedKt.getPlayer().getY() + 1.0F), SharedKt.getPlayer().getZ(), SharedKt.getPlayer().method_36454(), 90.0F, 1, SharedKt.getPlayer().field_5976));
+        PacketPacketHelper.handlePacket(((Packet) new class_2830(SharedKt.getPlayer().getX(), (SharedKt.getPlayer().getY() + 1.0F), SharedKt.getPlayer().getZ(), SharedKt.getPlayer().method_36454(), 90.0F, true, SharedKt.getPlayer().field_5976)));
         serviceComponent10.executeAction();
         this.updateValue2();
     }
 
     private void executeAction(double arg0, float arg1) {
-        PacketPacketHelper.handlePacket((Packet) new class_2830(SharedKt.getPlayer().getX(), (SharedKt.getPlayer().getY() + arg0), SharedKt.getPlayer().getZ(), SharedKt.getPlayer().method_36454(), arg1, 0, SharedKt.getPlayer().field_5976));
+        PacketPacketHelper.handlePacket(((Packet) new class_2830(SharedKt.getPlayer().getX(), (SharedKt.getPlayer().getY() + arg0), SharedKt.getPlayer().getZ(), SharedKt.getPlayer().method_36454(), arg1, false, SharedKt.getPlayer().field_5976)));
     }
 
     private static Packet resolveMinecraftObject(BlockPos arg0, int arg1) {
-        return (Packet) new class_2885(Hand.field_5808, new class_3965(arg0.toCenterPos().method_1031(0.0D, -0.5D, 0.0D), Direction.UP, arg0.down(), 0), arg1);
+        return ((Packet) new class_2885(Hand.field_5808, arg1));
     }
 
     static {
-        KProperty[] var26 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new BurrowModule();
-        onceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "once");
+        onceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "once", true);
         serviceComponent10 = new ServiceComponent10();
     }
 

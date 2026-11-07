@@ -31,42 +31,38 @@ public class EntityHelper3 {
     }
 
     public void executeAction(int samples) {
-        Iterable var12 = (Iterable) SharedKt.getWorld().getPlayers();
-        int var13 = 0;
-        Iterator iterator = var12.iterator();
-        if (iterator.hasNext()) {
-            Object var15 = iterator.next();
-            AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) var15;
-            int var17 = 0;
-            INSTANCE.executeAction((PlayerEntity) player, samples);
-            if (0L > 0) {
-                if (var11 == null) {
+        Iterable iterable = ((Iterable) SharedKt.getWorld().getPlayers());
+        int index = 0;
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) element);
+            INSTANCE.executeAction(((PlayerEntity) player), samples);
+            if (__UNDEF_KEY__ > 0) {
+                if (__UNDEF_KEY__ == null) {
                 }
             }
         }
-        var13 = (Iterable) SharedKt.getWorld().getPlayers();
+        index = ((Iterable) SharedKt.getWorld().getPlayers());
         iterator = 0;
-        var15 = var13;
-        player = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(-790603904671809526L));
-        var17 = 0;
-        Iterator iterator2 = var15.iterator();
-        if (iterator2.hasNext()) {
-            Object var19 = iterator2.next();
-            AbstractClientPlayerEntity player2 = (AbstractClientPlayerEntity) var19;
-            if (var11 == null) {
-                Object var22 = player;
-                int var21 = 0;
-                var22.add(Integer.valueOf(player2.method_5628()));
+        element = index;
+        player = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(index, 10)));
+        Iterator iterator2 = element.iterator();
+        while (iterator2.hasNext()) {
+            Object element2 = iterator2.next();
+            AbstractClientPlayerEntity player2 = ((AbstractClientPlayerEntity) element2);
+            if (__UNDEF_KEY__ == null) {
+                player.add(Integer.valueOf(player2.method_5628()));
             }
         }
-        var12 = player;
+        iterable = player;
         lookupMap.keySet().removeIf(this::checkCondition);
     }
 
     private void executeAction(PlayerEntity arg0, int arg1) {
-        ArrayDeque var6 = (ArrayDeque) lookupMap.computeIfAbsent(Integer.valueOf(arg0.method_5628()), this::resolveArrayDeque);
-        var6.addLast(arg0.method_5829().method_1014(0.0D));
-        var6.removeFirst();
+        ArrayDeque arrayDeque = ((ArrayDeque) lookupMap.computeIfAbsent(Integer.valueOf(arg0.method_5628()), this::resolveArrayDeque));
+        arrayDeque.addLast(arg0.method_5829().method_1014(0.0D));
+        arrayDeque.removeFirst();
     }
 
     private static boolean checkCondition(List arg0, Integer arg1) {
@@ -74,7 +70,7 @@ public class EntityHelper3 {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static ArrayDeque resolveArrayDeque(Integer arg0) {
@@ -82,12 +78,12 @@ public class EntityHelper3 {
     }
 
     private static ArrayDeque resolveArrayDeque(Function1 arg0, Object arg1) {
-        return (ArrayDeque) arg0.invoke(arg1);
+        return ((ArrayDeque) arg0.invoke(arg1));
     }
 
     static {
         INSTANCE = new EntityHelper3();
-        lookupMap = (Map) new LinkedHashMap();
+        lookupMap = ((Map) new LinkedHashMap());
     }
 
     public static void updateValue(String arg0) {

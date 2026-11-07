@@ -31,11 +31,11 @@ public abstract class GameRendererMixin {
     }
 
     private void render3dHook(class_9779 renderTickCounter, CallbackInfo ci, Matrix4f projection) {
-        class_4184 var4 = MinecraftClient.method_1551().field_1773.method_19418();
+        class_4184 class4184 = MinecraftClient.method_1551().field_1773.method_19418();
         MatrixStack matrices = new MatrixStack();
         RenderSystem.getModelViewStack().pushMatrix().mul(matrices.method_23760().method_23761());
-        matrices.method_22907(class_7833.field_40714.rotationDegrees(var4.method_19329()));
-        matrices.method_22907(class_7833.field_40716.rotationDegrees((var4.method_19330() + 180.0F)));
+        matrices.method_22907(class_7833.field_40714.rotationDegrees(class4184.method_19329()));
+        matrices.method_22907(class_7833.field_40716.rotationDegrees((class4184.method_19330() + 180.0F)));
         Render3DEvent.INSTANCE.call(matrices, projection);
         RenderSystem.getModelViewStack().popMatrix();
     }
@@ -62,16 +62,16 @@ public abstract class GameRendererMixin {
 
     private void getBasicProjectionMatrixHook(float fovDegrees, CallbackInfoReturnable cir) {
         BasicProjectionMatrixEvent.INSTANCE.setFov(fovDegrees);
-        Matrix4f var3 = new Matrix4f();
-        float var4 = BasicProjectionMatrixEvent.INSTANCE.getZoom();
-        float var5 = BasicProjectionMatrixEvent.INSTANCE.getZoomX();
-        float var6 = BasicProjectionMatrixEvent.INSTANCE.getZoomY();
-        float var7 = BasicProjectionMatrixEvent.INSTANCE.getFov();
-        if (var4 != 1.0F) {
-            var3.translate(0.0F);
-            var3.scale(1.0F);
+        Matrix4f matrix4f = new Matrix4f();
+        float factor = BasicProjectionMatrixEvent.INSTANCE.getZoom();
+        float factor2 = BasicProjectionMatrixEvent.INSTANCE.getZoomX();
+        float factor3 = BasicProjectionMatrixEvent.INSTANCE.getZoomY();
+        float factor4 = BasicProjectionMatrixEvent.INSTANCE.getFov();
+        if (factor != 1.0F) {
+            matrix4f.translate(factor2, factor3, 0.0F);
+            matrix4f.scale(factor, factor, 1.0F);
         }
-        cir.setReturnValue(var3.perspective((var7 * 0.017453292F), BasicProjectionMatrixEvent.INSTANCE.getRatio(), 0.05F, this.method_32796()));
+        cir.setReturnValue(matrix4f.perspective((factor4 * 0.017453292F), BasicProjectionMatrixEvent.INSTANCE.getRatio(), 0.05F, this.method_32796()));
         cir.cancel();
     }
 

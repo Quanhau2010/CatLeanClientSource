@@ -36,11 +36,11 @@ public class SpiderModule extends Module {
     }
 
     private SpiderMode getMode() {
-        return (SpiderMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((SpiderMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
@@ -50,29 +50,29 @@ public class SpiderModule extends Module {
         SharedKt.getPlayer().method_24830(!((SharedKt.getPlayer().field_6012 % this.getDelay())));
         SharedKt.getPlayer().method_18800(SharedKt.getPlayer().method_18798().method_10216(), 0.42D, SharedKt.getPlayer().method_18798().method_10215());
         SharedKt.getPlayer().method_18800(SharedKt.getPlayer().method_18798().method_10216(), 0.21D, SharedKt.getPlayer().method_18798().method_10215());
-        float var23 = SharedKt.getPlayer().method_36455();
+        float factor = SharedKt.getPlayer().method_36455();
         SharedKt.getPlayer().method_36457(82.0F);
-        Item[] var25 = new Item[1];
-        var25[0] = Items.field_8705;
-        StackServiceComponent2 var24 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        if (var24.isActive()) {
-            ItemPacketHelper.INSTANCE.executeAction(var24.getNumericValue());
+        Item[] items = new Item[1];
+        items[0] = Items.field_8705;
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+        if (stackServiceComponent2.isActive()) {
+            ItemPacketHelper.INSTANCE.executeAction(stackServiceComponent2.getNumericValue());
             HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
             SharedKt.getPlayer().method_6104(Hand.field_5808);
             ItemPacketHelper.INSTANCE.updateValue2();
         }
-        SharedKt.getPlayer().method_36457();
+        SharedKt.getPlayer().method_36457(factor);
     }
 
     private void onPreSyncEvent(PreSyncEvent arg0) {
-        SharedKt.getPlayer().method_24830(1);
+        SharedKt.getPlayer().method_24830(true);
         SharedKt.getPlayer().method_18800(SharedKt.getPlayer().method_18798().method_10216(), 0.48114514191918D, SharedKt.getPlayer().method_18798().method_10215());
-        SharedKt.getPlayer().method_24830(1);
+        SharedKt.getPlayer().method_24830(true);
         SharedKt.getPlayer().method_6043();
     }
 
     static {
-        KProperty[] var28 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new SpiderModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", SpiderMode.DEFAULT);
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 2, new IntRange(1, 15));

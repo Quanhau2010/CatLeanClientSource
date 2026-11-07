@@ -37,9 +37,9 @@ public class DamageDataServiceComponent {
     }
 
     public int hashCode() {
-        boolean var4 = this.object != null;
-        var4 = ((var4 * -748536993520025569L) + this.serviceComponent95.hashCode());
-        return var4;
+        boolean flag = this.object != null;
+        flag = ((flag * 31) + this.serviceComponent95.hashCode());
+        return flag;
     }
 
     public boolean equals(Object other) {
@@ -49,11 +49,11 @@ public class DamageDataServiceComponent {
         if (!(other instanceof DamageDataServiceComponent)) {
             return false;
         }
-        DamageDataServiceComponent var5 = (DamageDataServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.object, var5.object))) {
+        DamageDataServiceComponent damageDataServiceComponent = ((DamageDataServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.object, damageDataServiceComponent.object))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.serviceComponent95, var5.serviceComponent95))) {
+        if (!(Intrinsics.areEqual(this.serviceComponent95, damageDataServiceComponent.serviceComponent95))) {
             return false;
         }
         return true;

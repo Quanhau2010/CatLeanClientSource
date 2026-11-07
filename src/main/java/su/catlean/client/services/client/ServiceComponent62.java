@@ -1,6 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import su.catlean.client.services.render.RenderHelper;
 import su.catlean.client.services.render.SelectRenderHelperImpl;
 
@@ -15,10 +14,6 @@ public class ServiceComponent62 {
 
     public void updateValue(RenderHelper value) {
         SelectRenderHelperImpl.updateValue(value);
-    }
-
-    public ServiceComponent62(DefaultConstructorMarker $constructor_marker) {
-        this();
     }
 
 }

@@ -26,14 +26,14 @@ public class ReaderServiceComponent2 implements ArgumentType {
     }
 
     public String resolveString(StringReader reader) {
-        String var7 = reader.readString();
-        class_640 var8 = (class_640) SharedKt.getMc().method_1562().method_2880().stream().filter(this::checkCondition).findFirst().orElse(null);
-        if (var6 == null) {
-            if (var8 == null) {
-                return var7;
+        String text = reader.readString();
+        class_640 class640 = ((class_640) SharedKt.getMc().method_1562().method_2880().stream().filter(this::checkCondition).findFirst().orElse(null));
+        if (__UNDEF_KEY__ == null) {
+            if (class640 == null) {
+                return text;
             }
         }
-        return var8.method_2966().name();
+        return class640.method_2966().name();
     }
 
     public CompletableFuture listSuggestions(CommandContext context, SuggestionsBuilder builder) {
@@ -49,7 +49,7 @@ public class ReaderServiceComponent2 implements ArgumentType {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static String resolveString(class_640 arg0) {
@@ -57,7 +57,7 @@ public class ReaderServiceComponent2 implements ArgumentType {
     }
 
     private static String resolveString(Function1 arg0, Object arg1) {
-        return (String) arg0.invoke(arg1);
+        return ((String) arg0.invoke(arg1));
     }
 
     private static String resolveString2(class_640 arg0) {
@@ -65,7 +65,7 @@ public class ReaderServiceComponent2 implements ArgumentType {
     }
 
     private static String resolveString2(Function1 arg0, Object arg1) {
-        return (String) arg0.invoke(arg1);
+        return ((String) arg0.invoke(arg1));
     }
 
     public Object parse(StringReader p0) {
@@ -73,7 +73,7 @@ public class ReaderServiceComponent2 implements ArgumentType {
     }
 
     public Collection getExamples() {
-        return (Collection) this.resolveList();
+        return ((Collection) this.resolveList());
     }
 
     static {

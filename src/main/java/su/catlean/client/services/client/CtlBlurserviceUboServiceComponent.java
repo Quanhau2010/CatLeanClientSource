@@ -23,7 +23,7 @@ public class CtlBlurserviceUboServiceComponent {
     static {
         INSTANCE = new CtlBlurserviceUboServiceComponent();
         countValue = new Std140SizeCalculator().putVec2().putFloat().get();
-        minecraftRef = new class_11280(countValue);
+        minecraftRef = new class_11280(countValue, 0);
     }
 
 }

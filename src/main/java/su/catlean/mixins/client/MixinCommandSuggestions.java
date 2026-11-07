@@ -28,14 +28,14 @@ public abstract class MixinCommandSuggestions {
     public void refreshHook(CallbackInfo ci, StringReader reader) {
         reader.setCursor((reader.getCursor() + 1));
         if (this.field_21610 == null) {
-            this.field_21610 = (CommandDispatcher) Objects.requireNonNull(InputSuggestorEvent.INSTANCE.getDispatcher()).parse(reader, (class_2172) Objects.requireNonNull(InputSuggestorEvent.INSTANCE.getSource()));
+            this.field_21610 = ((CommandDispatcher) Objects.requireNonNull(InputSuggestorEvent.INSTANCE.getDispatcher())).parse(reader, ((class_2172) Objects.requireNonNull(InputSuggestorEvent.INSTANCE.getSource())));
         }
-        int var3 = this.field_21599.method_1881();
+        int index = this.field_21599.method_1881();
         if (this.field_21612 != null) {
-            if (var3 >= 1 && !(this.field_21614)) {
+            if (index >= 1 && !(this.field_21614)) {
+                this.field_21611 = ((CommandDispatcher) Objects.requireNonNull(InputSuggestorEvent.INSTANCE.getDispatcher())).getCompletionSuggestions(this.field_21610, index);
+                this.field_21611.thenRun(this::lambda$refreshHook$0);
             }
-            this.field_21611 = (CommandDispatcher) Objects.requireNonNull(InputSuggestorEvent.INSTANCE.getDispatcher()).getCompletionSuggestions(this.field_21610);
-            this.field_21611.thenRun(this::lambda$refreshHook$0);
         }
         ci.cancel();
     }

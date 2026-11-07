@@ -35,7 +35,7 @@ public class HalfTexelSizeServiceComponent implements class_11281 {
     }
 
     public static HalfTexelSizeServiceComponent resolveHalfTexelSizeServiceComponent(HalfTexelSizeServiceComponent arg0, class_241 arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
             arg1 = arg0.minecraftRef;
         }
         return arg0.resolveHalfTexelSizeServiceComponent(arg1);
@@ -56,8 +56,8 @@ public class HalfTexelSizeServiceComponent implements class_11281 {
         if (!(other instanceof HalfTexelSizeServiceComponent)) {
             return false;
         }
-        HalfTexelSizeServiceComponent var5 = (HalfTexelSizeServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        HalfTexelSizeServiceComponent halfTexelSizeServiceComponent = ((HalfTexelSizeServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.minecraftRef, halfTexelSizeServiceComponent.minecraftRef))) {
             return false;
         }
         return true;

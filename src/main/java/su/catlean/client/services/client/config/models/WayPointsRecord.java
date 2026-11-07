@@ -37,7 +37,7 @@ public class WayPointsRecord {
     }
 
     public static WayPointsRecord resolveWayPointsRecord(WayPointsRecord arg0, List arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
             arg1 = arg0.itemList;
         }
         return arg0.resolveWayPointsRecord(arg1);
@@ -58,16 +58,15 @@ public class WayPointsRecord {
         if (!(other instanceof WayPointsRecord)) {
             return false;
         }
-        WayPointsRecord var5 = (WayPointsRecord) other;
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        WayPointsRecord wayPointsRecord = ((WayPointsRecord) other);
+        if (!(Intrinsics.areEqual(this.itemList, wayPointsRecord.itemList))) {
             return false;
         }
         return true;
     }
 
     public static void executeAction(WayPointsRecord self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        Lazy[] var3 = lazyArray;
-        output.encodeSerializableElement(serialDesc, 0, (SerializationStrategy) var3[0].getValue(), self.itemList);
+        output.encodeSerializableElement(serialDesc, 0, ((SerializationStrategy) lazyArray[0].getValue()), self.itemList);
     }
 
     public WayPointsRecord(int seen0, List wayPoints, SerializationConstructorMarker serializationConstructorMarker) {
@@ -78,7 +77,7 @@ public class WayPointsRecord {
     }
 
     private static KSerializer getKSerializer() {
-        return (KSerializer) new ArrayListSerializer((KSerializer) IdRecord7Serializer.INSTANCE);
+        return ((KSerializer) new ArrayListSerializer(((KSerializer) IdRecord7Serializer.INSTANCE)));
     }
 
     public static Lazy[] process() {
@@ -87,9 +86,9 @@ public class WayPointsRecord {
 
     static {
         serviceComponent72 = new ServiceComponent72();
-        Lazy[] var11 = new Lazy[1];
-        var11[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
-        lazyArray = var11;
+        Lazy[] items = new Lazy[1];
+        items[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
+        lazyArray = items;
     }
 
 }

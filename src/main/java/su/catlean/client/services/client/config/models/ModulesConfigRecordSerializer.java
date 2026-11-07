@@ -21,64 +21,62 @@ public class ModulesConfigRecordSerializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, ModulesConfigRecord value) {
-        SerialDescriptor var7 = serialDescriptor;
-        CompositeEncoder var8 = encoder.beginStructure();
-        ModulesConfigRecord.executeAction(value);
-        var8.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        ModulesConfigRecord.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public ModulesConfigRecord resolveModulesConfigRecord(Decoder decoder) {
-        SerialDescriptor var10 = serialDescriptor;
-        int var11 = 1;
-        int var13 = 0;
-        int var18 = 0;
-        CompositeDecoder var19 = decoder.beginStructure();
-        if (var9 != null) {
-            if (var19.decodeSequentially()) {
-            }
-            String var14 = var19.decodeStringElement(0);
-            var13 = (var13 | 1);
-            String var15 = var19.decodeStringElement(1);
-            var13 = (var13 | 2);
-            String var16 = var19.decodeStringElement(2);
-            var13 = (var13 | 4);
-            String var17 = var19.decodeStringElement(3);
-            var13 = (var13 | 8);
-            if (0L > 0) {
-                var18 = var19.decodeBooleanElement(4);
-                var13 = (var13 | 16);
-            }
-            if (var9 == null && var11) {
-                int var12 = var19.decodeElementIndex();
-                if (var9 != null) {
-                    if (var9 != null) {
-                    }
-                    var11 = 0;
-                    if (0L >= 0) {
-                        var14 = var19.decodeStringElement(0);
-                        var13 = (var13 | 1);
-                    }
-                    if (0L > 0) {
-                        var15 = var19.decodeStringElement(1);
-                        var13 = (var13 | 2);
-                    }
-                    if (0L > 0) {
-                        var16 = var19.decodeStringElement(2);
-                        var13 = (var13 | 4);
-                    }
-                    if (0L > 0) {
-                        var17 = var19.decodeStringElement(3);
-                        var13 = (var13 | 8);
-                    }
-                    if (0L >= 0) {
-                        var18 = var19.decodeBooleanElement(4);
-                        var13 = (var13 | 16);
+        int index = 1;
+        int index2 = 0;
+        int index3 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        if (__UNDEF_KEY__ != null) {
+            if (compositeDecoder.decodeSequentially()) {
+                String text = compositeDecoder.decodeStringElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                String text2 = compositeDecoder.decodeStringElement(serialDescriptor, 1);
+                index2 = (index2 | 2);
+                String text3 = compositeDecoder.decodeStringElement(serialDescriptor, 2);
+                index2 = (index2 | 4);
+                String text4 = compositeDecoder.decodeStringElement(serialDescriptor, 3);
+                index2 = (index2 | 8);
+                if (__UNDEF_KEY__ > 0) {
+                    index3 = compositeDecoder.decodeBooleanElement(serialDescriptor, 4);
+                    index2 = (index2 | 16);
+                    if (__UNDEF_KEY__ == null && index) {
+                        int index4 = compositeDecoder.decodeElementIndex(serialDescriptor);
+                        if (__UNDEF_KEY__ != null) {
+                            if (__UNDEF_KEY__ != null) {
+                            }
+                            index = 0;
+                            if (__UNDEF_KEY__ >= 0) {
+                                text = compositeDecoder.decodeStringElement(serialDescriptor, 0);
+                                index2 = (index2 | 1);
+                            }
+                            if (__UNDEF_KEY__ > 0) {
+                                text2 = compositeDecoder.decodeStringElement(serialDescriptor, 1);
+                                index2 = (index2 | 2);
+                            }
+                            if (__UNDEF_KEY__ > 0) {
+                                text3 = compositeDecoder.decodeStringElement(serialDescriptor, 2);
+                                index2 = (index2 | 4);
+                            }
+                            if (__UNDEF_KEY__ > 0) {
+                                text4 = compositeDecoder.decodeStringElement(serialDescriptor, 3);
+                                index2 = (index2 | 8);
+                            }
+                            if (__UNDEF_KEY__ >= 0) {
+                                index3 = compositeDecoder.decodeBooleanElement(serialDescriptor, 4);
+                                index2 = (index2 | 16);
+                            }
+                            compositeDecoder.endStructure(serialDescriptor);
+                        }
                     }
                 }
             }
-            var19.endStructure();
         }
-        return new ModulesConfigRecord(null);
+        return new ModulesConfigRecord(index2, text, text2, text3, text4, index3);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -86,13 +84,13 @@ public class ModulesConfigRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        KSerializer[] var1 = new KSerializer[5];
-        var1[0] = StringSerializer.INSTANCE;
-        var1[1] = StringSerializer.INSTANCE;
-        var1[2] = StringSerializer.INSTANCE;
-        var1[3] = StringSerializer.INSTANCE;
-        var1[4] = BooleanSerializer.INSTANCE;
-        return var1;
+        KSerializer[] items = new KSerializer[5];
+        items[0] = StringSerializer.INSTANCE;
+        items[1] = StringSerializer.INSTANCE;
+        items[2] = StringSerializer.INSTANCE;
+        items[3] = StringSerializer.INSTANCE;
+        items[4] = BooleanSerializer.INSTANCE;
+        return items;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -100,7 +98,7 @@ public class ModulesConfigRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (ModulesConfigRecord) value);
+        this.executeAction(encoder, ((ModulesConfigRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -109,13 +107,13 @@ public class ModulesConfigRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new ModulesConfigRecordSerializer();
-        PluginGeneratedSerialDescriptor var22 = new PluginGeneratedSerialDescriptor("su.catlean.sl", (GeneratedSerializer) INSTANCE, 5);
-        var22.addElement("modulesConfig", 1);
-        var22.addElement("widgetsConfig", 1);
-        var22.addElement("inventoriesConfig", 1);
-        var22.addElement("themeConfig", 1);
-        var22.addElement("rpcAsked", 1);
-        serialDescriptor = (SerialDescriptor) var22;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.sl", ((GeneratedSerializer) INSTANCE), 5);
+        pluginGeneratedSerialDescriptor.addElement("modulesConfig", true);
+        pluginGeneratedSerialDescriptor.addElement("widgetsConfig", true);
+        pluginGeneratedSerialDescriptor.addElement("inventoriesConfig", true);
+        pluginGeneratedSerialDescriptor.addElement("themeConfig", true);
+        pluginGeneratedSerialDescriptor.addElement("rpcAsked", true);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

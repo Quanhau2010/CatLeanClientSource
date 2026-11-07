@@ -15,14 +15,11 @@ public class Comparator10 implements Comparator {
     }
 
     public int compare(Object b) {
-        BlockPos blockPos = (BlockPos) 0L;
-        int var9 = 0;
-        blockPos = (BlockPos) b;
-        Comparable var10 = (Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(blockPos.toCenterPos()));
-        var9 = 0;
-        if (var7 != null) {
+        BlockPos blockPos = ((BlockPos) b);
+        Comparable comparable = ((Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(this.toCenterPos())));
+        if (__UNDEF_KEY__ != null) {
         }
-        return ComparisonsKt.compareValues((Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(blockPos.toCenterPos())));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(blockPos.toCenterPos()))));
     }
 
     public static void updateValue(String[] arg0) {

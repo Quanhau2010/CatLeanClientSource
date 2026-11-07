@@ -27,7 +27,7 @@ public class SettingRenderHelper2 extends TitleRenderHelperImpl {
     }
 
     protected List resolveList() {
-        return CollectionsKt.toList((Iterable) class_7923.field_41177);
+        return CollectionsKt.toList(((Iterable) class_7923.field_41177));
     }
 
     protected String resolveString(class_1299 item) {
@@ -35,52 +35,46 @@ public class SettingRenderHelper2 extends TitleRenderHelperImpl {
     }
 
     protected boolean checkCondition(class_1299 item) {
-        return (EntitiesServiceComponent) this.visibleSettingProperty.getObject2().getList().contains(item);
+        return ((EntitiesServiceComponent) this.visibleSettingProperty.getObject2()).getList().contains(item);
     }
 
     public void render(DrawContext context, float x, float y, class_1299 entity) {
-        if (var7) {
+        if (__UNDEF_KEY__) {
             if (class_1826.method_8019(entity) != null) {
             } else {
             }
         }
-        Item var9 = Items.field_8077;
-        Object var8 = var9;
+        Item item = Items.field_8077;
         context.method_51448().pushMatrix();
         context.method_51448().translate((x + 8.0F), y);
-        context.method_51427(var8.method_7854(), 0, 0);
+        context.method_51427(item.method_7854(), 0, 0);
         context.method_51448().popMatrix();
     }
 
     protected void setValue(class_1299 item) {
-        List positions = (EntitiesServiceComponent) this.visibleSettingProperty.getObject2().getList();
-        int var6 = 0;
-        if (var4) {
-            if (positions.contains(item)) {
+        List list = ((EntitiesServiceComponent) this.visibleSettingProperty.getObject2()).getList();
+        if (__UNDEF_KEY__) {
+            if (list.contains(item)) {
             } else {
             }
         }
-        positions.add(item);
+        list.add(item);
     }
 
     public String resolveString(Object item) {
-        long var4 = (0L ^ 90927979473846L);
-        return this.resolveString((class_1299) item);
+        return this.resolveString(((class_1299) item));
     }
 
     public boolean checkCondition(Object item) {
-        long var4 = (0L ^ 111487467574449L);
-        return this.checkCondition((class_1299) item);
+        return this.checkCondition(((class_1299) item));
     }
 
     public void render(DrawContext context, float x, float y, Object component) {
-        long var7 = (0L ^ 74559184613877L);
-        this.render(context, x, y, (class_1299) component);
+        this.render(context, x, y, ((class_1299) component));
     }
 
     public void setValue(Object item) {
-        long var4 = (0L ^ 91422355180470L);
-        this.setValue((class_1299) item);
+        this.setValue(((class_1299) item));
     }
 
 }

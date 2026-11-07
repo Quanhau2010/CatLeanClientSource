@@ -39,10 +39,10 @@ public class VRecord {
     }
 
     public static VRecord resolveVRecord(VRecord arg0, int arg1, String arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.countValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.textValue;
         }
         return arg0.resolveVRecord(arg1, arg2);
@@ -53,9 +53,9 @@ public class VRecord {
     }
 
     public int hashCode() {
-        int var3 = Integer.hashCode(this.countValue);
-        var3 = ((var3 * 2234904434545000479L) + this.textValue.hashCode());
-        return var3;
+        int index = Integer.hashCode(this.countValue);
+        index = ((index * 31) + this.textValue.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -65,11 +65,11 @@ public class VRecord {
         if (!(other instanceof VRecord)) {
             return false;
         }
-        VRecord var5 = (VRecord) other;
-        if (this.countValue != var5.countValue) {
+        VRecord vRecord = ((VRecord) other);
+        if (this.countValue != vRecord.countValue) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        if (!(Intrinsics.areEqual(this.textValue, vRecord.textValue))) {
             return false;
         }
         return true;

@@ -48,17 +48,17 @@ public class InstanceServiceComponent2 {
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag;
-        EasingServiceComponent var4 = this.easingServiceComponent;
-        class_1293 var5 = this.minecraftRef;
-        return ("PotionHolder(instance=" + var5 + ", animation=" + var4 + ", removing=" + var3 + ")");
+        boolean flag = this.enabledFlag;
+        EasingServiceComponent easingServiceComponent = this.easingServiceComponent;
+        class_1293 class1293 = this.minecraftRef;
+        return ("PotionHolder(instance=" + class1293 + ", animation=" + easingServiceComponent + ", removing=" + flag + ")");
     }
 
     public int hashCode() {
-        int var3 = this.minecraftRef.hashCode();
-        var3 = ((var3 * 31) + this.easingServiceComponent.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        return var3;
+        int index = this.minecraftRef.hashCode();
+        index = ((index * 31) + this.easingServiceComponent.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -68,14 +68,14 @@ public class InstanceServiceComponent2 {
         if (!(other instanceof InstanceServiceComponent2)) {
             return false;
         }
-        InstanceServiceComponent2 var5 = (InstanceServiceComponent2) other;
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        InstanceServiceComponent2 instanceServiceComponent2 = ((InstanceServiceComponent2) other);
+        if (!(Intrinsics.areEqual(this.minecraftRef, instanceServiceComponent2.minecraftRef))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.easingServiceComponent, var5.easingServiceComponent))) {
+        if (!(Intrinsics.areEqual(this.easingServiceComponent, instanceServiceComponent2.easingServiceComponent))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != instanceServiceComponent2.enabledFlag) {
             return false;
         }
         return true;

@@ -71,40 +71,40 @@ public class UBorderColorShaderComponent implements class_11281 {
     }
 
     public static UBorderColorShaderComponent resolveUBorderColorShaderComponent(UBorderColorShaderComponent arg0, float arg1, float arg2, float arg3, float arg4, Color arg5, int arg6, Object arg7) {
-        if ((arg6 & 1)) {
+        if ((arg6 & 1) != 0) {
             arg1 = arg0.factorValue;
         }
-        if ((arg6 & 2)) {
+        if ((arg6 & 2) != 0) {
             arg2 = arg0.factorValue2;
         }
-        if ((arg6 & 4)) {
+        if ((arg6 & 4) != 0) {
             arg3 = arg0.factorValue3;
         }
-        if ((arg6 & 8)) {
+        if ((arg6 & 8) != 0) {
             arg4 = arg0.factorValue4;
         }
-        if ((arg6 & 16)) {
+        if ((arg6 & 16) != 0) {
             arg5 = arg0.colorValue;
         }
         return arg0.resolveUBorderColorShaderComponent(arg1, arg2, arg3, arg4, arg5);
     }
 
     public String toString() {
-        Color var3 = this.colorValue;
-        float var4 = this.factorValue4;
-        float var5 = this.factorValue3;
-        float var6 = this.factorValue2;
-        float var7 = this.factorValue;
-        return ("UniformData(uSizeX=" + var7 + ", uSizeY=" + var6 + ", radius=" + var5 + ", uBorderWidth=" + var4 + ", uBorderColor=" + var3 + ")");
+        Color color = this.colorValue;
+        float factor = this.factorValue4;
+        float factor2 = this.factorValue3;
+        float factor3 = this.factorValue2;
+        float factor4 = this.factorValue;
+        return ("UniformData(uSizeX=" + factor4 + ", uSizeY=" + factor3 + ", radius=" + factor2 + ", uBorderWidth=" + factor + ", uBorderColor=" + color + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue3));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue4));
-        var3 = ((var3 * 31) + this.colorValue.hashCode());
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + Float.hashCode(this.factorValue4));
+        index = ((index * 31) + this.colorValue.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -114,20 +114,20 @@ public class UBorderColorShaderComponent implements class_11281 {
         if (!(other instanceof UBorderColorShaderComponent)) {
             return false;
         }
-        UBorderColorShaderComponent var5 = (UBorderColorShaderComponent) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        UBorderColorShaderComponent uBorderColorShaderComponent = ((UBorderColorShaderComponent) other);
+        if (Float.compare(this.factorValue, uBorderColorShaderComponent.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, uBorderColorShaderComponent.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, uBorderColorShaderComponent.factorValue3)) {
             return false;
         }
-        if (Float.compare(this.factorValue4, var5.factorValue4)) {
+        if (Float.compare(this.factorValue4, uBorderColorShaderComponent.factorValue4)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue, var5.colorValue))) {
+        if (!(Intrinsics.areEqual(this.colorValue, uBorderColorShaderComponent.colorValue))) {
             return false;
         }
         return true;

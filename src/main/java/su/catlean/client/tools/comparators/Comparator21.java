@@ -16,14 +16,11 @@ public class Comparator21 implements Comparator {
     }
 
     public int compare(Object b) {
-        class_3965 var8 = (class_3965) 0L;
-        int var9 = 0;
-        var8 = (class_3965) b;
-        Comparable var10 = (Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(var8.method_17784()));
-        var9 = 0;
-        if (var7 != null) {
+        class_3965 class3965 = ((class_3965) b);
+        Comparable comparable = ((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(this.method_17784())));
+        if (__UNDEF_KEY__ != null) {
         }
-        return ComparisonsKt.compareValues((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(var8.method_17784())));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(class3965.method_17784()))));
     }
 
     public static void updateValue(String[] arg0) {

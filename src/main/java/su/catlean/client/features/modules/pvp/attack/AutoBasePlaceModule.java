@@ -46,75 +46,73 @@ public class AutoBasePlaceModule extends BlockPlacementModule {
     private static BlockPos blockPos;
 
     private AutoBasePlaceModule() {
-        super("auto-base-place", SubCategoriesKt.getAttackCategory());
+        super("auto-base-place", SubCategoriesKt.getAttackCategory(), 0, false);
     }
 
     private boolean getSponges() {
-        return (Boolean) spongesSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) spongesSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private int getSpongeDelay() {
-        return (Number) spongeDelaySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) spongeDelaySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getOnlyNoPositions() {
-        return (Boolean) onlyNoPositionsSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) onlyNoPositionsSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (this.getSponges()) {
-            Block[] var25 = new Block[1];
-            var25[0] = Blocks.field_10258;
+            Block[] items = new Block[1];
+            items[0] = Blocks.field_10258;
         } else {
+            boolean flag = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items).isActive();
         }
-        boolean var24 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2().isActive();
-        var25 = RunnableServiceComponent.INSTANCE;
-        int var26 = 0;
-        int var27 = 0;
-        var25.getExecutorService().execute((Runnable) new ServiceComponent47());
+        items = RunnableServiceComponent.INSTANCE;
+        int index = 0;
+        int index2 = 0;
+        items.getExecutorService().execute(((Runnable) new ServiceComponent47(index, flag)));
         if (serviceComponent38.checkCondition(10)) {
             if (minecraftRef != null) {
-                var27 = minecraftRef;
-                int var28 = 0;
-                BlockPlacementModule.placeBlocks(INSTANCE, CollectionsKt.listOf(var27.method_17777()));
-                blockPos = var27.method_17777();
+                index2 = minecraftRef;
+                int index3 = 0;
+                BlockPlacementModule.placeBlocks(INSTANCE, CollectionsKt.listOf(index2.method_17777()), false, false, null, false);
+                blockPos = index2.method_17777();
                 serviceComponent38.updateValue();
             } else {
             }
         }
-        var25 = SharedKt.getWorld().getBlockState(blockPos.up());
-        var26 = (Iterable) ServiceComponent113.enumEntries;
-        var27 = 0;
-        if (var26 instanceof Collection && (Collection) var26.isEmpty()) {
+        items = SharedKt.getWorld().getBlockState(blockPos.up());
+        index = ((Iterable) ServiceComponent113.enumEntries);
+        index2 = 0;
+        if (index instanceof Collection && ((Collection) index).isEmpty()) {
         } else {
-            var28 = var26.iterator();
-            if (var28.hasNext()) {
-                Object var29 = var28.next();
-                Direction var30 = (Direction) var29;
-                int var31 = 0;
-            } else {
+            index3 = index.iterator();
+            while (index3.hasNext()) {
+                Object element = index3.next();
+                Direction direction = ((Direction) element);
             }
         }
-        if (!(AutoCrystalModule.INSTANCE.getEnabled()) || AutoCrystalModule.INSTANCE.getTarget() == null || !(var24) || blockPos == null || !(serviceComponent382.checkCondition(this.getSpongeDelay())) || var25.method_26215() || !(var25.method_45474()) || 0) {
+        if (!(AutoCrystalModule.INSTANCE.getEnabled()) || AutoCrystalModule.INSTANCE.getTarget() == null || !(flag) || blockPos == null || !(serviceComponent382.checkCondition(this.getSpongeDelay())) || items.method_26215() || !(items.method_45474()) || 0) {
             return;
         }
-        var27 = (Iterable) ServiceComponent113.enumEntries;
-        var28 = 0;
-        var29 = var27;
-        var30 = (Collection) new ArrayList();
-        var31 = 0;
-        Iterator iterator = var29.iterator();
+        index2 = ((Iterable) ServiceComponent113.enumEntries);
+        index3 = 0;
+        element = index2;
+        direction = ((Collection) new ArrayList());
+        Iterator iterator = element.iterator();
         while (iterator.hasNext()) {
-            Object var33 = iterator.next();
-            Direction var34 = (Direction) var33;
-            int var35 = 0;
-            var30.add();
+            Object element2 = iterator.next();
+            Direction direction2 = ((Direction) element2);
+            direction.add(element2);
         }
-        var26 = var30.iterator();
-        var27 = (Direction) var26.next();
-        var28 = blockPos.offset();
-        BlockPlacementModule.placeBlocks(this, CollectionsKt.listOf(), 0, 0, CollectionsKt.listOf(Blocks.field_10258));
-        serviceComponent382.updateValue();
+        index = direction.iterator();
+        while (index.hasNext()) {
+            index2 = ((Direction) index.next());
+            index3 = blockPos.offset(index2);
+            BlockPlacementModule.placeBlocks(this, CollectionsKt.listOf(index3), false, false, CollectionsKt.listOf(Blocks.field_10258), false);
+            serviceComponent382.updateValue();
+        }
     }
 
     public boolean checkCondition(BlockPos pos) {
@@ -140,11 +138,11 @@ public class AutoBasePlaceModule extends BlockPlacementModule {
     }
 
     static {
-        KProperty[] var31 = new KProperty[3];
+        KProperty[] items = new KProperty[3];
         INSTANCE = new AutoBasePlaceModule();
-        spongesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sponges");
+        spongesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sponges", false);
         spongeDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "sponge-delay", 10, new IntRange(0, 60), null, this::isActive);
-        onlyNoPositionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-no-positions");
+        onlyNoPositionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-no-positions", false);
         serviceComponent38 = new ServiceComponent38();
         serviceComponent382 = new ServiceComponent38();
     }

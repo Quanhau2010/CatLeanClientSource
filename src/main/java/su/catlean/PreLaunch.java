@@ -21,7 +21,7 @@ public class PreLaunch implements PreLaunchEntrypoint {
 
     public void executeAction() {
         if (jFrame != null) {
-            jFrame.setVisible(0);
+            jFrame.setVisible(false);
         } else {
         }
     }
@@ -44,22 +44,20 @@ public class PreLaunch implements PreLaunchEntrypoint {
     }
 
     private static void executeAction2() {
-        JFrame var2 = new JFrame("CatLean");
-        Object var3 = var2;
-        int var4 = 0;
-        var3.setDefaultCloseOperation(2);
-        var3.getContentPane().add((Component) LoadingPanel.INSTANCE);
-        var3.pack();
-        var3.setVisible(1);
-        var3.setResizable(0);
-        var3.setLayout((LayoutManager) new GridLayout());
-        var3.setLocationRelativeTo(null);
-        jFrame = var2;
-        var2 = new Timer(-2277639625428172700L, this::updateValue);
-        var3 = var2;
-        var4 = 0;
-        var3.setRepeats(1);
-        var3.start();
+        JFrame frame = new JFrame("CatLean");
+        JFrame frame2 = frame;
+        frame2.setDefaultCloseOperation(2);
+        frame2.getContentPane().add(((Component) LoadingPanel.INSTANCE));
+        frame2.pack();
+        frame2.setVisible(true);
+        frame2.setResizable(false);
+        frame2.setLayout(((LayoutManager) new GridLayout()));
+        frame2.setLocationRelativeTo(null);
+        jFrame = frame;
+        frame = new Timer(100, this::updateValue);
+        frame2 = frame;
+        frame2.setRepeats(true);
+        frame2.start();
     }
 
     static {

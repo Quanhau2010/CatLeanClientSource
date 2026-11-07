@@ -33,7 +33,7 @@ public class AutoTpaAcceptModule extends Module {
     }
 
     private boolean getGrief() {
-        return (Boolean) griefSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) griefSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setGrief(boolean value) {
@@ -41,7 +41,7 @@ public class AutoTpaAcceptModule extends Module {
     }
 
     private boolean getOnlyFriends() {
-        return (Boolean) onlyFriendsSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) onlyFriendsSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setOnlyFriends(boolean value) {
@@ -49,42 +49,39 @@ public class AutoTpaAcceptModule extends Module {
     }
 
     public void onReceivePacket(ReceivePacket event) {
-        String var18 = (class_7439) event.getPacket().comp_763().getString();
-        if (!(StringsKt.contains$default((CharSequence) var18, (CharSequence) "\u0442\u0435\u043b\u0435\u043f\u043e\u0440\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0441\u044f"))) {
+        String text = ((class_7439) event.getPacket()).comp_763().getString();
+        if (!(StringsKt.contains$default(((CharSequence) text), ((CharSequence) "\u0442\u0435\u043b\u0435\u043f\u043e\u0440\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c\u0441\u044f"), false))) {
         }
         if (this.getOnlyFriends()) {
-            if (StringsKt.contains$default((CharSequence) var18, (CharSequence) "tpaccept") && PlayerEntityHelper.INSTANCE.checkCondition(this.resolveString())) {
+            if (StringsKt.contains$default(((CharSequence) text), ((CharSequence) "tpaccept"), false) && PlayerEntityHelper.INSTANCE.checkCondition(this.resolveString(text))) {
+                if (this.getGrief()) {
+                } else {
+                }
+                PacketPacketHelper.executeAction(("tpaccept " + ""));
             }
-            if (this.getGrief()) {
-            } else {
-            }
-            PacketPacketHelper.executeAction(("tpaccept " + ""));
         }
         serviceComponent10.executeAction();
     }
 
     private String resolveString(String arg0) {
-        Iterable var7 = (Iterable) SharedKt.getNetwork().method_45732();
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
-        if (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            class_640 var11 = (class_640) var10;
-            int var12 = 0;
-        } else {
+        Iterable iterable = ((Iterable) SharedKt.getNetwork().method_45732());
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            class_640 class640 = ((class_640) element);
         }
-        if ((class_640) null != null && (class_640) null.method_2966() != null) {
-            if ((class_640) null.method_2966().name() == null) {
+        if (((class_640) null) != null && ((class_640) null).method_2966() != null) {
+            if (((class_640) null).method_2966().name() == null) {
             }
         }
         return "-";
     }
 
     static {
-        KProperty[] var26 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new AutoTpaAcceptModule();
-        griefSetting = VisibleRenderHelper.registerSetting(INSTANCE, "grief");
-        onlyFriendsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-friends");
+        griefSetting = VisibleRenderHelper.registerSetting(INSTANCE, "grief", false);
+        onlyFriendsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-friends", true);
         serviceComponent10 = new ServiceComponent10();
     }
 

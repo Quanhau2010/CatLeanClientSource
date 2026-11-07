@@ -23,7 +23,7 @@ public class PreInteractItemEvent extends Event {
 
     public boolean call(Hand hand) {
         hand = hand;
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }

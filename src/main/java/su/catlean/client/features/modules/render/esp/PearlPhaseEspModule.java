@@ -40,51 +40,51 @@ public class PearlPhaseEspModule extends Module {
     }
 
     private float getRange() {
-        return (Number) rangeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) rangeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private Color getSafe() {
-        return (Color) safeSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Color) safeSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private Color getUnsafe() {
-        return (Color) unsafeSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Color) unsafeSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
         if (!(SharedKt.getPlayer().isOnGround()) || !(SharedKt.getWorld().getBlockState(BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()).method_1031(0.0D, 0.21D, 0.0D))).method_45474())) {
             return;
         }
-        Map var22 = this.resolveMap();
-        Iterator iterator = var22.entrySet().iterator();
+        Map map = this.resolveMap();
+        Iterator iterator = map.entrySet().iterator();
         while (iterator.hasNext()) {
-            Entry var24 = (Entry) iterator.next();
-            TextShaderComponent2.checkCondition((Box) var24.getKey(), (Color) var24.getValue());
-            TextShaderComponent2.checkCondition((Box) var24.getKey(), PolygonShaderComponent.INSTANCE.resolveColor((Color) var24.getValue(), 1.0F));
+            Entry entry = ((Entry) iterator.next());
+            TextShaderComponent2.checkCondition(((Box) entry.getKey()), ((Color) entry.getValue()));
+            TextShaderComponent2.checkCondition(((Box) entry.getKey()), PolygonShaderComponent.INSTANCE.resolveColor(((Color) entry.getValue()), 1.0F));
         }
     }
 
     private Map resolveMap() {
-        Map var18 = (Map) new LinkedHashMap();
+        Map map = ((Map) new LinkedHashMap());
         Iterator iterator = SharedKt.getWorld().method_20812(SharedKt.getPlayer(), SharedKt.getPlayer().method_5829().method_1009(this.getRange(), 0.0D, this.getRange()).method_35575((SharedKt.getPlayer().getY() + 0.21D)).method_35578((SharedKt.getPlayer().getY() + 0.21D))).iterator();
-        if (iterator.hasNext()) {
-            class_265 var20 = (class_265) iterator.next();
-            if (var17) {
-                if (SharedKt.getWorld().getBlockState(BlockPos.ofFloored(var20.method_1107().method_1005()).down()).method_45474()) {
+        while (iterator.hasNext()) {
+            class_265 class265 = ((class_265) iterator.next());
+            if (__UNDEF_KEY__) {
+                if (SharedKt.getWorld().getBlockState(BlockPos.ofFloored(class265.method_1107().method_1005()).down()).method_45474()) {
                 } else {
                 }
-                var20.method_1107().method_35578(var20.method_1107().field_1322).put(this.getUnsafe(), this.getSafe());
+                class265.method_1107().method_35578(class265.method_1107().field_1322).put(this.getUnsafe(), this.getSafe());
             }
         }
-        return var18;
+        return map;
     }
 
     static {
-        KProperty[] var29 = new KProperty[3];
+        KProperty[] items = new KProperty[3];
         INSTANCE = new PearlPhaseEspModule();
-        rangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "range", 1.0F, RangesKt.rangeTo(0.01F, 3.0F), null, null, -3982960260070506472L);
-        safeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "safe", new Color(-8422532185734512385L, 5485597045802664191L, 5485597045802664191L, -5060994796508676036L), null, null, 2352768743852998668L);
-        unsafeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "unsafe", new Color(5485597045802664191L, 7632062915402530916L, -1914391830066102172L, -7735313005780402116L), null, null, -5163306204604137460L);
+        rangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "range", 1.0F, RangesKt.rangeTo(0.01F, 3.0F));
+        safeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "safe", new Color(255, 255, 255, 60));
+        unsafeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "unsafe", new Color(255, 100, 100, 60));
     }
 
 }

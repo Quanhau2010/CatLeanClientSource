@@ -30,11 +30,11 @@ public class NameProtectModule extends Module {
     }
 
     public String getName() {
-        return (String) nameSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((String) nameSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public NameProtectReplaceMode getReplace() {
-        return (NameProtectReplaceMode) replaceSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((NameProtectReplaceMode) replaceSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void onStringDecomposerEvent(StringDecomposerEvent arg0) {
@@ -44,35 +44,33 @@ public class NameProtectModule extends Module {
     public String resolveString(String text) {
         if (this.checkCondition()) {
             if (!(this.getEnabled())) {
+                return text;
             }
-            return text;
         }
-        String var23 = StringsKt.replace$default(text, SharedKt.getPlayer().method_7334().name(), this.getName());
+        String text2 = StringsKt.replace$default(text, SharedKt.getPlayer().method_7334().name(), this.getName(), false);
         if (this.getReplace() != NameProtectReplaceMode.ONLY_SELF) {
-            Iterable var24 = (Iterable) SharedKt.getNetwork().method_2880();
-            int var25 = 0;
-            Iterator iterator = var24.iterator();
-            if (iterator.hasNext()) {
-                Object var27 = iterator.next();
-                class_640 var28 = (class_640) var27;
-                int var29 = 0;
-                if (0L >= 0) {
+            Iterable iterable = ((Iterable) SharedKt.getNetwork().method_2880());
+            Iterator iterator = iterable.iterator();
+            while (iterator.hasNext()) {
+                Object element = iterator.next();
+                class_640 class640 = ((class_640) element);
+                if (__UNDEF_KEY__ >= 0) {
                     if (INSTANCE.getReplace() != NameProtectReplaceMode.ALL) {
-                        if (PlayerEntityHelper.INSTANCE.checkCondition(var28.method_2966().name())) {
+                        if (PlayerEntityHelper.INSTANCE.checkCondition(class640.method_2966().name())) {
+                            text2 = StringsKt.replace$default(text2, class640.method_2966().name(), INSTANCE.getName(), false);
                         }
-                        var23 = StringsKt.replace$default(var28.method_2966().name(), INSTANCE.getName());
                     }
                 }
             }
         }
-        return var23;
+        return text2;
     }
 
     static {
-        KProperty[] var29 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new NameProtectModule();
-        nameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "name", "catlean.su", null, null, -2411962008896274420L);
-        replaceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "replace", NameProtectReplaceMode.FRIENDS, null, null, -8254258175985844212L);
+        nameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "name", "catlean.su");
+        replaceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "replace", NameProtectReplaceMode.FRIENDS);
     }
 
 }

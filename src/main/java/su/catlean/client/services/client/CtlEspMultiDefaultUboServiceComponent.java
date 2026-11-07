@@ -23,7 +23,7 @@ public class CtlEspMultiDefaultUboServiceComponent {
     static {
         INSTANCE = new CtlEspMultiDefaultUboServiceComponent();
         countValue = new Std140SizeCalculator().putVec2().putFloat().putInt().get();
-        minecraftRef = new class_11280(countValue);
+        minecraftRef = new class_11280(countValue, 0);
     }
 
 }

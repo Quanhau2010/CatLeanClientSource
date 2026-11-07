@@ -26,15 +26,15 @@ public class MultiPlayerGameModeMixin {
     }
 
     public void updateBlockBreakingProgress(BlockPos pos, Direction direction, CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(0));
+        cir.setReturnValue(Boolean.valueOf(false));
     }
 
     private void attackBlockHook(BlockPos pos, Direction direction, CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(0));
+        cir.setReturnValue(Boolean.valueOf(false));
     }
 
     public void breakBlockHook(BlockPos pos, CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(0));
+        cir.setReturnValue(Boolean.valueOf(false));
     }
 
     public void clickSlotHook(int syncId, int slotId, int button, class_1713 actionType, PlayerEntity player, CallbackInfo ci) {

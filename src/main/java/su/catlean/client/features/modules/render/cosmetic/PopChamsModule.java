@@ -76,19 +76,19 @@ public class PopChamsModule extends Module {
     }
 
     private PopChamsMode getMode() {
-        return (PopChamsMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((PopChamsMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private int getAlpha() {
-        return (Number) alphaSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) alphaSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private float getYSpeed() {
-        return (Number) ySpeedSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) ySpeedSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private float getASpeed() {
-        return (Number) aSpeedSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) aSpeedSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
@@ -97,44 +97,42 @@ public class PopChamsModule extends Module {
 
     private void onRender3DEvent(Render3DEvent arg0) {
         if (this.getMode() == PopChamsMode.DEFAULT) {
-            int var26 = 4;
-            int var27 = 0;
-            int var28 = (copyOnWriteArrayList.size() * 72);
-            VertexFormat var29 = class_290.field_1576;
-            FormatRenderHelper var31 = new FormatRenderHelper();
-            Iterable var32 = (Iterable) copyOnWriteArrayList;
-            int var33 = 0;
-            Iterator iterator = var32.iterator();
+            int index = 4;
+            int index2 = 0;
+            int index3 = (copyOnWriteArrayList.size() * 72);
+            VertexFormat vertexFormat = class_290.field_1576;
+            FormatRenderHelper formatRenderHelper = new FormatRenderHelper(vertexFormat, index3, index2, index);
+            Iterable iterable = ((Iterable) copyOnWriteArrayList);
+            int index4 = 0;
+            Iterator iterator = iterable.iterator();
             while (iterator.hasNext()) {
-                Object var35 = iterator.next();
-                ModelServiceComponent var36 = (ModelServiceComponent) var35;
-                int var37 = 0;
-                StackRenderHelper3.INSTANCE.render(arg0.getStack(), var36.getMinecraftObject(), var36.getMinecraftObject(), var36.resolveMinecraftObject(), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), var36.computeValue()), PlayerEspRenderMode.FILL);
+                Object element = iterator.next();
+                ModelServiceComponent modelServiceComponent = ((ModelServiceComponent) element);
+                StackRenderHelper3.INSTANCE.render(arg0.getStack(), modelServiceComponent.getMinecraftObject(), modelServiceComponent.getMinecraftObject(), modelServiceComponent.resolveMinecraftObject(), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), modelServiceComponent.computeValue()), PlayerEspRenderMode.FILL, formatRenderHelper);
             }
-            FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, arg0.getStack().method_23760().method_23761());
-            int var25 = 1;
-            var26 = (copyOnWriteArrayList.size() * 144);
-            var27 = class_290.field_1576;
-            var31 = new FormatRenderHelper();
-            var32 = (Iterable) copyOnWriteArrayList;
-            var33 = 0;
-            iterator = var32.iterator();
+            FormatRenderHelper.executeAction(formatRenderHelper, VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, arg0.getStack().method_23760().method_23761());
+            int index5 = 1;
+            index = (copyOnWriteArrayList.size() * 144);
+            index2 = class_290.field_1576;
+            formatRenderHelper = new FormatRenderHelper(index2, index, index5);
+            iterable = ((Iterable) copyOnWriteArrayList);
+            index4 = 0;
+            iterator = iterable.iterator();
             while (iterator.hasNext()) {
-                var35 = iterator.next();
-                var36 = (ModelServiceComponent) var35;
-                var37 = 0;
-                StackRenderHelper3.INSTANCE.render(arg0.getStack(), var36.getMinecraftObject(), var36.getMinecraftObject(), var36.resolveMinecraftObject(), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), (var36.computeValue() * 2.0F)), PlayerEspRenderMode.OUTLINE);
+                element = iterator.next();
+                modelServiceComponent = ((ModelServiceComponent) element);
+                StackRenderHelper3.INSTANCE.render(arg0.getStack(), modelServiceComponent.getMinecraftObject(), modelServiceComponent.getMinecraftObject(), modelServiceComponent.resolveMinecraftObject(), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), (modelServiceComponent.computeValue() * 2.0F)), PlayerEspRenderMode.OUTLINE, formatRenderHelper);
             }
-            FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline25(), null, null, arg0.getStack().method_23760().method_23761());
+            FormatRenderHelper.executeAction(formatRenderHelper, VertexUBOShaderComponent.INSTANCE.getRenderPipeline25(), null, null, arg0.getStack().method_23760().method_23761());
         } else {
-            var31 = (Iterable) copyOnWriteArrayList;
-            var32 = 0;
-            var33 = var31.iterator();
-            while (var33.hasNext()) {
-                iterator = var33.next();
-                var35 = (ModelServiceComponent) iterator;
-                var36 = 0;
-                INSTANCE.render(arg0.getStack());
+            formatRenderHelper = ((Iterable) copyOnWriteArrayList);
+            iterable = 0;
+            index4 = formatRenderHelper.iterator();
+            while (index4.hasNext()) {
+                iterator = index4.next();
+                element = ((ModelServiceComponent) iterator);
+                modelServiceComponent = 0;
+                INSTANCE.render(arg0.getStack(), element);
             }
         }
     }
@@ -143,66 +141,66 @@ public class PopChamsModule extends Module {
         if (SharedKt.getMc().method_1560() == null || SharedKt.getMc().player == null || SharedKt.getMc().field_1773.method_19418() == null || SharedKt.getMc().world == null || SharedKt.getPlayer().field_6012 < 10) {
             return;
         }
-        Packet var21 = event.getPacket();
-        Entity entity = (class_2663) var21.method_11469((World) SharedKt.getWorld());
+        Packet packet = event.getPacket();
+        Entity entity = ((class_2663) packet).method_11469(((World) SharedKt.getWorld()));
         if (entity instanceof PlayerEntity) {
         } else {
         }
         if (null == null) {
             return;
         }
-        PlayerEntity player = (PlayerEntity) entity;
+        PlayerEntity player = ((PlayerEntity) entity);
         if (Intrinsics.areEqual(player, SharedKt.getMc().player)) {
             return;
         }
-        class_591 var23 = (class_591) (class_1007) SharedKt.getMc().method_1561().method_3953(player).method_4038();
-        class_10017 var25 = SharedKt.getMc().method_1561().method_3953(player).method_62425(player, TextShaderComponent2.INSTANCE.computeValue());
-        entity = (class_10055) var25;
-        var25 = new class_10055();
-        var25.field_53536 = entity.field_53536;
-        var25.field_53537 = entity.field_53537;
-        var25.field_53538 = entity.field_53538;
-        var25.field_53325 = entity.field_53325;
-        var25.field_53326 = entity.field_53326;
-        var25.field_53327 = entity.field_53327;
-        var25.field_53446 = entity.field_53446;
-        var25.field_53447 = entity.field_53447;
-        var25.field_53448 = entity.field_53448;
-        var25.field_63604 = entity.field_63604;
-        var25.field_53521 = entity.field_53521;
-        var25.field_53328 = entity.field_53328;
-        var25.field_53451 = entity.field_53451;
-        var25.field_53405 = entity.field_53405;
-        var25.field_53450 = entity.field_53450;
-        var23.method_62110(entity);
+        class_591 class591 = ((class_591) ((class_1007) SharedKt.getMc().method_1561().method_3953(player)).method_4038());
+        class_10017 class10017 = SharedKt.getMc().method_1561().method_3953(player).method_62425(player, TextShaderComponent2.INSTANCE.computeValue());
+        entity = ((class_10055) class10017);
+        class10017 = new class_10055();
+        class10017.field_53536 = entity.field_53536;
+        class10017.field_53537 = entity.field_53537;
+        class10017.field_53538 = entity.field_53538;
+        class10017.field_53325 = entity.field_53325;
+        class10017.field_53326 = entity.field_53326;
+        class10017.field_53327 = entity.field_53327;
+        class10017.field_53446 = entity.field_53446;
+        class10017.field_53447 = entity.field_53447;
+        class10017.field_53448 = entity.field_53448;
+        class10017.field_63604 = entity.field_63604;
+        class10017.field_53521 = entity.field_53521;
+        class10017.field_53328 = entity.field_53328;
+        class10017.field_53451 = entity.field_53451;
+        class10017.field_53405 = entity.field_53405;
+        class10017.field_53450 = entity.field_53450;
+        class591.method_62110(entity);
         Vec3d vec = this.resolveMinecraftObject(player);
-        class_2960 var27 = (AbstractClientPlayerEntity) player.method_52814().comp_1626().comp_3627();
-        copyOnWriteArrayList.add(new ModelServiceComponent(vec, this.getAlpha()));
+        class_2960 class2960 = ((AbstractClientPlayerEntity) player).method_52814().comp_1626().comp_3627();
+        copyOnWriteArrayList.add(new ModelServiceComponent(class591, class10017, vec, class2960, this.getAlpha()));
     }
 
     private void render(MatrixStack arg0, ModelServiceComponent arg1) {
-        GpuTextureView var31 = SharedKt.getMc().method_1531().method_4619(arg1.getMinecraftObject()).method_71659();
-        int var27 = 4;
-        int var28 = 0;
-        int var29 = 256;
-        VertexFormat var30 = class_290.field_1575;
-        FormatRenderHelper var32 = new FormatRenderHelper();
-        PolygonRenderHelper2 var33 = new PolygonRenderHelper2(PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), arg1.computeValue()));
+        GpuTextureView gpuTextureView = SharedKt.getMc().method_1531().method_4619(arg1.getMinecraftObject()).method_71659();
+        int index = 4;
+        int index2 = 0;
+        int index3 = 256;
+        VertexFormat vertexFormat = class_290.field_1575;
+        FormatRenderHelper formatRenderHelper = new FormatRenderHelper(vertexFormat, index3, index2, index);
+        PolygonRenderHelper2 polygonRenderHelper2 = new PolygonRenderHelper2(formatRenderHelper, PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), arg1.computeValue()));
         arg0.method_22903();
         Vec3d vec = arg1.resolveMinecraftObject();
         Vec3d vec2 = SharedKt.getMc().method_1561().field_4686.method_71156();
-        double var36 = (vec.field_1352 - vec2.method_10216());
-        double var38 = (vec.field_1351 - vec2.method_10214());
-        double var40 = (vec.field_1350 - vec2.method_10215());
-        arg0.method_46416();
+        double offset = (vec.field_1352 - vec2.method_10216());
+        double offset2 = (vec.field_1351 - vec2.method_10214());
+        double offset3 = (vec.field_1350 - vec2.method_10215());
+        arg0.method_46416(offset, offset2, offset3);
         arg0.method_22905(arg1.getMinecraftObject().field_53453, arg1.getMinecraftObject().field_53453, arg1.getMinecraftObject().field_53453);
         LogoutSpotsModule.INSTANCE.render(arg1.getMinecraftObject(), arg0, arg1.getMinecraftObject().field_53446);
         arg0.method_22905(-1.0F, -1.0F, 1.0F);
         arg0.method_22905(0.9375F, 0.9375F, 0.9375F);
         arg0.method_46416(0.0F, -1.501F, 0.0F);
         arg1.getMinecraftObject().method_62110(arg1.getMinecraftObject());
-        arg1.getMinecraftObject().method_62100(arg0, (class_4588) var33, 15728880, 0, NewThemeRenderHelper.INSTANCE.getColor2().getRGB());
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline16(), null, null, new MatrixStack().method_23760().method_23761(), null, MapsKt.mapOf(TuplesKt.to("Sampler0")));
+        arg1.getMinecraftObject().method_62100(arg0, ((class_4588) polygonRenderHelper2), 15728880, 0, NewThemeRenderHelper.INSTANCE.getColor2().getRGB());
+        FormatRenderHelper.executeAction(formatRenderHelper, VertexUBOShaderComponent.INSTANCE.getRenderPipeline16(), null, null, new MatrixStack().method_23760().method_23761(), null, MapsKt.mapOf(TuplesKt.to("Sampler0", gpuTextureView)));
         arg0.method_22909();
     }
 
@@ -211,11 +209,11 @@ public class PopChamsModule extends Module {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {
-        KProperty[] var31 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new PopChamsModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", PopChamsMode.DEFAULT);
         alphaSetting = VisibleRenderHelper.registerSetting(INSTANCE, "start-alpha", 255, new IntRange(0, 255));

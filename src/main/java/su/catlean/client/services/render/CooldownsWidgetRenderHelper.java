@@ -41,164 +41,126 @@ public class CooldownsWidgetRenderHelper extends CheckRenderHelper {
     }
 
     public void render(DrawContext context) {
-        long var4 = (0L ^ 73719739740194L);
-        long var6 = (0L ^ 50910300018319L);
-        long var8 = (0L ^ 81581919584095L);
-        long var10 = ((0L ^ 72787674350557L) >>> 32);
-        long var11 = (((0L ^ 72787674350557L) << 32) >>> 48);
-        long var12 = (((0L ^ 72787674350557L) << 48) >>> 48);
-        long var13 = ((0L ^ 99541060701969L) >>> 48);
-        long var14 = (((0L ^ 99541060701969L) << 16) >>> 32);
-        long var15 = (((0L ^ 99541060701969L) << 48) >>> 48);
-        long var16 = (0L ^ 109580710346244L);
-        long var18 = (0L ^ 100479272291701L);
-        long var20 = (0L ^ 130512158954640L);
-        long var22 = ((0L ^ 104104530525409L) >>> 48);
-        long var23 = (((0L ^ 104104530525409L) << 16) >>> 32);
-        long var24 = (((0L ^ 104104530525409L) << 48) >>> 48);
-        long var25 = (0L ^ 112434023090035L);
-        long var27 = (0L ^ 128377113661390L);
-        long var29 = (0L ^ 122988646685770L);
-        long var31 = (0L ^ 20173347401993L);
-        long var33 = (0L ^ 99949442920536L);
-        long var35 = (0L ^ 30591967126976L);
-        Iterator iterator = (ItemCooldownsAccessor) SharedKt.getPlayer().method_7357().getCooldowns().entrySet().iterator();
+        Iterator iterator = ((ItemCooldownsAccessor) SharedKt.getPlayer().method_7357()).getCooldowns().entrySet().iterator();
         while (iterator.hasNext()) {
-            Entry var41 = (Entry) iterator.next();
-            Item var42 = (Item) class_7923.field_41178.method_63535((class_2960) var41.getKey());
-            Iterable var43 = (Iterable) itemList;
-            int var44 = 0;
-            if (0L >= 0L) {
-                if (0L > 0L && var39) {
-                }
-                if (var43 instanceof Collection) {
-                    if (var39 && var39) {
-                        if ((Collection) var43.isEmpty()) {
+            Entry entry = ((Entry) iterator.next());
+            Item item = ((Item) class_7923.field_41178.method_63535(((class_2960) entry.getKey())));
+            Iterable iterable = ((Iterable) itemList);
+            int index = 0;
+            if (__UNDEF_KEY__) {
+                if (iterable instanceof Collection) {
+                    if (__UNDEF_KEY__ && __UNDEF_KEY__) {
+                        if (((Collection) iterable).isEmpty()) {
                         }
                     }
                 }
-                Iterator iterator2 = var43.iterator();
-                if (iterator2.hasNext()) {
-                    Object var46 = iterator2.next();
-                    InstanceServiceComponent var47 = (InstanceServiceComponent) var46;
-                    int var48 = 0;
-                } else {
+                Iterator iterator2 = iterable.iterator();
+                while (iterator2.hasNext()) {
+                    Object element = iterator2.next();
+                    InstanceServiceComponent instanceServiceComponent = ((InstanceServiceComponent) element);
+                    int index2 = 0;
                 }
-                itemList.add(new InstanceServiceComponent((CooldownInstanceAccessor) var41.getValue().getEndTime()));
+                itemList.add(new InstanceServiceComponent(item, ((CooldownInstanceAccessor) entry.getValue()).getEndTime(), null, false));
                 iterator = 0;
                 iterator.printStackTrace();
             }
         }
-        iterator = (Iterable) itemList;
-        var41 = 0;
-        var42 = iterator.iterator();
-        if (var42.hasNext()) {
-            var43 = var42.next();
-            var44 = (InstanceServiceComponent) var43;
+        iterator = ((Iterable) itemList);
+        entry = 0;
+        item = iterator.iterator();
+        while (item.hasNext()) {
+            iterable = item.next();
+            index = ((InstanceServiceComponent) iterable);
             iterator2 = 0;
-            if (0L > 0L) {
-                if (var39) {
-                    if (0L > 0L) {
-                        if (var39) {
-                            if (!(SharedKt.getPlayer().method_7357().method_7904(var44.getMinecraftObject().method_7854()))) {
-                                var44.updateValue(1);
-                            }
-                        }
+            if (__UNDEF_KEY__) {
+                if (__UNDEF_KEY__) {
+                    if (!(SharedKt.getPlayer().method_7357().method_7904(index.getMinecraftObject().method_7854()))) {
+                        index.updateValue(true);
                     }
                 }
             }
-            itemList.removeIf(this::checkCondition);
         }
+        itemList.removeIf(this::checkCondition);
         iterator = "Cooldowns";
-        if (var39) {
+        if (__UNDEF_KEY__) {
             if (this.computeValue() > (this.computeValue2() / 2.0F)) {
+            } else {
             }
-        } else {
         }
-        var41 = 0;
-        if (0L >= 0L) {
-            if (var39) {
-            }
-            if (0L > 0L) {
-            }
-            if (var39) {
-            }
+        entry = 0;
+        if (__UNDEF_KEY__) {
+        }
+        if (__UNDEF_KEY__) {
         }
         if (itemList.isEmpty() && !(SharedKt.getMc().currentScreen instanceof class_408) && !(SharedKt.getMc().currentScreen instanceof CatleanWidgetEditorRenderHelper)) {
         }
-        0.0F.executeAction(1.0F);
-        this.render(context, iterator, easingServiceComponent.getNumericValue());
-        var42 = 17.0F;
-        var43 = (SFMServiceComponent.resolveFontRenderHelper().computeValue(iterator) + 24.0F);
-        var44 = itemList.iterator();
-        if (var44.hasNext()) {
-            iterator2 = (InstanceServiceComponent) var44.next();
-            var46 = this.resolveString((iterator2.getNumericValue() - (ItemCooldownsAccessor) SharedKt.getPlayer().method_7357().getTickCount()));
-            Object[] var37 = new Object[0];
-            String var38 = iterator2.getMinecraftObject().method_7876();
-            var47 = KeyServiceComponent.INSTANCE.resolveString();
-            var48 = SFMServiceComponent.resolveFontRenderHelper().computeValue();
-            float var49 = SFMServiceComponent.resolveFontRenderHelper().computeValue();
-            if (0L >= 0L) {
-                if (var39) {
-                    if (var39) {
-                    }
+        this.executeAction(1.0F);
+        this.render(context, iterator, easingServiceComponent.getNumericValue(), entry);
+        item = 17.0F;
+        iterable = (SFMServiceComponent.resolveFontRenderHelper().computeValue(iterator) + 24.0F);
+        index = itemList.iterator();
+        while (index.hasNext()) {
+            iterator2 = ((InstanceServiceComponent) index.next());
+            element = this.resolveString((iterator2.getNumericValue() - ((ItemCooldownsAccessor) SharedKt.getPlayer().method_7357()).getTickCount()));
+            Object[] items = new Object[0];
+            String text = iterator2.getMinecraftObject().method_7876();
+            instanceServiceComponent = KeyServiceComponent.INSTANCE.resolveString(text, items);
+            index2 = SFMServiceComponent.resolveFontRenderHelper().computeValue(instanceServiceComponent);
+            float factor = SFMServiceComponent.resolveFontRenderHelper().computeValue(element);
+            if (__UNDEF_KEY__) {
+                if (__UNDEF_KEY__) {
+                    iterable = ((index2 + factor) + 27.0F);
+                    index = itemList.iterator();
                 }
-                var43 = ((var48 + var49) + 27.0F);
             }
-            var44 = itemList.iterator();
         }
-        if (var44.hasNext()) {
-            iterator2 = (InstanceServiceComponent) var44.next();
-            var46 = this.resolveString((iterator2.getNumericValue() - (ItemCooldownsAccessor) SharedKt.getPlayer().method_7357().getTickCount()));
-            var37 = new Object[0];
-            var38 = iterator2.getMinecraftObject().method_7876();
-            var47 = KeyServiceComponent.INSTANCE.resolveString();
-            var48 = SFMServiceComponent.resolveFontRenderHelper().computeValue();
-            var49 = SFMServiceComponent.resolveFontRenderHelper().computeValue();
-            if (0L > 0L) {
+        while (index.hasNext()) {
+            iterator2 = ((InstanceServiceComponent) index.next());
+            element = this.resolveString((iterator2.getNumericValue() - ((ItemCooldownsAccessor) SharedKt.getPlayer().method_7357()).getTickCount()));
+            items = new Object[0];
+            text = iterator2.getMinecraftObject().method_7876();
+            instanceServiceComponent = KeyServiceComponent.INSTANCE.resolveString(text, items);
+            index2 = SFMServiceComponent.resolveFontRenderHelper().computeValue(instanceServiceComponent);
+            factor = SFMServiceComponent.resolveFontRenderHelper().computeValue(element);
+            if (entry) {
             }
-            if (var41) {
-            }
-            float var50 = (this.computeValue() - ((1.0F - iterator2.getEasingServiceComponent().getNumericValue()) * 10));
-            CheckRenderHelper.executeAction(this, context.method_51448(), (this.computeValue2() + var42), 13.0F, 13.0F, iterator2.getEasingServiceComponent().getNumericValue());
-            CheckRenderHelper.executeAction(this, context.method_51448(), (var50 + 14.0F), (this.computeValue2() + var42), (var48 + 6.0F), 13.0F, iterator2.getEasingServiceComponent().getNumericValue());
-            CheckRenderHelper.executeAction(this, context.method_51448(), (var50 + ((var48 + 21.0F) * iterator2.getEasingServiceComponent().getNumericValue())), (this.computeValue2() + var42), (var49 + 6.0F), 13.0F, iterator2.getEasingServiceComponent().getNumericValue());
-            this.render(context, (var50 + 17.0F), ((this.computeValue2() + var42) + 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor7(), iterator2.getEasingServiceComponent().getNumericValue()));
-            this.render(context, (var50 + ((var48 + 24.0F) * iterator2.getEasingServiceComponent().getNumericValue())), ((this.computeValue2() + var42) + 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor7(), iterator2.getEasingServiceComponent().getNumericValue()));
+            float factor2 = (this.computeValue() - ((1.0F - iterator2.getEasingServiceComponent().getNumericValue()) * 10));
+            CheckRenderHelper.executeAction(this, context.method_51448(), factor2, (this.computeValue2() + item), 13.0F, 13.0F, iterator2.getEasingServiceComponent().getNumericValue(), false);
+            CheckRenderHelper.executeAction(this, context.method_51448(), (factor2 + 14.0F), (this.computeValue2() + item), (index2 + 6.0F), 13.0F, iterator2.getEasingServiceComponent().getNumericValue(), false);
+            CheckRenderHelper.executeAction(this, context.method_51448(), (factor2 + ((index2 + 21.0F) * iterator2.getEasingServiceComponent().getNumericValue())), (this.computeValue2() + item), (factor + 6.0F), 13.0F, iterator2.getEasingServiceComponent().getNumericValue(), false);
+            this.render(context, instanceServiceComponent, (factor2 + 17.0F), ((this.computeValue2() + item) + 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor7(), iterator2.getEasingServiceComponent().getNumericValue()));
+            this.render(context, element, (factor2 + ((index2 + 24.0F) * iterator2.getEasingServiceComponent().getNumericValue())), ((this.computeValue2() + item) + 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor7(), iterator2.getEasingServiceComponent().getNumericValue()));
             context.method_51448().pushMatrix();
-            context.method_51448().translate((var50 + 2), ((this.computeValue2() + var42) + 2));
+            context.method_51448().translate((factor2 + 2), ((this.computeValue2() + item) + 2));
             context.method_51448().scale(0.55F);
-            if (0L >= 0L) {
-                if (var39) {
-                    if (iterator2.getEasingServiceComponent().getNumericValue() > 0.8F) {
-                        context.method_51427(iterator2.getMinecraftObject().method_7854(), 0, 0);
-                    }
-                    context.method_51448().popMatrix();
+            if (__UNDEF_KEY__) {
+                if (iterator2.getEasingServiceComponent().getNumericValue() > 0.8F) {
+                    context.method_51427(iterator2.getMinecraftObject().method_7854(), 0, 0);
                 }
+                context.method_51448().popMatrix();
             }
-            var42 = (var42 + (14.0F * iterator2.getEasingServiceComponent().getNumericValue()));
+            item = (item + (14.0F * iterator2.getEasingServiceComponent().getNumericValue()));
         }
-        this.executeAction((var42 - 2.0F));
+        this.executeAction(iterable, (item - 2.0F));
     }
 
     public String resolveString(int ticks) {
-        String var4 = "%02d";
-        Object[] var5 = new Object[1];
-        var5[0] = Integer.valueOf(((ticks % 1200) / 20));
-        return ((ticks / 1200) + String.format(Arrays.copyOf()));
+        String text = "%02d";
+        Object[] items = new Object[1];
+        items[0] = Integer.valueOf(((ticks % 1200) / 20));
+        return ((ticks / 1200) + String.format(text, Arrays.copyOf(items, items)));
     }
 
     private static boolean checkCondition(InstanceServiceComponent arg0) {
         if (arg0.isActive()) {
         } else {
         }
-        0.0F.executeAction(1.0F);
+        this.executeAction(1.0F);
         return arg0.getEasingServiceComponent().getNumericValue() <= 0.0F;
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {

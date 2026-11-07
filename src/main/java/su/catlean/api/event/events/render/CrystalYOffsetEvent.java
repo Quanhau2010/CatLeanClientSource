@@ -28,7 +28,7 @@ public class CrystalYOffsetEvent extends Event {
     }
 
     public float getAge() {
-        return (Number) ageSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) ageSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public void setAge(float value) {
@@ -37,13 +37,13 @@ public class CrystalYOffsetEvent extends Event {
 
     public boolean call(float age) {
         this.setAge(age);
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }
 
     static {
-        KProperty[] var0 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new CrystalYOffsetEvent();
         ageSetting = Delegates.INSTANCE.notNull();
     }

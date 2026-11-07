@@ -219,351 +219,332 @@ public class EnabledServiceComponent implements Contract9 {
     }
 
     private boolean checkCondition() {
-        Module[] var3 = new Module[167];
-        var3[0] = ElytraTargetModule.INSTANCE;
-        var3[1] = BowMinecartModule.INSTANCE;
-        var3[2] = ElytraFreezeModule.INSTANCE;
-        var3[3] = DismembermentModule.INSTANCE;
-        var3[4] = ExtraTabModule.INSTANCE;
-        var3[5] = ThrowPetardModule.INSTANCE;
-        var3[6] = AntiAimModule.INSTANCE;
-        var3[7] = VoidEspModule.INSTANCE;
-        var3[8] = AspectModule.INSTANCE;
-        var3[9] = TestModule.INSTANCE;
-        var3[10] = NameProtectModule.INSTANCE;
-        var3[11] = AnchorBindModule.INSTANCE;
-        var3[12] = SpiderModule.INSTANCE;
-        var3[13] = AssistantModule.INSTANCE;
-        var3[14] = AutoBoneMealModule.INSTANCE;
-        var3[15] = PearlPhaseEspModule.INSTANCE;
-        var3[16] = AutoSweetBerriesModule.INSTANCE;
-        var3[17] = MaceElytraTargetModule.INSTANCE;
-        var3[18] = DamageParticlesModule.INSTANCE;
-        var3[19] = InfiniteElytraModule.INSTANCE;
-        var3[20] = MoreKnockbackModule.INSTANCE;
-        var3[21] = EcExploitModule.INSTANCE;
-        var3[22] = AntiAttackModule.INSTANCE;
-        var3[23] = MainhandTotemModule.INSTANCE;
-        var3[24] = ServerHelperModule.INSTANCE;
-        var3[25] = BoatFlyModule.INSTANCE;
-        var3[26] = ZoomModule.INSTANCE;
-        var3[27] = WindHopModule.INSTANCE;
-        var3[28] = LegitStrafeModule.INSTANCE;
-        var3[29] = DamageTintModule.INSTANCE;
-        var3[30] = FreeLookModule.INSTANCE;
-        var3[31] = AutoNetheriteScrapModule.INSTANCE;
-        var3[32] = FastLatencyModule.INSTANCE;
-        var3[33] = PingSpoofModule.INSTANCE;
-        var3[34] = AutoMendModule.INSTANCE;
-        var3[35] = BlockerModule.INSTANCE;
-        var3[36] = AutoShearModule.INSTANCE;
-        var3[37] = SoilRipperModule.INSTANCE;
-        var3[38] = SwingAnimationsModule.INSTANCE;
-        var3[39] = ParticlesModule.INSTANCE;
-        var3[40] = AutoTraderModule.INSTANCE;
-        var3[41] = BuffEffectModule.INSTANCE;
-        var3[42] = ActionRecorderModule.INSTANCE;
-        var3[43] = AutoPotionBrewModule.INSTANCE;
-        var3[44] = AutoLandModule.INSTANCE;
-        var3[45] = AntiKnockBackModule.INSTANCE;
-        var3[46] = ChestStealerModule.INSTANCE;
-        var3[47] = NoCameraClipModule.INSTANCE;
-        var3[48] = AvoidModule.INSTANCE;
-        var3[49] = BreakEspModule.INSTANCE;
-        var3[50] = XRayModule.INSTANCE;
-        var3[51] = ElytraRecastModule.INSTANCE;
-        var3[52] = AutoBasePlaceModule.INSTANCE;
-        var3[53] = GuiMoveModule.INSTANCE;
-        var3[54] = MoveFixModule.INSTANCE;
-        var3[55] = NoPushModule.INSTANCE;
-        var3[56] = SprintModule.INSTANCE;
-        var3[57] = AttributeSwapModule.INSTANCE;
-        var3[58] = AntiVoidModule.INSTANCE;
-        var3[59] = AntiWebModule.INSTANCE;
-        var3[60] = ElytraPlusModule.INSTANCE;
-        var3[61] = FlightModule.INSTANCE;
-        var3[62] = LevitationControlModule.INSTANCE;
-        var3[63] = BlinkModule.INSTANCE;
-        var3[64] = PopChamsModule.INSTANCE;
-        var3[65] = NoFallModule.INSTANCE;
-        var3[66] = NoSlowModule.INSTANCE;
-        var3[67] = PhaseModule.INSTANCE;
-        var3[68] = ReverseStepModule.INSTANCE;
-        var3[69] = SpeedModule.INSTANCE;
-        var3[70] = StepModule.INSTANCE;
-        var3[71] = TimerModule.INSTANCE;
-        var3[72] = WaterSpeedModule.INSTANCE;
-        var3[73] = AuraModule.INSTANCE;
-        var3[74] = AutoCrystalModule.INSTANCE;
-        var3[75] = AbsorptionModule.INSTANCE;
-        var3[76] = SourceFillerModule.INSTANCE;
-        var3[77] = AutoWebModule.INSTANCE;
-        var3[78] = MessageAppendModule.INSTANCE;
-        var3[79] = CriticalsModule.INSTANCE;
-        var3[80] = HoleFillerModule.INSTANCE;
-        var3[81] = AutoBuffModule.INSTANCE;
-        var3[82] = BowSpamModule.INSTANCE;
-        var3[83] = ReachModule.INSTANCE;
-        var3[84] = AutoWitherModule.INSTANCE;
-        var3[85] = HighJumpModule.INSTANCE;
-        var3[86] = SkyLanternsModule.INSTANCE;
-        var3[87] = AntiPhaseModule.INSTANCE;
-        var3[88] = AutoGappleModule.INSTANCE;
-        var3[89] = BurrowModule.INSTANCE;
-        var3[90] = LegitTotemModule.INSTANCE;
-        var3[91] = OffhandModule.INSTANCE;
-        var3[92] = SurroundModule.INSTANCE;
-        var3[93] = AutoArmorModule.INSTANCE;
-        var3[94] = AutoToolModule.INSTANCE;
-        var3[95] = ElytraSwapModule.INSTANCE;
-        var3[96] = InventoryManagerModule.INSTANCE;
-        var3[97] = ItemScrollerModule.INSTANCE;
-        var3[98] = MiddleClickModule.INSTANCE;
-        var3[99] = AutoMineModule.INSTANCE;
-        var3[100] = NoServerSlotModule.INSTANCE;
-        var3[101] = ReFillerModule.INSTANCE;
-        var3[102] = ToolSaverModule.INSTANCE;
-        var3[103] = XCarryModule.INSTANCE;
-        var3[104] = AntiResourcePackModule.INSTANCE;
-        var3[105] = UIModule.INSTANCE;
-        var3[106] = TrapModule.INSTANCE;
-        var3[107] = SelfTrapModule.INSTANCE;
-        var3[108] = TeamCommunicationModule.INSTANCE;
-        var3[109] = NotifierModule.INSTANCE;
-        var3[110] = RPCModule.INSTANCE;
-        var3[111] = SpammerModule.INSTANCE;
-        var3[112] = TapeMouseModule.INSTANCE;
-        var3[113] = TranslatorModule.INSTANCE;
-        var3[114] = AirPlaceModule.INSTANCE;
-        var3[115] = ElytraReplaceModule.INSTANCE;
-        var3[116] = AntiHungerModule.INSTANCE;
-        var3[117] = AutoAuthModule.INSTANCE;
-        var3[118] = AutoFishModule.INSTANCE;
-        var3[119] = AutoRespawnModule.INSTANCE;
-        var3[120] = AutoTpaAcceptModule.INSTANCE;
-        var3[121] = ChorusDelayModule.INSTANCE;
-        var3[122] = MultiTaskModule.INSTANCE;
-        var3[123] = NoDelayModule.INSTANCE;
-        var3[124] = TraceThroughModule.INSTANCE;
-        var3[125] = NoServerRotateModule.INSTANCE;
-        var3[126] = PerfectDelayModule.INSTANCE;
-        var3[127] = PortalGodModeModule.INSTANCE;
-        var3[128] = SpeedMineModule.INSTANCE;
-        var3[129] = AutoSignModule.INSTANCE;
-        var3[130] = FakePlayerModule.INSTANCE;
-        var3[131] = FreeCamModule.INSTANCE;
-        var3[132] = NoRenderModule.INSTANCE;
-        var3[133] = NukerModule.INSTANCE;
-        var3[134] = PearlChaserModule.INSTANCE;
-        var3[135] = ScaffoldModule.INSTANCE;
-        var3[136] = CrystalChamsModule.INSTANCE;
-        var3[137] = FullBrightModule.INSTANCE;
-        var3[138] = HandChamsModule.INSTANCE;
-        var3[139] = HitFxModule.INSTANCE;
-        var3[140] = TotemAnimationModule.INSTANCE;
-        var3[141] = TrajectoriesModule.INSTANCE;
-        var3[142] = ViewModelModule.INSTANCE;
-        var3[143] = WorldRendererModule.INSTANCE;
-        var3[144] = HoleAnchorModule.INSTANCE;
-        var3[145] = CrystalBindModule.INSTANCE;
-        var3[146] = SearchModule.INSTANCE;
-        var3[147] = HoleEspModule.INSTANCE;
-        var3[148] = EntitySpeedModule.INSTANCE;
-        var3[149] = ItemEspModule.INSTANCE;
-        var3[150] = LogoutSpotsModule.INSTANCE;
-        var3[151] = AutoDripstopeModule.INSTANCE;
-        var3[152] = TpsSyncModule.INSTANCE;
-        var3[153] = BoxShrinkerModule.INSTANCE;
-        var3[154] = AutoLeaveModule.INSTANCE;
-        var3[155] = AutoSoupModule.INSTANCE;
-        var3[156] = AutoEatModule.INSTANCE;
-        var3[157] = NameTagsModule.INSTANCE;
-        var3[158] = ProjectilePredictModule.INSTANCE;
-        var3[159] = PlayerEspModule.INSTANCE;
-        var3[160] = StorageEspModule.INSTANCE;
-        var3[161] = TracersModule.INSTANCE;
-        var3[162] = NoInteractModule.INSTANCE;
-        var3[163] = AutoEzModule.INSTANCE;
-        var3[164] = MaceKillerModule.INSTANCE;
-        var3[165] = TridentBoostModule.INSTANCE;
-        var3[166] = QuiverModule.INSTANCE;
-        return arrayList2.addAll((Collection) CollectionsKt.listOf());
+        Module[] items = new Module[167];
+        items[0] = ElytraTargetModule.INSTANCE;
+        items[1] = BowMinecartModule.INSTANCE;
+        items[2] = ElytraFreezeModule.INSTANCE;
+        items[3] = DismembermentModule.INSTANCE;
+        items[4] = ExtraTabModule.INSTANCE;
+        items[5] = ThrowPetardModule.INSTANCE;
+        items[6] = AntiAimModule.INSTANCE;
+        items[7] = VoidEspModule.INSTANCE;
+        items[8] = AspectModule.INSTANCE;
+        items[9] = TestModule.INSTANCE;
+        items[10] = NameProtectModule.INSTANCE;
+        items[11] = AnchorBindModule.INSTANCE;
+        items[12] = SpiderModule.INSTANCE;
+        items[13] = AssistantModule.INSTANCE;
+        items[14] = AutoBoneMealModule.INSTANCE;
+        items[15] = PearlPhaseEspModule.INSTANCE;
+        items[16] = AutoSweetBerriesModule.INSTANCE;
+        items[17] = MaceElytraTargetModule.INSTANCE;
+        items[18] = DamageParticlesModule.INSTANCE;
+        items[19] = InfiniteElytraModule.INSTANCE;
+        items[20] = MoreKnockbackModule.INSTANCE;
+        items[21] = EcExploitModule.INSTANCE;
+        items[22] = AntiAttackModule.INSTANCE;
+        items[23] = MainhandTotemModule.INSTANCE;
+        items[24] = ServerHelperModule.INSTANCE;
+        items[25] = BoatFlyModule.INSTANCE;
+        items[26] = ZoomModule.INSTANCE;
+        items[27] = WindHopModule.INSTANCE;
+        items[28] = LegitStrafeModule.INSTANCE;
+        items[29] = DamageTintModule.INSTANCE;
+        items[30] = FreeLookModule.INSTANCE;
+        items[31] = AutoNetheriteScrapModule.INSTANCE;
+        items[32] = FastLatencyModule.INSTANCE;
+        items[33] = PingSpoofModule.INSTANCE;
+        items[34] = AutoMendModule.INSTANCE;
+        items[35] = BlockerModule.INSTANCE;
+        items[36] = AutoShearModule.INSTANCE;
+        items[37] = SoilRipperModule.INSTANCE;
+        items[38] = SwingAnimationsModule.INSTANCE;
+        items[39] = ParticlesModule.INSTANCE;
+        items[40] = AutoTraderModule.INSTANCE;
+        items[41] = BuffEffectModule.INSTANCE;
+        items[42] = ActionRecorderModule.INSTANCE;
+        items[43] = AutoPotionBrewModule.INSTANCE;
+        items[44] = AutoLandModule.INSTANCE;
+        items[45] = AntiKnockBackModule.INSTANCE;
+        items[46] = ChestStealerModule.INSTANCE;
+        items[47] = NoCameraClipModule.INSTANCE;
+        items[48] = AvoidModule.INSTANCE;
+        items[49] = BreakEspModule.INSTANCE;
+        items[50] = XRayModule.INSTANCE;
+        items[51] = ElytraRecastModule.INSTANCE;
+        items[52] = AutoBasePlaceModule.INSTANCE;
+        items[53] = GuiMoveModule.INSTANCE;
+        items[54] = MoveFixModule.INSTANCE;
+        items[55] = NoPushModule.INSTANCE;
+        items[56] = SprintModule.INSTANCE;
+        items[57] = AttributeSwapModule.INSTANCE;
+        items[58] = AntiVoidModule.INSTANCE;
+        items[59] = AntiWebModule.INSTANCE;
+        items[60] = ElytraPlusModule.INSTANCE;
+        items[61] = FlightModule.INSTANCE;
+        items[62] = LevitationControlModule.INSTANCE;
+        items[63] = BlinkModule.INSTANCE;
+        items[64] = PopChamsModule.INSTANCE;
+        items[65] = NoFallModule.INSTANCE;
+        items[66] = NoSlowModule.INSTANCE;
+        items[67] = PhaseModule.INSTANCE;
+        items[68] = ReverseStepModule.INSTANCE;
+        items[69] = SpeedModule.INSTANCE;
+        items[70] = StepModule.INSTANCE;
+        items[71] = TimerModule.INSTANCE;
+        items[72] = WaterSpeedModule.INSTANCE;
+        items[73] = AuraModule.INSTANCE;
+        items[74] = AutoCrystalModule.INSTANCE;
+        items[75] = AbsorptionModule.INSTANCE;
+        items[76] = SourceFillerModule.INSTANCE;
+        items[77] = AutoWebModule.INSTANCE;
+        items[78] = MessageAppendModule.INSTANCE;
+        items[79] = CriticalsModule.INSTANCE;
+        items[80] = HoleFillerModule.INSTANCE;
+        items[81] = AutoBuffModule.INSTANCE;
+        items[82] = BowSpamModule.INSTANCE;
+        items[83] = ReachModule.INSTANCE;
+        items[84] = AutoWitherModule.INSTANCE;
+        items[85] = HighJumpModule.INSTANCE;
+        items[86] = SkyLanternsModule.INSTANCE;
+        items[87] = AntiPhaseModule.INSTANCE;
+        items[88] = AutoGappleModule.INSTANCE;
+        items[89] = BurrowModule.INSTANCE;
+        items[90] = LegitTotemModule.INSTANCE;
+        items[91] = OffhandModule.INSTANCE;
+        items[92] = SurroundModule.INSTANCE;
+        items[93] = AutoArmorModule.INSTANCE;
+        items[94] = AutoToolModule.INSTANCE;
+        items[95] = ElytraSwapModule.INSTANCE;
+        items[96] = InventoryManagerModule.INSTANCE;
+        items[97] = ItemScrollerModule.INSTANCE;
+        items[98] = MiddleClickModule.INSTANCE;
+        items[99] = AutoMineModule.INSTANCE;
+        items[100] = NoServerSlotModule.INSTANCE;
+        items[101] = ReFillerModule.INSTANCE;
+        items[102] = ToolSaverModule.INSTANCE;
+        items[103] = XCarryModule.INSTANCE;
+        items[104] = AntiResourcePackModule.INSTANCE;
+        items[105] = UIModule.INSTANCE;
+        items[106] = TrapModule.INSTANCE;
+        items[107] = SelfTrapModule.INSTANCE;
+        items[108] = TeamCommunicationModule.INSTANCE;
+        items[109] = NotifierModule.INSTANCE;
+        items[110] = RPCModule.INSTANCE;
+        items[111] = SpammerModule.INSTANCE;
+        items[112] = TapeMouseModule.INSTANCE;
+        items[113] = TranslatorModule.INSTANCE;
+        items[114] = AirPlaceModule.INSTANCE;
+        items[115] = ElytraReplaceModule.INSTANCE;
+        items[116] = AntiHungerModule.INSTANCE;
+        items[117] = AutoAuthModule.INSTANCE;
+        items[118] = AutoFishModule.INSTANCE;
+        items[119] = AutoRespawnModule.INSTANCE;
+        items[120] = AutoTpaAcceptModule.INSTANCE;
+        items[121] = ChorusDelayModule.INSTANCE;
+        items[122] = MultiTaskModule.INSTANCE;
+        items[123] = NoDelayModule.INSTANCE;
+        items[124] = TraceThroughModule.INSTANCE;
+        items[125] = NoServerRotateModule.INSTANCE;
+        items[126] = PerfectDelayModule.INSTANCE;
+        items[127] = PortalGodModeModule.INSTANCE;
+        items[128] = SpeedMineModule.INSTANCE;
+        items[129] = AutoSignModule.INSTANCE;
+        items[130] = FakePlayerModule.INSTANCE;
+        items[131] = FreeCamModule.INSTANCE;
+        items[132] = NoRenderModule.INSTANCE;
+        items[133] = NukerModule.INSTANCE;
+        items[134] = PearlChaserModule.INSTANCE;
+        items[135] = ScaffoldModule.INSTANCE;
+        items[136] = CrystalChamsModule.INSTANCE;
+        items[137] = FullBrightModule.INSTANCE;
+        items[138] = HandChamsModule.INSTANCE;
+        items[139] = HitFxModule.INSTANCE;
+        items[140] = TotemAnimationModule.INSTANCE;
+        items[141] = TrajectoriesModule.INSTANCE;
+        items[142] = ViewModelModule.INSTANCE;
+        items[143] = WorldRendererModule.INSTANCE;
+        items[144] = HoleAnchorModule.INSTANCE;
+        items[145] = CrystalBindModule.INSTANCE;
+        items[146] = SearchModule.INSTANCE;
+        items[147] = HoleEspModule.INSTANCE;
+        items[148] = EntitySpeedModule.INSTANCE;
+        items[149] = ItemEspModule.INSTANCE;
+        items[150] = LogoutSpotsModule.INSTANCE;
+        items[151] = AutoDripstopeModule.INSTANCE;
+        items[152] = TpsSyncModule.INSTANCE;
+        items[153] = BoxShrinkerModule.INSTANCE;
+        items[154] = AutoLeaveModule.INSTANCE;
+        items[155] = AutoSoupModule.INSTANCE;
+        items[156] = AutoEatModule.INSTANCE;
+        items[157] = NameTagsModule.INSTANCE;
+        items[158] = ProjectilePredictModule.INSTANCE;
+        items[159] = PlayerEspModule.INSTANCE;
+        items[160] = StorageEspModule.INSTANCE;
+        items[161] = TracersModule.INSTANCE;
+        items[162] = NoInteractModule.INSTANCE;
+        items[163] = AutoEzModule.INSTANCE;
+        items[164] = MaceKillerModule.INSTANCE;
+        items[165] = TridentBoostModule.INSTANCE;
+        items[166] = QuiverModule.INSTANCE;
+        return arrayList2.addAll(((Collection) CollectionsKt.listOf(items)));
     }
 
     public void updateValue() {
-        Iterable var7 = (Iterable) arrayList2;
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
+        Iterable iterable = ((Iterable) arrayList2);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            Module var11 = (Module) var10;
-            int var12 = 0;
-            Iterable var13 = (Iterable) var11.getList();
-            int var14 = 0;
-            Iterator iterator2 = var13.iterator();
+            Object element = iterator.next();
+            Module module = ((Module) element);
+            Iterable iterable2 = ((Iterable) module.getList());
+            Iterator iterator2 = iterable2.iterator();
             while (iterator2.hasNext()) {
-                Object var16 = iterator2.next();
-                VisibleSettingProperty var17 = (VisibleSettingProperty) var16;
-                int var18 = 0;
-                Iterable var19 = (Iterable) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveIdRecord3().getList();
-                Iterator iterator3 = var19.iterator();
-                if (iterator3.hasNext()) {
-                    Object var21 = iterator3.next();
-                    IdRecord5 var22 = (IdRecord5) var21;
-                    int var23 = 0;
-                } else {
+                Object element2 = iterator2.next();
+                VisibleSettingProperty visibleSettingProperty = ((VisibleSettingProperty) element2);
+                Iterable iterable3 = ((Iterable) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveIdRecord3().getList());
+                Iterator iterator3 = iterable3.iterator();
+                while (iterator3.hasNext()) {
+                    Object element3 = iterator3.next();
+                    IdRecord5 idRecord5 = ((IdRecord5) element3);
+                    int index = 0;
                 }
-                if ((IdRecord5) null == null) {
+                if (((IdRecord5) null) == null) {
                 }
-                Object var24 = var21;
-                iterator3 = (Iterable) var24.getList();
-                var21 = iterator3.iterator();
-                if (var21.hasNext()) {
-                    var22 = var21.next();
-                    var23 = (IdRecord10) var22;
-                    int var25 = 0;
-                } else {
+                iterator3 = ((Iterable) element3.getList());
+                element3 = iterator3.iterator();
+                while (element3.hasNext()) {
+                    idRecord5 = element3.next();
+                    index = ((IdRecord10) idRecord5);
                 }
-                if ((IdRecord10) null == null) {
+                if (((IdRecord10) null) == null) {
                 }
-                Object var26 = var22;
-                var17.setValue(var26.getString2());
-                var17.setValue();
-                String var28 = var27.getMessage();
-                String var29 = var11.getString2();
-                String var30 = var17.getString2();
-                SharedKt.getLogger().warn(("Could not parse setting: " + var30 + " in " + var29 + ": " + var28));
+                visibleSettingProperty.setValue(idRecord5.getString2());
+                visibleSettingProperty.setValue();
+                String text = this.getMessage();
+                String text2 = module.getString2();
+                String text3 = visibleSettingProperty.getString2();
+                SharedKt.getLogger().warn(("Could not parse setting: " + text3 + " in " + text2 + ": " + text));
             }
         }
     }
 
     public void executeAction(IdRecord3 prevConfig) {
-        Iterable var13 = (Iterable) arrayList2;
-        int var14 = 0;
-        Iterator iterator = var13.iterator();
-        if (iterator.hasNext()) {
-            Object var16 = iterator.next();
-            Module var17 = (Module) var16;
-            int var18 = 0;
-            if (0L >= 0) {
+        Iterable iterable = ((Iterable) arrayList2);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            Module module = ((Module) element);
+            if (__UNDEF_KEY__ >= 0) {
                 if (prevConfig != null) {
-                }
-                List positions = prevConfig.getList();
-                if (0L >= 0) {
-                    if (positions != null) {
-                    }
-                    Iterable var20 = (Iterable) positions;
-                    int var21 = 0;
-                    Iterator iterator2 = var20.iterator();
-                    if (iterator2.hasNext()) {
-                        Object var23 = iterator2.next();
-                        IdRecord5 var24 = (IdRecord5) var23;
-                        int var25 = 0;
-                    } else {
-                    }
-                    IdRecord5 var26 = (IdRecord5) null;
-                    if (0L >= 0) {
-                        if (var26 != null) {
-                        }
-                        var20 = var26.getList();
-                        if (0L >= 0) {
-                            if (var20 != null) {
+                    List list = prevConfig.getList();
+                    if (__UNDEF_KEY__ >= 0) {
+                        if (list != null) {
+                            Iterable iterable2 = ((Iterable) list);
+                            int index = 0;
+                            Iterator iterator2 = iterable2.iterator();
+                            while (iterator2.hasNext()) {
+                                Object element2 = iterator2.next();
+                                IdRecord5 idRecord5 = ((IdRecord5) element2);
+                                int index2 = 0;
                             }
-                            iterator2 = (Iterable) var20;
-                            var23 = 0;
-                            var24 = iterator2.iterator();
-                            if (var24.hasNext()) {
-                                var25 = var24.next();
-                                IdRecord10 var27 = (IdRecord10) var25;
-                                int var28 = 0;
-                            } else {
-                            }
-                            var21 = (IdRecord10) null;
-                            if (0L > 0) {
-                                if (var21 != null) {
-                                }
-                                iterator2 = var21.getString2();
-                                if (0L > 0) {
-                                    if (iterator2 != null) {
+                            IdRecord5 idRecord52 = ((IdRecord5) null);
+                            if (__UNDEF_KEY__ >= 0) {
+                                if (idRecord52 != null) {
+                                    iterable2 = idRecord52.getList();
+                                    if (__UNDEF_KEY__ >= 0) {
+                                        if (iterable2 != null) {
+                                            iterator2 = ((Iterable) iterable2);
+                                            element2 = 0;
+                                            idRecord5 = iterator2.iterator();
+                                            while (idRecord5.hasNext()) {
+                                                index2 = idRecord5.next();
+                                                IdRecord10 idRecord10 = ((IdRecord10) index2);
+                                            }
+                                            index = ((IdRecord10) null);
+                                            if (__UNDEF_KEY__ > 0) {
+                                                if (index != null) {
+                                                    iterator2 = index.getString2();
+                                                    if (__UNDEF_KEY__ > 0) {
+                                                        if (iterator2 != null) {
+                                                        } else {
+                                                        }
+                                                    }
+                                                } else {
+                                                }
+                                            }
+                                        } else {
+                                        }
                                     }
+                                } else {
                                 }
+                            }
+                        } else {
+                        }
+                    }
+                } else {
+                    Gofra.INSTANCE.unplug(module);
+                }
+            }
+            if (__UNDEF_KEY__ >= 0 && module.getEnabled()) {
+                Gofra.INSTANCE.plug(module);
+                if (!(Intrinsics.areEqual(Boolean.valueOf(module.getEnabled())))) {
+                    module.updateValue();
+                    if (prevConfig != null) {
+                        if (__UNDEF_KEY__ >= 0 && __UNDEF_KEY__ >= 0 && __UNDEF_KEY__ > 0) {
+                            if (!(Intrinsics.areEqual(Boolean.valueOf(module.getEnabled())))) {
+                                module.updateValue2();
                             }
                         }
                     }
                 }
             } else {
             }
-        }
-        }
-        }
-        }
-        }
-        Gofra.INSTANCE.unplug();
-        if (0L >= 0 && var17.getEnabled()) {
-            Gofra.INSTANCE.plug();
-            if (!(Intrinsics.areEqual(Boolean.valueOf(var17.getEnabled())))) {
-                var17.updateValue();
-            } else {
-                if (prevConfig != null) {
-                    if (0L >= 0 && 0L >= 0 && 0L > 0) {
-                        if (!(Intrinsics.areEqual(Boolean.valueOf(var17.getEnabled())))) {
-                            var17.updateValue2();
-                        }
-                    }
-                }
-            }
-        }
         }
     }
 
     public static void executeAction(EnabledServiceComponent arg0, IdRecord3 arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
         }
         arg0.executeAction(arg1);
     }
 
     public void executeAction(String moduleId, String id) {
-        Iterable var6 = (Iterable) arrayList2;
-        int var7 = 0;
-        Object var8 = var6;
-        Collection var9 = (Collection) new ArrayList();
-        int var10 = 0;
-        Iterator iterator = var8.iterator();
+        Iterable iterable = ((Iterable) arrayList2);
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var12 = iterator.next();
-            Module var13 = (Module) var12;
-            int var14 = 0;
-            var9.add();
+            Object element = iterator.next();
+            Module module = ((Module) element);
+            int index2 = 0;
+            collection.add(element);
         }
-        var6 = (Iterable) var9;
-        var7 = 0;
-        var8 = var6.iterator();
-        while (var8.hasNext()) {
-            var9 = var8.next();
-            var10 = (Module) var9;
+        iterable = ((Iterable) collection);
+        iterable2 = iterable.iterator();
+        while (iterable2.hasNext()) {
+            collection = iterable2.next();
+            index = ((Module) collection);
             iterator = 0;
-            var12 = (Iterable) var10.getList();
-            var13 = var12.iterator();
-            if (var13.hasNext()) {
-                var14 = var13.next();
-                VisibleSettingProperty var15 = (VisibleSettingProperty) var14;
-                int var16 = 0;
+            element = ((Iterable) index.getList());
+            module = element.iterator();
+            while (module.hasNext()) {
+                index2 = module.next();
+                VisibleSettingProperty visibleSettingProperty = ((VisibleSettingProperty) index2);
             }
         }
     }
 
     public Module resolveModule(String id) {
-        Iterable var5 = (Iterable) arrayList2;
-        Iterator iterator = var5.iterator();
-        if (iterator.hasNext()) {
-            Object var7 = iterator.next();
-            Module var8 = (Module) var7;
-            int var9 = 0;
-        } else {
+        Iterable iterable = ((Iterable) arrayList2);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            Module module = ((Module) element);
         }
-        if ((Module) null != null) {
+        if (((Module) null) != null) {
         }
-        return var7;
+        return element;
     }
 
     private void onInputEvent(InputEvent arg0) {
@@ -577,52 +558,49 @@ public class EnabledServiceComponent implements Contract9 {
             arrayList3.clear();
         }
         if (arg0.getKey() == UIModule.INSTANCE.getBind().getNumericValue() && arg0.getAction() == Action.Press && SharedKt.getMc().currentScreen == null) {
-            SharedKt.getMc().method_1507((Screen) CatleanInterfaceRenderHelper.INSTANCE);
+            SharedKt.getMc().method_1507(((Screen) CatleanInterfaceRenderHelper.INSTANCE));
         }
-        Iterable var16 = (Iterable) arrayList2;
-        int var17 = 0;
-        Object var18 = var16;
-        Collection var19 = (Collection) new ArrayList();
-        int var20 = 0;
-        Iterator iterator = var18.iterator();
-        if (iterator.hasNext()) {
-            Object var22 = iterator.next();
-            Module var23 = (Module) var22;
-            int var24 = 0;
-            if (var23.getBind().getNumericValue() == arg0.getKey()) {
+        Iterable iterable = ((Iterable) arrayList2);
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index = 0;
+        Iterator iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            Module module = ((Module) element);
+            if (module.getBind().getNumericValue() == arg0.getKey()) {
             } else {
             }
-            var19.add();
+            collection.add(element);
         }
-        var16 = (Iterable) var19;
-        var17 = 0;
-        var18 = var16.iterator();
-        if (var18.hasNext()) {
-            var19 = var18.next();
-            var20 = (Module) var19;
+        iterable = ((Iterable) collection);
+        iterable2 = iterable.iterator();
+        while (iterable2.hasNext()) {
+            collection = iterable2.next();
+            index = ((Module) collection);
             iterator = 0;
-            var22 = INSTANCE;
-            var23 = 0;
-            if (!(var20.getBind().isActive())) {
+            element = INSTANCE;
+            module = 0;
+            if (!(index.getBind().isActive())) {
                 if (arg0.getAction() == Action.Press && SharedKt.getMc().currentScreen == null) {
-                    var20.updateValue();
+                    index.updateValue();
+                    if (arg0.getAction() == Action.Press) {
+                        index.executeAction();
+                    }
+                    index.updateValue2();
                 }
-                if (arg0.getAction() == Action.Press) {
-                    var20.executeAction();
-                }
-                var20.updateValue2();
             }
         }
     }
 
     static {
         INSTANCE = new EnabledServiceComponent();
-        SubCategoriesServiceComponent[] var29 = new SubCategoriesServiceComponent[4];
-        var29[0] = MovementServiceComponent.getSubCategoriesServiceComponent();
-        var29[1] = MovementServiceComponent.getSubCategoriesServiceComponent2();
-        var29[2] = MovementServiceComponent.getSubCategoriesServiceComponent3();
-        var29[3] = MovementServiceComponent.getSubCategoriesServiceComponent4();
-        arrayList = CollectionsKt.arrayListOf();
+        SubCategoriesServiceComponent[] items = new SubCategoriesServiceComponent[4];
+        items[0] = MovementServiceComponent.getSubCategoriesServiceComponent();
+        items[1] = MovementServiceComponent.getSubCategoriesServiceComponent2();
+        items[2] = MovementServiceComponent.getSubCategoriesServiceComponent3();
+        items[3] = MovementServiceComponent.getSubCategoriesServiceComponent4();
+        arrayList = CollectionsKt.arrayListOf(items);
         arrayList2 = new ArrayList();
         arrayList3 = new ArrayList();
         INSTANCE.checkCondition();

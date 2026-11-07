@@ -19,7 +19,7 @@ public class HealthEvent extends Event {
     }
 
     public float getHealth() {
-        return (Number) healthSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) healthSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public void setHealth(float value) {
@@ -28,13 +28,13 @@ public class HealthEvent extends Event {
 
     public boolean call(float health) {
         this.setHealth(health);
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }
 
     static {
-        KProperty[] var0 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new HealthEvent();
         healthSetting = Delegates.INSTANCE.notNull();
     }

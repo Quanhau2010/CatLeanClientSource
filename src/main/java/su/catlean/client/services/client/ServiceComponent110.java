@@ -8,10 +8,10 @@ public class ServiceComponent110 {
     private static boolean enabledFlag;
 
     static {
-        Object var2 = new int[FlightMode.values()];
-        var2[FlightMode.Vanilla.ordinal()] = 1;
-        var2[FlightMode.GRIM_GLIDE.ordinal()] = 2;
-        countValueArray = var2;
+        Object element = new int[FlightMode.values()];
+        element[FlightMode.Vanilla.ordinal()] = 1;
+        element[FlightMode.GRIM_GLIDE.ordinal()] = 2;
+        countValueArray = element;
     }
 
     public static void updateValue(boolean arg0) {

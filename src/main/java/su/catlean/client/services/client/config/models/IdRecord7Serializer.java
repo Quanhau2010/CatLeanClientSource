@@ -22,64 +22,62 @@ public class IdRecord7Serializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, IdRecord7 value) {
-        SerialDescriptor var7 = serialDescriptor;
-        CompositeEncoder var8 = encoder.beginStructure();
-        IdRecord7.executeAction(value);
-        var8.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        IdRecord7.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public IdRecord7 resolveIdRecord7(Decoder decoder) {
-        SerialDescriptor var7 = serialDescriptor;
-        int var8 = 1;
-        int var10 = 0;
-        int var12 = 0;
-        int var13 = 0;
-        int var14 = 0;
-        int var16 = 0;
-        int var17 = 0;
-        CompositeDecoder var18 = decoder.beginStructure();
-        if (var6 != null) {
-            if (var18.decodeSequentially()) {
+        int index = 1;
+        int index2 = 0;
+        int index3 = 0;
+        int index4 = 0;
+        int index5 = 0;
+        int index6 = 0;
+        int index7 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        if (__UNDEF_KEY__ != null) {
+            if (compositeDecoder.decodeSequentially()) {
+                String text = compositeDecoder.decodeStringElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                index3 = compositeDecoder.decodeIntElement(serialDescriptor, 1);
+                index2 = (index2 | 2);
+                index4 = compositeDecoder.decodeIntElement(serialDescriptor, 2);
+                index2 = (index2 | 4);
+                index5 = compositeDecoder.decodeIntElement(serialDescriptor, 3);
+                index2 = (index2 | 8);
+                String text2 = compositeDecoder.decodeStringElement(serialDescriptor, 4);
+                index2 = (index2 | 16);
+                index6 = compositeDecoder.decodeIntElement(serialDescriptor, 5);
+                index2 = (index2 | 32);
+                index7 = compositeDecoder.decodeBooleanElement(serialDescriptor, 6);
+                index2 = (index2 | 64);
             }
-            String var11 = var18.decodeStringElement(0);
-            var10 = (var10 | 1);
-            var12 = var18.decodeIntElement(1);
-            var10 = (var10 | 2);
-            var13 = var18.decodeIntElement(2);
-            var10 = (var10 | 4);
-            var14 = var18.decodeIntElement(3);
-            var10 = (var10 | 8);
-            String var15 = var18.decodeStringElement(4);
-            var10 = (var10 | 16);
-            var16 = var18.decodeIntElement(5);
-            var10 = (var10 | 32);
-            var17 = var18.decodeBooleanElement(6);
-            var10 = (var10 | 64);
         }
-        if (var6 == null && var8) {
-            int var9 = var18.decodeElementIndex();
-            if (var6 != null) {
-                if (var6 != null) {
+        if (__UNDEF_KEY__ == null && index) {
+            int index8 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                var8 = 0;
-                var11 = var18.decodeStringElement(0);
-                var10 = (var10 | 1);
-                var12 = var18.decodeIntElement(1);
-                var10 = (var10 | 2);
-                var13 = var18.decodeIntElement(2);
-                var10 = (var10 | 4);
-                var14 = var18.decodeIntElement(3);
-                var10 = (var10 | 8);
-                var15 = var18.decodeStringElement(4);
-                var10 = (var10 | 16);
-                var16 = var18.decodeIntElement(5);
-                var10 = (var10 | 32);
-                var17 = var18.decodeBooleanElement(6);
-                var10 = (var10 | 64);
+                index = 0;
+                text = compositeDecoder.decodeStringElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                index3 = compositeDecoder.decodeIntElement(serialDescriptor, 1);
+                index2 = (index2 | 2);
+                index4 = compositeDecoder.decodeIntElement(serialDescriptor, 2);
+                index2 = (index2 | 4);
+                index5 = compositeDecoder.decodeIntElement(serialDescriptor, 3);
+                index2 = (index2 | 8);
+                text2 = compositeDecoder.decodeStringElement(serialDescriptor, 4);
+                index2 = (index2 | 16);
+                index6 = compositeDecoder.decodeIntElement(serialDescriptor, 5);
+                index2 = (index2 | 32);
+                index7 = compositeDecoder.decodeBooleanElement(serialDescriptor, 6);
+                index2 = (index2 | 64);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var18.endStructure();
         }
-        return new IdRecord7(null);
+        return new IdRecord7(index2, text, index3, index4, index5, text2, index6, index7);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -87,15 +85,15 @@ public class IdRecord7Serializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        KSerializer[] var3 = new KSerializer[7];
-        var3[0] = StringSerializer.INSTANCE;
-        var3[1] = IntSerializer.INSTANCE;
-        var3[2] = IntSerializer.INSTANCE;
-        var3[3] = IntSerializer.INSTANCE;
-        var3[4] = StringSerializer.INSTANCE;
-        var3[5] = IntSerializer.INSTANCE;
-        var3[6] = BooleanSerializer.INSTANCE;
-        return var3;
+        KSerializer[] items = new KSerializer[7];
+        items[0] = StringSerializer.INSTANCE;
+        items[1] = IntSerializer.INSTANCE;
+        items[2] = IntSerializer.INSTANCE;
+        items[3] = IntSerializer.INSTANCE;
+        items[4] = StringSerializer.INSTANCE;
+        items[5] = IntSerializer.INSTANCE;
+        items[6] = BooleanSerializer.INSTANCE;
+        return items;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -103,7 +101,7 @@ public class IdRecord7Serializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (IdRecord7) value);
+        this.executeAction(encoder, ((IdRecord7) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -112,15 +110,15 @@ public class IdRecord7Serializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new IdRecord7Serializer();
-        PluginGeneratedSerialDescriptor var22 = new PluginGeneratedSerialDescriptor("su.catlean.s4", (GeneratedSerializer) INSTANCE, 7);
-        var22.addElement("id", 0);
-        var22.addElement("x", 0);
-        var22.addElement("y", 0);
-        var22.addElement("z", 0);
-        var22.addElement("server", 1);
-        var22.addElement("dimension", 1);
-        var22.addElement("visible", 1);
-        serialDescriptor = (SerialDescriptor) var22;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.s4", ((GeneratedSerializer) INSTANCE), 7);
+        pluginGeneratedSerialDescriptor.addElement("id", false);
+        pluginGeneratedSerialDescriptor.addElement("x", false);
+        pluginGeneratedSerialDescriptor.addElement("y", false);
+        pluginGeneratedSerialDescriptor.addElement("z", false);
+        pluginGeneratedSerialDescriptor.addElement("server", true);
+        pluginGeneratedSerialDescriptor.addElement("dimension", true);
+        pluginGeneratedSerialDescriptor.addElement("visible", true);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

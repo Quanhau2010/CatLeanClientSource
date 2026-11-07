@@ -63,14 +63,12 @@ public class CatleanPanelScreenGuiElement extends Screen {
     }
 
     protected void method_25426() {
-        Iterable var4 = (Iterable) itemSet;
-        int var5 = 0;
-        Iterator iterator = var4.iterator();
+        Iterable iterable = ((Iterable) itemSet);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var7 = iterator.next();
-            RenderHelper3 var8 = (RenderHelper3) var7;
-            int var9 = 0;
-            var8.executeAction();
+            Object element = iterator.next();
+            RenderHelper3 renderHelper3 = ((RenderHelper3) element);
+            renderHelper3.executeAction();
         }
     }
 
@@ -80,14 +78,12 @@ public class CatleanPanelScreenGuiElement extends Screen {
         }
         BackRenderHelper.INSTANCE.render(context, mouseX, mouseY);
         renderHelper2 = null;
-        Iterable var14 = (Iterable) itemSet;
-        int var15 = 0;
-        Iterator iterator = var14.iterator();
+        Iterable iterable = ((Iterable) itemSet);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var17 = iterator.next();
-            RenderHelper3 var18 = (RenderHelper3) var17;
-            int var19 = 0;
-            var18.render(context, mouseX, mouseY);
+            Object element = iterator.next();
+            RenderHelper3 renderHelper3 = ((RenderHelper3) element);
+            renderHelper3.render(context, mouseX, mouseY);
         }
     }
 
@@ -96,105 +92,95 @@ public class CatleanPanelScreenGuiElement extends Screen {
     }
 
     public boolean method_25402(class_11909 click, boolean doubled) {
-        double var11 = click.comp_4798();
-        double var13 = click.comp_4799();
-        int var15 = click.method_74245();
-        if (BackRenderHelper.INSTANCE.checkCondition()) {
+        double offset = click.comp_4798();
+        double offset2 = click.comp_4799();
+        int index = click.method_74245();
+        if (BackRenderHelper.INSTANCE.checkCondition(offset, offset2, index)) {
             return true;
         }
-        Iterable var16 = (Iterable) itemSet;
-        int var17 = 0;
-        Iterator iterator = var16.iterator();
+        Iterable iterable = ((Iterable) itemSet);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var19 = iterator.next();
-            RenderHelper3 var20 = (RenderHelper3) var19;
-            int var21 = 0;
-            var20.executeAction();
+            Object element = iterator.next();
+            RenderHelper3 renderHelper3 = ((RenderHelper3) element);
+            renderHelper3.executeAction(offset, offset2, index);
         }
         if (renderHelper2 != null && renderHelper2 instanceof SuggestionsRenderHelper2Impl) {
-            var16 = (Iterable) itemSet;
-            var17 = 0;
-            if (var16 instanceof Collection && (Collection) var16.isEmpty()) {
+            iterable = ((Iterable) itemSet);
+            if (iterable instanceof Collection && ((Collection) iterable).isEmpty()) {
             } else {
-                iterator = var16.iterator();
-                if (iterator.hasNext()) {
-                    var19 = iterator.next();
-                    var20 = (RenderHelper3) var19;
-                    var21 = 0;
-                } else {
+                iterator = iterable.iterator();
+                while (iterator.hasNext()) {
+                    element = iterator.next();
+                    renderHelper3 = ((RenderHelper3) element);
                 }
             }
             if (1) {
-                SuggestionsRenderHelper2Impl.serviceComponent7.updateValue((SuggestionsRenderHelper2Impl) renderHelper2);
+                SuggestionsRenderHelper2Impl.serviceComponent7.updateValue(((SuggestionsRenderHelper2Impl) renderHelper2));
+            } else {
+                renderHelper2 = null;
             }
         } else {
-            renderHelper2 = null;
-        }
         }
         return this.method_25402(click, doubled);
     }
 
     public boolean method_25406(class_11909 click) {
-        double var7 = click.comp_4798();
-        double var9 = click.comp_4799();
-        int var11 = click.method_74245();
-        Iterable var12 = (Iterable) itemSet;
-        int var13 = 0;
-        Iterator iterator = var12.iterator();
+        double offset = click.comp_4798();
+        double offset2 = click.comp_4799();
+        int index = click.method_74245();
+        Iterable iterable = ((Iterable) itemSet);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var15 = iterator.next();
-            RenderHelper3 var16 = (RenderHelper3) var15;
-            int var17 = 0;
-            var16.executeAction2();
+            Object element = iterator.next();
+            RenderHelper3 renderHelper3 = ((RenderHelper3) element);
+            renderHelper3.executeAction2();
         }
-        BackRenderHelper.INSTANCE.executeAction();
+        BackRenderHelper.INSTANCE.executeAction(offset, offset2, index);
         return this.method_25406(click);
     }
 
     public boolean method_25401(double mouseX, double mouseY, double horizontalAmount, double verticalAmount) {
-        Iterable var14 = (Iterable) itemSet;
-        int var15 = 0;
-        Iterator iterator = var14.iterator();
+        Iterable iterable = ((Iterable) itemSet);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var17 = iterator.next();
-            RenderHelper3 var18 = (RenderHelper3) var17;
-            int var19 = 0;
-            var18.executeAction(mouseX, mouseY, verticalAmount);
+            Object element = iterator.next();
+            RenderHelper3 renderHelper3 = ((RenderHelper3) element);
+            renderHelper3.executeAction(mouseX, mouseY, verticalAmount);
         }
         return this.method_25401(mouseX, mouseY, horizontalAmount, verticalAmount);
     }
 
     public boolean method_25404(class_11908 input) {
-        int var17 = input.comp_4795();
-        int var18 = input.comp_4796();
-        int var19 = input.comp_4797();
-        Iterable var20 = (Iterable) itemSet;
-        int var21 = 0;
-        Iterator iterator = var20.iterator();
+        int index = input.comp_4795();
+        int index2 = input.comp_4796();
+        int index3 = input.comp_4797();
+        Iterable iterable = ((Iterable) itemSet);
+        int index4 = 0;
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var23 = iterator.next();
-            RenderHelper3 var24 = (RenderHelper3) var23;
-            int var25 = 0;
-            var24.executeAction();
+            Object element = iterator.next();
+            RenderHelper3 renderHelper3 = ((RenderHelper3) element);
+            renderHelper3.executeAction(index, index2, index3);
         }
         if (SuggestionsRenderHelper2Impl.serviceComponent7.getSuggestionsRenderHelper2Impl() != null) {
             iterator = SuggestionsRenderHelper2Impl.serviceComponent7.getSuggestionsRenderHelper2Impl();
-            var23 = iterator;
-            var24 = 0;
-            var23.executeAction(StringsKt.dropLast(var23.getString2(), 1));
+            element = iterator;
+            renderHelper3 = 0;
+            element.executeAction(StringsKt.dropLast(element.getString2(), 1));
         } else {
             if (SuggestionsRenderHelper2Impl.serviceComponent7.getSuggestionsRenderHelper2Impl() != null) {
                 SuggestionsRenderHelper2Impl.serviceComponent7.getSuggestionsRenderHelper2Impl().resolveUnit();
             } else {
                 SuggestionsRenderHelper2Impl.serviceComponent7.updateValue(null);
-                if (ServiceComponent13.checkCondition(3305891483701215573L)) {
+                if (ServiceComponent13.checkCondition(341)) {
                     if (GLFW.glfwGetClipboardString(SharedKt.getMc().method_22683().method_4490()) == null) {
                         GLFW.glfwGetClipboardString(SharedKt.getMc().method_22683().method_4490());
                     }
-                    var21 = "";
+                    index4 = "";
                     iterator = SuggestionsRenderHelper2Impl.serviceComponent7.getSuggestionsRenderHelper2Impl();
                     if (iterator != null) {
-                        iterator.executeAction((iterator.getString2() + var21));
+                        iterator.executeAction((iterator.getString2() + index4));
                     } else {
                     }
                 }
@@ -209,18 +195,16 @@ public class CatleanPanelScreenGuiElement extends Screen {
             ArraysKt.firstOrNull(input.method_74226().toCharArray()).charValue();
             return this.method_25400(input);
         }
-        Iterable var12 = (Iterable) itemSet;
-        int var13 = 0;
-        Iterator iterator = var12.iterator();
+        Iterable iterable = ((Iterable) itemSet);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var15 = iterator.next();
-            RenderHelper3 var16 = (RenderHelper3) var15;
-            int var17 = 0;
-            var16.executeAction();
+            Object element = iterator.next();
+            RenderHelper3 renderHelper3 = ((RenderHelper3) element);
+            renderHelper3.executeAction();
         }
-        var12 = SuggestionsRenderHelper2Impl.serviceComponent7.getSuggestionsRenderHelper2Impl();
-        if (var12 != null) {
-            var12.executeAction((var12.getString2() + var11));
+        iterable = SuggestionsRenderHelper2Impl.serviceComponent7.getSuggestionsRenderHelper2Impl();
+        if (iterable != null) {
+            iterable.executeAction();
         } else {
         }
         BackRenderHelper.INSTANCE.executeAction();
@@ -235,13 +219,13 @@ public class CatleanPanelScreenGuiElement extends Screen {
 
     static {
         INSTANCE = new CatleanPanelScreenGuiElement();
-        RenderHelper3[] var19 = new RenderHelper3[5];
-        var19[0] = ConfigPanelRenderHelper3Impl.INSTANCE;
-        var19[1] = MacroPanelRenderHelper3Impl.INSTANCE;
-        var19[2] = WaypointPanelGuiElement.INSTANCE;
-        var19[3] = ProxyPanelRenderHelper3Impl.INSTANCE;
-        var19[4] = HomiesPanelRenderHelper3Impl.INSTANCE;
-        itemSet = SetsKt.setOf();
+        RenderHelper3[] items = new RenderHelper3[5];
+        items[0] = ConfigPanelRenderHelper3Impl.INSTANCE;
+        items[1] = MacroPanelRenderHelper3Impl.INSTANCE;
+        items[2] = WaypointPanelGuiElement.INSTANCE;
+        items[3] = ProxyPanelRenderHelper3Impl.INSTANCE;
+        items[4] = HomiesPanelRenderHelper3Impl.INSTANCE;
+        itemSet = SetsKt.setOf(items);
     }
 
 }

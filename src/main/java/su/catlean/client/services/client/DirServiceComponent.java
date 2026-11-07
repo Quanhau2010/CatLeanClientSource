@@ -35,10 +35,10 @@ public class DirServiceComponent {
     }
 
     public static DirServiceComponent resolveDirServiceComponent(DirServiceComponent arg0, Direction arg1, Vec3d arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.minecraftRef;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.vec3d;
         }
         return arg0.resolveDirServiceComponent(arg1, arg2);
@@ -49,9 +49,9 @@ public class DirServiceComponent {
     }
 
     public int hashCode() {
-        int var3 = this.minecraftRef.hashCode();
-        var3 = ((var3 * -8993633265529126881L) + this.vec3d.hashCode());
-        return var3;
+        int index = this.minecraftRef.hashCode();
+        index = ((index * 31) + this.vec3d.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -61,11 +61,11 @@ public class DirServiceComponent {
         if (!(other instanceof DirServiceComponent)) {
             return false;
         }
-        DirServiceComponent var5 = (DirServiceComponent) other;
-        if (this.minecraftRef != var5.minecraftRef) {
+        DirServiceComponent dirServiceComponent = ((DirServiceComponent) other);
+        if (this.minecraftRef != dirServiceComponent.minecraftRef) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.vec3d, var5.vec3d))) {
+        if (!(Intrinsics.areEqual(this.vec3d, dirServiceComponent.vec3d))) {
             return false;
         }
         return true;

@@ -44,19 +44,19 @@ public class PerfectDelayModule extends Module {
     }
 
     private PerfectDelayHorseMode getHorse() {
-        return (PerfectDelayHorseMode) horseSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((PerfectDelayHorseMode) horseSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getBow() {
-        return (Boolean) bowSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) bowSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getCrossbow() {
-        return (Boolean) crossbowSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) crossbowSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getTrident() {
-        return (Boolean) tridentSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) tridentSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
@@ -64,31 +64,31 @@ public class PerfectDelayModule extends Module {
         } else {
         }
         if (this.getTrident() && SharedKt.getPlayer().method_6030().getItem() instanceof class_1835 && TridentBoostModule.INSTANCE.getCooldown() > 9) {
-            SharedKt.getInteractionManager().method_2897((PlayerEntity) SharedKt.getPlayer());
+            SharedKt.getInteractionManager().method_2897(((PlayerEntity) SharedKt.getPlayer()));
         }
         if (SharedKt.getPlayer().method_6030().getItem() instanceof class_1764 && this.getCrossbow() && SharedKt.getPlayer().method_6048() >= (25 - ((0.25D * this.computeValue(SharedKt.getPlayer().method_6030())) * 20))) {
-            SharedKt.getInteractionManager().method_2897((PlayerEntity) SharedKt.getPlayer());
+            SharedKt.getInteractionManager().method_2897(((PlayerEntity) SharedKt.getPlayer()));
         }
         if (SharedKt.getPlayer().method_6030().getItem() instanceof class_1753 && this.getBow() && SharedKt.getPlayer().method_6048() > 19) {
-            SharedKt.getInteractionManager().method_2897((PlayerEntity) SharedKt.getPlayer());
+            SharedKt.getInteractionManager().method_2897(((PlayerEntity) SharedKt.getPlayer()));
         }
         if (this.getHorse() == PerfectDelayHorseMode.Rage) {
-            (LocalPlayerAccessor) SharedKt.getPlayer().setJumpRidingScale(1.0F);
+            ((LocalPlayerAccessor) SharedKt.getPlayer()).setJumpRidingScale(1.0F);
         }
-        SharedKt.getMc().options.field_1903.method_23481(0);
+        SharedKt.getMc().options.field_1903.method_23481(false);
     }
 
     private float computeValue(ItemStack arg0) {
-        return class_1890.method_8225((class_6880) (class_2378) SharedKt.getWorld().method_30349().method_46759(class_1893.field_9098.method_58273()).get().method_10223(class_1893.field_9098.method_29177()).get(), arg0);
+        return class_1890.method_8225(((class_6880) ((class_2378) SharedKt.getWorld().method_30349().method_46759(class_1893.field_9098.method_58273()).get()).method_10223(class_1893.field_9098.method_29177()).get()), arg0);
     }
 
     static {
-        KProperty[] var28 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new PerfectDelayModule();
         horseSetting = VisibleRenderHelper.registerSetting(INSTANCE, "horse", PerfectDelayHorseMode.Legit);
-        bowSetting = VisibleRenderHelper.registerSetting(INSTANCE, "bow");
-        crossbowSetting = VisibleRenderHelper.registerSetting(INSTANCE, "crossbow");
-        tridentSetting = VisibleRenderHelper.registerSetting(INSTANCE, "trident");
+        bowSetting = VisibleRenderHelper.registerSetting(INSTANCE, "bow", true);
+        crossbowSetting = VisibleRenderHelper.registerSetting(INSTANCE, "crossbow", true);
+        tridentSetting = VisibleRenderHelper.registerSetting(INSTANCE, "trident", true);
     }
 
 }

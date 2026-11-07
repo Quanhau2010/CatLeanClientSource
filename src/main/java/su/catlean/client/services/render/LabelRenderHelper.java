@@ -38,7 +38,6 @@ public class LabelRenderHelper {
         this.factorValue5 = outlineWidth;
         this.factorValue6 = radius;
         this.easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, timestampValue);
-        !(var16);
     }
 
     public float getNumericValue() {
@@ -105,30 +104,28 @@ public class LabelRenderHelper {
         if (this.checkCondition(mouseX, mouseY)) {
         } else {
         }
-        1.0F.executeAction(0.0F);
+        this.executeAction(0.0F);
         StackShaderComponent2.executeAction(context.method_51448(), this.factorValue, this.factorValue2, this.factorValue3, this.factorValue4, this.factorValue6, this.factorValue5, (0.25F + (this.easingServiceComponent.getNumericValue() / 3.0F)), 1.0F, this.colorValue, this.colorValue2, 0.0F, 0.0F, 0.0F);
         SFMServiceComponent.resolveFontRenderHelper5().render(context, this.textValue, (this.factorValue + (this.factorValue3 / 2.0F)), (this.factorValue2 + (this.factorValue4 / 2.0F)), Color.WHITE);
     }
 
     public void executeAction(float mouseX, float mouseY) {
-        if (!(var7)) {
-        }
         this.function0.invoke();
     }
 
     private boolean checkCondition(float arg0, float arg1) {
-        float var6 = this.factorValue;
+        float factor = this.factorValue;
         if (arg0 <= (this.factorValue + this.factorValue3)) {
         } else {
-        }
-        if (var6 <= arg0) {
-            var6 = this.factorValue2;
-            if (arg1 <= (this.factorValue2 + this.factorValue4)) {
+            if (factor <= arg0) {
+                factor = this.factorValue2;
+                if (arg1 <= (this.factorValue2 + this.factorValue4)) {
+                } else {
+                }
             } else {
+                return factor <= arg1;
             }
-        } else {
         }
-        return var6 <= arg1;
     }
 
     public static void updateValue(boolean arg0) {

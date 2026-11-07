@@ -22,7 +22,7 @@ public class EquipArmEvent extends Event {
     }
 
     public float getProgress() {
-        return (Number) progressSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) progressSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public void setProgress(float value) {
@@ -42,7 +42,7 @@ public class EquipArmEvent extends Event {
     }
 
     public boolean call(float swingProgress, class_1306 arm) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         this.setProgress(swingProgress);
         this.setArm(arm);
         Gofra.INSTANCE.drain(this);
@@ -50,7 +50,7 @@ public class EquipArmEvent extends Event {
     }
 
     static {
-        KProperty[] var0 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new EquipArmEvent();
         progressSetting = Delegates.INSTANCE.notNull();
     }

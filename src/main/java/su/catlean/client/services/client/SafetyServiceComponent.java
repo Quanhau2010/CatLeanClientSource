@@ -31,10 +31,10 @@ public class SafetyServiceComponent {
     }
 
     public Box resolveMinecraftObject(float height) {
-        int var4 = this.blockPos.method_10263();
-        int var6 = this.blockPos.method_10264();
-        int var8 = this.blockPos.method_10260();
-        return new Box((var4 + 1.0D), (var6 + height), (var8 + 1.0D));
+        int index = this.blockPos.method_10263();
+        int index2 = this.blockPos.method_10264();
+        int index3 = this.blockPos.method_10260();
+        return new Box(index, index2, index3, (index + 1.0D), (index2 + height), (index3 + 1.0D));
     }
 
 }

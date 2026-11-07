@@ -61,11 +61,11 @@ public class DismembermentModule extends Module {
     }
 
     public boolean getSound() {
-        return (Boolean) soundSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) soundSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public int getLifeTime() {
-        return (Number) lifeTimeSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) lifeTimeSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     public List getList() {
@@ -76,33 +76,28 @@ public class DismembermentModule extends Module {
         return itemList2;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
+    public void updateValue() {
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
         if (itemList.isEmpty()) {
             return;
         }
-        Iterable var7 = (Iterable) itemList;
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
+        Iterable iterable = ((Iterable) itemList);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            TextureShaderComponent var11 = (TextureShaderComponent) var10;
-            int var12 = 0;
-            var11.render(arg0.getStack());
+            Object element = iterator.next();
+            TextureShaderComponent textureShaderComponent = ((TextureShaderComponent) element);
+            textureShaderComponent.render(arg0.getStack());
         }
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        Iterable var7 = (Iterable) SharedKt.getWorld().getPlayers();
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
+        Iterable iterable = ((Iterable) SharedKt.getWorld().getPlayers());
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) var10;
-            int var12 = 0;
+            Object element = iterator.next();
+            AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) element);
             if (!(itemList2.contains(player))) {
                 itemList2.add(player);
             }
@@ -115,83 +110,70 @@ public class DismembermentModule extends Module {
         if (arg0 instanceof ClientPlayerEntity || SharedKt.getPlayer().field_6012 < 20) {
             return;
         }
-        class_2960 var17 = (AbstractClientPlayerEntity) arg0.method_52814().comp_1626().comp_3627();
-        double var18 = (AbstractClientPlayerEntity) arg0.getX();
-        double var20 = ((AbstractClientPlayerEntity) arg0.getY() + 1.45F);
-        double var22 = (AbstractClientPlayerEntity) arg0.getZ();
-        class_1007 var24 = (class_1007) SharedKt.getMc().method_1561().method_3953(SharedKt.getPlayer());
-        class_591 var25 = (class_591) var24.method_4038();
-        Iterable var26 = (Iterable) itemList;
-        int var27 = 0;
-        if (var26 instanceof Collection && (Collection) var26.isEmpty()) {
+        class_2960 class2960 = ((AbstractClientPlayerEntity) arg0).method_52814().comp_1626().comp_3627();
+        double offset = ((AbstractClientPlayerEntity) arg0).getX();
+        double offset2 = (((AbstractClientPlayerEntity) arg0).getY() + 1.45F);
+        double offset3 = ((AbstractClientPlayerEntity) arg0).getZ();
+        class_1007 class1007 = ((class_1007) SharedKt.getMc().method_1561().method_3953(SharedKt.getPlayer()));
+        class_591 class591 = ((class_591) class1007.method_4038());
+        Iterable iterable = ((Iterable) itemList);
+        if (iterable instanceof Collection && ((Collection) iterable).isEmpty()) {
         } else {
-            Iterator iterator = var26.iterator();
-            if (iterator.hasNext()) {
-                Object var29 = iterator.next();
-                TextureShaderComponent var30 = (TextureShaderComponent) var29;
-                int var31 = 0;
-            } else {
+            Iterator iterator = iterable.iterator();
+            while (iterator.hasNext()) {
+                Object element = iterator.next();
+                TextureShaderComponent textureShaderComponent = ((TextureShaderComponent) element);
             }
         }
         if (0) {
             return;
         }
-        itemList.add(new TextureShaderComponent(OptionMode3.HEAD));
-        itemList.add(new TextureShaderComponent(OptionMode3.BODY));
-        itemList.<init>(new TextureShaderComponent, new TextureShaderComponent, OptionMode3.RIGHT_ARM, (var18 + 0.35F), (var20 - 0.15F));
-        0.add();
-        itemList.<init>(new TextureShaderComponent, new TextureShaderComponent, OptionMode3.LEFT_ARM, (var18 - 0.35F), (var20 - 0.15F));
-        this.add();
-        itemList.<init>(new TextureShaderComponent, new TextureShaderComponent, OptionMode3.RIGHT_LEG, (var18 + 0.1F), (var20 - 0.7F));
-        this.add();
-        itemList.<init>(new TextureShaderComponent, new TextureShaderComponent, OptionMode3.LEFT_LEG, (var18 - 0.1F), (var20 - 0.7F));
-        this.add();
-        StartupServiceComponent.INSTANCE.getVecServiceComponent18().executeAction();
+        itemList.add(new TextureShaderComponent(class2960, class591, OptionMode3.HEAD, offset, offset2, offset3));
+        itemList.add(new TextureShaderComponent(class2960, class591, OptionMode3.BODY, offset, offset2, offset3));
+        this.add(new TextureShaderComponent(class2960, class591, OptionMode3.RIGHT_ARM, (offset + 0.35F), (offset2 - 0.15F), offset3));
+        this.add(new TextureShaderComponent(class2960, class591, OptionMode3.LEFT_ARM, (offset - 0.35F), (offset2 - 0.15F), offset3));
+        this.add(new TextureShaderComponent(class2960, class591, OptionMode3.RIGHT_LEG, (offset + 0.1F), (offset2 - 0.7F), offset3));
+        this.add(new TextureShaderComponent(class2960, class591, OptionMode3.LEFT_LEG, (offset - 0.1F), (offset2 - 0.7F), offset3));
+        StartupServiceComponent.INSTANCE.getVecServiceComponent18().executeAction(offset, offset2, offset3);
     }
 
     public void render(MatrixStack stack, class_591 model, FormatRenderHelper polygon, double posX, double posY, double posZ, double rotX, double rotY, double rotZ, OptionMode3 part, Color color) {
         stack.method_22903();
         stack.method_22904(posX, posY, posZ);
         stack.method_22905(0.0555F, 0.0555F, 0.0555F);
-        stack.method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees(rotX));
-        stack.method_22907((Quaternionfc) class_7833.field_40716.rotationDegrees(rotY));
-        stack.method_22907((Quaternionfc) class_7833.field_40718.rotationDegrees(rotZ));
-        Matrix4f var23 = stack.method_23760().method_23761();
-        int var24 = 0;
-        INSTANCE.executeAction((class_630) part.getFunction1().invoke(model), polygon, color);
-        INSTANCE.executeAction((class_630) part.getFunction12().invoke(model), polygon, color);
+        stack.method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees(rotX)));
+        stack.method_22907(((Quaternionfc) class_7833.field_40716.rotationDegrees(rotY)));
+        stack.method_22907(((Quaternionfc) class_7833.field_40718.rotationDegrees(rotZ)));
+        Matrix4f matrix4f = stack.method_23760().method_23761();
+        INSTANCE.executeAction(((class_630) part.getFunction1().invoke(model)), polygon, color, matrix4f);
+        INSTANCE.executeAction(((class_630) part.getFunction12().invoke(model)), polygon, color, matrix4f);
         stack.method_22909();
     }
 
     public void executeAction(class_630 part, FormatRenderHelper polygon, Color color, Matrix4f mat) {
-        Iterable var17 = (Iterable) (ModelPartAccessor) part.getCuboidsList();
-        int var18 = 0;
-        Iterator iterator = var17.iterator();
-        if (iterator.hasNext()) {
-            Object var20 = iterator.next();
-            class_628 var21 = (class_628) var20;
-            int var22 = 0;
-            Object[] var23 = (Object[]) var21.field_3649;
-            int var24 = 0;
-            int var25 = 0;
-            if (var25 < var26) {
-                Object var27 = var23[var25];
-                class_593 var28 = (class_593) var27;
-                int var29 = 0;
-                class_618[] var30 = var28.comp_3184();
-                int var31 = 0;
-                polygon.resolveFormatRenderHelper(mat, var30[0].comp_4804(), var30[0].comp_4805(), var30[0].comp_4806()).resolveFormatRenderHelper(var30[0].comp_3187(), var30[0].comp_3188()).resolveFormatRenderHelper(color);
-                polygon.resolveFormatRenderHelper(mat, var30[1].comp_4804(), var30[1].comp_4805(), var30[1].comp_4806()).resolveFormatRenderHelper(var30[1].comp_3187(), var30[1].comp_3188()).resolveFormatRenderHelper(color);
-                polygon.resolveFormatRenderHelper(mat, var30[2].comp_4804(), var30[2].comp_4805(), var30[2].comp_4806()).resolveFormatRenderHelper(var30[2].comp_3187(), var30[2].comp_3188()).resolveFormatRenderHelper(color);
-                polygon.resolveFormatRenderHelper(mat, var30[3].comp_4804(), var30[3].comp_4805(), var30[3].comp_4806()).resolveFormatRenderHelper(var30[3].comp_3187(), var30[3].comp_3188()).resolveFormatRenderHelper(color);
-                if (0L >= 0 && var16 == null) {
+        Iterable iterable = ((Iterable) ((ModelPartAccessor) part).getCuboidsList());
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            class_628 class628 = ((class_628) element);
+            Object[] items = ((Object[]) class628.field_3649);
+            int index = 0;
+            if (index < __UNDEF_KEY__) {
+                Object element2 = items[index];
+                class_593 class593 = ((class_593) element2);
+                class_618[] items2 = class593.comp_3184();
+                polygon.resolveFormatRenderHelper(mat, items2[0].comp_4804(), items2[0].comp_4805(), items2[0].comp_4806()).resolveFormatRenderHelper(items2[0].comp_3187(), items2[0].comp_3188()).resolveFormatRenderHelper(color);
+                polygon.resolveFormatRenderHelper(mat, items2[1].comp_4804(), items2[1].comp_4805(), items2[1].comp_4806()).resolveFormatRenderHelper(items2[1].comp_3187(), items2[1].comp_3188()).resolveFormatRenderHelper(color);
+                polygon.resolveFormatRenderHelper(mat, items2[2].comp_4804(), items2[2].comp_4805(), items2[2].comp_4806()).resolveFormatRenderHelper(items2[2].comp_3187(), items2[2].comp_3188()).resolveFormatRenderHelper(color);
+                polygon.resolveFormatRenderHelper(mat, items2[3].comp_4804(), items2[3].comp_4805(), items2[3].comp_4806()).resolveFormatRenderHelper(items2[3].comp_3187(), items2[3].comp_3188()).resolveFormatRenderHelper(color);
+                if (__UNDEF_KEY__ >= 0 && __UNDEF_KEY__ == null) {
                 }
             }
         }
     }
 
     private static boolean checkCondition(PlayerEntity arg0) {
-        if (!(CollectionsKt.contains((Iterable) SharedKt.getWorld().getPlayers(), arg0))) {
+        if (!(CollectionsKt.contains(((Iterable) SharedKt.getWorld().getPlayers()), arg0))) {
             INSTANCE.executeAction(arg0);
         } else {
         }
@@ -199,7 +181,7 @@ public class DismembermentModule extends Module {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static boolean checkCondition(TextureShaderComponent arg0) {
@@ -207,13 +189,13 @@ public class DismembermentModule extends Module {
     }
 
     private static boolean checkCondition2(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {
-        KProperty[] var28 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new DismembermentModule();
-        soundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sound");
+        soundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sound", true);
         lifeTimeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "life-time", 10, new IntRange(3, 100));
         itemList = new ArrayList();
         itemList2 = new ArrayList();

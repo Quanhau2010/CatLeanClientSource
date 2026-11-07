@@ -12,11 +12,11 @@ public class DefaultValueVisibleSettingPropertyImpl9 extends VisibleSettingPrope
     }
 
     public void setValue(String setting) {
-        this.updateValue(new Color(Integer.parseInt(setting), 1));
+        this.updateValue(new Color(Integer.parseInt(setting), true));
     }
 
     public String toString() {
-        return String.valueOf((Color) this.getObject2().getRGB());
+        return String.valueOf(((Color) this.getObject2()).getRGB());
     }
 
     private static boolean isActive() {

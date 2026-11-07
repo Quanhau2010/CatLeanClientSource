@@ -7,17 +7,17 @@ public class BlockPlacementRenderAnimationModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var13 = new int[BlockPlacementRenderAnimationMode.values()];
-        var13[BlockPlacementRenderAnimationMode.Static.ordinal()] = 1;
-        var13[BlockPlacementRenderAnimationMode.Decrease.ordinal()] = 2;
-        var13[BlockPlacementRenderAnimationMode.Fade.ordinal()] = 3;
-        var13[BlockPlacementRenderAnimationMode.FILL.ordinal()] = 4;
-        var13[BlockPlacementRenderAnimationMode.Flash.ordinal()] = 5;
-        var13[BlockPlacementRenderAnimationMode.Grow.ordinal()] = 3349040082366496774L;
-        var13[BlockPlacementRenderAnimationMode.TNT.ordinal()] = 5266270344649375751L;
-        var13[BlockPlacementRenderAnimationMode.Pull.ordinal()] = 5704531775355617288L;
-        var13[BlockPlacementRenderAnimationMode.Hover.ordinal()] = 3585466199376396297L;
-        ENUM_SWITCH_MAP = var13;
+        Object element = new int[BlockPlacementRenderAnimationMode.values()];
+        element[BlockPlacementRenderAnimationMode.Static.ordinal()] = 1;
+        element[BlockPlacementRenderAnimationMode.Decrease.ordinal()] = 2;
+        element[BlockPlacementRenderAnimationMode.Fade.ordinal()] = 3;
+        element[BlockPlacementRenderAnimationMode.FILL.ordinal()] = 4;
+        element[BlockPlacementRenderAnimationMode.Flash.ordinal()] = 5;
+        element[BlockPlacementRenderAnimationMode.Grow.ordinal()] = 6;
+        element[BlockPlacementRenderAnimationMode.TNT.ordinal()] = 7;
+        element[BlockPlacementRenderAnimationMode.Pull.ordinal()] = 8;
+        element[BlockPlacementRenderAnimationMode.Hover.ordinal()] = 9;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

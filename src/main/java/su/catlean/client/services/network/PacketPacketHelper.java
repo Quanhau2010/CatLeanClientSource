@@ -19,29 +19,24 @@ public class PacketPacketHelper {
     }
 
     public static void executeAction(Packet[] packet) {
-        Object var9 = packet;
-        int var10 = 0;
-        int var11 = 0;
-        Object var12 = var9;
-        if (var11 < var12) {
-            Object var13 = var9[var11];
-            Object var14 = var13;
-            int var15 = 0;
-            SharedKt.getNetwork().method_52787();
-            if (0L >= 0) {
+        int index = 0;
+        if (index < packet) {
+            Object element = packet[index];
+            SharedKt.getNetwork().method_52787(element);
+            if (__UNDEF_KEY__ >= 0) {
             }
         }
     }
 
     public static void executeAction(class_7204 packetCreator) {
-        AutoCloseable var8 = (AutoCloseable) SharedKt.getWorld().method_41925().method_41937();
-        class_7202 var10 = (class_7202) var8;
-        int var11 = 0;
-        handlePacket(packetCreator.predict(var10.method_41942()));
-        var10 = Unit.INSTANCE;
-        AutoCloseableKt.closeFinally();
-        Object var9 = var11;
-        AutoCloseableKt.closeFinally();
+        AutoCloseable autoCloseable = ((AutoCloseable) SharedKt.getWorld().method_41925().method_41937());
+        class_7202 class7202 = ((class_7202) autoCloseable);
+        int index = 0;
+        handlePacket(packetCreator.predict(class7202.method_41942()));
+        class7202 = Unit.INSTANCE;
+        AutoCloseableKt.closeFinally(autoCloseable);
+        int index2 = index;
+        AutoCloseableKt.closeFinally(autoCloseable, index2);
     }
 
     public static void executeAction(String command) {

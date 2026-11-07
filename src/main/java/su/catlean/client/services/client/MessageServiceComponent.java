@@ -29,52 +29,45 @@ public class MessageServiceComponent {
     }
 
     public static void executeAction(Module receiver, Object m) {
-        S(receiver, m.toString());
+        S(receiver, m.toString(), false);
     }
 
     public static void executeAction(Module receiver, String message, boolean chat) {
         SharedKt.getNetwork().method_45729(message);
-        Object var13 = message;
-        class_124 var14 = class_124.field_1080;
-        String var15 = StringsKt.trim((CharSequence) receiver.getString2()).toString();
-        class_124 var16 = class_124.field_1065;
-        class_124 var17 = class_124.field_1080;
-        class_2561 var12 = class_2561.method_30163((class_124.field_1060 + "> " + var17 + "[" + var16 + var15 + var14 + "] " + var13));
+        class_124 class124 = class_124.field_1080;
+        String text = StringsKt.trim(((CharSequence) receiver.getString2())).toString();
+        class_124 class1242 = class_124.field_1065;
+        class_124 class1243 = class_124.field_1080;
+        class_2561 class2561 = class_2561.method_30163((class_124.field_1060 + "> " + class1243 + "[" + class1242 + text + class124 + "] " + message));
         if (SharedKt.getMc().method_18854()) {
-            SharedKt.getPlayer().method_7353(0);
+            SharedKt.getPlayer().method_7353(class2561, false);
         }
         SharedKt.getMc().method_40000(this::updateValue);
     }
 
     public static String resolveString(Module receiver, String message, Object[] args, boolean common) {
-        Object var11 = args;
-        String var22 = ("common" + (receiver.getSubCategory().getString() + receiver.getString()) + "." + message);
-        KeyServiceComponent var21 = KeyServiceComponent.INSTANCE;
-        int var12 = 0;
-        Object var13 = var11;
-        Collection var14 = (Collection) new ArrayList();
-        int var15 = 0;
-        int var16 = 0;
-        Object var17 = var13;
-        if (var16 < var17) {
-            Object var18 = var13[var16];
-            Object var19 = var18;
-            if (var9 == null) {
-                Object var23 = var14;
-                int var20 = 0;
-                var23.add();
+        Object[] items = args;
+        String text = ("common" + (receiver.getSubCategory().getString() + receiver.getString()) + "." + message);
+        KeyServiceComponent keyServiceComponent = KeyServiceComponent.INSTANCE;
+        Object[] items2 = items;
+        Collection collection = ((Collection) new ArrayList(items));
+        int index = 0;
+        if (index < items2) {
+            Object element = items2[index];
+            if (__UNDEF_KEY__ == null) {
+                Collection collection2 = collection;
+                collection2.add(element);
             }
         }
-        var23 = var14;
-        var11 = (Collection) var23;
-        var12 = 0;
-        var13 = var11;
-        Object[] var10 = var13.toArray(new Object[0]);
-        return var21.resolveString(Arrays.copyOf());
+        collection2 = collection;
+        items = ((Collection) collection2);
+        items2 = items;
+        Object[] items3 = items2.toArray(new Object[0]);
+        return keyServiceComponent.resolveString(text, Arrays.copyOf(items3, items3));
     }
 
     private static void updateValue(class_2561 arg0) {
-        SharedKt.getPlayer().method_7353(arg0, 0);
+        SharedKt.getPlayer().method_7353(arg0, false);
     }
 
     public static void updateValue(String arg0) {

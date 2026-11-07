@@ -113,170 +113,159 @@ public class ProxyGuiElement implements Contract9 {
     }
 
     private void executeAction(char arg0, short arg1, int arg2) {
-        File[] var8 = ServiceComponent65.process();
-        int var9 = 0;
-        int var10 = 0;
-        Object var11 = var8;
-        if (var10 < var11) {
-            Object var12 = var8[var10];
-            Object var13 = var12;
-            int var14 = 0;
-            var13.mkdirs();
+        File[] items = ServiceComponent65.process();
+        int index = 0;
+        File[] items2 = items;
+        if (index < items2) {
+            Object element = items[index];
+            Object element2 = element;
+            int index2 = 0;
+            element2.mkdirs();
             if (arg0 >= 0) {
+                items = ((Object[]) this.getClass().getDeclaredFields());
             }
-            var8 = (Object[]) this.getClass().getDeclaredFields();
-            var9 = 0;
         }
-        var10 = var8;
-        var11 = (Collection) new ArrayList();
-        var12 = 0;
-        var13 = 0;
-        var14 = var10;
-        if (var13 < var14) {
-            Object var15 = var10[var13];
-            Field var16 = (Field) var15;
-            int var17 = 0;
+        index = items;
+        items2 = ((Collection) new ArrayList());
+        element = 0;
+        element2 = 0;
+        index2 = index;
+        if (element2 < index2) {
+            Object element3 = index[element2];
+            Field field = ((Field) element3);
             if (arg1 >= 0) {
-                if (Contract3.class.isAssignableFrom(var16.getType())) {
-                    var11.add();
+                if (Contract3.class.isAssignableFrom(field.getType())) {
+                    items2.add(element3);
                 }
             }
         }
-        var8 = (Iterable) var11;
-        var9 = 0;
-        var10 = var8.iterator();
-        if (var10.hasNext()) {
-            var11 = var10.next();
-            var12 = (Field) var11;
-            var13 = 0;
-            var12.setAccessible(1);
-            var12.get(INSTANCE).updateValue();
+        items = ((Iterable) items2);
+        index = items.iterator();
+        while (index.hasNext()) {
+            items2 = index.next();
+            element = ((Field) items2);
+            element2 = 0;
+            element.setAccessible(true);
+            element.get(INSTANCE).updateValue();
         }
     }
 
     public void updateValue() {
         jsonJsonServiceComponent5Impl2.executeAction(EnabledServiceComponent.INSTANCE.getArrayList2(), jsonJsonServiceComponent5Impl2.resolveIdRecord3().getString());
         jsonJsonServiceComponent5Impl4.executeAction(POSITIONCOLORRenderHelper.INSTANCE.getList(), jsonJsonServiceComponent5Impl4.resolveIdRecord8().getString());
-        Object[] var15 = (Object[]) this.getClass().getDeclaredFields();
-        int var16 = 0;
-        Object var17 = var15;
-        Collection var18 = (Collection) new ArrayList();
-        int var19 = 0;
-        int var20 = 0;
-        Object var21 = var17;
-        if (var20 < var21) {
-            Object var22 = var17[var20];
-            Field var23 = (Field) var22;
-            int var24 = 0;
-            if (var14 != null) {
-                if (Contract3.class.isAssignableFrom(var23.getType())) {
-                    var18.add();
+        Object[] items = ((Object[]) this.getClass().getDeclaredFields());
+        Object[] items2 = items;
+        Collection collection = ((Collection) new ArrayList());
+        int index = 0;
+        int index2 = 0;
+        if (index2 < items2) {
+            Object element = items2[index2];
+            Field field = ((Field) element);
+            if (__UNDEF_KEY__ != null) {
+                if (Contract3.class.isAssignableFrom(field.getType())) {
+                    collection.add(element);
                 }
             }
         }
-        var15 = (Iterable) var18;
-        var16 = 0;
-        var17 = var15.iterator();
-        if (var17.hasNext()) {
-            var18 = var17.next();
-            var19 = (Field) var18;
-            var20 = 0;
-            var19.setAccessible(1);
-            var19.get(INSTANCE).executeAction();
+        items = ((Iterable) collection);
+        items2 = items.iterator();
+        while (items2.hasNext()) {
+            collection = items2.next();
+            index = ((Field) collection);
+            index2 = 0;
+            index.setAccessible(true);
+            index.get(INSTANCE).executeAction();
         }
     }
 
     private void onFilesDraggedEvent(FilesDraggedEvent arg0) {
-        File var31 = new File(CollectionsKt.first(arg0.getPaths()).toString());
-        if (var30 != null) {
+        File file = new File(CollectionsKt.first(arg0.getPaths()).toString());
+        if (__UNDEF_KEY__ != null) {
             if (SharedKt.getMc().currentScreen instanceof CatleanPanelScreenGuiElement && ProxyPanelRenderHelper3Impl.INSTANCE.getContract4() != null) {
-                if (var30 != null) {
-                    if (StringsKt.contains$default((CharSequence) var31.getName(), (CharSequence) ".txt")) {
-                        Closeable var32 = (Closeable) new BufferedReader((Reader) new FileReader());
-                        BufferedReader var34 = (BufferedReader) var32;
-                        int var35 = 0;
-                        if (var34.ready()) {
-                            String[] var36 = new String[1];
-                            var36[0] = ":";
-                            var36 = StringsKt.split$default((CharSequence) var34.readLine());
-                            int var37 = 0;
-                            if (var30 != null) {
-                                if (var30 != null) {
-                                    if (!(var36.isEmpty())) {
-                                    }
-                                    ListIterator iterator = var36.listIterator(var36.size());
-                                    if (iterator.hasPrevious()) {
-                                        String var39 = (String) iterator.previous();
-                                        int var40 = 0;
-                                        if (var30 != null) {
-                                            if (!((CharSequence) var39.length())) {
+                if (__UNDEF_KEY__ != null) {
+                    if (StringsKt.contains$default(((CharSequence) file.getName()), ((CharSequence) ".txt"), false)) {
+                        Closeable closeable = ((Closeable) new BufferedReader(((Reader) new FileReader(file))));
+                        BufferedReader bufferedReader = ((BufferedReader) closeable);
+                        int index = 0;
+                        if (bufferedReader.ready()) {
+                            String[] items = new String[1];
+                            items[0] = ":";
+                            items = StringsKt.split$default(((CharSequence) bufferedReader.readLine()), items, false);
+                            if (__UNDEF_KEY__ != null) {
+                                if (__UNDEF_KEY__ != null) {
+                                    if (!(items.isEmpty())) {
+                                        ListIterator iterator = items.listIterator(items.size());
+                                        if (iterator.hasPrevious()) {
+                                            String text = ((String) iterator.previous());
+                                            if (__UNDEF_KEY__ != null) {
+                                                if (!(((CharSequence) text).length())) {
+                                                } else {
+                                                }
                                             }
                                         } else {
                                         }
+                                    } else {
                                     }
-                                } else {
+                                    items = ((Collection) CollectionsKt.emptyList());
+                                    iterator = items;
+                                    String[] items2 = ((String[]) iterator.toArray(new String[0]));
+                                    if (StringsKt.toIntOrNull(items2[1]) != null) {
+                                    }
+                                    StringsKt.toIntOrNull(items2[1]);
+                                    int index2 = 64;
+                                    int index3 = 0;
+                                    int index4 = 0;
+                                    Object element = items2[3];
+                                    Object element2 = items2[2];
+                                    int index5 = 80;
+                                    Object element3 = items2[0];
+                                    String text2 = ("proxy_" + (Random.Default.nextFloat() * 10000));
+                                    ProxyServiceComponent.INSTANCE.checkCondition2(new IdRecord12(text2, element3, index5, element2, element, index4, index3, index2));
+                                    bufferedReader = Unit.INSTANCE;
+                                    CloseableKt.closeFinally(closeable);
+                                    index = CollectionsKt.take(((Iterable) items), (iterator.nextIndex() + 1));
+                                    int index6 = index;
+                                    CloseableKt.closeFinally(closeable, index6);
+                                    ProxyPanelRenderHelper3Impl.INSTANCE.updateValue(null);
+                                    ProxyPanelRenderHelper3Impl.INSTANCE.updateValue();
+                                    index6 = index;
+                                    if (__UNDEF_KEY__ != null) {
+                                        if (SharedKt.getMc().player != null) {
+                                            SharedKt.getMc().player.method_7353(class_2561.method_30163(KeyServiceComponent.INSTANCE.resolveString("gui.proxy.import-error", new Object[0])), false);
+                                        } else {
+                                        }
+                                    }
                                 }
                             }
-                            var36 = (Collection) CollectionsKt.emptyList();
-                            var37 = 0;
-                            iterator = var36;
-                            String[] var41 = (String[]) iterator.toArray(new String[0]);
-                            if (StringsKt.toIntOrNull(var41[1]) != null) {
-                            }
-                            StringsKt.toIntOrNull(var41[1]);
-                            int var22 = 64;
-                            int var23 = 0;
-                            int var24 = 0;
-                            Object var25 = var41[3];
-                            Object var26 = var41[2];
-                            int var27 = 80;
-                            Object var28 = var41[0];
-                            String var29 = ("proxy_" + (Random.Default.nextFloat() * 10000));
-                            ProxyServiceComponent.INSTANCE.checkCondition2(new IdRecord12());
                         }
-                        var34 = Unit.INSTANCE;
-                        CloseableKt.closeFinally();
-                        var35 = CollectionsKt.take((Iterable) var36, (iterator.nextIndex() + 1));
-                        Object var33 = var35;
-                        CloseableKt.closeFinally();
+                    }
+                }
+                if (__UNDEF_KEY__ != null) {
+                    if (StringsKt.contains$default(((CharSequence) file.getName()), ((CharSequence) ".ctlon"), false)) {
+                        closeable = json;
+                        index6 = FilesKt.readText$default(file);
+                        bufferedReader = 0;
+                        closeable.getSerializersModule();
+                        jsonServiceComponent3.resolveProxiesRecord().getList().addAll(((Collection) ((ProxiesRecord) closeable.decodeFromString(((DeserializationStrategy) ProxiesRecord.serviceComponent125.getKSerializer()), index6)).getList()));
                         ProxyPanelRenderHelper3Impl.INSTANCE.updateValue(null);
                         ProxyPanelRenderHelper3Impl.INSTANCE.updateValue();
-                        var33 = var35;
-                        if (var30 != null) {
+                        if (__UNDEF_KEY__ != null) {
                             if (SharedKt.getMc().player != null) {
-                                SharedKt.getMc().player.method_7353(class_2561.method_30163(KeyServiceComponent.INSTANCE.resolveString("gui.proxy.import-error", new Object[0])), 0);
+                                SharedKt.getMc().player.method_7353(class_2561.method_30163(KeyServiceComponent.INSTANCE.resolveString("gui.proxy.import-error", new Object[0])), false);
+                            } else {
                             }
-                        } else {
                         }
+                        return;
                     }
                 }
             }
-            if (var30 != null) {
-                if (StringsKt.contains$default((CharSequence) var31.getName(), (CharSequence) ".ctlon")) {
-                    var32 = json;
-                    var33 = FilesKt.readText$default(null, 1, null);
-                    var34 = 0;
-                    var32.getSerializersModule();
-                    jsonServiceComponent3.resolveProxiesRecord().getList().addAll((Collection) (ProxiesRecord) var32.decodeFromString((DeserializationStrategy) ProxiesRecord.serviceComponent125.getKSerializer()).getList());
-                    ProxyPanelRenderHelper3Impl.INSTANCE.updateValue(null);
-                    ProxyPanelRenderHelper3Impl.INSTANCE.updateValue();
-                    if (var30 != null) {
-                        if (SharedKt.getMc().player != null) {
-                            SharedKt.getMc().player.method_7353(class_2561.method_30163(KeyServiceComponent.INSTANCE.resolveString("gui.proxy.import-error", new Object[0])), 0);
-                        }
-                    } else {
-                    }
-                    return;
-                }
-            }
         }
-        }
-        var32 = json;
-        var33 = FilesKt.readText$default(null, 1, null);
-        var34 = 0;
-        var32.getSerializersModule();
-        jsonJsonServiceComponent5Impl2.resolveList().add(var32.decodeFromString((DeserializationStrategy) IdRecord3.serviceComponent122.getKSerializer()));
-        var33.printStackTrace();
+        closeable = json;
+        index6 = FilesKt.readText$default(file);
+        bufferedReader = 0;
+        closeable.getSerializersModule();
+        jsonJsonServiceComponent5Impl2.resolveList().add(closeable.decodeFromString(((DeserializationStrategy) IdRecord3.serviceComponent122.getKSerializer()), index6));
+        index6.printStackTrace();
         ConfigPanelRenderHelper3Impl.INSTANCE.updateValue();
     }
 
@@ -284,16 +273,15 @@ public class ProxyGuiElement implements Contract9 {
         if (SharedKt.getMc().currentScreen instanceof CatleanPanelScreenGuiElement) {
         } else {
         }
-        RunnableServiceComponent var9 = RunnableServiceComponent.INSTANCE;
-        int var10 = 0;
-        int var11 = 0;
-        var9.getExecutorService().execute((Runnable) new ServiceComponent26());
+        RunnableServiceComponent runnableServiceComponent = RunnableServiceComponent.INSTANCE;
+        int index = 0;
+        runnableServiceComponent.getExecutorService().execute(((Runnable) new ServiceComponent26(index)));
     }
 
     private static Unit resolveUnit(JsonBuilder arg0) {
-        arg0.setPrettyPrint(1);
-        arg0.setIgnoreUnknownKeys(1);
-        arg0.setEncodeDefaults(1);
+        arg0.setPrettyPrint(true);
+        arg0.setIgnoreUnknownKeys(true);
+        arg0.setEncodeDefaults(true);
         return Unit.INSTANCE;
     }
 

@@ -42,22 +42,17 @@ public class PlayerEntityHelper2 implements Contract9 {
         lookupMap.clear();
         Iterator iterator = SharedKt.getWorld().getPlayers().iterator();
         while (iterator.hasNext()) {
-            AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) iterator.next();
-            lookupMap.put(Integer.valueOf(player.method_5628()), new TargetEntityHelper12((PlayerEntity) player));
-            if (var11 != null) {
-                if ((TargetEntityHelper12) lookupMap.get(Integer.valueOf(player.method_5628())) != null) {
-                    (TargetEntityHelper12) lookupMap.get(Integer.valueOf(player.method_5628())).executeAction();
+            AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) iterator.next());
+            lookupMap.put(Integer.valueOf(player.method_5628()), new TargetEntityHelper12(((PlayerEntity) player)));
+            if (__UNDEF_KEY__ != null) {
+                if (((TargetEntityHelper12) lookupMap.get(Integer.valueOf(player.method_5628()))) != null) {
+                    ((TargetEntityHelper12) lookupMap.get(Integer.valueOf(player.method_5628()))).executeAction();
                 }
             }
         }
     }
 
     private void onEntityRemove(EntityRemove arg0) {
-        Map var4 = lookupMap;
-        Object var5 = var4;
-        int var6 = 0;
-        var6 = (TargetEntityHelper12) lookupMap.remove(Integer.valueOf(arg0.getEntity().method_5628()));
-        Object var7 = var5;
     }
 
     private void onDisconnectEvent(DisconnectEvent arg0) {
@@ -69,51 +64,42 @@ public class PlayerEntityHelper2 implements Contract9 {
     }
 
     public Box predictPosition(PlayerEntity player, int ticks) {
-        if (var5 != null) {
-            if (lookupMap.containsKey(Integer.valueOf(player.method_5628()))) {
-            }
+        if (lookupMap.containsKey(Integer.valueOf(player.method_5628()))) {
         }
         return player.method_5829();
-        if (var5 != null) {
-            if ((TargetEntityHelper12) lookupMap.get(Integer.valueOf(player.method_5628())) != null && (TargetEntityHelper12) lookupMap.get(Integer.valueOf(player.method_5628())).getArrayList() != null) {
-            }
-            if (var5 == null) {
-            }
+        if (((TargetEntityHelper12) lookupMap.get(Integer.valueOf(player.method_5628()))) != null && ((TargetEntityHelper12) lookupMap.get(Integer.valueOf(player.method_5628()))).getArrayList() != null) {
         }
-        List positions = CollectionsKt.emptyList();
-        if (var5 != null) {
-            if (positions.isEmpty()) {
-                return player.method_5829();
-            }
+        List list = CollectionsKt.emptyList();
+        if (list.isEmpty()) {
+            return player.method_5829();
         }
-        return (Box) positions.get(Math.min(ticks, (positions.size() - 1)));
+        return ((Box) list.get(Math.min(ticks, (list.size() - 1))));
     }
 
     public Vec3d predictPosition(PlayerEntity entity, int ticks) {
         Vec3d vec = AntiKnockBackModule.INSTANCE.resolveMinecraftObject(entity);
-        double var15 = (entity.getX() - entity.field_6014);
-        double var17 = (entity.getY() - entity.field_6036);
-        double var19 = (entity.getZ() - entity.field_5969);
-        int var21 = 0;
-        if (var21 < ticks) {
-            if (var15 > 0.0D) {
+        double offset = (entity.getX() - entity.field_6014);
+        double offset2 = (entity.getZ() - entity.field_5969);
+        int index = 0;
+        if (index < ticks) {
+            if (offset > 0.0D) {
             } else {
             }
-            float var22 = -0.3F;
-            if (var19 > 0.0D) {
+            float factor = -0.3F;
+            if (offset2 > 0.0D) {
             } else {
             }
-            float var23 = -0.3F;
-            if (var13 != null) {
-                if (SharedKt.getWorld().method_22347(BlockPos.ofFloored(vec.method_1031((var15 + var22), 0.25D, (var19 + var23))))) {
-                    if (0L >= 0) {
-                        if (!(SharedKt.getWorld().method_22347(BlockPos.ofFloored(vec.method_1031((var15 + var22), 1.0D, (var19 + var23)))))) {
+            float factor2 = -0.3F;
+            if (__UNDEF_KEY__ != null) {
+                if (SharedKt.getWorld().method_22347(BlockPos.ofFloored(vec.method_1031((offset + factor), 0.25D, (offset2 + factor2))))) {
+                    if (__UNDEF_KEY__ >= 0) {
+                        if (!(SharedKt.getWorld().method_22347(BlockPos.ofFloored(vec.method_1031((offset + factor), 1.0D, (offset2 + factor2)))))) {
+                            offset = 0.0D;
+                            offset2 = 0.0D;
                         }
-                        var15 = 0.0D;
+                        vec = vec.method_1031(offset, 0.0D, offset2);
                     }
-                    var19 = 0.0D;
                 }
-                vec = vec.method_1031(0.0D);
             }
         }
         return vec;
@@ -121,7 +107,7 @@ public class PlayerEntityHelper2 implements Contract9 {
 
     static {
         INSTANCE = new PlayerEntityHelper2();
-        lookupMap = Collections.synchronizedMap((Map) new HashMap());
+        lookupMap = Collections.synchronizedMap(((Map) new HashMap()));
     }
 
     public static void updateValue(int[] arg0) {

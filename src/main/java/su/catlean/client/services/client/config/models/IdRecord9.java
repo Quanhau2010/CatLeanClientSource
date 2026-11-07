@@ -78,35 +78,35 @@ public class IdRecord9 implements Contract8 {
     }
 
     public static IdRecord9 resolveIdRecord9(IdRecord9 arg0, String arg1, KeyRecord arg2, boolean arg3, String arg4, int arg5, Object arg6) {
-        if ((arg5 & 1)) {
+        if ((arg5 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg5 & 2)) {
+        if ((arg5 & 2) != 0) {
             arg2 = arg0.keyRecord;
         }
-        if ((arg5 & 4)) {
+        if ((arg5 & 4) != 0) {
             arg3 = arg0.enabledFlag;
         }
-        if ((arg5 & 8)) {
+        if ((arg5 & 8) != 0) {
             arg4 = arg0.textValue2;
         }
         return arg0.resolveIdRecord9(arg1, arg2, arg3, arg4);
     }
 
     public String toString() {
-        String var3 = this.textValue2;
-        boolean var4 = this.enabledFlag;
-        KeyRecord var5 = this.keyRecord;
-        String var6 = this.textValue;
-        return ("ChatMacro(id=" + var6 + ", bind=" + var5 + ", enabled=" + var4 + ", message=" + var3 + ")");
+        String text = this.textValue2;
+        boolean flag = this.enabledFlag;
+        KeyRecord keyRecord = this.keyRecord;
+        String text2 = this.textValue;
+        return ("ChatMacro(id=" + text2 + ", bind=" + keyRecord + ", enabled=" + flag + ", message=" + text + ")");
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * 31) + this.keyRecord.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        var3 = ((var3 * 31) + this.textValue2.hashCode());
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.keyRecord.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        index = ((index * 31) + this.textValue2.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -116,17 +116,17 @@ public class IdRecord9 implements Contract8 {
         if (!(other instanceof IdRecord9)) {
             return false;
         }
-        IdRecord9 var5 = (IdRecord9) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord9 idRecord9 = ((IdRecord9) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord9.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.keyRecord, var5.keyRecord))) {
+        if (!(Intrinsics.areEqual(this.keyRecord, idRecord9.keyRecord))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != idRecord9.enabledFlag) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, idRecord9.textValue2))) {
             return false;
         }
         return true;
@@ -134,7 +134,7 @@ public class IdRecord9 implements Contract8 {
 
     public static void executeAction(IdRecord9 self, CompositeEncoder output, SerialDescriptor serialDesc) {
         output.encodeStringElement(serialDesc, 0, self.getString());
-        output.encodeSerializableElement(serialDesc, 1, (SerializationStrategy) KeyRecordSerializer.INSTANCE, self.getKeyRecord());
+        output.encodeSerializableElement(serialDesc, 1, ((SerializationStrategy) KeyRecordSerializer.INSTANCE), self.getKeyRecord());
         output.encodeBooleanElement(serialDesc, 2, self.isActive());
         output.encodeStringElement(serialDesc, 3, self.textValue2);
     }

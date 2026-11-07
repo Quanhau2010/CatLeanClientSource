@@ -14,7 +14,7 @@ public class LevelChunkMixin {
     }
 
     private void setBlockStateHook(BlockPos pos, BlockState state, CallbackInfoReturnable cir) {
-        BlockStateEvent.INSTANCE.call(pos, state, (BlockState) cir.getReturnValue());
+        BlockStateEvent.INSTANCE.call(pos, state, ((BlockState) cir.getReturnValue()));
     }
 
 }

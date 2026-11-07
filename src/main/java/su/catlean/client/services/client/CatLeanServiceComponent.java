@@ -16,15 +16,15 @@ public class CatLeanServiceComponent {
     }
 
     static {
-        Color var25 = new Color(-6744982843987853256L, -6744982843987853256L, 2690416687294971990L, 4589619253849620735L);
-        Color var26 = new Color(4046497790044405887L, 4046497790044405887L, 4135408483564519612L, 2745309057987379399L);
-        Color var27 = new Color(-648241698907881345L, 4046497790044405887L, -3584820493993115460L, 1448294024824750140L);
-        Color var28 = new Color(4925036116400144414L, 2215296143607201822L, -3140032821825896408L, 4307633811685900348L);
-        Color var29 = new Color(3857799338197516344L, -5266970432908558092L, 6410986928417538272L);
-        Color var30 = new Color(-3689304343791533952L, 2497335814028001408L, 2497335814028001408L);
-        Color var31 = new Color(244272794626425087L, 4589619253849620735L, 4589619253849620735L);
-        Color var32 = new Color(7600590305590509718L, 8870449566210588822L, -2442647535886532408L);
-        idRecord6 = new IdRecord6("CatLean", new Color(7046482319740826848L), new Color(-368232744849422353L), new Color(-828169243420786583L, -4884617089710555031L, -4884617089710555031L), new Color(-3237779435599953775L, -4618154037311700847L, 1265746137944424613L));
+        Color color = new Color(56, 56, 86, 255);
+        Color color2 = new Color(127, 127, 188, 199);
+        Color color3 = new Color(127, 127, 188, 60);
+        Color color4 = new Color(30, 30, 40, 60);
+        Color color5 = new Color(56, 244, 224);
+        Color color6 = new Color(128, 128, 128);
+        Color color7 = new Color(255, 255, 255);
+        Color color8 = new Color(150, 150, 200);
+        idRecord6 = new IdRecord6("CatLean", color8, color7, color6, color5, color4, color3, color2, color);
     }
 
 }

@@ -23,7 +23,7 @@ public class RenderEntityEvent extends Event {
 
     public boolean call(Entity state) {
         state = state;
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }

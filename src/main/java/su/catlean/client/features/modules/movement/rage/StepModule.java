@@ -36,7 +36,7 @@ public class StepModule extends Module {
     }
 
     private StepMode getMode() {
-        return (StepMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((StepMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setMode(StepMode value) {
@@ -44,7 +44,7 @@ public class StepModule extends Module {
     }
 
     private float getHeight() {
-        return (Number) heightSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) heightSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setHeight(float value) {
@@ -52,7 +52,7 @@ public class StepModule extends Module {
     }
 
     private boolean getUseTimer() {
-        return (Boolean) useTimerSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) useTimerSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setUseTimer(boolean value) {
@@ -60,15 +60,14 @@ public class StepModule extends Module {
     }
 
     private boolean getPauseIfShift() {
-        return (Boolean) pauseIfShiftSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) pauseIfShiftSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setPauseIfShift(boolean value) {
         pauseIfShiftSetting.setValue(this, DELEGATED_PROPERTIES[3], Boolean.valueOf(value));
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 117573222669056L);
+    public void updateValue2() {
         this.executeAction(0.6F);
     }
 
@@ -80,35 +79,34 @@ public class StepModule extends Module {
         }
         if (!(SharedKt.getMc().options.field_1832.method_1434()) && !(SharedKt.getPlayer().method_31549().field_7479) && !(SharedKt.getPlayer().method_3144()) && !(SharedKt.getPlayer().method_5799())) {
             if (SharedKt.getPlayer().isFallFlying()) {
+                this.executeAction(0.6F);
+                return;
             }
-            this.executeAction(0.6F);
-            return;
         }
         if (SharedKt.getPlayer().isOnGround()) {
             if (this.getMode() == StepMode.STRICT_NCP) {
             } else {
             }
-            1.0F.executeAction(this.getHeight());
+            this.executeAction(this.getHeight());
         } else {
             this.executeAction(0.6F);
         }
         if (this.getMode() != StepMode.NCP) {
         }
-        double var25 = (SharedKt.getPlayer().getY() - SharedKt.getPlayer().field_6036);
-        if (this.getMode() != StepMode.STRICT_NCP || var25 <= 0.75D || var25 > this.getHeight()) {
+        double offset = (SharedKt.getPlayer().getY() - SharedKt.getPlayer().field_6036);
+        if (this.getMode() != StepMode.STRICT_NCP || offset <= 0.75D || offset > this.getHeight()) {
             return;
         }
-        double[] var27 = this.process();
+        double[] items = this.process(offset);
         if (this.getUseTimer()) {
-            ServiceComponent98.INSTANCE.updateValue2((1.0F / var27));
+            ServiceComponent98.INSTANCE.updateValue2((1.0F / items));
         }
-        int var28 = 0;
-        Object var29 = var27;
-        if (var28 < var29) {
-            Object var30 = var27[var28];
-            PacketPacketHelper.handlePacket((Packet) new class_2829(SharedKt.getPlayer().field_6014, (SharedKt.getPlayer().field_6036 + var30), SharedKt.getPlayer().field_5969, 0, SharedKt.getPlayer().field_5976));
+        int index = 0;
+        if (index < items) {
+            Object element = items[index];
+            PacketPacketHelper.handlePacket(((Packet) new class_2829(SharedKt.getPlayer().field_6014, (SharedKt.getPlayer().field_6036 + element), SharedKt.getPlayer().field_5969, false, SharedKt.getPlayer().field_5976)));
         }
-        PacketPacketHelper.handlePacket((Packet) new class_2829(SharedKt.getPlayer().field_6014, (SharedKt.getPlayer().field_6036 + var25), SharedKt.getPlayer().field_5969, 0, SharedKt.getPlayer().field_5976));
+        PacketPacketHelper.handlePacket(((Packet) new class_2829(SharedKt.getPlayer().field_6014, (SharedKt.getPlayer().field_6036 + offset), SharedKt.getPlayer().field_5969, false, SharedKt.getPlayer().field_5976)));
     }
 
     private void onMoveEvent(MoveEvent arg0) {
@@ -128,39 +126,39 @@ public class StepModule extends Module {
     }
 
     private double[] process(double arg0) {
-        Object var9 = new double[2];
-        var9[0] = 0.42D;
-        var9[1] = 0.753D;
-        var9 = new double[2];
-        var9[0] = 0.39D;
-        var9[1] = 0.7D;
-        var9 = new double[6];
-        var9[0] = 0.42D;
-        var9[1] = 0.75D;
-        var9[2] = 1.0D;
-        var9[3] = 1.16D;
-        var9[4] = 1.23D;
-        var9[5] = 1.2D;
-        var9 = new double[8];
-        var9[0] = 0.42D;
-        var9[1] = 0.78D;
-        var9[2] = 0.63D;
-        var9[3] = 0.51D;
-        var9[4] = 0.9D;
-        var9[5] = 1.21D;
-        var9[6] = 1.45D;
-        var9[7] = 1.43D;
-        var9 = new double[10];
-        var9[0] = 0.425D;
-        var9[1] = 0.821D;
-        var9[2] = 0.699D;
-        var9[3] = 0.599D;
-        var9[4] = 1.022D;
-        var9[5] = 1.372D;
-        var9[6] = 1.652D;
-        var9[7] = 1.869D;
-        var9[8] = 2.019D;
-        var9[9] = 1.907D;
+        Object element = new double[2];
+        element[0] = 0.42D;
+        element[1] = 0.753D;
+        element = new double[2];
+        element[0] = 0.39D;
+        element[1] = 0.7D;
+        element = new double[6];
+        element[0] = 0.42D;
+        element[1] = 0.75D;
+        element[2] = 1.0D;
+        element[3] = 1.16D;
+        element[4] = 1.23D;
+        element[5] = 1.2D;
+        element = new double[8];
+        element[0] = 0.42D;
+        element[1] = 0.78D;
+        element[2] = 0.63D;
+        element[3] = 0.51D;
+        element[4] = 0.9D;
+        element[5] = 1.21D;
+        element[6] = 1.45D;
+        element[7] = 1.43D;
+        element = new double[10];
+        element[0] = 0.425D;
+        element[1] = 0.821D;
+        element[2] = 0.699D;
+        element[3] = 0.599D;
+        element[4] = 1.022D;
+        element[5] = 1.372D;
+        element[6] = 1.652D;
+        element[7] = 1.869D;
+        element[8] = 2.019D;
+        element[9] = 1.907D;
         return null;
     }
 
@@ -177,12 +175,12 @@ public class StepModule extends Module {
     }
 
     static {
-        KProperty[] var30 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new StepModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", StepMode.NCP);
         heightSetting = VisibleRenderHelper.registerSetting(INSTANCE, "height", 2.0F, RangesKt.rangeTo(1.0F, 2.5F), null, this::isActive);
-        useTimerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timer", 1, null, this::isActive2);
-        pauseIfShiftSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-if-shift");
+        useTimerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timer", true, null, this::isActive2);
+        pauseIfShiftSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-if-shift", false);
     }
 
 }

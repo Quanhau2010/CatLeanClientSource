@@ -20,46 +20,42 @@ public class InteractVecServiceComponent {
     }
 
     public boolean checkCondition(Vec3d pos, Vec3d interactVec) {
-        Box var10 = new Box(pos.method_1023(1.0D, 0.0D, 1.0D), pos.method_1031(1.0D, 2.0D, 1.0D));
-        double var11 = SharedKt.getPlayer().method_55755();
-        double var23 = 0.0D;
-        var23 = 1.7976931348623157E308D;
-        Vec3d vec = interactVec.method_1020(SharedKt.getPlayer().getEyePos()).method_1029().method_1021();
+        Box box = new Box(pos.method_1023(1.0D, 0.0D, 1.0D), pos.method_1031(1.0D, 2.0D, 1.0D));
+        double offset = SharedKt.getPlayer().method_55755();
+        double offset2 = 0.0D;
+        offset2 = 1.7976931348623157E308D;
+        Vec3d vec = interactVec.method_1020(SharedKt.getPlayer().getEyePos()).method_1029().method_1021(offset);
         Vec3d vec2 = EventPacketHelper2.INSTANCE.resolveMinecraftObject();
-        Float[] var15 = floatArray;
-        int var16 = 0;
-        Object var17 = var15;
-        if (var16 < var17) {
-            float var18 = var15[var16];
-            Vec3d vec3 = vec2.method_1031(0.0D, 0.0D);
+        int index = 0;
+        if (index < floatArray) {
+            float factor = floatArray[index];
+            Vec3d vec3 = vec2.method_1031(0.0D, factor, 0.0D);
             Vec3d vec4 = vec3.method_1019(vec);
-            if (!(var10.method_1006(vec4))) {
-                if (var10.method_1006(vec3)) {
+            if (!(box.method_1006(vec4))) {
+                if (box.method_1006(vec3)) {
+                    return true;
                 }
-                return true;
             }
-            Optional var21 = var10.method_992(vec3, vec4);
-            int var22 = 0;
-            if (var21.isPresent()) {
-                var23 = Math.min(vec3.method_1025((Vec3d) var21.get()));
+            Optional optional = box.method_992(vec3, vec4);
+            if (optional.isPresent()) {
+                offset2 = Math.min(offset2, vec3.method_1025(((Vec3d) optional.get())));
             }
         }
-        return var23 <= (var11 * var11);
+        return offset2 <= (offset * offset);
     }
 
     public static boolean checkCondition(InteractVecServiceComponent arg0, Vec3d arg1, Vec3d arg2, int arg3, Object arg4) {
-        if ((arg3 & 2)) {
-            arg2 = arg1;
+        if ((arg3 & 2) != 0) {
         }
-        return arg0.checkCondition(arg1, arg2);
+        return arg0.checkCondition(arg1, arg1);
     }
 
     static {
         INSTANCE = new InteractVecServiceComponent();
-        Float[] var11 = new Float[2];
-        var11[0] = Float.valueOf(1.62F);
-        var11[1] = Float.valueOf(0.4F);
-        floatArray = var11;
+        Float[] items = new Float[2];
+        items[0] = Float.valueOf(1.62F);
+        items[1] = Float.valueOf(0.4F);
+        floatArray = items;
     }
 
 }

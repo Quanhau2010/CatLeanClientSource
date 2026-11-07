@@ -25,7 +25,7 @@ public class TpsSyncModule extends Module {
     }
 
     private boolean getProtection() {
-        return (Boolean) protectionSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) protectionSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setProtection(boolean value) {
@@ -42,9 +42,9 @@ public class TpsSyncModule extends Module {
     }
 
     static {
-        KProperty[] var31 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new TpsSyncModule();
-        protectionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "kick-protection");
+        protectionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "kick-protection", true);
     }
 
 }

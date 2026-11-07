@@ -22,44 +22,42 @@ public class SettingMacrosRecordSerializer implements GeneratedSerializer {
     }
 
     public void setValue(Encoder encoder, SettingMacrosRecord value) {
-        SerialDescriptor var7 = serialDescriptor;
-        CompositeEncoder var8 = encoder.beginStructure();
-        SettingMacrosRecord.setValue(value);
-        var8.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        SettingMacrosRecord.setValue(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public SettingMacrosRecord resolveSettingMacrosRecord(Decoder decoder) {
-        SerialDescriptor var7 = serialDescriptor;
-        int var8 = 1;
-        int var10 = 0;
-        CompositeDecoder var14 = decoder.beginStructure();
-        Lazy[] var15 = SettingMacrosRecord.process();
-        if (var6 != null) {
-            if (var14.decodeSequentially()) {
+        int index = 1;
+        int index2 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        Lazy[] items = SettingMacrosRecord.process();
+        if (__UNDEF_KEY__ != null) {
+            if (compositeDecoder.decodeSequentially()) {
+                List list = compositeDecoder.decodeSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) items[0].getValue()));
+                index2 = (index2 | 1);
+                List list2 = compositeDecoder.decodeSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) items[1].getValue()));
+                index2 = (index2 | 2);
+                List list3 = compositeDecoder.decodeSerializableElement(serialDescriptor, 2, ((DeserializationStrategy) items[2].getValue()));
+                index2 = (index2 | 4);
             }
-            List positions = var14.decodeSerializableElement(0, (DeserializationStrategy) var15[0].getValue());
-            var10 = (var10 | 1);
-            List positions2 = var14.decodeSerializableElement(1, (DeserializationStrategy) var15[1].getValue());
-            var10 = (var10 | 2);
-            List positions3 = var14.decodeSerializableElement(2, (DeserializationStrategy) var15[2].getValue());
-            var10 = (var10 | 4);
         }
-        if (var6 == null && var8) {
-            int var9 = var14.decodeElementIndex();
-            if (var6 != null) {
-                if (var6 != null) {
+        if (__UNDEF_KEY__ == null && index) {
+            int index3 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                var8 = 0;
-                positions = var14.decodeSerializableElement(0, (DeserializationStrategy) var15[0].getValue(), positions);
-                var10 = (var10 | 1);
-                positions2 = var14.decodeSerializableElement(1, (DeserializationStrategy) var15[1].getValue(), positions2);
-                var10 = (var10 | 2);
-                positions3 = var14.decodeSerializableElement(2, (DeserializationStrategy) var15[2].getValue(), positions3);
-                var10 = (var10 | 4);
+                index = 0;
+                list = compositeDecoder.decodeSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) items[0].getValue()), list);
+                index2 = (index2 | 1);
+                list2 = compositeDecoder.decodeSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) items[1].getValue()), list2);
+                index2 = (index2 | 2);
+                list3 = compositeDecoder.decodeSerializableElement(serialDescriptor, 2, ((DeserializationStrategy) items[2].getValue()), list3);
+                index2 = (index2 | 4);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var14.endStructure();
         }
-        return new SettingMacrosRecord(positions, positions2, positions3);
+        return new SettingMacrosRecord(index2, list, list2, list3);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -67,12 +65,12 @@ public class SettingMacrosRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        Lazy[] var1 = SettingMacrosRecord.process();
-        KSerializer[] var2 = new KSerializer[3];
-        var2[0] = var1[0].getValue();
-        var2[1] = var1[1].getValue();
-        var2[2] = var1[2].getValue();
-        return var2;
+        Lazy[] items = SettingMacrosRecord.process();
+        KSerializer[] items2 = new KSerializer[3];
+        items2[0] = items[0].getValue();
+        items2[1] = items[1].getValue();
+        items2[2] = items[2].getValue();
+        return items2;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -80,7 +78,7 @@ public class SettingMacrosRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.setValue(encoder, (SettingMacrosRecord) value);
+        this.setValue(encoder, ((SettingMacrosRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -89,11 +87,11 @@ public class SettingMacrosRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new SettingMacrosRecordSerializer();
-        PluginGeneratedSerialDescriptor var11 = new PluginGeneratedSerialDescriptor("su.catlean.m", (GeneratedSerializer) INSTANCE, 3);
-        var11.addElement("settingMacros", 1);
-        var11.addElement("chatMacros", 1);
-        var11.addElement("itemMacros", 1);
-        serialDescriptor = (SerialDescriptor) var11;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.m", ((GeneratedSerializer) INSTANCE), 3);
+        pluginGeneratedSerialDescriptor.addElement("settingMacros", true);
+        pluginGeneratedSerialDescriptor.addElement("chatMacros", true);
+        pluginGeneratedSerialDescriptor.addElement("itemMacros", true);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

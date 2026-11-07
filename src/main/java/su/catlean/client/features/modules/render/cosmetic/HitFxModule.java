@@ -72,7 +72,7 @@ public class HitFxModule extends Module {
     }
 
     private boolean getSmoke() {
-        return (Boolean) smokeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) smokeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSmoke(boolean value) {
@@ -80,7 +80,7 @@ public class HitFxModule extends Module {
     }
 
     private boolean getParticles() {
-        return (Boolean) particlesSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) particlesSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setParticles(boolean value) {
@@ -88,7 +88,7 @@ public class HitFxModule extends Module {
     }
 
     private HitFxParticleMode getParticle() {
-        return (HitFxParticleMode) particleSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((HitFxParticleMode) particleSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setParticle(HitFxParticleMode value) {
@@ -96,7 +96,7 @@ public class HitFxModule extends Module {
     }
 
     private float getSize() {
-        return (Number) sizeSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) sizeSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setSize(float value) {
@@ -104,7 +104,7 @@ public class HitFxModule extends Module {
     }
 
     private int getDuration() {
-        return (Number) durationSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Number) durationSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setDuration(int value) {
@@ -112,7 +112,7 @@ public class HitFxModule extends Module {
     }
 
     private int getCount() {
-        return (Number) countSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) countSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void setCount(int value) {
@@ -120,7 +120,7 @@ public class HitFxModule extends Module {
     }
 
     private float getGravity() {
-        return (Number) gravitySetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Number) gravitySetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setGravity(float value) {
@@ -128,7 +128,7 @@ public class HitFxModule extends Module {
     }
 
     private float getVelocityXZ() {
-        return (Number) velocityXZSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Number) velocityXZSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private void setVelocityXZ(float value) {
@@ -136,7 +136,7 @@ public class HitFxModule extends Module {
     }
 
     private float getVelocityY() {
-        return (Number) velocityYSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Number) velocityYSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private void setVelocityY(float value) {
@@ -148,29 +148,27 @@ public class HitFxModule extends Module {
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
-        List<BlockPos> positions = Lists.newArrayList((Iterable) itemList);
-        int var18 = 4;
-        int var19 = 0;
-        int var20 = (positions.size() * 2);
-        VertexFormat var21 = class_290.field_1575;
-        FormatRenderHelper var24 = new FormatRenderHelper();
-        Iterable var25 = (Iterable) positions;
-        int var26 = 0;
-        Iterator iterator = var25.iterator();
+        List<BlockPos> list = Lists.newArrayList(((Iterable) itemList));
+        int index = 4;
+        int index2 = 0;
+        int index3 = (list.size() * 2);
+        VertexFormat vertexFormat = class_290.field_1575;
+        FormatRenderHelper formatRenderHelper = new FormatRenderHelper(vertexFormat, index3, index2, index);
+        Iterable iterable = ((Iterable) list);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var28 = iterator.next();
-            VecServiceComponent3 var29 = (VecServiceComponent3) var28;
-            int var30 = 0;
-            int var31 = RangesKt.coerceIn((var29.getServiceComponent10().getNumericValue() / 40.0F), 0, 8);
-            float var32 = ((OptionMode6.SMOKE.getNumericValue3() - OptionMode6.SMOKE.getNumericValue()) / 3.0F);
-            float var33 = ((OptionMode6.SMOKE.getNumericValue4() - OptionMode6.SMOKE.getNumericValue2()) / 3.0F);
-            float var34 = (OptionMode6.SMOKE.getNumericValue() + ((var31 % 3) * var32));
-            float var35 = (OptionMode6.SMOKE.getNumericValue2() + ((var31 / 3) * var33));
-            long var36 = (var29.getServiceComponent10().getNumericValue() / 450.0F);
-            TextShaderComponent2.executeAction(AtlasTextureServiceComponent.getMinecraftObject(), var29.getMinecraftObject(), var29.getNumericValue(), var29.getNumericValue2(), 0.0F, (1.0F + var36), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.resolveColor(10), 1.0F), 0, (var34 + var32), (var35 + var33));
+            Object element = iterator.next();
+            VecServiceComponent3 vecServiceComponent3 = ((VecServiceComponent3) element);
+            int index4 = RangesKt.coerceIn((vecServiceComponent3.getServiceComponent10().getNumericValue() / 40.0F), 0, 8);
+            float factor = ((OptionMode6.SMOKE.getNumericValue3() - OptionMode6.SMOKE.getNumericValue()) / 3.0F);
+            float factor2 = ((OptionMode6.SMOKE.getNumericValue4() - OptionMode6.SMOKE.getNumericValue2()) / 3.0F);
+            float factor3 = (OptionMode6.SMOKE.getNumericValue() + ((index4 % 3) * factor));
+            float factor4 = (OptionMode6.SMOKE.getNumericValue2() + ((index4 / 3) * factor2));
+            long time = (vecServiceComponent3.getServiceComponent10().getNumericValue() / 450.0F);
+            TextShaderComponent2.executeAction(AtlasTextureServiceComponent.getMinecraftObject(), vecServiceComponent3.getMinecraftObject(), vecServiceComponent3.getNumericValue(), vecServiceComponent3.getNumericValue2(), 0.0F, (1.0F + time), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.resolveColor(10), 1.0F), false, formatRenderHelper, factor3, factor4, (factor3 + factor), (factor4 + factor2), true);
         }
-        var25 = SharedKt.getMc().method_1531().method_4619(AtlasTextureServiceComponent.getMinecraftObject()).method_71659();
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline18(), SharedKt.getMc().method_1522(), null, arg0.getStack().method_23760().method_23761(), null, MapsKt.mapOf(TuplesKt.to("Sampler0")));
+        iterable = SharedKt.getMc().method_1531().method_4619(AtlasTextureServiceComponent.getMinecraftObject()).method_71659();
+        FormatRenderHelper.executeAction(formatRenderHelper, VertexUBOShaderComponent.INSTANCE.getRenderPipeline18(), SharedKt.getMc().method_1522(), null, arg0.getStack().method_23760().method_23761(), null, MapsKt.mapOf(TuplesKt.to("Sampler0", iterable)));
         itemList.removeIf(this::checkCondition);
     }
 
@@ -205,42 +203,38 @@ public class HitFxModule extends Module {
     private static void onSendPacket2(SendPacket arg0) {
         if (EventPacketHelper2.INSTANCE.resolveMinecraftObject(EventPacketHelper2.INSTANCE.computeValue(), EventPacketHelper2.INSTANCE.computeValue2(), AuraModule.INSTANCE.getAttackRange()) == null) {
             EventPacketHelper2.INSTANCE.resolveMinecraftObject(EventPacketHelper2.INSTANCE.computeValue(), EventPacketHelper2.INSTANCE.computeValue2(), AuraModule.INSTANCE.getAttackRange());
-            Entity entity = CriticalsModule.INSTANCE.resolveMinecraftObject((class_2824) arg0.getPacket());
+            Entity entity = CriticalsModule.INSTANCE.resolveMinecraftObject(((class_2824) arg0.getPacket()));
             if (entity != null) {
-                Box var48 = entity.method_5829();
-                if (var48 != null) {
+                Box box = entity.method_5829();
+                if (box != null) {
+                } else {
                 }
             } else {
             }
         }
-        }
-        if (var45 == null) {
-            MoveFixServiceComponent var46 = SequenceServiceComponent.resolveMoveFixServiceComponent();
-            if (EventPacketHelper2.INSTANCE.resolveMinecraftObject(var46.getNumericValue(), var46.getNumericValue2(), AuraModule.INSTANCE.getAttackRange()) == null) {
-                EventPacketHelper2.INSTANCE.resolveMinecraftObject(var46.getNumericValue(), var46.getNumericValue2(), AuraModule.INSTANCE.getAttackRange());
-                if (CriticalsModule.INSTANCE.resolveMinecraftObject((class_2824) arg0.getPacket()) != null && CriticalsModule.INSTANCE.resolveMinecraftObject((class_2824) arg0.getPacket()).method_5829() != null) {
+        if (__UNDEF_KEY__ == null) {
+            MoveFixServiceComponent moveFixServiceComponent = SequenceServiceComponent.resolveMoveFixServiceComponent(false);
+            if (EventPacketHelper2.INSTANCE.resolveMinecraftObject(moveFixServiceComponent.getNumericValue(), moveFixServiceComponent.getNumericValue2(), AuraModule.INSTANCE.getAttackRange()) == null) {
+                EventPacketHelper2.INSTANCE.resolveMinecraftObject(moveFixServiceComponent.getNumericValue(), moveFixServiceComponent.getNumericValue2(), AuraModule.INSTANCE.getAttackRange());
+                if (CriticalsModule.INSTANCE.resolveMinecraftObject(((class_2824) arg0.getPacket())) != null && CriticalsModule.INSTANCE.resolveMinecraftObject(((class_2824) arg0.getPacket())).method_5829() != null) {
                 } else {
-                    CriticalsModule.INSTANCE.resolveMinecraftObject((class_2824) arg0.getPacket()).method_5829().method_1005();
+                    CriticalsModule.INSTANCE.resolveMinecraftObject(((class_2824) arg0.getPacket())).method_5829().method_1005();
                 }
             }
         }
-        if (var45 != null) {
-            var48 = var45;
-            int var49 = 0;
+        if (__UNDEF_KEY__ != null) {
             if (INSTANCE.getSmoke()) {
-                itemList.add(new VecServiceComponent3(EventPacketHelper2.INSTANCE.computeValue(), EventPacketHelper2.INSTANCE.computeValue2(), new ServiceComponent10()));
+                itemList.add(new VecServiceComponent3(EventPacketHelper2.INSTANCE.computeValue(), EventPacketHelper2.INSTANCE.computeValue2()));
             }
             if (INSTANCE.getParticles()) {
-                int var50 = INSTANCE.getCount();
-                int var51 = 0;
-                if (var51 < var50) {
-                    int var52 = var51;
-                    int var53 = 0;
-                    POSITIONTEXCOLORShaderComponent.INSTANCE.checkCondition(new TexRenderHelper(INSTANCE.getParticle().getOptionMode6(), (Math.random() * 50.0F), INSTANCE.getSize(), INSTANCE.getDuration(), new Vec3d(RangeServiceComponent.D(INSTANCE.getVelocityXZ(), INSTANCE.getVelocityXZ()), RangeServiceComponent.D(INSTANCE.getVelocityY(), INSTANCE.getVelocityY()), RangeServiceComponent.D(INSTANCE.getVelocityXZ(), INSTANCE.getVelocityXZ())), null, INSTANCE.getGravity(), 0.0F));
+                int index = INSTANCE.getCount();
+                int index2 = 0;
+                if (index2 < index) {
+                    POSITIONTEXCOLORShaderComponent.INSTANCE.checkCondition(new TexRenderHelper(INSTANCE.getParticle().getOptionMode6(), (Math.random() * 50.0F), INSTANCE.getSize(), INSTANCE.getDuration(), null, INSTANCE.getGravity(), 0.0F, false));
                 }
             }
         } else {
-            var48.method_1005();
+            box.method_1005();
         }
     }
 
@@ -249,14 +243,14 @@ public class HitFxModule extends Module {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {
-        KProperty[] var32 = new KProperty[9];
+        KProperty[] items = new KProperty[9];
         INSTANCE = new HitFxModule();
-        smokeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "smoke");
-        particlesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "particles");
+        smokeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "smoke", true);
+        particlesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "particles", true);
         particleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "particle", HitFxParticleMode.HEART, null, this::isActive);
         sizeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "size", 0.2F, RangesKt.rangeTo(0.01F, 0.5F), null, this::isActive2);
         durationSetting = VisibleRenderHelper.registerSetting(INSTANCE, "duration", 15, new IntRange(5, 60), null, this::isActive3);

@@ -14,10 +14,9 @@ public class ServiceComponent94 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var6 = 0;
-        List positions = ContentTypeServiceComponent.INSTANCE.resolveList();
+        List list = ContentTypeServiceComponent.INSTANCE.resolveList();
         ContentTypeServiceComponent.getCopyOnWriteArrayList().clear();
-        ContentTypeServiceComponent.getCopyOnWriteArrayList().addAll((Collection) positions);
+        ContentTypeServiceComponent.getCopyOnWriteArrayList().addAll(((Collection) list));
     }
 
 }

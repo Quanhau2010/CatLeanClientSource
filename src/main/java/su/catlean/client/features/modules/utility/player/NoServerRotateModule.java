@@ -30,9 +30,7 @@ public class NoServerRotateModule extends Module {
     }
 
     public boolean getLegit() {
-        if (var5 == null) {
-        }
-        return (Boolean) legitSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) legitSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
@@ -41,22 +39,20 @@ public class NoServerRotateModule extends Module {
     }
 
     private void onFlagEvent(FlagEvent arg0) {
-        if (var8 != null) {
-            SharedKt.getPlayer().method_36456((factorValue + 1.0E-6F));
-        }
+        SharedKt.getPlayer().method_36456((factorValue + 1.0E-6F));
         SharedKt.getPlayer().method_36457((factorValue2 + 1.0E-6F));
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        Packet var9 = arg0.getPacket();
-        class_10182 var10 = (class_2708) var9.comp_3228();
-        (ClientboundPlayerPositionPacketAccessor) var9.setChange(new class_10182(var10.comp_3148(), var10.comp_3149(), SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455()));
+        Packet packet = arg0.getPacket();
+        class_10182 class10182 = ((class_2708) packet).comp_3228();
+        ((ClientboundPlayerPositionPacketAccessor) packet).setChange(new class_10182(class10182.comp_3148(), class10182.comp_3149(), SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455()));
     }
 
     static {
-        KProperty[] var22 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new NoServerRotateModule();
-        legitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "legit");
+        legitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "legit", true);
     }
 
 }

@@ -120,76 +120,70 @@ public class POSITIONCOLORRenderHelper implements Contract9 {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        Iterable var10 = (Iterable) itemList;
-        int var11 = 0;
-        Iterator iterator = var10.iterator();
+        Iterable iterable = ((Iterable) itemList);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var13 = iterator.next();
-            CheckRenderHelper var14 = (CheckRenderHelper) var13;
-            int var15 = 0;
-            if (var14.getEnabled()) {
-                var14.updateValue();
+            Object element = iterator.next();
+            CheckRenderHelper checkRenderHelper = ((CheckRenderHelper) element);
+            if (checkRenderHelper.getEnabled()) {
+                checkRenderHelper.updateValue();
             }
         }
     }
 
     private void onRender2DEvent(Render2DEvent arg0) {
         checkRenderHelper2 = null;
-        Iterable var33 = (Iterable) itemList;
-        int var34 = 0;
-        Iterator iterator = var33.iterator();
+        Iterable iterable = ((Iterable) itemList);
+        int index = 0;
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var36 = iterator.next();
-            CheckRenderHelper var37 = (CheckRenderHelper) var36;
-            int var38 = 0;
-            if (var37.getEnabled()) {
-                var37.render2(arg0.getContext());
+            Object element = iterator.next();
+            CheckRenderHelper checkRenderHelper = ((CheckRenderHelper) element);
+            if (checkRenderHelper.getEnabled()) {
+                checkRenderHelper.render2(arg0.getContext());
             }
         }
-        stackShaderComponent.executeAction(arg0.getContext().method_51448(), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor5(), (PolygonShaderComponent.INSTANCE.computeValue2(NewThemeRenderHelper.INSTANCE.getColor5()) * PolygonShaderComponent.INSTANCE.getNumericValue())), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor6(), (PolygonShaderComponent.INSTANCE.computeValue2(NewThemeRenderHelper.INSTANCE.getColor6()) * PolygonShaderComponent.INSTANCE.getNumericValue())), 0);
-        if (!((Collection) itemList2.isEmpty())) {
-            int var28 = 4;
-            int var29 = 0;
-            int var30 = itemList2.size();
-            VertexFormat var31 = class_290.field_1576;
-            var33 = new FormatRenderHelper();
-            var34 = new Color(1157627903, 1);
+        stackShaderComponent.executeAction(arg0.getContext().method_51448(), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor5(), (PolygonShaderComponent.INSTANCE.computeValue2(NewThemeRenderHelper.INSTANCE.getColor5()) * PolygonShaderComponent.INSTANCE.getNumericValue())), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor6(), (PolygonShaderComponent.INSTANCE.computeValue2(NewThemeRenderHelper.INSTANCE.getColor6()) * PolygonShaderComponent.INSTANCE.getNumericValue())), false);
+        if (!(((Collection) itemList2).isEmpty())) {
+            int index2 = 4;
+            int index3 = 0;
+            int index4 = itemList2.size();
+            VertexFormat vertexFormat = class_290.field_1576;
+            iterable = new FormatRenderHelper(vertexFormat, index4, index3, index2);
+            index = new Color(1157627903, true);
             itemList2.removeIf(this::checkCondition);
-            FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, null, new Matrix3x2f((Matrix3x2fc) arg0.getContext().method_51448()));
+            FormatRenderHelper.executeAction(iterable, VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, null, new Matrix3x2f(((Matrix3x2fc) arg0.getContext().method_51448())));
         }
-        if (!((Collection) itemList3.isEmpty())) {
+        if (!(((Collection) itemList3).isEmpty())) {
             itemList3.removeIf(this::checkCondition2);
         }
-        var33 = (Iterable) itemList;
-        var34 = 0;
-        iterator = var33.iterator();
+        iterable = ((Iterable) itemList);
+        index = 0;
+        iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            var36 = iterator.next();
-            var37 = (CheckRenderHelper) var36;
-            var38 = 0;
-            if (var37.getEnabled()) {
-                var37.render(arg0.getContext());
+            element = iterator.next();
+            checkRenderHelper = ((CheckRenderHelper) element);
+            if (checkRenderHelper.getEnabled()) {
+                checkRenderHelper.render(arg0.getContext());
             }
         }
         SFMServiceComponent.resolveFontRenderHelper().executeAction();
     }
 
     private void onInputEvent(InputEvent arg0) {
-        Iterable var13 = (Iterable) itemList;
-        int var14 = 0;
-        Iterator iterator = var13.iterator();
+        Iterable iterable = ((Iterable) itemList);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var16 = iterator.next();
-            CheckRenderHelper var17 = (CheckRenderHelper) var16;
-            int var18 = 0;
-            if (var17.getEnabled()) {
-                var17.executeAction(arg0.getKey(), arg0.getAction());
+            Object element = iterator.next();
+            CheckRenderHelper checkRenderHelper = ((CheckRenderHelper) element);
+            if (checkRenderHelper.getEnabled()) {
+                checkRenderHelper.executeAction(arg0.getKey(), arg0.getAction());
             }
         }
     }
 
     private void onFrameBufferEvent(FrameBufferEvent arg0) {
-        arg0.setFrameBuffer((class_276) InventoryWidgetCheckRenderHelperImpl.INSTANCE.getMinecraftObject());
+        arg0.setFrameBuffer(((class_276) InventoryWidgetCheckRenderHelperImpl.INSTANCE.getMinecraftObject()));
         arg0.cancel();
     }
 
@@ -198,76 +192,67 @@ public class POSITIONCOLORRenderHelper implements Contract9 {
     }
 
     private void updateValue() {
-        CheckRenderHelper[] var3 = new CheckRenderHelper[23];
-        var3[0] = CoordWidgetRenderHelper.INSTANCE;
-        var3[1] = FpsWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[2] = KeybindsWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[3] = PingWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[4] = PotionsWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[5] = StaffWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[6] = TargetInfoCheckRenderHelperImpl.INSTANCE;
-        var3[7] = TpsWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[8] = WatermarkWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[9] = NotificationsCheckRenderHelperImpl.INSTANCE;
-        var3[10] = SpeedWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[11] = InventoryWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[12] = CrystalSpeedWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[13] = MediaPlayerWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[14] = ArmorWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[15] = ChestCounterWidgetRenderHelper.INSTANCE;
-        var3[16] = PvpResourcesWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[17] = PlayerListWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[18] = CrosshairRenderHelper.INSTANCE;
-        var3[19] = FlightWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[20] = PhaseWidgetCheckRenderHelperImpl.INSTANCE;
-        var3[21] = CooldownsWidgetRenderHelper.INSTANCE;
-        var3[22] = MacroWidgetCheckRenderHelperImpl.INSTANCE;
-        itemList.addAll((Collection) CollectionsKt.listOf());
+        CheckRenderHelper[] items = new CheckRenderHelper[23];
+        items[0] = CoordWidgetRenderHelper.INSTANCE;
+        items[1] = FpsWidgetCheckRenderHelperImpl.INSTANCE;
+        items[2] = KeybindsWidgetCheckRenderHelperImpl.INSTANCE;
+        items[3] = PingWidgetCheckRenderHelperImpl.INSTANCE;
+        items[4] = PotionsWidgetCheckRenderHelperImpl.INSTANCE;
+        items[5] = StaffWidgetCheckRenderHelperImpl.INSTANCE;
+        items[6] = TargetInfoCheckRenderHelperImpl.INSTANCE;
+        items[7] = TpsWidgetCheckRenderHelperImpl.INSTANCE;
+        items[8] = WatermarkWidgetCheckRenderHelperImpl.INSTANCE;
+        items[9] = NotificationsCheckRenderHelperImpl.INSTANCE;
+        items[10] = SpeedWidgetCheckRenderHelperImpl.INSTANCE;
+        items[11] = InventoryWidgetCheckRenderHelperImpl.INSTANCE;
+        items[12] = CrystalSpeedWidgetCheckRenderHelperImpl.INSTANCE;
+        items[13] = MediaPlayerWidgetCheckRenderHelperImpl.INSTANCE;
+        items[14] = ArmorWidgetCheckRenderHelperImpl.INSTANCE;
+        items[15] = ChestCounterWidgetRenderHelper.INSTANCE;
+        items[16] = PvpResourcesWidgetCheckRenderHelperImpl.INSTANCE;
+        items[17] = PlayerListWidgetCheckRenderHelperImpl.INSTANCE;
+        items[18] = CrosshairRenderHelper.INSTANCE;
+        items[19] = FlightWidgetCheckRenderHelperImpl.INSTANCE;
+        items[20] = PhaseWidgetCheckRenderHelperImpl.INSTANCE;
+        items[21] = CooldownsWidgetRenderHelper.INSTANCE;
+        items[22] = MacroWidgetCheckRenderHelperImpl.INSTANCE;
+        itemList.addAll(((Collection) CollectionsKt.listOf(items)));
     }
 
     public void updateValue2() {
-        Iterable var7 = (Iterable) itemList;
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
+        Iterable iterable = ((Iterable) itemList);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            CheckRenderHelper var11 = (CheckRenderHelper) var10;
-            int var12 = 0;
-            Iterable var13 = (Iterable) var11.getList();
-            int var14 = 0;
-            Iterator iterator2 = var13.iterator();
+            Object element = iterator.next();
+            CheckRenderHelper checkRenderHelper = ((CheckRenderHelper) element);
+            Iterable iterable2 = ((Iterable) checkRenderHelper.getList());
+            Iterator iterator2 = iterable2.iterator();
             while (iterator2.hasNext()) {
-                Object var16 = iterator2.next();
-                VisibleSettingProperty var17 = (VisibleSettingProperty) var16;
-                int var18 = 0;
-                Iterable var19 = (Iterable) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveIdRecord8().getList();
-                Iterator iterator3 = var19.iterator();
-                if (iterator3.hasNext()) {
-                    Object var21 = iterator3.next();
-                    IdRecord5 var22 = (IdRecord5) var21;
-                    int var23 = 0;
-                } else {
+                Object element2 = iterator2.next();
+                VisibleSettingProperty visibleSettingProperty = ((VisibleSettingProperty) element2);
+                Iterable iterable3 = ((Iterable) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveIdRecord8().getList());
+                Iterator iterator3 = iterable3.iterator();
+                while (iterator3.hasNext()) {
+                    Object element3 = iterator3.next();
+                    IdRecord5 idRecord5 = ((IdRecord5) element3);
+                    int index = 0;
                 }
-                if ((IdRecord5) null == null) {
+                if (((IdRecord5) null) == null) {
                 }
-                Object var24 = var21;
-                iterator3 = (Iterable) var24.getList();
-                var21 = iterator3.iterator();
-                if (var21.hasNext()) {
-                    var22 = var21.next();
-                    var23 = (IdRecord10) var22;
-                    int var25 = 0;
-                } else {
+                iterator3 = ((Iterable) element3.getList());
+                element3 = iterator3.iterator();
+                while (element3.hasNext()) {
+                    idRecord5 = element3.next();
+                    index = ((IdRecord10) idRecord5);
                 }
-                if ((IdRecord10) null == null) {
+                if (((IdRecord10) null) == null) {
                 }
-                Object var26 = var22;
-                var17.setValue(var26.getString2());
-                var17.setValue();
-                String var28 = var27.getMessage();
-                String var29 = var11.getString2();
-                String var30 = var17.getString2();
-                SharedKt.getLogger().warn(("Could not parse setting: " + var30 + " in " + var29 + ": " + var28));
+                visibleSettingProperty.setValue(idRecord5.getString2());
+                visibleSettingProperty.setValue();
+                String text = this.getMessage();
+                String text2 = checkRenderHelper.getString2();
+                String text3 = visibleSettingProperty.getString2();
+                SharedKt.getLogger().warn(("Could not parse setting: " + text3 + " in " + text2 + ": " + text));
             }
         }
     }
@@ -278,7 +263,7 @@ public class POSITIONCOLORRenderHelper implements Contract9 {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static boolean checkCondition(ImageServiceComponent arg0) {
@@ -287,7 +272,7 @@ public class POSITIONCOLORRenderHelper implements Contract9 {
     }
 
     private static boolean checkCondition2(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {

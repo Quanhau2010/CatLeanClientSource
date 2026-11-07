@@ -15,12 +15,12 @@ public abstract class BlockCollisionsMixin {
     private BlockState computeNextHook(class_1922 instance, BlockPos blockPos) {
         if (MinecraftClient.method_1551().world != null && MinecraftClient.method_1551().player != null) {
             if (!(GofraState.INSTANCE.getModifyCollisions())) {
+                return instance.getBlockState(blockPos);
             }
-            return instance.getBlockState(blockPos);
         }
-        CollisionEvent var3 = new CollisionEvent();
-        var3.call(instance.getBlockState(blockPos), blockPos);
-        return var3.getState();
+        CollisionEvent collisionEvent = new CollisionEvent();
+        collisionEvent.call(instance.getBlockState(blockPos), blockPos);
+        return collisionEvent.getState();
     }
 
 }

@@ -59,25 +59,25 @@ public class TextShaderComponent {
     }
 
     public String resolveString(String text) {
-        char[] var10 = text.toCharArray();
-        StringBuilder var11 = new StringBuilder();
-        int var12 = 0;
-        if (var12 < var10) {
-            Object var13 = var10[var12];
-            if (0L >= 0) {
-                if (var13 == 167) {
-                    if ((var12 + 1) < var10) {
-                        Object var14 = var10[(var12 + 1)];
-                        if (0L >= 0 && 0L >= 0) {
-                            if (this.checkCondition()) {
+        char[] items = text.toCharArray();
+        StringBuilder stringBuilder = new StringBuilder(items);
+        int index = 0;
+        if (index < items) {
+            Object element = items[index];
+            if (__UNDEF_KEY__ >= 0) {
+                if (element == 167) {
+                    if ((index + 1) < items) {
+                        Object element2 = items[(index + 1)];
+                        if (__UNDEF_KEY__ >= 0 && __UNDEF_KEY__ >= 0) {
+                            if (this.checkCondition(items, index)) {
                             }
                         }
+                        stringBuilder.append(element);
                     }
-                    var11.append();
                 }
             }
         }
-        return var11.toString();
+        return stringBuilder.toString();
     }
 
     public class_2960 resolveMinecraftObject() {
@@ -85,18 +85,18 @@ public class TextShaderComponent {
     }
 
     public String resolveString() {
-        return (String) IntStream.range(0, 32).mapToObj(this::resolveString).collect(Collectors.joining());
+        return ((String) IntStream.range(0, 32).mapToObj(this::resolveString).collect(Collectors.joining()));
     }
 
     public int[] process(int i) {
-        int var4 = ((i >> 16) & 255);
-        int var5 = ((i >> 8) & 255);
-        int var6 = (i & 255);
-        Object var7 = new int[3];
-        var7[0] = var4;
-        var7[1] = var5;
-        var7[2] = var6;
-        return var7;
+        int index = ((i >> 16) & 255);
+        int index2 = ((i >> 8) & 255);
+        int index3 = (i & 255);
+        Object element = new int[3];
+        element[0] = index;
+        element[1] = index2;
+        element[2] = index3;
+        return element;
     }
 
     public float computeValue(float n) {
@@ -107,327 +107,322 @@ public class TextShaderComponent {
     }
 
     public FontServiceComponent resolveFontServiceComponent(char from, char to, Font font, ObjectArrayList maps, int padding) {
-        FontServiceComponent var12 = new FontServiceComponent(from, to, font, this.resolveMinecraftObject(), padding);
-        maps.add();
-        return var12;
+        FontServiceComponent fontServiceComponent = new FontServiceComponent(from, to, font, this.resolveMinecraftObject(), padding);
+        maps.add(fontServiceComponent);
+        return fontServiceComponent;
     }
 
     public OwnerServiceComponent resolveOwnerServiceComponent(char glyph, ObjectArrayList maps, Font font, Font fallBack) {
-        int var13 = 5;
-        int var14 = 512;
+        int index = 5;
+        int index2 = 512;
         ObjectListIterator iterator = maps.iterator();
-        if (iterator.hasNext()) {
-            return var16.resolveOwnerServiceComponent(glyph);
+        while (iterator.hasNext()) {
+            return this.resolveOwnerServiceComponent(glyph);
         }
-        iterator = this.computeValue(glyph);
+        iterator = this.computeValue(glyph, index2);
         if (font.canDisplay(glyph)) {
-            return var16;
+            return __UNDEF_KEY__;
         }
         if (fallBack.canDisplay(glyph)) {
-            return this.resolveFontServiceComponent(iterator, (iterator + var14), fallBack, maps).resolveOwnerServiceComponent(glyph);
+            return this.resolveFontServiceComponent(iterator, (iterator + index2), fallBack, maps, index).resolveOwnerServiceComponent(glyph);
         }
         return null;
     }
 
     public OwnerServiceComponent resolveOwnerServiceComponent(char glyph, Char2ObjectArrayMap allGlyphs, ObjectArrayList maps, Font font, Font fallBack) {
-        if ((OwnerServiceComponent) allGlyphs.get(glyph) != null) {
-            OwnerServiceComponent var14 = (OwnerServiceComponent) allGlyphs.get(glyph);
-            int var15 = 0;
-            return var14;
+        if (((OwnerServiceComponent) allGlyphs.get(glyph)) != null) {
+            OwnerServiceComponent ownerServiceComponent = ((OwnerServiceComponent) allGlyphs.get(glyph));
+            return ownerServiceComponent;
         }
-        OwnerServiceComponent var13 = this.resolveOwnerServiceComponent(glyph, maps, font, fallBack);
-        return var13;
+        OwnerServiceComponent ownerServiceComponent2 = this.resolveOwnerServiceComponent(glyph, maps, font, fallBack);
+        return ownerServiceComponent2;
     }
 
     public void executeAction(Matrix3x2fStack stack, String s, float x, float y, Color color, boolean gradient, int offset, float scaleMul, Char2ObjectArrayMap allGlyphs, ObjectArrayList maps, Font font, Font fallBack, Object2ObjectOpenHashMap glyphPage) {
-        String var59 = NameProtectModule.INSTANCE.resolveString(s);
-        int var60 = (color.getRed() / 255.0F);
-        int var61 = (color.getGreen() / 255.0F);
-        int var62 = (color.getBlue() / 255.0F);
-        int var63 = (color.getAlpha() / 255.0F);
-        float var64 = this.computeValue((x + 0.5F));
-        float var65 = this.computeValue((y + 1.5F));
+        String text = NameProtectModule.INSTANCE.resolveString(s);
+        int index = (color.getRed() / 255.0F);
+        int index2 = (color.getGreen() / 255.0F);
+        int index3 = (color.getBlue() / 255.0F);
+        int index4 = (color.getAlpha() / 255.0F);
+        float factor = this.computeValue((x + 0.5F));
+        float factor2 = this.computeValue((y + 1.5F));
         stack.pushMatrix();
-        stack.translate();
+        stack.translate(factor, factor2);
         stack.scale((1.0F / scaleMul), (1.0F / scaleMul));
-        Matrix3x2f var66 = new Matrix3x2f((Matrix3x2fc) stack);
-        char[] var67 = var59.toCharArray();
-        float var68 = 0.0F;
-        float var69 = 0.0F;
-        int var70 = 0;
-        int var71 = 0;
-        int var72 = 0;
-        if (var72 < var67) {
-            Object var73 = var67[var72];
-            if (0L > 0) {
-                if (var58 != null) {
-                    if (var70) {
-                        var70 = 0;
-                        int var75 = (Number) var74.component1();
-                        int var76 = (Number) var74.component2();
-                        int var77 = (Number) var74.component3();
-                        var60 = (var75 / 255.0F);
-                        var61 = (var76 / 255.0F);
-                        var62 = (var77 / 255.0F);
-                        if (0L < 0 || var58 == null || 0L >= 0) {
+        Matrix3x2f matrix3x2f = new Matrix3x2f(((Matrix3x2fc) stack));
+        char[] items = text.toCharArray();
+        float factor3 = 0.0F;
+        float factor4 = 0.0F;
+        int index5 = 0;
+        int index6 = 0;
+        int index7 = 0;
+        if (index7 < items) {
+            Object element = items[index7];
+            if (__UNDEF_KEY__ > 0) {
+                if (__UNDEF_KEY__ != null) {
+                    if (index5) {
+                        index5 = 0;
+                        int index8 = ((Number) this.component1());
+                        int index9 = ((Number) this.component2());
+                        int index10 = ((Number) this.component3());
+                        index = (index8 / 255.0F);
+                        index2 = (index9 / 255.0F);
+                        index3 = (index10 / 255.0F);
+                        if (__UNDEF_KEY__ < 0 || __UNDEF_KEY__ == null || __UNDEF_KEY__ >= 0) {
                             continue;
                         }
-                        if (var58 == 82) {
-                            var60 = (color.getRed() / 255.0F);
-                            var61 = (color.getGreen() / 255.0F);
-                            var62 = (color.getBlue() / 255.0F);
-                            var63 = (color.getAlpha() / 255.0F);
+                        if (__UNDEF_KEY__ == 82) {
+                            index = (color.getRed() / 255.0F);
+                            index2 = (color.getGreen() / 255.0F);
+                            index3 = (color.getBlue() / 255.0F);
+                            index4 = (color.getAlpha() / 255.0F);
                         }
                     }
                 }
             }
-            if (0L > 0 && var58 != null) {
+            if (__UNDEF_KEY__ > 0 && __UNDEF_KEY__ != null) {
                 if (gradient) {
-                    var60 = (var74.getRed() / 255.0F);
-                    var61 = (var74.getGreen() / 255.0F);
-                    var62 = (var74.getBlue() / 255.0F);
-                    var63 = (var74.getAlpha() / 255.0F);
+                    index = (this.getRed() / 255.0F);
+                    index2 = (this.getGreen() / 255.0F);
+                    index3 = (this.getBlue() / 255.0F);
+                    index4 = (this.getAlpha() / 255.0F);
                 }
             }
-            var70 = 1;
-            var69 = (var69 + (this.computeValue(var59.substring(), allGlyphs, maps, font, fallBack, scaleMul) * scaleMul));
-            var68 = 0.0F;
-            var71 = (var72 + 1);
-            if (this.resolveOwnerServiceComponent(allGlyphs, maps, font, fallBack).process() != 32) {
-                var75 = var73.getFontServiceComponent().getMinecraftObject();
-                var76 = new MatrixServiceComponent(var74.getNumericValue3(), var74.getNumericValue4(), var74.getFontServiceComponent().getNumericValue(), var74.getFontServiceComponent().getNumericValue2(), var74.getNumericValue(), var74.getNumericValue2(), 0.0F);
+            index5 = 1;
+            factor4 = (factor4 + (this.computeValue(text.substring(index6, index7), allGlyphs, maps, font, fallBack, scaleMul) * scaleMul));
+            factor3 = 0.0F;
+            index6 = (index7 + 1);
+            if (this.resolveOwnerServiceComponent(element, allGlyphs, maps, font, fallBack).process() != 32) {
+                index8 = element.getFontServiceComponent().getMinecraftObject();
+                index9 = new MatrixServiceComponent(factor3, factor4, index, index2, index3, index4, this.getNumericValue3(), this.getNumericValue4(), this.getFontServiceComponent().getNumericValue(), this.getFontServiceComponent().getNumericValue2(), this.getNumericValue(), this.getNumericValue2(), 0.0F, matrix3x2f);
             }
-            var68 = (var68 + var74.getNumericValue3());
+            factor3 = (factor3 + this.getNumericValue3());
         }
-        var73 = (ObjectSet) glyphPage.keySet().iterator();
-        while (var73.hasNext()) {
-            var75 = SharedKt.getMc().method_1531().method_4619().method_71659();
-            var76 = (ObjectList) glyphPage.get();
-            int var54 = 4;
-            int var55 = 0;
-            int var56 = var76.size();
-            VertexFormat var57 = class_290.field_1575;
-            var77 = new FormatRenderHelper();
-            ObjectListIterator iterator = var76.iterator();
+        element = ((ObjectSet) glyphPage.keySet()).iterator();
+        while (element.hasNext()) {
+            index8 = SharedKt.getMc().method_1531().method_4619().method_71659();
+            index9 = ((ObjectList) glyphPage.get());
+            int index11 = 4;
+            int index12 = 0;
+            int index13 = index9.size();
+            VertexFormat vertexFormat = class_290.field_1575;
+            index10 = new FormatRenderHelper(vertexFormat, index13, index12, index11);
+            ObjectListIterator iterator = index9.iterator();
             while (iterator.hasNext()) {
-                MatrixServiceComponent var79 = (MatrixServiceComponent) iterator.next();
-                float var80 = var79.getNumericValue();
-                float var81 = var79.getNumericValue2();
-                int var82 = var79.getNumericValue();
-                int var83 = var79.getNumericValue2();
-                int var84 = (var79.getNumericValue5() / var79.getNumericValue3());
-                int var85 = (var79.getNumericValue6() / var79.getNumericValue4());
-                int var86 = ((var79.getNumericValue5() + var79.getNumericValue()) / var79.getNumericValue3());
-                int var87 = ((var79.getNumericValue6() + var79.getNumericValue2()) / var79.getNumericValue4());
-                FormatRenderHelper.resolveFormatRenderHelper((var80 + 0), (var81 + var83), 0.0F).resolveFormatRenderHelper().resolveFormatRenderHelper(var79.getNumericValue3(), var79.getNumericValue4(), var79.getNumericValue5(), var79.getNumericValue6());
-                FormatRenderHelper.resolveFormatRenderHelper((var80 + var82), (var81 + var83), 0.0F).resolveFormatRenderHelper().resolveFormatRenderHelper(var79.getNumericValue3(), var79.getNumericValue4(), var79.getNumericValue5(), var79.getNumericValue6());
-                FormatRenderHelper.resolveFormatRenderHelper((var80 + var82), (var81 + 0), 0.0F).resolveFormatRenderHelper().resolveFormatRenderHelper(var79.getNumericValue3(), var79.getNumericValue4(), var79.getNumericValue5(), var79.getNumericValue6());
-                FormatRenderHelper.resolveFormatRenderHelper((var80 + 0), (var81 + 0), 0.0F).resolveFormatRenderHelper().resolveFormatRenderHelper(var79.getNumericValue3(), var79.getNumericValue4(), var79.getNumericValue5(), var79.getNumericValue6());
+                MatrixServiceComponent matrixServiceComponent = ((MatrixServiceComponent) iterator.next());
+                float factor5 = matrixServiceComponent.getNumericValue();
+                float factor6 = matrixServiceComponent.getNumericValue2();
+                int index14 = matrixServiceComponent.getNumericValue();
+                int index15 = matrixServiceComponent.getNumericValue2();
+                int index16 = (matrixServiceComponent.getNumericValue5() / matrixServiceComponent.getNumericValue3());
+                int index17 = (matrixServiceComponent.getNumericValue6() / matrixServiceComponent.getNumericValue4());
+                int index18 = ((matrixServiceComponent.getNumericValue5() + matrixServiceComponent.getNumericValue()) / matrixServiceComponent.getNumericValue3());
+                int index19 = ((matrixServiceComponent.getNumericValue6() + matrixServiceComponent.getNumericValue2()) / matrixServiceComponent.getNumericValue4());
+                FormatRenderHelper.resolveFormatRenderHelper(index10, (factor5 + 0), (factor6 + index15), 0.0F).resolveFormatRenderHelper(index16, index19).resolveFormatRenderHelper(matrixServiceComponent.getNumericValue3(), matrixServiceComponent.getNumericValue4(), matrixServiceComponent.getNumericValue5(), matrixServiceComponent.getNumericValue6());
+                FormatRenderHelper.resolveFormatRenderHelper(index10, (factor5 + index14), (factor6 + index15), 0.0F).resolveFormatRenderHelper(index18, index19).resolveFormatRenderHelper(matrixServiceComponent.getNumericValue3(), matrixServiceComponent.getNumericValue4(), matrixServiceComponent.getNumericValue5(), matrixServiceComponent.getNumericValue6());
+                FormatRenderHelper.resolveFormatRenderHelper(index10, (factor5 + index14), (factor6 + 0), 0.0F).resolveFormatRenderHelper(index18, index17).resolveFormatRenderHelper(matrixServiceComponent.getNumericValue3(), matrixServiceComponent.getNumericValue4(), matrixServiceComponent.getNumericValue5(), matrixServiceComponent.getNumericValue6());
+                FormatRenderHelper.resolveFormatRenderHelper(index10, (factor5 + 0), (factor6 + 0), 0.0F).resolveFormatRenderHelper(index16, index17).resolveFormatRenderHelper(matrixServiceComponent.getNumericValue3(), matrixServiceComponent.getNumericValue4(), matrixServiceComponent.getNumericValue5(), matrixServiceComponent.getNumericValue6());
             }
-            FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline14(), SharedKt.getMc().method_1522(), null, null, MapsKt.mapOf(TuplesKt.to("Sampler0")));
+            FormatRenderHelper.executeAction(index10, VertexUBOShaderComponent.INSTANCE.getRenderPipeline14(), SharedKt.getMc().method_1522(), null, null, matrix3x2f, MapsKt.mapOf(TuplesKt.to("Sampler0", index8)));
         }
         glyphPage.clear();
         stack.popMatrix();
     }
 
     public void executeAction(Matrix3x2fStack stack, String s, float x, float y, Color color, boolean gradient, int offset, float scaleMul, Char2ObjectArrayMap allGlyphs, ObjectArrayList maps, Font font, Font fallBack, float z, Object2ObjectOpenHashMap batchedDraws) {
-        String var39 = NameProtectModule.INSTANCE.resolveString(s);
-        int var40 = (color.getRed() / 255.0F);
-        int var41 = (color.getGreen() / 255.0F);
-        int var42 = (color.getBlue() / 255.0F);
-        int var43 = (color.getAlpha() / 255.0F);
-        float var44 = this.computeValue((x + 0.5F));
-        float var45 = this.computeValue((y + 1.5F));
+        String text = NameProtectModule.INSTANCE.resolveString(s);
+        int index = (color.getRed() / 255.0F);
+        int index2 = (color.getGreen() / 255.0F);
+        int index3 = (color.getBlue() / 255.0F);
+        int index4 = (color.getAlpha() / 255.0F);
+        float factor = this.computeValue((x + 0.5F));
+        float factor2 = this.computeValue((y + 1.5F));
         stack.pushMatrix();
-        stack.translate();
+        stack.translate(factor, factor2);
         stack.scale((1.0F / scaleMul), (1.0F / scaleMul));
-        Matrix3x2f var46 = new Matrix3x2f((Matrix3x2fc) stack);
-        char[] var47 = var39.toCharArray();
-        float var48 = 0.0F;
-        float var49 = 0.0F;
-        int var50 = 0;
-        int var51 = 0;
-        int var54 = 0;
-        if (var54 < var47) {
-            Object var55 = var47[var54];
-            if (var50) {
-                var50 = 0;
-                int var57 = (Number) var56.component1();
-                int var58 = (Number) var56.component2();
-                int var59 = (Number) var56.component3();
-                var40 = (var57 / 255.0F);
-                var41 = (var58 / 255.0F);
-                var42 = (var59 / 255.0F);
+        Matrix3x2f matrix3x2f = new Matrix3x2f(((Matrix3x2fc) stack));
+        char[] items = text.toCharArray();
+        float factor3 = 0.0F;
+        float factor4 = 0.0F;
+        int index5 = 0;
+        int index6 = 0;
+        int index7 = 0;
+        if (index7 < items) {
+            Object element = items[index7];
+            if (index5) {
+                index5 = 0;
+                int index8 = ((Number) this.component1());
+                int index9 = ((Number) this.component2());
+                int index10 = ((Number) this.component3());
+                index = (index8 / 255.0F);
+                index2 = (index9 / 255.0F);
+                index3 = (index10 / 255.0F);
                 if (char2IntArrayMap.containsKey()) {
-                    var57 = char2IntArrayMap.get();
-                    var58 = this.process();
-                    var40 = (var58[0] / 255.0F);
-                    var41 = (var58[1] / 255.0F);
-                    var42 = (var58[2] / 255.0F);
+                    index8 = char2IntArrayMap.get();
+                    index9 = this.process(index8);
+                    index = (index9[0] / 255.0F);
+                    index2 = (index9[1] / 255.0F);
+                    index3 = (index9[2] / 255.0F);
                 } else {
-                    if (Character.toUpperCase() == 82) {
-                        var40 = (color.getRed() / 255.0F);
-                        var41 = (color.getGreen() / 255.0F);
-                        var42 = (color.getBlue() / 255.0F);
-                        var43 = (color.getAlpha() / 255.0F);
+                    if (Character.toUpperCase(element) == 82) {
+                        index = (color.getRed() / 255.0F);
+                        index2 = (color.getGreen() / 255.0F);
+                        index3 = (color.getBlue() / 255.0F);
+                        index4 = (color.getAlpha() / 255.0F);
                     }
                 }
             }
             if (gradient) {
-                var40 = (var56.getRed() / 255.0F);
-                var41 = (var56.getGreen() / 255.0F);
-                var42 = (var56.getBlue() / 255.0F);
-                var43 = (var56.getAlpha() / 255.0F);
+                index = (this.getRed() / 255.0F);
+                index2 = (this.getGreen() / 255.0F);
+                index3 = (this.getBlue() / 255.0F);
+                index4 = (this.getAlpha() / 255.0F);
             }
-            var50 = 1;
-            var49 = (var49 + (this.computeValue(var39.substring(), allGlyphs, maps, font, fallBack, scaleMul) * scaleMul));
-            var48 = 0.0F;
-            var51 = (var54 + 1);
-            if (this.resolveOwnerServiceComponent(allGlyphs, maps, font, fallBack).process() != 32) {
-                var57 = var55.getFontServiceComponent().getMinecraftObject();
-                var58 = new MatrixServiceComponent(var56.getNumericValue3(), var56.getNumericValue4(), var56.getFontServiceComponent().getNumericValue(), var56.getFontServiceComponent().getNumericValue2(), var56.getNumericValue(), var56.getNumericValue2(), z);
-                if (!(Intrinsics.areEqual())) {
-                    Object var52 = var57;
-                    var59 = (ObjectList) batchedDraws.get();
-                    if (var59 == null) {
-                        var59 = (ObjectList) new ObjectArrayList();
+            index5 = 1;
+            factor4 = (factor4 + (this.computeValue(text.substring(index6, index7), allGlyphs, maps, font, fallBack, scaleMul) * scaleMul));
+            factor3 = 0.0F;
+            index6 = (index7 + 1);
+            if (this.resolveOwnerServiceComponent(element, allGlyphs, maps, font, fallBack).process() != 32) {
+                index8 = element.getFontServiceComponent().getMinecraftObject();
+                index9 = new MatrixServiceComponent(factor3, factor4, index, index2, index3, index4, this.getNumericValue3(), this.getNumericValue4(), this.getFontServiceComponent().getNumericValue(), this.getFontServiceComponent().getNumericValue2(), this.getNumericValue(), this.getNumericValue2(), z, matrix3x2f);
+                if (!(Intrinsics.areEqual(index8))) {
+                    int index11 = index8;
+                    index10 = ((ObjectList) batchedDraws.get(index8));
+                    if (index10 == null) {
+                        index10 = ((ObjectList) new ObjectArrayList());
                     }
-                    Object var53 = var59;
+                    int index12 = index10;
                 }
-                var53.add();
+                index12.add(index9);
             }
-            var48 = (var48 + var56.getNumericValue3());
+            factor3 = (factor3 + this.getNumericValue3());
         }
         stack.popMatrix();
     }
 
     public float computeValue(String text, Char2ObjectArrayMap allGlyphs, ObjectArrayList maps, Font font, Font fallBack, float scaleMul) {
-        String var22 = NameProtectModule.INSTANCE.resolveString(text);
-        char[] var23 = this.resolveString().toCharArray();
-        if (!(var23)) {
-            Object var24 = new char[1];
-            var24[0] = 32;
-            var23 = var24;
+        String text2 = NameProtectModule.INSTANCE.resolveString(text);
+        char[] items = this.resolveString(text2).toCharArray();
+        if (!(items)) {
+            Object element = new char[1];
+            element[0] = 32;
+            items = element;
         }
-        var24 = 0.0F;
-        float var25 = 0.0F;
-        Object var26 = var23;
-        int var27 = 0;
-        Object var28 = var26;
-        if (var27 < var28) {
-            Object var29 = var26[var27];
-            if (0L > 0 && var21 != null) {
-                if (var29 == 10) {
-                }
-                if (var24 == 0.0F) {
-                    if (0L > 0L) {
-                        if (this.resolveOwnerServiceComponent(32, allGlyphs, maps, font, fallBack) != null) {
-                        } else {
-                            this.resolveOwnerServiceComponent(32, allGlyphs, maps, font, fallBack).getNumericValue4();
+        element = 0.0F;
+        float factor = 0.0F;
+        int index = 0;
+        if (index < items) {
+            Object element2 = items[index];
+            if (__UNDEF_KEY__ > 0 && __UNDEF_KEY__ != null) {
+                if (element2 == 10) {
+                    if (element == 0.0F) {
+                        if (__UNDEF_KEY__ > 0L) {
+                            if (this.resolveOwnerServiceComponent(32, allGlyphs, maps, font, fallBack) != null) {
+                            } else {
+                                this.resolveOwnerServiceComponent(32, allGlyphs, maps, font, fallBack).getNumericValue4();
+                            }
                         }
+                        element = (1.0F / scaleMul);
                     }
-                    var24 = (1.0F / scaleMul);
+                    factor = (factor + element);
+                    element = 0.0F;
+                    if (__UNDEF_KEY__ == null) {
+                        OwnerServiceComponent ownerServiceComponent = this.resolveOwnerServiceComponent(element2, allGlyphs, maps, font, fallBack);
+                        if (ownerServiceComponent == null) {
+                        } else {
+                        }
+                        element = Math.max((this.getNumericValue4() / scaleMul), element);
+                    }
                 }
-                var25 = (var25 + var24);
-                var24 = 0.0F;
-                if (var21 == null) {
-                }
-                OwnerServiceComponent var30 = this.resolveOwnerServiceComponent(allGlyphs, maps, font, fallBack);
-                if (var30 == null) {
-                } else {
-                }
-                var24 = Math.max((0.0F.getNumericValue4() / scaleMul));
             }
         }
-        return (var24 + var25);
+        return (element + factor);
     }
 
     public void executeAction(Object2ObjectOpenHashMap batchedDraws) {
-        if (var22 != null) {
+        if (__UNDEF_KEY__ != null) {
             if (batchedDraws.isEmpty()) {
                 return;
             }
         }
         ObjectIterator iterator = batchedDraws.object2ObjectEntrySet().iterator();
-        if (iterator.hasNext()) {
-            Entry var24 = (Entry) iterator.next();
-            class_2960 var25 = (class_2960) (java.util.Map.Entry) var24.getKey();
-            ObjectList positions = (ObjectList) (java.util.Map.Entry) var24.getValue();
-            GpuTextureView var27 = SharedKt.getMc().method_1531().method_4619().method_71659();
-            int var18 = 4;
-            int var19 = 0;
-            int var20 = positions.size();
-            VertexFormat var21 = class_290.field_1575;
-            FormatRenderHelper var28 = new FormatRenderHelper();
-            ObjectListIterator iterator2 = positions.iterator();
-            if (iterator2.hasNext()) {
-                MatrixServiceComponent var30 = (MatrixServiceComponent) iterator2.next();
-                Matrix3x2f var31 = var30.getMatrix3x2f();
-                float var32 = var30.getNumericValue();
-                float var33 = var30.getNumericValue2();
-                int var34 = var30.getNumericValue();
-                int var35 = var30.getNumericValue2();
-                int var36 = (var30.getNumericValue5() / var30.getNumericValue3());
-                int var37 = (var30.getNumericValue6() / var30.getNumericValue4());
-                int var38 = ((var30.getNumericValue5() + var30.getNumericValue()) / var30.getNumericValue3());
-                int var39 = ((var30.getNumericValue6() + var30.getNumericValue2()) / var30.getNumericValue4());
-                var28.resolveFormatRenderHelper((var33 + var35), var30.getNumericValue7()).resolveFormatRenderHelper().resolveFormatRenderHelper(var30.getNumericValue3(), var30.getNumericValue4(), var30.getNumericValue5(), var30.getNumericValue6());
-                var28.resolveFormatRenderHelper((var32 + var34), (var33 + var35), var30.getNumericValue7()).resolveFormatRenderHelper().resolveFormatRenderHelper(var30.getNumericValue3(), var30.getNumericValue4(), var30.getNumericValue5(), var30.getNumericValue6());
-                var28.resolveFormatRenderHelper((var32 + var34), var30.getNumericValue7()).resolveFormatRenderHelper().resolveFormatRenderHelper(var30.getNumericValue3(), var30.getNumericValue4(), var30.getNumericValue5(), var30.getNumericValue6());
-                var28.resolveFormatRenderHelper(var30.getNumericValue7()).resolveFormatRenderHelper().resolveFormatRenderHelper(var30.getNumericValue3(), var30.getNumericValue4(), var30.getNumericValue5(), var30.getNumericValue6());
-                if (var22 != null) {
+        while (iterator.hasNext()) {
+            Entry entry = ((Entry) iterator.next());
+            class_2960 class2960 = ((class_2960) ((java.util.Map.Entry) entry).getKey());
+            ObjectList list = ((ObjectList) ((java.util.Map.Entry) entry).getValue());
+            GpuTextureView gpuTextureView = SharedKt.getMc().method_1531().method_4619(class2960).method_71659();
+            int index = 4;
+            int index2 = 0;
+            int index3 = list.size();
+            VertexFormat vertexFormat = class_290.field_1575;
+            FormatRenderHelper formatRenderHelper = new FormatRenderHelper(vertexFormat, index3, index2, index);
+            ObjectListIterator iterator2 = list.iterator();
+            while (iterator2.hasNext()) {
+                MatrixServiceComponent matrixServiceComponent = ((MatrixServiceComponent) iterator2.next());
+                Matrix3x2f matrix3x2f = matrixServiceComponent.getMatrix3x2f();
+                float factor = matrixServiceComponent.getNumericValue();
+                float factor2 = matrixServiceComponent.getNumericValue2();
+                int index4 = matrixServiceComponent.getNumericValue();
+                int index5 = matrixServiceComponent.getNumericValue2();
+                int index6 = (matrixServiceComponent.getNumericValue5() / matrixServiceComponent.getNumericValue3());
+                int index7 = (matrixServiceComponent.getNumericValue6() / matrixServiceComponent.getNumericValue4());
+                int index8 = ((matrixServiceComponent.getNumericValue5() + matrixServiceComponent.getNumericValue()) / matrixServiceComponent.getNumericValue3());
+                int index9 = ((matrixServiceComponent.getNumericValue6() + matrixServiceComponent.getNumericValue2()) / matrixServiceComponent.getNumericValue4());
+                formatRenderHelper.resolveFormatRenderHelper(matrix3x2f, factor, (factor2 + index5), matrixServiceComponent.getNumericValue7()).resolveFormatRenderHelper(index6, index9).resolveFormatRenderHelper(matrixServiceComponent.getNumericValue3(), matrixServiceComponent.getNumericValue4(), matrixServiceComponent.getNumericValue5(), matrixServiceComponent.getNumericValue6());
+                formatRenderHelper.resolveFormatRenderHelper(matrix3x2f, (factor + index4), (factor2 + index5), matrixServiceComponent.getNumericValue7()).resolveFormatRenderHelper(index8, index9).resolveFormatRenderHelper(matrixServiceComponent.getNumericValue3(), matrixServiceComponent.getNumericValue4(), matrixServiceComponent.getNumericValue5(), matrixServiceComponent.getNumericValue6());
+                formatRenderHelper.resolveFormatRenderHelper(matrix3x2f, (factor + index4), factor2, matrixServiceComponent.getNumericValue7()).resolveFormatRenderHelper(index8, index7).resolveFormatRenderHelper(matrixServiceComponent.getNumericValue3(), matrixServiceComponent.getNumericValue4(), matrixServiceComponent.getNumericValue5(), matrixServiceComponent.getNumericValue6());
+                formatRenderHelper.resolveFormatRenderHelper(matrix3x2f, factor, factor2, matrixServiceComponent.getNumericValue7()).resolveFormatRenderHelper(index6, index7).resolveFormatRenderHelper(matrixServiceComponent.getNumericValue3(), matrixServiceComponent.getNumericValue4(), matrixServiceComponent.getNumericValue5(), matrixServiceComponent.getNumericValue6());
+                if (__UNDEF_KEY__ != null) {
+                    FormatRenderHelper.executeAction(formatRenderHelper, VertexUBOShaderComponent.INSTANCE.getRenderPipeline15(), SharedKt.getMc().method_1522(), null, null, new Matrix3x2f(), MapsKt.mapOf(TuplesKt.to("Sampler0", gpuTextureView)));
                 }
-                FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline15(), SharedKt.getMc().method_1522(), null, null, new Matrix3x2f(), MapsKt.mapOf(TuplesKt.to("Sampler0")));
             }
         }
         batchedDraws.clear();
     }
 
     public float computeValue(String text, Char2ObjectArrayMap allGlyphs, ObjectArrayList maps, Font font, Font fallBack, float scaleMul) {
-        String var21 = NameProtectModule.INSTANCE.resolveString(text);
-        char[] var22 = this.resolveString().toCharArray();
-        float var23 = 0.0F;
-        float var24 = 0.0F;
-        int var25 = 0;
-        Object var26 = var22;
-        if (var25 < var26) {
-            Object var27 = var22[var25];
-            if (0L >= 0) {
-                if (var27 == 10) {
-                    var24 = Math.max();
-                    var23 = 0.0F;
-                }
-                if (0L < 0) {
-                }
-                OwnerServiceComponent var28 = this.resolveOwnerServiceComponent(allGlyphs, maps, font, fallBack);
-                if (0L >= 0) {
-                    if (var28 == null) {
+        String text2 = NameProtectModule.INSTANCE.resolveString(text);
+        char[] items = this.resolveString(text2).toCharArray();
+        float factor = 0.0F;
+        float factor2 = 0.0F;
+        int index = 0;
+        if (index < items) {
+            Object element = items[index];
+            if (__UNDEF_KEY__ >= 0) {
+                if (element == 10) {
+                    factor2 = Math.max(factor, factor2);
+                    factor = 0.0F;
+                    if (__UNDEF_KEY__ < 0) {
+                        OwnerServiceComponent ownerServiceComponent = this.resolveOwnerServiceComponent(element, allGlyphs, maps, font, fallBack);
+                        if (__UNDEF_KEY__ >= 0) {
+                            if (ownerServiceComponent == null) {
+                            } else {
+                            }
+                        }
+                        factor = (factor + (this.getNumericValue3() / scaleMul));
                     }
-                } else {
                 }
-                var23 = (var23 + (0.0F.getNumericValue3() / scaleMul));
             }
         }
-        return Math.max();
+        return Math.max(factor, factor2);
     }
 
     private int computeValue(char arg0) {
-        int var4 = arg0;
-        if (48 <= var4) {
+        if (48 <= arg0) {
         } else {
-        }
-        if (var4 < 58) {
-        } else {
-            if (97 <= var4) {
+            if (arg0 < 58) {
             } else {
-            }
-            if (var4 < 103) {
-            } else {
-                if (65 <= var4) {
+                if (97 <= arg0) {
                 } else {
-                }
-                if (var4 < 71) {
-                } else {
+                    if (arg0 < 103) {
+                    } else {
+                        if (65 <= arg0) {
+                        } else {
+                            if (arg0 < 71) {
+                            } else {
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -443,33 +438,31 @@ public class TextShaderComponent {
                 return false;
             }
         }
-        Object var10 = arg0[(arg1 + 1)];
-        if (var10 != 120) {
+        Object element = arg0[(arg1 + 1)];
+        if (element != 120) {
             if (arg3 >= 0 && arg3 >= 0) {
-                if (var10 != 88) {
+                if (element != 88) {
                     return false;
                 }
             }
         }
-        int var11 = 0;
-        var11 = (arg1 + 2);
-        int var12 = 6;
-        int var13 = 0;
-        if (var13 < var12) {
-            int var14 = var13;
-            int var15 = 0;
+        int index = 0;
+        index = (arg1 + 2);
+        int index2 = 6;
+        int index3 = 0;
+        if (index3 < index2) {
             if (arg4 >= 0) {
                 if (arg2 >= 0) {
-                    if (arg0[var11] != 167) {
+                    if (arg0[index] != 167) {
                         return false;
                     }
                 }
                 if (arg4 > 0) {
-                    if (INSTANCE.computeValue(arg0[(var11 + 1)]) < 0) {
+                    if (INSTANCE.computeValue(arg0[(index + 1)]) < 0) {
                         return false;
                     }
                 }
-                var11 = (var11 + 2);
+                index = (index + 2);
             }
         }
         return true;
@@ -478,39 +471,38 @@ public class TextShaderComponent {
     private Triple resolveTriple(short arg0, char[] arg1, char arg2, int arg3) {
         if ((arg3 - 1) >= 0) {
             if (arg1[(arg3 - 1)] != 167) {
+                return null;
             }
-            return null;
         }
         if (arg2 >= 0 && arg2 >= 0) {
         }
         if ((arg3 + 12) >= arg1) {
             return null;
         }
-        int var11 = 0;
-        int var12 = 0;
-        var12 = (arg3 + 1);
-        int var13 = 6;
-        int var14 = 0;
-        if (var14 < var13) {
-            int var15 = var14;
-            int var16 = 0;
-            if (arg1[var12] != 167) {
+        int index = 0;
+        int index2 = 0;
+        index2 = (arg3 + 1);
+        int index3 = 6;
+        int index4 = 0;
+        if (index4 < index3) {
+            int index5 = index4;
+            if (arg1[index2] != 167) {
                 return null;
             }
-            int var17 = INSTANCE.computeValue(arg1[(var12 + 1)]);
-            if (var17 < 0) {
+            int index6 = INSTANCE.computeValue(arg1[(index2 + 1)]);
+            if (index6 < 0) {
                 return null;
             }
-            var11 = ((var11 << 4) | var17);
-            var12 = (var12 + 2);
+            index = ((index << 4) | index6);
+            index2 = (index2 + 2);
         }
-        var13 = ((var11 >> 16) & 255);
-        var14 = ((var11 >> 8) & 255);
+        index3 = ((index >> 16) & 255);
+        index4 = ((index >> 8) & 255);
         if (arg0 < 0 || arg2 >= 0) {
             continue;
         }
-        var15 = (var11 & 1331);
-        return new Triple(Integer.valueOf(), Integer.valueOf(), Integer.valueOf());
+        index5 = (index & 1331);
+        return new Triple(Integer.valueOf(index3), Integer.valueOf(index4), Integer.valueOf(index5));
     }
 
     private static String resolveString() {
@@ -518,7 +510,7 @@ public class TextShaderComponent {
     }
 
     private static ObjectList resolveObjectList(Object arg0) {
-        return (ObjectList) new ObjectArrayList();
+        return ((ObjectList) new ObjectArrayList());
     }
 
     static {

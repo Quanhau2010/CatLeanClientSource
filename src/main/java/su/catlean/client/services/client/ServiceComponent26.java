@@ -14,17 +14,12 @@ public class ServiceComponent26 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var10 = 0;
         ProxyGuiElement.INSTANCE.updateValue();
-        File[] var11 = ServiceComponent65.process();
-        int var12 = 0;
-        int var13 = 0;
-        Object var14 = var11;
-        if (var13 < var14) {
-            Object var15 = var11[var13];
-            Object var16 = var15;
-            int var17 = 0;
-            var16.mkdirs();
+        File[] items = ServiceComponent65.process();
+        int index = 0;
+        if (index < items) {
+            Object element = items[index];
+            element.mkdirs();
         }
         ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().updateValue();
         ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().updateValue();

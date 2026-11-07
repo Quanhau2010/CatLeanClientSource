@@ -16,18 +16,15 @@ public class Comparator7 implements Comparator {
     }
 
     public int compare(Object b) {
-        BlockPos blockPos = (BlockPos) 0L;
-        int var14 = 0;
         if (NukerModule.resolveNukerSortMode() == NukerSortMode.FOV) {
         } else {
         }
-        blockPos = (BlockPos) b;
-        Comparable var15 = (Comparable) Float.valueOf(EventPacketHelper2.INSTANCE.computeValue(blockPos.toCenterPos()));
-        var14 = 0;
+        BlockPos blockPos = ((BlockPos) b);
+        Comparable comparable = ((Comparable) Float.valueOf(EventPacketHelper2.INSTANCE.computeValue(this.toCenterPos())));
         if (NukerModule.resolveNukerSortMode() == NukerSortMode.FOV) {
         } else {
         }
-        if (ComparisonsKt.compareValues((Comparable) Float.valueOf(EventPacketHelper2.INSTANCE.computeValue(blockPos.toCenterPos()))) != null) {
+        if (ComparisonsKt.compareValues(comparable, ((Comparable) Float.valueOf(EventPacketHelper2.INSTANCE.computeValue(blockPos.toCenterPos())))) != null) {
         }
         return AutoDripstopeModule.INSTANCE.computeValue(blockPos);
     }

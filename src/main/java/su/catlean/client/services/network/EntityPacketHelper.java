@@ -45,104 +45,103 @@ public class EntityPacketHelper {
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        Packet var13 = arg0.getPacket();
-        if (var12 != null) {
-            if (var12 != null) {
+        Packet packet = arg0.getPacket();
+        if (__UNDEF_KEY__ != null) {
+            if (__UNDEF_KEY__ != null) {
             }
         }
-        Entity entity = (class_2663) var13.method_11469((World) SharedKt.getWorld());
-        if (var12 != null) {
+        Entity entity = ((class_2663) packet).method_11469(((World) SharedKt.getWorld()));
+        if (__UNDEF_KEY__ != null) {
             if (entity instanceof PlayerEntity) {
+            } else {
             }
-        } else {
         }
         if (null == null) {
             return;
         }
-        PlayerEntity player = (PlayerEntity) entity;
+        PlayerEntity player = ((PlayerEntity) entity);
         if (Intrinsics.areEqual(player, SharedKt.getMc().player)) {
             return;
         }
-        Map var15 = lookupMap;
         entity = player.method_5477().getString();
-        Integer var17 = Integer.valueOf(((Number) lookupMap.getOrDefault(player.method_5477().getString(), Integer.valueOf(0)) + 1));
-        var15.put(entity);
-        if (var12 != null) {
+        Integer integer = Integer.valueOf((((Number) lookupMap.getOrDefault(player.method_5477().getString(), Integer.valueOf(0))) + 1));
+        lookupMap.put(entity, integer);
+        if (__UNDEF_KEY__ != null) {
         }
-        NotifierModule.INSTANCE.executeAction(player.method_5477().getString(), (Number) lookupMap.getOrDefault(player.method_5477().getString(), Integer.valueOf(0)));
+        NotifierModule.INSTANCE.executeAction(player.method_5477().getString(), ((Number) lookupMap.getOrDefault(player.method_5477().getString(), Integer.valueOf(0))));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        Iterable var9 = (Iterable) SharedKt.getWorld().getPlayers();
-        int var10 = 0;
-        Object var11 = var9;
-        Collection var12 = (Collection) new ArrayList();
-        int var13 = 0;
-        Iterator iterator = var11.iterator();
-        if (iterator.hasNext()) {
-            Object var15 = iterator.next();
-            AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) var15;
-            int var17 = 0;
-            if (var8 != null) {
+        Iterable iterable = ((Iterable) SharedKt.getWorld().getPlayers());
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) element);
+            int index3 = 0;
+            if (__UNDEF_KEY__ != null) {
                 if (player.method_6032() > 0.0F) {
                     if (player.isAlive()) {
-                        if (var8 != null && var8 != null && var8 != null) {
+                        if (__UNDEF_KEY__ != null && __UNDEF_KEY__ != null && __UNDEF_KEY__ != null) {
                         }
                     }
                 }
-                if (var8 != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                if (var8 != null) {
+                if (__UNDEF_KEY__ != null) {
                     if (player.method_29504() && !(Intrinsics.areEqual(player, SharedKt.getPlayer())) && !(lookupMap2.containsKey(player.method_5477().getString()))) {
+                    } else {
                     }
-                } else {
                 }
-                var12.add();
+                collection.add(element);
+                iterable = ((Iterable) collection);
             }
-            var9 = (Iterable) var12;
         }
-        var10 = 0;
-        var11 = var9.iterator();
-        if (var11.hasNext()) {
-            var12 = var11.next();
-            var13 = (AbstractClientPlayerEntity) var12;
+        index = 0;
+        iterable2 = iterable.iterator();
+        while (iterable2.hasNext()) {
+            collection = iterable2.next();
+            index2 = ((AbstractClientPlayerEntity) collection);
             iterator = 0;
-            var15 = PlayerEntityDeathEvent.INSTANCE;
-            player = var15;
-            var17 = 0;
-            player.setPlayer((PlayerEntity) var13);
-            player.setTotemsPopped((Number) lookupMap.getOrDefault(var13.method_5477().getString(), Integer.valueOf(0)));
-            var15.call();
-            lookupMap2.put(var13.method_5477().getString(), Long.valueOf(SharedKt.getNumericValue()));
-            lookupMap.remove(var13.method_5477().getString());
-            if (var8 != null) {
+            element = PlayerEntityDeathEvent.INSTANCE;
+            player = element;
+            index3 = 0;
+            player.setPlayer(((PlayerEntity) index2));
+            player.setTotemsPopped(((Number) lookupMap.getOrDefault(index2.method_5477().getString(), Integer.valueOf(0))));
+            element.call();
+            lookupMap2.put(index2.method_5477().getString(), Long.valueOf(SharedKt.getNumericValue()));
+            lookupMap.remove(index2.method_5477().getString());
+            if (__UNDEF_KEY__ != null) {
             }
         }
-        var9 = new ArrayList();
-        var10 = lookupMap2;
-        var11 = 0;
-        var12 = var10.entrySet().iterator();
-        if (var12.hasNext()) {
-            var13 = (Entry) var12.next();
-            iterator = var13;
-            var15 = 0;
-            player = (String) iterator.getKey();
-            var17 = (Number) iterator.getValue().longValue();
-            if (var8 != null) {
-                if (var8 != null) {
-                    if ((SharedKt.getNumericValue() - var17) > timestampValue) {
-                        var9.add(player);
+        iterable = new ArrayList();
+        index = lookupMap2;
+        iterable2 = 0;
+        collection = index.entrySet().iterator();
+        while (collection.hasNext()) {
+            index2 = ((Entry) collection.next());
+            iterator = index2;
+            element = 0;
+            player = ((String) iterator.getKey());
+            index3 = ((Number) iterator.getValue()).longValue();
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
+                    if ((SharedKt.getNumericValue() - index3) > timestampValue) {
+                        iterable.add(player);
                     }
                 }
             }
         }
-        var10 = (Iterable) var9;
-        var11 = 0;
-        var12 = var10.iterator();
-        if (var12.hasNext()) {
-            var13 = var12.next();
-            iterator = (String) var13;
-            var15 = 0;
+        index = ((Iterable) iterable);
+        iterable2 = 0;
+        collection = index.iterator();
+        while (collection.hasNext()) {
+            index2 = collection.next();
+            iterator = ((String) index2);
+            element = 0;
             lookupMap2.remove(iterator);
         }
     }
@@ -152,8 +151,8 @@ public class EntityPacketHelper {
     }
 
     public int computeValue(String name) {
-        if (var4 != null) {
-            if ((Integer) lookupMap.get(name) != null) {
+        if (__UNDEF_KEY__ != null) {
+            if (((Integer) lookupMap.get(name)) != null) {
             }
         }
         return 0;
@@ -164,261 +163,207 @@ public class EntityPacketHelper {
     }
 
     public static PlayerEntity findTarget(EntityPacketHelper arg0, float arg1, AutoCrystalTargetSortMode arg2, boolean arg3, boolean arg4, int arg5, Object arg6) {
-        if (var14 != null) {
-            if ((arg5 & 4)) {
-                arg3 = 0;
-            }
-        }
-        if (var14 != null) {
-            if ((arg5 & 8)) {
-            }
-            arg4 = 0;
-        }
+        arg3 = 0;
+        arg4 = 0;
         return arg0.findTarget(arg1, arg2, arg3, arg4);
     }
 
     private List resolveList(int arg0, byte arg1, float arg2, int arg3, boolean arg4, boolean arg5) {
-        Iterable var16 = (Iterable) SharedKt.getWorld().getPlayers();
-        int var17 = 0;
-        Object var18 = var16;
-        Collection var19 = (Collection) new ArrayList();
-        int var20 = 0;
-        Iterator iterator = var18.iterator();
-        if (iterator.hasNext()) {
-            Object var22 = iterator.next();
-            AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) var22;
-            int var24 = 0;
+        Iterable iterable = ((Iterable) SharedKt.getWorld().getPlayers());
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) element);
             if (arg0 > 0) {
-                if (var15 != null) {
+                if (__UNDEF_KEY__ != null) {
                     if (arg1 <= 0) {
-                        if (var15 != null) {
+                        if (__UNDEF_KEY__ != null) {
                         }
                     }
                     if (arg0 >= 0) {
-                        if (var15 != null) {
+                        if (__UNDEF_KEY__ != null) {
                         }
                     }
                     if (arg0 >= 0) {
-                        if (var15 != null) {
+                        if (__UNDEF_KEY__ != null) {
                         }
                     }
                     if (arg1 <= 0) {
-                        if (var15 != null) {
+                        if (__UNDEF_KEY__ != null) {
                         }
                     }
-                    if (var15 != null) {
+                    if (__UNDEF_KEY__ != null) {
                         if (arg4) {
                             if (arg1 <= 0) {
-                                if (var15 != null) {
+                                if (__UNDEF_KEY__ != null) {
                                 }
                             }
                         }
                     }
-                    if (var15 != null) {
+                    if (__UNDEF_KEY__ != null) {
                         if (arg5) {
-                            if (var15 != null) {
-                                if (!(player.method_29504()) && !(EntityHelper4.isFriend((PlayerEntity) player)) && !(Intrinsics.areEqual(player, SharedKt.getPlayer())) && SharedKt.getPlayer().distanceTo(player) < arg2 && player.method_6096() > 0 && !(player.method_68878())) {
+                            if (__UNDEF_KEY__ != null) {
+                                if (!(player.method_29504()) && !(EntityHelper4.isFriend(((PlayerEntity) player))) && !(Intrinsics.areEqual(player, SharedKt.getPlayer())) && SharedKt.getPlayer().distanceTo(player) < arg2 && player.method_6096() > 0 && !(player.method_68878())) {
+                                } else {
                                 }
                             }
                         }
-                    } else {
                     }
-                    var19.add();
+                    collection.add(element);
+                    iterable = ((Iterable) collection);
+                    if (arg3 > 0) {
+                    }
                 }
-                var16 = (Iterable) var19;
-                if (arg3 > 0) {
-                }
-                var17 = 0;
             }
         }
-        return CollectionsKt.sortedWith((Comparator) new Comparator14());
+        return CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator14()));
     }
 
     private static List resolveList(EntityPacketHelper arg0, float arg1, boolean arg2, boolean arg3, int arg4, Object arg5) {
-        if (var13 != null) {
-            if ((arg4 & 2)) {
-                arg2 = 0;
-            }
-        }
-        if (var13 != null) {
-            if ((arg4 & 4)) {
-            }
-            arg3 = 0;
-        }
+        arg2 = 0;
+        arg3 = 0;
         return arg0.resolveList(arg1, arg2, arg3);
     }
 
     public PlayerEntity findTarget(float range, boolean ignoreNaked, boolean ignoreCreative) {
-        Iterable var12 = (Iterable) this.resolveList(range, ignoreNaked, ignoreCreative);
-        int var13 = 0;
-        Iterator iterator = var12.iterator();
-        if (var11 != null) {
+        Iterable iterable = ((Iterable) this.resolveList(range, ignoreNaked, ignoreCreative));
+        Iterator iterator = iterable.iterator();
+        if (__UNDEF_KEY__ != null) {
             if (!(iterator.hasNext())) {
             }
         }
-        Object var15 = iterator.next();
-        if (var11 != null) {
+        Object element = iterator.next();
+        if (__UNDEF_KEY__ != null) {
             if (!(iterator.hasNext())) {
             }
         }
-        PlayerEntity player = (PlayerEntity) var15;
-        int var17 = 0;
+        PlayerEntity player = ((PlayerEntity) element);
+        int index = 0;
         player = SharedKt.getPlayer().distanceTo(player);
-        var17 = iterator.next();
-        PlayerEntity player2 = (PlayerEntity) var17;
-        int var19 = 0;
+        index = iterator.next();
+        PlayerEntity player2 = ((PlayerEntity) index);
         player2 = SharedKt.getPlayer().distanceTo(player2);
         if (Float.compare(player, player2) > 0) {
-            var15 = var17;
+            element = index;
             player = player2;
         }
-        return (PlayerEntity) var15;
+        return ((PlayerEntity) element);
     }
 
     public static PlayerEntity findTarget(EntityPacketHelper arg0, float arg1, boolean arg2, boolean arg3, int arg4, Object arg5) {
-        if (var13 != null) {
-            if ((arg4 & 2)) {
-                arg2 = 0;
-            }
-        }
-        if (var13 != null) {
-            if ((arg4 & 4)) {
-            }
-            arg3 = 0;
-        }
+        arg2 = 0;
+        arg3 = 0;
         return arg0.findTarget(arg1, arg2, arg3);
     }
 
     public PlayerEntity findTarget(float range, boolean ignoreNaked, boolean ignoreCreative) {
-        Iterable var10 = (Iterable) this.resolveList(range, ignoreNaked, ignoreCreative);
-        int var11 = 0;
-        Iterator iterator = var10.iterator();
-        if (var9 != null) {
+        Iterable iterable = ((Iterable) this.resolveList(range, ignoreNaked, ignoreCreative));
+        Iterator iterator = iterable.iterator();
+        if (__UNDEF_KEY__ != null) {
             if (!(iterator.hasNext())) {
             }
         }
-        Object var13 = iterator.next();
-        if (var9 != null) {
+        Object element = iterator.next();
+        if (__UNDEF_KEY__ != null) {
             if (!(iterator.hasNext())) {
             }
         }
-        PlayerEntity player = (PlayerEntity) var13;
-        int var15 = 0;
+        PlayerEntity player = ((PlayerEntity) element);
+        int index = 0;
         player = (player.method_6032() + player.method_6067());
-        var15 = iterator.next();
-        PlayerEntity player2 = (PlayerEntity) var15;
-        int var17 = 0;
+        index = iterator.next();
+        PlayerEntity player2 = ((PlayerEntity) index);
         player2 = (player2.method_6032() + player2.method_6067());
         if (Float.compare(player, player2) > 0) {
-            var13 = var15;
+            element = index;
             player = player2;
         }
-        return (PlayerEntity) var13;
+        return ((PlayerEntity) element);
     }
 
     public static PlayerEntity findTarget(EntityPacketHelper arg0, float arg1, boolean arg2, boolean arg3, int arg4, Object arg5) {
-        if (var10 != null) {
-            if ((arg4 & 2)) {
-                arg2 = 0;
-            }
-        }
-        if (var10 != null) {
-            if ((arg4 & 4)) {
-            }
-            arg3 = 0;
-        }
+        arg2 = 0;
+        arg3 = 0;
         return arg0.findTarget(arg1, arg2, arg3);
     }
 
     public PlayerEntity findTarget(float range, boolean ignoreNaked, boolean ignoreCreative) {
-        Iterable var12 = (Iterable) this.resolveList(range, ignoreNaked, ignoreCreative);
-        int var13 = 0;
-        Iterator iterator = var12.iterator();
-        if (var11 != null) {
+        Iterable iterable = ((Iterable) this.resolveList(range, ignoreNaked, ignoreCreative));
+        Iterator iterator = iterable.iterator();
+        if (__UNDEF_KEY__ != null) {
             if (!(iterator.hasNext())) {
             }
         }
-        Object var15 = iterator.next();
-        if (var11 != null) {
+        Object element = iterator.next();
+        if (__UNDEF_KEY__ != null) {
             if (!(iterator.hasNext())) {
             }
         }
-        PlayerEntity player = (PlayerEntity) var15;
-        int var17 = 0;
-        player = INSTANCE.computeValue((LivingEntity) player);
-        var17 = iterator.next();
-        PlayerEntity player2 = (PlayerEntity) var17;
-        int var19 = 0;
-        player2 = INSTANCE.computeValue((LivingEntity) player2);
+        PlayerEntity player = ((PlayerEntity) element);
+        int index = 0;
+        player = INSTANCE.computeValue(((LivingEntity) player));
+        index = iterator.next();
+        PlayerEntity player2 = ((PlayerEntity) index);
+        player2 = INSTANCE.computeValue(((LivingEntity) player2));
         if (Float.compare(player, player2) > 0) {
-            var15 = var17;
+            element = index;
             player = player2;
         }
-        return (PlayerEntity) var15;
+        return ((PlayerEntity) element);
     }
 
     public static PlayerEntity resolveMinecraftObject2(EntityPacketHelper arg0, float arg1, boolean arg2, boolean arg3, int arg4, Object arg5) {
-        if (var10 != null) {
-            if ((arg4 & 2)) {
-                arg2 = 0;
-            }
-        }
-        if (var10 != null) {
-            if ((arg4 & 4)) {
-            }
-            arg3 = 0;
-        }
+        arg2 = 0;
+        arg3 = 0;
         return arg0.findTarget(arg1, arg2, arg3);
     }
 
     public PlayerEntity findTarget(float range, float fov) {
-        Iterable var13 = (Iterable) resolveList(this, range);
-        int var14 = 0;
-        Object var15 = var13;
-        Collection var16 = (Collection) new ArrayList();
-        int var17 = 0;
-        Iterator iterator = var15.iterator();
-        if (iterator.hasNext()) {
-            Object var19 = iterator.next();
-            PlayerEntity player = (PlayerEntity) var19;
-            int var21 = 0;
-            if (0L >= 0) {
-                if (var12 != null) {
-                    if (var12 != null) {
-                        if (INSTANCE.computeValue((LivingEntity) player) < fov) {
+        Iterable iterable = ((Iterable) resolveList(this, range, false, false));
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index = 0;
+        Iterator iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            PlayerEntity player = ((PlayerEntity) element);
+            if (__UNDEF_KEY__ >= 0) {
+                if (__UNDEF_KEY__ != null) {
+                    if (__UNDEF_KEY__ != null) {
+                        if (INSTANCE.computeValue(((LivingEntity) player)) < fov) {
+                        } else {
                         }
-                    } else {
                     }
-                    var16.add();
+                    collection.add(element);
+                    iterable = ((Iterable) collection);
+                    if (__UNDEF_KEY__ < 0) {
+                    }
                 }
-                var13 = (Iterable) var16;
-                if (0L < 0) {
-                }
-                var14 = 0;
             }
         }
-        var15 = var13.iterator();
-        if (0L >= 0 && var12 != null) {
-            if (!(var15.hasNext())) {
+        iterable2 = iterable.iterator();
+        if (__UNDEF_KEY__ >= 0 && __UNDEF_KEY__ != null) {
+            if (!(iterable2.hasNext())) {
             }
-            var16 = var15.next();
-            if (var12 != null) {
-            }
-            if (!(var15.hasNext())) {
+            collection = iterable2.next();
+            if (__UNDEF_KEY__ != null) {
+                if (!(iterable2.hasNext())) {
+                }
             }
         }
-        var17 = (PlayerEntity) var16;
+        index = ((PlayerEntity) collection);
         iterator = 0;
-        var17 = INSTANCE.computeValue((LivingEntity) var17);
-        iterator = var15.next();
-        var19 = (PlayerEntity) iterator;
+        index = INSTANCE.computeValue(((LivingEntity) index));
+        iterator = iterable2.next();
+        element = ((PlayerEntity) iterator);
         player = 0;
-        var19 = INSTANCE.computeValue((LivingEntity) var19);
-        if (Float.compare() > 0) {
-            var16 = iterator;
-            var17 = var19;
+        element = INSTANCE.computeValue(((LivingEntity) element));
+        if (Float.compare(index, element) > 0) {
+            collection = iterator;
+            index = element;
         }
-        return (PlayerEntity) var16;
+        return ((PlayerEntity) collection);
     }
 
     public PlayerEntity findTarget(float range, AutoCrystalTargetSortMode targetBy, Function1 predicate) {
@@ -426,126 +371,117 @@ public class EntityPacketHelper {
     }
 
     public PlayerEntity findTarget(float range, Function1 predicate) {
-        Iterable var10 = (Iterable) resolveList(this, range);
-        int var11 = 0;
-        Object var12 = var10;
-        Collection var13 = (Collection) new ArrayList();
-        int var14 = 0;
-        Iterator iterator = var12.iterator();
-        if (iterator.hasNext()) {
-            Object var16 = iterator.next();
-            if (var9 != null) {
-                if (var9 != null) {
+        Iterable iterable = ((Iterable) resolveList(this, range, false, false));
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index = 0;
+        Iterator iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                var13.add();
-            }
-            var10 = (Iterable) var13;
-        }
-        var11 = 0;
-        var12 = var10.iterator();
-        if (var9 != null) {
-            if (!(var12.hasNext())) {
-            }
-            var13 = var12.next();
-            if (var9 != null) {
-            }
-            if (!(var12.hasNext())) {
+                collection.add(element);
+                iterable = ((Iterable) collection);
             }
         }
-        var14 = (PlayerEntity) var13;
+        iterable2 = iterable.iterator();
+        if (__UNDEF_KEY__ != null) {
+            if (!(iterable2.hasNext())) {
+            }
+            collection = iterable2.next();
+            if (__UNDEF_KEY__ != null) {
+                if (!(iterable2.hasNext())) {
+                }
+            }
+        }
+        index = ((PlayerEntity) collection);
         iterator = 0;
-        var14 = SharedKt.getPlayer().distanceTo();
-        iterator = var12.next();
-        var16 = (PlayerEntity) iterator;
-        int var17 = 0;
-        var16 = SharedKt.getPlayer().distanceTo();
-        if (Float.compare() > 0) {
-            var13 = iterator;
-            var14 = var16;
+        index = SharedKt.getPlayer().distanceTo(index);
+        iterator = iterable2.next();
+        element = ((PlayerEntity) iterator);
+        element = SharedKt.getPlayer().distanceTo(element);
+        if (Float.compare(index, element) > 0) {
+            collection = iterator;
+            index = element;
         }
-        return (PlayerEntity) var13;
+        return ((PlayerEntity) collection);
     }
 
     public PlayerEntity resolveMinecraftObject2(float range, Function1 predicate) {
-        Iterable var8 = (Iterable) resolveList(this, range);
-        int var9 = 0;
-        Object var10 = var8;
-        Collection var11 = (Collection) new ArrayList();
-        int var12 = 0;
-        Iterator iterator = var10.iterator();
-        if (iterator.hasNext()) {
-            Object var14 = iterator.next();
-            if (var7 != null) {
-                if (var7 != null) {
+        Iterable iterable = ((Iterable) resolveList(this, range, false, false));
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index = 0;
+        Iterator iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                var11.add();
-            }
-            var8 = (Iterable) var11;
-        }
-        var9 = 0;
-        var10 = var8.iterator();
-        if (var7 != null) {
-            if (!(var10.hasNext())) {
-            }
-            var11 = var10.next();
-            if (var7 != null) {
-            }
-            if (!(var10.hasNext())) {
+                collection.add(element);
+                iterable = ((Iterable) collection);
             }
         }
-        var12 = (PlayerEntity) var11;
+        iterable2 = iterable.iterator();
+        if (__UNDEF_KEY__ != null) {
+            if (!(iterable2.hasNext())) {
+            }
+            collection = iterable2.next();
+            if (__UNDEF_KEY__ != null) {
+                if (!(iterable2.hasNext())) {
+                }
+            }
+        }
+        index = ((PlayerEntity) collection);
         iterator = 0;
-        var12 = (var12.method_6032() + var12.method_6067());
-        iterator = var10.next();
-        var14 = (PlayerEntity) iterator;
-        int var15 = 0;
-        var14 = (var14.method_6032() + var14.method_6067());
-        if (Float.compare() > 0) {
-            var11 = iterator;
-            var12 = var14;
+        index = (index.method_6032() + index.method_6067());
+        iterator = iterable2.next();
+        element = ((PlayerEntity) iterator);
+        element = (element.method_6032() + element.method_6067());
+        if (Float.compare(index, element) > 0) {
+            collection = iterator;
+            index = element;
         }
-        return (PlayerEntity) var11;
+        return ((PlayerEntity) collection);
     }
 
     public PlayerEntity resolveMinecraftObject3(float range, Function1 predicate) {
-        Iterable var10 = (Iterable) resolveList(this, range);
-        int var11 = 0;
-        Object var12 = var10;
-        Collection var13 = (Collection) new ArrayList();
-        int var14 = 0;
-        Iterator iterator = var12.iterator();
-        if (iterator.hasNext()) {
-            Object var16 = iterator.next();
-            if (var9 != null) {
-                if (var9 != null) {
+        Iterable iterable = ((Iterable) resolveList(this, range, false, false));
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index = 0;
+        Iterator iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                var13.add();
-            }
-            var10 = (Iterable) var13;
-        }
-        var11 = 0;
-        var12 = var10.iterator();
-        if (var9 != null) {
-            if (!(var12.hasNext())) {
-            }
-            var13 = var12.next();
-            if (var9 != null) {
-            }
-            if (!(var12.hasNext())) {
+                collection.add(element);
+                iterable = ((Iterable) collection);
             }
         }
-        var14 = (PlayerEntity) var13;
+        iterable2 = iterable.iterator();
+        if (__UNDEF_KEY__ != null) {
+            if (!(iterable2.hasNext())) {
+            }
+            collection = iterable2.next();
+            if (__UNDEF_KEY__ != null) {
+                if (!(iterable2.hasNext())) {
+                }
+            }
+        }
+        index = ((PlayerEntity) collection);
         iterator = 0;
-        var14 = INSTANCE.computeValue((LivingEntity) var14);
-        iterator = var12.next();
-        var16 = (PlayerEntity) iterator;
-        int var17 = 0;
-        var16 = INSTANCE.computeValue((LivingEntity) var16);
-        if (Float.compare() > 0) {
-            var13 = iterator;
-            var14 = var16;
+        index = INSTANCE.computeValue(((LivingEntity) index));
+        iterator = iterable2.next();
+        element = ((PlayerEntity) iterator);
+        element = INSTANCE.computeValue(((LivingEntity) element));
+        if (Float.compare(index, element) > 0) {
+            collection = iterator;
+            index = element;
         }
-        return (PlayerEntity) var13;
+        return ((PlayerEntity) collection);
     }
 
     private float computeValue(LivingEntity arg0) {
@@ -554,8 +490,8 @@ public class EntityPacketHelper {
 
     static {
         INSTANCE = new EntityPacketHelper();
-        lookupMap = (Map) new LinkedHashMap();
-        lookupMap2 = (Map) new LinkedHashMap();
+        lookupMap = ((Map) new LinkedHashMap());
+        lookupMap2 = ((Map) new LinkedHashMap());
     }
 
     public static void updateValue(boolean arg0) {
@@ -567,8 +503,8 @@ public class EntityPacketHelper {
     }
 
     public static boolean isActive2() {
-        boolean var0 = isActive();
-        if (!(var0)) {
+        boolean flag = isActive();
+        if (!(flag)) {
             return true;
         }
         return false;

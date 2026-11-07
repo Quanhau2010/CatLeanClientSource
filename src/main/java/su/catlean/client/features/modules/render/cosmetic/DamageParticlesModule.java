@@ -51,19 +51,19 @@ public class DamageParticlesModule extends Module {
     }
 
     private Color getColor1() {
-        return (Color) color1Setting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Color) color1Setting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private Color getColor2() {
-        return (Color) color2Setting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Color) color2Setting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private float getSize() {
-        return (Number) sizeSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) sizeSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private int getTicks() {
-        return (Number) ticksSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) ticksSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     public DecimalFormat getDecimalFormat() {
@@ -81,63 +81,61 @@ public class DamageParticlesModule extends Module {
             Entity entity = iterator.next();
             if (!(entity instanceof LivingEntity)) {
             }
-            if ((Float) hashMap.getOrDefault(Integer.valueOf((LivingEntity) entity.method_5628()), Float.valueOf((LivingEntity) entity.method_6063())) != null) {
+            if (((Float) hashMap.getOrDefault(Integer.valueOf(((LivingEntity) entity).method_5628()), Float.valueOf(((LivingEntity) entity).method_6063()))) != null) {
             } else {
             }
-            float var15 = 20.0F;
-            float var16 = ((LivingEntity) entity.method_6032() + (LivingEntity) entity.method_6067());
-            if (var15 == var16) {
+            float factor = 20.0F;
+            float factor2 = (((LivingEntity) entity).method_6032() + ((LivingEntity) entity).method_6067());
+            if (factor == factor2) {
             }
-            arrayList.add(new EntityEntityHelper(entity, (var16 - var15), ((LivingEntity) entity.getX() + RangeServiceComponent.a(-0.5D, 0.5D)), ((LivingEntity) entity.getY() + ((LivingEntity) entity.method_5829().method_17940() / 2.0F)), ((LivingEntity) entity.getZ() + RangeServiceComponent.a(-0.5D, 0.5D))));
+            arrayList.add(new EntityEntityHelper(entity, (factor2 - factor), (((LivingEntity) entity).getX() + RangeServiceComponent.a(-0.5D, 0.5D, false)), (((LivingEntity) entity).getY() + (((LivingEntity) entity).method_5829().method_17940() / 2.0F)), (((LivingEntity) entity).getZ() + RangeServiceComponent.a(-0.5D, 0.5D, false))));
         }
         arrayList.removeIf(this::checkCondition);
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
-        Iterable var28 = (Iterable) arrayList;
-        int var29 = 0;
-        Iterator iterator = var28.iterator();
+        Iterable iterable = ((Iterable) arrayList);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var31 = iterator.next();
-            EntityEntityHelper var32 = (EntityEntityHelper) var31;
-            int var33 = 0;
-            int var34 = (INSTANCE.getTicks() / 2.0F);
-            if (var32.getNumericValue() < var34) {
+            Object element = iterator.next();
+            EntityEntityHelper entityEntityHelper = ((EntityEntityHelper) element);
+            int index = (INSTANCE.getTicks() / 2.0F);
+            if (entityEntityHelper.getNumericValue() < index) {
             } else {
             }
-            float var35 = (1.0F - ((var32.getNumericValue() - var34) / var34));
-            if (var32.getNumericValue() > 0.0F) {
+            float factor = (1.0F - ((entityEntityHelper.getNumericValue() - index) / index));
+            if (entityEntityHelper.getNumericValue() > 0.0F) {
             } else {
             }
-            int var19 = 24;
-            FontRenderHelper var20 = SFMServiceComponent.resolveFontRenderHelper8();
-            int var21 = 1;
-            float var22 = 0.0F;
-            float var23 = 0.0F;
-            Color var24 = INSTANCE.getColor1().resolveColor(INSTANCE.getColor2());
-            PolygonShaderComponent var25 = PolygonShaderComponent.INSTANCE;
-            Vec3d vec = new Vec3d(var32.getNumericValue(), var32.getNumericValue2(), var32.getNumericValue3());
-            TextShaderComponent2.executeAction(decimalFormat.format(Float.valueOf(var32.getNumericValue())), vec);
+            int index2 = 24;
+            FontRenderHelper fontRenderHelper = SFMServiceComponent.resolveFontRenderHelper8();
+            int index3 = 1;
+            float factor2 = 0.0F;
+            float factor3 = 0.0F;
+            Color color = INSTANCE.getColor1().resolveColor(INSTANCE.getColor2(), factor);
+            PolygonShaderComponent polygonShaderComponent = PolygonShaderComponent.INSTANCE;
+            Vec3d vec = new Vec3d(entityEntityHelper.getNumericValue(), entityEntityHelper.getNumericValue2(), entityEntityHelper.getNumericValue3());
+            TextShaderComponent2.executeAction(decimalFormat.format(Float.valueOf(entityEntityHelper.getNumericValue())), vec, polygonShaderComponent, color, factor3, factor2, index3, fontRenderHelper, index2);
         }
     }
 
     private static boolean checkCondition(EntityEntityHelper arg0) {
-        int var7 = arg0.getNumericValue();
-        arg0.updateValue((var7 + 1));
-        if (var6 != null) {
-            if (var7 >= INSTANCE.getTicks()) {
+        int index = arg0.getNumericValue();
+        arg0.updateValue((index + 1));
+        if (__UNDEF_KEY__ != null) {
+            if (index >= INSTANCE.getTicks()) {
+            } else {
             }
-        } else {
         }
         return false;
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {
-        KProperty[] var32 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new DamageParticlesModule();
         color1Setting = VisibleRenderHelper.registerSetting(INSTANCE, "heal-color", Color.GREEN);
         color2Setting = VisibleRenderHelper.registerSetting(INSTANCE, "damage-color", Color.RED);

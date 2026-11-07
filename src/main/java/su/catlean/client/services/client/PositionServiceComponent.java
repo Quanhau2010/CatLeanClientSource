@@ -35,10 +35,10 @@ public class PositionServiceComponent {
     }
 
     public static PositionServiceComponent resolvePositionServiceComponent(PositionServiceComponent arg0, BlockPos arg1, Direction arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.blockPos;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.minecraftRef;
         }
         return arg0.resolvePositionServiceComponent(arg1, arg2);
@@ -49,29 +49,23 @@ public class PositionServiceComponent {
     }
 
     public int hashCode() {
-        int var3 = this.blockPos.hashCode();
-        var3 = ((var3 * -2746611700093419489L) + this.minecraftRef.hashCode());
-        return var3;
+        int index = this.blockPos.hashCode();
+        index = ((index * 31) + this.minecraftRef.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
-        if (var4 == null) {
-            if (this == other) {
-                return true;
-            }
+        if (this == other) {
+            return true;
         }
-        if (var4 == null) {
-            if (!(other instanceof PositionServiceComponent)) {
-                return false;
-            }
+        if (!(other instanceof PositionServiceComponent)) {
+            return false;
         }
-        PositionServiceComponent var5 = (PositionServiceComponent) other;
-        if (var4 == null) {
-            if (!(Intrinsics.areEqual(this.blockPos, var5.blockPos))) {
-                return false;
-            }
+        PositionServiceComponent positionServiceComponent = ((PositionServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.blockPos, positionServiceComponent.blockPos))) {
+            return false;
         }
-        if (this.minecraftRef != var5.minecraftRef) {
+        if (this.minecraftRef != positionServiceComponent.minecraftRef) {
             return false;
         }
         return true;

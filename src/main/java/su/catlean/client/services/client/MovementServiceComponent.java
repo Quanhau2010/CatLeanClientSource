@@ -28,25 +28,25 @@ public class MovementServiceComponent {
     }
 
     static {
-        SubCategory[] var13 = new SubCategory[3];
-        var13[0] = SubCategoriesKt.getAttackCategory();
-        var13[1] = SubCategoriesKt.getLegitCategory();
-        var13[2] = SubCategoriesKt.getProtectCategory();
-        subCategoriesServiceComponent = new SubCategoriesServiceComponent("pvp", CollectionsKt.arrayListOf());
-        var13 = new SubCategory[2];
-        var13[0] = SubCategoriesKt.getBasicMovementCategory();
-        var13[1] = SubCategoriesKt.getRageMovementCategory();
-        subCategoriesServiceComponent2 = new SubCategoriesServiceComponent("movement", CollectionsKt.arrayListOf());
-        var13 = new SubCategory[2];
-        var13[0] = SubCategoriesKt.getCosmeticCategory();
-        var13[1] = SubCategoriesKt.getEspCategory();
-        subCategoriesServiceComponent3 = new SubCategoriesServiceComponent("visual", CollectionsKt.arrayListOf());
-        var13 = new SubCategory[4];
-        var13[0] = SubCategoriesKt.getWorldRenderCategory();
-        var13[1] = SubCategoriesKt.getEquipCategory();
-        var13[2] = SubCategoriesKt.getPlayerUtilityCategory();
-        var13[3] = SubCategoriesKt.getMiscUtilityCategory();
-        subCategoriesServiceComponent4 = new SubCategoriesServiceComponent("utility", CollectionsKt.arrayListOf());
+        SubCategory[] items = new SubCategory[3];
+        items[0] = SubCategoriesKt.getAttackCategory();
+        items[1] = SubCategoriesKt.getLegitCategory();
+        items[2] = SubCategoriesKt.getProtectCategory();
+        subCategoriesServiceComponent = new SubCategoriesServiceComponent("pvp", CollectionsKt.arrayListOf(items));
+        items = new SubCategory[2];
+        items[0] = SubCategoriesKt.getBasicMovementCategory();
+        items[1] = SubCategoriesKt.getRageMovementCategory();
+        subCategoriesServiceComponent2 = new SubCategoriesServiceComponent("movement", CollectionsKt.arrayListOf(items));
+        items = new SubCategory[2];
+        items[0] = SubCategoriesKt.getCosmeticCategory();
+        items[1] = SubCategoriesKt.getEspCategory();
+        subCategoriesServiceComponent3 = new SubCategoriesServiceComponent("visual", CollectionsKt.arrayListOf(items));
+        items = new SubCategory[4];
+        items[0] = SubCategoriesKt.getWorldRenderCategory();
+        items[1] = SubCategoriesKt.getEquipCategory();
+        items[2] = SubCategoriesKt.getPlayerUtilityCategory();
+        items[3] = SubCategoriesKt.getMiscUtilityCategory();
+        subCategoriesServiceComponent4 = new SubCategoriesServiceComponent("utility", CollectionsKt.arrayListOf(items));
     }
 
 }

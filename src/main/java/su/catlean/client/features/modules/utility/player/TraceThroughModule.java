@@ -49,77 +49,72 @@ public class TraceThroughModule extends Module {
     }
 
     private boolean getAttackEntities() {
-        return (Boolean) attackEntitiesSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) attackEntitiesSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getIgnoreEntities() {
-        return (Boolean) ignoreEntitiesSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) ignoreEntitiesSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getOpenContainers() {
-        return (Boolean) openContainersSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) openContainersSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void onUpdateCrosshairTarget(UpdateCrosshairTarget arg0) {
-        if (var15 == null) {
-            class_10209.method_64146().method_15407();
-            arg0.cancel();
-            SharedKt.getMc().field_1765 = this.resolveMinecraftObject(SharedKt.getMc().method_1560(), SharedKt.getPlayer().method_55754(), TextShaderComponent2.INSTANCE.computeValue());
-        }
-        if (var15 == null) {
-            if (SharedKt.getMc().field_1765 instanceof class_3966) {
-            }
+        class_10209.method_64146().method_15407();
+        arg0.cancel();
+        SharedKt.getMc().field_1765 = this.resolveMinecraftObject(SharedKt.getMc().method_1560(), SharedKt.getPlayer().method_55754(), TextShaderComponent2.INSTANCE.computeValue());
+        if (SharedKt.getMc().field_1765 instanceof class_3966) {
         } else {
         }
-        (class_3966) SharedKt.getMc().field_1765.method_17782().field_1692 = null;
+        ((class_3966) SharedKt.getMc().field_1765).method_17782().field_1692 = null;
     }
 
     private class_239 resolveMinecraftObject(Entity arg0, double arg1, float arg2) {
-        class_239 var8 = arg0.method_5745(arg1, arg2, 0);
+        class_239 class239 = arg0.method_5745(arg1, arg2, false);
         Vec3d vec = arg0.method_5836(arg2);
-        Vec3d vec2 = var8.method_17784();
-        if (var7 == null) {
+        Vec3d vec2 = class239.method_17784();
+        if (__UNDEF_KEY__ == null) {
             if (!(vec2.method_24802(vec, arg1))) {
+                Vec3d vec3 = class239.method_17784();
+                Direction direction = Direction.method_10142((vec3.field_1352 - vec.field_1352), (vec3.field_1351 - vec.field_1351), (vec3.field_1350 - vec.field_1350));
+                return ((class_239) class_3965.method_17778(vec3, direction, BlockPos.ofFloored(vec3)));
             }
-            Vec3d vec3 = var8.method_17784();
-            Direction var12 = Direction.method_10142((vec3.field_1352 - vec.field_1352), (vec3.field_1351 - vec.field_1351), (vec3.field_1350 - vec.field_1350));
-            return (class_239) class_3965.method_17778(vec3, BlockPos.ofFloored(vec3));
         }
-        return var8;
+        return class239;
     }
 
     public void onAttackEvent(AttackEvent e) {
         if (this.getAttackEntities() && SharedKt.getMc().field_1765 instanceof class_3965) {
-            SharedKt.getInteractionManager().method_2918((PlayerEntity) SharedKt.getPlayer());
+            SharedKt.getInteractionManager().method_2918(((PlayerEntity) SharedKt.getPlayer()));
             SharedKt.getPlayer().method_6104(Hand.field_5808);
             e.cancel();
         }
     }
 
     public void onInputEvent(InputEvent e) {
-        if (SharedKt.getMc().field_1765 instanceof class_3965 && SharedKt.getWorld().getBlockState((class_3965) SharedKt.getMc().field_1765.method_17777()).method_31709()) {
+        if (SharedKt.getMc().field_1765 instanceof class_3965 && SharedKt.getWorld().getBlockState(((class_3965) SharedKt.getMc().field_1765).method_17777()).method_31709()) {
             return;
         }
-        int var25 = 1;
-        double var26 = SharedKt.getPlayer().method_55754();
-        BlockPos blockPos = BlockPos.ofFloored(SharedKt.getPlayer().getEyePos().method_1019(EventPacketHelper2.INSTANCE.resolveMinecraftObject(EventPacketHelper2.INSTANCE.computeValue2(), EventPacketHelper2.INSTANCE.computeValue()).method_1021()));
+        int index = 1;
+        double offset = SharedKt.getPlayer().method_55754();
+        BlockPos blockPos = BlockPos.ofFloored(SharedKt.getPlayer().getEyePos().method_1019(EventPacketHelper2.INSTANCE.resolveMinecraftObject(EventPacketHelper2.INSTANCE.computeValue2(), EventPacketHelper2.INSTANCE.computeValue()).method_1021(index)));
         if (SharedKt.getWorld().getBlockState(blockPos).method_31709()) {
             BlockState state = SharedKt.getWorld().getBlockState(blockPos);
-            Object var22 = blockPos;
-            class_3959 var23 = new class_3959(SharedKt.getPlayer().getEyePos(), blockPos.toCenterPos(), class_3960.field_17558, class_242.field_1348, SharedKt.getPlayer());
-            class_3965 var28 = VecPacketHelper.INSTANCE.resolveMinecraftObject(state);
-            SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808);
+            class_3959 class3959 = new class_3959(SharedKt.getPlayer().getEyePos(), blockPos.toCenterPos(), class_3960.field_17558, class_242.field_1348, SharedKt.getPlayer());
+            class_3965 class3965 = VecPacketHelper.INSTANCE.resolveMinecraftObject(class3959, blockPos, state);
+            SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808, class3965);
             SharedKt.getPlayer().method_6104(Hand.field_5808);
             return;
         }
     }
 
     static {
-        KProperty[] var27 = new KProperty[3];
+        KProperty[] items = new KProperty[3];
         INSTANCE = new TraceThroughModule();
-        attackEntitiesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "attack-entities", 0, null, null, -7544630854568378356L);
-        ignoreEntitiesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-entities", 1, null, null, -8495368362853924852L);
-        openContainersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "open-containers", 0, null, null, -8495368362853924852L);
+        attackEntitiesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "attack-entities", false);
+        ignoreEntitiesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-entities", true);
+        openContainersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "open-containers", false);
     }
 
 }

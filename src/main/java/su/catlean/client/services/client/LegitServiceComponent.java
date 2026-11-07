@@ -10,11 +10,11 @@ public class LegitServiceComponent extends MutablePropertyReference0Impl {
     }
 
     public Object get() {
-        return Boolean.valueOf((IdRecord) this.receiver.isActive());
+        return Boolean.valueOf(((IdRecord) this.receiver).isActive());
     }
 
     public void set(Object value) {
-        (IdRecord) this.receiver.updateValue((Boolean) value);
+        ((IdRecord) this.receiver).updateValue(((Boolean) value));
     }
 
 }

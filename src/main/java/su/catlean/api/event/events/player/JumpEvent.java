@@ -39,7 +39,7 @@ public class JumpEvent extends Event {
     }
 
     public boolean call(float yaw, float y, float xz) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         yaw = yaw;
         factorValue = y;
         factorValue2 = xz;

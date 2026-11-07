@@ -149,13 +149,13 @@ public class SFMServiceComponent {
     }
 
     public static Font resolveFont(float size, String name) {
-        return Font.createFont(0, (InputStream) Objects.requireNonNull(CatLean.class.getClassLoader().getResourceAsStream(("assets/catlean/fonts/" + name + ".ttf")))).deriveFont(0, size);
+        return Font.createFont(0, ((InputStream) Objects.requireNonNull(CatLean.class.getClassLoader().getResourceAsStream(("assets/catlean/fonts/" + name + ".ttf"))))).deriveFont(0, size);
     }
 
     public static FontRenderHelper resolveFontRenderHelper(float size, String name) {
-        FontRenderHelper var12 = new FontRenderHelper(resolveFont(size, name), resolveFont(size, "noto"), size);
-        itemList.add();
-        return var12;
+        FontRenderHelper fontRenderHelper = new FontRenderHelper(resolveFont(size, name), resolveFont(size, "noto"), size);
+        itemList.add(fontRenderHelper);
+        return fontRenderHelper;
     }
 
     static {

@@ -14,13 +14,13 @@ public class ServiceComponent13 {
 
     public static boolean checkCondition(int key) {
         if (RenderSystem.isOnRenderThread() && key != -1) {
-            if (0L >= 0 && var8 == null) {
+            if (__UNDEF_KEY__ >= 0 && __UNDEF_KEY__ == null) {
                 if (SharedKt.getMc().currentScreen instanceof class_408) {
+                    return false;
                 }
-                return false;
             }
         }
-        if (key < 3306897365041938442L) {
+        if (key < 10) {
             return EnabledServiceComponent.INSTANCE.getArrayList3().contains(Integer.valueOf(key));
         }
         return class_3675.method_15987(SharedKt.getMc().method_22683(), key);

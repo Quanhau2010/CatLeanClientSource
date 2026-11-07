@@ -7,7 +7,7 @@ import net.minecraft.class_5250;
 public class AdditionServiceComponent {
 
     public static class_5250 resolveMinecraftObject(class_5250 receiver, String addition, class_124 formatting) {
-        return receiver.method_10852((class_2561) class_2561.method_43470(addition).method_27692(formatting));
+        return receiver.method_10852(((class_2561) class_2561.method_43470(addition).method_27692(formatting)));
     }
 
     public static class_5250 resolveMinecraftObject(class_5250 receiver, String addition) {

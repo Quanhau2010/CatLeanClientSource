@@ -23,7 +23,7 @@ public class CtlEspBloomUboServiceComponent {
     static {
         INSTANCE = new CtlEspBloomUboServiceComponent();
         countValue = new Std140SizeCalculator().putVec2().putVec2().putFloat().putFloat().putMat4f().putVec4().get();
-        minecraftRef = new class_11280(countValue);
+        minecraftRef = new class_11280(countValue, 0);
     }
 
 }

@@ -7,10 +7,10 @@ public class ysWhenMappings2 {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[OptionMode16.values()];
-        var0[OptionMode16.DISABLED.ordinal()] = 1;
-        var0[OptionMode16.ENABLED.ordinal()] = 2;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[OptionMode16.values()];
+        element[OptionMode16.DISABLED.ordinal()] = 1;
+        element[OptionMode16.ENABLED.ordinal()] = 2;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

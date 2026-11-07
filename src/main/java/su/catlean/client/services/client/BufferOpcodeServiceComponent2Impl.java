@@ -35,42 +35,39 @@ public class BufferOpcodeServiceComponent2Impl extends OpcodeServiceComponent2 {
     public BufferOpcodeServiceComponent2Impl(String name) {
         super();
         this.selector = Selector.open();
-        this.socketChannel = SocketChannel.open((SocketAddress) UnixDomainSocketAddress.of(name));
+        this.socketChannel = SocketChannel.open(((SocketAddress) UnixDomainSocketAddress.of(name)));
         this.byteBuffer2 = ByteBuffer.allocate(4);
-        this.socketChannel.configureBlocking(0);
+        this.socketChannel.configureBlocking(false);
         this.socketChannel.register(this.selector, 1);
-        ThreadsKt.thread$default(1, 0, null, "Discord IPC - Socket thread", 0, this::resolveUnit, -6123452903903461354L);
+        ThreadsKt.thread$default(true, false, null, "Discord IPC - Socket thread", 0, this::resolveUnit);
     }
 
     private void updateValue() {
-        Object var4 = this;
-        BufferOpcodeServiceComponent2Impl var5 = (BufferOpcodeServiceComponent2Impl) var4;
-        int var6 = 0;
-        if (var5.selector.select() > 0) {
-            var5.selector.selectedKeys().removeIf(this::checkCondition);
-            if (!(var3)) {
+        BufferOpcodeServiceComponent2Impl bufferOpcodeServiceComponent2Impl = ((BufferOpcodeServiceComponent2Impl) this);
+        int index = 0;
+        if (bufferOpcodeServiceComponent2Impl.selector.select() > 0) {
+            bufferOpcodeServiceComponent2Impl.selector.selectedKeys().removeIf(this::checkCondition);
+            if (!(__UNDEF_KEY__)) {
+                bufferOpcodeServiceComponent2Impl = Result.constructor_impl(Unit.INSTANCE);
             }
-            var5 = Result.constructor-impl(Unit.INSTANCE);
         }
-        var5 = Result.constructor-impl(ResultKt.createFailure());
+        bufferOpcodeServiceComponent2Impl = Result.constructor_impl(ResultKt.createFailure(index));
     }
 
     protected void executeAction(ByteBuffer buffer) {
-        Object var4 = this;
-        BufferOpcodeServiceComponent2Impl var5 = (BufferOpcodeServiceComponent2Impl) var4;
-        int var6 = 0;
-        var5 = Result.constructor-impl(Integer.valueOf(var5.socketChannel.write(buffer)));
-        var5 = Result.constructor-impl(ResultKt.createFailure());
+        BufferOpcodeServiceComponent2Impl bufferOpcodeServiceComponent2Impl = ((BufferOpcodeServiceComponent2Impl) this);
+        int index = 0;
+        bufferOpcodeServiceComponent2Impl = Result.constructor_impl(Integer.valueOf(bufferOpcodeServiceComponent2Impl.socketChannel.write(buffer)));
+        bufferOpcodeServiceComponent2Impl = Result.constructor_impl(ResultKt.createFailure(index));
     }
 
     public void executeAction() {
-        Object var1 = this;
-        BufferOpcodeServiceComponent2Impl var2 = (BufferOpcodeServiceComponent2Impl) var1;
-        int var3 = 0;
-        var2.socketChannel.close();
-        var2.selector.close();
-        var2 = Result.constructor-impl(Unit.INSTANCE);
-        var2 = Result.constructor-impl(ResultKt.createFailure());
+        BufferOpcodeServiceComponent2Impl bufferOpcodeServiceComponent2Impl = ((BufferOpcodeServiceComponent2Impl) this);
+        int index = 0;
+        bufferOpcodeServiceComponent2Impl.socketChannel.close();
+        bufferOpcodeServiceComponent2Impl.selector.close();
+        bufferOpcodeServiceComponent2Impl = Result.constructor_impl(Unit.INSTANCE);
+        bufferOpcodeServiceComponent2Impl = Result.constructor_impl(ResultKt.createFailure(index));
     }
 
     private OpcodeServiceComponent resolveOpcodeServiceComponent(ReadableByteChannel arg0) {
@@ -78,7 +75,7 @@ public class BufferOpcodeServiceComponent2Impl extends OpcodeServiceComponent2 {
             if (!(this.checkCondition(arg0))) {
                 return null;
             }
-            this.optionMode2 = (OptionMode2) CollectionsKt.getOrNull(OptionMode2.getEnumEntries(), ServiceComponent52.computeValue(this.byteBuffer2.getInt(0)));
+            this.optionMode2 = ((OptionMode2) CollectionsKt.getOrNull(OptionMode2.getEnumEntries(), ServiceComponent52.computeValue(this.byteBuffer2.getInt(0))));
             this.byteBuffer2.clear();
         }
         if (this.integer == null) {
@@ -97,17 +94,16 @@ public class BufferOpcodeServiceComponent2Impl extends OpcodeServiceComponent2 {
             this.byteBuffer.flip();
         } else {
         }
-        Json var14 = ServiceComponent80.getJson();
-        String var15 = Charsets.UTF_8.decode(this.byteBuffer).toString();
-        int var16 = 0;
-        var14.getSerializersModule();
-        EvtRecord var10 = (EvtRecord) var14.decodeFromString((DeserializationStrategy) EvtRecord.serviceComponent25.getKSerializer());
-        OptionMode2 var11 = this.optionMode2;
-        OpcodeServiceComponent var13 = new OpcodeServiceComponent();
+        Json json = ServiceComponent80.getJson();
+        String text = Charsets.UTF_8.decode(this.byteBuffer).toString();
+        json.getSerializersModule();
+        EvtRecord evtRecord = ((EvtRecord) json.decodeFromString(((DeserializationStrategy) EvtRecord.serviceComponent25.getKSerializer()), text));
+        OptionMode2 optionMode2 = this.optionMode2;
+        OpcodeServiceComponent opcodeServiceComponent = new OpcodeServiceComponent(optionMode2, evtRecord);
         this.optionMode2 = null;
         this.integer = null;
         this.byteBuffer = null;
-        return var13;
+        return opcodeServiceComponent;
     }
 
     private boolean checkCondition(ReadableByteChannel arg0) {
@@ -126,11 +122,9 @@ public class BufferOpcodeServiceComponent2Impl extends OpcodeServiceComponent2 {
 
     private static boolean checkCondition(BufferOpcodeServiceComponent2Impl arg0, SelectionKey arg1) {
         if (arg1.isReadable()) {
-            OpcodeServiceComponent var9 = arg0.resolveOpcodeServiceComponent((ReadableByteChannel) arg0.socketChannel);
-            if (var9 != null) {
-                Object var10 = var9;
-                int var11 = 0;
-                AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE.resolveUnit();
+            OpcodeServiceComponent opcodeServiceComponent = arg0.resolveOpcodeServiceComponent(((ReadableByteChannel) arg0.socketChannel));
+            if (opcodeServiceComponent != null) {
+                AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE.resolveUnit(opcodeServiceComponent);
                 return true;
             }
             return false;
@@ -139,7 +133,7 @@ public class BufferOpcodeServiceComponent2Impl extends OpcodeServiceComponent2 {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
 }

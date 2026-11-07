@@ -18,7 +18,7 @@ public class LogoServiceComponent {
 
     static {
         INSTANCE = new LogoServiceComponent();
-        missingnoRenderHelper = new MissingnoRenderHelper(var7[0], var7[1]);
+        missingnoRenderHelper = new MissingnoRenderHelper();
         easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);
     }
 

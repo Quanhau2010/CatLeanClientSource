@@ -50,7 +50,7 @@ public class InputEvent extends Event {
     }
 
     public boolean call(int key, Device device, Action action) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         this.setDevice(device);
         this.setAction(action);
         key = key;

@@ -1,6 +1,5 @@
 package su.catlean.client.services.client.config.models;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt;
 import kotlinx.serialization.descriptors.SerialDescriptor;
@@ -21,19 +20,6 @@ public class IdRecord2 {
         this.textValue = id;
         this.textValue2 = username;
         this.textValue3 = avatar;
-    }
-
-    public IdRecord2(String arg0, String arg1, String arg2, int arg3, DefaultConstructorMarker arg4) {
-        if ((arg3 & 1)) {
-            arg0 = "none";
-        }
-        if ((arg3 & 2)) {
-            arg1 = "none";
-        }
-        if ((arg3 & 4)) {
-            arg2 = "none";
-        }
-        this(arg0, arg1, arg2);
     }
 
     public String getString() {
@@ -61,25 +47,23 @@ public class IdRecord2 {
     }
 
     public String resolveString(int size, boolean forcePng) {
-        if (var5 == null) {
-            if (StringsKt.startsWith$default(this.textValue3, "a_")) {
-                int var6 = size;
-                String var7 = this.textValue3;
-                String var8 = this.textValue;
+        if (__UNDEF_KEY__ == null) {
+            if (StringsKt.startsWith$default(this.textValue3, "a_", false)) {
+                String text = this.textValue3;
+                String text2 = this.textValue;
             } else {
+                String text3 = this.textValue3;
+                String text4 = this.textValue;
             }
-            int var9 = size;
-            String var10 = this.textValue3;
-            String var11 = this.textValue;
         }
-        return ("https://cdn.discordapp.com/avatars/" + var11 + "/" + var10 + ".png?size=" + var9);
+        return ("https://cdn.discordapp.com/avatars/" + text4 + "/" + text3 + ".png?size=" + size);
     }
 
     public static String resolveString(IdRecord2 arg0, int arg1, boolean arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = 128;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = 0;
         }
         return arg0.resolveString(arg1, arg2);
@@ -102,30 +86,30 @@ public class IdRecord2 {
     }
 
     public static IdRecord2 resolveIdRecord2(IdRecord2 arg0, String arg1, String arg2, String arg3, int arg4, Object arg5) {
-        if ((arg4 & 1)) {
+        if ((arg4 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg4 & 2)) {
+        if ((arg4 & 2) != 0) {
             arg2 = arg0.textValue2;
         }
-        if ((arg4 & 4)) {
+        if ((arg4 & 4) != 0) {
             arg3 = arg0.textValue3;
         }
         return arg0.resolveIdRecord2(arg1, arg2, arg3);
     }
 
     public String toString() {
-        String var3 = this.textValue3;
-        String var4 = this.textValue2;
-        String var5 = this.textValue;
-        return ("IPCUser(id=" + var5 + ", username=" + var4 + ", avatar=" + var3 + ")");
+        String text = this.textValue3;
+        String text2 = this.textValue2;
+        String text3 = this.textValue;
+        return ("IPCUser(id=" + text3 + ", username=" + text2 + ", avatar=" + text + ")");
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * 31) + this.textValue2.hashCode());
-        var3 = ((var3 * 31) + this.textValue3.hashCode());
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.textValue2.hashCode());
+        index = ((index * 31) + this.textValue3.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -135,14 +119,14 @@ public class IdRecord2 {
         if (!(other instanceof IdRecord2)) {
             return false;
         }
-        IdRecord2 var5 = (IdRecord2) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord2 idRecord2 = ((IdRecord2) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord2.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, idRecord2.textValue2))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue3, var5.textValue3))) {
+        if (!(Intrinsics.areEqual(this.textValue3, idRecord2.textValue3))) {
             return false;
         }
         return true;
@@ -168,18 +152,18 @@ public class IdRecord2 {
     }
 
     public IdRecord2(int seen0, String id, String username, String avatar, SerializationConstructorMarker serializationConstructorMarker) {
-        if ((0 & seen0)) {
+        if ((0 & seen0) != 0) {
             PluginExceptionsKt.throwMissingFieldException(seen0, 0, IdRecord2Serializer.INSTANCE.getDescriptor());
         }
-        if (!((seen0 & 1))) {
+        if ((seen0 & 1) == 0) {
             this.textValue = "none";
         }
         this.textValue = id;
-        if (!((seen0 & 2))) {
+        if ((seen0 & 2) == 0) {
             this.textValue2 = "none";
         }
         this.textValue2 = username;
-        if (!((seen0 & 4))) {
+        if ((seen0 & 4) == 0) {
             this.textValue3 = "none";
         }
         this.textValue3 = avatar;

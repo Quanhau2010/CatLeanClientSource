@@ -23,7 +23,7 @@ public class CtlEspMirrorUboServiceComponent {
     static {
         INSTANCE = new CtlEspMirrorUboServiceComponent();
         countValue = new Std140SizeCalculator().putVec2().putVec4().putFloat().putVec2().putFloat().putFloat().get();
-        minecraftRef = new class_11280(countValue);
+        minecraftRef = new class_11280(countValue, 0);
     }
 
 }

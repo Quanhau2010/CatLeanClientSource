@@ -40,10 +40,10 @@ public class IdRecord10 {
     }
 
     public static IdRecord10 resolveIdRecord10(IdRecord10 arg0, String arg1, String arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.textValue2;
         }
         return arg0.resolveIdRecord10(arg1, arg2);
@@ -54,9 +54,9 @@ public class IdRecord10 {
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * -5274817711820505057L) + this.textValue2.hashCode());
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.textValue2.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -66,11 +66,11 @@ public class IdRecord10 {
         if (!(other instanceof IdRecord10)) {
             return false;
         }
-        IdRecord10 var5 = (IdRecord10) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord10 idRecord10 = ((IdRecord10) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord10.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, idRecord10.textValue2))) {
             return false;
         }
         return true;

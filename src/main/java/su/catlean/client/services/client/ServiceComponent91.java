@@ -8,10 +8,10 @@ public class ServiceComponent91 {
     private static String[] textValueArray;
 
     static {
-        Object var2 = new int[AttributeSwapMaceMode.values()];
-        var2[AttributeSwapMaceMode.BREACH.ordinal()] = 1;
-        var2[AttributeSwapMaceMode.DENSITY.ordinal()] = 2;
-        countValueArray = var2;
+        Object element = new int[AttributeSwapMaceMode.values()];
+        element[AttributeSwapMaceMode.BREACH.ordinal()] = 1;
+        element[AttributeSwapMaceMode.DENSITY.ordinal()] = 2;
+        countValueArray = element;
     }
 
     public static void updateValue(String[] arg0) {

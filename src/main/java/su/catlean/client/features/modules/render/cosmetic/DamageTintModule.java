@@ -68,23 +68,23 @@ public class DamageTintModule extends Module {
     }
 
     private boolean getVector() {
-        return (Boolean) vectorSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) vectorSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private Color getVectorColor() {
-        return (Color) vectorColorSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Color) vectorColorSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private int getVectorSize() {
-        return (Number) vectorSizeSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) vectorSizeSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getTint() {
-        return (Boolean) tintSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) tintSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private Color getTintColor() {
-        return (Color) tintColorSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Color) tintColorSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void onRender2DEvent(Render2DEvent arg0) {
@@ -105,60 +105,60 @@ public class DamageTintModule extends Module {
         if (this.getVector()) {
             Iterator iterator = itemList.iterator();
             while (iterator.hasNext()) {
-                VecServiceComponent2 var34 = (VecServiceComponent2) iterator.next();
-                var34.getEasingServiceComponent().executeAction(1.0F);
-                int var35 = (SharedKt.getMc().method_22683().method_4486() / 2.0F);
-                int var36 = (SharedKt.getMc().method_22683().method_4502() / 2.0F);
+                VecServiceComponent2 vecServiceComponent2 = ((VecServiceComponent2) iterator.next());
+                vecServiceComponent2.getEasingServiceComponent().executeAction(1.0F);
+                int index = (SharedKt.getMc().method_22683().method_4486() / 2.0F);
+                int index2 = (SharedKt.getMc().method_22683().method_4502() / 2.0F);
                 MatrixStack matrices = new MatrixStack();
-                float var38 = (MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var34.getMinecraftObject()).getNumericValue() - SharedKt.getPlayer().method_36454());
-                matrices.method_46416(0.0F);
-                matrices.method_22907((Quaternionfc) class_7833.field_40718.rotationDegrees());
-                matrices.method_46416(0.0F);
-                this.render(matrices, this.getVectorSize(), PolygonShaderComponent.INSTANCE.resolveColor(this.getVectorColor(), (1.0F - var34.getEasingServiceComponent().getNumericValue())));
+                float factor = (MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(vecServiceComponent2.getMinecraftObject()).getNumericValue() - SharedKt.getPlayer().method_36454());
+                matrices.method_46416(index, index2, 0.0F);
+                matrices.method_22907(((Quaternionfc) class_7833.field_40718.rotationDegrees(factor)));
+                matrices.method_46416(index, index2, 0.0F);
+                this.render(matrices, index, index2, this.getVectorSize(), PolygonShaderComponent.INSTANCE.resolveColor(this.getVectorColor(), (1.0F - vecServiceComponent2.getEasingServiceComponent().getNumericValue())));
             }
         }
         itemList.removeIf(this::checkCondition);
     }
 
     public void render(MatrixStack matrices, float x, float y, float size, Color color) {
-        Matrix4f var14 = matrices.method_23760().method_23761();
-        PolygonShaderComponent.INSTANCE.executeAction(AtlasTextureServiceComponent.getMinecraftObject(), x, y, size, size, color, color, color, color, 1, OptionMode6.HALO.getNumericValue(), OptionMode6.HALO.getNumericValue2(), OptionMode6.HALO.getNumericValue3(), OptionMode6.HALO.getNumericValue4());
+        Matrix4f matrix4f = matrices.method_23760().method_23761();
+        PolygonShaderComponent.INSTANCE.executeAction(matrix4f, AtlasTextureServiceComponent.getMinecraftObject(), x, y, size, size, color, color, color, color, true, OptionMode6.HALO.getNumericValue(), OptionMode6.HALO.getNumericValue2(), OptionMode6.HALO.getNumericValue3(), OptionMode6.HALO.getNumericValue4());
     }
 
     public void executeAction(float threshold, float power) {
-        float var40 = (SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067());
-        float var42 = (Math.abs((1.0F - 1.0F)) * power);
-        if (0L >= 0L) {
-            if (var40 <= 4.0F) {
-                var42 = (var42 + Math.abs((0.2F * Math.sin(Math.toRadians(((SharedKt.getPlayer().field_6012 * 16.0D) + PolygonShaderComponent.INSTANCE.computeValue()))))));
+        float factor = (SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067());
+        float factor2 = (Math.abs((1.0F - 1.0F)) * power);
+        if (__UNDEF_KEY__ >= 0L) {
+            if (factor <= 4.0F) {
+                factor2 = (factor2 + Math.abs((0.2F * Math.sin(Math.toRadians(((SharedKt.getPlayer().field_6012 * 16.0D) + PolygonShaderComponent.INSTANCE.computeValue()))))));
             }
         }
-        var42 = RangesKt.coerceIn(0.0F, 1.0F);
-        Color var43 = new Color((((1.0F - PolygonShaderComponent.INSTANCE.computeValue(this.getTintColor())) * var42) * 255), (((1.0F - PolygonShaderComponent.INSTANCE.computeValue(this.getTintColor())) * var42) * 255), (((1.0F - PolygonShaderComponent.INSTANCE.computeValue(this.getTintColor())) * var42) * 255), 255);
-        int var44 = SharedKt.getMc().method_22683().method_4486();
-        int var45 = SharedKt.getMc().method_22683().method_4502();
-        GpuTextureView var46 = SharedKt.getMc().method_1531().method_4619(minecraftRef).method_71659();
-        int var35 = 6;
-        int var36 = 0;
-        int var37 = 0;
-        VertexFormat var38 = class_290.field_1575;
-        FormatRenderHelper var47 = new FormatRenderHelper();
-        FormatRenderHelper.resolveFormatRenderHelper(0.0F, 0.0F).resolveFormatRenderHelper(0.0F, 1.0F).resolveFormatRenderHelper();
-        FormatRenderHelper.resolveFormatRenderHelper(0.0F, 4, null).resolveFormatRenderHelper(1.0F, 1.0F).resolveFormatRenderHelper();
-        FormatRenderHelper.resolveFormatRenderHelper(0.0F, 0.0F).resolveFormatRenderHelper(1.0F, 0.0F).resolveFormatRenderHelper();
-        FormatRenderHelper.resolveFormatRenderHelper(0.0F, 0.0F, 0.0F).resolveFormatRenderHelper(0.0F, 0.0F).resolveFormatRenderHelper();
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline20(), null, null, null, null, MapsKt.mapOf(TuplesKt.to("Sampler0")));
+        factor2 = RangesKt.coerceIn(factor2, 0.0F, 1.0F);
+        Color color = new Color((((1.0F - PolygonShaderComponent.INSTANCE.computeValue(this.getTintColor())) * factor2) * 255), (((1.0F - PolygonShaderComponent.INSTANCE.computeValue(this.getTintColor())) * factor2) * 255), (((1.0F - PolygonShaderComponent.INSTANCE.computeValue(this.getTintColor())) * factor2) * 255), 255);
+        int index = SharedKt.getMc().method_22683().method_4486();
+        int index2 = SharedKt.getMc().method_22683().method_4502();
+        GpuTextureView gpuTextureView = SharedKt.getMc().method_1531().method_4619(minecraftRef).method_71659();
+        int index3 = 6;
+        int index4 = 0;
+        int index5 = 0;
+        VertexFormat vertexFormat = class_290.field_1575;
+        FormatRenderHelper formatRenderHelper = new FormatRenderHelper(vertexFormat, index5, index4, index3);
+        FormatRenderHelper.resolveFormatRenderHelper(formatRenderHelper, 0.0F, index2, 0.0F).resolveFormatRenderHelper(0.0F, 1.0F).resolveFormatRenderHelper(color);
+        FormatRenderHelper.resolveFormatRenderHelper(formatRenderHelper, index, index2, 0.0F).resolveFormatRenderHelper(1.0F, 1.0F).resolveFormatRenderHelper(color);
+        FormatRenderHelper.resolveFormatRenderHelper(formatRenderHelper, index, 0.0F, 0.0F).resolveFormatRenderHelper(1.0F, 0.0F).resolveFormatRenderHelper(color);
+        FormatRenderHelper.resolveFormatRenderHelper(formatRenderHelper, 0.0F, 0.0F, 0.0F).resolveFormatRenderHelper(0.0F, 0.0F).resolveFormatRenderHelper(color);
+        FormatRenderHelper.executeAction(formatRenderHelper, VertexUBOShaderComponent.INSTANCE.getRenderPipeline20(), null, null, null, null, MapsKt.mapOf(TuplesKt.to("Sampler0", gpuTextureView)));
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
         if (arg0.getPacket() instanceof class_2743) {
-            Packet var10 = arg0.getPacket();
-            if ((class_2743) var10.method_11818() == SharedKt.getPlayer().method_5628() && (class_2743) var10.method_73085().field_1352 != 0.0D && (class_2743) var10.method_73085().field_1350 != 0.0D) {
-                vec3d2 = new Vec3d((class_2743) var10.method_73085().field_1352, (class_2743) var10.method_73085().field_1351, (class_2743) var10.method_73085().field_1350).method_1019(this.resolveMinecraftObject(SharedKt.getPlayer()));
+            Packet packet = arg0.getPacket();
+            if (((class_2743) packet).method_11818() == SharedKt.getPlayer().method_5628() && ((class_2743) packet).method_73085().field_1352 != 0.0D && ((class_2743) packet).method_73085().field_1350 != 0.0D) {
+                vec3d2 = new Vec3d(((class_2743) packet).method_73085().field_1352, ((class_2743) packet).method_73085().field_1351, ((class_2743) packet).method_73085().field_1350).method_1019(this.resolveMinecraftObject(SharedKt.getPlayer()));
             }
         }
-        var10 = arg0.getPacket();
-        vec3d = new Vec3d((class_2664) var10.comp_2883().field_1352, (class_2664) var10.comp_2883().field_1351, (class_2664) var10.comp_2883().field_1350);
+        packet = arg0.getPacket();
+        vec3d = new Vec3d(((class_2664) packet).comp_2883().field_1352, ((class_2664) packet).comp_2883().field_1351, ((class_2664) packet).comp_2883().field_1350);
     }
 
     private static boolean isActive() {
@@ -178,16 +178,16 @@ public class DamageTintModule extends Module {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {
-        KProperty[] var32 = new KProperty[5];
+        KProperty[] items = new KProperty[5];
         INSTANCE = new DamageTintModule();
-        vectorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vector");
+        vectorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vector", true);
         vectorColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vector-color", Color.RED, null, this::isActive);
         vectorSizeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vector-size", 100, new IntRange(10, 500), null, this::isActive2);
-        tintSetting = VisibleRenderHelper.registerSetting(INSTANCE, "tint");
+        tintSetting = VisibleRenderHelper.registerSetting(INSTANCE, "tint", true);
         tintColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "tint-color", Color.RED, null, this::isActive3);
         minecraftRef = class_2960.method_60656("textures/misc/vignette.png");
         itemList = new ArrayList();

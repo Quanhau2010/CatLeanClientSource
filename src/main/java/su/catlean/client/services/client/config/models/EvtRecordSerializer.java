@@ -25,44 +25,42 @@ public class EvtRecordSerializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, EvtRecord value) {
-        SerialDescriptor var5 = serialDescriptor;
-        CompositeEncoder var6 = encoder.beginStructure();
-        EvtRecord.executeAction(value);
-        var6.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        EvtRecord.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public EvtRecord resolveEvtRecord(Decoder decoder) {
-        SerialDescriptor var7 = serialDescriptor;
-        int var8 = 1;
-        int var10 = 0;
-        CompositeDecoder var14 = decoder.beginStructure();
-        Lazy[] var15 = EvtRecord.process();
-        if (var6 == null) {
-            if (var14.decodeSequentially()) {
+        int index = 1;
+        int index2 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        Lazy[] items = EvtRecord.process();
+        if (__UNDEF_KEY__ == null) {
+            if (compositeDecoder.decodeSequentially()) {
+                OptionMode4 optionMode4 = ((OptionMode4) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) items[0].getValue())));
+                index2 = (index2 | 1);
+                OptionMode optionMode = ((OptionMode) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) items[1].getValue())));
+                index2 = (index2 | 2);
+                UserRecord userRecord = ((UserRecord) compositeDecoder.decodeSerializableElement(serialDescriptor, 2, ((DeserializationStrategy) UserRecordSerializer.INSTANCE)));
+                index2 = (index2 | 4);
             }
-            OptionMode4 var11 = (OptionMode4) var14.decodeNullableSerializableElement(0, (DeserializationStrategy) var15[0].getValue());
-            var10 = (var10 | 1);
-            OptionMode var12 = (OptionMode) var14.decodeNullableSerializableElement(1, (DeserializationStrategy) var15[1].getValue());
-            var10 = (var10 | 2);
-            UserRecord var13 = (UserRecord) var14.decodeSerializableElement(2, (DeserializationStrategy) UserRecordSerializer.INSTANCE);
-            var10 = (var10 | 4);
         }
-        if (var6 != null && var8) {
-            int var9 = var14.decodeElementIndex();
-            if (var6 == null) {
-                if (var6 == null) {
+        if (__UNDEF_KEY__ != null && index) {
+            int index3 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ == null) {
+                if (__UNDEF_KEY__ == null) {
                 }
-                var8 = 0;
-                var11 = (OptionMode4) var14.decodeNullableSerializableElement(0, (DeserializationStrategy) var15[0].getValue());
-                var10 = (var10 | 1);
-                var12 = (OptionMode) var14.decodeNullableSerializableElement(1, (DeserializationStrategy) var15[1].getValue());
-                var10 = (var10 | 2);
-                var13 = (UserRecord) var14.decodeSerializableElement(2, (DeserializationStrategy) UserRecordSerializer.INSTANCE);
-                var10 = (var10 | 4);
+                index = 0;
+                optionMode4 = ((OptionMode4) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) items[0].getValue()), optionMode4));
+                index2 = (index2 | 1);
+                optionMode = ((OptionMode) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) items[1].getValue()), optionMode));
+                index2 = (index2 | 2);
+                userRecord = ((UserRecord) compositeDecoder.decodeSerializableElement(serialDescriptor, 2, ((DeserializationStrategy) UserRecordSerializer.INSTANCE), userRecord));
+                index2 = (index2 | 4);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var14.endStructure();
         }
-        return new EvtRecord(null);
+        return new EvtRecord(index2, optionMode4, optionMode, userRecord);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -70,12 +68,12 @@ public class EvtRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        Lazy[] var1 = EvtRecord.process();
-        KSerializer[] var2 = new KSerializer[3];
-        var2[0] = BuiltinSerializersKt.getNullable((KSerializer) var1[0].getValue());
-        var2[1] = BuiltinSerializersKt.getNullable((KSerializer) var1[1].getValue());
-        var2[2] = UserRecordSerializer.INSTANCE;
-        return var2;
+        Lazy[] items = EvtRecord.process();
+        KSerializer[] items2 = new KSerializer[3];
+        items2[0] = BuiltinSerializersKt.getNullable(((KSerializer) items[0].getValue()));
+        items2[1] = BuiltinSerializersKt.getNullable(((KSerializer) items[1].getValue()));
+        items2[2] = UserRecordSerializer.INSTANCE;
+        return items2;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -83,7 +81,7 @@ public class EvtRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (EvtRecord) value);
+        this.executeAction(encoder, ((EvtRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -92,11 +90,11 @@ public class EvtRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new EvtRecordSerializer();
-        PluginGeneratedSerialDescriptor var11 = new PluginGeneratedSerialDescriptor("su.catlean.f4", (GeneratedSerializer) INSTANCE, 3);
-        var11.addElement("evt", 0);
-        var11.addElement("cmd", 0);
-        var11.addElement("data", 0);
-        serialDescriptor = (SerialDescriptor) var11;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.f4", ((GeneratedSerializer) INSTANCE), 3);
+        pluginGeneratedSerialDescriptor.addElement("evt", false);
+        pluginGeneratedSerialDescriptor.addElement("cmd", false);
+        pluginGeneratedSerialDescriptor.addElement("data", false);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

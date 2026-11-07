@@ -31,7 +31,7 @@ public class AntiVoidModule extends Module {
     }
 
     private AntiVoidMode getMode() {
-        return (AntiVoidMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((AntiVoidMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setMode(AntiVoidMode value) {
@@ -39,7 +39,7 @@ public class AntiVoidModule extends Module {
     }
 
     private boolean getRubberBandPacket() {
-        return (Boolean) rubberBandPacketSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) rubberBandPacketSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setRubberBandPacket(boolean value) {
@@ -48,9 +48,9 @@ public class AntiVoidModule extends Module {
 
     public void onMoveEvent(MoveEvent e) {
         if (this.getMode() == AntiVoidMode.NCP) {
-            e.setCancelled(1);
+            e.setCancelled(true);
             e.setY(0.0D);
-            PacketPacketHelper.handlePacket((Packet) new class_2829(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), 1, SharedKt.getPlayer().field_5976));
+            PacketPacketHelper.handlePacket(((Packet) new class_2829(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), true, SharedKt.getPlayer().field_5976)));
         } else {
             ServiceComponent98.INSTANCE.updateValue2(0.2F);
         }
@@ -60,9 +60,9 @@ public class AntiVoidModule extends Module {
         if (SharedKt.getPlayer().isFallFlying()) {
             return false;
         }
-        double var8 = SharedKt.getPlayer().getY();
-        if (-65 < var8) {
-            if (!(SharedKt.getWorld().method_22347(BlockPos.method_49637(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getZ())))) {
+        double offset = SharedKt.getPlayer().getY();
+        if (-65 < offset) {
+            if (!(SharedKt.getWorld().method_22347(BlockPos.method_49637(SharedKt.getPlayer().getX(), offset, SharedKt.getPlayer().getZ())))) {
                 return false;
             }
         }
@@ -74,10 +74,10 @@ public class AntiVoidModule extends Module {
     }
 
     static {
-        KProperty[] var29 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new AntiVoidModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", AntiVoidMode.TIMER);
-        rubberBandPacketSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rubber-band", 1, null, this::isActive);
+        rubberBandPacketSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rubber-band", true, null, this::isActive);
     }
 
 }

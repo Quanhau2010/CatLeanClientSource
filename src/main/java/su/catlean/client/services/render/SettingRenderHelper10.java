@@ -16,7 +16,6 @@ import net.minecraft.client.gui.DrawContext;
 import org.lwjgl.glfw.GLFW;
 import su.catlean.SharedKt;
 import su.catlean.api.setting.VisibleSettingProperty;
-import su.catlean.client.features.modules.Module;
 import su.catlean.client.services.client.AnimationServiceComponent3;
 import su.catlean.client.services.client.EasingServiceComponent;
 import su.catlean.client.services.client.SFMServiceComponent;
@@ -41,42 +40,40 @@ public class SettingRenderHelper10 extends SettingRenderHelper16 {
         this.easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, timestampValue);
         this.itemList = new ArrayList();
         if (this.enabledFlag2) {
-            Object[] var17 = this.getVisibleSettingProperty().getObject2().getClass().getEnumConstants();
-            int var18 = 0;
-            int var19 = 0;
-            Object var20 = var17;
-            if (var19 < var20) {
-                Object var21 = var17[var19];
-                Enum var22 = var21;
-                int var23 = 0;
-                this.itemList.add(new AnimationServiceComponent3(1.0F, this.factorValue, (this.getNumericValue3() - 11.0F)));
+            Object[] items = this.getVisibleSettingProperty().getObject2().getClass().getEnumConstants();
+            int index = 0;
+            int index2 = 0;
+            Object[] items2 = items;
+            if (index2 < items2) {
+                Object element = items[index2];
+                Enum value = element;
+                this.itemList.add(new AnimationServiceComponent3(1.0F, this.factorValue, (this.getNumericValue3() - 11.0F), value));
                 this.factorValue = (this.factorValue + 15.0F);
-                if (0L > 0) {
+                if (__UNDEF_KEY__ > 0) {
                 }
             }
-            if (0L < 0) {
-            }
-            var17 = 0.0F;
-            var17 = 2.0F;
-            var18 = this.getVisibleSettingProperty().getObject2().getClass().getEnumConstants();
-            var19 = 0;
-            var18 = (Iterable) ArraysKt.sortedWith((Comparator) new Comparator11());
-            var19 = 0;
-            var20 = var18.iterator();
-            if (var20.hasNext()) {
-                var21 = var20.next();
-                var22 = var21;
-                var23 = 0;
-                String var24 = var22.name();
-                float var25 = (SFMServiceComponent.resolveFontRenderHelper4().computeValue() + 4.0F);
-                if (0L > 0) {
-                    if ((var17 + var25) > (this.getNumericValue3() - 10.0F)) {
-                        this.factorValue = (this.factorValue + 12.0F);
-                        var17 = 2.0F;
+            if (__UNDEF_KEY__ < 0) {
+                items = 0.0F;
+                items = 2.0F;
+                index = this.getVisibleSettingProperty().getObject2().getClass().getEnumConstants();
+                index2 = 0;
+                index = ((Iterable) ArraysKt.sortedWith(index, ((Comparator) new Comparator11())));
+                index2 = 0;
+                items2 = index.iterator();
+                while (items2.hasNext()) {
+                    element = items2.next();
+                    value = element;
+                    String text = value.name();
+                    float factor = (SFMServiceComponent.resolveFontRenderHelper4().computeValue(text) + 4.0F);
+                    if (__UNDEF_KEY__ > 0) {
+                        if ((items + factor) > (this.getNumericValue3() - 10.0F)) {
+                            this.factorValue = (this.factorValue + 12.0F);
+                            items = 2.0F;
+                        }
                     }
+                    this.itemList.add(new AnimationServiceComponent3(items, this.factorValue, factor, value));
+                    items = (items + (factor + 2.0F));
                 }
-                this.itemList.add(new AnimationServiceComponent3(this.factorValue));
-                var17 = (var17 + (var25 + 2.0F));
             }
         }
     }
@@ -94,98 +91,69 @@ public class SettingRenderHelper10 extends SettingRenderHelper16 {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float factor) {
-        long var7 = (0L ^ 49494862758009L);
-        long var9 = (0L ^ 39844814704388L);
-        long var11 = (0L ^ 115096991696004L);
-        long var13 = (0L ^ 127000398109451L);
-        long var15 = ((0L ^ 57758330175306L) >>> 48);
-        long var16 = (((0L ^ 57758330175306L) << 16) >>> 32);
-        long var17 = (((0L ^ 57758330175306L) << 48) >>> 48);
-        long var18 = (0L ^ 9915521765924L);
-        long var20 = ((0L ^ 20797107207379L) >>> 48);
-        long var21 = (((0L ^ 20797107207379L) << 16) >>> 48);
-        long var22 = (((0L ^ 20797107207379L) << 32) >>> 32);
-        long var23 = (0L ^ 114903264084220L);
-        long var25 = (0L ^ 136713714549074L);
-        long var27 = (0L ^ 120682356120742L);
-        long var29 = (0L ^ 4763820429086L);
-        long var31 = (0L ^ 57494645123396L);
-        long var33 = ((0L ^ 22712070180255L) >>> 48);
-        long var34 = (((0L ^ 22712070180255L) << 16) >>> 16);
         if (this.enabledFlag2) {
             if (this.enabledFlag) {
-            } else {
             } else {
                 if (this.enabledFlag) {
                 } else {
                 }
             }
+        } else {
         }
         (this.factorValue + 28.0F).updateValue4(14.0F);
         if (this.enabledFlag) {
         } else {
         }
-        1.0F.executeAction(0.0F);
+        this.executeAction(0.0F);
         StackShaderComponent2.executeAction(context.method_51448(), this.getNumericValue(), (this.getNumericValue2() - 1.0F), (this.getNumericValue3() - 7.0F), (((this.easingServiceComponent.getNumericValue() * (this.getNumericValue4() - 14.0F)) + 14.0F) - 1.0F), 3.0F, 2.5F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor11(), NewThemeRenderHelper.INSTANCE.getColor12(), 0.0F, 0.0F, 0.0F);
         PolygonShaderComponent.INSTANCE.render(context, new ServiceComponent78(this.getNumericValue(), (this.getNumericValue2() - 1.0F), ((this.getNumericValue() + this.getNumericValue3()) - 7.0F), ((this.getNumericValue2() - 1.0F) + (((this.easingServiceComponent.getNumericValue() * (this.getNumericValue4() - 14.0F)) + 14.0F) - 1.0F))));
-        float var37 = (SFMServiceComponent.resolveFontRenderHelper3().computeValue(this.getVisibleSettingProperty().getString2()) / 2.0F);
-        float var38 = ((((this.getNumericValue3() - 16.0F) / 2.0F) - var37) * this.easingServiceComponent.getNumericValue());
-        FontRenderHelper.W(SFMServiceComponent.resolveFontRenderHelper3(), context.method_51448(), this.getVisibleSettingProperty().getString2(), ((this.getNumericValue() + 3.0F) + var38), this.getNumericValue2(), NewThemeRenderHelper.INSTANCE.getColor7());
-        String[] var40 = new String[1];
-        var40[0] = "_";
-        String var39 = StringsKt.trim((CharSequence) CollectionsKt.joinToString$default((Iterable) StringsKt.split$default((CharSequence) this.getVisibleSettingProperty().getObject2().name().toLowerCase(Locale.ROOT)), (CharSequence) " ", null, null, 0, null, this::resolveCharSequence)).toString();
-        var40 = SFMServiceComponent.resolveFontRenderHelper3().computeValue();
-        FontRenderHelper.v(SFMServiceComponent.resolveFontRenderHelper3(), context.method_51448(), ((((this.getNumericValue() + this.getNumericValue3()) - 11.0F) - var40) + var38), this.getNumericValue2(), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), (1.0F - this.easingServiceComponent.getNumericValue())));
+        float factor2 = (SFMServiceComponent.resolveFontRenderHelper3().computeValue(this.getVisibleSettingProperty().getString2()) / 2.0F);
+        float factor3 = ((((this.getNumericValue3() - 16.0F) / 2.0F) - factor2) * this.easingServiceComponent.getNumericValue());
+        FontRenderHelper.W(SFMServiceComponent.resolveFontRenderHelper3(), context.method_51448(), this.getVisibleSettingProperty().getString2(), ((this.getNumericValue() + 3.0F) + factor3), this.getNumericValue2(), NewThemeRenderHelper.INSTANCE.getColor7(), false);
+        String[] items = new String[1];
+        items[0] = "_";
+        String text = StringsKt.trim(((CharSequence) CollectionsKt.joinToString$default(((Iterable) StringsKt.split$default(((CharSequence) this.getVisibleSettingProperty().getObject2().name().toLowerCase(Locale.ROOT)), items, false)), ((CharSequence) " "), null, null, 0, null, this::resolveCharSequence))).toString();
+        items = SFMServiceComponent.resolveFontRenderHelper3().computeValue(text);
+        FontRenderHelper.v(SFMServiceComponent.resolveFontRenderHelper3(), context.method_51448(), text, ((((this.getNumericValue() + this.getNumericValue3()) - 11.0F) - items) + factor3), this.getNumericValue2(), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), (1.0F - this.easingServiceComponent.getNumericValue())), false);
         if (this.enabledFlag) {
-            Iterable var41 = (Iterable) this.itemList;
-            int var42 = 0;
-            Iterator iterator = var41.iterator();
+            Iterable iterable = ((Iterable) this.itemList);
+            Iterator iterator = iterable.iterator();
             while (iterator.hasNext()) {
-                Object var44 = iterator.next();
-                AnimationServiceComponent3 var45 = (AnimationServiceComponent3) var44;
-                int var46 = 0;
-                if (Intrinsics.areEqual(var45.getEnum(), this.getVisibleSettingProperty().getObject2())) {
+                Object element = iterator.next();
+                AnimationServiceComponent3 animationServiceComponent3 = ((AnimationServiceComponent3) element);
+                if (Intrinsics.areEqual(animationServiceComponent3.getEnum(), this.getVisibleSettingProperty().getObject2())) {
                 } else {
                 }
-                1.0F.executeAction(0.0F);
-                Color var47 = PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor10(), NewThemeRenderHelper.INSTANCE.getColor11(), var45.getEasingServiceComponent().getNumericValue()).brighter();
-                Color var48 = PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor13(), NewThemeRenderHelper.INSTANCE.getColor12(), var45.getEasingServiceComponent().getNumericValue()).brighter();
+                this.executeAction(0.0F);
+                Color color = PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor10(), NewThemeRenderHelper.INSTANCE.getColor11(), animationServiceComponent3.getEasingServiceComponent().getNumericValue()).brighter();
+                Color color2 = PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor13(), NewThemeRenderHelper.INSTANCE.getColor12(), animationServiceComponent3.getEasingServiceComponent().getNumericValue()).brighter();
                 if (this.enabledFlag2) {
-                    StackShaderComponent2.executeAction(context.method_51448(), ((this.getNumericValue() + var45.getNumericValue()) + 1.0F), ((this.getNumericValue2() + var45.getNumericValue2()) + 13.0F), var45.getNumericValue3(), 13.0F, 2.0F, 2.5F, 0.8F, 1.0F, 0.0F, 0.0F, 0.0F);
-                    String[] var49 = new String[1];
-                    var49[0] = "_";
-                    SFMServiceComponent.resolveFontRenderHelper3().render(context, StringsKt.trim((CharSequence) CollectionsKt.joinToString$default((Iterable) StringsKt.split$default((CharSequence) var45.getEnum().name().toLowerCase(Locale.ROOT)), (CharSequence) " ", null, null, 0, null, this::resolveCharSequence2)).toString(), (((this.getNumericValue() + var45.getNumericValue()) + 1.0F) + (var45.getNumericValue3() / 2.0F)), ((this.getNumericValue2() + var45.getNumericValue2()) + 18.0F), NewThemeRenderHelper.INSTANCE.getColor7());
-                    if (0L > 0L) {
-                        if (var36 == null) {
-                        }
-                    }
-                    StackShaderComponent2.executeAction(context.method_51448(), ((this.getNumericValue() + var45.getNumericValue()) + 1.0F), ((this.getNumericValue2() + var45.getNumericValue2()) + 13.0F), var45.getNumericValue3(), 10.0F, 2.0F, 2.5F, 0.8F, 1.0F, 0.0F, 0.0F, 0.0F);
-                    var49 = new String[1];
-                    var49[0] = "_";
-                    SFMServiceComponent.resolveFontRenderHelper4().render(context, StringsKt.trim((CharSequence) CollectionsKt.joinToString$default((Iterable) StringsKt.split$default((CharSequence) var45.getEnum().name().toLowerCase(Locale.ROOT)), (CharSequence) " ", null, null, 0, null, this::resolveCharSequence3)).toString(), (((this.getNumericValue() + var45.getNumericValue()) + 1.0F) + (var45.getNumericValue3() / 2.0F)), (((this.getNumericValue2() - 1.0F) + var45.getNumericValue2()) + 18.0F), NewThemeRenderHelper.INSTANCE.getColor7());
+                    StackShaderComponent2.executeAction(context.method_51448(), ((this.getNumericValue() + animationServiceComponent3.getNumericValue()) + 1.0F), ((this.getNumericValue2() + animationServiceComponent3.getNumericValue2()) + 13.0F), animationServiceComponent3.getNumericValue3(), 13.0F, 2.0F, 2.5F, 0.8F, 1.0F, color, color2, 0.0F, 0.0F, 0.0F);
+                    String[] items2 = new String[1];
+                    items2[0] = "_";
+                    SFMServiceComponent.resolveFontRenderHelper3().render(context, StringsKt.trim(((CharSequence) CollectionsKt.joinToString$default(((Iterable) StringsKt.split$default(((CharSequence) animationServiceComponent3.getEnum().name().toLowerCase(Locale.ROOT)), items2, false)), ((CharSequence) " "), null, null, 0, null, this::resolveCharSequence2))).toString(), (((this.getNumericValue() + animationServiceComponent3.getNumericValue()) + 1.0F) + (animationServiceComponent3.getNumericValue3() / 2.0F)), ((this.getNumericValue2() + animationServiceComponent3.getNumericValue2()) + 18.0F), NewThemeRenderHelper.INSTANCE.getColor7());
+                    animationServiceComponent3.getEasingServiceComponent();
                 }
-                var49 = ((this.getNumericValue() + var45.getNumericValue()) + 1.0F);
-                float var50 = (((this.getNumericValue() + var45.getNumericValue()) + 1.0F) + var45.getNumericValue3());
-                int var51 = mouseX;
-                if (0L >= 0L && var36 != null) {
-                    if (var49 <= var51) {
-                    }
+                StackShaderComponent2.executeAction(context.method_51448(), ((this.getNumericValue() + animationServiceComponent3.getNumericValue()) + 1.0F), ((this.getNumericValue2() + animationServiceComponent3.getNumericValue2()) + 13.0F), animationServiceComponent3.getNumericValue3(), 10.0F, 2.0F, 2.5F, 0.8F, 1.0F, color, color2, 0.0F, 0.0F, 0.0F);
+                items2 = new String[1];
+                items2[0] = "_";
+                SFMServiceComponent.resolveFontRenderHelper4().render(context, StringsKt.trim(((CharSequence) CollectionsKt.joinToString$default(((Iterable) StringsKt.split$default(((CharSequence) animationServiceComponent3.getEnum().name().toLowerCase(Locale.ROOT)), items2, false)), ((CharSequence) " "), null, null, 0, null, this::resolveCharSequence3))).toString(), (((this.getNumericValue() + animationServiceComponent3.getNumericValue()) + 1.0F) + (animationServiceComponent3.getNumericValue3() / 2.0F)), (((this.getNumericValue2() - 1.0F) + animationServiceComponent3.getNumericValue2()) + 18.0F), NewThemeRenderHelper.INSTANCE.getColor7());
+                items2 = ((this.getNumericValue() + animationServiceComponent3.getNumericValue()) + 1.0F);
+                float factor4 = (((this.getNumericValue() + animationServiceComponent3.getNumericValue()) + 1.0F) + animationServiceComponent3.getNumericValue3());
+                int index = mouseX;
+                if (items2 <= index) {
                 } else {
-                }
-                if (var51 <= var50) {
-                    var49 = (((this.getNumericValue2() - 1.0F) + var45.getNumericValue2()) + 14.0F);
-                    var50 = ((this.getNumericValue2() + var45.getNumericValue2()) + 23.0F);
-                    var51 = mouseY;
-                    if (0L > 0L && var36 != null) {
-                        if (var49 <= var51) {
+                    if (index <= factor4) {
+                        items2 = (((this.getNumericValue2() - 1.0F) + animationServiceComponent3.getNumericValue2()) + 14.0F);
+                        factor4 = ((this.getNumericValue2() + animationServiceComponent3.getNumericValue2()) + 23.0F);
+                        index = mouseY;
+                        if (items2 <= index) {
+                        } else {
                         }
-                    } else {
-                    }
-                    if (0L > 0L) {
-                    }
-                    if (var51 <= var50 && GLFW.glfwGetPlatform() != 393219) {
-                        GLFW.glfwSetCursor(SharedKt.getMc().method_22683().method_4490(), GLFW.glfwCreateStandardCursor(221188));
-                        CatleanInterfaceRenderHelper.INSTANCE.updateValue(0);
+                        if (index <= factor4 && GLFW.glfwGetPlatform() != 393219) {
+                            GLFW.glfwSetCursor(SharedKt.getMc().method_22683().method_4490(), GLFW.glfwCreateStandardCursor(221188));
+                            CatleanInterfaceRenderHelper.INSTANCE.updateValue(false);
+                        }
                     }
                 }
             }
@@ -194,45 +162,43 @@ public class SettingRenderHelper10 extends SettingRenderHelper16 {
     }
 
     public void setValue(double mouseX, double mouseY) {
-        float var9 = this.getNumericValue();
-        if (0L >= 0L && var8 != null) {
+        float factor = this.getNumericValue();
+        if (__UNDEF_KEY__ >= 0L && __UNDEF_KEY__ != null) {
             if (mouseX <= ((this.getNumericValue() + this.getNumericValue3()) - 7.0F)) {
-            }
-        } else {
-        }
-        if (var9 <= mouseX) {
-            var9 = this.getNumericValue2();
-            if (0L > 0L && var8 != null) {
-                if (mouseY <= (this.getNumericValue2() + 12)) {
-                }
             } else {
-            }
-            if (var9 <= mouseY) {
-                this.enabledFlag = !(this.enabledFlag);
-            }
-        }
-        var9 = (Iterable) this.itemList;
-        int var10 = 0;
-        Iterator iterator = var9.iterator();
-        while (iterator.hasNext()) {
-            Object var12 = iterator.next();
-            AnimationServiceComponent3 var13 = (AnimationServiceComponent3) var12;
-            int var14 = 0;
-            float var15 = ((this.getNumericValue() + var13.getNumericValue()) + 1.0F);
-            if (0L > 0L && var8 != null) {
-                if (mouseX <= (((this.getNumericValue() + var13.getNumericValue()) + 1.0F) + var13.getNumericValue3())) {
-                }
-            } else {
-            }
-            if (var15 <= mouseX) {
-                var15 = (((this.getNumericValue2() - 1.0F) + var13.getNumericValue2()) + 14.0F);
-                if (0L > 0L && var8 != null) {
-                    if (mouseY <= ((this.getNumericValue2() + var13.getNumericValue2()) + 23.0F)) {
+                if (factor <= mouseX) {
+                    factor = this.getNumericValue2();
+                    if (__UNDEF_KEY__ > 0L && __UNDEF_KEY__ != null) {
+                        if (mouseY <= (this.getNumericValue2() + 12)) {
+                        } else {
+                            if (factor <= mouseY) {
+                                this.enabledFlag = !(this.enabledFlag);
+                            }
+                        }
                     }
-                } else {
                 }
-                if (var15 <= mouseY) {
-                    this.getVisibleSettingProperty().updateValue(var13.getEnum());
+            }
+        }
+        factor = ((Iterable) this.itemList);
+        Iterator iterator = factor.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            AnimationServiceComponent3 animationServiceComponent3 = ((AnimationServiceComponent3) element);
+            float factor2 = ((this.getNumericValue() + animationServiceComponent3.getNumericValue()) + 1.0F);
+            if (__UNDEF_KEY__ > 0L && __UNDEF_KEY__ != null) {
+                if (mouseX <= (((this.getNumericValue() + animationServiceComponent3.getNumericValue()) + 1.0F) + animationServiceComponent3.getNumericValue3())) {
+                } else {
+                    if (factor2 <= mouseX) {
+                        factor2 = (((this.getNumericValue2() - 1.0F) + animationServiceComponent3.getNumericValue2()) + 14.0F);
+                        if (__UNDEF_KEY__ > 0L && __UNDEF_KEY__ != null) {
+                            if (mouseY <= ((this.getNumericValue2() + animationServiceComponent3.getNumericValue2()) + 23.0F)) {
+                            } else {
+                                if (factor2 <= mouseY) {
+                                    this.getVisibleSettingProperty().updateValue(animationServiceComponent3.getEnum());
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -255,42 +221,39 @@ public class SettingRenderHelper10 extends SettingRenderHelper16 {
     }
 
     private static CharSequence resolveCharSequence(String arg0) {
-        Object var4 = arg0;
-        if ((CharSequence) var4.length() > 0) {
-            char var5 = var4.charAt(0);
-            StringBuilder var7 = new StringBuilder();
-            int var6 = 0;
-            var5 = var4;
-            var6 = 1;
+        if (((CharSequence) arg0).length() > 0) {
+            char ch = arg0.charAt(0);
+            StringBuilder stringBuilder = new StringBuilder();
+            int index = 0;
+            ch = arg0;
+            index = 1;
         } else {
         }
-        return (CharSequence) var4;
+        return ((CharSequence) arg0);
     }
 
     private static CharSequence resolveCharSequence2(String arg0) {
-        Object var4 = arg0;
-        if ((CharSequence) var4.length() > 0) {
-            char var5 = var4.charAt(0);
-            StringBuilder var7 = new StringBuilder();
-            int var6 = 0;
-            var5 = var4;
-            var6 = 1;
+        if (((CharSequence) arg0).length() > 0) {
+            char ch = arg0.charAt(0);
+            StringBuilder stringBuilder = new StringBuilder();
+            int index = 0;
+            ch = arg0;
+            index = 1;
         } else {
         }
-        return (CharSequence) var4;
+        return ((CharSequence) arg0);
     }
 
     private static CharSequence resolveCharSequence3(String arg0) {
-        Object var4 = arg0;
-        if ((CharSequence) var4.length() > 0) {
-            char var5 = var4.charAt(0);
-            StringBuilder var7 = new StringBuilder();
-            int var6 = 0;
-            var5 = var4;
-            var6 = 1;
+        if (((CharSequence) arg0).length() > 0) {
+            char ch = arg0.charAt(0);
+            StringBuilder stringBuilder = new StringBuilder();
+            int index = 0;
+            ch = arg0;
+            index = 1;
         } else {
         }
-        return (CharSequence) var4;
+        return ((CharSequence) arg0);
     }
 
 }

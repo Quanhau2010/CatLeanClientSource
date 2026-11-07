@@ -20,8 +20,8 @@ public class ServiceComponent80 {
     }
 
     private static Unit resolveUnit(JsonBuilder arg0) {
-        arg0.setIgnoreUnknownKeys(1);
-        arg0.setExplicitNulls(0);
+        arg0.setIgnoreUnknownKeys(true);
+        arg0.setExplicitNulls(false);
         arg0.setNamingStrategy(JsonNamingStrategy.Builtins.getSnakeCase());
         return Unit.INSTANCE;
     }

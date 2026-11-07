@@ -49,14 +49,14 @@ public class UuidEntityHelper {
 
     public String toString() {
         PlayerEntity player = this.playerEntity;
-        UUID var6 = this.uUID;
-        return ("LogoutSpot(uuid=" + var6 + ", player=" + player + ", logTime=" + var3 + ")");
+        UUID uUID = this.uUID;
+        return ("LogoutSpot(uuid=" + uUID + ", player=" + player + ", logTime=" + __UNDEF_KEY__ + ")");
     }
 
     public int hashCode() {
-        int var4 = this.uUID.hashCode();
-        var4 = ((var4 * 31) + this.playerEntity.hashCode());
-        if (var4 != null) {
+        int index = this.uUID.hashCode();
+        index = ((index * 31) + this.playerEntity.hashCode());
+        if (index != null) {
         }
         return null;
     }
@@ -68,14 +68,14 @@ public class UuidEntityHelper {
         if (!(other instanceof UuidEntityHelper)) {
             return false;
         }
-        UuidEntityHelper var5 = (UuidEntityHelper) other;
-        if (!(Intrinsics.areEqual(this.uUID, var5.uUID))) {
+        UuidEntityHelper uuidEntityHelper = ((UuidEntityHelper) other);
+        if (!(Intrinsics.areEqual(this.uUID, uuidEntityHelper.uUID))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.playerEntity, var5.playerEntity))) {
+        if (!(Intrinsics.areEqual(this.playerEntity, uuidEntityHelper.playerEntity))) {
             return false;
         }
-        if (this.timestampValue != var5.timestampValue) {
+        if (this.timestampValue != uuidEntityHelper.timestampValue) {
             return false;
         }
         return true;

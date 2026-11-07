@@ -9,7 +9,6 @@ import java.util.List;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
 import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.text.StringsKt;
 import net.minecraft.class_156;
 import net.minecraft.class_156.class_158;
@@ -45,32 +44,16 @@ public class ElementIdRenderHelper {
         this.optionMode8 = configType;
         this.itemList = new ArrayList();
         this.factorValue3 = 62.0F;
-        if (var14 != null) {
+        if (__UNDEF_KEY__ != null) {
             if (this.optionMode7 == OptionMode7.Config) {
-                ActionServiceComponent3[] var15 = new ActionServiceComponent3[3];
-                var15[0] = new ActionServiceComponent3(KeyServiceComponent.INSTANCE.resolveString("windows.config.load", new Object[0]), this::resolveUnit);
-                var15[1] = new ActionServiceComponent3(KeyServiceComponent.INSTANCE.resolveString("windows.config.open-in-explorer", new Object[0]), this::resolveUnit2);
-                var15[2] = new ActionServiceComponent3(KeyServiceComponent.INSTANCE.resolveString("windows.config.delete", new Object[0]), this::resolveUnit3);
+                ActionServiceComponent3[] items = new ActionServiceComponent3[3];
+                items[0] = new ActionServiceComponent3(KeyServiceComponent.INSTANCE.resolveString("windows.config.load", new Object[0]), this::resolveUnit);
+                items[1] = new ActionServiceComponent3(KeyServiceComponent.INSTANCE.resolveString("windows.config.open-in-explorer", new Object[0]), this::resolveUnit2);
+                items[2] = new ActionServiceComponent3(KeyServiceComponent.INSTANCE.resolveString("windows.config.delete", new Object[0]), this::resolveUnit3);
             } else {
             }
         }
         this.itemList.add(new ActionServiceComponent3(KeyServiceComponent.INSTANCE.resolveString("windows.config.save", new Object[0]), this::resolveUnit4));
-    }
-
-    public ElementIdRenderHelper(OptionMode7 arg0, float arg1, float arg2, String arg3, OptionMode8 arg4, int arg5, DefaultConstructorMarker arg6) {
-        if ((arg5 & 2)) {
-            arg1 = 0.0F;
-        }
-        if ((arg5 & 4)) {
-            arg2 = 0.0F;
-        }
-        if ((arg5 & 8)) {
-            arg3 = "";
-        }
-        if ((arg5 & 16)) {
-            arg4 = OptionMode8.MODULES;
-        }
-        this(arg0, arg1, arg2, arg3, arg4);
     }
 
     public OptionMode7 getOptionMode7() {
@@ -114,93 +97,88 @@ public class ElementIdRenderHelper {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY) {
-        int var20 = ((this.itemList.size() * 14.0F) + 2.0F);
-        StackShaderComponent2.executeAction(context.method_51448(), this.factorValue, this.factorValue2, this.factorValue3, 4.0F, 1.0F, 0.07F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor5().darker(), NewThemeRenderHelper.INSTANCE.getColor6().darker(), 0.0F, 0.0F, 0.0F);
-        int var21 = 0;
-        Iterable var22 = (Iterable) this.itemList;
-        int var23 = 0;
-        Iterator iterator = var22.iterator();
+        int index = ((this.itemList.size() * 14.0F) + 2.0F);
+        StackShaderComponent2.executeAction(context.method_51448(), this.factorValue, this.factorValue2, this.factorValue3, index, 4.0F, 1.0F, 0.07F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor5().darker(), NewThemeRenderHelper.INSTANCE.getColor6().darker(), 0.0F, 0.0F, 0.0F);
+        int index2 = 0;
+        Iterable iterable = ((Iterable) this.itemList);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var25 = iterator.next();
-            ActionServiceComponent3 var26 = (ActionServiceComponent3) var25;
-            int var27 = 0;
-            float var28 = this.factorValue;
-            float var29 = (this.factorValue + this.factorValue3);
-            int var30 = mouseX;
-            if (0L >= 0 && var19 != null) {
-                if (var28 <= var30) {
-                }
-            } else {
-            }
-            if (var30 <= var29) {
-                var28 = ((this.factorValue2 + 2) + (var21 * 14));
-                var29 = ((this.factorValue2 + 14) + (var21 * 14));
-                var30 = mouseY;
-                if (0L > 0 && var19 != null) {
-                    if (var28 <= var30) {
-                    }
+            Object element = iterator.next();
+            ActionServiceComponent3 actionServiceComponent3 = ((ActionServiceComponent3) element);
+            float factor = this.factorValue;
+            float factor2 = (this.factorValue + this.factorValue3);
+            int index3 = mouseX;
+            if (__UNDEF_KEY__ >= 0 && __UNDEF_KEY__ != null) {
+                if (factor <= index3) {
                 } else {
-                }
-                if (var30 <= var29) {
-                    StackShaderComponent2.executeAction(context.method_51448(), (this.factorValue + 2), ((this.factorValue2 + 2) + (var21 * 14)), (this.factorValue3 - 4), 12.0F, 2.0F, 2.0F, 0.1F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor5(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+                    if (index3 <= factor2) {
+                        factor = ((this.factorValue2 + 2) + (index2 * 14));
+                        factor2 = ((this.factorValue2 + 14) + (index2 * 14));
+                        index3 = mouseY;
+                        if (__UNDEF_KEY__ > 0 && __UNDEF_KEY__ != null) {
+                            if (factor <= index3) {
+                            } else {
+                                if (index3 <= factor2) {
+                                    StackShaderComponent2.executeAction(context.method_51448(), (this.factorValue + 2), ((this.factorValue2 + 2) + (index2 * 14)), (this.factorValue3 - 4), 12.0F, 2.0F, 2.0F, 0.1F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor5(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+                                }
+                            }
+                        }
+                    }
                 }
             }
-            if (0L > 0) {
+            if (__UNDEF_KEY__ > 0) {
             }
-            if (var21 == (this.itemList.size() - 1) && this.itemList.size() > 1) {
+            if (index2 == (this.itemList.size() - 1) && this.itemList.size() > 1) {
             } else {
             }
-            var28 = Color.WHITE;
-            Object var16 = var28;
-            Color var17 = new Color(255, 0, 0, 170);
-            float var18 = ((this.factorValue2 + 2) + (var21 * 14));
-            context.render(var26.getString(), (this.factorValue + 5));
-            var21 = (var21 + 1);
+            factor = Color.WHITE;
+            Color color = new Color(255, 0, 0, 170);
+            float factor3 = ((this.factorValue2 + 2) + (index2 * 14));
+            context.render(actionServiceComponent3.getString(), (this.factorValue + 5), factor3, color, factor);
+            index2 = (index2 + 1);
         }
     }
 
     public void executeAction(float mX, float mY) {
-        int var10 = 0;
-        Iterable var11 = (Iterable) this.itemList;
-        int var12 = 0;
-        Iterator iterator = var11.iterator();
-        if (iterator.hasNext()) {
-            Object var14 = iterator.next();
-            ActionServiceComponent3 var15 = (ActionServiceComponent3) var14;
-            int var16 = 0;
-            float var17 = this.factorValue;
-            if (0L >= 0) {
-                if (var9 != null) {
+        int index = 0;
+        Iterable iterable = ((Iterable) this.itemList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            ActionServiceComponent3 actionServiceComponent3 = ((ActionServiceComponent3) element);
+            float factor = this.factorValue;
+            if (__UNDEF_KEY__ >= 0) {
+                if (__UNDEF_KEY__ != null) {
                     if (mX <= (this.factorValue + this.factorValue3)) {
-                    }
-                }
-                if (var9 != null) {
-                }
-            } else {
-            }
-            if (var17 <= mX) {
-                var17 = ((this.factorValue2 + 2) + (var10 * 14));
-                if (0L >= 0) {
-                    if (var9 != null) {
-                        if (mY <= ((this.factorValue2 + 14) + (var10 * 14))) {
+                        if (__UNDEF_KEY__ != null) {
+                        }
+                    } else {
+                        if (factor <= mX) {
+                            factor = ((this.factorValue2 + 2) + (index * 14));
+                            if (__UNDEF_KEY__ >= 0) {
+                                if (__UNDEF_KEY__ != null) {
+                                    if (mY <= ((this.factorValue2 + 14) + (index * 14))) {
+                                        if (__UNDEF_KEY__ != null) {
+                                        }
+                                    } else {
+                                    }
+                                }
+                            }
+                            if (__UNDEF_KEY__ > 0) {
+                                if (factor <= mY) {
+                                    actionServiceComponent3.getFunction1().invoke(this.textValue);
+                                }
+                            }
                         }
                     }
-                    if (var9 != null) {
-                    }
-                } else {
-                }
-                if (0L > 0) {
-                    if (var17 <= mY) {
-                        var15.getFunction1().invoke(this.textValue);
-                    }
                 }
             }
-            var10 = (var10 + 1);
+            index = (index + 1);
         }
     }
 
     private static Unit resolveUnit(ElementIdRenderHelper arg0, String arg1) {
-        if (!(StringsKt.isBlank((CharSequence) arg0.textValue))) {
+        if (!(StringsKt.isBlank(((CharSequence) arg0.textValue)))) {
             DefaultServiceComponent.executeAction(arg0.textValue, arg0.optionMode8);
         }
         StartupServiceComponent.INSTANCE.getVecServiceComponent15().updateValue();
@@ -208,32 +186,30 @@ public class ElementIdRenderHelper {
     }
 
     private static Unit resolveUnit2(ElementIdRenderHelper arg0, String arg1) {
-        if (!(StringsKt.isBlank((CharSequence) arg0.textValue))) {
+        if (!(StringsKt.isBlank(((CharSequence) arg0.textValue)))) {
             if (arg0.optionMode8 == OptionMode8.MODULES) {
-                File var5 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().getFile();
-                Object var6 = var5;
-                class_158 var8 = class_156.method_668();
-                int var7 = 0;
-                if (!(var6.exists())) {
-                    var6.createNewFile();
+                File file = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().getFile();
+                File file2 = file;
+                class_158 class158 = class_156.method_668();
+                if (!(file2.exists())) {
+                    file2.createNewFile();
                 }
-                var8.method_672();
+                class158.method_672(file);
             } else {
-                var5 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().getFile();
-                var6 = var5;
-                var8 = class_156.method_668();
-                var7 = 0;
-                if (!(var6.exists())) {
-                    var6.createNewFile();
+                file = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().getFile();
+                file2 = file;
+                class158 = class_156.method_668();
+                if (!(file2.exists())) {
+                    file2.createNewFile();
                 }
-                var8.method_672();
+                class158.method_672(file);
             }
         }
         return Unit.INSTANCE;
     }
 
     private static Unit resolveUnit3(ElementIdRenderHelper arg0, String arg1) {
-        if (!(StringsKt.isBlank((CharSequence) arg0.textValue))) {
+        if (!(StringsKt.isBlank(((CharSequence) arg0.textValue)))) {
             DefaultServiceComponent.executeAction(arg1, arg0.optionMode8);
             ConfigPanelRenderHelper3Impl.INSTANCE.updateValue(null);
             ConfigPanelRenderHelper3Impl.INSTANCE.updateValue();

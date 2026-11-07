@@ -43,76 +43,69 @@ public class QuiverModule extends Module {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        if (!(var15)) {
-        }
-        if (!(var15)) {
-        }
-        SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(new MoveFixServiceComponent(SharedKt.getPlayer().method_36455(), -90.0F), 0, this::getUnit));
+        SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(0, this::getUnit));
     }
 
     private boolean checkCondition(int arg0, char arg1, char arg2) {
-        Iterable var14 = (Iterable) new IntRange(0, 35);
-        int var15 = 0;
-        Object var16 = var14;
-        Collection var17 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        int var18 = 0;
-        Iterator iterator = var16.iterator();
-        if (iterator.hasNext()) {
-            int var20 = (IntIterator) iterator.nextInt();
-            int var21 = var20;
-            Object var24 = var17;
-            int var22 = 0;
+        Iterable iterable = ((Iterable) new IntRange(0, 35));
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable, 10)));
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            int index3 = ((IntIterator) iterator).nextInt();
+            int index4 = index3;
             if (arg2 >= 0) {
-                if (var12) {
+                if (__UNDEF_KEY__) {
+                    ItemStack stack = SharedKt.getPlayer().method_31548().method_5438(index4);
+                    if (stack.getItem() instanceof class_1744) {
+                    }
+                    collection.add();
+                    if (arg0 >= 0) {
+                    }
                 }
-                ItemStack stack = SharedKt.getPlayer().method_31548().method_5438();
-                if (stack.getItem() instanceof class_1744) {
-                }
-                var24.add();
-            }
-            if (arg0 >= 0) {
             }
         }
-        List positions = CollectionsKt.filterNotNull((Iterable) var17);
-        if (var12) {
-            if (positions.isEmpty()) {
+        List list = CollectionsKt.filterNotNull(((Iterable) collection));
+        if (__UNDEF_KEY__) {
+            if (list.isEmpty()) {
                 return false;
             }
         }
-        var15 = (Iterable) positions;
-        var16 = 0;
-        var17 = var15.iterator();
-        if (var12) {
-            if (!(var17.hasNext())) {
+        index = ((Iterable) list);
+        iterable2 = 0;
+        collection = index.iterator();
+        if (__UNDEF_KEY__) {
+            if (!(collection.hasNext())) {
             }
         }
-        var18 = var17.next();
-        if (var12) {
-            if (!(var17.hasNext())) {
+        index2 = collection.next();
+        if (__UNDEF_KEY__) {
+            if (!(collection.hasNext())) {
             }
         }
-        iterator = (ServiceComponent84) var18;
-        var20 = 0;
+        iterator = ((ServiceComponent84) index2);
+        index3 = 0;
         iterator = iterator.getNumericValue();
-        var20 = var17.next();
-        var21 = (ServiceComponent84) var20;
-        var22 = 0;
-        var21 = var21.getNumericValue();
-        if (iterator > var21) {
-            var18 = var20;
-            iterator = var21;
+        index3 = collection.next();
+        index4 = ((ServiceComponent84) index3);
+        index4 = index4.getNumericValue();
+        if (iterator > index4) {
+            index2 = index3;
+            iterator = index4;
         }
-        var14 = (ServiceComponent84) var18.getNumericValue();
-        var15 = positions.iterator();
-        if (var15.hasNext()) {
-            var16 = (ServiceComponent84) var15.next();
+        iterable = ((ServiceComponent84) index2).getNumericValue();
+        index = list.iterator();
+        while (index.hasNext()) {
+            iterable2 = ((ServiceComponent84) index.next());
             if (arg1 >= 0) {
-                if (var12) {
-                }
-                if (var16.getNumericValue() != var14) {
-                    HandServiceComponent.e(var16.getNumericValue());
-                    HandServiceComponent.e();
-                    HandServiceComponent.e(var16.getNumericValue());
+                if (__UNDEF_KEY__) {
+                    if (iterable2.getNumericValue() != iterable) {
+                        HandServiceComponent.e(iterable2.getNumericValue(), 0, null, false);
+                        HandServiceComponent.e(iterable, 0, null, false);
+                        HandServiceComponent.e(iterable2.getNumericValue(), 0, null, true);
+                    }
                 }
             }
             return true;
@@ -121,16 +114,12 @@ public class QuiverModule extends Module {
     }
 
     private boolean checkCondition(ServiceComponent84 arg0) {
-        if (!(var6)) {
-            if (arg0.getMinecraftObject() != null) {
-            }
-            arg0.getMinecraftObject().method_5579();
+        if (arg0.getMinecraftObject() != null) {
         }
+        arg0.getMinecraftObject().method_5579();
         if (Intrinsics.areEqual(null, class_1294.field_5910)) {
             if (SharedKt.getMc().player != null) {
-                if (!(var6)) {
-                    if (!(SharedKt.getMc().player.method_6059(class_1294.field_5910))) {
-                    }
+                if (!(SharedKt.getMc().player.method_6059(class_1294.field_5910))) {
                 } else {
                 }
                 if (0 == 1) {
@@ -138,28 +127,26 @@ public class QuiverModule extends Module {
             } else {
             }
             if (!(0)) {
-            }
-            if (arg0.getMinecraftObject() != null) {
-            }
-            arg0.getMinecraftObject().method_5579();
-            if (SharedKt.getMc().player != null) {
-                if (!(var6)) {
+                if (arg0.getMinecraftObject() != null) {
+                }
+                arg0.getMinecraftObject().method_5579();
+                if (SharedKt.getMc().player != null) {
                     if (!(SharedKt.getMc().player.method_6059(class_1294.field_5904))) {
+                    } else {
+                    }
+                    if (0 == 1) {
                     }
                 } else {
                 }
-                if (0 == 1) {
+                if (Intrinsics.areEqual(null, class_1294.field_5904) && 0) {
                 }
-            } else {
-            }
-            if (Intrinsics.areEqual(null, class_1294.field_5904) && 0) {
             }
         }
         return false;
     }
 
     private static Unit getUnit() {
-        PacketPacketHelper.handlePacket((Packet) new class_2846(class_2847.field_12974, BlockPos.field_10980, SharedKt.getPlayer().method_5735()));
+        PacketPacketHelper.handlePacket(((Packet) new class_2846(class_2847.field_12974, BlockPos.field_10980, SharedKt.getPlayer().method_5735())));
         SharedKt.getPlayer().method_6075();
         return Unit.INSTANCE;
     }

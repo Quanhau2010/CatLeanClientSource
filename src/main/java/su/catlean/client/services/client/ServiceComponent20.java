@@ -21,15 +21,15 @@ public class ServiceComponent20 {
     }
 
     public KSerializer resolveKSerializer() {
-        KClass[] var6 = new KClass[3];
-        var6[0] = Reflection.getOrCreateKotlinClass(IdRecord9.class);
-        var6[1] = Reflection.getOrCreateKotlinClass(IdRecord.class);
-        var6[2] = Reflection.getOrCreateKotlinClass(IdRecord11.class);
-        var6 = new KSerializer[3];
-        var6[0] = IdRecord9Serializer.INSTANCE;
-        var6[1] = IdRecordSerializer.INSTANCE;
-        var6[2] = IdRecord11Serializer.INSTANCE;
-        return (KSerializer) new SealedClassSerializer("su.catlean.wl", Reflection.getOrCreateKotlinClass(Contract8.class), new Annotation[0]);
+        KClass[] items = new KClass[3];
+        items[0] = Reflection.getOrCreateKotlinClass(IdRecord9.class);
+        items[1] = Reflection.getOrCreateKotlinClass(IdRecord.class);
+        items[2] = Reflection.getOrCreateKotlinClass(IdRecord11.class);
+        items = new KSerializer[3];
+        items[0] = IdRecord9Serializer.INSTANCE;
+        items[1] = IdRecordSerializer.INSTANCE;
+        items[2] = IdRecord11Serializer.INSTANCE;
+        return ((KSerializer) new SealedClassSerializer("su.catlean.wl", Reflection.getOrCreateKotlinClass(Contract8.class), items, items));
     }
 
     static {

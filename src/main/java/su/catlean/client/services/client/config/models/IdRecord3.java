@@ -5,7 +5,6 @@ import kotlin.Lazy;
 import kotlin.LazyKt;
 import kotlin.LazyThreadSafetyMode;
 import kotlin.collections.CollectionsKt;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.serialization.KSerializer;
 import kotlinx.serialization.SerializationStrategy;
@@ -27,13 +26,6 @@ public class IdRecord3 {
     public IdRecord3(String id, List modules) {
         this.textValue = id;
         this.itemList = modules;
-    }
-
-    public IdRecord3(String arg0, List arg1, int arg2, DefaultConstructorMarker arg3) {
-        if ((arg2 & 2)) {
-            arg1 = CollectionsKt.emptyList();
-        }
-        this(arg0, arg1);
     }
 
     public String getString() {
@@ -61,10 +53,10 @@ public class IdRecord3 {
     }
 
     public static IdRecord3 resolveIdRecord3(IdRecord3 arg0, String arg1, List arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.itemList;
         }
         return arg0.resolveIdRecord3(arg1, arg2);
@@ -75,9 +67,9 @@ public class IdRecord3 {
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * 4519814164000014367L) + this.itemList.hashCode());
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.itemList.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -87,23 +79,22 @@ public class IdRecord3 {
         if (!(other instanceof IdRecord3)) {
             return false;
         }
-        IdRecord3 var5 = (IdRecord3) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord3 idRecord3 = ((IdRecord3) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord3.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        if (!(Intrinsics.areEqual(this.itemList, idRecord3.itemList))) {
             return false;
         }
         return true;
     }
 
     public static void executeAction(IdRecord3 self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        Lazy[] var9 = lazyArray;
         output.encodeStringElement(serialDesc, 0, self.textValue);
         if (output.shouldEncodeElementDefault(serialDesc, 1)) {
         } else {
         }
-        output.encodeSerializableElement(serialDesc, 1, (SerializationStrategy) var9[1].getValue(), self.itemList);
+        output.encodeSerializableElement(serialDesc, 1, ((SerializationStrategy) lazyArray[1].getValue()), self.itemList);
     }
 
     public IdRecord3(int seen0, String id, List modules, SerializationConstructorMarker serializationConstructorMarker) {
@@ -111,14 +102,14 @@ public class IdRecord3 {
             PluginExceptionsKt.throwMissingFieldException(seen0, 1, IdRecord3Serializer.INSTANCE.getDescriptor());
         }
         this.textValue = id;
-        if (!((seen0 & 2))) {
+        if ((seen0 & 2) == 0) {
             this.itemList = CollectionsKt.emptyList();
         }
         this.itemList = modules;
     }
 
     private static KSerializer getKSerializer() {
-        return (KSerializer) new ArrayListSerializer((KSerializer) IdRecord5Serializer.INSTANCE);
+        return ((KSerializer) new ArrayListSerializer(((KSerializer) IdRecord5Serializer.INSTANCE)));
     }
 
     public static Lazy[] process() {
@@ -127,10 +118,10 @@ public class IdRecord3 {
 
     static {
         serviceComponent122 = new ServiceComponent122();
-        Lazy[] var16 = new Lazy[2];
-        var16[0] = null;
-        var16[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
-        lazyArray = var16;
+        Lazy[] items = new Lazy[2];
+        items[0] = null;
+        items[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
+        lazyArray = items;
     }
 
     public static void updateValue(String[] arg0) {

@@ -74,34 +74,34 @@ public class DamageSyncServiceComponent {
 
     public boolean checkCondition(ServiceComponent95 damage, boolean random, AutoCrystalDamageSyncMode damageSync, boolean facePlaceSync, boolean lowCrystals, float stacksLeft, float minDamage) {
         return true;
-        if (0L <= 0) {
+        if (__UNDEF_KEY__ <= 0) {
             if (damageSync == AutoCrystalDamageSyncMode.OFF) {
                 return true;
             }
         }
         if (damageSync == AutoCrystalDamageSyncMode.CONDITIONS) {
-            if (0L > 0) {
-                if (var23 != null) {
+            if (__UNDEF_KEY__ > 0) {
+                if (__UNDEF_KEY__ != null) {
                     if (lowCrystals) {
-                        if (ItemPacketHelper.INSTANCE.computeValue(Items.field_8301, 1) > (64 * stacksLeft)) {
+                        if (ItemPacketHelper.INSTANCE.computeValue(Items.field_8301, true) > (64 * stacksLeft)) {
+                            if (__UNDEF_KEY__ >= 0) {
+                                if (__UNDEF_KEY__ != null) {
+                                }
+                            }
+                            if (__UNDEF_KEY__ <= 0) {
+                                if (__UNDEF_KEY__ != null) {
+                                }
+                            }
+                            if (facePlaceSync && !(damage.isActive2()) && damage.getNumericValue() < minDamage) {
+                            } else {
+                            }
                         }
                     }
                 }
-                if (0L >= 0) {
-                    if (var23 != null) {
-                    }
-                }
-                if (0L <= 0) {
-                    if (var23 != null) {
-                    }
-                }
-                if (facePlaceSync && !(damage.isActive2()) && damage.getNumericValue() < minDamage) {
-                }
-            } else {
             }
-            int var24 = 0;
-            if (0L >= 0 && var23 != null) {
-                if (!(var24)) {
+            int index = 0;
+            if (__UNDEF_KEY__ >= 0 && __UNDEF_KEY__ != null) {
+                if (!(index)) {
                     return true;
                 }
             }
@@ -112,34 +112,32 @@ public class DamageSyncServiceComponent {
         if (random) {
         } else {
         }
-        if (0L < 0 && var23 != null) {
-            if (510.0F.checkCondition(((60 + 0) / TheNetherPacketHelper.INSTANCE.computeValue()))) {
+        if (__UNDEF_KEY__ < 0 && __UNDEF_KEY__ != null) {
+            if (this.checkCondition(((60 + 0) / TheNetherPacketHelper.INSTANCE.computeValue()))) {
                 return true;
             }
         }
-        if (!(SpeedMineModule.resolveList().isEmpty())) {
+        if (!(SpeedMineModule.resolveList(false).isEmpty())) {
             return true;
         }
-        if (0L >= 0) {
+        if (__UNDEF_KEY__ >= 0) {
         }
-        if (0L >= 0) {
-            if (var23 != null) {
+        if (__UNDEF_KEY__ >= 0) {
+            if (__UNDEF_KEY__ != null) {
                 if (enabledFlag) {
                     return true;
                 }
             }
         }
-        if (SharedKt.getNetwork().method_45734() != null && StringsKt.contains$default((CharSequence) SharedKt.getNetwork().method_45734().field_3761, (CharSequence) "tntland") && !(serviceComponent102.checkCondition(15500))) {
+        if (SharedKt.getNetwork().method_45734() != null && StringsKt.contains$default(((CharSequence) SharedKt.getNetwork().method_45734().field_3761), ((CharSequence) "tntland"), false) && !(serviceComponent102.checkCondition(15500))) {
             return true;
         }
         return false;
     }
 
     public void executeAction(float damage) {
-        if (var4 != null) {
-            if (damage < 0.0F) {
-                return;
-            }
+        if (damage < 0.0F) {
+            return;
         }
         factorValue2 = damage;
         timestampValue = SharedKt.getNumericValue();

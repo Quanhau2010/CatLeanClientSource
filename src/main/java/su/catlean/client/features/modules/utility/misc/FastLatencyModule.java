@@ -44,15 +44,15 @@ public class FastLatencyModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private FastLatencySpikeDetectorMode getSpikeDetector() {
-        return (FastLatencySpikeDetectorMode) spikeDetectorSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((FastLatencySpikeDetectorMode) spikeDetectorSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private int getMessageDelay() {
-        return (Number) messageDelaySetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) messageDelaySetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     public int getNumericValue() {
@@ -64,38 +64,38 @@ public class FastLatencyModule extends Module {
     }
 
     private void onPostTasksProcessEvent(PostTasksProcessEvent arg0) {
-        PacketPacketHelper.handlePacket((Packet) new class_2805(1337, "w "));
+        PacketPacketHelper.handlePacket(((Packet) new class_2805(1337, "w ")));
         timestampValue = System.currentTimeMillis();
         serviceComponent10.executeAction();
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        countValue = RangesKt.coerceIn((System.currentTimeMillis() - timestampValue), (ClosedRange) new LongRange(timestampValue2));
+        countValue = RangesKt.coerceIn((System.currentTimeMillis() - timestampValue), ((ClosedRange) new LongRange(timestampValue2)));
         if (arrayDeque.size() >= 20) {
             arrayDeque.removeFirst();
         }
         arrayDeque.add(Integer.valueOf(countValue));
-        if (countValue > (CollectionsKt.averageOfInt((Iterable) arrayDeque) * 1.15F) && arrayDeque.size() >= 20 && serviceComponent103.checkCondition2(this.getMessageDelay())) {
-            Object[] var21 = new Object[2];
-            var21[0] = Integer.valueOf(CollectionsKt.averageOfInt((Iterable) arrayDeque));
-            var21[1] = Integer.valueOf(countValue);
-            String var20 = MessageServiceComponent.Z(this, "spike");
+        if (countValue > (CollectionsKt.averageOfInt(((Iterable) arrayDeque)) * 1.15F) && arrayDeque.size() >= 20 && serviceComponent103.checkCondition2(this.getMessageDelay())) {
+            Object[] items = new Object[2];
+            items[0] = Integer.valueOf(CollectionsKt.averageOfInt(((Iterable) arrayDeque)));
+            items[1] = Integer.valueOf(countValue);
+            String text = MessageServiceComponent.Z(this, "spike", items, false);
             if (this.getSpikeDetector() != FastLatencySpikeDetectorMode.BOTH) {
                 if (this.getSpikeDetector() == FastLatencySpikeDetectorMode.NOTIFICATION) {
+                    MessageServiceComponent.e(this, text, OptionMode16.WARNING);
                 }
-                MessageServiceComponent.e(this, OptionMode16.WARNING);
             }
             if (this.getSpikeDetector() != FastLatencySpikeDetectorMode.BOTH) {
                 if (this.getSpikeDetector() == FastLatencySpikeDetectorMode.CHAT) {
+                    MessageServiceComponent.S(this, text, false);
                 }
-                MessageServiceComponent.S(this);
             }
         }
         serviceComponent10.updateValue(5000);
     }
 
     static {
-        KProperty[] var34 = new KProperty[3];
+        KProperty[] items = new KProperty[3];
         INSTANCE = new FastLatencyModule();
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 80, new IntRange(0, 1000));
         spikeDetectorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "spike-detector", FastLatencySpikeDetectorMode.CHAT);

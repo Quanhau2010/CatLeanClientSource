@@ -13,16 +13,13 @@ public class SuggestionsServiceComponent {
     }
 
     public String resolveString(String s) {
-        Iterable var5 = (Iterable) this.itemList;
-        int var6 = 0;
-        Iterator iterator = var5.iterator();
-        if (iterator.hasNext()) {
-            Object var8 = iterator.next();
-            String var9 = (String) var8;
-            int var10 = 0;
-        } else {
+        Iterable iterable = ((Iterable) this.itemList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            String text = ((String) element);
         }
-        return (String) null;
+        return ((String) null);
     }
 
 }

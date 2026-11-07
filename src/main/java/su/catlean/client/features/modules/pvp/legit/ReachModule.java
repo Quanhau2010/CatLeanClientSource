@@ -22,11 +22,11 @@ public class ReachModule extends Module {
     }
 
     private float getBlocksRange() {
-        return (Number) blocksRangeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) blocksRangeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private float getEntity() {
-        return (Number) entitySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) entitySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void onReachStateEvent(ReachStateEvent arg0) {
@@ -36,10 +36,10 @@ public class ReachModule extends Module {
     }
 
     static {
-        KProperty[] var26 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new ReachModule();
-        blocksRangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks-range", 3.0F, RangesKt.rangeTo(0.1F, 10.0F), null, null, 6742912154355105816L);
-        entitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "entity-range", 3.0F, RangesKt.rangeTo(0.1F, 10.0F), null, null, -590771634873303016L);
+        blocksRangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks-range", 3.0F, RangesKt.rangeTo(0.1F, 10.0F));
+        entitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "entity-range", 3.0F, RangesKt.rangeTo(0.1F, 10.0F));
     }
 
 }

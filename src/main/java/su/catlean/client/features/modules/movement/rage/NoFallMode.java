@@ -2,17 +2,14 @@ package su.catlean.client.features.modules.movement.rage;
 
 public enum NoFallMode {
 
-    public static final NoFallMode Rubberband;
-    public static final NoFallMode Items;
-    public static final NoFallMode MatrixOffGround;
-    public static final NoFallMode Vanilla;
-    public static final NoFallMode GrimOld;
-    public static final NoFallMode GRIM_NEW;
-    private static String textValue;
+    Rubberband,
+    Items,
+    MatrixOffGround,
+    Vanilla,
+    GrimOld,
+    GRIM_NEW;
 
-    NoFallMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static String textValue;
 
     public static void updateValue(String arg0) {
         textValue = arg0;

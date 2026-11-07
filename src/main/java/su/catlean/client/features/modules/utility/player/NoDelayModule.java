@@ -37,11 +37,11 @@ public class NoDelayModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getJump() {
-        return (Boolean) jumpSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) jumpSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setJump(boolean value) {
@@ -49,7 +49,7 @@ public class NoDelayModule extends Module {
     }
 
     public boolean getBlocks() {
-        return (Boolean) blocksSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) blocksSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     public void setBlocks(boolean value) {
@@ -57,7 +57,7 @@ public class NoDelayModule extends Module {
     }
 
     private boolean getCrystals() {
-        return (Boolean) crystalsSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) crystalsSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setCrystals(boolean value) {
@@ -65,7 +65,7 @@ public class NoDelayModule extends Module {
     }
 
     private boolean getXp() {
-        return (Boolean) xpSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) xpSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setXp(boolean value) {
@@ -73,7 +73,7 @@ public class NoDelayModule extends Module {
     }
 
     public boolean getAll() {
-        return (Boolean) allSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) allSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     public void setAll(boolean value) {
@@ -81,10 +81,10 @@ public class NoDelayModule extends Module {
     }
 
     public void onPlayerUpdateEvent(PlayerUpdateEvent e) {
-        if ((LivingEntityAccessor) SharedKt.getPlayer().getLastJumpCooldown() > 0 && this.getJump()) {
-            (LivingEntityAccessor) SharedKt.getPlayer().setLastJumpCooldown(0);
+        if (((LivingEntityAccessor) SharedKt.getPlayer()).getLastJumpCooldown() > 0 && this.getJump()) {
+            ((LivingEntityAccessor) SharedKt.getPlayer()).setLastJumpCooldown(0);
         }
-        (MinecraftAccessor) SharedKt.getMc().setUseCooldown(this.getDelay());
+        ((MinecraftAccessor) SharedKt.getMc()).setUseCooldown(this.getDelay());
     }
 
     private boolean checkCondition(Item arg0) {
@@ -94,23 +94,23 @@ public class NoDelayModule extends Module {
         }
         if (arg0 == Items.field_8287) {
             if (!(this.getBlocks()) && !(this.getCrystals()) && !(this.getXp())) {
+                if (this.getAll()) {
+                } else {
+                }
             }
-            if (this.getAll()) {
-            }
-        } else {
         }
         return false;
     }
 
     static {
-        KProperty[] var28 = new KProperty[7339400171656052742L];
+        KProperty[] items = new KProperty[6];
         INSTANCE = new NoDelayModule();
-        delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 1, new IntRange(0, 4), null, null, 4046436427846647832L);
-        jumpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "jump", 0, null, null, -2415829725730570228L);
-        blocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks", 0, null, null, -7364903434056630260L);
-        crystalsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "crystals", 0, null, null, -7364903434056630260L);
-        xpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "x-p", 0, null, null, -7364903434056630260L);
-        allSetting = VisibleRenderHelper.registerSetting(INSTANCE, "all", 1, null, null, -7364903434056630260L);
+        delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 1, new IntRange(0, 4));
+        jumpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "jump", false);
+        blocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks", false);
+        crystalsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "crystals", false);
+        xpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "x-p", false);
+        allSetting = VisibleRenderHelper.registerSetting(INSTANCE, "all", true);
     }
 
 }

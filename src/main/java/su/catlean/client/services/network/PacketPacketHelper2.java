@@ -33,22 +33,22 @@ public class PacketPacketHelper2 {
     }
 
     public static PacketPacketHelper2 handlePacket(PacketPacketHelper2 arg0, Packet arg1, long arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.minecraftRef;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
         }
         return arg0.handlePacket(arg1, arg2);
     }
 
     public String toString() {
-        Packet var5 = this.minecraftRef;
-        return ("BTPacket(packet=" + var5 + ", timestamp=" + var3 + ")");
+        Packet packet = this.minecraftRef;
+        return ("BTPacket(packet=" + packet + ", timestamp=" + __UNDEF_KEY__ + ")");
     }
 
     public int hashCode() {
-        int var3 = this.minecraftRef.hashCode();
-        return var3;
+        int index = this.minecraftRef.hashCode();
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -58,11 +58,11 @@ public class PacketPacketHelper2 {
         if (!(other instanceof PacketPacketHelper2)) {
             return false;
         }
-        PacketPacketHelper2 var5 = (PacketPacketHelper2) other;
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        PacketPacketHelper2 packetPacketHelper2 = ((PacketPacketHelper2) other);
+        if (!(Intrinsics.areEqual(this.minecraftRef, packetPacketHelper2.minecraftRef))) {
             return false;
         }
-        if (this.timestampValue != var5.timestampValue) {
+        if (this.timestampValue != packetPacketHelper2.timestampValue) {
             return false;
         }
         return true;

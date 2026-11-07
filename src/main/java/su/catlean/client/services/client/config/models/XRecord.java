@@ -1,6 +1,5 @@
 package su.catlean.client.services.client.config.models;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlinx.serialization.descriptors.SerialDescriptor;
 import kotlinx.serialization.encoding.CompositeEncoder;
 import kotlinx.serialization.internal.PluginExceptionsKt;
@@ -16,16 +15,6 @@ public class XRecord {
     public XRecord(float x, float y) {
         this.factorValue = x;
         this.factorValue2 = y;
-    }
-
-    public XRecord(float arg0, float arg1, int arg2, DefaultConstructorMarker arg3) {
-        if ((arg2 & 1)) {
-            arg0 = 0.5F;
-        }
-        if ((arg2 & 2)) {
-            arg1 = 0.5F;
-        }
-        this(arg0, arg1);
     }
 
     public float getNumericValue() {
@@ -57,10 +46,10 @@ public class XRecord {
     }
 
     public static XRecord resolveXRecord(XRecord arg0, float arg1, float arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.factorValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.factorValue2;
         }
         return arg0.resolveXRecord(arg1, arg2);
@@ -71,9 +60,9 @@ public class XRecord {
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * -4892664441084051425L) + Float.hashCode(this.factorValue2));
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -83,11 +72,11 @@ public class XRecord {
         if (!(other instanceof XRecord)) {
             return false;
         }
-        XRecord var5 = (XRecord) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        XRecord xRecord = ((XRecord) other);
+        if (Float.compare(this.factorValue, xRecord.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, xRecord.factorValue2)) {
             return false;
         }
         return true;
@@ -107,18 +96,18 @@ public class XRecord {
     }
 
     public XRecord(int seen0, float x, float y, SerializationConstructorMarker serializationConstructorMarker) {
-        if ((0 & seen0)) {
+        if ((0 & seen0) != 0) {
             PluginExceptionsKt.throwMissingFieldException(seen0, 0, XRecordSerializer.INSTANCE.getDescriptor());
         }
-        if (var10 == null) {
-            if (0L >= 0 && !((seen0 & 1))) {
+        if (__UNDEF_KEY__ == null) {
+            if (__UNDEF_KEY__ >= 0 && (seen0 & 1) == 0) {
                 this.factorValue = 0.5F;
+                if (__UNDEF_KEY__ >= 0) {
+                    this.factorValue = x;
+                }
             }
-            if (0L >= 0) {
-            }
-            this.factorValue = x;
         }
-        if (!((seen0 & 2))) {
+        if ((seen0 & 2) == 0) {
             this.factorValue2 = 0.5F;
         }
         this.factorValue2 = y;

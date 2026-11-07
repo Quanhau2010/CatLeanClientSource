@@ -47,17 +47,17 @@ public class AnimationServiceComponent2 {
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag;
-        EasingServiceComponent var4 = this.easingServiceComponent;
-        String var5 = this.textValue;
-        return ("Staff(name=" + var5 + ", animation=" + var4 + ", removing=" + var3 + ")");
+        boolean flag = this.enabledFlag;
+        EasingServiceComponent easingServiceComponent = this.easingServiceComponent;
+        String text = this.textValue;
+        return ("Staff(name=" + text + ", animation=" + easingServiceComponent + ", removing=" + flag + ")");
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * 31) + this.easingServiceComponent.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.easingServiceComponent.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -67,14 +67,14 @@ public class AnimationServiceComponent2 {
         if (!(other instanceof AnimationServiceComponent2)) {
             return false;
         }
-        AnimationServiceComponent2 var5 = (AnimationServiceComponent2) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        AnimationServiceComponent2 animationServiceComponent2 = ((AnimationServiceComponent2) other);
+        if (!(Intrinsics.areEqual(this.textValue, animationServiceComponent2.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.easingServiceComponent, var5.easingServiceComponent))) {
+        if (!(Intrinsics.areEqual(this.easingServiceComponent, animationServiceComponent2.easingServiceComponent))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != animationServiceComponent2.enabledFlag) {
             return false;
         }
         return true;

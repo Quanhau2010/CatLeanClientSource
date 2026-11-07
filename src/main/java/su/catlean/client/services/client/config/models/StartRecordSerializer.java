@@ -22,40 +22,38 @@ public class StartRecordSerializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, StartRecord value) {
-        SerialDescriptor var11 = serialDescriptor;
-        CompositeEncoder var12 = encoder.beginStructure();
-        StartRecord.executeAction(value);
-        var12.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        StartRecord.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public StartRecord resolveStartRecord(Decoder decoder) {
-        SerialDescriptor var8 = serialDescriptor;
-        int var9 = 1;
-        int var11 = 0;
-        long var12 = 0L;
-        CompositeDecoder var15 = decoder.beginStructure();
-        if (var7 != null) {
-            if (var15.decodeSequentially()) {
-                var12 = var15.decodeLongElement(0);
+        int index = 1;
+        int index2 = 0;
+        long time = 0L;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        if (__UNDEF_KEY__ != null) {
+            if (compositeDecoder.decodeSequentially()) {
+                time = compositeDecoder.decodeLongElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                Long value = ((Long) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) LongSerializer.INSTANCE)));
+                index2 = (index2 | 2);
             }
-            var11 = (var11 | 1);
-            Long var14 = (Long) var15.decodeNullableSerializableElement(1, (DeserializationStrategy) LongSerializer.INSTANCE);
-            var11 = (var11 | 2);
         }
-        if (var7 == null && var9) {
-            int var10 = var15.decodeElementIndex();
-            if (var7 != null) {
-                if (var7 != null) {
+        if (__UNDEF_KEY__ == null && index) {
+            int index3 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                var9 = 0;
-                var12 = var15.decodeLongElement(0);
-                var11 = (var11 | 1);
-                var14 = (Long) var15.decodeNullableSerializableElement(1, (DeserializationStrategy) LongSerializer.INSTANCE);
-                var11 = (var11 | 2);
+                index = 0;
+                time = compositeDecoder.decodeLongElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                value = ((Long) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) LongSerializer.INSTANCE), value));
+                index2 = (index2 | 2);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var15.endStructure();
         }
-        return new StartRecord(null);
+        return new StartRecord(index2, time, value);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -63,10 +61,10 @@ public class StartRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        KSerializer[] var1 = new KSerializer[2];
-        var1[0] = LongSerializer.INSTANCE;
-        var1[1] = BuiltinSerializersKt.getNullable((KSerializer) LongSerializer.INSTANCE);
-        return var1;
+        KSerializer[] items = new KSerializer[2];
+        items[0] = LongSerializer.INSTANCE;
+        items[1] = BuiltinSerializersKt.getNullable(((KSerializer) LongSerializer.INSTANCE));
+        return items;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -74,7 +72,7 @@ public class StartRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (StartRecord) value);
+        this.executeAction(encoder, ((StartRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -83,10 +81,10 @@ public class StartRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new StartRecordSerializer();
-        PluginGeneratedSerialDescriptor var11 = new PluginGeneratedSerialDescriptor("su.catlean.pa", (GeneratedSerializer) INSTANCE, 2);
-        var11.addElement("start", 0);
-        var11.addElement("end", 1);
-        serialDescriptor = (SerialDescriptor) var11;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.pa", ((GeneratedSerializer) INSTANCE), 2);
+        pluginGeneratedSerialDescriptor.addElement("start", false);
+        pluginGeneratedSerialDescriptor.addElement("end", true);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

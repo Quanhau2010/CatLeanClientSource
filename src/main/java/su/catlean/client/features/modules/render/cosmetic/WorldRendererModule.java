@@ -43,52 +43,48 @@ public class WorldRendererModule extends Module {
     }
 
     private boolean getFogModify() {
-        return (Boolean) fogModifySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) fogModifySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private int getFogStart() {
-        return (Number) fogStartSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) fogStartSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private int getFogEnd() {
-        return (Number) fogEndSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) fogEndSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private Color getFogColor() {
-        return (Color) fogColorSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Color) fogColorSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getTimeChanger() {
-        return (Boolean) timeChangerSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) timeChangerSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getRealTime() {
-        return (Boolean) realTimeSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) realTimeSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private int getCtimeVal() {
-        return (Number) ctimeValSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Number) ctimeValSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setCtimeVal(int value) {
         ctimeValSetting.setValue(this, DELEGATED_PROPERTIES[6], Integer.valueOf(value));
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = (arg0 ^ 69599493015750L);
+    public void updateValue() {
         timestampValue = SharedKt.getWorld().method_8532();
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 64129331416845L);
-        long var5 = (arg0 ^ 27357895196556L);
-        SharedKt.getWorld().method_29089(timestampValue, timestampValue, 1);
+    public void updateValue2() {
+        SharedKt.getWorld().method_29089(timestampValue, timestampValue, true);
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        Packet var7 = arg0.getPacket();
-        timestampValue = (class_2761) var7.comp_3219();
+        Packet packet = arg0.getPacket();
+        timestampValue = ((class_2761) packet).comp_3219();
         arg0.cancel();
     }
 
@@ -97,7 +93,7 @@ public class WorldRendererModule extends Module {
             if (this.getRealTime()) {
                 this.setCtimeVal(this.computeValue());
             }
-            SharedKt.getWorld().method_29089(this.getCtimeVal(), this.getCtimeVal(), 0);
+            SharedKt.getWorld().method_29089(this.getCtimeVal(), this.getCtimeVal(), false);
         }
     }
 
@@ -118,9 +114,9 @@ public class WorldRendererModule extends Module {
     }
 
     public int computeValue() {
-        int var7 = ZonedDateTime.now().toLocalTime().toSecondOfDay();
-        double var9 = ((var7 / 86400.0D) * 24000.0D);
-        if (var6 == null) {
+        int index = ZonedDateTime.now().toLocalTime().toSecondOfDay();
+        int index2 = ((index / 86400.0D) * 24000.0D);
+        if (__UNDEF_KEY__ == null) {
         }
         return 24000;
     }
@@ -146,14 +142,14 @@ public class WorldRendererModule extends Module {
     }
 
     static {
-        KProperty[] var31 = new KProperty[7];
+        KProperty[] items = new KProperty[7];
         INSTANCE = new WorldRendererModule();
-        fogModifySetting = VisibleRenderHelper.registerSetting(INSTANCE, "fog-modify");
+        fogModifySetting = VisibleRenderHelper.registerSetting(INSTANCE, "fog-modify", true);
         fogStartSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fog-start", 0, new IntRange(0, 256), null, this::isActive);
         fogEndSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fog-end", 64, new IntRange(10, 256), null, this::isActive2);
         fogColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fog-color", new Color(11075839), null, this::isActive3);
-        timeChangerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "time-changer");
-        realTimeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "real-time", 0, null, this::isActive4);
+        timeChangerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "time-changer", false);
+        realTimeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "real-time", false, null, this::isActive4);
         ctimeValSetting = VisibleRenderHelper.registerSetting(INSTANCE, "time", 21000, new IntRange(0, 23000), null, this::isActive5);
     }
 

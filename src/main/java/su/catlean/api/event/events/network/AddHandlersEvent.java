@@ -40,7 +40,7 @@ public class AddHandlersEvent extends Event {
     }
 
     public boolean getLocal() {
-        return (Boolean) localSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) localSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setLocal(boolean value) {
@@ -48,7 +48,7 @@ public class AddHandlersEvent extends Event {
     }
 
     public boolean call(AtomicReference pipeline, class_2598 side, boolean local) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         pipeline = pipeline;
         side = side;
         this.setLocal(local);
@@ -57,7 +57,7 @@ public class AddHandlersEvent extends Event {
     }
 
     static {
-        KProperty[] var0 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new AddHandlersEvent();
         localSetting = Delegates.INSTANCE.notNull();
     }

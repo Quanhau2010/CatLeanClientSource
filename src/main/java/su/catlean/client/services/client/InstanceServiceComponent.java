@@ -58,19 +58,19 @@ public class InstanceServiceComponent {
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag;
-        EasingServiceComponent var4 = this.easingServiceComponent;
-        int var5 = this.countValue;
-        Item var6 = this.minecraftRef;
-        return ("CooldownHolder(instance=" + var6 + ", endTick=" + var5 + ", animation=" + var4 + ", removing=" + var3 + ")");
+        boolean flag = this.enabledFlag;
+        EasingServiceComponent easingServiceComponent = this.easingServiceComponent;
+        int index = this.countValue;
+        Item item = this.minecraftRef;
+        return ("CooldownHolder(instance=" + item + ", endTick=" + index + ", animation=" + easingServiceComponent + ", removing=" + flag + ")");
     }
 
     public int hashCode() {
-        int var3 = this.minecraftRef.hashCode();
-        var3 = ((var3 * 31) + Integer.hashCode(this.countValue));
-        var3 = ((var3 * 31) + this.easingServiceComponent.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        return var3;
+        int index = this.minecraftRef.hashCode();
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        index = ((index * 31) + this.easingServiceComponent.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -80,17 +80,17 @@ public class InstanceServiceComponent {
         if (!(other instanceof InstanceServiceComponent)) {
             return false;
         }
-        InstanceServiceComponent var5 = (InstanceServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        InstanceServiceComponent instanceServiceComponent = ((InstanceServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.minecraftRef, instanceServiceComponent.minecraftRef))) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != instanceServiceComponent.countValue) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.easingServiceComponent, var5.easingServiceComponent))) {
+        if (!(Intrinsics.areEqual(this.easingServiceComponent, instanceServiceComponent.easingServiceComponent))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != instanceServiceComponent.enabledFlag) {
             return false;
         }
         return true;

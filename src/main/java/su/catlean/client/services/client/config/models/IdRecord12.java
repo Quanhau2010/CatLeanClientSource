@@ -1,6 +1,5 @@
 package su.catlean.client.services.client.config.models;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.serialization.descriptors.SerialDescriptor;
 import kotlinx.serialization.encoding.CompositeEncoder;
@@ -28,13 +27,6 @@ public class IdRecord12 {
         this.textValue4 = password;
         this.enabledFlag = socks4;
         this.countValue2 = ping;
-    }
-
-    public IdRecord12(String arg0, String arg1, int arg2, String arg3, String arg4, boolean arg5, int arg6, int arg7, DefaultConstructorMarker arg8) {
-        if ((arg7 & 64)) {
-            arg6 = -1;
-        }
-        this(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
     }
 
     public String getString() {
@@ -129,50 +121,50 @@ public class IdRecord12 {
     }
 
     public static IdRecord12 resolveIdRecord12(IdRecord12 arg0, String arg1, String arg2, int arg3, String arg4, String arg5, boolean arg6, int arg7, int arg8, Object arg9) {
-        if ((arg8 & 1)) {
+        if ((arg8 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg8 & 2)) {
+        if ((arg8 & 2) != 0) {
             arg2 = arg0.textValue2;
         }
-        if ((arg8 & 4)) {
+        if ((arg8 & 4) != 0) {
             arg3 = arg0.countValue;
         }
-        if ((arg8 & 8)) {
+        if ((arg8 & 8) != 0) {
             arg4 = arg0.textValue3;
         }
-        if ((arg8 & 16)) {
+        if ((arg8 & 16) != 0) {
             arg5 = arg0.textValue4;
         }
-        if ((arg8 & 32)) {
+        if ((arg8 & 32) != 0) {
             arg6 = arg0.enabledFlag;
         }
-        if ((arg8 & 64)) {
+        if ((arg8 & 64) != 0) {
             arg7 = arg0.countValue2;
         }
         return arg0.resolveIdRecord12(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
     }
 
     public String toString() {
-        int var3 = this.countValue2;
-        boolean var4 = this.enabledFlag;
-        String var5 = this.textValue4;
-        String var6 = this.textValue3;
-        int var7 = this.countValue;
-        String var8 = this.textValue2;
-        String var9 = this.textValue;
-        return ("Proxy(id=" + var9 + ", ip=" + var8 + ", port=" + var7 + ", user=" + var6 + ", password=" + var5 + ", socks4=" + var4 + ", ping=" + var3 + ")");
+        int index = this.countValue2;
+        boolean flag = this.enabledFlag;
+        String text = this.textValue4;
+        String text2 = this.textValue3;
+        int index2 = this.countValue;
+        String text3 = this.textValue2;
+        String text4 = this.textValue;
+        return ("Proxy(id=" + text4 + ", ip=" + text3 + ", port=" + index2 + ", user=" + text2 + ", password=" + text + ", socks4=" + flag + ", ping=" + index + ")");
     }
 
     public int hashCode() {
-        int var4 = this.textValue.hashCode();
-        var4 = ((var4 * 31) + this.textValue2.hashCode());
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue));
-        var4 = ((var4 * 31) + this.textValue3.hashCode());
-        var4 = ((var4 * 31) + this.textValue4.hashCode());
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue2));
-        if (var4 != null) {
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.textValue2.hashCode());
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        index = ((index * 31) + this.textValue3.hashCode());
+        index = ((index * 31) + this.textValue4.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        index = ((index * 31) + Integer.hashCode(this.countValue2));
+        if (index != null) {
         }
         return null;
     }
@@ -184,26 +176,26 @@ public class IdRecord12 {
         if (!(other instanceof IdRecord12)) {
             return false;
         }
-        IdRecord12 var5 = (IdRecord12) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord12 idRecord12 = ((IdRecord12) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord12.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, idRecord12.textValue2))) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != idRecord12.countValue) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue3, var5.textValue3))) {
+        if (!(Intrinsics.areEqual(this.textValue3, idRecord12.textValue3))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue4, var5.textValue4))) {
+        if (!(Intrinsics.areEqual(this.textValue4, idRecord12.textValue4))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != idRecord12.enabledFlag) {
             return false;
         }
-        if (this.countValue2 != var5.countValue2) {
+        if (this.countValue2 != idRecord12.countValue2) {
             return false;
         }
         return true;

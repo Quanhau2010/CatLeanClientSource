@@ -75,7 +75,7 @@ public class GuiMoveModule extends Module {
     }
 
     public GuiMoveClickBypassMode getClickBypass() {
-        return (GuiMoveClickBypassMode) clickBypassSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((GuiMoveClickBypassMode) clickBypassSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public Map getMap() {
@@ -96,51 +96,50 @@ public class GuiMoveModule extends Module {
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (itemList.isEmpty()) {
-            KeyBinding[] var25 = new KeyBinding[6];
-            var25[0] = SharedKt.getMc().options.field_1894;
-            var25[1] = SharedKt.getMc().options.field_1881;
-            var25[2] = SharedKt.getMc().options.field_1913;
-            var25[3] = SharedKt.getMc().options.field_1849;
-            var25[4] = SharedKt.getMc().options.field_1903;
-            var25[5] = SharedKt.getMc().options.field_1867;
-            itemList = CollectionsKt.listOf();
+            KeyBinding[] items = new KeyBinding[6];
+            items[0] = SharedKt.getMc().options.field_1894;
+            items[1] = SharedKt.getMc().options.field_1881;
+            items[2] = SharedKt.getMc().options.field_1913;
+            items[3] = SharedKt.getMc().options.field_1849;
+            items[4] = SharedKt.getMc().options.field_1903;
+            items[5] = SharedKt.getMc().options.field_1867;
+            itemList = CollectionsKt.listOf(items);
         }
         if (enabledFlag4) {
         }
         if (this.getClickBypass() != GuiMoveClickBypassMode.LEGIT && SharedKt.getMc().currentScreen != null && !(SharedKt.getMc().currentScreen instanceof class_408)) {
-            var25 = (Iterable) itemList;
-            int var26 = 0;
-            Iterator iterator = var25.iterator();
+            items = ((Iterable) itemList);
+            int index = 0;
+            Iterator iterator = items.iterator();
             while (iterator.hasNext()) {
-                Object var28 = iterator.next();
-                KeyBinding var29 = (KeyBinding) var28;
-                int var30 = 0;
-                var29.method_23481(ServiceComponent13.checkCondition(class_3675.method_15981(var29.method_1428()).method_1444()));
+                Object element = iterator.next();
+                KeyBinding keyBinding = ((KeyBinding) element);
+                keyBinding.method_23481(ServiceComponent13.checkCondition(class_3675.method_15981(keyBinding.method_1428()).method_1444()));
             }
         }
-        if (this.getClickBypass() == GuiMoveClickBypassMode.LEGIT && !((Collection) linkedList.isEmpty())) {
+        if (this.getClickBypass() == GuiMoveClickBypassMode.LEGIT && !(((Collection) linkedList).isEmpty())) {
             if (!(enabledFlag)) {
             }
         }
-        SprintModule.INSTANCE.updateValue(1);
+        SprintModule.INSTANCE.updateValue(true);
         enabledFlag3 = SharedKt.getPlayer().method_5624();
-        SharedKt.getPlayer().method_5728(0);
+        SharedKt.getPlayer().method_5728(false);
         EventPacketHelper2.INSTANCE.updateValue5();
         countValue = 1;
-        SprintModule.INSTANCE.updateValue(1);
-        atomicBoolean.set(1);
+        SprintModule.INSTANCE.updateValue(true);
+        atomicBoolean.set(true);
         this.executeAction(lookupMap2);
         this.executeAction(lookupMap);
         if (!(linkedList.isEmpty())) {
-            var26 = (ActionTypeGuiElement) linkedList.poll();
+            index = ((ActionTypeGuiElement) linkedList.poll());
             if (SharedKt.getMc().interactionManager != null) {
-                SharedKt.getMc().interactionManager.method_2906(var26.getNumericValue(), var26.getNumericValue2(), var26.getNumericValue3(), var26.getMinecraftObject(), (PlayerEntity) SharedKt.getPlayer());
+                SharedKt.getMc().interactionManager.method_2906(index.getNumericValue(), index.getNumericValue2(), index.getNumericValue3(), index.getMinecraftObject(), ((PlayerEntity) SharedKt.getPlayer()));
             }
         }
-        PacketPacketHelper.handlePacket((Packet) new class_2815(SharedKt.getPlayer().field_7512.field_7763));
-        atomicBoolean.set(0);
+        PacketPacketHelper.handlePacket(((Packet) new class_2815(SharedKt.getPlayer().field_7512.field_7763)));
+        atomicBoolean.set(false);
         enabledFlag = 0;
-        SprintModule.INSTANCE.updateValue(1);
+        SprintModule.INSTANCE.updateValue(true);
         SharedKt.getPlayer().method_5728(enabledFlag3);
         EventPacketHelper2.INSTANCE.updateValue6();
         countValue = 0;
@@ -153,33 +152,33 @@ public class GuiMoveModule extends Module {
         }
         if (!(EventPacketHelper2.INSTANCE.checkCondition())) {
             if (SharedKt.getMc().options.field_1903.method_1434()) {
+                if (SharedKt.getPlayer().isFallFlying()) {
+                    enabledFlag4 = 1;
+                    return;
+                }
             }
-            if (SharedKt.getPlayer().isFallFlying()) {
-            }
-            enabledFlag4 = 1;
-            return;
         }
-        this.executeAction(arg0.getSyncId(), arg0.getId(), arg0.getButton(), arg0.getAction(), (PlayerEntity) SharedKt.getPlayer());
+        this.executeAction(arg0.getSyncId(), arg0.getId(), arg0.getButton(), arg0.getAction(), ((PlayerEntity) SharedKt.getPlayer()));
         if (this.getClickBypass() == GuiMoveClickBypassMode.STRICT_NCP) {
         } else {
         }
-        double var24 = 2.71875E-7D;
+        double offset = 2.71875E-7D;
         if (SharedKt.getPlayer().method_5624()) {
-            PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12985));
+            PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12985)));
             enabledFlag2 = 1;
         }
-        PacketPacketHelper.handlePacket((Packet) new class_2829(SharedKt.getPlayer().getX(), (SharedKt.getPlayer().getY() + var24), SharedKt.getPlayer().getZ(), 0, SharedKt.getPlayer().field_5976));
-        this.executeAction(arg0.getSyncId(), arg0.getId(), arg0.getButton(), arg0.getAction(), (PlayerEntity) SharedKt.getPlayer());
-        PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12985));
-        SharedKt.getMc().options.field_1894.method_23481(0);
-        (ClientInputAccessor) SharedKt.getPlayer().field_3913.setMoveVector(new class_241(SharedKt.getPlayer().field_3913.method_3128().field_1343, 0.0F));
+        PacketPacketHelper.handlePacket(((Packet) new class_2829(SharedKt.getPlayer().getX(), (SharedKt.getPlayer().getY() + offset), SharedKt.getPlayer().getZ(), false, SharedKt.getPlayer().field_5976)));
+        this.executeAction(arg0.getSyncId(), arg0.getId(), arg0.getButton(), arg0.getAction(), ((PlayerEntity) SharedKt.getPlayer()));
+        PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12985)));
+        SharedKt.getMc().options.field_1894.method_23481(false);
+        ((ClientInputAccessor) SharedKt.getPlayer().field_3913).setMoveVector(new class_241(SharedKt.getPlayer().field_3913.method_3128().field_1343, 0.0F));
         if (SharedKt.getPlayer().field_7512.field_7761.size() != 46) {
             return;
         }
         if (linkedList.isEmpty()) {
             this.executeAction(lookupMap);
         }
-        this.executeAction(arg0.getSyncId(), arg0.getId(), arg0.getButton(), arg0.getAction(), (PlayerEntity) SharedKt.getPlayer());
+        this.executeAction(arg0.getSyncId(), arg0.getId(), arg0.getButton(), arg0.getAction(), ((PlayerEntity) SharedKt.getPlayer()));
         linkedList.add(new ActionTypeGuiElement(arg0.getSyncId(), arg0.getId(), arg0.getButton(), arg0.getAction()));
         arg0.cancel();
         arg0.cancel();
@@ -194,7 +193,7 @@ public class GuiMoveModule extends Module {
             if (this.getClickBypass() == GuiMoveClickBypassMode.DISABLE_CLICKS) {
                 arg0.cancel();
             }
-            if (this.getClickBypass() == GuiMoveClickBypassMode.LEGIT && !(atomicBoolean.get()) && !((Collection) linkedList.isEmpty())) {
+            if (this.getClickBypass() == GuiMoveClickBypassMode.LEGIT && !(atomicBoolean.get()) && !(((Collection) linkedList).isEmpty())) {
                 arg0.cancel();
                 enabledFlag = 1;
             }
@@ -210,7 +209,7 @@ public class GuiMoveModule extends Module {
         if (this.getClickBypass() == GuiMoveClickBypassMode.DISABLE_CLICKS) {
             arg0.cancel();
         }
-        if (!((Collection) linkedList.isEmpty())) {
+        if (!(((Collection) linkedList).isEmpty())) {
             enabledFlag = 1;
         }
         arg0.cancel();
@@ -220,7 +219,7 @@ public class GuiMoveModule extends Module {
         if (enabledFlag5) {
             return;
         }
-        PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12981));
+        PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12981)));
         enabledFlag2 = 0;
     }
 
@@ -229,26 +228,26 @@ public class GuiMoveModule extends Module {
     }
 
     private void executeAction(Map arg0) {
-        int var7 = 0;
-        arg0.put(Integer.valueOf(), SharedKt.getPlayer().field_7512.method_7611().method_7677().method_7972());
+        int index = 0;
+        arg0.put(Integer.valueOf(index), SharedKt.getPlayer().field_7512.method_7611(index).method_7677().method_7972());
     }
 
     private void executeAction(Map arg0, int arg1) {
-        int var10 = 0;
-        if (var10 < 46) {
-            SharedKt.getPlayer().field_7512.method_7619(SharedKt.getPlayer().field_7512.method_37421(), (ItemStack) arg0.get(Integer.valueOf()));
+        int index = 0;
+        if (index < 46) {
+            SharedKt.getPlayer().field_7512.method_7619(index, SharedKt.getPlayer().field_7512.method_37421(), ((ItemStack) arg0.get(Integer.valueOf(index))));
         }
     }
 
     static {
-        KProperty[] var26 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new GuiMoveModule();
         clickBypassSetting = VisibleRenderHelper.registerSetting(INSTANCE, "bypass", GuiMoveClickBypassMode.NONE);
         itemList = CollectionsKt.emptyList();
         linkedList = new LinkedList();
         atomicBoolean = new AtomicBoolean();
-        lookupMap = (Map) new LinkedHashMap();
-        lookupMap2 = (Map) new LinkedHashMap();
+        lookupMap = ((Map) new LinkedHashMap());
+        lookupMap2 = ((Map) new LinkedHashMap());
     }
 
     public static void updateValue(Module[] arg0) {

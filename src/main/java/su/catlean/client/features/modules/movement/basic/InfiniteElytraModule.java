@@ -33,19 +33,19 @@ public class InfiniteElytraModule extends Module {
         if (!(SharedKt.getPlayer().isFallFlying())) {
             return;
         }
-        Item[] var17 = new Item[6];
-        var17[0] = Items.NETHERITE_CHESTPLATE;
-        var17[1] = Items.DIAMOND_CHESTPLATE;
-        var17[2] = Items.IRON_CHESTPLATE;
-        var17[3] = Items.GOLDEN_CHESTPLATE;
-        var17[4] = Items.LEATHER_CHESTPLATE;
-        var17[5] = Items.CHAINMAIL_CHESTPLATE;
-        StackServiceComponent2 var16 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        if (!(var16.isActive())) {
+        Item[] items = new Item[6];
+        items[0] = Items.NETHERITE_CHESTPLATE;
+        items[1] = Items.DIAMOND_CHESTPLATE;
+        items[2] = Items.IRON_CHESTPLATE;
+        items[3] = Items.GOLDEN_CHESTPLATE;
+        items[4] = Items.LEATHER_CHESTPLATE;
+        items[5] = Items.CHAINMAIL_CHESTPLATE;
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+        if (!(stackServiceComponent2.isActive())) {
             this.executeAction("no-armor-hotbar");
         }
-        ItemPacketHelper.executeAction(var16.getNumericValue());
-        RunnableServiceComponent2.executeAction(0, 0, 0, this::updateValue);
+        ItemPacketHelper.executeAction(stackServiceComponent2.getNumericValue());
+        RunnableServiceComponent2.executeAction(0, 0, false, this::updateValue);
         EventPacketHelper2.INSTANCE.updateValue(0);
     }
 
@@ -54,19 +54,19 @@ public class InfiniteElytraModule extends Module {
     }
 
     private static void executeAction() {
-        PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12982));
+        PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12982)));
         SharedKt.getPlayer().startFallFlying();
     }
 
     private static void updateValue(StackServiceComponent2 arg0) {
-        Item[] var14 = new Item[1];
-        var14[0] = Items.ELYTRA;
-        StackServiceComponent2 var13 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
+        Item[] items = new Item[1];
+        items[0] = Items.ELYTRA;
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
         if (!(arg0.isActive())) {
             INSTANCE.executeAction("no-elytra-hotbar");
         }
-        ItemPacketHelper.executeAction(var13.getNumericValue());
-        RunnableServiceComponent2.executeAction(1, 0, 0, this::executeAction);
+        ItemPacketHelper.executeAction(stackServiceComponent2.getNumericValue());
+        RunnableServiceComponent2.executeAction(1, 0, false, this::executeAction);
     }
 
     static {

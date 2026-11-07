@@ -48,10 +48,10 @@ public class IdRecord5 {
     }
 
     public static IdRecord5 resolveIdRecord5(IdRecord5 arg0, String arg1, List arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.itemList;
         }
         return arg0.resolveIdRecord5(arg1, arg2);
@@ -62,9 +62,9 @@ public class IdRecord5 {
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * 5668537707442208799L) + this.itemList.hashCode());
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.itemList.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -74,20 +74,19 @@ public class IdRecord5 {
         if (!(other instanceof IdRecord5)) {
             return false;
         }
-        IdRecord5 var5 = (IdRecord5) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord5 idRecord5 = ((IdRecord5) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord5.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        if (!(Intrinsics.areEqual(this.itemList, idRecord5.itemList))) {
             return false;
         }
         return true;
     }
 
     public static void executeAction(IdRecord5 self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        Lazy[] var3 = lazyArray;
         output.encodeStringElement(serialDesc, 0, self.textValue);
-        output.encodeSerializableElement(serialDesc, 1, (SerializationStrategy) var3[1].getValue(), self.itemList);
+        output.encodeSerializableElement(serialDesc, 1, ((SerializationStrategy) lazyArray[1].getValue()), self.itemList);
     }
 
     public IdRecord5(int seen0, String id, List settings, SerializationConstructorMarker serializationConstructorMarker) {
@@ -99,7 +98,7 @@ public class IdRecord5 {
     }
 
     private static KSerializer getKSerializer() {
-        return (KSerializer) new ArrayListSerializer((KSerializer) IdRecord10Serializer.INSTANCE);
+        return ((KSerializer) new ArrayListSerializer(((KSerializer) IdRecord10Serializer.INSTANCE)));
     }
 
     public static Lazy[] process() {
@@ -108,10 +107,10 @@ public class IdRecord5 {
 
     static {
         serviceComponent126 = new ServiceComponent126();
-        Lazy[] var16 = new Lazy[2];
-        var16[0] = null;
-        var16[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
-        lazyArray = var16;
+        Lazy[] items = new Lazy[2];
+        items[0] = null;
+        items[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
+        lazyArray = items;
     }
 
     public static void updateValue(boolean arg0) {

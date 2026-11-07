@@ -18,9 +18,8 @@ public class ServiceComponent116 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var10 = 0;
-        MessageServiceComponent.S((Module) TranslatorModule.INSTANCE, (class_124.field_1068 + TranslatorModule.resolveString(this.textValue, TranslatorModule.resolveTranslatorUrLangMode().name().toLowerCase(Locale.ROOT))));
-        var11.printStackTrace();
+        MessageServiceComponent.S(((Module) TranslatorModule.INSTANCE), (class_124.field_1068 + TranslatorModule.resolveString(this.textValue, TranslatorModule.resolveTranslatorUrLangMode().name().toLowerCase(Locale.ROOT))), false);
+        this.printStackTrace();
     }
 
 }

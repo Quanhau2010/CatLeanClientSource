@@ -1,7 +1,6 @@
 package su.catlean.client.services.client;
 
 import kotlin.NoWhenBranchMatchedException;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.class_1041;
 import net.minecraft.client.MinecraftClient;
@@ -36,21 +35,15 @@ public class TitleServiceComponent {
         this.itemStack = item;
         this.factorValue = ((SharedKt.getMc().method_22683().method_4502() / 2.0F) + 41.0F);
         this.easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_BACK, timestampValue);
-        if (var19 != null) {
+        if (__UNDEF_KEY__ != null) {
             if (this.itemStack == null) {
             }
         }
         SFMServiceComponent.resolveFontRenderHelper().factorValue2 = ((this.textValue + this.textValue2).computeValue(this.textValue2) + 20.0F);
         this.serviceComponent10 = new ServiceComponent10();
         TitleRenderHelper.INSTANCE.getMissingnoRenderHelper5().missingnoRenderHelper = new NoWhenBranchMatchedException();
-        if (0L <= 0) {
+        if (__UNDEF_KEY__ <= 0) {
         }
-    }
-
-    public TitleServiceComponent(String arg0, String arg1, OptionMode16 arg2, int arg3, ItemStack arg4, int arg5, DefaultConstructorMarker arg6) {
-        if ((arg5 & 16)) {
-        }
-        this(arg0, arg1, arg2, arg3, arg4);
     }
 
     public String getString() {
@@ -126,27 +119,11 @@ public class TitleServiceComponent {
     }
 
     public static TitleServiceComponent resolveTitleServiceComponent(TitleServiceComponent arg0, String arg1, String arg2, OptionMode16 arg3, int arg4, ItemStack arg5, int arg6, Object arg7) {
-        if (var12 != null) {
-            if ((arg6 & 1)) {
-                arg1 = arg0.textValue;
-            }
-        }
-        if (var12 != null) {
-            if ((arg6 & 2)) {
-                arg2 = arg0.textValue2;
-            }
-        }
-        if (var12 != null) {
-            if ((arg6 & 4)) {
-                arg3 = arg0.optionMode16;
-            }
-        }
-        if (var12 != null) {
-            if ((arg6 & 8)) {
-                arg4 = arg0.countValue;
-            }
-        }
-        if ((arg6 & 16)) {
+        arg1 = arg0.textValue;
+        arg2 = arg0.textValue2;
+        arg3 = arg0.optionMode16;
+        arg4 = arg0.countValue;
+        if ((arg6 & 16) != 0) {
             arg5 = arg0.itemStack;
         }
         return arg0.resolveTitleServiceComponent(arg1, arg2, arg3, arg4, arg5);
@@ -154,62 +131,48 @@ public class TitleServiceComponent {
 
     public String toString() {
         ItemStack stack = this.itemStack;
-        int var4 = this.countValue;
-        OptionMode16 var5 = this.optionMode16;
-        String var6 = this.textValue2;
-        String var7 = this.textValue;
-        return ("Notification(title=" + var7 + ", message=" + var6 + ", type=" + var5 + ", time=" + var4 + ", item=" + stack + ")");
+        int index = this.countValue;
+        OptionMode16 optionMode16 = this.optionMode16;
+        String text = this.textValue2;
+        String text2 = this.textValue;
+        return ("Notification(title=" + text2 + ", message=" + text + ", type=" + optionMode16 + ", time=" + index + ", item=" + stack + ")");
     }
 
     public int hashCode() {
-        int var4 = this.textValue.hashCode();
-        var4 = ((var4 * 31) + this.textValue2.hashCode());
-        var4 = ((var4 * 31) + this.optionMode16.hashCode());
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue));
-        if (var3 != null) {
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.textValue2.hashCode());
+        index = ((index * 31) + this.optionMode16.hashCode());
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        if (__UNDEF_KEY__ != null) {
             if (this.itemStack == null) {
             }
         }
-        var4 = (0 + this.itemStack.hashCode());
-        return var4;
+        index = (0 + this.itemStack.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
-        if (var4 != null) {
-            if (this == other) {
-                return true;
-            }
+        if (this == other) {
+            return true;
         }
-        if (var4 != null) {
-            if (!(other instanceof TitleServiceComponent)) {
-                return false;
-            }
+        if (!(other instanceof TitleServiceComponent)) {
+            return false;
         }
-        TitleServiceComponent var5 = (TitleServiceComponent) other;
-        if (var4 != null) {
-            if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
-                return false;
-            }
-            if (var4 != null) {
-            }
-            if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
-                return false;
-            }
+        TitleServiceComponent titleServiceComponent = ((TitleServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.textValue, titleServiceComponent.textValue))) {
+            return false;
         }
-        if (var4 != null) {
-            if (this.optionMode16 != var5.optionMode16) {
-                return false;
-            }
+        if (!(this)) {
+            return false;
         }
-        if (var4 != null) {
-            if (this.countValue != var5.countValue) {
-                return false;
-            }
+        if (this.optionMode16 != titleServiceComponent.optionMode16) {
+            return false;
         }
-        if (var4 != null) {
-            if (!(Intrinsics.areEqual(this.itemStack, var5.itemStack))) {
-                return false;
-            }
+        if (this.countValue != titleServiceComponent.countValue) {
+            return false;
+        }
+        if (!(Intrinsics.areEqual(this.itemStack, titleServiceComponent.itemStack))) {
+            return false;
         }
         return true;
     }

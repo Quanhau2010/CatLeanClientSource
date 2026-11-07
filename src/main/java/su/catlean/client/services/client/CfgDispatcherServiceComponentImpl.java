@@ -28,86 +28,80 @@ public class CfgDispatcherServiceComponentImpl extends DispatcherServiceComponen
     }
 
     public void executeAction(LiteralArgumentBuilder builder) {
-        long var4 = (0L ^ 131983109906692L);
-        long var6 = (0L ^ 61473902788714L);
         builder.then(this.resolveLiteralArgumentBuilder("list").executes(this::computeValue));
         builder.then(this.resolveLiteralArgumentBuilder("folder").executes(this::computeValue2));
         builder.then(this.resolveLiteralArgumentBuilder("reset").executes(this::computeValue3));
-        builder.then(this.resolveLiteralArgumentBuilder("save").then(this.resolveRequiredArgumentBuilder("name", (ArgumentType) StringArgumentType.word()).executes(this::computeValue4)));
-        builder.then(this.resolveLiteralArgumentBuilder("load").then(this.resolveRequiredArgumentBuilder("name", (ArgumentType) ReaderServiceComponent3.serviceComponent111.getReaderServiceComponent3()).executes(this::computeValue5)));
-        builder.then(this.resolveLiteralArgumentBuilder("remove").then(this.resolveRequiredArgumentBuilder("name", (ArgumentType) ReaderServiceComponent3.serviceComponent111.getReaderServiceComponent3()).executes(this::computeValue6)));
+        builder.then(this.resolveLiteralArgumentBuilder("save").then(this.resolveRequiredArgumentBuilder("name", ((ArgumentType) StringArgumentType.word())).executes(this::computeValue4)));
+        builder.then(this.resolveLiteralArgumentBuilder("load").then(this.resolveRequiredArgumentBuilder("name", ((ArgumentType) ReaderServiceComponent3.serviceComponent111.getReaderServiceComponent3())).executes(this::computeValue5)));
+        builder.then(this.resolveLiteralArgumentBuilder("remove").then(this.resolveRequiredArgumentBuilder("name", ((ArgumentType) ReaderServiceComponent3.serviceComponent111.getReaderServiceComponent3())).executes(this::computeValue6)));
         builder.executes(this::computeValue7);
     }
 
     private static int computeValue(CommandContext arg0) {
-        StringBuilder var13 = new StringBuilder(KeyServiceComponent.INSTANCE.resolveString("commands.config.configs", new Object[0]));
+        StringBuilder stringBuilder = new StringBuilder(KeyServiceComponent.INSTANCE.resolveString("commands.config.configs", new Object[0]));
         Iterator iterator = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveList().iterator();
         while (iterator.hasNext()) {
-            IdRecord3 var15 = (IdRecord3) iterator.next();
-            if (Intrinsics.areEqual(ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveIdRecord3())) {
+            IdRecord3 idRecord3 = ((IdRecord3) iterator.next());
+            if (Intrinsics.areEqual(idRecord3, ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveIdRecord3())) {
             } else {
             }
-            class_124.field_1060.append(("")).append(var15.getString()).append(class_124.field_1070);
+            class_124.field_1060.append(("")).append(idRecord3.getString()).append(class_124.field_1070);
         }
-        INSTANCE.executeAction(var13.toString());
+        INSTANCE.executeAction(stringBuilder.toString());
         return 1;
     }
 
     private static int computeValue2(CommandContext arg0) {
-        File var4 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().getFile();
-        Object var5 = var4;
-        class_158 var7 = class_156.method_668();
-        int var6 = 0;
-        if (var3 == null) {
-            if (!(var5.exists())) {
-                var5.createNewFile();
-            }
-            var7.method_672();
+        File file = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().getFile();
+        class_158 class158 = class_156.method_668();
+        if (!(file.exists())) {
+            file.createNewFile();
         }
-        var4.printStackTrace();
+        class158.method_672(file);
+        file.printStackTrace();
         return 1;
     }
 
     private static int computeValue3(CommandContext arg0) {
         Iterator iterator = EnabledServiceComponent.INSTANCE.getArrayList2().iterator();
-        if (iterator.hasNext()) {
-            Module var9 = (Module) iterator.next();
-            if (var9.getEnabled()) {
-                var9.updateValue2();
+        while (iterator.hasNext()) {
+            Module module = ((Module) iterator.next());
+            if (module.getEnabled()) {
+                module.updateValue2();
             }
-            Iterator iterator2 = var9.getList().iterator();
+            Iterator iterator2 = module.getList().iterator();
             while (iterator2.hasNext()) {
             }
-            VisibleSettingProperty var11 = (VisibleSettingProperty) iterator2.next();
-            var11.setValue();
+            VisibleSettingProperty visibleSettingProperty = ((VisibleSettingProperty) iterator2.next());
+            visibleSettingProperty.setValue();
         }
         return 1;
     }
 
     private static int computeValue4(CommandContext arg0) {
-        String var11 = (String) arg0.getArgument("name", String.class);
-        DefaultServiceComponent.executeAction(OptionMode8.MODULES);
-        Object[] var12 = new Object[1];
-        var12[0] = var11;
-        INSTANCE.executeAction(KeyServiceComponent.INSTANCE.resolveString("commands.config.saved"));
+        String text = ((String) arg0.getArgument("name", String.class));
+        DefaultServiceComponent.executeAction(text, OptionMode8.MODULES);
+        Object[] items = new Object[1];
+        items[0] = text;
+        INSTANCE.executeAction(KeyServiceComponent.INSTANCE.resolveString("commands.config.saved", items));
         return 1;
     }
 
     private static int computeValue5(CommandContext arg0) {
-        String var11 = (String) arg0.getArgument("name", String.class);
-        DefaultServiceComponent.executeAction(OptionMode8.MODULES);
-        Object[] var12 = new Object[1];
-        var12[0] = var11;
-        INSTANCE.executeAction(KeyServiceComponent.INSTANCE.resolveString("commands.config.loaded"));
+        String text = ((String) arg0.getArgument("name", String.class));
+        DefaultServiceComponent.executeAction(text, OptionMode8.MODULES);
+        Object[] items = new Object[1];
+        items[0] = text;
+        INSTANCE.executeAction(KeyServiceComponent.INSTANCE.resolveString("commands.config.loaded", items));
         return 1;
     }
 
     private static int computeValue6(CommandContext arg0) {
-        String var11 = (String) arg0.getArgument("name", String.class);
-        DefaultServiceComponent.executeAction(OptionMode8.MODULES);
-        Object[] var12 = new Object[1];
-        var12[0] = var11;
-        INSTANCE.executeAction(KeyServiceComponent.INSTANCE.resolveString("commands.config.removed"));
+        String text = ((String) arg0.getArgument("name", String.class));
+        DefaultServiceComponent.executeAction(text, OptionMode8.MODULES);
+        Object[] items = new Object[1];
+        items[0] = text;
+        INSTANCE.executeAction(KeyServiceComponent.INSTANCE.resolveString("commands.config.removed", items));
         return 1;
     }
 

@@ -32,7 +32,7 @@ public class AttackBlockEvent extends Event {
     }
 
     public boolean call(Direction direction, BlockPos pos) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         pos = pos;
         direction = direction;
         Gofra.INSTANCE.drain(this);

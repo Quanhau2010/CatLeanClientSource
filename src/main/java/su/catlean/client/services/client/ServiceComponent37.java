@@ -29,28 +29,28 @@ public class ServiceComponent37 extends Thread {
     }
 
     public void run() {
-        GuiMoveModule.INSTANCE.updateValue(1);
+        GuiMoveModule.INSTANCE.updateValue(true);
         if (!(this.enabledFlag)) {
             ItemPacketHelper.INSTANCE.executeAction(this.countValue);
         }
-        HandServiceComponent.e(this.countValue, this.countValue2, class_1713.field_7791);
-        GuiMoveModule.INSTANCE.updateValue(0);
+        HandServiceComponent.e(this.countValue, this.countValue2, class_1713.field_7791, false);
+        GuiMoveModule.INSTANCE.updateValue(false);
         Thread.sleep(this.countValue3);
-        SequenceServiceComponent.INSTANCE.executeAction((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455()), 200, this::getUnit));
+        SequenceServiceComponent.INSTANCE.executeAction(((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(200, this::getUnit)));
         Thread.sleep(this.countValue3);
-        GuiMoveModule.INSTANCE.updateValue(1);
+        GuiMoveModule.INSTANCE.updateValue(true);
         if (!(this.enabledFlag)) {
             ItemPacketHelper.INSTANCE.executeAction(this.countValue2);
         } else {
-            HandServiceComponent.e(this.countValue, this.countValue2, class_1713.field_7791);
+            HandServiceComponent.e(this.countValue, this.countValue2, class_1713.field_7791, false);
         }
-        GuiMoveModule.INSTANCE.updateValue(0);
+        GuiMoveModule.INSTANCE.updateValue(false);
         this.run();
     }
 
     private static Unit getUnit() {
         HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
-        PacketPacketHelper.handlePacket((Packet) new class_2879(Hand.field_5808));
+        PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
         return Unit.INSTANCE;
     }
 

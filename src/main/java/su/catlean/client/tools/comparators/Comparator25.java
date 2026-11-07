@@ -13,14 +13,11 @@ public class Comparator25 implements Comparator {
     }
 
     public int compare(Object b) {
-        ServiceComponent53 var8 = (ServiceComponent53) 0L;
-        int var9 = 0;
-        var8 = (ServiceComponent53) b;
-        Comparable var10 = (Comparable) Double.valueOf(SharedKt.getPlayer().method_5649((var8.getNumericValue() * 16), SharedKt.getPlayer().getY(), (var8.getNumericValue2() * 16)));
-        var9 = 0;
-        if (var7 != null) {
+        ServiceComponent53 serviceComponent53 = ((ServiceComponent53) b);
+        Comparable comparable = ((Comparable) Double.valueOf(SharedKt.getPlayer().method_5649((this.getNumericValue() * 16), SharedKt.getPlayer().getY(), (this.getNumericValue2() * 16))));
+        if (__UNDEF_KEY__ != null) {
         }
-        return ComparisonsKt.compareValues((Comparable) Double.valueOf(SharedKt.getPlayer().method_5649((var8.getNumericValue() * 16), SharedKt.getPlayer().getY(), (var8.getNumericValue2() * 16))));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(SharedKt.getPlayer().method_5649((serviceComponent53.getNumericValue() * 16), SharedKt.getPlayer().getY(), (serviceComponent53.getNumericValue2() * 16)))));
     }
 
 }

@@ -51,71 +51,71 @@ public class AttributeSwapModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private AttributeSwapMaceMode getMace() {
-        return (AttributeSwapMaceMode) maceSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((AttributeSwapMaceMode) maceSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getAxe() {
-        return (Boolean) axeSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) axeSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getAxeOnlyBlocking() {
-        return (Boolean) axeOnlyBlockingSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) axeOnlyBlockingSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getKnockBack() {
-        return (Boolean) knockBackSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) knockBackSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getAxeMaceHit() {
-        return (Boolean) axeMaceHitSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) axeMaceHitSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private int getAxeMaceHitDelay() {
-        return (Number) axeMaceHitDelaySetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Number) axeMaceHitDelaySetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void onSendPacket(SendPacket arg0) {
-        Entity entity = CriticalsModule.INSTANCE.resolveMinecraftObject((class_2824) arg0.getPacket());
-        if (!(arg0.getPacket() instanceof class_2824) || !(CriticalsModule.INSTANCE.checkCondition((class_2824) arg0.getPacket())) || entity == null || entity instanceof EndCrystalEntity) {
+        Entity entity = CriticalsModule.INSTANCE.resolveMinecraftObject(((class_2824) arg0.getPacket()));
+        if (!(arg0.getPacket() instanceof class_2824) || !(CriticalsModule.INSTANCE.checkCondition(((class_2824) arg0.getPacket()))) || entity == null || entity instanceof EndCrystalEntity) {
             return;
         }
-        StackServiceComponent2 var38 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent23();
-        StackServiceComponent2 var39 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition);
-        StackServiceComponent2 var40 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition2);
-        StackServiceComponent2 var41 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition3);
-        StackServiceComponent2 var42 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition4);
-        if (this.getAxeMaceHit() && SharedKt.getPlayer().method_6047().getItem() instanceof class_1743 && var39.isActive()) {
-            if (var41.isActive()) {
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent23();
+        StackServiceComponent2 stackServiceComponent22 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition);
+        StackServiceComponent2 stackServiceComponent23 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition2);
+        StackServiceComponent2 stackServiceComponent24 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition3);
+        StackServiceComponent2 stackServiceComponent25 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition4);
+        if (this.getAxeMaceHit() && SharedKt.getPlayer().method_6047().getItem() instanceof class_1743 && stackServiceComponent22.isActive()) {
+            if (stackServiceComponent24.isActive()) {
             } else {
             }
-            Object var43 = var39;
-            RunnableServiceComponent2.executeAction(this.getAxeMaceHitDelay(), 0, 0, this::executeAction);
+            StackServiceComponent2 stackServiceComponent26 = stackServiceComponent22;
+            RunnableServiceComponent2.executeAction(this.getAxeMaceHitDelay(), 0, false, this::executeAction);
         } else {
             if (this.getAxeOnlyBlocking()) {
-                if (!(Intrinsics.areEqual((PlayerEntity) entity.method_6079().getItem(), Items.field_8255))) {
-                    if (this.getAxe() && !(SharedKt.getPlayer().method_6047().getItem() instanceof class_1743) && entity instanceof PlayerEntity && (PlayerEntity) entity.method_6115() && Intrinsics.areEqual((PlayerEntity) entity.method_6047().getItem(), Items.field_8255)) {
+                if (!(Intrinsics.areEqual(((PlayerEntity) entity).method_6079().getItem(), Items.field_8255))) {
+                    if (this.getAxe() && !(SharedKt.getPlayer().method_6047().getItem() instanceof class_1743) && entity instanceof PlayerEntity && ((PlayerEntity) entity).method_6115() && Intrinsics.areEqual(((PlayerEntity) entity).method_6047().getItem(), Items.field_8255)) {
+                        StackServiceComponent2 stackServiceComponent27 = stackServiceComponent2;
                     }
                 }
-                Object var37 = var38;
             }
-            if (var37 != null) {
+            if (stackServiceComponent27 != null) {
             }
-            if (!(var37.isActive()) && this.getMace() != AttributeSwapMaceMode.OFF && !(SharedKt.getPlayer().method_6047().getItem() instanceof class_9362)) {
-                var37 = var39;
+            if (!(stackServiceComponent27.isActive()) && this.getMace() != AttributeSwapMaceMode.OFF && !(SharedKt.getPlayer().method_6047().getItem() instanceof class_9362)) {
+                stackServiceComponent27 = stackServiceComponent22;
             }
-            if (var37 != null) {
+            if (stackServiceComponent27 != null) {
             }
-            if (!(var37.isActive()) && this.getKnockBack()) {
-                var37 = var42;
+            if (!(stackServiceComponent27.isActive()) && this.getKnockBack()) {
+                stackServiceComponent27 = stackServiceComponent25;
             }
             countValue = SharedKt.getPlayer().method_31548().method_67532();
-            var37.updateValue();
-            var43 = countValue;
-            RunnableServiceComponent2.executeAction(this.getDelay(), 0, 0, this::updateValue);
+            stackServiceComponent27.updateValue();
+            stackServiceComponent26 = countValue;
+            RunnableServiceComponent2.executeAction(this.getDelay(), 0, false, this::updateValue);
         }
     }
 
@@ -145,17 +145,17 @@ public class AttributeSwapModule extends Module {
     }
 
     private static boolean checkCondition4(ItemStack arg0) {
-        if (var5 != null) {
+        if (__UNDEF_KEY__ != null) {
             if (StackServiceComponent3.computeValue(arg0, class_1893.field_9121) >= 1) {
+            } else {
             }
-        } else {
         }
         return false;
     }
 
     private static void executeAction(StackServiceComponent2 arg0, Entity arg1) {
         ItemPacketHelper.INSTANCE.executeAction(arg0.getNumericValue());
-        SharedKt.getInteractionManager().method_2918((PlayerEntity) SharedKt.getPlayer(), arg1);
+        SharedKt.getInteractionManager().method_2918(((PlayerEntity) SharedKt.getPlayer()), arg1);
         SharedKt.getPlayer().method_6104(Hand.field_5808);
     }
 
@@ -164,14 +164,14 @@ public class AttributeSwapModule extends Module {
     }
 
     static {
-        KProperty[] var30 = new KProperty[7];
+        KProperty[] items = new KProperty[7];
         INSTANCE = new AttributeSwapModule();
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 0, new IntRange(0, 5));
         maceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mace", AttributeSwapMaceMode.ANY);
-        axeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "axe");
-        axeOnlyBlockingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-when-target-blocking", 1, null, this::isActive);
-        knockBackSetting = VisibleRenderHelper.registerSetting(INSTANCE, "knock-back-item");
-        axeMaceHitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "axe-mace-hit");
+        axeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "axe", true);
+        axeOnlyBlockingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-when-target-blocking", true, null, this::isActive);
+        knockBackSetting = VisibleRenderHelper.registerSetting(INSTANCE, "knock-back-item", true);
+        axeMaceHitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "axe-mace-hit", true);
         axeMaceHitDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "axe-mace-hit-delay", 4, new IntRange(1, 8), null, this::isActive2);
         countValue = -1;
     }

@@ -23,7 +23,7 @@ public class CtlEspCamouflageUboServiceComponent {
     static {
         INSTANCE = new CtlEspCamouflageUboServiceComponent();
         countValue = new Std140SizeCalculator().putVec2().putVec4().putVec4().putVec4().putVec4().putFloat().putFloat().get();
-        minecraftRef = new class_11280(countValue);
+        minecraftRef = new class_11280(countValue, 0);
     }
 
 }

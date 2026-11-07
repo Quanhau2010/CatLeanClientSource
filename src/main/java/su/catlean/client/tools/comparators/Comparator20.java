@@ -15,12 +15,9 @@ public class Comparator20 implements Comparator {
     }
 
     public int compare(Object b) {
-        BlockPos blockPos = (BlockPos) 0L;
-        int var7 = 0;
-        blockPos = (BlockPos) b;
-        Comparable var8 = (Comparable) Double.valueOf(blockPos.toCenterPos().method_1022(this.vec3d));
-        var7 = 0;
-        if (ComparisonsKt.compareValues((Comparable) Double.valueOf(blockPos.toCenterPos().method_1022(this.vec3d))) != null) {
+        BlockPos blockPos = ((BlockPos) b);
+        Comparable comparable = ((Comparable) Double.valueOf(this.toCenterPos().method_1022(this.vec3d)));
+        if (ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(blockPos.toCenterPos().method_1022(this.vec3d)))) != null) {
         }
         return null;
     }

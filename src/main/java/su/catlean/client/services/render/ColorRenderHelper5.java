@@ -62,35 +62,35 @@ public class ColorRenderHelper5 implements class_11281 {
     }
 
     public static ColorRenderHelper5 resolveColorRenderHelper5(ColorRenderHelper5 arg0, float arg1, float arg2, Color arg3, float arg4, int arg5, Object arg6) {
-        if ((arg5 & 1)) {
+        if ((arg5 & 1) != 0) {
             arg1 = arg0.factorValue;
         }
-        if ((arg5 & 2)) {
+        if ((arg5 & 2) != 0) {
             arg2 = arg0.factorValue2;
         }
-        if ((arg5 & 4)) {
+        if ((arg5 & 4) != 0) {
             arg3 = arg0.colorValue;
         }
-        if ((arg5 & 8)) {
+        if ((arg5 & 8) != 0) {
             arg4 = arg0.factorValue3;
         }
         return arg0.resolveColorRenderHelper5(arg1, arg2, arg3, arg4);
     }
 
     public String toString() {
-        float var3 = this.factorValue3;
-        Color var4 = this.colorValue;
-        float var5 = this.factorValue2;
-        float var6 = this.factorValue;
-        return ("UniformData(halfTexelSizeX=" + var6 + ", halfTexelSizeY=" + var5 + ", color=" + var4 + ", lineWidth=" + var3 + ")");
+        float factor = this.factorValue3;
+        Color color = this.colorValue;
+        float factor2 = this.factorValue2;
+        float factor3 = this.factorValue;
+        return ("UniformData(halfTexelSizeX=" + factor3 + ", halfTexelSizeY=" + factor2 + ", color=" + color + ", lineWidth=" + factor + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + this.colorValue.hashCode());
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue3));
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + this.colorValue.hashCode());
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -100,17 +100,17 @@ public class ColorRenderHelper5 implements class_11281 {
         if (!(other instanceof ColorRenderHelper5)) {
             return false;
         }
-        ColorRenderHelper5 var5 = (ColorRenderHelper5) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        ColorRenderHelper5 colorRenderHelper5 = ((ColorRenderHelper5) other);
+        if (Float.compare(this.factorValue, colorRenderHelper5.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, colorRenderHelper5.factorValue2)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue, var5.colorValue))) {
+        if (!(Intrinsics.areEqual(this.colorValue, colorRenderHelper5.colorValue))) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, colorRenderHelper5.factorValue3)) {
             return false;
         }
         return true;

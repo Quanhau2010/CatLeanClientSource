@@ -16,10 +16,10 @@ public class ServiceComponent10 {
     }
 
     public boolean checkCondition2(int ms) {
-        if (var5) {
+        if (__UNDEF_KEY__) {
             this.executeAction();
         }
-        if (var5 != null) {
+        if (__UNDEF_KEY__ != null) {
         }
         return false;
     }

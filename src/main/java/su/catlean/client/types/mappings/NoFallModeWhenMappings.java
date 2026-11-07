@@ -9,18 +9,18 @@ public class NoFallModeWhenMappings {
     public static final int[] countValueArray;
 
     static {
-        Object var9 = new int[NoFallMode.values()];
-        var9[NoFallMode.Rubberband.ordinal()] = 1;
-        var9[NoFallMode.Items.ordinal()] = 2;
-        var9[NoFallMode.MatrixOffGround.ordinal()] = 3;
-        var9[NoFallMode.Vanilla.ordinal()] = 4;
-        var9[NoFallMode.GRIM_NEW.ordinal()] = 5;
-        var9[NoFallMode.GrimOld.ordinal()] = 0L;
-        ENUM_SWITCH_MAP = var9;
-        var9 = new int[NoFallFallDistanceMode.values()];
-        var9[NoFallFallDistanceMode.Custom.ordinal()] = 1;
-        var9[NoFallFallDistanceMode.Calc.ordinal()] = 2;
-        countValueArray = var9;
+        Object element = new int[NoFallMode.values()];
+        element[NoFallMode.Rubberband.ordinal()] = 1;
+        element[NoFallMode.Items.ordinal()] = 2;
+        element[NoFallMode.MatrixOffGround.ordinal()] = 3;
+        element[NoFallMode.Vanilla.ordinal()] = 4;
+        element[NoFallMode.GRIM_NEW.ordinal()] = 5;
+        element[NoFallMode.GrimOld.ordinal()] = 0;
+        ENUM_SWITCH_MAP = element;
+        element = new int[NoFallFallDistanceMode.values()];
+        element[NoFallFallDistanceMode.Custom.ordinal()] = 1;
+        element[NoFallFallDistanceMode.Calc.ordinal()] = 2;
+        countValueArray = element;
     }
 
 }

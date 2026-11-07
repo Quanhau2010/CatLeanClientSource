@@ -33,25 +33,25 @@ public class ReverseStepModule extends Module {
     }
 
     private ReverseStepMode getMode() {
-        return (ReverseStepMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((ReverseStepMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private float getTimer() {
-        return (Number) timerSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) timerSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private float getMotion() {
-        return (Number) motionSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) motionSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getPauseIfShift() {
-        return (Boolean) pauseIfShiftSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) pauseIfShiftSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     public void onPreSyncEvent(PreSyncEvent e) {
         if (this.getPauseIfShift()) {
         }
-        if (SharedKt.getMc().options.field_1832.method_1434() || SharedKt.getPlayer().method_5799() || SharedKt.getPlayer().method_5869() || SharedKt.getPlayer().method_5771() || SharedKt.getPlayer().isFallFlying() || SharedKt.getPlayer().method_31549().field_7479 || TargetEntityHelper.INSTANCE.isSurroundedOrWebbed((PlayerEntity) SharedKt.getPlayer())) {
+        if (SharedKt.getMc().options.field_1832.method_1434() || SharedKt.getPlayer().method_5799() || SharedKt.getPlayer().method_5869() || SharedKt.getPlayer().method_5771() || SharedKt.getPlayer().isFallFlying() || SharedKt.getPlayer().method_31549().field_7479 || TargetEntityHelper.INSTANCE.isSurroundedOrWebbed(((PlayerEntity) SharedKt.getPlayer()))) {
             return;
         }
         if (this.getMode() == ReverseStepMode.Timer && !(SharedKt.getMc().options.field_1903.method_1434()) && !(SharedKt.getPlayer().isOnGround()) && SharedKt.getPlayer().method_18798().method_10214() < -0.1D) {
@@ -69,12 +69,12 @@ public class ReverseStepModule extends Module {
     }
 
     static {
-        KProperty[] var30 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new ReverseStepModule();
-        modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", ReverseStepMode.Motion, null, null, -8025214652491235316L);
-        timerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timer", 3.0F, RangesKt.rangeTo(1.0F, 5.0F), null, this::isActive, -2149687674892451832L);
-        motionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "motion", 1.0F, RangesKt.rangeTo(0.1F, 2.0F), null, this::isActive2, -7016930780077096952L);
-        pauseIfShiftSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-if-shift", 0, null, null, 465505499186462732L);
+        modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", ReverseStepMode.Motion);
+        timerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timer", 3.0F, RangesKt.rangeTo(1.0F, 5.0F), null, this::isActive);
+        motionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "motion", 1.0F, RangesKt.rangeTo(0.1F, 2.0F), null, this::isActive2);
+        pauseIfShiftSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-if-shift", false);
     }
 
 }

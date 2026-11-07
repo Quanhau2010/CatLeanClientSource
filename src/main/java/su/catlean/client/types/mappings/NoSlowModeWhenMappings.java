@@ -7,10 +7,10 @@ public class NoSlowModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[NoSlowMode.values()];
-        var0[NoSlowMode.NCP.ordinal()] = 1;
-        var0[NoSlowMode.GRIM.ordinal()] = 2;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[NoSlowMode.values()];
+        element[NoSlowMode.NCP.ordinal()] = 1;
+        element[NoSlowMode.GRIM.ordinal()] = 2;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

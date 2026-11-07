@@ -36,7 +36,7 @@ public class PlayerMixin {
     }
 
     protected void shouldDismountHook(CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(0));
+        cir.setReturnValue(Boolean.valueOf(false));
     }
 
 }

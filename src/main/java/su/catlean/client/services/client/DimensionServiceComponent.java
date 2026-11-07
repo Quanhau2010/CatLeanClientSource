@@ -10,11 +10,11 @@ public class DimensionServiceComponent extends MutablePropertyReference0Impl {
     }
 
     public Object get() {
-        return Integer.valueOf((IdRecord7) this.receiver.getNumericValue4());
+        return Integer.valueOf(((IdRecord7) this.receiver).getNumericValue4());
     }
 
     public void set(Object value) {
-        (IdRecord7) this.receiver.updateValue4((Number) value);
+        ((IdRecord7) this.receiver).updateValue4(((Number) value));
     }
 
 }

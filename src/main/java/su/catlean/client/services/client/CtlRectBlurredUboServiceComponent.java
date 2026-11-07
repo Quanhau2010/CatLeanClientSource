@@ -19,7 +19,7 @@ public class CtlRectBlurredUboServiceComponent {
     static {
         INSTANCE = new CtlRectBlurredUboServiceComponent();
         countValue = new Std140SizeCalculator().putVec2().putFloat().putFloat().putVec4().get();
-        minecraftRef = new class_11280(countValue);
+        minecraftRef = new class_11280(countValue, 0);
     }
 
 }

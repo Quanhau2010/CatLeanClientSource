@@ -21,7 +21,7 @@ public class CoordWidgetRenderHelper extends CheckRenderHelper {
     }
 
     private boolean getSecondaryCoords() {
-        return (Boolean) secondaryCoordsSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) secondaryCoordsSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSecondaryCoords(boolean value) {
@@ -29,7 +29,7 @@ public class CoordWidgetRenderHelper extends CheckRenderHelper {
     }
 
     private boolean getOnlyNether() {
-        return (Boolean) onlyNetherSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) onlyNetherSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setOnlyNether(boolean value) {
@@ -37,43 +37,30 @@ public class CoordWidgetRenderHelper extends CheckRenderHelper {
     }
 
     public void render(DrawContext context) {
-        long var4 = (0L ^ 116853176505585L);
-        long var6 = (0L ^ 57814021407262L);
-        long var8 = (0L ^ 53664238460761L);
-        long var10 = (0L ^ 105037015370739L);
-        long var12 = (0L ^ 109580710346244L);
-        float var16 = 8.0F;
-        if (0L > 0L && var14) {
-        }
+        float factor = 8.0F;
         if (this.getOnlyNether()) {
             if (this.getSecondaryCoords() && 0.125F) {
+            } else {
             }
-        } else {
         }
-        String var18 = (0 + SharedKt.getPlayer().getX() + SharedKt.getPlayer().getY() + "  " + SharedKt.getPlayer().getZ());
-        String var19 = (1 + (SharedKt.getPlayer().getX() * var16) + "  " + (SharedKt.getPlayer().getZ() * var16) + "]");
-        if (0L > 0L) {
-            if (SharedKt.getPlayer().field_6012 < 100) {
-            }
-            var18 = ("wait " + ((100 - SharedKt.getPlayer().field_6012) / 20) + " seconds");
-            var19 = "";
+        String text = (0 + SharedKt.getPlayer().getX() + SharedKt.getPlayer().getY() + "  " + SharedKt.getPlayer().getZ());
+        String text2 = (1 + (SharedKt.getPlayer().getX() * factor) + "  " + (SharedKt.getPlayer().getZ() * factor) + "]");
+        if (SharedKt.getPlayer().field_6012 < 100) {
+            text = ("wait " + ((100 - SharedKt.getPlayer().field_6012) / 20) + " seconds");
+            text2 = "";
         }
-        StringBuilder var21 = new StringBuilder();
-        Object var22 = var21;
-        int var23 = 0;
-        if (0L >= 0L) {
-            var22.append();
-            var22.append((var19));
-        }
-        String var20 = var21.toString();
-        this.render(context);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(text);
+        stringBuilder.append((text2));
+        String text3 = stringBuilder.toString();
+        this.render(context, text3);
     }
 
     static {
-        KProperty[] var26 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new CoordWidgetRenderHelper();
-        secondaryCoordsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "secondary");
-        onlyNetherSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-nether");
+        secondaryCoordsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "secondary", true);
+        onlyNetherSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-nether", true);
     }
 
 }

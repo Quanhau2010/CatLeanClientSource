@@ -21,40 +21,38 @@ public class VRecordSerializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, VRecord value) {
-        SerialDescriptor var5 = serialDescriptor;
-        CompositeEncoder var6 = encoder.beginStructure();
-        VRecord.executeAction(value);
-        var6.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        VRecord.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public VRecord resolveVRecord(Decoder decoder) {
-        SerialDescriptor var8 = serialDescriptor;
-        int var9 = 1;
-        int var11 = 0;
-        int var12 = 0;
-        CompositeDecoder var14 = decoder.beginStructure();
-        if (var7 == null) {
-            if (var14.decodeSequentially()) {
-                var12 = var14.decodeIntElement(0);
+        int index = 1;
+        int index2 = 0;
+        int index3 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        if (__UNDEF_KEY__ == null) {
+            if (compositeDecoder.decodeSequentially()) {
+                index3 = compositeDecoder.decodeIntElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                String text = compositeDecoder.decodeStringElement(serialDescriptor, 1);
+                index2 = (index2 | 2);
             }
-            var11 = (var11 | 1);
-            String var13 = var14.decodeStringElement(1);
-            var11 = (var11 | 2);
         }
-        if (var7 != null && var9) {
-            int var10 = var14.decodeElementIndex();
-            if (var7 == null) {
-                if (var7 == null) {
+        if (__UNDEF_KEY__ != null && index) {
+            int index4 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ == null) {
+                if (__UNDEF_KEY__ == null) {
                 }
-                var9 = 0;
-                var12 = var14.decodeIntElement(0);
-                var11 = (var11 | 1);
-                var13 = var14.decodeStringElement(1);
-                var11 = (var11 | 2);
+                index = 0;
+                index3 = compositeDecoder.decodeIntElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                text = compositeDecoder.decodeStringElement(serialDescriptor, 1);
+                index2 = (index2 | 2);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var14.endStructure();
         }
-        return new VRecord(null);
+        return new VRecord(index2, index3, text);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -62,10 +60,10 @@ public class VRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        KSerializer[] var1 = new KSerializer[2];
-        var1[0] = IntSerializer.INSTANCE;
-        var1[1] = StringSerializer.INSTANCE;
-        return var1;
+        KSerializer[] items = new KSerializer[2];
+        items[0] = IntSerializer.INSTANCE;
+        items[1] = StringSerializer.INSTANCE;
+        return items;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -73,7 +71,7 @@ public class VRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (VRecord) value);
+        this.executeAction(encoder, ((VRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -82,10 +80,10 @@ public class VRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new VRecordSerializer();
-        PluginGeneratedSerialDescriptor var11 = new PluginGeneratedSerialDescriptor("su.catlean.j9", (GeneratedSerializer) INSTANCE, 2);
-        var11.addElement("v", 0);
-        var11.addElement("clientId", 0);
-        serialDescriptor = (SerialDescriptor) var11;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.j9", ((GeneratedSerializer) INSTANCE), 2);
+        pluginGeneratedSerialDescriptor.addElement("v", false);
+        pluginGeneratedSerialDescriptor.addElement("clientId", false);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

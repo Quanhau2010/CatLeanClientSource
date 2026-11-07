@@ -42,76 +42,66 @@ public class JsonServiceComponent6 implements Contract3 {
         this.itemList = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 1817644076745L) >>> 32);
-        long var4 = (((arg0 ^ 1817644076745L) << 32) >>> 48);
-        long var5 = (((arg0 ^ 1817644076745L) << 48) >>> 48);
+    public void updateValue() {
         if (this.file.createNewFile()) {
         }
-        List positions = new ArrayList();
-        Json var8 = this.json;
-        String var9 = FilesKt.readText$default(this.file);
-        int var10 = 0;
-        var8.getSerializersModule();
-        SettingMacrosRecord var7 = (SettingMacrosRecord) var8.decodeFromString((DeserializationStrategy) SettingMacrosRecord.serviceComponent104.getKSerializer());
-        var8 = new ArrayList();
-        var9 = var8;
-        Object var12 = positions;
-        var10 = 0;
-        var9.addAll((Collection) var7.getList2());
-        var9.addAll((Collection) var7.getList3());
-        var9.addAll((Collection) var7.getList());
-        var7 = var8;
-        var8 = var12;
+        List list = new ArrayList();
+        Json json = this.json;
+        String text = FilesKt.readText$default(this.file);
+        json.getSerializersModule();
+        SettingMacrosRecord settingMacrosRecord = ((SettingMacrosRecord) json.decodeFromString(((DeserializationStrategy) SettingMacrosRecord.serviceComponent104.getKSerializer()), text));
+        json = new ArrayList();
+        text = json;
+        text.addAll(((Collection) settingMacrosRecord.getList2()));
+        text.addAll(((Collection) settingMacrosRecord.getList3()));
+        text.addAll(((Collection) settingMacrosRecord.getList()));
+        settingMacrosRecord = json;
+        json = list;
         SharedKt.getLogger().warn("Macros are not loaded from file for some reasons.");
-        var7 = new ArrayList();
-        Object var6 = var7;
-        positions.executeAction();
+        settingMacrosRecord = new ArrayList();
+        list.executeAction(settingMacrosRecord);
     }
 
     public void executeAction(int arg0, int arg1, byte arg2) {
-        int var4 = (((arg0 << 32) | ((arg1 << 40) >>> 32)) | ((arg2 << 56) >>> 56));
-        long var6 = (var4 ^ 63175324088741L);
-        long var8 = (var4 ^ 23103317616887L);
-        Json var11 = this.json;
-        Iterable var14 = (Iterable) this.resolveList();
-        File var23 = this.file;
-        int var15 = 0;
-        Object var16 = var14;
-        Collection var17 = (Collection) new ArrayList();
-        int var18 = 0;
-        Iterator iterator = var16.iterator();
+        Json json = this.json;
+        Iterable iterable = ((Iterable) this.resolveList());
+        File file = this.file;
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var20 = iterator.next();
-            var17.add();
+            Object element = iterator.next();
+            collection.add(element);
         }
-        List positions = TypeIntrinsics.asMutableList();
-        var15 = (Iterable) this.resolveList();
-        var16 = 0;
-        var17 = var15;
-        var18 = (Collection) new ArrayList();
+        List list = TypeIntrinsics.asMutableList(collection);
+        index = ((Iterable) this.resolveList());
+        iterable2 = 0;
+        collection = index;
+        index2 = ((Collection) new ArrayList());
         iterator = 0;
-        var20 = var17.iterator();
-        while (var20.hasNext()) {
-            Object var21 = var20.next();
-            var18.add();
+        element = collection.iterator();
+        while (element.hasNext()) {
+            Object element2 = element.next();
+            index2.add(element2);
         }
-        List positions2 = TypeIntrinsics.asMutableList();
-        var16 = (Iterable) this.resolveList();
-        var17 = 0;
-        var18 = var16;
-        iterator = (Collection) new ArrayList();
-        var20 = 0;
-        var21 = var18.iterator();
-        while (var21.hasNext()) {
-            Object var22 = var21.next();
-            iterator.add();
+        List list2 = TypeIntrinsics.asMutableList(index2);
+        iterable2 = ((Iterable) this.resolveList());
+        collection = 0;
+        index2 = iterable2;
+        iterator = ((Collection) new ArrayList());
+        element = 0;
+        element2 = index2.iterator();
+        while (element2.hasNext()) {
+            Object element3 = element2.next();
+            iterator.add(element3);
         }
-        var14 = TypeIntrinsics.asMutableList(iterator);
-        positions = new SettingMacrosRecord(positions, positions2);
-        positions2 = 0;
-        var11.getSerializersModule();
-        FilesKt.writeText$default(var11.encodeToString((SerializationStrategy) SettingMacrosRecord.serviceComponent104.getKSerializer(), positions));
+        iterable = TypeIntrinsics.asMutableList(iterator);
+        list = new SettingMacrosRecord(iterable, list, list2);
+        list2 = 0;
+        json.getSerializersModule();
+        FilesKt.writeText$default(file, json.encodeToString(((SerializationStrategy) SettingMacrosRecord.serviceComponent104.getKSerializer()), list));
     }
 
 }

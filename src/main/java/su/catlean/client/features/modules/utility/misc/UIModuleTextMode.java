@@ -2,13 +2,10 @@ package su.catlean.client.features.modules.utility.misc;
 
 public enum UIModuleTextMode {
 
-    public static final UIModuleTextMode CENTER;
-    public static final UIModuleTextMode LEFT;
-    private static int countValue;
+    CENTER,
+    LEFT;
 
-    UIModuleTextMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static int countValue;
 
     public static void updateValue(int arg0) {
         countValue = arg0;

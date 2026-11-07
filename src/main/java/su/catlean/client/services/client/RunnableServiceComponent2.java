@@ -31,25 +31,25 @@ public class RunnableServiceComponent2 {
     }
 
     public void executeAction(int delay, byte priority, boolean tick, Runnable runnable) {
-        ActionServiceComponent var10 = new ActionServiceComponent(runnable, delay, priority, tick);
-        if (var9 != null) {
+        ActionServiceComponent actionServiceComponent = new ActionServiceComponent(runnable, delay, priority, tick);
+        if (__UNDEF_KEY__ != null) {
             if (enabledFlag) {
-                arrayDeque2.addLast();
+                arrayDeque2.addLast(actionServiceComponent);
+                if (__UNDEF_KEY__ == null) {
+                    arrayDeque.addLast(actionServiceComponent);
+                }
             }
-            if (var9 == null) {
-            }
-            arrayDeque.addLast();
         }
     }
 
     public static void executeAction(RunnableServiceComponent2 arg0, int arg1, byte arg2, boolean arg3, Runnable arg4, int arg5, Object arg6) {
-        if ((arg5 & 1)) {
+        if ((arg5 & 1) != 0) {
             arg1 = 0;
         }
-        if ((arg5 & 2)) {
+        if ((arg5 & 2) != 0) {
             arg2 = 10;
         }
-        if ((arg5 & 4)) {
+        if ((arg5 & 4) != 0) {
             arg3 = 1;
         }
         arg0.executeAction(arg1, arg2, arg3, arg4);
@@ -59,7 +59,7 @@ public class RunnableServiceComponent2 {
         enabledFlag = 1;
         Iterator iterator = arrayDeque.iterator();
         while (iterator.hasNext()) {
-            ActionServiceComponent var8 = (ActionServiceComponent) iterator.next();
+            ActionServiceComponent actionServiceComponent = ((ActionServiceComponent) iterator.next());
             iterator.remove();
         }
         enabledFlag = 0;

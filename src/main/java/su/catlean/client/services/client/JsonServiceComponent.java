@@ -35,34 +35,25 @@ public class JsonServiceComponent implements Contract3 {
         this.wayPointsRecord = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 139522763903252L) >>> 48);
-        long var4 = (((arg0 ^ 139522763903252L) << 16) >>> 48);
-        long var5 = (((arg0 ^ 139522763903252L) << 32) >>> 32);
-        long var6 = (arg0 ^ 135137456124477L);
+    public void updateValue() {
         if (this.file.createNewFile()) {
         }
-        WayPointsRecord var12 = new WayPointsRecord(new ArrayList());
-        Json var9 = this.json;
-        String var10 = FilesKt.readText$default(this.file);
-        int var11 = 0;
-        var9.getSerializersModule();
-        var9 = (WayPointsRecord) var9.decodeFromString((DeserializationStrategy) WayPointsRecord.serviceComponent72.getKSerializer());
-        var10 = var12;
+        WayPointsRecord wayPointsRecord = new WayPointsRecord();
+        Json json = this.json;
+        String text = FilesKt.readText$default(this.file);
+        json.getSerializersModule();
+        json = ((WayPointsRecord) json.decodeFromString(((DeserializationStrategy) WayPointsRecord.serviceComponent72.getKSerializer()), text));
+        text = wayPointsRecord;
         SharedKt.getLogger().warn("Waypoints are not loaded from file for some reasons.");
-        var9 = new WayPointsRecord(new ArrayList());
-        Object var8 = var9;
-        var12.executeAction();
+        json = new WayPointsRecord();
+        wayPointsRecord.executeAction(json);
     }
 
-    public void executeAction(int arg0, int arg1, byte arg2) {
-        int var4 = (((arg0 << 32) | ((arg1 << 40) >>> 32)) | ((arg2 << 56) >>> 56));
-        long var6 = (var4 ^ 49995006559783L);
-        Json var8 = this.json;
-        WayPointsRecord var9 = this.resolveWayPointsRecord();
-        int var10 = 0;
-        var8.getSerializersModule();
-        FilesKt.writeText$default(this.file, var8.encodeToString((SerializationStrategy) WayPointsRecord.serviceComponent72.getKSerializer()));
+    public void executeAction() {
+        Json json = this.json;
+        WayPointsRecord wayPointsRecord = this.resolveWayPointsRecord();
+        json.getSerializersModule();
+        FilesKt.writeText$default(this.file, json.encodeToString(((SerializationStrategy) WayPointsRecord.serviceComponent72.getKSerializer()), wayPointsRecord));
     }
 
 }

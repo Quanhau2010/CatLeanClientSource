@@ -54,19 +54,19 @@ public class ServiceComponent114 {
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag;
-        int var4 = this.countValue;
+        boolean flag = this.enabledFlag;
+        int index = this.countValue;
         BlockPos blockPos = this.blockPos;
-        return ("BreakingPos(pos=" + blockPos + ", progress=" + var4 + ", head=" + var3 + ")");
+        return ("BreakingPos(pos=" + blockPos + ", progress=" + index + ", head=" + flag + ")");
     }
 
     public int hashCode() {
-        int var4 = this.blockPos.hashCode();
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag));
-        if (var3 != null) {
+        int index = this.blockPos.hashCode();
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        if (__UNDEF_KEY__ != null) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -76,14 +76,14 @@ public class ServiceComponent114 {
         if (!(other instanceof ServiceComponent114)) {
             return false;
         }
-        ServiceComponent114 var5 = (ServiceComponent114) other;
-        if (!(Intrinsics.areEqual(this.blockPos, var5.blockPos))) {
+        ServiceComponent114 serviceComponent114 = ((ServiceComponent114) other);
+        if (!(Intrinsics.areEqual(this.blockPos, serviceComponent114.blockPos))) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != serviceComponent114.countValue) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != serviceComponent114.enabledFlag) {
             return false;
         }
         return true;

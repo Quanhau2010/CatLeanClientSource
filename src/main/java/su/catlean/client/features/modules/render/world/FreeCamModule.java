@@ -61,25 +61,22 @@ public class FreeCamModule extends Module {
     }
 
     private float getSpeed() {
-        return (Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private float getHspeed() {
-        return (Number) hspeedSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) hspeedSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getFreeze() {
-        return (Boolean) freezeSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) freezeSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = (arg0 ^ 62698557940930L);
-        long var7 = (arg0 ^ 67464996320865L);
+    public void updateValue() {
         if (SharedKt.getMc().world == null || SharedKt.getMc().player == null) {
             return;
         }
-        SharedKt.getMc().field_1730 = 0;
+        SharedKt.getMc().field_1730 = false;
         factorValue2 = SharedKt.getPlayer().method_36455();
         factorValue = SharedKt.getPlayer().method_36454();
         factorValue4 = factorValue2;
@@ -87,49 +84,44 @@ public class FreeCamModule extends Module {
         vec3d = new Vec3d(SharedKt.getPlayer().getX(), (SharedKt.getPlayer().getY() + SharedKt.getPlayer().method_18381(SharedKt.getPlayer().method_18376())), SharedKt.getPlayer().getZ());
         vec3d2 = new Vec3d(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ());
         vec3d3 = SharedKt.getPlayer().method_18798();
-        moveFixServiceComponent = new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455());
+        moveFixServiceComponent = new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455(), false);
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 64129331416845L);
-        long var5 = (arg0 ^ 60471910827463L);
-        long var7 = (arg0 ^ 65044256163258L);
-        long var9 = (arg0 ^ 29647348875563L);
+    public void updateValue2() {
         if (!(this.checkCondition())) {
             return;
         }
-        if (arg0 >= 0L) {
-            SharedKt.getMc().field_1730 = 1;
-            SharedKt.getPlayer().method_18799(vec3d3);
-        }
-        SharedKt.getPlayer().method_64578(moveFixServiceComponent.getNumericValue(), 0, moveFixServiceComponent.getNumericValue2(), 0);
+        SharedKt.getMc().field_1730 = true;
+        SharedKt.getPlayer().method_18799(vec3d3);
+        SharedKt.getPlayer().method_64578(moveFixServiceComponent.getNumericValue(), false, moveFixServiceComponent.getNumericValue2(), false);
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (SharedKt.getMc().world != null) {
             if (SharedKt.getMc().player == null) {
+                this.updateValue2();
+                return;
             }
-            this.updateValue2();
-            return;
         }
         if (!(SharedKt.getMc().currentScreen instanceof class_3928)) {
             if (SharedKt.getMc().currentScreen instanceof class_8671) {
+                this.updateValue2();
             }
-            this.updateValue2();
         }
         factorValue3 = factorValue;
         factorValue4 = factorValue2;
         factorValue = SharedKt.getPlayer().method_36454();
         factorValue2 = SharedKt.getPlayer().method_36455();
-        double[] var21 = EventPacketHelper2.process(this.getSpeed(), 0, factorValue5, factorValue6, 0.0F);
+        double[] items = EventPacketHelper2.process(this.getSpeed(), false, factorValue5, factorValue6, 0.0F);
         vec3d2 = vec3d;
-        vec3d = vec3d.method_1031(var21[0], factorValue7, var21[1]);
+        vec3d = vec3d.method_1031(items[0], factorValue7, items[1]);
         SequenceServiceComponent.INSTANCE.executeAction(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(SharedKt.getMc().field_1765.method_17784()), 0);
     }
 
     private void onSetupTerrainEvent(SetupTerrainEvent arg0) {
         if (SharedKt.getMc().world != null) {
-            if (var8 != null || SharedKt.getMc().player == null) {
+            if (SharedKt.getMc().player == null) {
+                this.updateValue2();
                 return;
             }
         }
@@ -138,7 +130,8 @@ public class FreeCamModule extends Module {
 
     private void onFreecamStateEvent(FreecamStateEvent arg0) {
         if (SharedKt.getMc().world != null) {
-            if (var19 != null || SharedKt.getMc().player == null) {
+            if (SharedKt.getMc().player == null) {
+                this.updateValue2();
                 return;
             }
         }
@@ -153,9 +146,9 @@ public class FreeCamModule extends Module {
     private void onUpdateCrosshairTarget(UpdateCrosshairTarget arg0) {
         if (SharedKt.getMc().world != null) {
             if (SharedKt.getMc().player == null) {
+                this.updateValue2();
+                return;
             }
-            this.updateValue2();
-            return;
         }
         class_10209.method_64146().method_15407();
         arg0.cancel();
@@ -165,63 +158,63 @@ public class FreeCamModule extends Module {
     private void onInputEvent(InputEvent arg0) {
         if (SharedKt.getMc().world != null) {
             if (SharedKt.getMc().player == null) {
+                this.updateValue2();
+                return;
             }
-            this.updateValue2();
-            return;
         }
         if (arg0.getKey() == -1) {
             return;
         }
-        boolean var13 = (KeyMappingAccessor) SharedKt.getMc().options.field_1894.getKey().method_1444() == arg0.getKey();
-        boolean var14 = (KeyMappingAccessor) SharedKt.getMc().options.field_1881.getKey().method_1444() == arg0.getKey();
-        boolean var15 = (KeyMappingAccessor) SharedKt.getMc().options.field_1913.getKey().method_1444() == arg0.getKey();
-        boolean var16 = (KeyMappingAccessor) SharedKt.getMc().options.field_1849.getKey().method_1444() == arg0.getKey();
-        boolean var17 = (KeyMappingAccessor) SharedKt.getMc().options.field_1903.getKey().method_1444() == arg0.getKey();
-        boolean var18 = (KeyMappingAccessor) SharedKt.getMc().options.field_1832.getKey().method_1444() == arg0.getKey();
+        boolean flag = ((KeyMappingAccessor) SharedKt.getMc().options.field_1894).getKey().method_1444() == arg0.getKey();
+        boolean flag2 = ((KeyMappingAccessor) SharedKt.getMc().options.field_1881).getKey().method_1444() == arg0.getKey();
+        boolean flag3 = ((KeyMappingAccessor) SharedKt.getMc().options.field_1913).getKey().method_1444() == arg0.getKey();
+        boolean flag4 = ((KeyMappingAccessor) SharedKt.getMc().options.field_1849).getKey().method_1444() == arg0.getKey();
+        boolean flag5 = ((KeyMappingAccessor) SharedKt.getMc().options.field_1903).getKey().method_1444() == arg0.getKey();
+        boolean flag6 = ((KeyMappingAccessor) SharedKt.getMc().options.field_1832).getKey().method_1444() == arg0.getKey();
         if (arg0.getAction() != Action.Press) {
             if (arg0.getAction() == Action.Hold) {
-            }
-            if (var13) {
-                factorValue5 = 1.0F;
-            }
-            if (var14) {
-                factorValue5 = -1.0F;
-            }
-            if (var15) {
-                factorValue6 = 1.0F;
-            }
-            if (var16) {
-                factorValue6 = -1.0F;
-            }
-            if (var17) {
-                factorValue7 = this.getHspeed();
-            }
-            if (var18) {
-                factorValue7 = this.getHspeed();
+                if (flag) {
+                    factorValue5 = 1.0F;
+                }
+                if (flag2) {
+                    factorValue5 = -1.0F;
+                }
+                if (flag3) {
+                    factorValue6 = 1.0F;
+                }
+                if (flag4) {
+                    factorValue6 = -1.0F;
+                }
+                if (flag5) {
+                    factorValue7 = this.getHspeed();
+                }
+                if (flag6) {
+                    factorValue7 = this.getHspeed();
+                }
             }
         }
         if (arg0.getAction() == Action.Release) {
-            if (var13) {
+            if (flag) {
                 factorValue5 = 0.0F;
             }
-            if (var14) {
+            if (flag2) {
                 factorValue5 = 0.0F;
             }
-            if (var15) {
+            if (flag3) {
                 factorValue6 = 0.0F;
             }
-            if (var16) {
+            if (flag4) {
                 factorValue6 = 0.0F;
             }
-            if (var17) {
+            if (flag5) {
                 factorValue7 = 0.0F;
             }
-            if (var18) {
+            if (flag6) {
                 factorValue7 = 0.0F;
             }
         }
         EventPacketHelper2.INSTANCE.updateValue5();
-        if (!(var13) && !(var14) && !(var15) && !(var16) && !(var17)) {
+        if (!(flag) && !(flag2) && !(flag3) && !(flag4) && !(flag5)) {
         }
         arg0.cancel();
     }
@@ -232,7 +225,8 @@ public class FreeCamModule extends Module {
 
     private void onMoveEvent(MoveEvent arg0) {
         if (SharedKt.getMc().world != null) {
-            if (var10 != null || SharedKt.getMc().player == null) {
+            if (SharedKt.getMc().player == null) {
+                this.updateValue2();
                 return;
             }
         }
@@ -269,15 +263,15 @@ public class FreeCamModule extends Module {
     }
 
     static {
-        KProperty[] var31 = new KProperty[3];
+        KProperty[] items = new KProperty[3];
         INSTANCE = new FreeCamModule();
         speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "h-speed", 1.0F, RangesKt.rangeTo(0.1F, 3.0F));
         hspeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "v-speed", 0.42F, RangesKt.rangeTo(0.1F, 3.0F));
-        freezeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "freeze");
+        freezeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "freeze", true);
         vec3d = Vec3d.ZERO;
         vec3d2 = Vec3d.ZERO;
         vec3d3 = Vec3d.ZERO;
-        moveFixServiceComponent = new MoveFixServiceComponent(0.0F, 0.0F);
+        moveFixServiceComponent = new MoveFixServiceComponent(0.0F, 0.0F, false);
     }
 
 }

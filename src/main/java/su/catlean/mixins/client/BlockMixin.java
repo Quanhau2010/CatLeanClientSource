@@ -25,9 +25,9 @@ public class BlockMixin {
 
     private static boolean shouldDrawSideHook(boolean original, BlockState state, BlockState otherState, Direction side) {
         if (GofraState.INSTANCE.getXray()) {
-            XRayBlockEvent var4 = new XRayBlockEvent();
-            var4.call(state.getBlock());
-            return var4.getCancelled();
+            XRayBlockEvent xRayBlockEvent = new XRayBlockEvent();
+            xRayBlockEvent.call(state.getBlock());
+            return xRayBlockEvent.getCancelled();
         }
         return original;
     }

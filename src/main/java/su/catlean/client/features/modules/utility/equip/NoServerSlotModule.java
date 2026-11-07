@@ -20,11 +20,11 @@ public class NoServerSlotModule extends Module {
     }
 
     public void onReceivePacket(ReceivePacket event) {
-        if (var8 != null) {
+        if (__UNDEF_KEY__ != null) {
             if (event.getPacket() instanceof class_2735) {
                 event.cancel();
+                PacketPacketHelper.handlePacket(((Packet) new class_2868(SharedKt.getPlayer().method_31548().method_67532())));
             }
-            PacketPacketHelper.handlePacket((Packet) new class_2868(SharedKt.getPlayer().method_31548().method_67532()));
         }
     }
 

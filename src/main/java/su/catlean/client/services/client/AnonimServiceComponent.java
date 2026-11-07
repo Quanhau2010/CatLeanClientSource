@@ -16,7 +16,6 @@ public class AnonimServiceComponent implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var13 = 0;
         if (NameTagsModule.INSTANCE.getSeeCatleanUsers() != NameTagsSeeCatleanUsersMode.OFF) {
             if (NameTagsModule.INSTANCE.getSeeCatleanUsers() == NameTagsSeeCatleanUsersMode.INSTANCE) {
             } else {

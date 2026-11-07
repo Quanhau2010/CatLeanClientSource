@@ -19,7 +19,7 @@ public abstract class TridentItemMixin {
 
     public void onStoppedUsingHook(ItemStack stack, World world, LivingEntity user, CallbackInfoReturnable ci) {
         ci.cancel();
-        ci.setReturnValue(Boolean.valueOf(1));
+        ci.setReturnValue(Boolean.valueOf(true));
     }
 
     public void useHook(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable cir) {

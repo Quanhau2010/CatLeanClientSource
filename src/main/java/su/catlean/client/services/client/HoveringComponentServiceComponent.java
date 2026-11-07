@@ -11,11 +11,11 @@ public class HoveringComponentServiceComponent extends MutablePropertyReference0
     }
 
     public Object get() {
-        return (MacroPanelRenderHelper3Impl) this.receiver.getRenderHelper2();
+        return ((MacroPanelRenderHelper3Impl) this.receiver).getRenderHelper2();
     }
 
     public void set(Object value) {
-        (MacroPanelRenderHelper3Impl) this.receiver.updateValue((RenderHelper2) value);
+        ((MacroPanelRenderHelper3Impl) this.receiver).updateValue(((RenderHelper2) value));
     }
 
 }

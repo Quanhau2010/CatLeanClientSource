@@ -22,7 +22,7 @@ public abstract class EntityRendererMixin {
     }
 
     public void shouldRender(Entity entity, class_4604 frustum, double x, double y, double z, CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(0));
+        cir.setReturnValue(Boolean.valueOf(false));
     }
 
 }

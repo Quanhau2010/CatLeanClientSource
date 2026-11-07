@@ -22,40 +22,38 @@ public class ProxiesRecordSerializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, ProxiesRecord value) {
-        SerialDescriptor var5 = serialDescriptor;
-        CompositeEncoder var6 = encoder.beginStructure();
-        ProxiesRecord.executeAction(value);
-        var6.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        ProxiesRecord.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public ProxiesRecord resolveProxiesRecord(Decoder decoder) {
-        SerialDescriptor var9 = serialDescriptor;
-        int var10 = 1;
-        int var12 = 0;
-        CompositeDecoder var14 = decoder.beginStructure();
-        Lazy[] var15 = ProxiesRecord.process();
-        if (var8 != null) {
-            if (var14.decodeSequentially()) {
-            }
-            List positions = var14.decodeSerializableElement(0, (DeserializationStrategy) var15[0].getValue());
-            if (0L <= 0) {
-                var12 = (var12 | 1);
-            }
-        }
-        if (var8 == null && var10) {
-            int var11 = var14.decodeElementIndex();
-            if (var8 != null) {
-                if (var8 != null) {
-                }
-                var10 = 0;
-                if (0L >= 0) {
-                    positions = var14.decodeSerializableElement(0, (DeserializationStrategy) var15[0].getValue(), positions);
-                    var12 = (var12 | 1);
+        int index = 1;
+        int index2 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        Lazy[] items = ProxiesRecord.process();
+        if (__UNDEF_KEY__ != null) {
+            if (compositeDecoder.decodeSequentially()) {
+                List list = compositeDecoder.decodeSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) items[0].getValue()));
+                if (__UNDEF_KEY__ <= 0) {
+                    index2 = (index2 | 1);
                 }
             }
-            var14.endStructure();
         }
-        return new ProxiesRecord(positions, null);
+        if (__UNDEF_KEY__ == null && index) {
+            int index3 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
+                }
+                index = 0;
+                if (__UNDEF_KEY__ >= 0) {
+                    list = compositeDecoder.decodeSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) items[0].getValue()), list);
+                    index2 = (index2 | 1);
+                }
+                compositeDecoder.endStructure(serialDescriptor);
+            }
+        }
+        return new ProxiesRecord(index2, list, null);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -63,10 +61,10 @@ public class ProxiesRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        Lazy[] var1 = ProxiesRecord.process();
-        KSerializer[] var2 = new KSerializer[1];
-        var2[0] = var1[0].getValue();
-        return var2;
+        Lazy[] items = ProxiesRecord.process();
+        KSerializer[] items2 = new KSerializer[1];
+        items2[0] = items[0].getValue();
+        return items2;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -74,7 +72,7 @@ public class ProxiesRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (ProxiesRecord) value);
+        this.executeAction(encoder, ((ProxiesRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -83,9 +81,9 @@ public class ProxiesRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new ProxiesRecordSerializer();
-        PluginGeneratedSerialDescriptor var11 = new PluginGeneratedSerialDescriptor("su.catlean.po", (GeneratedSerializer) INSTANCE, 1);
-        var11.addElement("proxies", 0);
-        serialDescriptor = (SerialDescriptor) var11;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.po", ((GeneratedSerializer) INSTANCE), 1);
+        pluginGeneratedSerialDescriptor.addElement("proxies", false);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

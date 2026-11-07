@@ -15,17 +15,16 @@ public class ServiceComponent71 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var11 = 0;
-        ElytraTargetModule.updateValue(0);
-        TitleRenderHelper.INSTANCE.updateValue(1);
+        ElytraTargetModule.updateValue(false);
+        TitleRenderHelper.INSTANCE.updateValue(true);
         BlinkModule.INSTANCE.updateValue2();
-        ElytraTargetModule.updateValue2(0);
-        if (var10 != null) {
+        ElytraTargetModule.updateValue2(false);
+        if (__UNDEF_KEY__ != null) {
             if (ElytraTargetModule.checkCondition()) {
                 BlinkModule.INSTANCE.executeAction();
-                ElytraTargetModule.updateValue2(1);
+                ElytraTargetModule.updateValue2(true);
             }
-            TitleRenderHelper.INSTANCE.updateValue(0);
+            TitleRenderHelper.INSTANCE.updateValue(false);
         }
     }
 

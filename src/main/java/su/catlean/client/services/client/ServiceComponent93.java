@@ -9,7 +9,7 @@ public class ServiceComponent93 {
     private static Module[] moduleArray;
 
     public static void executeAction(class_2824 receiver, int id) {
-        (ServerboundInteractPacketAccessor) receiver.setEntityId(id);
+        ((ServerboundInteractPacketAccessor) receiver).setEntityId(id);
     }
 
     public static void updateValue(Module[] arg0) {

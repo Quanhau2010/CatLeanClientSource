@@ -14,7 +14,6 @@ public class ServiceComponent57 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var6 = 0;
         AutoRespawnModule.INSTANCE.updateValue();
     }
 

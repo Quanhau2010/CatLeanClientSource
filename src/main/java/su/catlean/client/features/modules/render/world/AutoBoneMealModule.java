@@ -70,7 +70,7 @@ public class AutoBoneMealModule extends Module {
     }
 
     private WindHopSwitchMode getSwitchMode() {
-        return (WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSwitchMode(WindHopSwitchMode value) {
@@ -78,7 +78,7 @@ public class AutoBoneMealModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setDelay(int value) {
@@ -86,11 +86,11 @@ public class AutoBoneMealModule extends Module {
     }
 
     private SettingGroup getGroup() {
-        return (SettingGroup) groupSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((SettingGroup) groupSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getWheat() {
-        return (Boolean) wheatSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) wheatSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setWheat(boolean value) {
@@ -98,7 +98,7 @@ public class AutoBoneMealModule extends Module {
     }
 
     private boolean getCarrot() {
-        return (Boolean) carrotSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) carrotSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setCarrot(boolean value) {
@@ -106,7 +106,7 @@ public class AutoBoneMealModule extends Module {
     }
 
     private boolean getPotato() {
-        return (Boolean) potatoSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) potatoSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void setPotato(boolean value) {
@@ -114,7 +114,7 @@ public class AutoBoneMealModule extends Module {
     }
 
     private boolean getMelon() {
-        return (Boolean) melonSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) melonSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setMelon(boolean value) {
@@ -122,7 +122,7 @@ public class AutoBoneMealModule extends Module {
     }
 
     private boolean getPumpkin() {
-        return (Boolean) pumpkinSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) pumpkinSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private void setPumpkin(boolean value) {
@@ -130,7 +130,7 @@ public class AutoBoneMealModule extends Module {
     }
 
     private boolean getBeetRoot() {
-        return (Boolean) beetRootSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) beetRootSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private void setBeetRoot(boolean value) {
@@ -138,78 +138,73 @@ public class AutoBoneMealModule extends Module {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        Iterable var30 = (Iterable) VecPacketHelper.INSTANCE.resolveList();
-        int var31 = 0;
-        Object var32 = var30;
-        Collection var33 = (Collection) new ArrayList();
-        int var34 = 0;
-        Iterator iterator = var32.iterator();
+        Iterable iterable = ((Iterable) VecPacketHelper.INSTANCE.resolveList());
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var36 = iterator.next();
-            BlockPos blockPos = (BlockPos) var36;
-            int var38 = 0;
+            Object element = iterator.next();
+            BlockPos blockPos = ((BlockPos) element);
             BlockState state = SharedKt.getWorld().getBlockState(blockPos);
-            var33.add();
+            collection.add(element);
         }
-        var30 = (Iterable) var33;
-        var31 = 0;
-        var32 = var30;
-        var33 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        var34 = 0;
-        iterator = var32.iterator();
+        iterable = ((Iterable) collection);
+        index = 0;
+        iterable2 = iterable;
+        collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable, 10)));
+        iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            var36 = iterator.next();
-            blockPos = (BlockPos) var36;
-            Object var40 = var33;
-            var38 = 0;
-            var40.add(new class_3965(blockPos.toCenterPos().method_1031(0.0D, 0.4375D, 0.0D), Direction.UP, blockPos, 0));
+            element = iterator.next();
+            blockPos = ((BlockPos) element);
+            collection.add(new class_3965(blockPos.toCenterPos().method_1031(0.0D, 0.4375D, 0.0D), Direction.UP, blockPos, false));
         }
-        var30 = (Iterable) var33;
-        var31 = 0;
-        List positions = CollectionsKt.sortedWith((Comparator) new Comparator4());
-        var30 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
-        if (!(serviceComponent38.checkCondition(this.getDelay())) || positions.isEmpty() || !(var30.isActive())) {
+        iterable = ((Iterable) collection);
+        index = 0;
+        List list = CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator4()));
+        iterable = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
+        if (!(serviceComponent38.checkCondition(this.getDelay())) || list.isEmpty() || !(iterable.isActive())) {
             return;
         }
-        var31 = (class_3965) CollectionsKt.first(positions);
-        SequenceServiceComponent.INSTANCE.executeAction((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var31.method_17784()), 0, this::resolveUnit));
+        index = ((class_3965) CollectionsKt.first(list));
+        SequenceServiceComponent.INSTANCE.executeAction(((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(index.method_17784()), 0, this::resolveUnit)));
     }
 
     private List resolveList(int arg0, int arg1, byte arg2) {
-        List positions = new ArrayList();
+        List list = new ArrayList();
         if (this.getWheat()) {
-            positions.add(Blocks.field_10293);
+            list.add(Blocks.field_10293);
         }
         if (arg1 > 0) {
-            if (var19 == null) {
+            if (__UNDEF_KEY__ == null) {
                 if (this.getCarrot()) {
-                    positions.add(Blocks.field_10609);
+                    list.add(Blocks.field_10609);
                 }
             }
         }
         if (arg2 >= 0) {
-            if (var19 == null) {
+            if (__UNDEF_KEY__ == null) {
                 if (this.getPotato()) {
-                    positions.add(Blocks.field_10247);
+                    list.add(Blocks.field_10247);
                 }
             }
         }
         if (arg0 >= 0) {
-            if (var19 == null) {
+            if (__UNDEF_KEY__ == null) {
                 if (this.getPumpkin()) {
-                    positions.add(Blocks.field_46286);
+                    list.add(Blocks.field_46286);
                 }
             }
         }
-        if (arg2 > 0 && var19 == null) {
+        if (arg2 > 0 && __UNDEF_KEY__ == null) {
             if (this.getMelon()) {
-                positions.add(Blocks.field_46287);
+                list.add(Blocks.field_46287);
             }
         }
         if (this.getBeetRoot()) {
-            positions.add(Blocks.field_10341);
+            list.add(Blocks.field_10341);
         }
-        return positions;
+        return list;
     }
 
     private static boolean checkCondition(ItemStack arg0) {
@@ -228,17 +223,17 @@ public class AutoBoneMealModule extends Module {
     }
 
     static {
-        KProperty[] var38 = new KProperty[9];
+        KProperty[] items = new KProperty[9];
         INSTANCE = new AutoBoneMealModule();
         switchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch", WindHopSwitchMode.SILENT_FULL);
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 0, new IntRange(0, 10));
         groupSetting = VisibleRenderHelper.registerSetting(INSTANCE, "selection", OptionMode14.BOOLS);
-        wheatSetting = VisibleRenderHelper.registerSetting(INSTANCE, "wheat", 1, INSTANCE.getGroup());
-        carrotSetting = VisibleRenderHelper.registerSetting(INSTANCE, "carrot", 1, INSTANCE.getGroup());
-        potatoSetting = VisibleRenderHelper.registerSetting(INSTANCE, "potato", 1, INSTANCE.getGroup());
-        melonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "melon", 0, INSTANCE.getGroup());
-        pumpkinSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pumpkin", 0, INSTANCE.getGroup());
-        beetRootSetting = VisibleRenderHelper.registerSetting(INSTANCE, "beetroot", 0, INSTANCE.getGroup());
+        wheatSetting = VisibleRenderHelper.registerSetting(INSTANCE, "wheat", true, INSTANCE.getGroup());
+        carrotSetting = VisibleRenderHelper.registerSetting(INSTANCE, "carrot", true, INSTANCE.getGroup());
+        potatoSetting = VisibleRenderHelper.registerSetting(INSTANCE, "potato", true, INSTANCE.getGroup());
+        melonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "melon", false, INSTANCE.getGroup());
+        pumpkinSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pumpkin", false, INSTANCE.getGroup());
+        beetRootSetting = VisibleRenderHelper.registerSetting(INSTANCE, "beetroot", false, INSTANCE.getGroup());
         serviceComponent38 = new ServiceComponent38();
     }
 

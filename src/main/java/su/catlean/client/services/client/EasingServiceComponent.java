@@ -50,13 +50,13 @@ public class EasingServiceComponent {
         if (this.factorValue > this.factorValue3) {
         } else {
         }
-        (this.factorValue2 - ((this.factorValue2 - this.factorValue3) * var5)).factorValue = (this.factorValue2 + ((this.factorValue3 - this.factorValue2) * var5));
+        this.factorValue = (this.factorValue2 + ((this.factorValue3 - this.factorValue2) * __UNDEF_KEY__));
     }
 
     public void updateValue2(float value) {
         this.timestampValue2 = SharedKt.getNumericValue();
         this.factorValue2 = value;
-        this.enabledFlag = 0;
+        this.enabledFlag = false;
     }
 
     public void executeAction() {

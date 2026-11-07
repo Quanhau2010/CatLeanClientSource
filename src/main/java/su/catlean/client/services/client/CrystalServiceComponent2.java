@@ -38,7 +38,7 @@ public class CrystalServiceComponent2 implements Contract9 {
     }
 
     public void executeAction(Pair crystal) {
-        this.resolveLong((Number) crystal.getFirst(), SharedKt.getNumericValue());
+        this.resolveLong(((Number) crystal.getFirst()), SharedKt.getNumericValue());
         this.updateValue(crystal);
     }
 
@@ -49,8 +49,8 @@ public class CrystalServiceComponent2 implements Contract9 {
     }
 
     public void executeAction() {
-        long var9 = SharedKt.getNumericValue();
-        int var11 = (TheNetherPacketHelper.f() * 2L);
+        long time = SharedKt.getNumericValue();
+        int index = (TheNetherPacketHelper.f() * 2L);
         concurrentHashMap.entrySet().removeIf(this::checkCondition);
         concurrentHashMap2.entrySet().removeIf(this::checkCondition2);
         concurrentHashMap3.entrySet().removeIf(this::checkCondition3);
@@ -62,15 +62,15 @@ public class CrystalServiceComponent2 implements Contract9 {
     }
 
     public long computeValue(int id) {
-        return (Number) concurrentHashMap.getOrDefault(Integer.valueOf(id), Long.valueOf(-1L)).longValue();
+        return ((Number) concurrentHashMap.getOrDefault(Integer.valueOf(id), Long.valueOf(-1L))).longValue();
     }
 
     public Long resolveLong(int id, long deathTime) {
-        return (Long) concurrentHashMap.putIfAbsent(Integer.valueOf(id), Long.valueOf(deathTime));
+        return ((Long) concurrentHashMap.putIfAbsent(Integer.valueOf(id), Long.valueOf(deathTime)));
     }
 
     public boolean checkCondition(int id) {
-        return (PlaceServiceComponent) concurrentHashMap2.get(Integer.valueOf(id)).checkCondition();
+        return ((PlaceServiceComponent) concurrentHashMap2.get(Integer.valueOf(id))).checkCondition();
     }
 
     private void updateValue(Pair arg0) {
@@ -78,37 +78,33 @@ public class CrystalServiceComponent2 implements Contract9 {
     }
 
     public void executeAction(BlockPos blockPos) {
-        boolean var12 = AutoCrystalModule.INSTANCE.checkCondition(blockPos.up(), Lists.newArrayList(SharedKt.getWorld().method_18112()));
+        boolean flag = AutoCrystalModule.INSTANCE.checkCondition(blockPos.up(), Lists.newArrayList(SharedKt.getWorld().method_18112()));
         concurrentHashMap3.compute(blockPos, this::resolvePlaceServiceComponent2);
-        Box var13 = new Box((blockPos.method_10263() - 0.5D), (blockPos.method_10264() + 1.0D), (blockPos.method_10260() - 0.5D), (blockPos.method_10263() + 1.5D), (blockPos.method_10264() + 3.0D), (blockPos.method_10260() + 1.5D));
-        if (var11 != null) {
-            if (!(concurrentHashMap4.containsKey())) {
+        Box box = new Box((blockPos.method_10263() - 0.5D), (blockPos.method_10264() + 1.0D), (blockPos.method_10260() - 0.5D), (blockPos.method_10263() + 1.5D), (blockPos.method_10264() + 3.0D), (blockPos.method_10260() + 1.5D));
+        if (__UNDEF_KEY__ != null) {
+            if (!(concurrentHashMap4.containsKey(box))) {
             }
         }
-        if (0L >= 0) {
+        if (__UNDEF_KEY__ >= 0) {
         }
     }
 
     public boolean checkCondition(BlockPos blockPos, boolean ignoreMid) {
-        Box var9 = new Box((blockPos.method_10263() - 0.5D), (blockPos.method_10264() + 1.0D), (blockPos.method_10260() - 0.5D), (blockPos.method_10263() + 1.5D), (blockPos.method_10264() + 3.0D), (blockPos.method_10260() + 1.5D));
-        Map var10 = (Map) concurrentHashMap4;
-        int var11 = 0;
-        if (var10.isEmpty()) {
+        Box box = new Box((blockPos.method_10263() - 0.5D), (blockPos.method_10264() + 1.0D), (blockPos.method_10260() - 0.5D), (blockPos.method_10263() + 1.5D), (blockPos.method_10264() + 3.0D), (blockPos.method_10260() + 1.5D));
+        Map map = ((Map) concurrentHashMap4);
+        if (map.isEmpty()) {
         } else {
-            Iterator iterator = var10.entrySet().iterator();
-            if (iterator.hasNext()) {
-                Entry var13 = (Entry) iterator.next();
-                Object var14 = var13;
-                int var15 = 0;
+            Iterator iterator = map.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Entry entry = ((Entry) iterator.next());
                 if (!(ignoreMid)) {
-                    if ((Box) var14.getKey().method_994() && !(Intrinsics.areEqual((Box) var14.getKey().method_1005(), var9.method_1005()))) {
+                    if (((Box) entry.getKey()).method_994(box) && !(Intrinsics.areEqual(((Box) entry.getKey()).method_1005(), box.method_1005()))) {
+                    } else {
                     }
-                } else {
                 }
-            } else {
             }
         }
-        if (0L >= 0) {
+        if (__UNDEF_KEY__ >= 0) {
             if (0 != null) {
             }
         }
@@ -117,78 +113,78 @@ public class CrystalServiceComponent2 implements Contract9 {
 
     public PlaceServiceComponent resolvePlaceServiceComponent(Vec3d pos) {
         Iterator iterator = concurrentHashMap3.entrySet().iterator();
-        if (iterator.hasNext()) {
-            Entry var9 = (Entry) iterator.next();
-            BlockPos blockPos = (BlockPos) var9.getKey();
-            PlaceServiceComponent var11 = (PlaceServiceComponent) var9.getValue();
+        while (iterator.hasNext()) {
+            Entry entry = ((Entry) iterator.next());
+            BlockPos blockPos = ((BlockPos) entry.getKey());
+            PlaceServiceComponent placeServiceComponent = ((PlaceServiceComponent) entry.getValue());
             ServiceComponent45.INSTANCE.executeAction(blockPos);
             iterator.remove();
-            Object var7 = var11;
+            PlaceServiceComponent placeServiceComponent2 = placeServiceComponent;
         }
-        var9 = concurrentHashMap4.entrySet().iterator();
-        while (var9.hasNext()) {
-            var11 = (Box) (Entry) var9.next().getKey();
-            var9.remove();
+        entry = concurrentHashMap4.entrySet().iterator();
+        while (entry.hasNext()) {
+            placeServiceComponent = ((Box) ((Entry) entry.next()).getKey());
+            entry.remove();
         }
-        if (var7 != null) {
+        if (placeServiceComponent2 != null) {
         }
-        return var7;
+        return placeServiceComponent2;
     }
 
     public boolean checkCondition(BlockPos bp) {
-        if ((PlaceServiceComponent) concurrentHashMap3.get(bp) != null) {
+        if (((PlaceServiceComponent) concurrentHashMap3.get(bp)) != null) {
         } else {
+            return ((PlaceServiceComponent) concurrentHashMap3.get(bp)).checkCondition() == 1;
         }
-        return (PlaceServiceComponent) concurrentHashMap3.get(bp).checkCondition() == 1;
     }
 
     private static boolean checkCondition(long arg0, long arg1, Entry arg2) {
-        return (arg0 - (Number) arg2.getValue().longValue()) > arg1;
+        return (arg0 - ((Number) arg2.getValue()).longValue()) > arg1;
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static boolean checkCondition(Entry arg0) {
-        return (PlaceServiceComponent) arg0.getValue().checkCondition();
+        return ((PlaceServiceComponent) arg0.getValue()).checkCondition();
     }
 
     private static boolean checkCondition2(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static boolean checkCondition2(Entry arg0) {
-        return (PlaceServiceComponent) arg0.getValue().checkCondition();
+        return ((PlaceServiceComponent) arg0.getValue()).checkCondition();
     }
 
     private static boolean checkCondition3(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static boolean checkCondition3(Entry arg0) {
-        return (SharedKt.getNumericValue() - (Number) arg0.getValue().longValue()) > Math.max((TheNetherPacketHelper.f() * 1.5D), 50.0D);
+        return (SharedKt.getNumericValue() - ((Number) arg0.getValue()).longValue()) > Math.max((TheNetherPacketHelper.f() * 1.5D), 50.0D);
     }
 
     private static boolean checkCondition4(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static PlaceServiceComponent resolvePlaceServiceComponent(Pair arg0, PlaceServiceComponent arg1) {
         if (arg1 == null) {
-            return new PlaceServiceComponent(SharedKt.getNumericValue(), 1, (Vec3d) arg0.getSecond(), 0);
+            return new PlaceServiceComponent(SharedKt.getNumericValue(), 1, ((Vec3d) arg0.getSecond()), false);
         }
         arg1.executeAction();
         return arg1;
     }
 
     private static PlaceServiceComponent resolvePlaceServiceComponent(Function2 arg0, Object arg1, Object arg2) {
-        return (PlaceServiceComponent) arg0.invoke(arg1, arg2);
+        return ((PlaceServiceComponent) arg0.invoke(arg1, arg2));
     }
 
     private static PlaceServiceComponent resolvePlaceServiceComponent(BlockPos arg0, boolean arg1, BlockPos arg2, PlaceServiceComponent arg3) {
         if (arg3 == null) {
-            return new PlaceServiceComponent(SharedKt.getNumericValue(), 1, arg0.toCenterPos(), 1);
+            return new PlaceServiceComponent(SharedKt.getNumericValue(), 1, arg0.toCenterPos(), true);
         }
         if (!(arg1)) {
             arg3.executeAction();
@@ -197,7 +193,7 @@ public class CrystalServiceComponent2 implements Contract9 {
     }
 
     private static PlaceServiceComponent resolvePlaceServiceComponent2(Function2 arg0, Object arg1, Object arg2) {
-        return (PlaceServiceComponent) arg0.invoke(arg1, arg2);
+        return ((PlaceServiceComponent) arg0.invoke(arg1, arg2));
     }
 
     private static boolean checkCondition(Vec3d arg0, BlockPos arg1) {
@@ -205,7 +201,7 @@ public class CrystalServiceComponent2 implements Contract9 {
     }
 
     private static boolean checkCondition5(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {

@@ -82,65 +82,62 @@ public class TitleRenderHelper implements Contract9 {
     }
 
     public static void executeAction(TitleRenderHelper arg0, String arg1, String arg2, int arg3, OptionMode16 arg4, ItemStack arg5, int arg6, Object arg7) {
-        if ((arg6 & 16)) {
+        if ((arg6 & 16) != 0) {
         }
         arg0.executeAction(arg1, arg2, arg3, arg4, arg5);
     }
 
     public void onRender2DEvent(Render2DEvent e) {
-        int var10 = ((SharedKt.getMc().method_22683().method_4502() / 2.0F) + 25);
-        if (var9 != null) {
+        int index = ((SharedKt.getMc().method_22683().method_4502() / 2.0F) + 25);
+        if (__UNDEF_KEY__ != null) {
             if (itemList.size() > 8) {
                 itemList.removeFirst();
             }
         }
-        Iterator iterator = Lists.newArrayList((Iterable) itemList).iterator();
-        if (iterator.hasNext()) {
-            TitleServiceComponent var12 = (TitleServiceComponent) iterator.next();
-            this.render(e.getContext(), (var10 + (itemList.size() * 16)));
-            var10 = (var10 - 16.0F);
+        Iterator iterator = Lists.newArrayList(((Iterable) itemList)).iterator();
+        while (iterator.hasNext()) {
+            TitleServiceComponent titleServiceComponent = ((TitleServiceComponent) iterator.next());
+            this.render(titleServiceComponent, e.getContext(), (index + (itemList.size() * 16)));
+            index = (index - 16.0F);
         }
-        var12 = itemList;
-        int var13 = 0;
-        var13 = itemList.removeIf(this::checkCondition);
-        Object var14 = var12;
+        titleServiceComponent = itemList;
     }
 
     private void render(TitleServiceComponent arg0, short arg1, DrawContext arg2, float arg3) {
         if (arg0.getServiceComponent10().checkCondition((arg0.getNumericValue() - 350))) {
         } else {
         }
-        0.0F.executeAction(1.0F);
+        this.executeAction(1.0F);
         if (arg1 >= 0) {
             if (arg0.getEasingServiceComponent().getNumericValue() < 0.01D) {
                 return;
             }
             arg0.updateValue(this.computeValue(arg0.getNumericValue(), arg3));
         }
-        int var30 = ((SharedKt.getMc().method_22683().method_4486() / 2.0F) - (arg0.getNumericValue2() / 2.0F));
-        Matrix3x2fStack var31 = arg2.method_51448();
-        var31.pushMatrix();
-        var31.translate((var30 + (arg0.getNumericValue2() / 2.0F)), (arg0.getNumericValue() + 6.5F));
-        var31.scale(arg0.getEasingServiceComponent().getNumericValue(), arg0.getEasingServiceComponent().getNumericValue());
-        var31.translate((var30 + (arg0.getNumericValue2() / 2.0F)), (arg0.getNumericValue() + 6.5F));
-        StackShaderComponent2.executeAction(arg0.getNumericValue(), arg0.getNumericValue2(), 13.0F, 3.0F, 1.5F, 0.0F, arg0.getEasingServiceComponent().getNumericValue(), NewThemeRenderHelper.INSTANCE.getColor5(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-        Color[] var32 = new Color[1];
-        var32[0] = PolygonShaderComponent.INSTANCE.resolveColor(new Color(1157627903, 1), (arg0.getEasingServiceComponent().getNumericValue() * 0.1F));
-        PolygonShaderComponent.INSTANCE.executeAction((var30 + 14), (arg0.getNumericValue() + 2), 0.5F, 9.0F);
+        int index = ((SharedKt.getMc().method_22683().method_4486() / 2.0F) - (arg0.getNumericValue2() / 2.0F));
+        Matrix3x2fStack matrix3x2fStack = arg2.method_51448();
+        matrix3x2fStack.pushMatrix();
+        matrix3x2fStack.translate((index + (arg0.getNumericValue2() / 2.0F)), (arg0.getNumericValue() + 6.5F));
+        matrix3x2fStack.scale(arg0.getEasingServiceComponent().getNumericValue(), arg0.getEasingServiceComponent().getNumericValue());
+        matrix3x2fStack.translate((index + (arg0.getNumericValue2() / 2.0F)), (arg0.getNumericValue() + 6.5F));
+        StackShaderComponent2.executeAction(matrix3x2fStack, index, arg0.getNumericValue(), arg0.getNumericValue2(), 13.0F, 3.0F, 1.5F, 0.0F, arg0.getEasingServiceComponent().getNumericValue(), NewThemeRenderHelper.INSTANCE.getColor5(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+        Color[] items = new Color[1];
+        items[0] = PolygonShaderComponent.INSTANCE.resolveColor(new Color(1157627903, true), (arg0.getEasingServiceComponent().getNumericValue() * 0.1F));
+        PolygonShaderComponent.INSTANCE.executeAction(matrix3x2fStack, (index + 14), (arg0.getNumericValue() + 2), 0.5F, 9.0F, items);
         if (arg0.getMinecraftObject() == null) {
         } else {
         }
-        arg2.render((arg0.getString() + arg0.getString2()), arg0.getString2(), (var30 + 16.0F), (arg0.getNumericValue() + 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor7(), arg0.getEasingServiceComponent().getNumericValue()));
+        arg2.render((arg0.getString() + arg0.getString2()), arg0.getString2(), (index + 16.0F), (arg0.getNumericValue() + 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor7(), arg0.getEasingServiceComponent().getNumericValue()));
         if (arg0.getMinecraftObject() == null) {
-            MissingnoRenderHelper.executeAction(arg0.getMissingnoRenderHelper(), (Matrix3x2f) var31, (var30 + 2.0D), (arg0.getNumericValue() + 0.5D), 0.0F, 0.0F, null, null, 0.0F);
+            MissingnoRenderHelper.executeAction(arg0.getMissingnoRenderHelper(), ((Matrix3x2f) matrix3x2fStack), (index + 2.0D), (arg0.getNumericValue() + 0.5D), 0.0F, 0.0F, null, null, 0.0F);
         } else {
-            arg2.method_51448().translate((var30 + 2.0F), (arg0.getNumericValue() + 1.0F));
+            arg2.method_51448().translate((index + 2.0F), (arg0.getNumericValue() + 1.0F));
             arg2.method_51448().scale(0.65F, 0.65F);
             arg2.method_51427(arg0.getMinecraftObject(), 0, 0);
             arg2.method_51448().scale(1.0F, 1.0F);
-            arg2.method_51448().translate((var30 + 2.0F), (arg0.getNumericValue() + 1.0F));
+            arg2.method_51448().translate((index + 2.0F), (arg0.getNumericValue() + 1.0F));
         }
-        var31.popMatrix();
+        matrix3x2fStack.popMatrix();
     }
 
     private float computeValue(float arg0, float arg1) {
@@ -149,7 +146,7 @@ public class TitleRenderHelper implements Contract9 {
 
     private static void executeAction(String arg0, String arg1, OptionMode16 arg2, int arg3, ItemStack arg4) {
         itemList.add(new TitleServiceComponent(arg0, arg1, arg2, (arg3 * 1600), arg4));
-        if (var12 != null) {
+        if (__UNDEF_KEY__ != null) {
             StartupServiceComponent.INSTANCE.getVecServiceComponent7().updateValue();
         }
         StartupServiceComponent.INSTANCE.getVecServiceComponent6().updateValue();
@@ -160,7 +157,7 @@ public class TitleRenderHelper implements Contract9 {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {

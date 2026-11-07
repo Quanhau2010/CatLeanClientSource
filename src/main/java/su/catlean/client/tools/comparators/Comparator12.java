@@ -14,14 +14,11 @@ public class Comparator12 implements Comparator {
     }
 
     public int compare(Object b) {
-        AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) b;
-        int var12 = 0;
-        player = (AbstractClientPlayerEntity) 0L;
-        Comparable var13 = (Comparable) Double.valueOf(NameTagsModule.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()).method_1025(NameTagsModule.INSTANCE.resolveMinecraftObject(player)));
-        var12 = 0;
-        if (var10) {
+        AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) b);
+        Comparable comparable = ((Comparable) Double.valueOf(NameTagsModule.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()).method_1025(NameTagsModule.INSTANCE.resolveMinecraftObject(player))));
+        if (__UNDEF_KEY__) {
         }
-        return ComparisonsKt.compareValues((Comparable) Double.valueOf(NameTagsModule.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()).method_1025(NameTagsModule.INSTANCE.resolveMinecraftObject(player))));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(NameTagsModule.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()).method_1025(NameTagsModule.INSTANCE.resolveMinecraftObject(player)))));
     }
 
 }

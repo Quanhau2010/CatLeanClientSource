@@ -67,7 +67,7 @@ public class XRayModule extends Module {
     }
 
     private BlocksServiceComponent getSelectedBlocks() {
-        return (BlocksServiceComponent) selectedBlocksSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((BlocksServiceComponent) selectedBlocksSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSelectedBlocks(BlocksServiceComponent value) {
@@ -75,34 +75,34 @@ public class XRayModule extends Module {
     }
 
     private boolean getBrutForce() {
-        return (Boolean) brutForceSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) brutForceSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getFast() {
-        return (Boolean) fastSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) fastSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private int getRadius() {
-        return (Number) radiusSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Number) radiusSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private int getUp() {
-        return (Number) upSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) upSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private int getDown() {
-        return (Number) downSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Number) downSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        GofraState.INSTANCE.setXray(1);
+        GofraState.INSTANCE.setXray(true);
         if (this.getBrutForce() && !(enabledFlag)) {
             arrayList.clear();
-            arrayList.addAll((Collection) this.resolveArrayList());
+            arrayList.addAll(((Collection) this.resolveArrayList()));
             minecraftRef = this.resolveMinecraftObject();
         }
         enabledFlag = this.getBrutForce();
@@ -112,27 +112,22 @@ public class XRayModule extends Module {
         arg0.cancel();
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = ((arg0 ^ 42464098356882L) >>> 16);
-        long var7 = (((arg0 ^ 42464098356882L) << 48) >>> 48);
-        if (var8 == null) {
-        }
-        if (SharedKt.getMc().player == null || var8 == null) {
+    public void updateValue() {
+        if (SharedKt.getMc().player == null || SharedKt.getMc().world == null) {
             return;
         }
+        arrayList.clear();
+        arrayList.addAll(((Collection) this.resolveArrayList()));
+        GofraState.INSTANCE.setXray(true);
         SharedKt.getMc().field_1769.method_3279();
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 64129331416845L);
-        if (var5 == null) {
-        }
-        if (SharedKt.getMc().player == null || var5 == null) {
+    public void updateValue2() {
+        if (SharedKt.getMc().player == null || SharedKt.getMc().world == null) {
             return;
         }
         SharedKt.getMc().field_1769.method_3279();
-        GofraState.INSTANCE.setXray(0);
+        GofraState.INSTANCE.setXray(false);
     }
 
     private void onMoveEvent(MoveEvent arg0) {
@@ -145,11 +140,11 @@ public class XRayModule extends Module {
         if (!(this.getBrutForce())) {
             return;
         }
-        if (blockPos != null && !((Collection) arrayList.isEmpty())) {
-            int var29 = 4;
-            Color var31 = NewThemeRenderHelper.INSTANCE.resolveColor(0);
-            Box var32 = new Box(blockPos);
-            TextShaderComponent2.checkCondition();
+        if (blockPos != null && !(((Collection) arrayList).isEmpty())) {
+            int index = 4;
+            Color color = NewThemeRenderHelper.INSTANCE.resolveColor(0);
+            Box box = new Box(blockPos);
+            TextShaderComponent2.checkCondition(box, color, index);
         }
         TextShaderComponent2.checkCondition(minecraftRef, NewThemeRenderHelper.INSTANCE.resolveColor(0));
         if (arrayList.isEmpty()) {
@@ -161,15 +156,12 @@ public class XRayModule extends Module {
         if ((arrayList.size() - 1) <= 1) {
         } else {
         }
-        BlockPos blockPos = (BlockPos) 0.remove(RangeServiceComponent.P(0, (arrayList.size() - 1)));
-        Object var35 = blockPos;
-        Object var36 = var35;
-        ClientPlayerInteractionManager var38 = SharedKt.getInteractionManager();
-        int var37 = 0;
-        blockPos = var36;
-        var38.method_2910(SharedKt.getPlayer().method_5735());
+        BlockPos blockPos = ((BlockPos) this.remove(RangeServiceComponent.P(0, (arrayList.size() - 1), false)));
+        ClientPlayerInteractionManager clientPlayerInteractionManager = SharedKt.getInteractionManager();
+        blockPos = blockPos;
+        clientPlayerInteractionManager.method_2910(blockPos, SharedKt.getPlayer().method_5735());
         SharedKt.getInteractionManager().method_2925();
-        PacketPacketHelper.handlePacket((Packet) new class_2879(Hand.field_5808));
+        PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
     }
 
     private void onLightMapUpdateEvent(LightMapUpdateEvent arg0) {
@@ -182,46 +174,46 @@ public class XRayModule extends Module {
 
     private ArrayList resolveArrayList(long arg0, short arg1) {
         BlockPos blockPos = BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()));
-        List<BlockPos> positions = new ArrayList();
-        int var25 = (blockPos.method_10263() - this.getRadius());
-        int var26 = (blockPos.method_10263() + this.getRadius());
-        if (var25 <= var26) {
-            int var27 = (blockPos.method_10264() - this.getDown());
-            int var28 = (blockPos.method_10264() + this.getUp());
+        List<BlockPos> list = new ArrayList();
+        int index = (blockPos.method_10263() - this.getRadius());
+        int index2 = (blockPos.method_10263() + this.getRadius());
+        if (index <= index2) {
+            int index3 = (blockPos.method_10264() - this.getDown());
+            int index4 = (blockPos.method_10264() + this.getUp());
             if (arg1 < 0) {
-                if (var27 <= var28) {
-                    int var29 = (blockPos.method_10260() - this.getRadius());
-                    int var30 = (blockPos.method_10260() + this.getRadius());
-                    if (var29 <= var30) {
-                        BlockPos blockPos2 = new BlockPos();
+                if (index3 <= index4) {
+                    int index5 = (blockPos.method_10260() - this.getRadius());
+                    int index6 = (blockPos.method_10260() + this.getRadius());
+                    if (index5 <= index6) {
+                        BlockPos blockPos2 = new BlockPos(index, index3, index5);
                         if (arg1 < 0) {
                             if (this.getFast()) {
                                 if (arg1 <= 0) {
-                                    if (!((var29 % 2))) {
-                                        if (!(SharedKt.getWorld().method_22347(blockPos2)) && (var25 % 2) && (var27 % 2) && arg0 <= 0L) {
+                                    if (!((index5 % 2))) {
+                                        if (!(SharedKt.getWorld().method_22347(blockPos2)) && (index % 2) && (index3 % 2) && arg0 <= 0L) {
+                                            list.add(blockPos2);
                                         }
                                     }
                                 }
-                                positions.add(blockPos2);
                             }
                         }
                         if (arg0 >= 0L) {
-                            if (var22 == null) {
-                                if (var29 != var30) {
+                            if (__UNDEF_KEY__ == null) {
+                                if (index5 != index6) {
                                 }
                             }
-                        }
-                        if (arg0 > 0L) {
-                        }
-                        if (var27 != var28) {
+                            if (arg0 > 0L) {
+                                if (index3 != index4) {
+                                }
+                            }
                         }
                     }
                 }
             }
-            if (var25 != var26) {
+            if (index != index2) {
             }
         }
-        return positions;
+        return list;
     }
 
     private static boolean isActive() {
@@ -245,17 +237,17 @@ public class XRayModule extends Module {
     }
 
     static {
-        KProperty[] var37 = new KProperty[7];
+        KProperty[] items = new KProperty[7];
         INSTANCE = new XRayModule();
-        var37 = new Block[3];
-        var37[0] = Blocks.field_10442;
-        var37[1] = Blocks.field_29029;
-        var37[2] = Blocks.NETHERITE_BLOCK;
-        int var33 = 12;
-        BlocksServiceComponent var36 = new BlocksServiceComponent(CollectionsKt.mutableListOf());
-        selectedBlocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks");
-        brutForceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "deobfuscator");
-        fastSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fast", 0, null, this::isActive);
+        items = new Block[3];
+        items[0] = Blocks.field_10442;
+        items[1] = Blocks.field_29029;
+        items[2] = Blocks.NETHERITE_BLOCK;
+        int index = 12;
+        BlocksServiceComponent blocksServiceComponent = new BlocksServiceComponent(CollectionsKt.mutableListOf(items));
+        selectedBlocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks", blocksServiceComponent, index);
+        brutForceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "deobfuscator", false);
+        fastSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fast", false, null, this::isActive);
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 25, new IntRange(1, 100), null, this::isActive2);
         radiusSetting = VisibleRenderHelper.registerSetting(INSTANCE, "radius", 5, new IntRange(1, 64), null, this::isActive3);
         upSetting = VisibleRenderHelper.registerSetting(INSTANCE, "radius", 5, new IntRange(1, 32), null, this::isActive4);

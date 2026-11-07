@@ -105,205 +105,146 @@ public class WaypointPanelGuiElement extends RenderHelper3 {
         easingServiceComponent = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 117820025401429L);
-        long var5 = ((arg0 ^ 138605463114249L) >>> 32);
-        long var6 = (((arg0 ^ 138605463114249L) << 32) >>> 48);
-        long var7 = (((arg0 ^ 138605463114249L) << 48) >>> 48);
+    public void updateValue() {
         itemList.clear();
-        Iterable var8 = (Iterable) LocalhostServiceComponent.INSTANCE.resolveList();
-        int var9 = 0;
-        Iterator iterator = var8.iterator();
-        if (iterator.hasNext()) {
-            Object var11 = iterator.next();
-            IdRecord7 var12 = (IdRecord7) var11;
-            int var13 = 0;
-            itemList.add(new PointRenderHelper2Impl());
+        Iterable iterable = ((Iterable) LocalhostServiceComponent.INSTANCE.resolveList());
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            IdRecord7 idRecord7 = ((IdRecord7) element);
+            itemList.add(new PointRenderHelper2Impl(idRecord7));
         }
     }
 
     public void render(DrawContext context, int mouseX, int mouseY) {
-        long var6 = ((0L ^ 138493012530694L) >>> 32);
-        long var7 = (((0L ^ 138493012530694L) << 32) >>> 48);
-        long var8 = (((0L ^ 138493012530694L) << 48) >>> 48);
-        long var9 = (0L ^ 136208856317167L);
-        long var11 = (0L ^ 38443269427772L);
-        long var13 = (0L ^ 136208856317167L);
-        long var15 = (0L ^ 129382754651428L);
-        long var17 = (0L ^ 136208856317167L);
-        long var19 = ((0L ^ 55302899458674L) >>> 48);
-        long var20 = (((0L ^ 55302899458674L) << 16) >>> 32);
-        long var21 = (((0L ^ 55302899458674L) << 48) >>> 48);
-        long var22 = ((0L ^ 22135879901675L) >>> 48);
-        long var23 = (((0L ^ 22135879901675L) << 16) >>> 48);
-        long var24 = (((0L ^ 22135879901675L) << 32) >>> 32);
-        long var25 = (0L ^ 70517311181201L);
-        long var27 = (0L ^ 27182768661316L);
-        long var29 = (0L ^ 0L);
-        long var31 = (0L ^ 97910750751556L);
-        long var33 = (0L ^ 55127167163707L);
-        long var35 = (0L ^ 2881734234662L);
-        long var37 = (0L ^ 55531218400380L);
-        long var39 = ((0L ^ 41763221279864L) >>> 56);
-        long var40 = (((0L ^ 41763221279864L) << 8) >>> 32);
-        long var41 = (((0L ^ 41763221279864L) << 40) >>> 40);
-        long var42 = (0L ^ 107679707250070L);
-        long var44 = (0L ^ 53082601043283L);
-        long var46 = (0L ^ 136208856317167L);
         this.render(context, mouseX, mouseY);
-        if (var63 == null) {
+        if (__UNDEF_KEY__ == null) {
             easingServiceComponent.executeAction(1.0F);
             if (this.getContract4() != null) {
-            }
-        } else {
-        }
-        0.5F.executeAction(0.0F);
-        easingServiceComponent3.executeAction(factorValue);
-        float var64 = (this.getNumericValue() + 3.0F);
-        float var65 = (this.getNumericValue() + 72.0F);
-        int var66 = mouseX;
-        if (0L > 0L) {
-            if (var63 == null) {
-                if (var64 <= var66) {
-                }
-            }
-            if (var63 == null) {
-            }
-        } else {
-        }
-        if (var66 <= var65) {
-            var64 = (this.getNumericValue2() + 5.0F);
-            var65 = (this.getNumericValue2() + 13.0F);
-            var66 = mouseY;
-            if (0L > 0L) {
-                if (var63 == null) {
-                    if (var64 <= var66) {
-                    }
-                }
-                if (var63 == null) {
-                }
             } else {
             }
-            if (0L >= 0L) {
-                if (var66 <= var65) {
+        }
+        this.executeAction(0.0F);
+        easingServiceComponent3.executeAction(factorValue);
+        float factor = (this.getNumericValue() + 3.0F);
+        float factor2 = (this.getNumericValue() + 72.0F);
+        int index = mouseX;
+        if (__UNDEF_KEY__ == null) {
+            if (factor <= index) {
+                if (__UNDEF_KEY__ == null) {
+                }
+            } else {
+                if (index <= factor2) {
+                    factor = (this.getNumericValue2() + 5.0F);
+                    factor2 = (this.getNumericValue2() + 13.0F);
+                    index = mouseY;
+                    if (__UNDEF_KEY__ == null) {
+                        if (factor <= index) {
+                            if (__UNDEF_KEY__ == null) {
+                            }
+                        } else {
+                        }
+                    }
+                } else {
+                    enabledFlag = index <= factor2;
                 }
             }
-        } else {
-        }
-        }
-        enabledFlag = 0;
-        if (enabledFlag) {
-        } else {
         }
         if (enabledFlag) {
         } else {
         }
-        int var49 = 14336;
-        float var50 = 0.0F;
-        float var51 = 0.0F;
-        float var52 = 0.0F;
-        Color var53 = NewThemeRenderHelper.INSTANCE.getColor6();
-        Color var54 = NewThemeRenderHelper.INSTANCE.getColor4();
-        float var55 = 1.0F;
-        float var56 = 0.0F;
-        float var57 = 0.1F;
-        float var58 = 2.0F;
-        float var59 = 2.5F;
-        float var60 = 2.0F;
-        float var61 = 8.0F;
-        float var62 = 69.0F;
-        StackShaderComponent2.executeAction((this.getNumericValue2() + 3.0F));
+        if (enabledFlag) {
+        } else {
+        }
+        int index2 = 14336;
+        float factor3 = 0.0F;
+        float factor4 = 0.0F;
+        float factor5 = 0.0F;
+        Color color = NewThemeRenderHelper.INSTANCE.getColor6();
+        Color color2 = NewThemeRenderHelper.INSTANCE.getColor4();
+        float factor6 = 1.0F;
+        float factor7 = 0.0F;
+        float factor8 = 0.1F;
+        float factor9 = 2.0F;
+        float factor10 = 2.5F;
+        float factor11 = 2.0F;
+        float factor12 = 8.0F;
+        float factor13 = 69.0F;
+        StackShaderComponent2.executeAction((this.getNumericValue2() + 3.0F), factor13, factor12, factor11, factor10, factor9, factor8, factor7, factor6, color2, color, factor5, factor4, factor3, index2);
         SFMServiceComponent.resolveFontRenderHelper().render(context, "+", (this.getNumericValue() + 36.0F), (this.getNumericValue2() + 1.0F), Color.WHITE);
         StackShaderComponent2.executeAction(context.method_51448(), (this.getNumericValue() + 76.0F), this.getNumericValue2(), 6.0F, this.getNumericValue4(), 1.0F, 0.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
         renderHelper23 = null;
         renderHelper2 = null;
-        var64 = 0.0F;
-        var64 = (17.0F + easingServiceComponent3.getNumericValue());
+        factor = 0.0F;
+        factor = (17.0F + easingServiceComponent3.getNumericValue());
         PolygonShaderComponent.INSTANCE.render(context, new ServiceComponent78(this.getNumericValue(), (this.getNumericValue2() + 14), (this.getNumericValue() + 76), ((this.getNumericValue2() + this.getNumericValue4()) - 2.0F)));
-        var65 = (Iterable) itemList;
-        var66 = 0;
-        Iterator iterator = var65.iterator();
-        if (iterator.hasNext()) {
-            Object var68 = iterator.next();
-            PointRenderHelper2Impl var69 = (PointRenderHelper2Impl) var68;
-            int var70 = 0;
-            var69.render(context, INSTANCE.getNumericValue(), (INSTANCE.getNumericValue2() + var64), mouseX, mouseY);
-            var64 = (var64 + 29.0F);
-            if (0L >= 0L) {
-                if (var63 == null) {
-                }
+        factor2 = ((Iterable) itemList);
+        index = 0;
+        Iterator iterator = factor2.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            PointRenderHelper2Impl pointRenderHelper2Impl = ((PointRenderHelper2Impl) element);
+            pointRenderHelper2Impl.render(context, INSTANCE.getNumericValue(), (INSTANCE.getNumericValue2() + factor), mouseX, mouseY);
+            factor = (factor + 29.0F);
+            if (__UNDEF_KEY__ == null) {
                 PolygonShaderComponent.INSTANCE.render(context);
             }
         }
-        if (0L > 0L) {
-            if (var63 == null) {
-                if (pointRenderHelper2Impl != null) {
-                    var65 = ((1.0F - easingServiceComponent.getNumericValue()) * 10.0F);
-                    var66 = this::getUnit;
-                    suggestionsRenderHelper2Impl.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 17.0F) + var65), mouseX, mouseY);
-                    suggestionsRenderHelper2Impl2.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 32.0F) + var65), mouseX, mouseY);
-                    suggestionsRenderHelper2Impl3.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 47.0F) + var65), mouseX, mouseY);
-                    suggestionsRenderHelper2Impl4.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 62.0F) + var65), mouseX, mouseY);
-                    suggestionsRenderHelper2Impl5.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 77.0F) + var65), mouseX, mouseY);
-                    new RefRenderHelper2Impl(this.getNumericValue3(), (KMutableProperty0) new DimensionServiceComponent(pointRenderHelper2Impl.getIdRecord7()), (KMutableProperty0) new HoveringComponentServiceComponent5(this)).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 92.0F) + var65), mouseX, mouseY);
-                    new ClickActionRenderHelper2Impl(this.getNumericValue3(), (KMutableProperty0) new HoveringComponentServiceComponent6(this)).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 107.0F) + var65), mouseX, mouseY);
-                }
-                ColorValue1RenderHelper.executeAction(this.getNumericValue(), this.getNumericValue2(), this.getNumericValue3(), this.getNumericValue4(), 5.0F, PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), context.method_51448(), 0.0F);
+        if (__UNDEF_KEY__ == null) {
+            if (pointRenderHelper2Impl != null) {
+                factor2 = ((1.0F - easingServiceComponent.getNumericValue()) * 10.0F);
+                index = this::getUnit;
+                suggestionsRenderHelper2Impl.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 17.0F) + factor2), mouseX, mouseY);
+                suggestionsRenderHelper2Impl2.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 32.0F) + factor2), mouseX, mouseY);
+                suggestionsRenderHelper2Impl3.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 47.0F) + factor2), mouseX, mouseY);
+                suggestionsRenderHelper2Impl4.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 62.0F) + factor2), mouseX, mouseY);
+                suggestionsRenderHelper2Impl5.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 77.0F) + factor2), mouseX, mouseY);
+                new RefRenderHelper2Impl(this.getNumericValue3(), ((KMutableProperty0) new DimensionServiceComponent(pointRenderHelper2Impl.getIdRecord7())), ((KMutableProperty0) new HoveringComponentServiceComponent5(this))).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 92.0F) + factor2), mouseX, mouseY);
+                new ClickActionRenderHelper2Impl(index, this.getNumericValue3(), ((KMutableProperty0) new HoveringComponentServiceComponent6(this))).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 107.0F) + factor2), mouseX, mouseY);
             }
+            ColorValue1RenderHelper.executeAction(this.getNumericValue(), this.getNumericValue2(), this.getNumericValue3(), this.getNumericValue4(), 5.0F, PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), context.method_51448(), 0.0F);
         }
-        if (var63 == null) {
+        if (__UNDEF_KEY__ == null) {
             if (this.getContract4() != null) {
                 this.getContract4().render(context, ((this.getNumericValue() + (this.getNumericValue3() / 2.0F)) - 60.0F), ((this.getNumericValue2() + (this.getNumericValue4() / 2)) - 35.0F), mouseX, mouseY);
+            } else {
             }
-        } else {
         }
     }
 
     private void executeAction(String arg0, char arg1) {
-        if (var25 == null) {
-        }
         if (arg1 > 0) {
-            if (var25 == null) {
-                if (SharedKt.getMc().player != null && SharedKt.getMc().world != null) {
+            if (SharedKt.getMc().player != null && SharedKt.getMc().world != null) {
+                if (SharedKt.getMc().method_1562() != null) {
+                } else {
+                    SharedKt.getMc().method_1562().method_45734();
+                }
+                if (null == null) {
+                    IdRecord7 idRecord7 = new IdRecord7(arg0, 0, 0, 0, null, 0, false);
+                } else {
+                    idRecord7 = new IdRecord7(arg0, SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), SharedKt.getNetwork().method_45734().field_3761, LocalhostServiceComponent.INSTANCE.computeValue(SharedKt.getWorld().method_27983().method_29177().method_12832()), false);
                 }
             }
-            if (SharedKt.getMc().method_1562() != null) {
-            } else {
-                SharedKt.getMc().method_1562().method_45734();
-            }
-            if (null == null) {
-            }
-            IdRecord7 var24 = new IdRecord7(arg0);
-        } else {
-            var24 = new IdRecord7(arg0, SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), SharedKt.getNetwork().method_45734().field_3761, LocalhostServiceComponent.INSTANCE.computeValue(SharedKt.getWorld().method_27983().method_29177().method_12832()));
         }
-        LocalhostServiceComponent.INSTANCE.checkCondition();
+        LocalhostServiceComponent.INSTANCE.checkCondition(idRecord7);
         this.updateValue();
         this.updateValue(null);
     }
 
     public void executeAction(float mX, float mY, int button) {
-        int var7 = (((0L << 48) | ((0L << 32) >>> 16)) | ((0L << 48) >>> 48));
-        long var9 = (var7 ^ 72650074335561L);
-        long var11 = ((var7 ^ 0L) >>> 48);
-        long var12 = (((var7 ^ 0L) << 16) >>> 32);
-        long var13 = (((var7 ^ 0L) << 48) >>> 48);
-        long var14 = (var7 ^ 38836403100948L);
-        long var16 = (var7 ^ 89123186698759L);
-        long var18 = (var7 ^ 20362906346987L);
         this.executeAction(mX, mY, button);
         if (enabledFlag) {
             SuggestionsRenderHelper2Impl.serviceComponent7.updateValue(null);
             this.updateValue(new ActionRenderHelper(this::resolveUnit));
             return;
         }
-        if (0L >= 0) {
+        if (__UNDEF_KEY__ >= 0) {
             if (this.getContract4() != null && this.getContract4().checkCondition(mX, mY, button)) {
                 return;
             }
         }
         this.updateValue(null);
-        if (0L > 0) {
+        if (__UNDEF_KEY__ > 0) {
             if (renderHelper2 != null) {
                 renderHelper22 = renderHelper2;
                 renderHelper2.checkCondition(mX, mY, button);
@@ -311,10 +252,10 @@ public class WaypointPanelGuiElement extends RenderHelper3 {
             }
             renderHelper22 = null;
         }
-        if (0L >= 0) {
+        if (__UNDEF_KEY__ >= 0) {
         }
-        (PointRenderHelper2Impl) renderHelper23.getIdRecord7().updateValue(!((PointRenderHelper2Impl) renderHelper23.getIdRecord7().isActive()));
-        pointRenderHelper2Impl = (PointRenderHelper2Impl) renderHelper23;
+        ((PointRenderHelper2Impl) renderHelper23).getIdRecord7().updateValue(!(((PointRenderHelper2Impl) renderHelper23).getIdRecord7().isActive()));
+        pointRenderHelper2Impl = ((PointRenderHelper2Impl) renderHelper23);
         suggestionsRenderHelper2Impl.executeAction(pointRenderHelper2Impl.getIdRecord7().getString());
         suggestionsRenderHelper2Impl2.executeAction(pointRenderHelper2Impl.getIdRecord7().getString2());
         suggestionsRenderHelper2Impl3.executeAction(String.valueOf(pointRenderHelper2Impl.getIdRecord7().getNumericValue()));
@@ -324,25 +265,25 @@ public class WaypointPanelGuiElement extends RenderHelper3 {
     }
 
     public void executeAction(double mouseX, double mouseY, double amount) {
-        float var10 = this.getNumericValue();
-        if (0L >= 0L) {
-            if (var9 == null) {
+        float factor = this.getNumericValue();
+        if (__UNDEF_KEY__ >= 0L) {
+            if (__UNDEF_KEY__ == null) {
                 if (mouseX <= (this.getNumericValue() + 76.0F)) {
+                    if (__UNDEF_KEY__ == null) {
+                    }
+                } else {
                 }
             }
-            if (var9 == null) {
-            }
-        } else {
         }
-        var10 = this.getNumericValue2();
-        if (0L > 0L) {
-            if (var9 == null) {
+        factor = this.getNumericValue2();
+        if (__UNDEF_KEY__ > 0L) {
+            if (__UNDEF_KEY__ == null) {
                 if (mouseY <= ((this.getNumericValue2() + this.getNumericValue4()) - 2.0F)) {
+                    if (__UNDEF_KEY__ == null) {
+                    }
+                } else {
                 }
             }
-            if (var9 == null) {
-            }
-        } else {
         }
         factorValue = (factorValue + (amount * 7.0F));
         factorValue = Math.clamp(factorValue, (itemList.size() * -29.0F), 0.0F);
@@ -402,9 +343,8 @@ public class WaypointPanelGuiElement extends RenderHelper3 {
 
     private static Unit getUnit() {
         LocalhostServiceComponent.INSTANCE.checkCondition(pointRenderHelper2Impl.getIdRecord7());
-        Collection var5 = (Collection) itemList;
-        PointRenderHelper2Impl var6 = pointRenderHelper2Impl;
-        TypeIntrinsics.asMutableCollection().remove();
+        Collection collection = ((Collection) itemList);
+        TypeIntrinsics.asMutableCollection(collection).remove(pointRenderHelper2Impl);
         pointRenderHelper2Impl = null;
         return Unit.INSTANCE;
     }
@@ -417,9 +357,9 @@ public class WaypointPanelGuiElement extends RenderHelper3 {
     static {
         INSTANCE = new WaypointPanelGuiElement();
         itemList = new ArrayList();
-        easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, var0[1]);
-        easingServiceComponent2 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, var0[2]);
-        easingServiceComponent3 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, var0[0]);
+        easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);
+        easingServiceComponent2 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);
+        easingServiceComponent3 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);
         suggestionsRenderHelper2Impl = new SuggestionsRenderHelper2Impl("Name", INSTANCE.getNumericValue3(), null, this::resolveUnit);
         suggestionsRenderHelper2Impl2 = new SuggestionsRenderHelper2Impl("Server", INSTANCE.getNumericValue3(), null, this::resolveUnit2);
         suggestionsRenderHelper2Impl3 = new SuggestionsRenderHelper2Impl("X", INSTANCE.getNumericValue3(), null, this::resolveUnit3);

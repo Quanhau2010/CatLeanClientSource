@@ -32,104 +32,68 @@ public class SettingRenderHelper7 extends SettingRenderHelper16 {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float factor) {
-        long var7 = (0L ^ 49494862758009L);
-        long var9 = ((0L ^ 20797107207379L) >>> 48);
-        long var10 = (((0L ^ 20797107207379L) << 16) >>> 48);
-        long var11 = (((0L ^ 20797107207379L) << 32) >>> 32);
-        long var12 = (0L ^ 39844814704388L);
-        long var14 = (0L ^ 114903264084220L);
-        long var16 = (0L ^ 136713714549074L);
-        long var18 = (0L ^ 126888773963804L);
-        long var20 = (0L ^ 115096991696004L);
-        long var22 = (0L ^ 127000398109451L);
-        long var24 = (0L ^ 4763820429086L);
-        long var26 = (0L ^ 57494645123396L);
         if (this.enabledFlag && (System.currentTimeMillis() % 400) > 200L) {
         } else {
         }
-        String var29 = "";
-        float var30 = (SFMServiceComponent.resolveFontRenderHelper3().computeValue(this.getVisibleSettingProperty().getString2()) + 6.0F);
-        FontRenderHelper.W(SFMServiceComponent.resolveFontRenderHelper3(), context.method_51448(), this.getVisibleSettingProperty().getString2(), (this.getNumericValue() - 1.0F), (this.getNumericValue2() - 1.0F), NewThemeRenderHelper.INSTANCE.getColor7());
-        float var31 = (this.getNumericValue() + var30);
-        float var32 = ((((this.getNumericValue() + var30) + this.getNumericValue3()) - 7.0F) - var30);
-        int var33 = mouseX;
-        if (0L >= 0L && var28 != null) {
-            if (var31 <= var33) {
-            }
+        String text = "";
+        float factor2 = (SFMServiceComponent.resolveFontRenderHelper3().computeValue(this.getVisibleSettingProperty().getString2()) + 6.0F);
+        FontRenderHelper.W(SFMServiceComponent.resolveFontRenderHelper3(), context.method_51448(), this.getVisibleSettingProperty().getString2(), (this.getNumericValue() - 1.0F), (this.getNumericValue2() - 1.0F), NewThemeRenderHelper.INSTANCE.getColor7(), false);
+        float factor3 = (this.getNumericValue() + factor2);
+        float factor4 = ((((this.getNumericValue() + factor2) + this.getNumericValue3()) - 7.0F) - factor2);
+        int index = mouseX;
+        if (factor3 <= index) {
         } else {
-        }
-        if (var33 <= var32) {
-            var31 = this.getNumericValue2();
-            var32 = (this.getNumericValue2() + 12.0F);
-            var33 = mouseY;
-            if (0L > 0L && var28 != null) {
-                if (var31 <= var33) {
+            if (index <= factor4) {
+                factor3 = this.getNumericValue2();
+                factor4 = (this.getNumericValue2() + 12.0F);
+                index = mouseY;
+                if (factor3 <= index) {
+                } else {
+                    if (index <= factor4) {
+                    } else {
+                    }
                 }
             } else {
             }
-            if (var33 <= var32) {
-            }
+        }
+        this.executeAction(0.0F);
+        StackShaderComponent2.executeAction(context.method_51448(), (this.getNumericValue() + factor2), this.getNumericValue2(), ((this.getNumericValue3() - 7.0F) - factor2), 12.0F, 3.0F, (2.5F + this.easingServiceComponent.getNumericValue()), 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor11(), NewThemeRenderHelper.INSTANCE.getColor12(), 0.0F, 0.0F, 0.0F);
+        PolygonShaderComponent.INSTANCE.render(context, new ServiceComponent78(((this.getNumericValue() + factor2) + 1.0F), this.getNumericValue2(), ((this.getNumericValue() + this.getNumericValue3()) - 9.0F), (this.getNumericValue2() + 12.0F)));
+        factor3 = (SFMServiceComponent.resolveFontRenderHelper4().computeValue(((String) this.getVisibleSettingProperty().getObject2())) + 2.0F);
+        if (factor3 < (this.getNumericValue3() - factor3)) {
+            SFMServiceComponent.resolveFontRenderHelper4().render(context, (this.getVisibleSettingProperty().getObject2() + text), ((this.getNumericValue() + factor2) + 3.0F), (this.getNumericValue2() + 1.0F), NewThemeRenderHelper.INSTANCE.getColor7());
         } else {
+            SFMServiceComponent.resolveFontRenderHelper4().render(context, (this.getVisibleSettingProperty().getObject2() + text), (((this.getNumericValue() + this.getNumericValue3()) - 10.0F) - factor3), (this.getNumericValue2() + 1.0F), NewThemeRenderHelper.INSTANCE.getColor7());
         }
-        }
-        1.0F.executeAction(0.0F);
-        StackShaderComponent2.executeAction(context.method_51448(), (this.getNumericValue() + var30), this.getNumericValue2(), ((this.getNumericValue3() - 7.0F) - var30), 12.0F, 3.0F, (2.5F + this.easingServiceComponent.getNumericValue()), 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor11(), NewThemeRenderHelper.INSTANCE.getColor12(), 0.0F, 0.0F, 0.0F);
-        PolygonShaderComponent.INSTANCE.render(context, new ServiceComponent78(((this.getNumericValue() + var30) + 1.0F), this.getNumericValue2(), ((this.getNumericValue() + this.getNumericValue3()) - 9.0F), (this.getNumericValue2() + 12.0F)));
-        if (0L > 0L) {
-            if (var28 != null) {
-            }
-            var31 = (SFMServiceComponent.resolveFontRenderHelper4().computeValue((String) this.getVisibleSettingProperty().getObject2()) + 2.0F);
-            if (0L > 0L) {
-                if (var31 < (this.getNumericValue3() - var31)) {
-                    SFMServiceComponent.resolveFontRenderHelper4().render(context, (this.getVisibleSettingProperty().getObject2() + var29), ((this.getNumericValue() + var30) + 3.0F), (this.getNumericValue2() + 1.0F), NewThemeRenderHelper.INSTANCE.getColor7());
-                }
-                if (0L > 0L) {
+        factor4 = (this.getNumericValue() + factor2);
+        index = ((((this.getNumericValue() + factor2) + this.getNumericValue3()) - 7.0F) - factor2);
+        int index2 = mouseX;
+        if (factor4 <= index2) {
+        } else {
+            if (index2 <= index) {
+                factor4 = this.getNumericValue2();
+                index = (this.getNumericValue2() + 12.0F);
+                index2 = mouseY;
+                if (factor4 <= index2) {
                 } else {
                 }
-                SFMServiceComponent.resolveFontRenderHelper4().render(context, (this.getVisibleSettingProperty().getObject2() + var29), (((this.getNumericValue() + this.getNumericValue3()) - 10.0F) - var31), (this.getNumericValue2() + 1.0F), NewThemeRenderHelper.INSTANCE.getColor7());
-            }
-            var32 = (this.getNumericValue() + var30);
-            var33 = ((((this.getNumericValue() + var30) + this.getNumericValue3()) - 7.0F) - var30);
-        }
-        int var34 = mouseX;
-        if (0L > 0L && var28 != null) {
-            if (var32 <= var34) {
-            }
-        } else {
-        }
-        if (var34 <= var33) {
-            var32 = this.getNumericValue2();
-            var33 = (this.getNumericValue2() + 12.0F);
-            var34 = mouseY;
-            if (0L >= 0L && var28 != null) {
-                if (var32 <= var34) {
+                if (index2 <= index && GLFW.glfwGetPlatform() != 393219) {
+                    GLFW.glfwSetCursor(SharedKt.getMc().method_22683().method_4490(), GLFW.glfwCreateStandardCursor(221186));
+                    CatleanInterfaceRenderHelper.INSTANCE.updateValue(false);
                 }
-            } else {
-            }
-            if (0L >= 0L) {
-            }
-            if (var34 <= var33 && GLFW.glfwGetPlatform() != 393219) {
-                GLFW.glfwSetCursor(SharedKt.getMc().method_22683().method_4490(), GLFW.glfwCreateStandardCursor(221186));
-                CatleanInterfaceRenderHelper.INSTANCE.updateValue(0);
             }
         }
         PolygonShaderComponent.INSTANCE.render(context);
-        if (0L > 0L) {
-        }
     }
 
     public void setValue(double mouseX, double mouseY) {
-        long var8 = (0L ^ 115855010917359L);
-        long var10 = (0L ^ 138026233391681L);
-        float var13 = (SFMServiceComponent.resolveFontRenderHelper3().computeValue(this.getVisibleSettingProperty().getString()) + 6.0F);
-        float var14 = (this.getNumericValue() + var13);
-        if (mouseX <= ((((this.getNumericValue() + var13) + this.getNumericValue3()) - 7.0F) - var13)) {
+        float factor = (SFMServiceComponent.resolveFontRenderHelper3().computeValue(this.getVisibleSettingProperty().getString()) + 6.0F);
+        float factor2 = (this.getNumericValue() + factor);
+        if (mouseX <= ((((this.getNumericValue() + factor) + this.getNumericValue3()) - 7.0F) - factor)) {
         } else {
         }
-        var14 = this.getNumericValue2();
-        if (0L >= 0L && var12 != null) {
-            if (mouseY <= (this.getNumericValue2() + 12.0F)) {
-            }
+        factor2 = this.getNumericValue2();
+        if (mouseY <= (this.getNumericValue2() + 12.0F)) {
         } else {
         }
         this.enabledFlag = !(this.enabledFlag);
@@ -139,16 +103,13 @@ public class SettingRenderHelper7 extends SettingRenderHelper16 {
     }
 
     public void setValue(int key) {
-        int var5 = (((0L << 48) | ((0L << 32) >>> 16)) | ((0L << 48) >>> 48));
-        this.getVisibleSettingProperty().updateValue(StringsKt.dropLast((String) this.getVisibleSettingProperty().getObject2(), 1));
-        this.enabledFlag = 0;
-        this.enabledFlag = 0;
+        this.getVisibleSettingProperty().updateValue(StringsKt.dropLast(((String) this.getVisibleSettingProperty().getObject2()), 1));
+        this.enabledFlag = false;
+        this.enabledFlag = false;
     }
 
-    public void setValue(char char) {
-        if (var4 != null) {
-        }
-        this.getVisibleSettingProperty().updateValue((this.getVisibleSettingProperty().getObject2() + char));
+    public void setValue(char charParam) {
+        this.getVisibleSettingProperty().updateValue((this.getVisibleSettingProperty().getObject2() + charParam));
     }
 
     public boolean checkCondition(double mouseX, double mouseY, double verticalAmount) {
@@ -156,7 +117,7 @@ public class SettingRenderHelper7 extends SettingRenderHelper16 {
     }
 
     public void setValue() {
-        this.enabledFlag = 0;
+        this.enabledFlag = false;
     }
 
 }

@@ -23,131 +23,127 @@ import su.catlean.client.ui.clickgui.ProxyGuiElement;
 public class DefaultServiceComponent {
 
     public static void executeAction(String id, OptionMode8 type) {
-        EnabledServiceComponent var46 = EnabledServiceComponent.INSTANCE;
-        int var47 = 0;
-        ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().executeAction(var46.getArrayList2(), ProxyGuiElement.INSTANCE.getJsonServiceComponent4().resolveModulesConfigRecord().getString());
-        IdRecord3 var48 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveIdRecord3();
+        EnabledServiceComponent enabledServiceComponent = EnabledServiceComponent.INSTANCE;
+        int index = 0;
+        ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().executeAction(enabledServiceComponent.getArrayList2(), ProxyGuiElement.INSTANCE.getJsonServiceComponent4().resolveModulesConfigRecord().getString());
+        IdRecord3 idRecord3 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveIdRecord3();
         ProxyGuiElement.INSTANCE.getJsonServiceComponent4().resolveModulesConfigRecord().executeAction(id);
-        Iterable var49 = (Iterable) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveList();
-        JsonJsonServiceComponent5Impl2 var50 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2();
-        int var51 = 0;
-        Iterator iterator = var49.iterator();
-        if (iterator.hasNext()) {
-            Object var53 = iterator.next();
-            IdRecord3 var54 = (IdRecord3) var53;
-            int var55 = 0;
-        } else {
+        Iterable iterable = ((Iterable) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveList());
+        JsonJsonServiceComponent5Impl2 jsonJsonServiceComponent5Impl2 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2();
+        int index2 = 0;
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            IdRecord3 idRecord32 = ((IdRecord3) element);
         }
-        if ((IdRecord3) null == null) {
+        if (((IdRecord3) null) == null) {
             return;
         }
-        var53.executeAction();
-        var46.updateValue();
-        var46.executeAction();
-        if (0L > 0) {
-            if (var42 == null) {
-                var46 = POSITIONCOLORRenderHelper.INSTANCE;
-                var47 = 0;
-                ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().executeAction(var46.getList(), ProxyGuiElement.INSTANCE.getJsonServiceComponent4().resolveModulesConfigRecord().getString2());
+        element.executeAction(jsonJsonServiceComponent5Impl2);
+        enabledServiceComponent.updateValue();
+        enabledServiceComponent.executeAction(idRecord3);
+        if (__UNDEF_KEY__ > 0) {
+            if (__UNDEF_KEY__ == null) {
+                enabledServiceComponent = POSITIONCOLORRenderHelper.INSTANCE;
+                index = 0;
+                ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().executeAction(enabledServiceComponent.getList(), ProxyGuiElement.INSTANCE.getJsonServiceComponent4().resolveModulesConfigRecord().getString2());
                 ProxyGuiElement.INSTANCE.getJsonServiceComponent4().resolveModulesConfigRecord().executeAction(id);
-                var48 = (Iterable) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveList();
-                var49 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4();
-                var50 = 0;
-                var51 = var48.iterator();
-                if (var51.hasNext()) {
-                    iterator = var51.next();
-                    var53 = (IdRecord8) iterator;
-                    var54 = 0;
-                } else {
+                idRecord3 = ((Iterable) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveList());
+                iterable = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4();
+                jsonJsonServiceComponent5Impl2 = 0;
+                index2 = idRecord3.iterator();
+                while (index2.hasNext()) {
+                    iterator = index2.next();
+                    element = ((IdRecord8) iterator);
+                    idRecord32 = 0;
                 }
-                if (0L < 0 && (IdRecord8) null == null) {
+                if (__UNDEF_KEY__ < 0 && ((IdRecord8) null) == null) {
                     return;
                 }
-                iterator.executeAction();
-                var46.updateValue2();
-                if (0L > 0) {
-                    if (var42 == null) {
+                iterator.executeAction(iterable);
+                enabledServiceComponent.updateValue2();
+                if (__UNDEF_KEY__ > 0) {
+                    if (__UNDEF_KEY__ == null) {
                     }
+                    BindDispatcherServiceComponentImpl.INSTANCE.executeAction((class_124.field_1068 + "Key Binds:"));
                 }
-                BindDispatcherServiceComponentImpl.INSTANCE.executeAction((class_124.field_1068 + "Key Binds:"));
             }
         }
-        Iterable var44 = (Iterable) EnabledServiceComponent.INSTANCE.getArrayList2();
-        int var45 = 0;
-        var46 = var44;
-        var47 = (Collection) new ArrayList();
-        var48 = 0;
-        var49 = var46.iterator();
-        if (var49.hasNext()) {
-            if (0L > 0) {
-                if (var42 != null) {
-                }
-                var50 = var49.next();
-                var51 = (Module) var50;
-                iterator = 0;
-                if (var42 != null) {
-                    if (var51.getBind().getNumericValue() != -1) {
+        Iterable iterable2 = ((Iterable) EnabledServiceComponent.INSTANCE.getArrayList2());
+        enabledServiceComponent = iterable2;
+        index = ((Collection) new ArrayList());
+        idRecord3 = 0;
+        iterable = enabledServiceComponent.iterator();
+        while (iterable.hasNext()) {
+            if (__UNDEF_KEY__ > 0) {
+                if (__UNDEF_KEY__ != null) {
+                    jsonJsonServiceComponent5Impl2 = iterable.next();
+                    index2 = ((Module) jsonJsonServiceComponent5Impl2);
+                    iterator = 0;
+                    if (__UNDEF_KEY__ != null) {
+                        if (index2.getBind().getNumericValue() != -1) {
+                        } else {
+                        }
                     }
-                } else {
+                    index.add(jsonJsonServiceComponent5Impl2);
                 }
-                var47.add();
             }
         }
-        Iterator iterator2 = var47.iterator();
-        var44 = (Module) iterator2.next();
-        String var56 = NoneServiceComponent.INSTANCE.resolveString(var44.getBind().getNumericValue());
-        class_124 var57 = class_124.field_1068;
-        BindDispatcherServiceComponentImpl.INSTANCE.executeAction((var44.getString2() + "- " + var57 + var56));
+        Iterator iterator2 = index.iterator();
+        while (iterator2.hasNext()) {
+            iterable2 = ((Module) iterator2.next());
+            String text = NoneServiceComponent.INSTANCE.resolveString(iterable2.getBind().getNumericValue());
+            class_124 class124 = class_124.field_1068;
+            BindDispatcherServiceComponentImpl.INSTANCE.executeAction((iterable2.getString2() + "- " + class124 + text));
+        }
     }
 
     public static void executeAction(String id, OptionMode8 type) {
-        if (var22 != null) {
+        if (__UNDEF_KEY__ != null) {
         }
-        if (0L >= 0) {
-            if (var22 != null) {
+        if (__UNDEF_KEY__ >= 0) {
+            if (__UNDEF_KEY__ != null) {
                 if (Intrinsics.areEqual(id, ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveIdRecord3().getString())) {
-                    executeAction((IdRecord3) CollectionsKt.first(ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveList()).getString(), type);
-                    if (0L < 0) {
+                    executeAction(((IdRecord3) CollectionsKt.first(ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveList())).getString(), type);
+                    if (__UNDEF_KEY__ < 0) {
+                        if (__UNDEF_KEY__ != null) {
+                            if (__UNDEF_KEY__ == null && ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveList().size() == 1) {
+                                executeAction("default", type);
+                                executeAction("default", type);
+                            }
+                            ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveList().removeIf(this::checkCondition);
+                        }
                     }
                 }
-            }
-            if (var22 != null) {
-                if (var22 == null && ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveList().size() == 1) {
-                    executeAction("default", type);
-                    executeAction("default", type);
-                }
-                ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2().resolveList().removeIf(this::checkCondition);
             }
         }
-        if (0L > 0) {
-            if (var22 != null) {
+        if (__UNDEF_KEY__ > 0) {
+            if (__UNDEF_KEY__ != null) {
                 if (Intrinsics.areEqual(id, ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveIdRecord8().getString())) {
-                    executeAction((IdRecord8) CollectionsKt.first(ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveList()).getString(), type);
-                    if (0L > 0) {
+                    executeAction(((IdRecord8) CollectionsKt.first(ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveList())).getString(), type);
+                    if (__UNDEF_KEY__ > 0) {
+                        if (__UNDEF_KEY__ != null) {
+                            if (__UNDEF_KEY__ == null && ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveList().size() == 1) {
+                                executeAction("default", type);
+                                executeAction("default", type);
+                            }
+                            ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveList().removeIf(this::checkCondition2);
+                        }
                     }
                 }
-            }
-            if (var22 != null) {
-                if (var22 == null && ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveList().size() == 1) {
-                    executeAction("default", type);
-                    executeAction("default", type);
-                }
-                ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4().resolveList().removeIf(this::checkCondition2);
             }
         }
     }
 
     public static void executeAction(String id, OptionMode8 type) {
-        if (0L > 0) {
-            JsonJsonServiceComponent5Impl2 var18 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2();
-            int var19 = 0;
-            var18.executeAction(EnabledServiceComponent.INSTANCE.getArrayList2(), id);
-            var18.executeAction();
+        if (__UNDEF_KEY__ > 0) {
+            JsonJsonServiceComponent5Impl2 jsonJsonServiceComponent5Impl2 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl2();
+            jsonJsonServiceComponent5Impl2.executeAction(EnabledServiceComponent.INSTANCE.getArrayList2(), id);
+            jsonJsonServiceComponent5Impl2.executeAction();
         }
-        var18 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4();
-        var19 = 0;
-        var18.executeAction(POSITIONCOLORRenderHelper.INSTANCE.getList(), id);
-        var18.executeAction();
+        jsonJsonServiceComponent5Impl2 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl4();
+        jsonJsonServiceComponent5Impl2.executeAction(POSITIONCOLORRenderHelper.INSTANCE.getList(), id);
+        jsonJsonServiceComponent5Impl2.executeAction();
     }
 
     private static boolean checkCondition(String arg0, IdRecord3 arg1) {
@@ -155,7 +151,7 @@ public class DefaultServiceComponent {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static boolean checkCondition(String arg0, IdRecord8 arg1) {
@@ -163,7 +159,7 @@ public class DefaultServiceComponent {
     }
 
     private static boolean checkCondition2(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
 }

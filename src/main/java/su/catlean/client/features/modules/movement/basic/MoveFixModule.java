@@ -20,13 +20,11 @@ public class MoveFixModule extends Module {
     }
 
     public MoveFixMode getMode() {
-        if (var5 != null) {
-        }
-        return (MoveFixMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((MoveFixMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     static {
-        KProperty[] var23 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new MoveFixModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", MoveFixMode.FREE);
     }

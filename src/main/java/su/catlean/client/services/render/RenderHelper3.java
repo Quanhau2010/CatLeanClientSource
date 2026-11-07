@@ -1,6 +1,5 @@
 package su.catlean.client.services.render;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import net.minecraft.client.gui.DrawContext;
 import su.catlean.api.contracts.Contract4;
 import su.catlean.client.services.client.SFMServiceComponent;
@@ -35,22 +34,6 @@ public abstract class RenderHelper3 {
         this.factorValue4 = height;
         this.factorValue5 = this.factorValue3;
         this.factorValue6 = this.factorValue4;
-    }
-
-    public RenderHelper3(String arg0, float arg1, float arg2, float arg3, float arg4, int arg5, DefaultConstructorMarker arg6) {
-        if ((arg5 & 2)) {
-            arg1 = 50.0F;
-        }
-        if ((arg5 & 4)) {
-            arg2 = 50.0F;
-        }
-        if ((arg5 & 8)) {
-            arg3 = 230.0F;
-        }
-        if ((arg5 & 16)) {
-            arg4 = 180.0F;
-        }
-        this(arg0, arg1, arg2, arg3, arg4);
     }
 
     public String getString() {
@@ -102,24 +85,16 @@ public abstract class RenderHelper3 {
     }
 
     public void executeAction() {
-        this.enabledFlag4 = 1;
+        this.enabledFlag4 = true;
     }
 
     public void updateValue() {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY) {
-        long var6 = ((0L ^ 22135879901675L) >>> 48);
-        long var7 = (((0L ^ 22135879901675L) << 16) >>> 48);
-        long var8 = (((0L ^ 22135879901675L) << 32) >>> 32);
-        long var9 = (0L ^ 55127167163707L);
-        long var11 = (0L ^ 117687767941534L);
-        long var13 = (0L ^ 2881734234662L);
-        long var15 = (0L ^ 55531218400380L);
-        long var17 = (0L ^ 118149162295806L);
         if (this.enabledFlag4) {
             this.updateValue();
-            this.enabledFlag4 = 0;
+            this.enabledFlag4 = false;
         }
         StackShaderComponent2.executeAction(context.method_51448(), this.factorValue, this.factorValue2, this.factorValue3, this.factorValue4, 5.0F, 1.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
         PolygonShaderComponent.INSTANCE.render(context, new ServiceComponent78((this.factorValue + 2), (this.factorValue2 + 14), ((this.factorValue + this.factorValue3) - 2), (this.factorValue2 + this.factorValue4)));
@@ -129,107 +104,95 @@ public abstract class RenderHelper3 {
         StackShaderComponent2.executeAction(context.method_51448(), ((this.factorValue + this.factorValue3) - 20), (this.factorValue2 + 3), 8.0F, 8.0F, 4.0F, 0.0F, 0.1F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor5(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
         StackShaderComponent2.executeAction(context.method_51448(), ((this.factorValue + this.factorValue3) - 30), (this.factorValue2 + 3), 8.0F, 8.0F, 4.0F, 0.0F, 0.1F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor5(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
         SFMServiceComponent.resolveFontRenderHelper().render(context, this.textValue, (this.factorValue + (this.factorValue3 / 2)), (this.factorValue2 + 6.0F), NewThemeRenderHelper.INSTANCE.getColor5());
-        if (0L > 0L && var19 == null) {
-            if (this.enabledFlag) {
-                this.factorValue = (mouseX - this.factorValue7);
-                this.factorValue2 = (mouseY - this.factorValue8);
-            }
+        if (this.enabledFlag) {
+            this.factorValue = (mouseX - this.factorValue7);
+            this.factorValue2 = (mouseY - this.factorValue8);
         }
         if (this.enabledFlag2) {
             this.factorValue3 = Math.max(this.factorValue5, (mouseX - this.factorValue7));
         }
-        if (this.enabledFlag3) {
-            this.factorValue4 = Math.max(this.factorValue6, (mouseY - this.factorValue8));
-        }
+        this.factorValue4 = Math.max(this.factorValue6, (mouseY - this.factorValue8));
     }
 
     public void executeAction(float mX, float mY) {
-        int var7 = (((0L << 48) | ((0L << 32) >>> 16)) | ((0L << 48) >>> 48));
-        float var10 = this.factorValue;
+        float factor = this.factorValue;
         if (mX <= (this.factorValue + this.factorValue3)) {
         } else {
-        }
-        if (var10 <= mX) {
-            var10 = this.factorValue2;
-            if (0L >= 0 && var9 == null) {
-                if (mY <= (this.factorValue2 + 15)) {
+            if (factor <= mX) {
+                factor = this.factorValue2;
+                if (__UNDEF_KEY__ >= 0 && __UNDEF_KEY__ == null) {
+                    if (mY <= (this.factorValue2 + 15)) {
+                    } else {
+                    }
                 }
-            } else {
-            }
-            if (var10 <= mY && CatleanPanelScreenGuiElement.INSTANCE.getRenderHelper3() == null) {
-                this.enabledFlag = 1;
-                this.factorValue7 = (mX - this.factorValue);
-                this.factorValue8 = (mY - this.factorValue2);
+                if (factor <= mY && CatleanPanelScreenGuiElement.INSTANCE.getRenderHelper3() == null) {
+                    this.enabledFlag = true;
+                    this.factorValue7 = (mX - this.factorValue);
+                    this.factorValue8 = (mY - this.factorValue2);
+                }
             }
         }
-        var10 = this.factorValue;
-        if (0L > 0 && var9 == null) {
+        factor = this.factorValue;
+        if (__UNDEF_KEY__ > 0 && __UNDEF_KEY__ == null) {
             if (mX <= (this.factorValue + this.factorValue3)) {
-            }
-        } else {
-        }
-        if (var10 <= mX) {
-            var10 = ((this.factorValue2 + this.factorValue4) - 5);
-            if (0L > 0 && var9 == null) {
-                if (mY <= (this.factorValue2 + this.factorValue4)) {
-                }
             } else {
-            }
-            if (var10 <= mY && CatleanPanelScreenGuiElement.INSTANCE.getRenderHelper3() == null) {
-                this.enabledFlag3 = 1;
-                this.factorValue8 = (mY - this.factorValue4);
+                if (factor <= mX) {
+                    factor = ((this.factorValue2 + this.factorValue4) - 5);
+                    if (__UNDEF_KEY__ > 0 && __UNDEF_KEY__ == null) {
+                        if (mY <= (this.factorValue2 + this.factorValue4)) {
+                        } else {
+                        }
+                    }
+                    if (factor <= mY && CatleanPanelScreenGuiElement.INSTANCE.getRenderHelper3() == null) {
+                        this.enabledFlag3 = true;
+                        this.factorValue8 = (mY - this.factorValue4);
+                    }
+                }
             }
         }
-        var10 = ((this.factorValue + this.factorValue3) - 5);
-        if (0L >= 0 && var9 == null) {
+        factor = ((this.factorValue + this.factorValue3) - 5);
+        if (__UNDEF_KEY__ >= 0 && __UNDEF_KEY__ == null) {
             if (mX <= (this.factorValue + this.factorValue3)) {
-            }
-        } else {
-        }
-        if (var10 <= mX) {
-            var10 = this.factorValue2;
-            if (0L >= 0 && var9 == null) {
-                if (mY <= (this.factorValue2 + this.factorValue4)) {
-                }
             } else {
-            }
-            if (0L >= 0) {
-                if (var10 <= mY && CatleanPanelScreenGuiElement.INSTANCE.getRenderHelper3() == null) {
-                    this.enabledFlag2 = 1;
-                    this.factorValue7 = (mX - this.factorValue3);
+                if (factor <= mX) {
+                    factor = this.factorValue2;
+                    if (__UNDEF_KEY__ >= 0 && __UNDEF_KEY__ == null) {
+                        if (mY <= (this.factorValue2 + this.factorValue4)) {
+                        } else {
+                        }
+                    }
+                    if (__UNDEF_KEY__ >= 0) {
+                        if (factor <= mY && CatleanPanelScreenGuiElement.INSTANCE.getRenderHelper3() == null) {
+                            this.enabledFlag2 = true;
+                            this.factorValue7 = (mX - this.factorValue3);
+                        }
+                    }
                 }
             }
         }
-        if (0L >= 0) {
-            if (var9 == null) {
+        if (__UNDEF_KEY__ >= 0) {
+            if (__UNDEF_KEY__ == null) {
             }
-            if (0L >= 0) {
+            if (__UNDEF_KEY__ >= 0) {
+                if (!(this.enabledFlag) && !(this.enabledFlag2)) {
+                    if (this.enabledFlag3) {
+                        CatleanPanelScreenGuiElement.INSTANCE.updateValue(this);
+                    }
+                }
             }
-            if (!(this.enabledFlag) && !(this.enabledFlag2)) {
-            }
-            if (this.enabledFlag3) {
-            }
-            CatleanPanelScreenGuiElement.INSTANCE.updateValue(this);
         }
     }
 
     public void executeAction(char key) {
-        if (var6 == null) {
-            if (this.contract4 != null) {
-                this.contract4.executeAction(key);
-            }
+        if (this.contract4 != null) {
+            this.contract4.executeAction(key);
         } else {
         }
     }
 
     public void executeAction(int keyCode) {
-        long var6 = ((0L ^ 109767034341650L) >>> 48);
-        long var7 = (((0L ^ 109767034341650L) << 16) >>> 32);
-        long var8 = (((0L ^ 109767034341650L) << 48) >>> 48);
-        if (var9 == null) {
-            if (this.contract4 != null) {
-                this.contract4.executeAction(keyCode);
-            }
+        if (this.contract4 != null) {
+            this.contract4.executeAction(keyCode);
         } else {
         }
     }
@@ -238,9 +201,9 @@ public abstract class RenderHelper3 {
     }
 
     public void executeAction2() {
-        this.enabledFlag = 0;
-        this.enabledFlag2 = 0;
-        this.enabledFlag3 = 0;
+        this.enabledFlag = false;
+        this.enabledFlag2 = false;
+        this.enabledFlag3 = false;
         CatleanPanelScreenGuiElement.INSTANCE.updateValue(null);
     }
 

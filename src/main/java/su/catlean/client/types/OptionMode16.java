@@ -4,19 +4,15 @@ import net.minecraft.class_124;
 
 public enum OptionMode16 {
 
-    private final class_124 minecraftRef;
-    public static final OptionMode16 SUCCESS;
-    public static final OptionMode16 INFO;
-    public static final OptionMode16 WARNING;
-    public static final OptionMode16 ERROR;
-    public static final OptionMode16 ENABLED;
-    public static final OptionMode16 DISABLED;
-    private static String textValue;
+    SUCCESS,
+    INFO,
+    WARNING,
+    ERROR,
+    ENABLED,
+    DISABLED;
 
-    OptionMode16(String arg0, int arg1, class_124 arg2) {
-        super(arg0, arg1);
-        this.minecraftRef = arg2;
-    }
+    private final class_124 minecraftRef;
+    private static String textValue;
 
     public class_124 getMinecraftObject() {
         return this.minecraftRef;

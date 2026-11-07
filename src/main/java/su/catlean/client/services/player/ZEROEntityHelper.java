@@ -21,22 +21,14 @@ public abstract class ZEROEntityHelper {
     }
 
     public Vec3d resolveMinecraftObject(Entity target) {
-        long var4 = (0L ^ 100744130797779L);
-        long var6 = (0L ^ 108103236449891L);
         if (SharedKt.getPlayer().isFallFlying()) {
             return target.getEyePos();
         }
-        if (0L > 0L) {
-            if (!((SharedKt.getPlayer().field_6012 % -5005149948098903964L))) {
-                double var9 = (PolygonShaderComponent.INSTANCE.computeValue(-0.1D, 0.1D, Math.random()) * 0.1D);
-                this.vec3d = new Vec3d();
-            }
+        if (!((SharedKt.getPlayer().field_6012 % 100))) {
+            double offset = (PolygonShaderComponent.INSTANCE.computeValue(-0.1D, 0.1D, Math.random()) * 0.1D);
+            this.vec3d = new Vec3d(offset, offset, offset);
         }
-        if (0L >= 0L) {
-            if (!(var8)) {
-            }
-        }
-        return EntityHelper.resolveMinecraftObject(target).method_1031(this.vec3d.field_1352, ((target.method_17682() / 2.0D) + this.vec3d.field_1351), this.vec3d.field_1350);
+        return null;
     }
 
     public boolean isActive() {

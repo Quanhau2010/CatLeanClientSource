@@ -23,7 +23,7 @@ public class SlipperinessEvent extends Event {
     }
 
     public boolean call(Block block) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         block = block;
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

@@ -12,7 +12,7 @@ public class ServiceComponent63 implements Runnable {
     }
 
     public void run() {
-        HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F, -3274047359218089978L);
+        HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
         SharedKt.getPlayer().method_6104(Hand.field_5808);
     }
 

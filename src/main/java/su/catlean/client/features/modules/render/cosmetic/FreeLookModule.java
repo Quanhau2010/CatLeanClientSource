@@ -38,27 +38,19 @@ public class FreeLookModule extends Module {
         moveFixServiceComponent = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = (arg0 ^ 62698557940930L);
-        long var7 = (arg0 ^ 20975573779856L);
-        long var9 = (arg0 ^ 67464996320865L);
+    public void updateValue() {
         if (SharedKt.getMc().player != null) {
             if (SharedKt.getMc().world == null) {
+                this.updateValue2();
+                return;
             }
-            this.updateValue2();
-            return;
         }
-        moveFixServiceComponent = new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455());
+        moveFixServiceComponent = new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455(), false);
         SharedKt.getMc().options.method_31043(class_5498.field_26665);
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 64129331416845L);
-        long var5 = (arg0 ^ 29647348875563L);
-        if (var7 == null) {
-        }
-        if (SharedKt.getMc().player == null || var7 == null) {
+    public void updateValue2() {
+        if (SharedKt.getMc().player == null || SharedKt.getMc().world == null) {
             return;
         }
         SharedKt.getMc().options.method_31043(class_5498.field_26664);
@@ -76,7 +68,7 @@ public class FreeLookModule extends Module {
     }
 
     public void onEventPlayerTravel(EventPlayerTravel e) {
-        moveFixServiceComponent2 = new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455());
+        moveFixServiceComponent2 = new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455(), false);
         SharedKt.getPlayer().method_36456(moveFixServiceComponent.getNumericValue());
         SharedKt.getPlayer().method_36457(moveFixServiceComponent.getNumericValue2());
     }
@@ -89,24 +81,24 @@ public class FreeLookModule extends Module {
     private void onUpdateCrosshairTarget(UpdateCrosshairTarget arg0) {
         class_10209.method_64146().method_15407();
         arg0.cancel();
-        if (var10 == null) {
+        if (__UNDEF_KEY__ == null) {
         }
-        if (var10 == null) {
+        if (__UNDEF_KEY__ == null) {
         }
-        class_239 var11 = EventPacketHelper2.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer().method_55754(), SharedKt.getPlayer().method_55755(), moveFixServiceComponent.getNumericValue(), moveFixServiceComponent.getNumericValue2());
-        SharedKt.getMc().field_1765 = var11;
-        if (var10 == null) {
-            if (var11 instanceof class_3966) {
+        class_239 class239 = EventPacketHelper2.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer().method_55754(), SharedKt.getPlayer().method_55755(), moveFixServiceComponent.getNumericValue(), moveFixServiceComponent.getNumericValue2());
+        SharedKt.getMc().field_1765 = class239;
+        if (__UNDEF_KEY__ == null) {
+            if (class239 instanceof class_3966) {
+            } else {
             }
-        } else {
         }
-        (class_3966) var11.method_17782().field_1692 = null;
+        ((class_3966) class239).method_17782().field_1692 = null;
     }
 
     static {
         INSTANCE = new FreeLookModule();
-        moveFixServiceComponent = new MoveFixServiceComponent(0.0F, 0.0F);
-        moveFixServiceComponent2 = new MoveFixServiceComponent(0.0F, 0.0F);
+        moveFixServiceComponent = new MoveFixServiceComponent(0.0F, 0.0F, false);
+        moveFixServiceComponent2 = new MoveFixServiceComponent(0.0F, 0.0F, false);
     }
 
 }

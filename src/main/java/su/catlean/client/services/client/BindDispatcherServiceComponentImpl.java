@@ -28,9 +28,7 @@ public class BindDispatcherServiceComponentImpl extends DispatcherServiceCompone
     }
 
     public void executeAction(LiteralArgumentBuilder builder) {
-        long var4 = (0L ^ 131983109906692L);
-        long var6 = (0L ^ 61473902788714L);
-        builder.then(this.resolveRequiredArgumentBuilder("module", (ArgumentType) ReaderServiceComponent.serviceComponent82.getReaderServiceComponent()).then(this.resolveRequiredArgumentBuilder("key", (ArgumentType) StringArgumentType.word()).executes(this::computeValue)));
+        builder.then(this.resolveRequiredArgumentBuilder("module", ((ArgumentType) ReaderServiceComponent.serviceComponent82.getReaderServiceComponent())).then(this.resolveRequiredArgumentBuilder("key", ((ArgumentType) StringArgumentType.word())).executes(this::computeValue)));
         builder.then(this.resolveLiteralArgumentBuilder("list").executes(this::computeValue2));
         builder.then(this.resolveLiteralArgumentBuilder("clear").executes(this::computeValue3));
         builder.then(this.resolveLiteralArgumentBuilder("reset").executes(this::computeValue4));
@@ -38,88 +36,81 @@ public class BindDispatcherServiceComponentImpl extends DispatcherServiceCompone
     }
 
     private static int computeValue(CommandContext arg0) {
-        Module var21 = (Module) arg0.getArgument("module", Module.class);
-        String var22 = (String) arg0.getArgument("key", String.class);
-        if (var22 == null) {
+        Module module = ((Module) arg0.getArgument("module", Module.class));
+        String text = ((String) arg0.getArgument("key", String.class));
+        if (text == null) {
             INSTANCE.executeAction(KeyServiceComponent.INSTANCE.resolveString("commands.bind.no-such-button", new Object[0]));
             return 1;
         }
-        if (!(StringsKt.equals("none", 1))) {
-            if (StringsKt.equals("null", 1)) {
+        if (!(StringsKt.equals(text, "none", true))) {
+            if (StringsKt.equals(text, "null", true)) {
+            } else {
+                int index = class_3675.method_15981(("key.keyboard." + text.toLowerCase(Locale.ROOT))).method_1444();
             }
-        } else {
-            int var24 = class_3675.method_15981(("key.keyboard." + var22.toLowerCase(Locale.ROOT))).method_1444();
         }
-        int var23 = var24;
-        if (!(var23)) {
+        if (!(index)) {
             INSTANCE.executeAction(KeyServiceComponent.INSTANCE.resolveString("commands.bind.no-such-button", new Object[0]));
             return 1;
         }
-        var21.setBind(new KeyRecord(0, StringsKt.contains$default((CharSequence) var22, (CharSequence) "M")));
-        INSTANCE.executeAction((class_2561) AdditionServiceComponent.resolveMinecraftObject2(AdditionServiceComponent.resolveMinecraftObject(AdditionServiceComponent.resolveMinecraftObject(AdditionServiceComponent.resolveMinecraftObject(), var21.getString2()), KeyServiceComponent.INSTANCE.resolveString("commands.bind.bound-to", new Object[0])), var22.toUpperCase(Locale.ROOT)));
+        module.setBind(new KeyRecord(index, false, StringsKt.contains$default(((CharSequence) text), ((CharSequence) "M"), false)));
+        INSTANCE.executeAction(((class_2561) AdditionServiceComponent.resolveMinecraftObject2(AdditionServiceComponent.resolveMinecraftObject(AdditionServiceComponent.resolveMinecraftObject(AdditionServiceComponent.resolveMinecraftObject(), module.getString2()), KeyServiceComponent.INSTANCE.resolveString("commands.bind.bound-to", new Object[0])), text.toUpperCase(Locale.ROOT))));
         return 1;
     }
 
     private static int computeValue2(CommandContext arg0) {
-        StringBuilder var13 = new StringBuilder(KeyServiceComponent.INSTANCE.resolveString("commands.bind.binds", new Object[0]));
+        StringBuilder stringBuilder = new StringBuilder(KeyServiceComponent.INSTANCE.resolveString("commands.bind.binds", new Object[0]));
         Iterator iterator = EnabledServiceComponent.INSTANCE.getArrayList2().iterator();
         while (iterator.hasNext()) {
-            Module var15 = (Module) iterator.next();
-            if (var15.getBind().isActive()) {
+            Module module = ((Module) iterator.next());
+            if (module.getBind().isActive()) {
             } else {
             }
             "[hold]".append("");
         }
-        INSTANCE.executeAction(var13.toString());
+        INSTANCE.executeAction(stringBuilder.toString());
         return 1;
     }
 
     private static int computeValue3(CommandContext arg0) {
-        Iterable var8 = (Iterable) EnabledServiceComponent.INSTANCE.getArrayList2();
-        int var9 = 0;
-        Object var10 = var8;
-        Collection var11 = (Collection) new ArrayList();
-        int var12 = 0;
-        Iterator iterator = var10.iterator();
+        Iterable iterable = ((Iterable) EnabledServiceComponent.INSTANCE.getArrayList2());
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var14 = iterator.next();
-            Module var15 = (Module) var14;
-            int var16 = 0;
-            var11.add();
+            Object element = iterator.next();
+            Module module = ((Module) element);
+            collection.add(element);
         }
-        var8 = (Iterable) var11;
-        var9 = 0;
-        var10 = var8.iterator();
-        while (var10.hasNext()) {
-            var11 = var10.next();
-            var12 = (Module) var11;
+        iterable = ((Iterable) collection);
+        iterable2 = iterable.iterator();
+        while (iterable2.hasNext()) {
+            collection = iterable2.next();
+            index = ((Module) collection);
             iterator = 0;
-            var12.setBind(new KeyRecord());
+            index.setBind(new KeyRecord(0, false, false));
         }
         return 1;
     }
 
     private static int computeValue4(CommandContext arg0) {
-        Iterable var8 = (Iterable) EnabledServiceComponent.INSTANCE.getArrayList2();
-        int var9 = 0;
-        Object var10 = var8;
-        Collection var11 = (Collection) new ArrayList();
-        int var12 = 0;
-        Iterator iterator = var10.iterator();
+        Iterable iterable = ((Iterable) EnabledServiceComponent.INSTANCE.getArrayList2());
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var14 = iterator.next();
-            Module var15 = (Module) var14;
-            int var16 = 0;
-            var11.add();
+            Object element = iterator.next();
+            Module module = ((Module) element);
+            collection.add(element);
         }
-        var8 = (Iterable) var11;
-        var9 = 0;
-        var10 = var8.iterator();
-        while (var10.hasNext()) {
-            var11 = var10.next();
-            var12 = (Module) var11;
+        iterable = ((Iterable) collection);
+        iterable2 = iterable.iterator();
+        while (iterable2.hasNext()) {
+            collection = iterable2.next();
+            index = ((Module) collection);
             iterator = 0;
-            var12.setBind(new KeyRecord());
+            index.setBind(new KeyRecord(0, false, false));
         }
         return 1;
     }

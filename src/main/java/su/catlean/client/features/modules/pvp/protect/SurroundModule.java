@@ -70,23 +70,23 @@ public class SurroundModule extends BlockPlacementModule {
     private static ServiceComponent10 serviceComponent102;
 
     private SurroundModule() {
-        super("surround", SubCategoriesKt.getProtectCategory(), 200, 0);
+        super("surround", SubCategoriesKt.getProtectCategory(), 200, false);
     }
 
     private boolean getYDisable() {
-        return (Boolean) yDisableSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) yDisableSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getAsync() {
-        return (Boolean) asyncSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) asyncSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private int getAsyncDelay() {
-        return (Number) asyncDelaySetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) asyncDelaySetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private BlocksServiceComponent getSelectedBlocks() {
-        return (BlocksServiceComponent) selectedBlocksSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((BlocksServiceComponent) selectedBlocksSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setSelectedBlocks(BlocksServiceComponent value) {
@@ -94,7 +94,7 @@ public class SurroundModule extends BlockPlacementModule {
     }
 
     private SurroundCenterMode getCenter() {
-        return (SurroundCenterMode) centerSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((SurroundCenterMode) centerSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setCenter(SurroundCenterMode value) {
@@ -102,36 +102,30 @@ public class SurroundModule extends BlockPlacementModule {
     }
 
     private boolean getForceCenter() {
-        return (Boolean) forceCenterSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) forceCenterSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void setForceCenter(boolean value) {
         forceCenterSetting.setValue(this, DELEGATED_PROPERTIES[5], Boolean.valueOf(value));
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 103451004335712L) >>> 56);
-        long var4 = (((arg0 ^ 103451004335712L) << 8) >>> 8);
-        long var6 = (arg0 ^ 88141289065175L);
-        long var8 = (arg0 ^ 70028441922719L);
-        long var10 = (arg0 ^ 67464996320865L);
+    public void updateValue() {
         if (this.getCenter() != SurroundCenterMode.OFF) {
             BlockPos blockPos = BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()));
-            ClosedFloatingPointRange var14 = RangesKt.rangeTo((blockPos.method_10263() + 0.301D), (blockPos.method_10263() + 0.699D));
-            ClosedFloatingPointRange var15 = RangesKt.rangeTo((blockPos.method_10260() + 0.301D), (blockPos.method_10260() + 0.699D));
+            ClosedFloatingPointRange closedFloatingPointRange = RangesKt.rangeTo((blockPos.method_10263() + 0.301D), (blockPos.method_10263() + 0.699D));
+            ClosedFloatingPointRange closedFloatingPointRange2 = RangesKt.rangeTo((blockPos.method_10260() + 0.301D), (blockPos.method_10260() + 0.699D));
             if (this.getCenter() == SurroundCenterMode.DEFAULT) {
             } else {
             }
-            double var16 = (Number) RangesKt.coerceIn((Comparable) Double.valueOf(SharedKt.getPlayer().getX()));
+            double offset = ((Number) RangesKt.coerceIn(((Comparable) Double.valueOf(SharedKt.getPlayer().getX())), closedFloatingPointRange));
             if (this.getCenter() == SurroundCenterMode.DEFAULT) {
             } else {
             }
-            double var18 = (Number) RangesKt.coerceIn((Comparable) Double.valueOf(SharedKt.getPlayer().getZ()));
-            SharedKt.getPlayer().method_33574(new Vec3d(this.resolveMinecraftObject(SharedKt.getPlayer()).field_1351));
+            double offset2 = ((Number) RangesKt.coerceIn(((Comparable) Double.valueOf(SharedKt.getPlayer().getZ())), closedFloatingPointRange2));
+            SharedKt.getPlayer().method_33574(new Vec3d(offset, this.resolveMinecraftObject(SharedKt.getPlayer()).field_1351, offset2));
             if (this.getForceCenter()) {
                 ClientPlayerEntity player = SharedKt.getPlayer();
-                int var21 = 0;
-                player.field_3944.method_52787((Packet) new class_2830(player.getY(), player.method_36454(), player.method_36455(), player.isOnGround(), player.field_5976));
+                player.field_3944.method_52787(((Packet) new class_2830(offset, player.getY(), offset2, player.method_36454(), player.method_36455(), player.isOnGround(), player.field_5976)));
             }
         }
         enabledFlag = 0;
@@ -145,24 +139,23 @@ public class SurroundModule extends BlockPlacementModule {
         if ((SharedKt.getPlayer().getY() - Math.floor(SharedKt.getPlayer().getY())) > 0.8D) {
         } else {
         }
-        BlockPlacementModule.placeBlocks(this, SharedKt.getPlayer().getX().resolveList(BlockPos.method_49637((Math.floor(SharedKt.getPlayer().getY()) + 1.0D), Math.floor(SharedKt.getPlayer().getY()), SharedKt.getPlayer().getZ()), new ArrayList()));
+        BlockPlacementModule.placeBlocks(this, SharedKt.getPlayer().getX().resolveList(BlockPos.method_49637((Math.floor(SharedKt.getPlayer().getY()) + 1.0D), Math.floor(SharedKt.getPlayer().getY()), SharedKt.getPlayer().getZ()), new ArrayList()), true, false, null, false);
         enabledFlag = 1;
     }
 
     private void onAfterReceivePacket(AfterReceivePacket arg0) {
-        Packet var18 = arg0.getPacket();
-        Vec3d vec = new Vec3d((class_2604) var18.method_11175(), (class_2604) var18.method_11174(), (class_2604) var18.method_11176());
+        Packet packet = arg0.getPacket();
+        Vec3d vec = new Vec3d(((class_2604) packet).method_11175(), ((class_2604) packet).method_11174(), ((class_2604) packet).method_11176());
         if ((SharedKt.getPlayer().getY() - Math.floor(SharedKt.getPlayer().getY())) > 0.8D) {
         } else {
         }
-        List positions = SharedKt.getPlayer().getX().resolveList(BlockPos.method_49637((Math.floor(SharedKt.getPlayer().getY()) + 1.0D), Math.floor(SharedKt.getPlayer().getY()), SharedKt.getPlayer().getZ()), new ArrayList());
-        class_2824 var21 = class_2824.method_34206(SharedKt.getPlayer(), SharedKt.getPlayer().method_5715());
-        ServiceComponent93.executeAction((class_2604) var18.method_11167());
-        PacketPacketHelper.handlePacket((Packet) var21);
-        PacketPacketHelper.handlePacket((Packet) new class_2879(Hand.field_5808));
-        Iterable var22 = (Iterable) positions;
-        int var23 = 0;
-        BlockPlacementModule.placeBlocks(this, CollectionsKt.sortedWith((Comparator) new Comparator20(vec)));
+        List list = SharedKt.getPlayer().getX().resolveList(BlockPos.method_49637((Math.floor(SharedKt.getPlayer().getY()) + 1.0D), Math.floor(SharedKt.getPlayer().getY()), SharedKt.getPlayer().getZ()), new ArrayList());
+        class_2824 class2824 = class_2824.method_34206(SharedKt.getPlayer(), SharedKt.getPlayer().method_5715());
+        ServiceComponent93.executeAction(class2824, ((class_2604) packet).method_11167());
+        PacketPacketHelper.handlePacket(((Packet) class2824));
+        PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
+        Iterable iterable = ((Iterable) list);
+        BlockPlacementModule.placeBlocks(this, CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator20(vec))), true, false, null, false);
         enabledFlag = 1;
         arg0.cancel();
     }
@@ -179,62 +172,60 @@ public class SurroundModule extends BlockPlacementModule {
     }
 
     private List resolveList(BlockPos arg0, List arg1) {
-        List positions = new ArrayList();
-        Iterable var26 = (Iterable) ServiceComponent66.enumEntries;
-        int var27 = 0;
-        Object var28 = var26;
-        Collection var29 = (Collection) new ArrayList();
-        int var30 = 0;
-        Iterator iterator = var28.iterator();
-        if (iterator.hasNext()) {
-            Object var32 = iterator;
-            Direction var33 = (Direction) var32;
-            int var34 = 0;
-            var29.add();
+        List list = new ArrayList();
+        Iterable iterable = ((Iterable) ServiceComponent66.enumEntries);
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            Iterator iterator2 = iterator;
+            Direction direction = ((Direction) iterator2);
+            int index3 = 0;
+            collection.add(iterator2);
         }
-        Iterator iterator2 = var29.iterator();
-        if (iterator2.hasNext()) {
-            var26 = (Direction) iterator2.next();
-            var27 = arg0.offset();
-            if (!(arg1.contains()) && !(SharedKt.getWorld().getBlockState().method_45474())) {
+        Iterator iterator3 = collection.iterator();
+        while (iterator3.hasNext()) {
+            iterable = ((Direction) iterator3.next());
+            index = arg0.offset(iterable);
+            if (!(arg1.contains(index)) && !(SharedKt.getWorld().getBlockState(index).method_45474())) {
             }
-            if (this.checkCondition()) {
+            if (this.checkCondition(index)) {
                 arg1.add(arg0);
-                positions.addAll((Collection) this.resolveList(arg1));
+                list.addAll(((Collection) this.resolveList(index, arg1)));
             }
-            if (VecPacketHelper.resolveRotationServiceComponent4(0, this.getInteract(), this.getPlaceMode(), OptionMode15.ONLY_CRYSTALS, 6.0F, 6.0F, this.getNumericValue(), this.getSwitch()) == null) {
-                var29 = (Iterable) ServiceComponent66.enumEntries;
-                var30 = 0;
-                iterator = var29;
-                var32 = (Collection) new ArrayList();
-                var33 = 0;
-                var34 = iterator.iterator();
-                if (var34.hasNext()) {
-                    Object var35 = var34.next();
-                    Direction var36 = (Direction) var35;
-                    int var37 = 0;
-                    var32.add();
+            if (VecPacketHelper.resolveRotationServiceComponent4(index, 0, this.getInteract(), this.getPlaceMode(), OptionMode15.ONLY_CRYSTALS, 6.0F, 6.0F, this.getNumericValue(), this.getSwitch(), null, false) == null) {
+                collection = ((Iterable) ServiceComponent66.enumEntries);
+                index2 = 0;
+                iterator = collection;
+                iterator2 = ((Collection) new ArrayList());
+                direction = 0;
+                index3 = iterator.iterator();
+                while (index3.hasNext()) {
+                    Object element = index3.next();
+                    Direction direction2 = ((Direction) element);
+                    iterator2.add(element);
                 }
-                var28 = var32.iterator();
-                while (var28.hasNext()) {
+                iterable2 = iterator2.iterator();
+                while (iterable2.hasNext()) {
                 }
-                var29 = (Direction) var28.next();
-                if (!(SharedKt.getWorld().getBlockState().method_45474())) {
+                collection = ((Direction) iterable2.next());
+                if (!(SharedKt.getWorld().getBlockState(index).method_45474())) {
                 }
-                var30 = var27.offset();
-                positions.add();
-                positions.add();
+                index2 = index.offset(collection);
+                list.add(index2);
+                list.add(index);
             }
-            positions.add();
+            list.add(index);
         }
-        iterator2 = EventPacketHelper2.process(0.5F, 1, 0.0F, 0.0F, 0.0F);
-        var26 = (Iterable) positions;
-        var27 = 0;
-        return CollectionsKt.sortedWith((Comparator) new Comparator23(iterator2));
+        iterator3 = EventPacketHelper2.process(0.5F, true, 0.0F, 0.0F, 0.0F);
+        iterable = ((Iterable) list);
+        index = 0;
+        return CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator23(iterator3)));
     }
 
-    protected List resolveList(long arg0) {
-        long var3 = (arg0 ^ 59067967019128L);
+    protected List resolveList() {
         return this.getSelectedBlocks().getList();
     }
 
@@ -247,20 +238,20 @@ public class SurroundModule extends BlockPlacementModule {
     }
 
     static {
-        KProperty[] var39 = new KProperty[6];
+        KProperty[] items = new KProperty[6];
         INSTANCE = new SurroundModule();
-        yDisableSetting = VisibleRenderHelper.registerSetting(INSTANCE, "y disable");
-        asyncSetting = VisibleRenderHelper.registerSetting(INSTANCE, "async");
+        yDisableSetting = VisibleRenderHelper.registerSetting(INSTANCE, "y disable", true);
+        asyncSetting = VisibleRenderHelper.registerSetting(INSTANCE, "async", true);
         asyncDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "async-delay", 0, new IntRange(0, 250), null, this::isActive);
-        var39 = new Block[3];
-        var39[0] = Blocks.OBSIDIAN;
-        var39[1] = Blocks.ENDER_CHEST;
-        var39[2] = Blocks.field_22108;
-        int var35 = 12;
-        BlocksServiceComponent var38 = new BlocksServiceComponent(CollectionsKt.mutableListOf());
-        selectedBlocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks");
+        items = new Block[3];
+        items[0] = Blocks.OBSIDIAN;
+        items[1] = Blocks.ENDER_CHEST;
+        items[2] = Blocks.field_22108;
+        int index = 12;
+        BlocksServiceComponent blocksServiceComponent = new BlocksServiceComponent(CollectionsKt.mutableListOf(items));
+        selectedBlocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks", blocksServiceComponent, index);
         centerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "center", SurroundCenterMode.OFF);
-        forceCenterSetting = VisibleRenderHelper.registerSetting(INSTANCE, "force-center", 0, null, this::isActive2);
+        forceCenterSetting = VisibleRenderHelper.registerSetting(INSTANCE, "force-center", false, null, this::isActive2);
         serviceComponent10 = new ServiceComponent10();
         serviceComponent102 = new ServiceComponent10();
     }

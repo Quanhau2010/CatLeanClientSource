@@ -35,33 +35,25 @@ public class JsonServiceComponent3 implements Contract3 {
         this.proxiesRecord = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 5002786454352L) >>> 16);
-        long var5 = (((arg0 ^ 5002786454352L) << 48) >>> 48);
-        long var6 = (arg0 ^ 133444245573078L);
+    public void updateValue() {
         if (this.file.createNewFile()) {
         }
-        ProxiesRecord var12 = new ProxiesRecord(new ArrayList());
-        Json var9 = this.json;
-        String var10 = FilesKt.readText$default(this.file);
-        int var11 = 0;
-        var9.getSerializersModule();
-        var9 = (ProxiesRecord) var9.decodeFromString((DeserializationStrategy) ProxiesRecord.serviceComponent125.getKSerializer());
-        var10 = var12;
+        ProxiesRecord proxiesRecord = new ProxiesRecord();
+        Json json = this.json;
+        String text = FilesKt.readText$default(this.file);
+        json.getSerializersModule();
+        json = ((ProxiesRecord) json.decodeFromString(((DeserializationStrategy) ProxiesRecord.serviceComponent125.getKSerializer()), text));
+        text = proxiesRecord;
         SharedKt.getLogger().warn("Proxies are not loaded from file for some reasons.");
-        var9 = new ProxiesRecord(new ArrayList());
-        Object var8 = var9;
-        var12.executeAction();
+        json = new ProxiesRecord();
+        proxiesRecord.executeAction(json);
     }
 
-    public void executeAction(int arg0, int arg1, byte arg2) {
-        int var4 = (((arg0 << 32) | ((arg1 << 40) >>> 32)) | ((arg2 << 56) >>> 56));
-        long var6 = (var4 ^ 133148621129362L);
-        Json var8 = this.json;
-        ProxiesRecord var9 = this.resolveProxiesRecord();
-        int var10 = 0;
-        var8.getSerializersModule();
-        FilesKt.writeText$default(this.file, var8.encodeToString((SerializationStrategy) ProxiesRecord.serviceComponent125.getKSerializer()));
+    public void executeAction() {
+        Json json = this.json;
+        ProxiesRecord proxiesRecord = this.resolveProxiesRecord();
+        json.getSerializersModule();
+        FilesKt.writeText$default(this.file, json.encodeToString(((SerializationStrategy) ProxiesRecord.serviceComponent125.getKSerializer()), proxiesRecord));
     }
 
 }

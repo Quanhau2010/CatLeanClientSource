@@ -18,7 +18,7 @@ public class ItemServiceComponent2 implements KSerializer {
     private final SerialDescriptor serialDescriptor;
 
     public ItemServiceComponent2() {
-        this.serialDescriptor = SerialDescriptorsKt.PrimitiveSerialDescriptor("Item", (PrimitiveKind) STRING.INSTANCE);
+        this.serialDescriptor = SerialDescriptorsKt.PrimitiveSerialDescriptor("Item", ((PrimitiveKind) STRING.INSTANCE));
     }
 
     public SerialDescriptor getDescriptor() {
@@ -26,24 +26,20 @@ public class ItemServiceComponent2 implements KSerializer {
     }
 
     public Item resolveMinecraftObject(Decoder decoder) {
-        String var8 = decoder.decodeString();
-        int var9 = 0;
-        Iterable var10 = (Iterable) class_7923.field_41178;
-        int var11 = 0;
-        Iterator iterator = var10.iterator();
-        if (iterator.hasNext()) {
-            Object var13 = iterator.next();
-            Item var14 = (Item) var13;
-            int var15 = 0;
-        } else {
+        String text = decoder.decodeString();
+        Iterable iterable = ((Iterable) class_7923.field_41178);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            Item item = ((Item) element);
         }
-        if (0L < 0 && var7 != null) {
-            if ((Item) null == null) {
+        if (__UNDEF_KEY__ < 0 && __UNDEF_KEY__ != null) {
+            if (((Item) null) == null) {
             }
         }
-        if (0L >= 0L && Items.field_8162 != null) {
+        if (__UNDEF_KEY__ >= 0L && Items.field_8162 != null) {
         }
-        return var13;
+        return element;
     }
 
     public void executeAction(Encoder encoder, Item value) {
@@ -55,7 +51,7 @@ public class ItemServiceComponent2 implements KSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (Item) value);
+        this.executeAction(encoder, ((Item) value));
     }
 
 }

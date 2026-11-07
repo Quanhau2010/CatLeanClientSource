@@ -2,15 +2,12 @@ package su.catlean.client.features.modules;
 
 public enum BlockPlacementInteractMode {
 
-    public static final BlockPlacementInteractMode Vanilla;
-    public static final BlockPlacementInteractMode Strict;
-    public static final BlockPlacementInteractMode AirPlace;
-    public static final BlockPlacementInteractMode GRIM;
-    private static String textValue;
+    Vanilla,
+    Strict,
+    AirPlace,
+    GRIM;
 
-    BlockPlacementInteractMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static String textValue;
 
     public static void updateValue(String arg0) {
         textValue = arg0;

@@ -54,18 +54,14 @@ public class ProxyServiceComponent {
 
     private void onAddHandlersEvent(AddHandlersEvent arg0) {
         if (idRecord12 != null) {
-            IdRecord12 var5 = idRecord12;
-            int var6 = 0;
-            IdRecord12 var7 = idRecord12;
-            int var8 = 0;
             if (arg0.getSide() == class_2598.field_11942 && !(arg0.getLocal())) {
-                if ((ChannelPipeline) arg0.getPipeline().get() != null) {
-                    ChannelHandler[] var9 = new ChannelHandler[1];
-                    if (var7.isActive()) {
+                if (((ChannelPipeline) arg0.getPipeline().get()) != null) {
+                    ChannelHandler[] items = new ChannelHandler[1];
+                    if (idRecord12.isActive()) {
                     } else {
                     }
-                    0[(ProxyHandler) new Socks4ProxyHandler((SocketAddress) new InetSocketAddress(var7.getString2(), var7.getNumericValue()), var7.getString3())] = (ProxyHandler) new Socks5ProxyHandler((SocketAddress) new InetSocketAddress(var7.getString2(), var7.getNumericValue()), var7.getString3(), var7.getString4());
-                    var9.addFirst();
+                    0[((ProxyHandler) new Socks4ProxyHandler(((SocketAddress) new InetSocketAddress(idRecord12.getString2(), idRecord12.getNumericValue())), idRecord12.getString3()))] = ((ProxyHandler) new Socks5ProxyHandler(((SocketAddress) new InetSocketAddress(idRecord12.getString2(), idRecord12.getNumericValue())), idRecord12.getString3(), idRecord12.getString4()));
+                    items.addFirst(items);
                 } else {
                 }
             }
@@ -82,44 +78,40 @@ public class ProxyServiceComponent {
     }
 
     public void updateValue() {
-        Iterable var7 = (Iterable) this.resolveList();
-        int var8 = 0;
-        int var9 = 0;
-        Iterator iterator = var7.iterator();
+        Iterable iterable = ((Iterable) this.resolveList());
+        int index = 0;
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var11 = iterator.next();
-            int var12 = var9;
-            if (var12 < 0) {
+            Object element = iterator.next();
+            if (index < 0) {
                 CollectionsKt.throwIndexOverflow();
             }
-            IdRecord12 var13 = (IdRecord12) var11;
-            int var14 = var12;
-            int var15 = 0;
-            INSTANCE.executeAction();
+            IdRecord12 idRecord12 = ((IdRecord12) element);
+            INSTANCE.executeAction(idRecord12, index);
         }
     }
 
     private void executeAction(IdRecord12 arg0, int arg1) {
-        long var5 = System.currentTimeMillis();
+        long time = System.currentTimeMillis();
         arg0.updateValue2(-2);
         new Thread(this::executeAction).start();
     }
 
     private static void executeAction(int arg0, IdRecord12 arg1, long arg2) {
         Thread.sleep((timestampValue * arg0));
-        NioEventLoopGroup var7 = new NioEventLoopGroup();
-        Bootstrap var8 = new Bootstrap();
-        ChannelFuture var9 = var8.connect("crystalpvp.cc", 25565).sync();
-        var9.await();
-        if (!(var6)) {
-            if (var9.isSuccess()) {
+        NioEventLoopGroup nioEventLoopGroup = new NioEventLoopGroup();
+        Bootstrap bootstrap = new Bootstrap();
+        ChannelFuture channelFuture = bootstrap.connect("crystalpvp.cc", 25565).sync();
+        channelFuture.await();
+        if (!(__UNDEF_KEY__)) {
+            if (channelFuture.isSuccess()) {
                 arg1.updateValue2((SharedKt.getNumericValue() - arg2));
+                if (__UNDEF_KEY__) {
+                    arg1.updateValue2(-1);
+                }
             }
-            if (var6) {
-            }
-            arg1.updateValue2(-1);
         }
-        var7.shutdownGracefully();
+        nioEventLoopGroup.shutdownGracefully();
         arg1.updateValue2(-1);
     }
 

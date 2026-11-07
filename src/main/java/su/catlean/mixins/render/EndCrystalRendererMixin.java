@@ -20,8 +20,8 @@ public class EndCrystalRendererMixin {
     }
 
     private void scaleHook(class_10014 endCrystalEntityRenderState, MatrixStack matrixStack, class_11659 orderedRenderCommandQueue, class_12075 cameraRenderState, CallbackInfo ci) {
-        float var6 = SetCrystalScaleEvent.INSTANCE.getScale();
-        matrixStack.method_22905();
+        float factor = SetCrystalScaleEvent.INSTANCE.getScale();
+        matrixStack.method_22905(factor, factor, factor);
     }
 
     private static void getYOffsetHook(float age, CallbackInfoReturnable cir) {

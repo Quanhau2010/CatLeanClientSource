@@ -52,19 +52,19 @@ public class TeamCommunicationModule extends Module {
     }
 
     private String getXorKey() {
-        return (String) xorKeySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((String) xorKeySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private KeyRecord getSendCoords() {
-        return (KeyRecord) sendCoordsSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((KeyRecord) sendCoordsSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private KeyRecord getTpHere() {
-        return (KeyRecord) tpHereSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((KeyRecord) tpHereSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getMarryTp() {
-        return (Boolean) marryTpSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) marryTpSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     public AtomicBoolean getAtomicBoolean() {
@@ -75,10 +75,10 @@ public class TeamCommunicationModule extends Module {
         if (atomicBoolean.get()) {
             return;
         }
-        class_2797 var9 = (class_2797) arg0.getPacket();
-        atomicBoolean.set(1);
-        MessageServiceComponent.executeAction(this, this.resolveString(var9.comp_945), 1);
-        atomicBoolean.set(0);
+        class_2797 class2797 = ((class_2797) arg0.getPacket());
+        atomicBoolean.set(true);
+        MessageServiceComponent.executeAction(this, this.resolveString(class2797.comp_945), true);
+        atomicBoolean.set(false);
         arg0.cancel();
     }
 
@@ -87,116 +87,98 @@ public class TeamCommunicationModule extends Module {
             if (this.getMarryTp()) {
             } else {
             }
-            MessageServiceComponent.executeAction("action_marry_tp", "action_tp", 1);
+            MessageServiceComponent.executeAction("action_marry_tp", "action_tp", true);
         }
-        MessageServiceComponent.executeAction(this, (this + SharedKt.getPlayer().getX() + "zCoord" + SharedKt.getPlayer().getZ() + "end"), 1);
+        MessageServiceComponent.executeAction(this, (this + SharedKt.getPlayer().getX() + "zCoord" + SharedKt.getPlayer().getZ() + "end"), true);
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        if (!(var16)) {
+        class_7439 class7439 = ((class_7439) arg0.getPacket());
+        String text = class7439.comp_763().getString();
+        String text2 = this.resolveString(StringsKt.substringBefore$default(StringsKt.substringAfter$default(text, "cat_"), "_lean"));
+        String text3 = this.resolveString2(text);
+        if (Intrinsics.areEqual(text3, SharedKt.getPlayer().method_7334().name())) {
+            return;
         }
-        class_7439 var17 = (class_7439) arg0.getPacket();
-        String var18 = var17.comp_763().getString();
-        if (!(var16)) {
-            if (!(var16)) {
-            }
+        if (StringsKt.contains$default(((CharSequence) text2), ((CharSequence) "xCoord"), false)) {
+            int index = Integer.parseInt(StringsKt.substringBefore$default(StringsKt.substringAfter$default(text2, "xCoord"), "zCoord"));
+            int index2 = Integer.parseInt(StringsKt.substringBefore$default(StringsKt.substringAfter$default(text2, "zCoord"), "end"));
+            WHITEServiceComponent.INSTANCE.updateValue(new BlockPos(index, 0, index2));
+            return;
         }
-        String var19 = this.resolveString(StringsKt.substringBefore$default(StringsKt.substringAfter$default("cat_"), "_lean"));
-        String var20 = this.resolveString2();
-        if (!(var16)) {
-            if (Intrinsics.areEqual(SharedKt.getPlayer().method_7334().name())) {
-                return;
-            }
+        if (StringsKt.contains$default(((CharSequence) text2), ((CharSequence) "action_marry_tp"), false)) {
+            PacketPacketHelper.executeAction(("marry tp " + text3));
+            return;
         }
-        if (!(var16)) {
-            if (StringsKt.contains$default((CharSequence) var19, (CharSequence) "xCoord")) {
-                int var21 = Integer.parseInt(StringsKt.substringBefore$default(StringsKt.substringAfter$default("xCoord"), "zCoord"));
-                int var22 = Integer.parseInt(StringsKt.substringBefore$default(StringsKt.substringAfter$default("zCoord"), "end"));
-                WHITEServiceComponent.INSTANCE.updateValue(new BlockPos(0));
-                return;
-            }
+        if (StringsKt.contains$default(((CharSequence) text2), ((CharSequence) "action_tp"), false)) {
+            PacketPacketHelper.executeAction(("tpa " + text3));
+            return;
         }
-        if (!(var16)) {
-            if (StringsKt.contains$default((CharSequence) var19, (CharSequence) "action_marry_tp")) {
-                PacketPacketHelper.executeAction(("marry tp " + var20));
-                return;
-            }
-        }
-        if (!(var16)) {
-            if (StringsKt.contains$default((CharSequence) var19, (CharSequence) "action_tp")) {
-                PacketPacketHelper.executeAction(("tpa " + var20));
-                return;
-            }
-            MessageServiceComponent.S(this, (var20 + ": " + var19));
-        }
+        MessageServiceComponent.S(this, (text3 + ": " + text2), false);
         arg0.cancel();
     }
 
     public String resolveString(String input) {
-        Object var11 = input;
-        byte[] var10 = var11.getBytes(Charsets.UTF_8);
-        String var12 = this.getXorKey();
-        var11 = var12.getBytes(Charsets.UTF_8);
-        var12 = new byte[var10];
-        int var13 = 0;
-        Object var14 = var10;
-        if (var13 < var14) {
-            var12[var13] = (var10[var13] ^ var11[(var13 % var11)]);
+        String text = input;
+        byte[] items = text.getBytes(Charsets.UTF_8);
+        String text2 = this.getXorKey();
+        text = text2.getBytes(Charsets.UTF_8);
+        text2 = new byte[items];
+        int index = 0;
+        if (index < items) {
+            text2[index] = (items[index] ^ text[(index % text)]);
         }
-        return ("!cat_" + this.resolveString() + "_lean");
+        return ("!cat_" + this.resolveString(text2) + "_lean");
     }
 
     public String resolveString(String input) {
-        byte[] var10 = this.process(input);
-        String var12 = this.getXorKey();
-        byte[] var11 = var12.getBytes(Charsets.UTF_8);
-        var12 = new byte[var10];
-        int var13 = 0;
-        Object var14 = var10;
-        if (var13 < var14) {
-            var12[var13] = (var10[var13] ^ var11[(var13 % var11)]);
+        byte[] items = this.process(input);
+        String text = this.getXorKey();
+        byte[] items2 = text.getBytes(Charsets.UTF_8);
+        text = new byte[items];
+        int index = 0;
+        if (index < items) {
+            text[index] = (items[index] ^ items2[(index % items2)]);
         }
-        if (new String(Charsets.UTF_8) != null) {
+        if (new String(text, Charsets.UTF_8) != null) {
         }
         return null;
     }
 
     public String resolveString(byte[] bytes) {
-        return StringsKt.replace$default(StringsKt.replace$default(StringsKt.replace$default(Base64.getEncoder().encodeToString(bytes))));
+        return StringsKt.replace$default(StringsKt.replace$default(StringsKt.replace$default(Base64.getEncoder().encodeToString(bytes), 43, 40, false), 47, 41, false), 61, 37, false);
     }
 
     public byte[] process(String string) {
-        return Base64.getDecoder().decode(StringsKt.replace$default(StringsKt.replace$default(StringsKt.replace$default(string))));
+        return Base64.getDecoder().decode(StringsKt.replace$default(StringsKt.replace$default(StringsKt.replace$default(string, 40, 43, false), 41, 47, false), 37, 61, false));
     }
 
     public String resolveString2(String notSolved) {
-        AtomicReference var7 = new AtomicReference("FATAL ERROR");
-        Iterable var8 = (Iterable) SharedKt.getNetwork().method_45732();
-        int var9 = 0;
-        Iterator iterator = var8.iterator();
-        if (iterator.hasNext()) {
-            Object var11 = iterator.next();
-            class_640 var12 = (class_640) var11;
-            int var13 = 0;
-            if (var6) {
-                if (var6) {
-                    if (StringsKt.contains$default((CharSequence) notSolved, (CharSequence) var12.method_2966().name())) {
-                        var7.set(var12.method_2966().name());
+        AtomicReference atomicReference = new AtomicReference("FATAL ERROR");
+        Iterable iterable = ((Iterable) SharedKt.getNetwork().method_45732());
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            class_640 class640 = ((class_640) element);
+            if (__UNDEF_KEY__) {
+                if (__UNDEF_KEY__) {
+                    if (StringsKt.contains$default(((CharSequence) notSolved), ((CharSequence) class640.method_2966().name()), false)) {
+                        atomicReference.set(class640.method_2966().name());
                     }
                 }
             }
         }
-        return (String) var7.get();
+        return ((String) atomicReference.get());
     }
 
     static {
-        KProperty[] var33 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new TeamCommunicationModule();
         xorKeySetting = VisibleRenderHelper.registerSetting(INSTANCE, "key", "catlean");
-        sendCoordsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "send-coords", new KeyRecord());
-        tpHereSetting = VisibleRenderHelper.registerSetting(INSTANCE, "tp-here", new KeyRecord());
-        marryTpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "marry-tp");
-        atomicBoolean = new AtomicBoolean(0);
+        sendCoordsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "send-coords", new KeyRecord(0, false, false));
+        tpHereSetting = VisibleRenderHelper.registerSetting(INSTANCE, "tp-here", new KeyRecord(0, false, false));
+        marryTpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "marry-tp", false);
+        atomicBoolean = new AtomicBoolean(false);
     }
 
 }

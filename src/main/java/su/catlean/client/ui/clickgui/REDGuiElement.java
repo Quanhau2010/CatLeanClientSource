@@ -82,167 +82,164 @@ public class REDGuiElement {
         if (enabledFlag) {
         } else {
         }
-        1.0F.executeAction(0.0F);
-        float var66 = ((factorValue3 + factorValue) - 21.0F);
-        float var67 = ((factorValue3 + factorValue) - 7.0F);
-        int var68 = mouseX;
-        if (var66 <= var68) {
+        this.executeAction(0.0F);
+        float factor = ((factorValue3 + factorValue) - 21.0F);
+        float factor2 = ((factorValue3 + factorValue) - 7.0F);
+        int index = mouseX;
+        if (factor <= index) {
         } else {
-        }
-        if (var68 <= var67) {
-            var66 = (factorValue4 + 31.0F);
-            var67 = (factorValue4 + 45.0F);
-            var68 = mouseY;
-            if (var66 <= var68) {
+            if (index <= factor2) {
+                factor = (factorValue4 + 31.0F);
+                factor2 = (factorValue4 + 45.0F);
+                index = mouseY;
+                if (factor <= index) {
+                } else {
+                }
+                if (index <= factor2 && enabledFlag && idRecord62 == null) {
+                } else {
+                }
             } else {
             }
-            if (var68 <= var67 && enabledFlag && idRecord62 == null) {
-            }
-        } else {
         }
-        }
-        1.0F.executeAction(0.0F);
+        this.executeAction(0.0F);
         StackShaderComponent2.executeAction(context.method_51448(), factorValue3, factorValue4, factorValue, factorValue2, 5.0F, 0.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-        var67 = (factorValue3 + 5.0F);
-        var68 = (factorValue3 + 20.0F);
-        int var69 = mouseX;
-        if (var67 <= var69) {
+        factor2 = (factorValue3 + 5.0F);
+        index = (factorValue3 + 20.0F);
+        int index2 = mouseX;
+        if (factor2 <= index2) {
         } else {
-        }
-        if (var69 <= var68) {
-            var67 = (factorValue4 + 6.0F);
-            var68 = (factorValue4 + 21.0F);
-            var69 = mouseY;
-            if (var67 <= var69) {
+            if (index2 <= index) {
+                factor2 = (factorValue4 + 6.0F);
+                index = (factorValue4 + 21.0F);
+                index2 = mouseY;
+                if (factor2 <= index2) {
+                } else {
+                    if (index2 <= index) {
+                    } else {
+                    }
+                }
             } else {
             }
-            if (var69 <= var68) {
-            }
-        } else {
         }
-        }
-        var66 = NewThemeRenderHelper.INSTANCE.getColor6().brighter();
-        int var51 = 14336;
-        float var52 = 0.0F;
-        float var53 = 0.0F;
-        float var54 = 0.0F;
-        Color var55 = NewThemeRenderHelper.INSTANCE.getColor6().brighter();
-        Object var56 = var66;
-        Color var57 = NewThemeRenderHelper.INSTANCE.getColor4().brighter().brighter().brighter().brighter().brighter();
-        float var58 = 1.0F;
-        float var59 = 0.0F;
-        float var60 = 1.0F;
-        float var61 = 3.0F;
-        float var62 = 15.0F;
-        float var63 = 15.0F;
-        float var64 = (factorValue4 + 6.0F);
-        StackShaderComponent2.executeAction((factorValue3 + 5.0F));
-        MissingnoRenderHelper.executeAction(missingnoRenderHelper, (Matrix3x2f) context.method_51448(), (factorValue3 + 7.5D), (factorValue4 + 7.5D), 0.0F, 0.0F, null, null, 0.0F);
+        factor = NewThemeRenderHelper.INSTANCE.getColor6().brighter();
+        int index3 = 14336;
+        float factor3 = 0.0F;
+        float factor4 = 0.0F;
+        float factor5 = 0.0F;
+        Color color = NewThemeRenderHelper.INSTANCE.getColor6().brighter();
+        Color color2 = NewThemeRenderHelper.INSTANCE.getColor4().brighter().brighter().brighter().brighter().brighter();
+        float factor6 = 1.0F;
+        float factor7 = 0.0F;
+        float factor8 = 1.0F;
+        float factor9 = 3.0F;
+        float factor10 = 15.0F;
+        float factor11 = 15.0F;
+        float factor12 = (factorValue4 + 6.0F);
+        StackShaderComponent2.executeAction((factorValue3 + 5.0F), factor12, factor11, factor10, factor9, factor8, factor7, factor6, color2, factor, color, factor5, factor4, factor3, index3);
+        MissingnoRenderHelper.executeAction(missingnoRenderHelper, ((Matrix3x2f) context.method_51448()), (factorValue3 + 7.5D), (factorValue4 + 7.5D), 0.0F, 0.0F, null, null, 0.0F);
         SFMServiceComponent.resolveFontRenderHelper9().render(context, "Theme Editor", (factorValue3 + (factorValue / 2.0F)), (factorValue4 + 5), 10);
-        var66 = new Color[1];
-        var66[0] = new Color(1157627903, 1);
-        PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), (factorValue3 + 6), (factorValue4 + 24), (factorValue - 12), 0.5F);
+        factor = new Color[1];
+        factor[0] = new Color(1157627903, true);
+        PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), (factorValue3 + 6), (factorValue4 + 24), (factorValue - 12), 0.5F, factor);
         idRecord6 = null;
         if (idRecord62 == null) {
             StackShaderComponent2.executeAction(context.method_51448(), (factorValue3 + 4.0F), (factorValue4 + 28.0F), (factorValue - 8.0F), 20.0F, 4.0F, 0.0F, 0.1F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
             StackShaderComponent2.executeAction(context.method_51448(), ((factorValue3 + factorValue) - 21.0F), (factorValue4 + 31.0F), 14.0F, 14.0F, 3.0F, 0.0F, (0.2F + (easingServiceComponent2.getNumericValue() / 10.0F)), 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-            var66 = new Color[1];
-            var66[0] = NewThemeRenderHelper.INSTANCE.getColor8();
-            PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), ((factorValue3 + factorValue) - 14.0F), (factorValue4 + 35.0F), 1.0F, 6.0F);
-            var66 = new Color[1];
-            var66[0] = NewThemeRenderHelper.INSTANCE.getColor8();
-            PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), ((factorValue3 + factorValue) - 16.5F), (factorValue4 + 37.5F), 6.0F, 1.0F);
+            factor = new Color[1];
+            factor[0] = NewThemeRenderHelper.INSTANCE.getColor8();
+            PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), ((factorValue3 + factorValue) - 14.0F), (factorValue4 + 35.0F), 1.0F, 6.0F, factor);
+            factor = new Color[1];
+            factor[0] = NewThemeRenderHelper.INSTANCE.getColor8();
+            PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), ((factorValue3 + factorValue) - 16.5F), (factorValue4 + 37.5F), 6.0F, 1.0F, factor);
             if ((System.currentTimeMillis() % 1000) > 500L && enabledFlag) {
             } else {
             }
             context.render(textValue, ("_" + ""), (factorValue3 + 10.0F), (factorValue4 + 31.5F), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor8(), NewThemeRenderHelper.INSTANCE.getColor7(), easingServiceComponent3.getNumericValue()));
             factorValue2 = ((ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().resolveList().size() * 24) + 52.0F);
-            var66 = (Iterable) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().resolveList();
-            var67 = 0;
-            var68 = 0;
-            var69 = var66.iterator();
-            while (var69.hasNext()) {
-                Object var70 = var69.next();
-                int var71 = var68;
-                if (var71 < 0) {
+            factor = ((Iterable) ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().resolveList());
+            factor2 = 0;
+            index = 0;
+            index2 = factor.iterator();
+            while (index2.hasNext()) {
+                Object element = index2.next();
+                int index4 = index;
+                if (index4 < 0) {
                     CollectionsKt.throwIndexOverflow();
                 }
-                IdRecord6 var72 = (IdRecord6) var70;
-                int var73 = var71;
-                int var74 = 0;
-                float var75 = (factorValue3 + 4.0F);
-                float var76 = (((factorValue3 + 4.0F) + factorValue) - 8.0F);
-                int var77 = mouseX;
-                if (var75 <= var77) {
+                IdRecord6 idRecord6 = ((IdRecord6) element);
+                float factor13 = (factorValue3 + 4.0F);
+                float factor14 = (((factorValue3 + 4.0F) + factorValue) - 8.0F);
+                int index5 = mouseX;
+                if (factor13 <= index5) {
                 } else {
+                    if (index5 <= factor14) {
+                        factor13 = ((factorValue4 + 52.0F) + (index4 * 24));
+                        factor14 = ((factorValue4 + 72.0F) + (index4 * 24));
+                        index5 = mouseY;
+                        if (factor13 <= index5) {
+                        } else {
+                            if (index5 <= factor14) {
+                                idRecord6 = idRecord6;
+                            }
+                        }
+                    }
                 }
-                if (var77 <= var76) {
-                    var75 = ((factorValue4 + 52.0F) + (var73 * 24));
-                    var76 = ((factorValue4 + 72.0F) + (var73 * 24));
-                    var77 = mouseY;
-                    if (var75 <= var77) {
+                StackShaderComponent2.executeAction(context.method_51448(), (factorValue3 + 4.0F), ((factorValue4 + 52.0F) + (index4 * 24)), (factorValue - 8.0F), 20.0F, 4.0F, 2.0F, 0.0F, 1.0F, idRecord6.getColor3(), idRecord6.getColor5(), 0.0F, 0.0F, 0.0F);
+                if (Intrinsics.areEqual(ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().resolveIdRecord6(), idRecord6)) {
+                } else {
+                    if (Intrinsics.areEqual(idRecord6, idRecord6)) {
                     } else {
                     }
-                    if (var77 <= var76) {
-                        idRecord6 = var72;
-                    }
                 }
-                StackShaderComponent2.executeAction(context.method_51448(), (factorValue3 + 4.0F), ((factorValue4 + 52.0F) + (var73 * 24)), (factorValue - 8.0F), 20.0F, 4.0F, 2.0F, 0.0F, 1.0F, var72.getColor3(), var72.getColor5(), 0.0F, 0.0F, 0.0F);
-                if (Intrinsics.areEqual(ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().resolveIdRecord6())) {
-                } else {
-                    if (Intrinsics.areEqual(idRecord6)) {
-                    } else {
-                    }
-                }
-                var75 = 0.4F;
-                ColorValue1RenderHelper.executeAction((factorValue3 + 4.0F), ((factorValue4 + 52.0F) + (var73 * 24)), (factorValue - 8.0F), 20.0F, 4.0F, PolygonShaderComponent.INSTANCE.resolveColor(var72.getColor()), PolygonShaderComponent.INSTANCE.resolveColor(var72.getColor2()), PolygonShaderComponent.INSTANCE.resolveColor(var72.getColor3()), PolygonShaderComponent.INSTANCE.resolveColor(var72.getColor5()), context.method_51448(), 0.0F);
-                SFMServiceComponent.resolveFontRenderHelper2().render(context, var72.getString(), ((factorValue3 + 4.0F) + ((factorValue / 2.0F) - 4.0F)), ((factorValue4 + 61.0F) + (var73 * 24)), var72.getColor6());
+                factor13 = 0.4F;
+                ColorValue1RenderHelper.executeAction((factorValue3 + 4.0F), ((factorValue4 + 52.0F) + (index4 * 24)), (factorValue - 8.0F), 20.0F, 4.0F, PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor(), factor13), PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor2(), factor13), PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor3(), factor13), PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor5(), factor13), context.method_51448(), 0.0F);
+                SFMServiceComponent.resolveFontRenderHelper2().render(context, idRecord6.getString(), ((factorValue3 + 4.0F) + ((factorValue / 2.0F) - 4.0F)), ((factorValue4 + 61.0F) + (index4 * 24)), idRecord6.getColor6());
             }
         } else {
             StackShaderComponent2.executeAction(context.method_51448(), (factorValue3 + 4.0F), (factorValue4 + 28.0F), (factorValue - 8.0F), 20.0F, 4.0F, 0.0F, 0.1F, 1.0F, idRecord62.getColor3(), idRecord62.getColor5(), 0.0F, 0.0F, 0.0F);
             SFMServiceComponent.resolveFontRenderHelper2().render(context, idRecord62.getString(), (factorValue3 + 10.0F), (factorValue4 + 31.5F), PolygonShaderComponent.INSTANCE.resolveColor(idRecord62.getColor(), 0.5F));
             StackShaderComponent2.executeAction(context.method_51448(), ((factorValue3 + factorValue) - 19.0F), (factorValue4 + 33.0F), 10.5F, 10.5F, 2.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-            MissingnoRenderHelper.executeAction(missingnoRenderHelper2, (Matrix3x2f) context.method_51448(), ((factorValue3 + factorValue) - 19.0D), (factorValue4 + 32.0D), 0.0F, 0.0F, NewThemeRenderHelper.INSTANCE.getColor7(), null, 0.0F);
+            MissingnoRenderHelper.executeAction(missingnoRenderHelper2, ((Matrix3x2f) context.method_51448()), ((factorValue3 + factorValue) - 19.0D), (factorValue4 + 32.0D), 0.0F, 0.0F, NewThemeRenderHelper.INSTANCE.getColor7(), null, 0.0F);
             PolygonShaderComponent.INSTANCE.render(context, new ServiceComponent78(factorValue3, (factorValue4 + 52), (factorValue3 + factorValue), (factorValue4 + factorValue2)));
-            var66 = 0.0F;
-            var67 = (Iterable) itemList;
-            var68 = 0;
-            var69 = var67.iterator();
-            while (var69.hasNext()) {
-                var70 = var69.next();
-                var71 = (ThemeRenderHelper) var70;
-                var72 = 0;
-                var71.updateValue((factorValue3 + 5.0F));
-                var71.updateValue2((((factorValue4 + 52.0F) + var66) + factorValue5));
-                var71.render(context, mouseX, mouseY);
-                var66 = (var66 + (var71.getNumericValue4() + 2.0F));
+            factor = 0.0F;
+            factor2 = ((Iterable) itemList);
+            index = 0;
+            index2 = factor2.iterator();
+            while (index2.hasNext()) {
+                element = index2.next();
+                index4 = ((ThemeRenderHelper) element);
+                idRecord6 = 0;
+                index4.updateValue((factorValue3 + 5.0F));
+                index4.updateValue2((((factorValue4 + 52.0F) + factor) + factorValue5));
+                index4.render(context, mouseX, mouseY);
+                factor = (factor + (index4.getNumericValue4() + 2.0F));
             }
-            var67 = (factorValue3 + 5.0F);
-            var68 = (factorValue3 + 115.0F);
-            var69 = mouseX;
-            if (var67 <= var69) {
+            factor2 = (factorValue3 + 5.0F);
+            index = (factorValue3 + 115.0F);
+            index2 = mouseX;
+            if (factor2 <= index2) {
             } else {
-            }
-            if (var69 <= var68) {
-                var67 = (((factorValue4 + 52.0F) + var66) + factorValue5);
-                var68 = (((factorValue4 + 64.0F) + var66) + factorValue5);
-                var69 = mouseY;
-                if (var67 <= var69) {
+                if (index2 <= index) {
+                    factor2 = (((factorValue4 + 52.0F) + factor) + factorValue5);
+                    index = (((factorValue4 + 64.0F) + factor) + factorValue5);
+                    index2 = mouseY;
+                    if (factor2 <= index2) {
+                    } else {
+                    }
                 } else {
+                    enabledFlag2 = index2 <= index;
                 }
-            } else {
             }
-            enabledFlag2 = var69 <= var68;
             if (enabledFlag2) {
             } else {
             }
-            1.0F.executeAction(0.0F);
-            StackShaderComponent2.executeAction(context.method_51448(), (factorValue3 + 5.0F), (((factorValue4 + 52.0F) + var66) + factorValue5), 110.0F, 12.0F, 3.0F, 2.0F, 0.4F, 1.0F, PolygonShaderComponent.INSTANCE.resolveColor(Color.RED, (0.5F + (easingServiceComponent.getNumericValue() / 5.0F))), Color.RED, 0.0F, 0.0F, 0.0F);
-            SFMServiceComponent.resolveFontRenderHelper3().render(context, KeyServiceComponent.INSTANCE.resolveString("hub.theme-editor.delete", new Object[0]), ((factorValue3 + 5.0F) + 55.0F), (((factorValue4 + 57.0F) + var66) + factorValue5), NewThemeRenderHelper.INSTANCE.getColor7());
-            var66 = (var66 + 16.0F);
+            this.executeAction(0.0F);
+            StackShaderComponent2.executeAction(context.method_51448(), (factorValue3 + 5.0F), (((factorValue4 + 52.0F) + factor) + factorValue5), 110.0F, 12.0F, 3.0F, 2.0F, 0.4F, 1.0F, PolygonShaderComponent.INSTANCE.resolveColor(Color.RED, (0.5F + (easingServiceComponent.getNumericValue() / 5.0F))), Color.RED, 0.0F, 0.0F, 0.0F);
+            SFMServiceComponent.resolveFontRenderHelper3().render(context, KeyServiceComponent.INSTANCE.resolveString("hub.theme-editor.delete", new Object[0]), ((factorValue3 + 5.0F) + 55.0F), (((factorValue4 + 57.0F) + factor) + factorValue5), NewThemeRenderHelper.INSTANCE.getColor7());
+            factor = (factor + 16.0F);
             PolygonShaderComponent.INSTANCE.render(context);
-            if (var66 != 0.0F) {
-                factorValue5 = Math.clamp(factorValue5, (var66 + 206), 0.0F);
+            if (factor != 0.0F) {
+                factorValue5 = Math.clamp(factorValue5, (factor + 206), 0.0F);
             }
             factorValue2 = 262.0F;
         }
@@ -256,132 +253,125 @@ public class REDGuiElement {
             idRecord62 = null;
             return;
         }
-        float var23 = (factorValue3 + 5.0F);
-        float var24 = (factorValue3 + 20.0F);
-        double var25 = mouseX;
-        if (var23 <= var25) {
+        float factor = (factorValue3 + 5.0F);
+        float factor2 = (factorValue3 + 20.0F);
+        double offset = mouseX;
+        if (factor <= offset) {
         } else {
-        }
-        if (var25 <= var24) {
-            var23 = (factorValue4 + 6.0F);
-            var24 = (factorValue4 + 21.0F);
-            var25 = mouseY;
-            if (var23 <= var25) {
-            } else {
-            }
-            if (var25 <= var24) {
-                var23 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().getFile();
-                var24 = var23;
-                class_158 var34 = class_156.method_668();
-                var25 = 0;
-                if (!(var24.exists())) {
-                    var24.createNewFile();
+            if (offset <= factor2) {
+                factor = (factorValue4 + 6.0F);
+                factor2 = (factorValue4 + 21.0F);
+                offset = mouseY;
+                if (factor <= offset) {
+                } else {
+                    if (offset <= factor2) {
+                        factor = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().getFile();
+                        factor2 = factor;
+                        class_158 class158 = class_156.method_668();
+                        offset = 0;
+                        if (!(factor2.exists())) {
+                            factor2.createNewFile();
+                        }
+                        class158.method_672(factor);
+                    }
                 }
-                var34.method_672();
             }
         }
-        var23 = ((factorValue3 + factorValue) - 21.0F);
+        factor = ((factorValue3 + factorValue) - 21.0F);
         if (mouseX <= ((factorValue3 + factorValue) - 7.0F)) {
         } else {
-        }
-        if (var23 <= mouseX) {
-            var23 = (factorValue4 + 31.0F);
-            if (mouseY <= (factorValue4 + 45.0F)) {
-            } else {
-            }
-            if (var23 <= mouseY && enabledFlag && idRecord62 == null) {
-                this.updateValue();
-                return;
-            }
-        }
-        var23 = (factorValue3 + 4.0F);
-        if (mouseX <= (((factorValue3 + 4.0F) + factorValue) - 8.0F)) {
-        } else {
-        }
-        if (var23 <= mouseX) {
-            var23 = (factorValue4 + 28.0F);
-            if (mouseY <= (factorValue4 + 48.0F)) {
-            } else {
-            }
-            if (var23 <= mouseY) {
-                var23 = idRecord62;
-                if (var23 != null) {
-                    var25 = var23;
-                    int var26 = 0;
-                    idRecord62 = null;
+            if (factor <= mouseX) {
+                factor = (factorValue4 + 31.0F);
+                if (mouseY <= (factorValue4 + 45.0F)) {
+                } else {
+                }
+                if (factor <= mouseY && enabledFlag && idRecord62 == null) {
+                    this.updateValue();
                     return;
                 }
-                if (enabledFlag) {
-                    enabledFlag = 0;
-                    textValue = "Enter name";
-                } else {
-                    enabledFlag = 1;
-                    textValue = "";
-                }
-                return;
             }
         }
-        var23 = (Iterable) itemList;
-        var24 = 0;
-        var25 = var23.iterator();
-        while (var25.hasNext()) {
-            var26 = var25.next();
-            ThemeRenderHelper var27 = (ThemeRenderHelper) var26;
-            int var28 = 0;
-            var27.executeAction(mouseX, mouseY, button);
+        factor = (factorValue3 + 4.0F);
+        if (mouseX <= (((factorValue3 + 4.0F) + factorValue) - 8.0F)) {
+        } else {
+            if (factor <= mouseX) {
+                factor = (factorValue4 + 28.0F);
+                if (mouseY <= (factorValue4 + 48.0F)) {
+                } else {
+                    if (factor <= mouseY) {
+                        factor = idRecord62;
+                        if (factor != null) {
+                            offset = factor;
+                            int index = 0;
+                            idRecord62 = null;
+                            return;
+                        }
+                        if (enabledFlag) {
+                            enabledFlag = 0;
+                            textValue = "Enter name";
+                        } else {
+                            enabledFlag = 1;
+                            textValue = "";
+                        }
+                        return;
+                    }
+                }
+            }
+        }
+        factor = ((Iterable) itemList);
+        factor2 = 0;
+        offset = factor.iterator();
+        while (offset.hasNext()) {
+            index = offset.next();
+            ThemeRenderHelper themeRenderHelper = ((ThemeRenderHelper) index);
+            int index2 = 0;
+            themeRenderHelper.executeAction(mouseX, mouseY, button);
         }
         if (!(button)) {
             if (idRecord6 != null) {
-                var25 = idRecord6;
-                var26 = 0;
-                NewThemeRenderHelper.INSTANCE.executeAction();
-            } else {
+                offset = idRecord6;
+                index = 0;
+                NewThemeRenderHelper.INSTANCE.executeAction(offset);
             } else {
                 if (idRecord6 != null) {
-                    var25 = idRecord6;
-                    var26 = 0;
+                    offset = idRecord6;
+                    index = 0;
                     itemList.clear();
                     idRecord62 = idRecord6;
-                    var27 = 0;
-                    var28 = NewThemeRenderHelper.INSTANCE.resolveMap(idRecord62);
-                    int var29 = 0;
-                    Iterator iterator = var28.entrySet().iterator();
+                    themeRenderHelper = 0;
+                    index2 = NewThemeRenderHelper.INSTANCE.resolveMap(idRecord62);
+                    Iterator iterator = index2.entrySet().iterator();
                     while (iterator.hasNext()) {
-                        Entry var31 = (Entry) iterator.next();
-                        Object var32 = var31;
-                        int var33 = 0;
-                        itemList.add(new ThemeRenderHelper((String) var32.getKey(), idRecord62, (factorValue3 + 4.0F), ((factorValue4 + 55.0F) + (var27 * 16.0F)), (Color) var32.getValue()));
-                        var27 = (var27 + 1);
+                        Entry entry = ((Entry) iterator.next());
+                        itemList.add(new ThemeRenderHelper(((String) entry.getKey()), idRecord62, (factorValue3 + 4.0F), ((factorValue4 + 55.0F) + (themeRenderHelper * 16.0F)), ((Color) entry.getValue())));
+                        themeRenderHelper = (themeRenderHelper + 1);
                     }
                 } else {
                 }
             }
+        } else {
         }
     }
 
     public void executeAction(double mouseX, double mouseY) {
-        Iterable var12 = (Iterable) itemList;
-        int var13 = 0;
-        Iterator iterator = var12.iterator();
-        if (iterator.hasNext()) {
-            Object var15 = iterator.next();
-            ThemeRenderHelper var16 = (ThemeRenderHelper) var15;
-            int var17 = 0;
-            var16.executeAction();
-            if (0L < 0) {
+        Iterable iterable = ((Iterable) itemList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            ThemeRenderHelper themeRenderHelper = ((ThemeRenderHelper) element);
+            themeRenderHelper.executeAction();
+            if (__UNDEF_KEY__ < 0) {
             }
         }
     }
 
     public void executeAction(int keyCode) {
-        Iterable var11 = (Iterable) itemList;
-        int var12 = 0;
-        Iterator iterator = var11.iterator();
+        Iterable iterable = ((Iterable) itemList);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var14 = iterator.next();
-            ThemeRenderHelper var15 = (ThemeRenderHelper) var14;
-            int var16 = 0;
-            var15.executeAction(keyCode);
+            Object element = iterator.next();
+            ThemeRenderHelper themeRenderHelper = ((ThemeRenderHelper) element);
+            themeRenderHelper.executeAction(keyCode);
         }
         textValue = StringsKt.dropLast(textValue, 1);
         this.updateValue();
@@ -390,67 +380,62 @@ public class REDGuiElement {
     }
 
     private void updateValue(long arg0) {
-        if (StringsKt.isBlank((CharSequence) textValue)) {
+        if (StringsKt.isBlank(((CharSequence) textValue))) {
             enabledFlag = 0;
             textValue = "Enter name";
             return;
         }
-        NewThemeRenderHelper var10 = NewThemeRenderHelper.INSTANCE;
-        int var11 = 0;
-        ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().resolveList().add(new IdRecord6(textValue, var10.getColor2(), var10.getColor3(), var10.getColor4(), var10.getColor5(), var10.getColor6(), var10.getColor7(), var10.getColor8(), var10.getColor9(), var10.getColor10(), var10.getColor11(), var10.getColor12(), var10.getColor13()));
+        NewThemeRenderHelper newThemeRenderHelper = NewThemeRenderHelper.INSTANCE;
+        ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().resolveList().add(new IdRecord6(textValue, newThemeRenderHelper.getColor2(), newThemeRenderHelper.getColor3(), newThemeRenderHelper.getColor4(), newThemeRenderHelper.getColor5(), newThemeRenderHelper.getColor6(), newThemeRenderHelper.getColor7(), newThemeRenderHelper.getColor8(), newThemeRenderHelper.getColor9(), newThemeRenderHelper.getColor10(), newThemeRenderHelper.getColor11(), newThemeRenderHelper.getColor12(), newThemeRenderHelper.getColor13()));
         enabledFlag = 0;
         textValue = "Enter name";
     }
 
     public void executeAction(char chr) {
-        Iterable var7 = (Iterable) itemList;
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
-        if (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            ThemeRenderHelper var11 = (ThemeRenderHelper) var10;
-            int var12 = 0;
-            var11.executeAction(chr);
-            if (var6 != null) {
+        Iterable iterable = ((Iterable) itemList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            ThemeRenderHelper themeRenderHelper = ((ThemeRenderHelper) element);
+            themeRenderHelper.executeAction(chr);
+            if (__UNDEF_KEY__ != null) {
             }
         }
         textValue = (textValue + chr);
     }
 
     public boolean checkCondition(double mX, double mY, double amount) {
-        float var13 = factorValue3;
+        float factor = factorValue3;
         if (mX <= (factorValue3 + factorValue)) {
         } else {
-        }
-        if (var13 <= mX) {
-            var13 = factorValue4;
-            if (0L > 0L && var12 != null) {
-                if (mY <= (factorValue4 + factorValue2)) {
-                }
-            } else {
-            }
-            if (var13 <= mY) {
-                factorValue5 = (factorValue5 + (amount * 10.0F));
-                var13 = 0.0F;
-                var13 = 14.0F;
-                Iterable var14 = (Iterable) itemList;
-                int var15 = 0;
-                Iterator iterator = var14.iterator();
-                while (iterator.hasNext()) {
-                    Object var17 = iterator.next();
-                    ThemeRenderHelper var18 = (ThemeRenderHelper) var17;
-                    int var19 = 0;
-                    var13 = (var13 + (var18.getNumericValue4() + 2.0F));
-                    if (0L >= 0) {
+            if (factor <= mX) {
+                factor = factorValue4;
+                if (__UNDEF_KEY__ > 0L && __UNDEF_KEY__ != null) {
+                    if (mY <= (factorValue4 + factorValue2)) {
+                    } else {
+                        if (factor <= mY) {
+                            factorValue5 = (factorValue5 + (amount * 10.0F));
+                            factor = 0.0F;
+                            factor = 14.0F;
+                            Iterable iterable = ((Iterable) itemList);
+                            Iterator iterator = iterable.iterator();
+                            while (iterator.hasNext()) {
+                                Object element = iterator.next();
+                                ThemeRenderHelper themeRenderHelper = ((ThemeRenderHelper) element);
+                                factor = (factor + (themeRenderHelper.getNumericValue4() + 2.0F));
+                                if (__UNDEF_KEY__ >= 0) {
+                                }
+                            }
+                            if (__UNDEF_KEY__ >= 0) {
+                                if (factor == 14.0F) {
+                                    return false;
+                                }
+                                factorValue5 = Math.clamp(factorValue5, (factor + 206), 0.0F);
+                            }
+                            return true;
+                        }
                     }
                 }
-                if (0L >= 0) {
-                    if (var13 == 14.0F) {
-                        return false;
-                    }
-                    factorValue5 = Math.clamp(factorValue5, (var13 + 206), 0.0F);
-                }
-                return true;
             }
         }
         return false;

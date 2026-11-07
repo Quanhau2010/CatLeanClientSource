@@ -39,7 +39,7 @@ public class MoveEvent extends Event {
     }
 
     public boolean call(double x, double y, double z) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         preciseValue = x;
         preciseValue2 = y;
         preciseValue3 = z;

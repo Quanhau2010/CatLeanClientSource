@@ -49,7 +49,7 @@ public class FixVelocityEvent extends Event {
     }
 
     public boolean call(Vec3d movementInput, float speed, float yaw) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         movementInput = movementInput;
         speed = speed;
         yaw = yaw;

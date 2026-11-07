@@ -32,261 +32,247 @@ import su.catlean.client.services.player.ExplosionPosEntityHelper;
 public class ConfigStateServiceComponent2 {
 
     public static DamageDataServiceComponent resolveDamageDataServiceComponent(EntitiesEntityHelper configState, List clearedList) {
-        if (var6 == null) {
+        if (__UNDEF_KEY__ == null) {
             if (clearedList.isEmpty()) {
                 return null;
             }
         }
-        Iterable var8 = (Iterable) clearedList;
-        int var9 = 0;
-        Iterator iterator = var8.iterator();
-        if (var6 == null) {
+        Iterable iterable = ((Iterable) clearedList);
+        int index = 0;
+        Iterator iterator = iterable.iterator();
+        if (__UNDEF_KEY__ == null) {
             if (!(iterator.hasNext())) {
             }
         }
-        Object var11 = iterator.next();
-        if (var6 == null) {
+        Object element = iterator.next();
+        if (__UNDEF_KEY__ == null) {
             if (!(iterator.hasNext())) {
             }
         }
-        DamageDataServiceComponent var12 = (DamageDataServiceComponent) var11;
-        int var13 = 0;
-        var12 = var12.getServiceComponent95().getNumericValue();
-        var13 = iterator.next();
-        DamageDataServiceComponent var14 = (DamageDataServiceComponent) var13;
-        int var15 = 0;
-        var14 = var14.getServiceComponent95().getNumericValue();
-        if (Float.compare() < 0) {
-            var11 = var13;
-            var12 = var14;
+        DamageDataServiceComponent damageDataServiceComponent = ((DamageDataServiceComponent) element);
+        int index2 = 0;
+        damageDataServiceComponent = damageDataServiceComponent.getServiceComponent95().getNumericValue();
+        index2 = iterator.next();
+        DamageDataServiceComponent damageDataServiceComponent2 = ((DamageDataServiceComponent) index2);
+        int index3 = 0;
+        damageDataServiceComponent2 = damageDataServiceComponent2.getServiceComponent95().getNumericValue();
+        if (Float.compare(damageDataServiceComponent, damageDataServiceComponent2) < 0) {
+            element = index2;
+            damageDataServiceComponent = damageDataServiceComponent2;
         }
-        DamageDataServiceComponent var7 = (DamageDataServiceComponent) var11;
+        DamageDataServiceComponent damageDataServiceComponent3 = ((DamageDataServiceComponent) element);
         if (configState.isActive6()) {
-            if (var6 == null && var6 == null) {
+            if (__UNDEF_KEY__ == null && __UNDEF_KEY__ == null) {
                 if (clearedList.size() > 1) {
-                    var8 = clearedList.iterator();
-                    if (var8.hasNext()) {
-                        var9 = (DamageDataServiceComponent) var8.next();
-                        if (var6 == null) {
-                            if (var6 == null) {
-                                if (Intrinsics.areEqual()) {
+                    iterable = clearedList.iterator();
+                    while (iterable.hasNext()) {
+                        index = ((DamageDataServiceComponent) iterable.next());
+                        if (__UNDEF_KEY__ == null) {
+                            if (__UNDEF_KEY__ == null) {
+                                if (Intrinsics.areEqual(index, damageDataServiceComponent3)) {
+                                }
+                                iterator = (damageDataServiceComponent3.getServiceComponent95().getNumericValue() - index.getServiceComponent95().getNumericValue());
+                                element = (damageDataServiceComponent3.getServiceComponent95().getNumericValue2() - index.getServiceComponent95().getNumericValue2());
+                                if (__UNDEF_KEY__ == null) {
+                                    if (damageDataServiceComponent3.getServiceComponent95().getNumericValue2() > index.getServiceComponent95().getNumericValue2()) {
+                                    } else {
+                                    }
+                                }
+                                damageDataServiceComponent = 0;
+                                if (__UNDEF_KEY__ == null) {
+                                }
+                                if (__UNDEF_KEY__ == null) {
+                                }
+                                if (iterator > configState.getNumericValue8()) {
+                                    if (__UNDEF_KEY__ == null && __UNDEF_KEY__ == null) {
+                                    }
+                                }
+                                if (damageDataServiceComponent3.getServiceComponent95().isActive2()) {
+                                    if (__UNDEF_KEY__ == null && __UNDEF_KEY__ == null) {
+                                    }
+                                }
+                                damageDataServiceComponent3 = index;
+                                if (__UNDEF_KEY__ == null) {
+                                    if (__UNDEF_KEY__ == null) {
+                                        if (damageDataServiceComponent3.getObject() instanceof class_3965 && clearedList.size() > 1) {
+                                            iterable = ((class_3965) damageDataServiceComponent3.getObject()).method_17777();
+                                            index = SpeedMineModule.resolveList(false);
+                                            iterator = configState.getMinecraftObject().method_24515();
+                                            if (iterable.method_10263() == iterator.method_10263()) {
+                                                if (__UNDEF_KEY__ == null && __UNDEF_KEY__ == null) {
+                                                    if (iterable.method_10260() != iterator.method_10260()) {
+                                                    } else {
+                                                    }
+                                                }
+                                            }
+                                            element = 0;
+                                            if (__UNDEF_KEY__ == null) {
+                                            }
+                                            if (index.contains(iterable) && element) {
+                                                index2 = ((Iterable) clearedList);
+                                                damageDataServiceComponent2 = 0;
+                                                index3 = index2;
+                                                Collection collection = ((Collection) new ArrayList());
+                                                int index4 = 0;
+                                                Iterator iterator2 = index3.iterator();
+                                                while (iterator2.hasNext()) {
+                                                    Object element2 = iterator2.next();
+                                                    DamageDataServiceComponent damageDataServiceComponent4 = ((DamageDataServiceComponent) element2);
+                                                    if (__UNDEF_KEY__ == null) {
+                                                        if (__UNDEF_KEY__ == null) {
+                                                        }
+                                                        if (__UNDEF_KEY__ == null) {
+                                                            if (damageDataServiceComponent4.getObject() instanceof class_3965 && !(index.contains(((class_3965) damageDataServiceComponent4.getObject()).method_17777()))) {
+                                                            } else {
+                                                            }
+                                                        }
+                                                        collection.add(element2);
+                                                        index2 = ((Iterable) collection);
+                                                    }
+                                                }
+                                                damageDataServiceComponent2 = 0;
+                                                index3 = index2.iterator();
+                                                if (__UNDEF_KEY__ == null) {
+                                                    if (!(index3.hasNext())) {
+                                                    }
+                                                    collection = index3.next();
+                                                    if (__UNDEF_KEY__ == null) {
+                                                        if (!(index3.hasNext())) {
+                                                        }
+                                                    }
+                                                }
+                                                index4 = ((DamageDataServiceComponent) collection);
+                                                iterator2 = 0;
+                                                index4 = index4.getServiceComponent95().getNumericValue();
+                                                iterator2 = index3.next();
+                                                element2 = ((DamageDataServiceComponent) iterator2);
+                                                damageDataServiceComponent4 = 0;
+                                                element2 = element2.getServiceComponent95().getNumericValue();
+                                                if (Float.compare(index4, element2) < 0) {
+                                                    collection = iterator2;
+                                                    index4 = element2;
+                                                }
+                                                damageDataServiceComponent = ((DamageDataServiceComponent) collection);
+                                                if (__UNDEF_KEY__ == null) {
+                                                    if (damageDataServiceComponent != null) {
+                                                        return damageDataServiceComponent;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
-                            iterator = (var7.getServiceComponent95().getNumericValue() - var9.getServiceComponent95().getNumericValue());
-                            var11 = (var7.getServiceComponent95().getNumericValue2() - var9.getServiceComponent95().getNumericValue2());
-                            if (var6 == null) {
-                                if (var7.getServiceComponent95().getNumericValue2() > var9.getServiceComponent95().getNumericValue2()) {
-                                }
-                            } else {
-                            }
-                            var12 = 0;
-                            if (var6 == null) {
-                            }
-                            if (var6 == null) {
-                            }
-                            if (iterator > configState.getNumericValue8()) {
-                                if (var6 == null && var6 == null) {
-                                }
-                            }
-                            if (var7.getServiceComponent95().isActive2()) {
-                                if (var6 == null && var6 == null) {
-                                }
-                            }
-                            var7 = var9;
-                        }
-                    }
-                }
-                if (var6 == null) {
-                }
-            }
-            if (var6 == null) {
-                if (var7.getObject() instanceof class_3965 && clearedList.size() > 1) {
-                }
-                var8 = (class_3965) var7.getObject().method_17777();
-                var9 = SpeedMineModule.resolveList();
-                iterator = configState.getMinecraftObject().method_24515();
-                if (var8.method_10263() == iterator.method_10263()) {
-                    if (var6 == null && var6 == null) {
-                        if (var8.method_10260() != iterator.method_10260()) {
-                        }
-                    }
-                } else {
-                }
-                var11 = 0;
-                if (var6 == null) {
-                }
-                if (var9.contains() && var11) {
-                    var13 = (Iterable) clearedList;
-                    var14 = 0;
-                    var15 = var13;
-                    Collection var16 = (Collection) new ArrayList();
-                    int var17 = 0;
-                    Iterator iterator2 = var15.iterator();
-                    if (iterator2.hasNext()) {
-                        Object var19 = iterator2.next();
-                        DamageDataServiceComponent var20 = (DamageDataServiceComponent) var19;
-                        int var21 = 0;
-                        if (var6 == null) {
-                            if (var6 == null) {
-                            }
-                            if (var6 == null) {
-                                if (var20.getObject() instanceof class_3965 && !(var9.contains((class_3965) var20.getObject().method_17777()))) {
-                                }
-                            } else {
-                            }
-                            var16.add();
-                        }
-                        var13 = (Iterable) var16;
-                    }
-                    var14 = 0;
-                    var15 = var13.iterator();
-                    if (var6 == null) {
-                        if (!(var15.hasNext())) {
-                        }
-                        var16 = var15.next();
-                        if (var6 == null) {
-                        }
-                        if (!(var15.hasNext())) {
-                        }
-                    }
-                    var17 = (DamageDataServiceComponent) var16;
-                    iterator2 = 0;
-                    var17 = var17.getServiceComponent95().getNumericValue();
-                    iterator2 = var15.next();
-                    var19 = (DamageDataServiceComponent) iterator2;
-                    var20 = 0;
-                    var19 = var19.getServiceComponent95().getNumericValue();
-                    if (Float.compare() < 0) {
-                        var16 = iterator2;
-                        var17 = var19;
-                    }
-                    var12 = (DamageDataServiceComponent) var16;
-                    if (var6 == null) {
-                        if (var12 != null) {
-                            return var12;
                         }
                     }
                 }
             }
         }
-        return var7;
+        return damageDataServiceComponent3;
     }
 
     private static boolean checkCondition(float arg0, float arg1, EntitiesEntityHelper arg2) {
-        if (var7 == null) {
-            if (arg2.isActive2()) {
-                float var8 = (arg2.getMinecraftObject().method_6032() + arg2.getMinecraftObject().method_6067());
-                float var9 = (SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067());
-                if (var7 == null) {
-                    if ((arg0 * arg2.getNumericValue()) > var8) {
-                    }
-                } else {
-                }
-                int var10 = 0;
-                if (var7 == null) {
-                    if (arg1 < var9) {
-                    }
-                } else {
-                }
-                int var11 = 0;
-                if (var7 == null) {
-                }
-                if (var7 == null) {
-                }
-                if (var7 == null) {
-                    if (arg1 > arg2.getNumericValue3() && var10 && var11) {
-                    }
-                } else {
-                }
-                return false;
+        if (arg2.isActive2()) {
+            float factor = (arg2.getMinecraftObject().method_6032() + arg2.getMinecraftObject().method_6067());
+            float factor2 = (SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067());
+            if ((arg0 * arg2.getNumericValue()) > factor) {
+            } else {
             }
+            int index = 0;
+            if (arg1 < factor2) {
+            } else {
+            }
+            int index2 = 0;
+            if (arg1 > arg2.getNumericValue3() && index && index2) {
+            } else {
+            }
+            return false;
         }
         return false;
     }
 
     private static boolean checkCondition(float arg0, EntitiesEntityHelper arg1) {
-        float var17 = (arg1.getMinecraftObject().method_6032() + arg1.getMinecraftObject().method_6067());
-        if (var16 == null) {
+        float factor = (arg1.getMinecraftObject().method_6032() + arg1.getMinecraftObject().method_6067());
+        if (__UNDEF_KEY__ == null) {
             if (arg0 >= 0.6D) {
-                if (var16 == null) {
+                if (__UNDEF_KEY__ == null) {
                     if (!(arg1.isActive13())) {
+                        return false;
                     }
                 }
-                return false;
             }
         }
-        if (var16 == null) {
+        if (__UNDEF_KEY__ == null) {
         }
-        if (var16 == null) {
+        if (__UNDEF_KEY__ == null) {
             if (arg0 <= 4.0F) {
-                if (var16 == null) {
-                    if ((arg0 * arg1.getNumericValue()) > var17 && !(AuraModule.INSTANCE.checkCondition())) {
+                if (__UNDEF_KEY__ == null) {
+                    if ((arg0 * arg1.getNumericValue()) > factor && !(AuraModule.INSTANCE.checkCondition())) {
+                        return true;
                     }
                 }
             }
-            return true;
         }
         Iterator iterator = EntityHelper2.resolveList(arg1.getMinecraftObject()).iterator();
-        if (iterator.hasNext()) {
-            ItemStack stack = (ItemStack) iterator.next();
-            if (var16 == null) {
+        while (iterator.hasNext()) {
+            ItemStack stack = ((ItemStack) iterator.next());
+            if (__UNDEF_KEY__ == null) {
             }
             return true;
         }
         if (arg1.isActive11()) {
-            if (var16 == null && var16 == null) {
+            if (__UNDEF_KEY__ == null && __UNDEF_KEY__ == null) {
                 if (Intrinsics.areEqual(SharedKt.getWorld().getBlockState(BlockPos.ofFloored(AntiKnockBackModule.INSTANCE.resolveMinecraftObject(arg1.getMinecraftObject()))).getBlock(), Blocks.field_10316)) {
                     return true;
                 }
             }
         }
         if (arg1.isActive10()) {
-            if (var16 == null && var16 == null) {
+            if (__UNDEF_KEY__ == null && __UNDEF_KEY__ == null) {
                 if (AutoCrystalModule.INSTANCE.checkCondition()) {
                     return true;
                 }
             }
         }
         if (arg1.isActive12()) {
-            if (var16 == null && var16 == null) {
+            if (__UNDEF_KEY__ == null && __UNDEF_KEY__ == null) {
                 if (arg1.getMinecraftObject().method_24518(Items.field_8102)) {
-                    iterator = (Iterable) arg1.getList();
+                    iterator = ((Iterable) arg1.getList());
                     stack = 0;
-                    Object var20 = iterator;
-                    Collection var21 = (Collection) new ArrayList();
-                    int var22 = 0;
-                    Iterator iterator2 = var20.iterator();
-                    if (iterator2.hasNext()) {
-                        Object var24 = iterator2.next();
-                        if (var16 == null) {
-                            if (var16 == null) {
+                    Iterator iterator2 = iterator;
+                    Collection collection = ((Collection) new ArrayList());
+                    int index = 0;
+                    Iterator iterator3 = iterator2.iterator();
+                    while (iterator3.hasNext()) {
+                        Object element = iterator3.next();
+                        if (__UNDEF_KEY__ == null) {
+                            if (__UNDEF_KEY__ == null) {
                             }
-                            var21.add();
+                            collection.add(element);
+                            iterator = ((Iterable) collection);
+                            stack = 0;
                         }
-                        iterator = (Iterable) var21;
-                        stack = 0;
                     }
                     if (iterator instanceof Collection) {
-                        if (var16 == null && var16 == null) {
-                            if ((Collection) iterator.isEmpty()) {
+                        if (__UNDEF_KEY__ == null && __UNDEF_KEY__ == null) {
+                            if (((Collection) iterator).isEmpty()) {
                             }
                         }
                     }
-                    var20 = iterator.iterator();
-                    if (var20.hasNext()) {
-                        var21 = var20.next();
-                        var22 = (class_1667) var21;
-                        iterator2 = 0;
-                        if (var16 == null) {
+                    iterator2 = iterator.iterator();
+                    while (iterator2.hasNext()) {
+                        collection = iterator2.next();
+                        index = ((class_1667) collection);
+                        iterator3 = 0;
+                        if (__UNDEF_KEY__ == null) {
                         }
-                        if (var16 == null) {
+                        if (__UNDEF_KEY__ == null) {
                         }
-                        if (var16 == null) {
-                            if (var22.field_6012 < 5 && AntiKnockBackModule.INSTANCE.resolveMinecraftObject().field_1351 > arg1.getMinecraftObject().getY() && arg1.getMinecraftObject().getEyePos().method_1025(AntiKnockBackModule.INSTANCE.resolveMinecraftObject()) < 9.0D) {
+                        if (__UNDEF_KEY__ == null) {
+                            if (index.field_6012 < 5 && AntiKnockBackModule.INSTANCE.resolveMinecraftObject(index).field_1351 > arg1.getMinecraftObject().getY() && arg1.getMinecraftObject().getEyePos().method_1025(AntiKnockBackModule.INSTANCE.resolveMinecraftObject(index)) < 9.0D) {
+                            } else {
                             }
-                        } else {
                         }
-                    } else {
                     }
                     if (0) {
                         return true;
@@ -294,12 +280,12 @@ public class ConfigStateServiceComponent2 {
                 }
             }
         }
-        if (var16 == null) {
+        if (__UNDEF_KEY__ == null) {
         }
-        if (var16 == null) {
-            if (var17 <= arg1.getNumericValue6() && !(AuraModule.INSTANCE.checkCondition())) {
+        if (__UNDEF_KEY__ == null) {
+            if (factor <= arg1.getNumericValue6() && !(AuraModule.INSTANCE.checkCondition())) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -308,129 +294,119 @@ public class ConfigStateServiceComponent2 {
         Vec3d vec = pos.toCenterPos().method_1031(0.0D, 0.5D, 0.0D);
         if (place) {
         }
-        List positions = CollectionsKt.emptyList();
+        List list = CollectionsKt.emptyList();
         if (basePlace) {
         }
-        Object var34 = positions;
-        if (var31 == null) {
+        if (__UNDEF_KEY__ == null) {
             if (place) {
+            } else {
             }
-        } else {
         }
-        float var35 = vec.computeValue(configState.getMinecraftObject(), receiver.computeValue(), 0, configState.isActive5(), basePlace);
-        if (!(checkCondition(configState))) {
-            if (var31 == null && var31 == null) {
-                if (var35 > configState.getNumericValue4()) {
+        float factor = vec.computeValue(configState.getMinecraftObject(), receiver.computeValue(), 0, configState.isActive5(), list, basePlace);
+        if (!(checkCondition(factor, configState))) {
+            if (__UNDEF_KEY__ == null && __UNDEF_KEY__ == null) {
+                if (factor > configState.getNumericValue4()) {
+                } else {
                 }
             }
-        } else {
         }
-        int var36 = 0;
-        if (0L > 0L && var31 == null) {
+        int index = 0;
+        if (__UNDEF_KEY__ > 0L && __UNDEF_KEY__ == null) {
         }
-        if (!(var36) && !(ignoreMinDamage)) {
+        if (!(index) && !(ignoreMinDamage)) {
             return null;
         }
-        float var37 = DamageSyncServiceComponent.INSTANCE.computeValue(ExplosionPosEntityHelper.INSTANCE.computeValue(vec, (PlayerEntity) SharedKt.getPlayer(), receiver.computeValue(place), configState.isActive5(), basePlace));
-        boolean var38 = checkCondition(configState);
-        if (var31 == null) {
+        float factor2 = DamageSyncServiceComponent.INSTANCE.computeValue(ExplosionPosEntityHelper.INSTANCE.computeValue(vec, ((PlayerEntity) SharedKt.getPlayer()), receiver.computeValue(place), configState.isActive5(), list, basePlace));
+        boolean flag = checkCondition(factor, factor2, configState);
+        if (__UNDEF_KEY__ == null) {
             if (configState.getAutoCrystalFriendProtectionMode() != AutoCrystalFriendProtectionMode.NONE) {
-            }
-            Iterable var40 = (Iterable) configState.getList();
-            int var41 = 0;
-            Object var42 = var40;
-            Collection var43 = (Collection) new ArrayList();
-            int var44 = 0;
-            Iterator iterator = var42.iterator();
-            if (iterator.hasNext()) {
-                Object var46 = iterator.next();
-                if (0L >= 0L) {
-                    if (var31 == null) {
-                        if (var31 == null) {
+                Iterable iterable = ((Iterable) configState.getList());
+                int index2 = 0;
+                Iterable iterable2 = iterable;
+                Collection collection = ((Collection) new ArrayList());
+                Iterator iterator = iterable2.iterator();
+                while (iterator.hasNext()) {
+                    Object element = iterator.next();
+                    if (__UNDEF_KEY__ >= 0L) {
+                        if (__UNDEF_KEY__ == null) {
+                            if (__UNDEF_KEY__ == null) {
+                            }
+                            collection.add(element);
+                            iterable = ((Iterable) collection);
+                            index2 = 0;
+                            iterable2 = iterable;
+                            collection = ((Collection) new ArrayList());
+                            if (__UNDEF_KEY__ > 0L) {
+                            }
                         }
-                        var43.add();
                     }
-                    var40 = (Iterable) var43;
-                    var41 = 0;
-                    var42 = var40;
-                    var43 = (Collection) new ArrayList();
-                    if (0L > 0L) {
-                    }
-                    var44 = 0;
                 }
-            }
-            iterator = var42.iterator();
-            if (iterator.hasNext()) {
-                var46 = iterator.next();
-                PlayerEntity player = (PlayerEntity) var46;
-                int var48 = 0;
-                if (0L >= 0L) {
-                    if (var31 == null) {
-                        if (0L >= 0) {
-                            if (var31 == null) {
+                iterator = iterable2.iterator();
+                while (iterator.hasNext()) {
+                    element = iterator.next();
+                    PlayerEntity player = ((PlayerEntity) element);
+                    if (__UNDEF_KEY__ >= 0L) {
+                        if (__UNDEF_KEY__ == null) {
+                            if (__UNDEF_KEY__ >= 0) {
+                                if (__UNDEF_KEY__ == null) {
+                                }
                             }
-                        }
-                        if (var31 == null) {
-                            if (player.isAlive() && EntityHelper4.isFriend(player)) {
+                            if (__UNDEF_KEY__ == null) {
+                                if (player.isAlive() && EntityHelper4.isFriend(player)) {
+                                } else {
+                                }
                             }
-                        } else {
-                        }
-                        var43.add();
-                    }
-                    Iterator iterator2 = var43.iterator();
-                    if (iterator2.hasNext()) {
-                        var40 = (PlayerEntity) iterator2.next();
-                        if (var31 == null) {
-                            if (place) {
-                            }
-                        } else {
-                        }
-                        var41 = vec.computeValue(receiver.computeValue(), 0, configState.isActive5(), basePlace);
-                        if (0L >= 0) {
-                            if (var31 == null) {
-                                if (configState.getAutoCrystalFriendProtectionMode() == AutoCrystalFriendProtectionMode.ONLY_LETHAL) {
-                                    if (var31 == null) {
-                                        return null;
+                            collection.add(element);
+                            Iterator iterator2 = collection.iterator();
+                            while (iterator2.hasNext()) {
+                                iterable = ((PlayerEntity) iterator2.next());
+                                if (__UNDEF_KEY__ == null) {
+                                    if (place) {
+                                    } else {
                                     }
-                                    var37 = Math.max();
+                                }
+                                index2 = vec.computeValue(iterable, receiver.computeValue(), 0, configState.isActive5(), list, basePlace);
+                                if (__UNDEF_KEY__ >= 0) {
+                                    if (__UNDEF_KEY__ == null) {
+                                        if (configState.getAutoCrystalFriendProtectionMode() == AutoCrystalFriendProtectionMode.ONLY_LETHAL) {
+                                            if (__UNDEF_KEY__ == null) {
+                                                return null;
+                                                factor2 = Math.max(factor2, index2);
+                                                if (__UNDEF_KEY__ >= 0) {
+                                                    if (__UNDEF_KEY__ == null) {
+                                                        if (!(checkCondition(factor, factor2, flag, configState))) {
+                                                            return null;
+                                                        }
+                                                    }
+                                                }
+                                                if (__UNDEF_KEY__ == null) {
+                                                }
+                                                if (factor2 > configState.getNumericValue3() && !(flag)) {
+                                                    return null;
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-            if (0L >= 0) {
-                if (var31 == null) {
-                    if (!(checkCondition(configState))) {
-                        return null;
-                    }
-                }
-            }
-            if (var31 == null) {
-            }
-            if (var37 > configState.getNumericValue3() && !(var38)) {
-            }
-            return null;
         }
-        return new ServiceComponent95(var35 >= (configState.getMinecraftObject().method_6032() + configState.getMinecraftObject().method_6067()));
+        return new ServiceComponent95(factor, factor2, flag, factor >= (configState.getMinecraftObject().method_6032() + configState.getMinecraftObject().method_6067()));
     }
 
     private static boolean checkCondition(float arg0, float arg1, boolean arg2, EntitiesEntityHelper arg3, char arg4) {
-        if (var11 == null) {
-            if (arg2) {
-                return true;
+        if (arg2) {
+            return true;
+        }
+        if (arg4 > 0 && __UNDEF_KEY__ == null) {
+            if (arg1 > (SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067())) {
+                return false;
             }
         }
-        if (arg4 > 0) {
-            if (var11 == null) {
-                if (arg1 > (SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067())) {
-                    return false;
-                }
-            }
-        }
-        if (var11 == null) {
-            if ((arg0 / arg1) >= arg3.getNumericValue7()) {
-            }
+        if ((arg0 / arg1) >= arg3.getNumericValue7()) {
         } else {
         }
         return false;

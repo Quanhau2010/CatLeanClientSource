@@ -1,6 +1,5 @@
 package su.catlean.client.services.player;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.ranges.RangesKt;
 import net.minecraft.entity.Entity;
 import su.catlean.client.features.modules.Module;
@@ -22,13 +21,6 @@ public class EntityEntityHelper {
         this.preciseValue2 = posY;
         this.preciseValue3 = posZ;
         this.countValue = ticks;
-    }
-
-    public EntityEntityHelper(Entity arg0, float arg1, double arg2, double arg3, double arg4, int arg5, int arg6, DefaultConstructorMarker arg7) {
-        if ((arg6 & 4946558979204448288L)) {
-            arg5 = 0;
-        }
-        this(arg0, arg1, arg2, arg3, arg4, arg5);
     }
 
     public Entity getMinecraftObject() {

@@ -20,39 +20,37 @@ public class LabelRecordSerializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, LabelRecord value) {
-        SerialDescriptor var5 = serialDescriptor;
-        CompositeEncoder var6 = encoder.beginStructure();
-        LabelRecord.executeAction(value);
-        var6.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        LabelRecord.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public LabelRecord resolveLabelRecord(Decoder decoder) {
-        SerialDescriptor var8 = serialDescriptor;
-        int var9 = 1;
-        int var11 = 0;
-        CompositeDecoder var14 = decoder.beginStructure();
-        if (var7 != null) {
-            if (var14.decodeSequentially()) {
+        int index = 1;
+        int index2 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        if (__UNDEF_KEY__ != null) {
+            if (compositeDecoder.decodeSequentially()) {
+                String text = compositeDecoder.decodeStringElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                String text2 = compositeDecoder.decodeStringElement(serialDescriptor, 1);
+                index2 = (index2 | 2);
             }
-            String var12 = var14.decodeStringElement(0);
-            var11 = (var11 | 1);
-            String var13 = var14.decodeStringElement(1);
-            var11 = (var11 | 2);
         }
-        if (var7 == null && var9) {
-            int var10 = var14.decodeElementIndex();
-            if (var7 != null) {
-                if (var7 != null) {
+        if (__UNDEF_KEY__ == null && index) {
+            int index3 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                var9 = 0;
-                var12 = var14.decodeStringElement(0);
-                var11 = (var11 | 1);
-                var13 = var14.decodeStringElement(1);
-                var11 = (var11 | 2);
+                index = 0;
+                text = compositeDecoder.decodeStringElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                text2 = compositeDecoder.decodeStringElement(serialDescriptor, 1);
+                index2 = (index2 | 2);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var14.endStructure();
         }
-        return new LabelRecord(null);
+        return new LabelRecord(index2, text, text2);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -60,10 +58,10 @@ public class LabelRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        KSerializer[] var1 = new KSerializer[2];
-        var1[0] = StringSerializer.INSTANCE;
-        var1[1] = StringSerializer.INSTANCE;
-        return var1;
+        KSerializer[] items = new KSerializer[2];
+        items[0] = StringSerializer.INSTANCE;
+        items[1] = StringSerializer.INSTANCE;
+        return items;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -71,7 +69,7 @@ public class LabelRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (LabelRecord) value);
+        this.executeAction(encoder, ((LabelRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -80,10 +78,10 @@ public class LabelRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new LabelRecordSerializer();
-        PluginGeneratedSerialDescriptor var11 = new PluginGeneratedSerialDescriptor("su.catlean.ob", (GeneratedSerializer) INSTANCE, 2);
-        var11.addElement("label", 0);
-        var11.addElement("url", 0);
-        serialDescriptor = (SerialDescriptor) var11;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.ob", ((GeneratedSerializer) INSTANCE), 2);
+        pluginGeneratedSerialDescriptor.addElement("label", false);
+        pluginGeneratedSerialDescriptor.addElement("url", false);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

@@ -153,49 +153,47 @@ public class NewThemeRenderHelper {
 
     public void updateValue() {
         easingServiceComponent.executeAction(1.0F);
-        IdRecord6 var10 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().resolveIdRecord6();
-        float var11 = easingServiceComponent.getNumericValue();
-        colorValue2 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor(), var10.getColor());
-        colorValue3 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor2(), var10.getColor2());
-        colorValue4 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor3(), var10.getColor3());
-        colorValue5 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor4(), var10.getColor4());
-        colorValue6 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor5(), var10.getColor5());
-        colorValue7 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor6(), var10.getColor6());
-        colorValue8 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor7(), var10.getColor7());
-        colorValue9 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor8(), var10.getColor8());
-        colorValue10 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor9(), var10.getColor9());
-        colorValue11 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor10(), var10.getColor10());
-        colorValue12 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor11(), var10.getColor11());
-        colorValue13 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor12(), var10.getColor12());
+        IdRecord6 idRecord6 = ProxyGuiElement.INSTANCE.getJsonJsonServiceComponent5Impl().resolveIdRecord6();
+        float factor = easingServiceComponent.getNumericValue();
+        colorValue2 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor(), idRecord6.getColor(), factor);
+        colorValue3 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor2(), idRecord6.getColor2(), factor);
+        colorValue4 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor3(), idRecord6.getColor3(), factor);
+        colorValue5 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor4(), idRecord6.getColor4(), factor);
+        colorValue6 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor5(), idRecord6.getColor5(), factor);
+        colorValue7 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor6(), idRecord6.getColor6(), factor);
+        colorValue8 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor7(), idRecord6.getColor7(), factor);
+        colorValue9 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor8(), idRecord6.getColor8(), factor);
+        colorValue10 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor9(), idRecord6.getColor9(), factor);
+        colorValue11 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor10(), idRecord6.getColor10(), factor);
+        colorValue12 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor11(), idRecord6.getColor11(), factor);
+        colorValue13 = PolygonShaderComponent.INSTANCE.resolveColor(idRecord6.getColor12(), idRecord6.getColor12(), factor);
     }
 
     public Color resolveColor(int offset) {
-        int var7 = 360;
-        if (var7 >= 180) {
+        int index = 360;
+        if (index >= 180) {
         } else {
         }
-        return PolygonShaderComponent.INSTANCE.resolveColor(colorValue2, colorValue3, (var7 / 360.0F));
+        return PolygonShaderComponent.INSTANCE.resolveColor(colorValue2, colorValue3, (index / 360.0F));
     }
 
     public Map resolveMap(IdRecord6 theme) {
-        Object var5 = theme;
-        int var6 = 0;
-        Pair[] var7 = new Pair[12];
-        var7[0] = TuplesKt.to("primary", var5.getColor());
-        var7[1] = TuplesKt.to("secondary", var5.getColor2());
-        var7[2] = TuplesKt.to("blur", var5.getColor3());
-        var7[3] = TuplesKt.to("widget-blur", var5.getColor4());
-        var7[4] = TuplesKt.to("outline", var5.getColor5());
-        var7[5] = TuplesKt.to("text", var5.getColor6());
-        var7[6] = TuplesKt.to("inactive-text", var5.getColor7());
-        var7[7] = TuplesKt.to("sliders", var5.getColor8());
-        var7[8] = TuplesKt.to("inactive-module", var5.getColor9());
-        var7[9] = TuplesKt.to("module", var5.getColor10());
-        var7[10] = TuplesKt.to("module-outline", var5.getColor11());
-        var7[11] = TuplesKt.to("inactive-module-outline", var5.getColor12());
-        if (var4 == null) {
+        Pair[] items = new Pair[12];
+        items[0] = TuplesKt.to("primary", theme.getColor());
+        items[1] = TuplesKt.to("secondary", theme.getColor2());
+        items[2] = TuplesKt.to("blur", theme.getColor3());
+        items[3] = TuplesKt.to("widget-blur", theme.getColor4());
+        items[4] = TuplesKt.to("outline", theme.getColor5());
+        items[5] = TuplesKt.to("text", theme.getColor6());
+        items[6] = TuplesKt.to("inactive-text", theme.getColor7());
+        items[7] = TuplesKt.to("sliders", theme.getColor8());
+        items[8] = TuplesKt.to("inactive-module", theme.getColor9());
+        items[9] = TuplesKt.to("module", theme.getColor10());
+        items[10] = TuplesKt.to("module-outline", theme.getColor11());
+        items[11] = TuplesKt.to("inactive-module-outline", theme.getColor12());
+        if (__UNDEF_KEY__ == null) {
         }
-        return MapsKt.mapOf();
+        return MapsKt.mapOf(items);
     }
 
     static {

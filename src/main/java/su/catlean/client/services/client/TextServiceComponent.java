@@ -37,8 +37,8 @@ public class TextServiceComponent {
         if (!(other instanceof TextServiceComponent)) {
             return false;
         }
-        TextServiceComponent var5 = (TextServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        TextServiceComponent textServiceComponent = ((TextServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.textValue, textServiceComponent.textValue))) {
             return false;
         }
         return true;

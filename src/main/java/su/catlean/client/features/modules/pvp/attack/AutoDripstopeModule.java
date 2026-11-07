@@ -25,7 +25,6 @@ import net.minecraft.class_3965;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -70,7 +69,7 @@ public class AutoDripstopeModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setDelay(int value) {
@@ -78,7 +77,7 @@ public class AutoDripstopeModule extends Module {
     }
 
     private WindHopSwitchMode getSwitchMode() {
-        return (WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setSwitchMode(WindHopSwitchMode value) {
@@ -86,7 +85,7 @@ public class AutoDripstopeModule extends Module {
     }
 
     private boolean getFastOpen() {
-        return (Boolean) fastOpenSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) fastOpenSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setFastOpen(boolean value) {
@@ -98,107 +97,102 @@ public class AutoDripstopeModule extends Module {
             return;
         }
         BlockPos blockPos = BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()));
-        double var31 = Math.ceil(SharedKt.getPlayer().method_55754());
-        Map var32 = (Map) new LinkedHashMap();
-        int var33 = var31;
-        if (var33 <= var31) {
-            int var34 = var31;
-            if (var34 <= var31) {
-                int var35 = var31;
-                if (var35 <= var31) {
-                    BlockPos blockPos2 = blockPos.method_10069();
+        double offset = Math.ceil(SharedKt.getPlayer().method_55754());
+        Map map = ((Map) new LinkedHashMap());
+        double offset2 = offset;
+        if (offset2 <= offset) {
+            double offset3 = offset;
+            if (offset3 <= offset) {
+                double offset4 = offset;
+                if (offset4 <= offset) {
+                    BlockPos blockPos2 = blockPos.method_10069(offset2, offset3, offset4);
                     BlockState state = SharedKt.getWorld().getBlockState(blockPos2);
                     BlockState state2 = SharedKt.getWorld().getBlockState(blockPos2.down());
                     if (!(state2.method_26215())) {
-                        if (state.getBlock() instanceof class_2533 && state.method_11654((class_2769) class_2533.field_11625) == class_2760.field_12617 && Intrinsics.areEqual(state2.getBlock(), Blocks.field_28048)) {
-                        }
-                        Vec3d vec = blockPos2.toCenterPos();
-                        Iterable var40 = SharedKt.getWorld().method_18112();
-                        int var41 = 0;
-                        if (var40 instanceof Collection && (Collection) var40.isEmpty()) {
-                        } else {
-                            Iterator iterator = var40.iterator();
-                            if (iterator.hasNext()) {
-                                Object var43 = iterator.next();
-                                Entity entity = var43;
-                                int var45 = 0;
+                        if (state.getBlock() instanceof class_2533 && state.method_11654(((class_2769) class_2533.field_11625)) == class_2760.field_12617 && Intrinsics.areEqual(state2.getBlock(), Blocks.field_28048)) {
+                            Vec3d vec = blockPos2.toCenterPos();
+                            Iterable iterable = SharedKt.getWorld().method_18112();
+                            if (iterable instanceof Collection && ((Collection) iterable).isEmpty()) {
                             } else {
+                                Iterator iterator = iterable.iterator();
+                                while (iterator.hasNext()) {
+                                    Object element = iterator.next();
+                                }
+                            }
+                            if (0) {
+                                map.put(blockPos2, state);
                             }
                         }
-                        if (0) {
-                            var32.put(blockPos2, state);
-                        }
                     }
-                    if (var35 != var31) {
+                    if (offset4 != offset) {
                     }
                 }
-                if (var34 != var31) {
+                if (offset3 != offset) {
                 }
             }
-            if (var33 != var31) {
+            if (offset2 != offset) {
             }
         }
-        var35 = (Iterable) var32.entrySet();
-        blockPos2 = var35.iterator();
+        offset4 = ((Iterable) map.entrySet());
+        blockPos2 = offset4.iterator();
         if (!(blockPos2.hasNext())) {
         } else {
             state = blockPos2.next();
             if (!(blockPos2.hasNext())) {
             } else {
-                state2 = (Entry) state;
+                state2 = ((Entry) state);
                 vec = 0;
-                state2 = INSTANCE.computeValue((BlockPos) state2.getKey());
+                state2 = INSTANCE.computeValue(((BlockPos) state2.getKey()));
                 vec = blockPos2.next();
-                var40 = (Entry) vec;
-                var41 = 0;
-                var40 = INSTANCE.computeValue((BlockPos) var40.getKey());
-                if (Float.compare(state2) > 0) {
+                iterable = ((Entry) vec);
+                iterable = INSTANCE.computeValue(((BlockPos) iterable.getKey()));
+                if (Float.compare(state2, iterable) > 0) {
                     state = vec;
-                    state2 = var40;
+                    state2 = iterable;
                 }
             }
         }
-        var33 = (Entry) state;
-        if (!((Boolean) (BlockState) var33.getValue().method_11654((class_2769) class_2533.field_11631))) {
-            if (!(SharedKt.getWorld().getBlockState((BlockPos) var33.getKey().down()).method_26215())) {
+        offset2 = ((Entry) state);
+        if (!(((Boolean) ((BlockState) offset2.getValue()).method_11654(((class_2769) class_2533.field_11631))))) {
+            if (!(SharedKt.getWorld().getBlockState(((BlockPos) offset2.getKey()).down()).method_26215())) {
+                offset3 = ((Random.Default.nextDouble() / 10.0D) + 0.5D);
+                blockPos2 = new Vec3d((((BlockPos) offset2.getKey()).method_10263() + offset3), ((BlockPos) offset2.getKey()).method_10264(), (((BlockPos) offset2.getKey()).method_10260() + offset3));
+                if (serviceComponent382.checkCondition(5)) {
+                    SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(blockPos2), 100, this::resolveUnit));
+                }
+                serviceComponent38.updateValue();
+            } else {
+                serviceComponent38.updateValue();
             }
-            var34 = ((Random.Default.nextDouble() / 10.0D) + 0.5D);
-            blockPos2 = new Vec3d(((BlockPos) var33.getKey().method_10263() + var34), (BlockPos) var33.getKey().method_10264(), ((BlockPos) var33.getKey().method_10260() + var34));
-            if (serviceComponent382.checkCondition(5)) {
-                SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(blockPos2), 100, this::resolveUnit));
-            }
-            serviceComponent38.updateValue();
-        } else {
-            serviceComponent38.updateValue();
         }
     }
 
     private boolean checkCondition(BlockPos arg0) {
-        StackServiceComponent2 var19 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
-        if (var19.isActive()) {
-            class_3965 var20 = VecPacketHelper.resolveMinecraftObject(arg0.down(), -1, BlockPlacementInteractMode.Strict, OptionMode15.ALL, SharedKt.getPlayer().method_55754(), SharedKt.getPlayer().method_55754());
-            if (var20 != null) {
-                SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var20.method_17784()), 100, this::resolveUnit));
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
+        if (stackServiceComponent2.isActive()) {
+            class_3965 class3965 = VecPacketHelper.resolveMinecraftObject(arg0.down(), -1, BlockPlacementInteractMode.Strict, OptionMode15.ALL, SharedKt.getPlayer().method_55754(), SharedKt.getPlayer().method_55754());
+            if (class3965 != null) {
+                SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(class3965.method_17784()), 100, this::resolveUnit));
             }
         }
         return true;
     }
 
     private void executeAction(BlockPos arg0) {
-        double var9 = ((Random.Default.nextDouble() / 10.0D) + 0.5D);
-        class_3965 var11 = new class_3965(new Vec3d((arg0.method_10263() + var9), arg0.method_10264(), (arg0.method_10260() + var9)), Direction.DOWN, arg0, 0);
-        SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808);
+        double offset = ((Random.Default.nextDouble() / 10.0D) + 0.5D);
+        class_3965 class3965 = new class_3965(Direction.DOWN, arg0, false);
+        SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808, class3965);
         SharedKt.getPlayer().method_6104(Hand.field_5808);
     }
 
     public float computeValue(BlockPos pos) {
-        if (var9 == null) {
+        if (__UNDEF_KEY__ == null) {
         }
         return Math.abs((class_3532.method_15338((Math.toDegrees(Math.atan2((pos.toCenterPos().field_1350 - SharedKt.getPlayer().getZ()), (pos.toCenterPos().field_1352 - SharedKt.getPlayer().getX()))) - 90.0D)) - class_3532.method_15393(SharedKt.getPlayer().method_36454())));
     }
 
     private static Unit resolveUnit(Entry arg0) {
-        INSTANCE.executeAction((BlockPos) arg0.getKey());
+        INSTANCE.executeAction(((BlockPos) arg0.getKey()));
         return Unit.INSTANCE;
     }
 
@@ -207,16 +201,16 @@ public class AutoDripstopeModule extends Module {
     }
 
     private static Packet resolveMinecraftObject(class_3965 arg0, int arg1) {
-        return (Packet) new class_2885(Hand.field_5808, arg0, arg1);
+        return ((Packet) new class_2885(Hand.field_5808, arg0, arg1));
     }
 
     private static Unit resolveUnit(BlockPos arg0, class_3965 arg1) {
-        ViafabricplusServiceComponent.INSTANCE.executeAction(1);
+        ViafabricplusServiceComponent.INSTANCE.executeAction(true);
         PacketPacketHelper.executeAction(this::resolveMinecraftObject);
         SharedKt.getPlayer().method_6104(Hand.field_5808);
-        ViafabricplusServiceComponent.INSTANCE.executeAction(0);
+        ViafabricplusServiceComponent.INSTANCE.executeAction(false);
         INSTANCE.executeAction(arg0);
-        if (var17 != null) {
+        if (__UNDEF_KEY__ != null) {
             if (INSTANCE.getFastOpen()) {
                 INSTANCE.executeAction(arg0);
             }
@@ -231,11 +225,11 @@ public class AutoDripstopeModule extends Module {
     }
 
     static {
-        KProperty[] var32 = new KProperty[3];
+        KProperty[] items = new KProperty[3];
         INSTANCE = new AutoDripstopeModule();
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 0, new IntRange(0, 15));
         switchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch", WindHopSwitchMode.SILENT_FULL);
-        fastOpenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fast-open");
+        fastOpenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fast-open", true);
         serviceComponent38 = new ServiceComponent38();
         serviceComponent382 = new ServiceComponent38();
     }

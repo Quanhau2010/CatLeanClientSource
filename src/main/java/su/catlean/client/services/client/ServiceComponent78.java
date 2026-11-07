@@ -52,35 +52,35 @@ public class ServiceComponent78 {
     }
 
     public static ServiceComponent78 resolveServiceComponent78(ServiceComponent78 arg0, float arg1, float arg2, float arg3, float arg4, int arg5, Object arg6) {
-        if ((arg5 & 1)) {
+        if ((arg5 & 1) != 0) {
             arg1 = arg0.factorValue;
         }
-        if ((arg5 & 2)) {
+        if ((arg5 & 2) != 0) {
             arg2 = arg0.factorValue2;
         }
-        if ((arg5 & 4)) {
+        if ((arg5 & 4) != 0) {
             arg3 = arg0.factorValue3;
         }
-        if ((arg5 & 8)) {
+        if ((arg5 & 8) != 0) {
             arg4 = arg0.factorValue4;
         }
         return arg0.resolveServiceComponent78(arg1, arg2, arg3, arg4);
     }
 
     public String toString() {
-        float var3 = this.factorValue4;
-        float var4 = this.factorValue3;
-        float var5 = this.factorValue2;
-        float var6 = this.factorValue;
-        return ("Rectangle(x=" + var6 + ", y=" + var5 + ", x1=" + var4 + ", y1=" + var3 + ")");
+        float factor = this.factorValue4;
+        float factor2 = this.factorValue3;
+        float factor3 = this.factorValue2;
+        float factor4 = this.factorValue;
+        return ("Rectangle(x=" + factor4 + ", y=" + factor3 + ", x1=" + factor2 + ", y1=" + factor + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue3));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue4));
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + Float.hashCode(this.factorValue4));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -90,17 +90,17 @@ public class ServiceComponent78 {
         if (!(other instanceof ServiceComponent78)) {
             return false;
         }
-        ServiceComponent78 var5 = (ServiceComponent78) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        ServiceComponent78 serviceComponent78 = ((ServiceComponent78) other);
+        if (Float.compare(this.factorValue, serviceComponent78.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, serviceComponent78.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, serviceComponent78.factorValue3)) {
             return false;
         }
-        if (Float.compare(this.factorValue4, var5.factorValue4)) {
+        if (Float.compare(this.factorValue4, serviceComponent78.factorValue4)) {
             return false;
         }
         return true;

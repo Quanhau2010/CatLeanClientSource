@@ -8,11 +8,11 @@ public class ServiceComponent92 {
     private static String[] textValueArray;
 
     static {
-        Object var2 = new int[BowAimbotPredictMode.values()];
-        var2[BowAimbotPredictMode.SMART.ordinal()] = 1;
-        var2[BowAimbotPredictMode.CUSTOM.ordinal()] = 2;
-        var2[BowAimbotPredictMode.OFF.ordinal()] = 3;
-        countValueArray = var2;
+        Object element = new int[BowAimbotPredictMode.values()];
+        element[BowAimbotPredictMode.SMART.ordinal()] = 1;
+        element[BowAimbotPredictMode.CUSTOM.ordinal()] = 2;
+        element[BowAimbotPredictMode.OFF.ordinal()] = 3;
+        countValueArray = element;
     }
 
     public static void updateValue(String[] arg0) {

@@ -109,159 +109,159 @@ public class NoRenderModule extends Module {
     }
 
     private SettingGroup getScreen() {
-        return (SettingGroup) screenSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((SettingGroup) screenSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getHurtCam() {
-        return (Boolean) hurtCamSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) hurtCamSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getPotions() {
-        return (Boolean) potionsSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) potionsSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getVignette() {
-        return (Boolean) vignetteSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) vignetteSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getPortal() {
-        return (Boolean) portalSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) portalSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getBossbar() {
-        return (Boolean) bossbarSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) bossbarSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getFireOverlay() {
-        return (Boolean) fireOverlaySetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) fireOverlaySetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private boolean getWaterOverlay() {
-        return (Boolean) waterOverlaySetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) waterOverlaySetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private boolean getBlockOverlay() {
-        return (Boolean) blockOverlaySetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) blockOverlaySetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private boolean getNausea() {
-        return (Boolean) nauseaSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Boolean) nauseaSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private boolean getBlindness() {
-        return (Boolean) blindnessSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Boolean) blindnessSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private boolean getGuiBackGround() {
-        return (Boolean) guiBackGroundSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Boolean) guiBackGroundSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private boolean getNoScoreBoard() {
-        return (Boolean) noScoreBoardSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Boolean) noScoreBoardSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private boolean getHotbarItemName() {
-        return (Boolean) hotbarItemNameSetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Boolean) hotbarItemNameSetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     private boolean getAntiTitle() {
-        return (Boolean) antiTitleSetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Boolean) antiTitleSetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     private SettingGroup getEntities() {
-        return (SettingGroup) entitiesSetting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((SettingGroup) entitiesSetting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     private boolean getXp() {
-        return (Boolean) xpSetting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((Boolean) xpSetting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     private boolean getArrows() {
-        return (Boolean) arrowsSetting.getValue(this, DELEGATED_PROPERTIES[17]);
+        return ((Boolean) arrowsSetting.getValue(this, DELEGATED_PROPERTIES[17]));
     }
 
     private boolean getEggs() {
-        return (Boolean) eggsSetting.getValue(this, DELEGATED_PROPERTIES[18]);
+        return ((Boolean) eggsSetting.getValue(this, DELEGATED_PROPERTIES[18]));
     }
 
     private boolean getElderGuardian() {
-        return (Boolean) elderGuardianSetting.getValue(this, DELEGATED_PROPERTIES[19]);
+        return ((Boolean) elderGuardianSetting.getValue(this, DELEGATED_PROPERTIES[19]));
     }
 
     private boolean getArmor() {
-        return (Boolean) armorSetting.getValue(this, DELEGATED_PROPERTIES[20]);
+        return ((Boolean) armorSetting.getValue(this, DELEGATED_PROPERTIES[20]));
     }
 
     private boolean getItems() {
-        return (Boolean) itemsSetting.getValue(this, DELEGATED_PROPERTIES[21]);
+        return ((Boolean) itemsSetting.getValue(this, DELEGATED_PROPERTIES[21]));
     }
 
     private boolean getCrystals() {
-        return (Boolean) crystalsSetting.getValue(this, DELEGATED_PROPERTIES[22]);
+        return ((Boolean) crystalsSetting.getValue(this, DELEGATED_PROPERTIES[22]));
     }
 
     private boolean getFireworks() {
-        return (Boolean) fireworksSetting.getValue(this, DELEGATED_PROPERTIES[23]);
+        return ((Boolean) fireworksSetting.getValue(this, DELEGATED_PROPERTIES[23]));
     }
 
     private boolean getNoArmorStands() {
-        return (Boolean) noArmorStandsSetting.getValue(this, DELEGATED_PROPERTIES[24]);
+        return ((Boolean) noArmorStandsSetting.getValue(this, DELEGATED_PROPERTIES[24]));
     }
 
     private SettingGroup getParticles() {
-        return (SettingGroup) particlesSetting.getValue(this, DELEGATED_PROPERTIES[25]);
+        return ((SettingGroup) particlesSetting.getValue(this, DELEGATED_PROPERTIES[25]));
     }
 
     private boolean getExplosions() {
-        return (Boolean) explosionsSetting.getValue(this, DELEGATED_PROPERTIES[26]);
+        return ((Boolean) explosionsSetting.getValue(this, DELEGATED_PROPERTIES[26]));
     }
 
     private boolean getCampFire() {
-        return (Boolean) campFireSetting.getValue(this, DELEGATED_PROPERTIES[27]);
+        return ((Boolean) campFireSetting.getValue(this, DELEGATED_PROPERTIES[27]));
     }
 
     private boolean getBreakParticles() {
-        return (Boolean) breakParticlesSetting.getValue(this, DELEGATED_PROPERTIES[28]);
+        return ((Boolean) breakParticlesSetting.getValue(this, DELEGATED_PROPERTIES[28]));
     }
 
     private boolean getNoWeather() {
-        return (Boolean) noWeatherSetting.getValue(this, DELEGATED_PROPERTIES[29]);
+        return ((Boolean) noWeatherSetting.getValue(this, DELEGATED_PROPERTIES[29]));
     }
 
     private SettingGroup getWorld() {
-        return (SettingGroup) worldSetting.getValue(this, DELEGATED_PROPERTIES[30]);
+        return ((SettingGroup) worldSetting.getValue(this, DELEGATED_PROPERTIES[30]));
     }
 
     private boolean getMaps() {
-        return (Boolean) mapsSetting.getValue(this, DELEGATED_PROPERTIES[31]);
+        return ((Boolean) mapsSetting.getValue(this, DELEGATED_PROPERTIES[31]));
     }
 
     private boolean getSpawnerEntity() {
-        return (Boolean) spawnerEntitySetting.getValue(this, DELEGATED_PROPERTIES[32]);
+        return ((Boolean) spawnerEntitySetting.getValue(this, DELEGATED_PROPERTIES[32]));
     }
 
     private boolean getFireEntity() {
-        return (Boolean) fireEntitySetting.getValue(this, DELEGATED_PROPERTIES[33]);
+        return ((Boolean) fireEntitySetting.getValue(this, DELEGATED_PROPERTIES[33]));
     }
 
     private boolean getSignText() {
-        return (Boolean) signTextSetting.getValue(this, DELEGATED_PROPERTIES[34]);
+        return ((Boolean) signTextSetting.getValue(this, DELEGATED_PROPERTIES[34]));
     }
 
     private boolean getDarkness() {
-        return (Boolean) darknessSetting.getValue(this, DELEGATED_PROPERTIES[35]);
+        return ((Boolean) darknessSetting.getValue(this, DELEGATED_PROPERTIES[35]));
     }
 
     private boolean getFog() {
-        return (Boolean) fogSetting.getValue(this, DELEGATED_PROPERTIES[36]);
+        return ((Boolean) fogSetting.getValue(this, DELEGATED_PROPERTIES[36]));
     }
 
     private SettingGroup getOther() {
-        return (SettingGroup) otherSetting.getValue(this, DELEGATED_PROPERTIES[37]);
+        return ((SettingGroup) otherSetting.getValue(this, DELEGATED_PROPERTIES[37]));
     }
 
     private boolean getAntiPlayerCollision() {
-        return (Boolean) antiPlayerCollisionSetting.getValue(this, DELEGATED_PROPERTIES[38]);
+        return ((Boolean) antiPlayerCollisionSetting.getValue(this, DELEGATED_PROPERTIES[38]));
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
@@ -358,18 +358,18 @@ public class NoRenderModule extends Module {
         } else {
             if (!(arg0.getParticle() instanceof class_691)) {
                 if (this.getExplosions() && arg0.getParticle() instanceof class_673) {
-                }
-                arg0.cancel();
-            } else {
-                if (this.getCampFire() && arg0.getParticle() instanceof class_3937) {
                     arg0.cancel();
                 } else {
-                    if (this.getBreakParticles() && arg0.getParticle() instanceof class_727) {
+                    if (this.getCampFire() && arg0.getParticle() instanceof class_3937) {
                         arg0.cancel();
                     } else {
-                        if (!(arg0.getParticle() instanceof class_681)) {
+                        if (this.getBreakParticles() && arg0.getParticle() instanceof class_727) {
+                            arg0.cancel();
+                        } else {
+                            if (!(arg0.getParticle() instanceof class_681)) {
+                            }
+                            arg0.cancel();
                         }
-                        arg0.cancel();
                     }
                 }
             }
@@ -430,58 +430,58 @@ public class NoRenderModule extends Module {
                     if (!(this.getEggs())) {
                         if (!(this.getXp())) {
                             if (this.getEnabled() && this.getArrows()) {
+                            } else {
                             }
                         }
                     }
                 }
             }
-        } else {
         }
         return false;
     }
 
     static {
-        KProperty[] var39 = new KProperty[39];
+        KProperty[] items = new KProperty[39];
         INSTANCE = new NoRenderModule();
         screenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "screen", OptionMode14.BOOLS);
-        hurtCamSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hurt-cam", 1, INSTANCE.getScreen());
-        potionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "potions", 0, INSTANCE.getScreen());
-        vignetteSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vignette", 1, INSTANCE.getScreen());
-        portalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "portal", 1, INSTANCE.getScreen());
-        bossbarSetting = VisibleRenderHelper.registerSetting(INSTANCE, "bossbar", 0, INSTANCE.getScreen());
-        fireOverlaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-overlay", 0, INSTANCE.getScreen());
-        waterOverlaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "water-overlay", 0, INSTANCE.getScreen());
-        blockOverlaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "block-overlay", 0, INSTANCE.getScreen());
-        nauseaSetting = VisibleRenderHelper.registerSetting(INSTANCE, "nausea", 0, INSTANCE.getScreen());
-        blindnessSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blindness", 0, INSTANCE.getScreen());
-        guiBackGroundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "gui-back-ground", 1, INSTANCE.getScreen());
-        noScoreBoardSetting = VisibleRenderHelper.registerSetting(INSTANCE, "no-score-board", 1, INSTANCE.getScreen());
-        hotbarItemNameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hotbar-item-name", 0, INSTANCE.getScreen());
-        antiTitleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anti-title", 0, INSTANCE.getScreen());
+        hurtCamSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hurt-cam", true, INSTANCE.getScreen());
+        potionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "potions", false, INSTANCE.getScreen());
+        vignetteSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vignette", true, INSTANCE.getScreen());
+        portalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "portal", true, INSTANCE.getScreen());
+        bossbarSetting = VisibleRenderHelper.registerSetting(INSTANCE, "bossbar", false, INSTANCE.getScreen());
+        fireOverlaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-overlay", false, INSTANCE.getScreen());
+        waterOverlaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "water-overlay", false, INSTANCE.getScreen());
+        blockOverlaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "block-overlay", false, INSTANCE.getScreen());
+        nauseaSetting = VisibleRenderHelper.registerSetting(INSTANCE, "nausea", false, INSTANCE.getScreen());
+        blindnessSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blindness", false, INSTANCE.getScreen());
+        guiBackGroundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "gui-back-ground", true, INSTANCE.getScreen());
+        noScoreBoardSetting = VisibleRenderHelper.registerSetting(INSTANCE, "no-score-board", true, INSTANCE.getScreen());
+        hotbarItemNameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hotbar-item-name", false, INSTANCE.getScreen());
+        antiTitleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anti-title", false, INSTANCE.getScreen());
         entitiesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "entities", OptionMode14.BOOLS);
-        xpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "xp", 0, INSTANCE.getEntities());
-        arrowsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "arrows", 0, INSTANCE.getEntities());
-        eggsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "eggs", 0, INSTANCE.getEntities());
-        elderGuardianSetting = VisibleRenderHelper.registerSetting(INSTANCE, "guardian", 0, INSTANCE.getEntities());
-        armorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "armor", 0, INSTANCE.getEntities());
-        itemsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "items", 0, INSTANCE.getEntities());
-        crystalsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "crystals", 0, INSTANCE.getEntities());
-        fireworksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fireworks", 0, INSTANCE.getEntities());
-        noArmorStandsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "no-armor-stands", 0, INSTANCE.getEntities());
+        xpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "xp", false, INSTANCE.getEntities());
+        arrowsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "arrows", false, INSTANCE.getEntities());
+        eggsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "eggs", false, INSTANCE.getEntities());
+        elderGuardianSetting = VisibleRenderHelper.registerSetting(INSTANCE, "guardian", false, INSTANCE.getEntities());
+        armorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "armor", false, INSTANCE.getEntities());
+        itemsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "items", false, INSTANCE.getEntities());
+        crystalsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "crystals", false, INSTANCE.getEntities());
+        fireworksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fireworks", false, INSTANCE.getEntities());
+        noArmorStandsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "no-armor-stands", false, INSTANCE.getEntities());
         particlesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "particles", OptionMode14.BOOLS);
-        explosionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "explosions", 1, INSTANCE.getParticles());
-        campFireSetting = VisibleRenderHelper.registerSetting(INSTANCE, "camp-fire", 0, INSTANCE.getParticles());
-        breakParticlesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "break-particles", 1, INSTANCE.getParticles());
-        noWeatherSetting = VisibleRenderHelper.registerSetting(INSTANCE, "no-weather", 0, INSTANCE.getParticles());
+        explosionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "explosions", true, INSTANCE.getParticles());
+        campFireSetting = VisibleRenderHelper.registerSetting(INSTANCE, "camp-fire", false, INSTANCE.getParticles());
+        breakParticlesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "break-particles", true, INSTANCE.getParticles());
+        noWeatherSetting = VisibleRenderHelper.registerSetting(INSTANCE, "no-weather", false, INSTANCE.getParticles());
         worldSetting = VisibleRenderHelper.registerSetting(INSTANCE, "world", OptionMode14.BOOLS);
-        mapsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "maps", 0, INSTANCE.getWorld());
-        spawnerEntitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "spawner-entity", 0, INSTANCE.getWorld());
-        fireEntitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-on-entity", 1, INSTANCE.getWorld());
-        signTextSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sign-text", 0, INSTANCE.getWorld());
-        darknessSetting = VisibleRenderHelper.registerSetting(INSTANCE, "darkness", 0, INSTANCE.getWorld());
-        fogSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fog", 0, INSTANCE.getWorld());
+        mapsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "maps", false, INSTANCE.getWorld());
+        spawnerEntitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "spawner-entity", false, INSTANCE.getWorld());
+        fireEntitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-on-entity", true, INSTANCE.getWorld());
+        signTextSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sign-text", false, INSTANCE.getWorld());
+        darknessSetting = VisibleRenderHelper.registerSetting(INSTANCE, "darkness", false, INSTANCE.getWorld());
+        fogSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fog", false, INSTANCE.getWorld());
         otherSetting = VisibleRenderHelper.registerSetting(INSTANCE, "other", OptionMode14.BOOLS);
-        antiPlayerCollisionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anti-player-collision", 1, INSTANCE.getOther());
+        antiPlayerCollisionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anti-player-collision", true, INSTANCE.getOther());
     }
 
 }

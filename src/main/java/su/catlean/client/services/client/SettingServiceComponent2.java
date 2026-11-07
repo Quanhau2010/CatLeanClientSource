@@ -64,21 +64,21 @@ public class SettingServiceComponent2 {
     }
 
     public String toString() {
-        EasingServiceComponent var3 = this.easingServiceComponent;
-        VisibleSettingProperty var4 = this.visibleSettingProperty;
-        float var5 = this.factorValue3;
-        float var6 = this.factorValue2;
-        float var7 = this.factorValue;
-        return ("GroupSelector(x=" + var7 + ", y=" + var6 + ", w=" + var5 + ", setting=" + var4 + ", animation=" + var3 + ")");
+        EasingServiceComponent easingServiceComponent = this.easingServiceComponent;
+        VisibleSettingProperty visibleSettingProperty = this.visibleSettingProperty;
+        float factor = this.factorValue3;
+        float factor2 = this.factorValue2;
+        float factor3 = this.factorValue;
+        return ("GroupSelector(x=" + factor3 + ", y=" + factor2 + ", w=" + factor + ", setting=" + visibleSettingProperty + ", animation=" + easingServiceComponent + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue3));
-        var3 = ((var3 * 31) + this.visibleSettingProperty.hashCode());
-        var3 = ((var3 * 31) + this.easingServiceComponent.hashCode());
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + this.visibleSettingProperty.hashCode());
+        index = ((index * 31) + this.easingServiceComponent.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -88,20 +88,20 @@ public class SettingServiceComponent2 {
         if (!(other instanceof SettingServiceComponent2)) {
             return false;
         }
-        SettingServiceComponent2 var5 = (SettingServiceComponent2) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        SettingServiceComponent2 settingServiceComponent2 = ((SettingServiceComponent2) other);
+        if (Float.compare(this.factorValue, settingServiceComponent2.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, settingServiceComponent2.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, settingServiceComponent2.factorValue3)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.visibleSettingProperty, var5.visibleSettingProperty))) {
+        if (!(Intrinsics.areEqual(this.visibleSettingProperty, settingServiceComponent2.visibleSettingProperty))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.easingServiceComponent, var5.easingServiceComponent))) {
+        if (!(Intrinsics.areEqual(this.easingServiceComponent, settingServiceComponent2.easingServiceComponent))) {
             return false;
         }
         return true;

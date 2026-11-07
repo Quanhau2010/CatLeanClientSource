@@ -72,29 +72,29 @@ public class WidgetRenderHelper {
         if (this.checkRenderHelper.getEnabled()) {
         } else {
         }
-        1.0F.executeAction(0.0F);
-        float var29 = ((this.factorValue + this.factorValue3) - 18.0F);
-        float var30 = ((this.factorValue + this.factorValue3) - 7.0F);
-        int var31 = mouseX;
-        if (var29 <= var31) {
+        this.executeAction(0.0F);
+        float factor = ((this.factorValue + this.factorValue3) - 18.0F);
+        float factor2 = ((this.factorValue + this.factorValue3) - 7.0F);
+        int index = mouseX;
+        if (factor <= index) {
         } else {
-        }
-        if (var31 <= var30) {
-            var29 = this.factorValue2;
-            var30 = (this.factorValue2 + 11.0F);
-            var31 = mouseY;
-            if (var29 <= var31) {
+            if (index <= factor2) {
+                factor = this.factorValue2;
+                factor2 = (this.factorValue2 + 11.0F);
+                index = mouseY;
+                if (factor <= index) {
+                } else {
+                    if (index <= factor2) {
+                    } else {
+                    }
+                }
             } else {
             }
-            if (var31 <= var30) {
-            }
-        } else {
         }
-        }
-        1.0F.executeAction(0.0F);
+        this.executeAction(0.0F);
         if (this.easingServiceComponent.getNumericValue() != 0.0F) {
             PolygonShaderComponent.INSTANCE.render(context, new ServiceComponent78(((this.factorValue + this.factorValue3) - 20.0F), this.factorValue2, (((this.factorValue + this.factorValue3) - 20.0F) + (this.easingServiceComponent.getNumericValue() * 11)), (this.factorValue2 + 11.0F)));
-            MissingnoRenderHelper.executeAction(this.missingnoRenderHelper, (Matrix3x2f) context.method_51448(), ((this.factorValue + this.factorValue3) - 20.5D), (this.factorValue2 - 1.5D), 0.0F, 0.0F, NewThemeRenderHelper.INSTANCE.getColor2(), null, 0.0F);
+            MissingnoRenderHelper.executeAction(this.missingnoRenderHelper, ((Matrix3x2f) context.method_51448()), ((this.factorValue + this.factorValue3) - 20.5D), (this.factorValue2 - 1.5D), 0.0F, 0.0F, NewThemeRenderHelper.INSTANCE.getColor2(), null, 0.0F);
             PolygonShaderComponent.INSTANCE.render(context);
         }
         SFMServiceComponent.resolveFontRenderHelper3().render(context, this.checkRenderHelper.getString2(), (this.factorValue + 2.0F), (this.factorValue2 - 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor8(), NewThemeRenderHelper.INSTANCE.getColor7(), this.easingServiceComponent.getNumericValue()));
@@ -102,17 +102,17 @@ public class WidgetRenderHelper {
     }
 
     public void executeAction(double mouseX, double mouseY) {
-        float var13 = ((this.factorValue + this.factorValue3) - 20.0F);
+        float factor = ((this.factorValue + this.factorValue3) - 20.0F);
         if (mouseX <= ((this.factorValue + this.factorValue3) - 7.0F)) {
         } else {
-        }
-        if (var13 <= mouseX) {
-            var13 = this.factorValue2;
-            if (mouseY <= (this.factorValue2 + 11.0F)) {
-            } else {
-            }
-            if (var13 <= mouseY) {
-                this.checkRenderHelper.setEnabled(!(this.checkRenderHelper.getEnabled()));
+            if (factor <= mouseX) {
+                factor = this.factorValue2;
+                if (mouseY <= (this.factorValue2 + 11.0F)) {
+                } else {
+                    if (factor <= mouseY) {
+                        this.checkRenderHelper.setEnabled(!(this.checkRenderHelper.getEnabled()));
+                    }
+                }
             }
         }
     }

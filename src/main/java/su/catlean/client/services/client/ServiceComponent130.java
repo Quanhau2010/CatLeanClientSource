@@ -63,19 +63,19 @@ public class ServiceComponent130 {
     }
 
     public static ServiceComponent130 resolveServiceComponent130(ServiceComponent130 arg0, double arg1, double arg2, double arg3, float arg4, float arg5, int arg6, Object arg7) {
-        if ((arg6 & 1)) {
+        if ((arg6 & 1) != 0) {
             arg1 = arg0.preciseValue;
         }
-        if ((arg6 & 2)) {
+        if ((arg6 & 2) != 0) {
             arg2 = arg0.preciseValue2;
         }
-        if ((arg6 & 4)) {
+        if ((arg6 & 4) != 0) {
             arg3 = arg0.preciseValue3;
         }
-        if ((arg6 & 8)) {
+        if ((arg6 & 8) != 0) {
             arg4 = arg0.factorValue;
         }
-        if ((arg6 & 16)) {
+        if ((arg6 & 16) != 0) {
             arg5 = arg0.factorValue2;
         }
         if (arg0.resolveServiceComponent130(arg1, arg2, arg3, arg4, arg5) != null) {
@@ -84,23 +84,23 @@ public class ServiceComponent130 {
     }
 
     public String toString() {
-        float var3 = this.factorValue2;
-        float var4 = this.factorValue;
-        double var5 = this.preciseValue3;
-        double var7 = this.preciseValue2;
-        double var9 = this.preciseValue;
-        return ("PlayerState(x=" + var9 + ", y=" + var7 + ", z=" + var5 + ", yaw=" + var4 + ", pitch=" + var3 + ")");
+        float factor = this.factorValue2;
+        float factor2 = this.factorValue;
+        double offset = this.preciseValue3;
+        double offset2 = this.preciseValue2;
+        double offset3 = this.preciseValue;
+        return ("PlayerState(x=" + offset3 + ", y=" + offset2 + ", z=" + offset + ", yaw=" + factor2 + ", pitch=" + factor + ")");
     }
 
     public int hashCode() {
-        int var4 = Double.hashCode(this.preciseValue);
-        var4 = ((var4 * 31) + Double.hashCode(this.preciseValue2));
-        var4 = ((var4 * 31) + Double.hashCode(this.preciseValue3));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue2));
-        if (var3 != null) {
+        int index = Double.hashCode(this.preciseValue);
+        index = ((index * 31) + Double.hashCode(this.preciseValue2));
+        index = ((index * 31) + Double.hashCode(this.preciseValue3));
+        index = ((index * 31) + Float.hashCode(this.factorValue));
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        if (__UNDEF_KEY__ != null) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -110,20 +110,20 @@ public class ServiceComponent130 {
         if (!(other instanceof ServiceComponent130)) {
             return false;
         }
-        ServiceComponent130 var5 = (ServiceComponent130) other;
-        if (Double.compare(this.preciseValue, var5.preciseValue)) {
+        ServiceComponent130 serviceComponent130 = ((ServiceComponent130) other);
+        if (Double.compare(this.preciseValue, serviceComponent130.preciseValue)) {
             return false;
         }
-        if (Double.compare(this.preciseValue2, var5.preciseValue2)) {
+        if (Double.compare(this.preciseValue2, serviceComponent130.preciseValue2)) {
             return false;
         }
-        if (Double.compare(this.preciseValue3, var5.preciseValue3)) {
+        if (Double.compare(this.preciseValue3, serviceComponent130.preciseValue3)) {
             return false;
         }
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        if (Float.compare(this.factorValue, serviceComponent130.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, serviceComponent130.factorValue2)) {
             return false;
         }
         return true;

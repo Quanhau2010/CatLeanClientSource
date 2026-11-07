@@ -46,30 +46,30 @@ public class Vec3dServiceComponent {
     }
 
     public static Vec3dServiceComponent resolveVec3dServiceComponent(Vec3dServiceComponent arg0, BlockPos arg1, Vec3d arg2, Direction arg3, int arg4, Object arg5) {
-        if ((arg4 & 1)) {
+        if ((arg4 & 1) != 0) {
             arg1 = arg0.blockPos;
         }
-        if ((arg4 & 2)) {
+        if ((arg4 & 2) != 0) {
             arg2 = arg0.vec3d;
         }
-        if ((arg4 & 4)) {
+        if ((arg4 & 4) != 0) {
             arg3 = arg0.minecraftRef;
         }
         return arg0.resolveVec3dServiceComponent(arg1, arg2, arg3);
     }
 
     public String toString() {
-        Direction var3 = this.minecraftRef;
+        Direction direction = this.minecraftRef;
         Vec3d vec = this.vec3d;
         BlockPos blockPos = this.blockPos;
-        return ("BlockData(bp=" + blockPos + ", vec3d=" + vec + ", dir=" + var3 + ")");
+        return ("BlockData(bp=" + blockPos + ", vec3d=" + vec + ", dir=" + direction + ")");
     }
 
     public int hashCode() {
-        int var3 = this.blockPos.hashCode();
-        var3 = ((var3 * 31) + this.vec3d.hashCode());
-        var3 = ((var3 * 31) + this.minecraftRef.hashCode());
-        return var3;
+        int index = this.blockPos.hashCode();
+        index = ((index * 31) + this.vec3d.hashCode());
+        index = ((index * 31) + this.minecraftRef.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -79,14 +79,14 @@ public class Vec3dServiceComponent {
         if (!(other instanceof Vec3dServiceComponent)) {
             return false;
         }
-        Vec3dServiceComponent var5 = (Vec3dServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.blockPos, var5.blockPos))) {
+        Vec3dServiceComponent vec3dServiceComponent = ((Vec3dServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.blockPos, vec3dServiceComponent.blockPos))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.vec3d, var5.vec3d))) {
+        if (!(Intrinsics.areEqual(this.vec3d, vec3dServiceComponent.vec3d))) {
             return false;
         }
-        if (this.minecraftRef != var5.minecraftRef) {
+        if (this.minecraftRef != vec3dServiceComponent.minecraftRef) {
             return false;
         }
         return true;

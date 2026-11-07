@@ -68,7 +68,7 @@ public class FontServiceComponent {
         if (!(this.enabledFlag)) {
             this.updateValue2();
         }
-        return (OwnerServiceComponent) this.char2ObjectArrayMap.get(c);
+        return ((OwnerServiceComponent) this.char2ObjectArrayMap.get(c));
     }
 
     public void updateValue() {
@@ -76,15 +76,15 @@ public class FontServiceComponent {
         this.char2ObjectArrayMap.clear();
         this.countValue2 = -1;
         this.countValue3 = -1;
-        this.enabledFlag = 0;
+        this.enabledFlag = false;
     }
 
     public boolean checkCondition(char c) {
-        char var4 = this.fieldValue;
+        char ch = this.fieldValue;
         if (c < this.fieldValue2) {
         } else {
+            return ch <= c;
         }
-        return var4 <= c;
     }
 
     private Font resolveFont(char arg0) {
@@ -98,56 +98,56 @@ public class FontServiceComponent {
         if (this.enabledFlag) {
             return;
         }
-        char var10 = ((this.fieldValue2 - this.fieldValue) - 1);
-        double var11 = (Math.ceil(Math.sqrt()) * 1.5D);
+        char ch = ((this.fieldValue2 - this.fieldValue) - 1);
+        double offset = (Math.ceil(Math.sqrt(ch)) * 1.5D);
         this.char2ObjectArrayMap.clear();
-        int var12 = 0;
-        int var13 = 0;
-        int var14 = 0;
-        int var15 = 0;
-        int var16 = 0;
-        int var17 = 0;
-        int var18 = 0;
-        List positions = new ArrayList();
-        AffineTransform var20 = new AffineTransform();
-        FontRenderContext var21 = new FontRenderContext(1, 0);
-        if (var12 <= var10) {
-            char var22 = (this.fieldValue + var12);
-            Font var23 = this.resolveFont();
-            Rectangle2D var24 = var23.getStringBounds(String.valueOf());
-            double var25 = Math.ceil(var24.getWidth());
-            double var26 = Math.ceil(var24.getHeight());
-            var14 = Math.max((var16 + var25));
-            var15 = Math.max((var17 + var26));
-            if (var13 >= var11) {
-                var16 = 0;
-                var17 = (var17 + (var18 + this.countValue));
-                var13 = 0;
-                var18 = 0;
+        int index = 0;
+        int index2 = 0;
+        int index3 = 0;
+        int index4 = 0;
+        int index5 = 0;
+        int index6 = 0;
+        int index7 = 0;
+        List list = new ArrayList();
+        AffineTransform affineTransform = new AffineTransform();
+        FontRenderContext fontRenderContext = new FontRenderContext(affineTransform, true, false);
+        if (index <= ch) {
+            char ch2 = (this.fieldValue + index);
+            Font font = this.resolveFont(ch2);
+            Rectangle2D rectangle2D = font.getStringBounds(String.valueOf(ch2), fontRenderContext);
+            double offset2 = Math.ceil(rectangle2D.getWidth());
+            double offset3 = Math.ceil(rectangle2D.getHeight());
+            index3 = Math.max(index3, (index5 + offset2));
+            index4 = Math.max(index4, (index6 + offset3));
+            if (index2 >= offset) {
+                index5 = 0;
+                index6 = (index6 + (index7 + this.countValue));
+                index2 = 0;
+                index7 = 0;
             }
-            var18 = Math.max();
-            positions.add(new OwnerServiceComponent(this));
-            var16 = (var16 + (var25 + this.countValue));
+            index7 = Math.max(index7, offset3);
+            list.add(new OwnerServiceComponent(index5, index6, offset2, offset3, ch2, this));
+            index5 = (index5 + (offset2 + this.countValue));
         }
-        var22 = new BufferedImage(Math.max((var14 + this.countValue), 1.0D), Math.max((var15 + this.countValue), 1.0D), 2);
-        this.countValue2 = var22.getWidth();
-        this.countValue3 = var22.getHeight();
-        var23 = var22.createGraphics();
-        var23.setColor(new Color(255, 255, 255, 0));
-        var23.fillRect(0, 0, this.countValue2, this.countValue3);
-        var23.setColor(Color.WHITE);
-        var23.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_OFF);
-        var23.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
-        var23.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        var24 = positions.iterator();
-        while (var24.hasNext()) {
-            var25 = (OwnerServiceComponent) var24.next();
-            var23.setFont(this.resolveFont(var25.process()));
-            var23.drawString(String.valueOf(var25.process()), var25.getNumericValue(), (var25.getNumericValue2() + var23.getFontMetrics().getAscent()));
-            this.char2ObjectArrayMap.put(var25.process());
+        ch2 = new BufferedImage(Math.max((index3 + this.countValue), 1.0D), Math.max((index4 + this.countValue), 1.0D), 2);
+        this.countValue2 = ch2.getWidth();
+        this.countValue3 = ch2.getHeight();
+        font = ch2.createGraphics();
+        font.setColor(new Color(255, 255, 255, 0));
+        font.fillRect(0, 0, this.countValue2, this.countValue3);
+        font.setColor(Color.WHITE);
+        font.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_OFF);
+        font.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+        font.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        rectangle2D = list.iterator();
+        while (rectangle2D.hasNext()) {
+            offset2 = ((OwnerServiceComponent) rectangle2D.next());
+            font.setFont(this.resolveFont(offset2.process()));
+            font.drawString(String.valueOf(offset2.process()), offset2.getNumericValue(), (offset2.getNumericValue2() + font.getFontMetrics().getAscent()));
+            this.char2ObjectArrayMap.put(offset2.process(), offset2);
         }
-        PolygonShaderComponent.INSTANCE.executeAction(this.minecraftRef);
-        this.enabledFlag = 1;
+        PolygonShaderComponent.INSTANCE.executeAction(this.minecraftRef, ch2);
+        this.enabledFlag = true;
     }
 
 }

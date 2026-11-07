@@ -38,8 +38,8 @@ public class EntitiesServiceComponent {
         if (!(other instanceof EntitiesServiceComponent)) {
             return false;
         }
-        EntitiesServiceComponent var5 = (EntitiesServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        EntitiesServiceComponent entitiesServiceComponent = ((EntitiesServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.itemList, entitiesServiceComponent.itemList))) {
             return false;
         }
         return true;

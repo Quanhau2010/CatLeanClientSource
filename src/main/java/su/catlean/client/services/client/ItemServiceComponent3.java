@@ -55,22 +55,22 @@ public class ItemServiceComponent3 {
     }
 
     public static ItemServiceComponent3 resolveItemServiceComponent3(ItemServiceComponent3 arg0, Item arg1, int arg2, int arg3, char arg4, int arg5, int arg6, int arg7, Object arg8, int arg9) {
-        if ((arg7 & 1)) {
+        if ((arg7 & 1) != 0) {
             arg1 = arg0.minecraftRef;
         }
         if (arg9 > 0) {
-            if (var14 == null) {
-                if ((arg7 & 2)) {
+            if (__UNDEF_KEY__ == null) {
+                if ((arg7 & 2) != 0) {
                     arg2 = arg0.countValue;
                 }
             }
         }
-        if (arg3 >= 0 && var14 == null) {
-            if ((arg7 & 4)) {
+        if (arg3 >= 0 && __UNDEF_KEY__ == null) {
+            if ((arg7 & 4) != 0) {
                 arg5 = arg0.countValue2;
             }
         }
-        if ((arg7 & 8)) {
+        if ((arg7 & 8) != 0) {
             arg6 = arg0.countValue3;
         }
         if (arg4 >= 0 && arg0.resolveItemServiceComponent3(arg1, arg2, arg5, arg6) != null) {
@@ -79,21 +79,21 @@ public class ItemServiceComponent3 {
     }
 
     public String toString() {
-        int var3 = this.countValue3;
-        int var4 = this.countValue2;
-        int var5 = this.countValue;
-        Item var6 = this.minecraftRef;
-        return ("AucItem(item=" + var6 + ", price=" + var5 + ", lowestPrice=" + var4 + ", id=" + var3 + ")");
+        int index = this.countValue3;
+        int index2 = this.countValue2;
+        int index3 = this.countValue;
+        Item item = this.minecraftRef;
+        return ("AucItem(item=" + item + ", price=" + index3 + ", lowestPrice=" + index2 + ", id=" + index + ")");
     }
 
     public int hashCode() {
-        int var4 = this.minecraftRef.hashCode();
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue2));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue3));
-        if (var3 != null) {
+        int index = this.minecraftRef.hashCode();
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        index = ((index * 31) + Integer.hashCode(this.countValue2));
+        index = ((index * 31) + Integer.hashCode(this.countValue3));
+        if (__UNDEF_KEY__ != null) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -103,17 +103,17 @@ public class ItemServiceComponent3 {
         if (!(other instanceof ItemServiceComponent3)) {
             return false;
         }
-        ItemServiceComponent3 var5 = (ItemServiceComponent3) other;
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        ItemServiceComponent3 itemServiceComponent3 = ((ItemServiceComponent3) other);
+        if (!(Intrinsics.areEqual(this.minecraftRef, itemServiceComponent3.minecraftRef))) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != itemServiceComponent3.countValue) {
             return false;
         }
-        if (this.countValue2 != var5.countValue2) {
+        if (this.countValue2 != itemServiceComponent3.countValue2) {
             return false;
         }
-        if (this.countValue3 != var5.countValue3) {
+        if (this.countValue3 != itemServiceComponent3.countValue3) {
             return false;
         }
         return true;

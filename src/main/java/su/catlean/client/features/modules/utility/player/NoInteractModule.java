@@ -37,15 +37,15 @@ public class NoInteractModule extends Module {
     }
 
     private boolean getAllBlocks() {
-        return (Boolean) allBlocksSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) allBlocksSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void onInteractBlockEvent(InteractBlockEvent arg0) {
-        Block var13 = SharedKt.getWorld().getBlockState(arg0.getHitResult().method_17777()).getBlock();
-        if (!(this.getAllBlocks()) && !(VecPacketHelper.INSTANCE.checkCondition()) && !(var13 instanceof class_2354) && !(var13 instanceof class_2349) && !(var13 instanceof class_2533) && !(var13 instanceof class_2323) && !(var13 instanceof class_4850)) {
-            if (var13 instanceof class_2449) {
+        Block block = SharedKt.getWorld().getBlockState(arg0.getHitResult().method_17777()).getBlock();
+        if (!(this.getAllBlocks()) && !(VecPacketHelper.INSTANCE.checkCondition(block)) && !(block instanceof class_2354) && !(block instanceof class_2349) && !(block instanceof class_2533) && !(block instanceof class_2323) && !(block instanceof class_4850)) {
+            if (block instanceof class_2449) {
+                arg0.cancel();
             }
-            arg0.cancel();
         }
         if (Intrinsics.areEqual(SharedKt.getPlayer().method_6079().getItem(), Items.field_8575)) {
             if (arg0.getHand() != Hand.field_5810) {
@@ -55,9 +55,9 @@ public class NoInteractModule extends Module {
     }
 
     static {
-        KProperty[] var22 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new NoInteractModule();
-        allBlocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "all-blocks");
+        allBlocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "all-blocks", false);
     }
 
 }

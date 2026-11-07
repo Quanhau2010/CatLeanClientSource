@@ -22,7 +22,7 @@ public class CobWebEvent extends Event {
     }
 
     public boolean call(BlockPos pos) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         pos = pos;
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

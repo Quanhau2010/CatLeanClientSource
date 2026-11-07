@@ -30,9 +30,9 @@ public abstract class DispatcherServiceComponent {
     }
 
     public void executeAction(CommandDispatcher dispatcher) {
-        LiteralArgumentBuilder var6 = LiteralArgumentBuilder.literal(this.textValue);
-        this.executeAction();
-        dispatcher.register();
+        LiteralArgumentBuilder literalArgumentBuilder = LiteralArgumentBuilder.literal(this.textValue);
+        this.executeAction(literalArgumentBuilder);
+        dispatcher.register(literalArgumentBuilder);
     }
 
     public RequiredArgumentBuilder resolveRequiredArgumentBuilder(String name, ArgumentType type) {
@@ -50,16 +50,16 @@ public abstract class DispatcherServiceComponent {
     }
 
     public void executeAction(class_2561 msg) {
-        class_5250 var15 = AdditionServiceComponent.resolveMinecraftObject2(AdditionServiceComponent.resolveMinecraftObject(AdditionServiceComponent.resolveMinecraftObject(), ">"), " ");
-        var15.method_10852(msg);
+        class_5250 class5250 = AdditionServiceComponent.resolveMinecraftObject2(AdditionServiceComponent.resolveMinecraftObject(AdditionServiceComponent.resolveMinecraftObject(), ">"), " ");
+        class5250.method_10852(msg);
         if (SharedKt.getMc().method_18854()) {
-            SharedKt.getPlayer().method_7353((class_2561) var15, 0);
+            SharedKt.getPlayer().method_7353(((class_2561) class5250), false);
         }
         SharedKt.getMc().method_40000(this::updateValue);
     }
 
     private static void updateValue(class_5250 arg0) {
-        SharedKt.getPlayer().method_7353((class_2561) arg0, 0);
+        SharedKt.getPlayer().method_7353(((class_2561) arg0), false);
     }
 
     public static void updateValue(Module[] arg0) {

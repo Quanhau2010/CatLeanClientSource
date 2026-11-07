@@ -38,8 +38,8 @@ public class VecServiceComponent2 {
     }
 
     public int hashCode() {
-        int var3 = this.vec3d.hashCode();
-        return var3;
+        int index = this.vec3d.hashCode();
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -49,11 +49,11 @@ public class VecServiceComponent2 {
         if (!(other instanceof VecServiceComponent2)) {
             return false;
         }
-        VecServiceComponent2 var5 = (VecServiceComponent2) other;
-        if (!(Intrinsics.areEqual(this.vec3d, var5.vec3d))) {
+        VecServiceComponent2 vecServiceComponent2 = ((VecServiceComponent2) other);
+        if (!(Intrinsics.areEqual(this.vec3d, vecServiceComponent2.vec3d))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.easingServiceComponent, var5.easingServiceComponent))) {
+        if (!(Intrinsics.areEqual(this.easingServiceComponent, vecServiceComponent2.easingServiceComponent))) {
             return false;
         }
         return true;

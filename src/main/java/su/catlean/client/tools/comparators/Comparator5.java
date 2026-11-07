@@ -9,12 +9,8 @@ public class Comparator5 implements Comparator {
     }
 
     public int compare(Object b) {
-        String var3 = (String) 0L;
-        int var4 = 0;
-        var3 = (String) b;
-        Comparable var5 = (Comparable) var3;
-        var4 = 0;
-        return ComparisonsKt.compareValues((Comparable) var3);
+        String text = ((String) b);
+        return ComparisonsKt.compareValues(((Comparable) text));
     }
 
 }

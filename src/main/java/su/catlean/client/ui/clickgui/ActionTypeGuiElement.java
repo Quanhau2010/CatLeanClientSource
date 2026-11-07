@@ -54,21 +54,21 @@ public class ActionTypeGuiElement {
     }
 
     public String toString() {
-        class_1713 var3 = this.minecraftRef;
-        int var4 = this.countValue3;
-        int var5 = this.countValue2;
-        int var6 = this.countValue;
-        return ("ClickData(syncId=" + var6 + ", slotId=" + var5 + ", button=" + var4 + ", actionType=" + var3 + ")");
+        class_1713 class1713 = this.minecraftRef;
+        int index = this.countValue3;
+        int index2 = this.countValue2;
+        int index3 = this.countValue;
+        return ("ClickData(syncId=" + index3 + ", slotId=" + index2 + ", button=" + index + ", actionType=" + class1713 + ")");
     }
 
     public int hashCode() {
-        int var4 = Integer.hashCode(this.countValue);
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue2));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue3));
-        var4 = ((var4 * 31) + this.minecraftRef.hashCode());
-        if (var3 == null) {
+        int index = Integer.hashCode(this.countValue);
+        index = ((index * 31) + Integer.hashCode(this.countValue2));
+        index = ((index * 31) + Integer.hashCode(this.countValue3));
+        index = ((index * 31) + this.minecraftRef.hashCode());
+        if (__UNDEF_KEY__ == null) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -78,17 +78,17 @@ public class ActionTypeGuiElement {
         if (!(other instanceof ActionTypeGuiElement)) {
             return false;
         }
-        ActionTypeGuiElement var5 = (ActionTypeGuiElement) other;
-        if (this.countValue != var5.countValue) {
+        ActionTypeGuiElement actionTypeGuiElement = ((ActionTypeGuiElement) other);
+        if (this.countValue != actionTypeGuiElement.countValue) {
             return false;
         }
-        if (this.countValue2 != var5.countValue2) {
+        if (this.countValue2 != actionTypeGuiElement.countValue2) {
             return false;
         }
-        if (this.countValue3 != var5.countValue3) {
+        if (this.countValue3 != actionTypeGuiElement.countValue3) {
             return false;
         }
-        if (this.minecraftRef != var5.minecraftRef) {
+        if (this.minecraftRef != actionTypeGuiElement.minecraftRef) {
             return false;
         }
         return true;

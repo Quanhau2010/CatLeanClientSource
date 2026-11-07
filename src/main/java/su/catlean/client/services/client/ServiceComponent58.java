@@ -8,11 +8,11 @@ public class ServiceComponent58 {
     private static String textValue;
 
     static {
-        Object var2 = new int[AutoLeavePlayersMode.values()];
-        var2[AutoLeavePlayersMode.Command.ordinal()] = 1;
-        var2[AutoLeavePlayersMode.Leave.ordinal()] = 2;
-        var2[AutoLeavePlayersMode.None.ordinal()] = 3;
-        countValueArray = var2;
+        Object element = new int[AutoLeavePlayersMode.values()];
+        element[AutoLeavePlayersMode.Command.ordinal()] = 1;
+        element[AutoLeavePlayersMode.Leave.ordinal()] = 2;
+        element[AutoLeavePlayersMode.None.ordinal()] = 3;
+        countValueArray = element;
     }
 
     public static void updateValue(String arg0) {

@@ -7,10 +7,10 @@ public class BlinkAttackActionModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[BlinkAttackActionMode.values()];
-        var0[BlinkAttackActionMode.OFF.ordinal()] = 1;
-        var0[BlinkAttackActionMode.REPEAT.ordinal()] = 2;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[BlinkAttackActionMode.values()];
+        element[BlinkAttackActionMode.OFF.ordinal()] = 1;
+        element[BlinkAttackActionMode.REPEAT.ordinal()] = 2;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

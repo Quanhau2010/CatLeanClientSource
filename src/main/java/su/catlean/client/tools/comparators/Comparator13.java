@@ -16,12 +16,9 @@ public class Comparator13 implements Comparator {
     }
 
     public int compare(Object b) {
-        BlockPos blockPos = (BlockPos) 0L;
-        int var8 = 0;
-        blockPos = (BlockPos) b;
-        Comparable var9 = (Comparable) Double.valueOf(blockPos.toCenterPos().method_1028((SharedKt.getPlayer().getX() + this.preciseValueArray[0]), SharedKt.getPlayer().getY(), (SharedKt.getPlayer().getZ() + this.preciseValueArray[1])));
-        var8 = 0;
-        return ComparisonsKt.compareValues((Comparable) Double.valueOf(blockPos.toCenterPos().method_1028((SharedKt.getPlayer().getX() + this.preciseValueArray[0]), SharedKt.getPlayer().getY(), (SharedKt.getPlayer().getZ() + this.preciseValueArray[1]))));
+        BlockPos blockPos = ((BlockPos) b);
+        Comparable comparable = ((Comparable) Double.valueOf(this.toCenterPos().method_1028((SharedKt.getPlayer().getX() + this.preciseValueArray[0]), SharedKt.getPlayer().getY(), (SharedKt.getPlayer().getZ() + this.preciseValueArray[1]))));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(blockPos.toCenterPos().method_1028((SharedKt.getPlayer().getX() + this.preciseValueArray[0]), SharedKt.getPlayer().getY(), (SharedKt.getPlayer().getZ() + this.preciseValueArray[1])))));
     }
 
 }

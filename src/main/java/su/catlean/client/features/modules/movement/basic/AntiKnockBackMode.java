@@ -2,15 +2,12 @@ package su.catlean.client.features.modules.movement.basic;
 
 public enum AntiKnockBackMode {
 
-    public static final AntiKnockBackMode Cancel;
-    public static final AntiKnockBackMode Custom;
-    public static final AntiKnockBackMode OldGrim;
-    public static final AntiKnockBackMode GrimNew;
-    private static boolean enabledFlag;
+    Cancel,
+    Custom,
+    OldGrim,
+    GrimNew;
 
-    AntiKnockBackMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static boolean enabledFlag;
 
     public static void updateValue(boolean arg0) {
         enabledFlag = arg0;

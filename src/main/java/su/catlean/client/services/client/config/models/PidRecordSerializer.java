@@ -21,40 +21,38 @@ public class PidRecordSerializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, PidRecord value) {
-        SerialDescriptor var5 = serialDescriptor;
-        CompositeEncoder var6 = encoder.beginStructure();
-        PidRecord.executeAction(value);
-        var6.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        PidRecord.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public PidRecord resolvePidRecord(Decoder decoder) {
-        SerialDescriptor var7 = serialDescriptor;
-        int var8 = 1;
-        int var10 = 0;
-        int var11 = 0;
-        CompositeDecoder var13 = decoder.beginStructure();
-        if (var6 == null) {
-            if (var13.decodeSequentially()) {
-                var11 = var13.decodeIntElement(0);
+        int index = 1;
+        int index2 = 0;
+        int index3 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        if (__UNDEF_KEY__ == null) {
+            if (compositeDecoder.decodeSequentially()) {
+                index3 = compositeDecoder.decodeIntElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                DetailsRecord detailsRecord = ((DetailsRecord) compositeDecoder.decodeSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) DetailsRecordSerializer.INSTANCE)));
+                index2 = (index2 | 2);
             }
-            var10 = (var10 | 1);
-            DetailsRecord var12 = (DetailsRecord) var13.decodeSerializableElement(1, (DeserializationStrategy) DetailsRecordSerializer.INSTANCE);
-            var10 = (var10 | 2);
         }
-        if (var6 != null && var8) {
-            int var9 = var13.decodeElementIndex();
-            if (var6 == null) {
-                if (var6 == null) {
+        if (__UNDEF_KEY__ != null && index) {
+            int index4 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ == null) {
+                if (__UNDEF_KEY__ == null) {
                 }
-                var8 = 0;
-                var11 = var13.decodeIntElement(0);
-                var10 = (var10 | 1);
-                var12 = (DetailsRecord) var13.decodeSerializableElement(1, (DeserializationStrategy) DetailsRecordSerializer.INSTANCE);
-                var10 = (var10 | 2);
+                index = 0;
+                index3 = compositeDecoder.decodeIntElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                detailsRecord = ((DetailsRecord) compositeDecoder.decodeSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) DetailsRecordSerializer.INSTANCE), detailsRecord));
+                index2 = (index2 | 2);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var13.endStructure();
         }
-        return new PidRecord(null);
+        return new PidRecord(index2, index3, detailsRecord);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -62,10 +60,10 @@ public class PidRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        KSerializer[] var1 = new KSerializer[2];
-        var1[0] = IntSerializer.INSTANCE;
-        var1[1] = DetailsRecordSerializer.INSTANCE;
-        return var1;
+        KSerializer[] items = new KSerializer[2];
+        items[0] = IntSerializer.INSTANCE;
+        items[1] = DetailsRecordSerializer.INSTANCE;
+        return items;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -73,7 +71,7 @@ public class PidRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (PidRecord) value);
+        this.executeAction(encoder, ((PidRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -82,10 +80,10 @@ public class PidRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new PidRecordSerializer();
-        PluginGeneratedSerialDescriptor var11 = new PluginGeneratedSerialDescriptor("su.catlean.dn", (GeneratedSerializer) INSTANCE, 2);
-        var11.addElement("pid", 0);
-        var11.addElement("activity", 0);
-        serialDescriptor = (SerialDescriptor) var11;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.dn", ((GeneratedSerializer) INSTANCE), 2);
+        pluginGeneratedSerialDescriptor.addElement("pid", false);
+        pluginGeneratedSerialDescriptor.addElement("activity", false);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

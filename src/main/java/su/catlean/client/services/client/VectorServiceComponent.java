@@ -1,6 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import net.minecraft.util.math.Vec3d;
 
 public class VectorServiceComponent {
@@ -12,10 +11,6 @@ public class VectorServiceComponent {
 
     public MoveFixServiceComponent resolveMoveFixServiceComponent(Vec3d vector) {
         return SequenceServiceComponent.INSTANCE.resolveMoveFixServiceComponent(vector);
-    }
-
-    public VectorServiceComponent(DefaultConstructorMarker $constructor_marker) {
-        this();
     }
 
     public static void updateValue(int arg0) {

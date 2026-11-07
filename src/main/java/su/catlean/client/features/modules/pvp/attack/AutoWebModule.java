@@ -37,11 +37,11 @@ public class AutoWebModule extends BlockPlacementModule {
     private static final DefaultValueVisibleSettingPropertyImpl10 faceSetting;
 
     private AutoWebModule() {
-        super("auto-web", SubCategoriesKt.getAttackCategory());
+        super("auto-web", SubCategoriesKt.getAttackCategory(), 132, false);
     }
 
     private AutoWebTargetMode getTargetMode() {
-        return (AutoWebTargetMode) targetModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((AutoWebTargetMode) targetModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setTargetMode(AutoWebTargetMode value) {
@@ -49,7 +49,7 @@ public class AutoWebModule extends BlockPlacementModule {
     }
 
     private AutoWebFaceMode getFace() {
-        return (AutoWebFaceMode) faceSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((AutoWebFaceMode) faceSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setFace(AutoWebFaceMode value) {
@@ -57,10 +57,10 @@ public class AutoWebModule extends BlockPlacementModule {
     }
 
     public void onPlayerUpdateEvent(PlayerUpdateEvent e) {
-        PlayerEntity player = EntityPacketHelper.findTarget(this.getRange(), AutoCrystalTargetSortMode.FOV);
+        PlayerEntity player = EntityPacketHelper.findTarget(this.getRange(), AutoCrystalTargetSortMode.FOV, false, false);
         if (this.getTargetMode() == AutoWebTargetMode.AUTO) {
             if (AuraModule.INSTANCE.getEnabled() && AuraModule.INSTANCE.getTarget() != null && AuraModule.INSTANCE.getTarget() instanceof PlayerEntity) {
-                player = (PlayerEntity) AuraModule.INSTANCE.getTarget();
+                player = ((PlayerEntity) AuraModule.INSTANCE.getTarget());
             }
             if (AutoCrystalModule.INSTANCE.getEnabled() && AutoCrystalModule.INSTANCE.getTarget() != null) {
                 player = AutoCrystalModule.INSTANCE.getTarget();
@@ -72,28 +72,28 @@ public class AutoWebModule extends BlockPlacementModule {
         } else {
             Iterator iterator = SharedKt.getWorld().getPlayers().iterator();
             while (iterator.hasNext()) {
-                AbstractClientPlayerEntity player2 = (AbstractClientPlayerEntity) iterator.next();
-                if (Intrinsics.areEqual(player2, SharedKt.getMc().player) || EntityHelper4.isFriend((PlayerEntity) player2) || player2.distanceTo(SharedKt.getMc().player) > this.getRange() || TargetEntityHelper.INSTANCE.isSurroundedOrWebbed((PlayerEntity) player2, this.getFace() != AutoWebFaceMode.OFF)) {
+                AbstractClientPlayerEntity player2 = ((AbstractClientPlayerEntity) iterator.next());
+                if (Intrinsics.areEqual(player2, SharedKt.getMc().player) || EntityHelper4.isFriend(((PlayerEntity) player2)) || player2.distanceTo(SharedKt.getMc().player) > this.getRange() || TargetEntityHelper.INSTANCE.isSurroundedOrWebbed(((PlayerEntity) player2), this.getFace() != AutoWebFaceMode.OFF)) {
                     continue;
                 }
-                this.executeAction((PlayerEntity) player2);
+                this.executeAction(((PlayerEntity) player2));
             }
         }
     }
 
     private void executeAction(PlayerEntity arg0) {
-        List<BlockPos> positions = new ArrayList();
+        List<BlockPos> list = new ArrayList();
         BlockPos blockPos = BlockPos.ofFloored(PlayerEntityHelper2.INSTANCE.predictPosition(arg0, TargetEntityHelper.INSTANCE.getPredictTicks(arg0)));
         if (this.getFace() != AutoWebFaceMode.ONLY && !(SharedKt.getWorld().getBlockState(blockPos).getBlock() instanceof FluidBlock)) {
             Entity entity = SharedKt.getMc().player;
             if (!(Intrinsics.areEqual(blockPos, BlockPos.ofFloored(this.resolveMinecraftObject(entity))))) {
-                positions.add(blockPos);
+                list.add(blockPos);
             }
         }
         if (this.getFace() != AutoWebFaceMode.OFF && !(SharedKt.getWorld().getBlockState(blockPos.up()).getBlock() instanceof FluidBlock) && !(Intrinsics.areEqual(blockPos.up(), BlockPos.ofFloored(SharedKt.getMc().player.getEyePos())))) {
-            positions.add(blockPos.up());
+            list.add(blockPos.up());
         }
-        BlockPlacementModule.placeBlocks(this, positions);
+        BlockPlacementModule.placeBlocks(this, list, false, false, null, false);
     }
 
     protected List resolveList() {
@@ -105,7 +105,7 @@ public class AutoWebModule extends BlockPlacementModule {
     }
 
     static {
-        KProperty[] var26 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new AutoWebModule();
         targetModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "target-mode", AutoWebTargetMode.AUTO);
         faceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "face", AutoWebFaceMode.INSTANCE);

@@ -11,12 +11,9 @@ public class Comparator19 implements Comparator {
     }
 
     public int compare(Object b) {
-        Module var5 = (Module) 0L;
-        int var6 = 0;
-        var5 = (Module) b;
-        Comparable var7 = (Comparable) var5.getString().toLowerCase(Locale.ROOT);
-        var6 = 0;
-        return ComparisonsKt.compareValues((Comparable) var5.getString().toLowerCase(Locale.ROOT));
+        Module module = ((Module) b);
+        Comparable comparable = ((Comparable) this.getString().toLowerCase(Locale.ROOT));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) module.getString().toLowerCase(Locale.ROOT)));
     }
 
 }

@@ -104,39 +104,39 @@ public class ItemEspModule extends Module {
     }
 
     private ItemEspHighlightMode getHighlight() {
-        return (ItemEspHighlightMode) highlightSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((ItemEspHighlightMode) highlightSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private ItemEspShaderMode getShaderMode() {
-        return (ItemEspShaderMode) shaderModeSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((ItemEspShaderMode) shaderModeSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getMerge() {
-        return (Boolean) mergeSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) mergeSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getOnePlate() {
-        return (Boolean) onePlateSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) onePlateSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getShulkerLoot() {
-        return (Boolean) shulkerLootSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) shulkerLootSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private Color getColor() {
-        return (Color) colorSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Color) colorSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private Color getOutlineColor() {
-        return (Color) outlineColorSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Color) outlineColorSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private Color getHighLightColor() {
-        return (Color) highLightColorSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Color) highLightColorSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private float getLineWithValue() {
-        return (Number) lineWithValueSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Number) lineWithValueSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private void setLineWithValue(float value) {
@@ -144,15 +144,15 @@ public class ItemEspModule extends Module {
     }
 
     private ItemEspFilterMode getFilter() {
-        return (ItemEspFilterMode) filterSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((ItemEspFilterMode) filterSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private ItemsServiceComponent2 getItems() {
-        return (ItemsServiceComponent2) itemsSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((ItemsServiceComponent2) itemsSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private void onFrameBufferEvent(FrameBufferEvent arg0) {
-        arg0.setFrameBuffer((class_276) minecraftRef);
+        arg0.setFrameBuffer(((class_276) minecraftRef));
         arg0.cancel();
     }
 
@@ -163,195 +163,194 @@ public class ItemEspModule extends Module {
         }
         Iterator iterator = this.resolveList().iterator();
         while (iterator.hasNext()) {
-            class_1542 var27 = (class_1542) iterator.next();
-            TextShaderComponent2.checkCondition(TextShaderComponent2.INSTANCE.resolveMinecraftObject(), this.getHighLightColor());
+            class_1542 class1542 = ((class_1542) iterator.next());
+            TextShaderComponent2.checkCondition(TextShaderComponent2.INSTANCE.resolveMinecraftObject(class1542), this.getHighLightColor());
             return;
-            TextShaderComponent2.checkCondition(TextShaderComponent2.INSTANCE.resolveMinecraftObject(), PolygonShaderComponent.INSTANCE.resolveColor(this.getHighLightColor(), 1.0F));
+            TextShaderComponent2.checkCondition(TextShaderComponent2.INSTANCE.resolveMinecraftObject(class1542), PolygonShaderComponent.INSTANCE.resolveColor(this.getHighLightColor(), 1.0F));
         }
     }
 
     private void onRender2DEvent(Render2DEvent arg0) {
-        List positions = this.resolveList();
-        Iterable var68 = (Iterable) positions;
-        int var69 = 0;
-        Iterator iterator = CollectionsKt.sortedWith((Comparator) new Comparator3()).iterator();
-        if (iterator.hasNext()) {
-            var68 = (ItemsServiceComponent) iterator.next();
-            var69 = Math.min(((class_1542) CollectionsKt.first(var68.getList()).field_6012 / 15.0F), 1.0F);
-            Vector4d var70 = PolygonShaderComponent.INSTANCE.resolveVector4d(var68.resolveMinecraftObject());
-            List positions2 = var68.resolveList();
-            float var72 = 0.0F;
-            Iterator iterator2 = positions2.iterator();
+        List list = this.resolveList();
+        Iterable iterable = ((Iterable) list);
+        int index = 0;
+        Iterator iterator = CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator3())).iterator();
+        while (iterator.hasNext()) {
+            iterable = ((ItemsServiceComponent) iterator.next());
+            index = Math.min((((class_1542) CollectionsKt.first(iterable.getList())).field_6012 / 15.0F), 1.0F);
+            Vector4d vector4d = PolygonShaderComponent.INSTANCE.resolveVector4d(iterable.resolveMinecraftObject());
+            List list2 = iterable.resolveList();
+            float factor = 0.0F;
+            Iterator iterator2 = list2.iterator();
             while (iterator2.hasNext()) {
-                String var74 = (String) iterator2.next();
-                float var75 = SFMServiceComponent.resolveFontRenderHelper6().computeValue();
-                var72 = var75;
+                String text = ((String) iterator2.next());
+                float factor2 = SFMServiceComponent.resolveFontRenderHelper6().computeValue(text);
+                factor = factor2;
             }
-            iterator2 = ((var70.x + ((var70.z - var70.x) / 2.0F)) - (var72 / 2));
+            iterator2 = ((vector4d.x + ((vector4d.z - vector4d.x) / 2.0F)) - (factor / 2));
             if (this.getOnePlate()) {
-                stackShaderComponent.executeAction(arg0.getContext().method_51448(), (iterator2 - 3.0F), ((var70.y - 1.0F) - (12.0F * positions2.size())), (var72 + 5.0F), (12.0F * positions2.size()));
+                stackShaderComponent.executeAction(arg0.getContext().method_51448(), (iterator2 - 3.0F), ((vector4d.y - 1.0F) - (12.0F * list2.size())), (factor + 5.0F), (12.0F * list2.size()), index);
             }
-            var74 = (Iterable) positions2;
-            var75 = 0;
-            int var76 = 0;
-            Iterator iterator3 = var74.iterator();
+            text = ((Iterable) list2);
+            factor2 = 0;
+            int index2 = 0;
+            Iterator iterator3 = text.iterator();
             while (iterator3.hasNext()) {
-                Object var78 = iterator3.next();
-                int var79 = var76;
-                if (var79 < 0) {
+                Object element = iterator3.next();
+                int index3 = index2;
+                if (index3 < 0) {
                     CollectionsKt.throwIndexOverflow();
                 }
-                String var80 = (String) var78;
-                int var81 = var79;
-                int var82 = 0;
+                String text2 = ((String) element);
+                int index4 = index3;
+                int index5 = 0;
                 if (!(INSTANCE.getOnePlate())) {
-                    stackShaderComponent.executeAction(arg0.getContext().method_51448(), (((iterator2 - 3.0F) + (var72 / 2.0F)) - (SFMServiceComponent.resolveFontRenderHelper6().computeValue() / 2.0F)), ((var70.y - 13.0F) - (12.0F * var81)), (SFMServiceComponent.resolveFontRenderHelper6().computeValue() + 5.0F), 12.0F);
+                    stackShaderComponent.executeAction(arg0.getContext().method_51448(), (((iterator2 - 3.0F) + (factor / 2.0F)) - (SFMServiceComponent.resolveFontRenderHelper6().computeValue(text2) / 2.0F)), ((vector4d.y - 13.0F) - (12.0F * index4)), (SFMServiceComponent.resolveFontRenderHelper6().computeValue(text2) + 5.0F), 12.0F, index);
                 }
-                FontRenderHelper.W(SFMServiceComponent.resolveFontRenderHelper6(), arg0.getContext().method_51448(), (((iterator2 - 1.0F) + (var72 / 2.0F)) - (SFMServiceComponent.resolveFontRenderHelper6().computeValue() / 2.0F)), ((var70.y - 13.0F) - (12.0F * var81)), PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE));
+                FontRenderHelper.W(SFMServiceComponent.resolveFontRenderHelper6(), arg0.getContext().method_51448(), text2, (((iterator2 - 1.0F) + (factor / 2.0F)) - (SFMServiceComponent.resolveFontRenderHelper6().computeValue(text2) / 2.0F)), ((vector4d.y - 13.0F) - (12.0F * index4)), PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE, index), false);
             }
-            var75 = (Iterable) var68.getList();
-            var76 = 0;
-            iterator3 = var75;
-            var78 = (Collection) new ArrayList();
-            var79 = 0;
-            var80 = iterator3.iterator();
-            while (var80.hasNext()) {
-                var81 = var80.next();
-                var82 = (class_1542) var81;
-                int var83 = 0;
-                var78.add();
+            factor2 = ((Iterable) iterable.getList());
+            index2 = 0;
+            iterator3 = factor2;
+            element = ((Collection) new ArrayList());
+            index3 = 0;
+            text2 = iterator3.iterator();
+            while (text2.hasNext()) {
+                index4 = text2.next();
+                index5 = ((class_1542) index4);
+                element.add(index4);
             }
-            var74 = var78.iterator();
-            while (var74.hasNext()) {
+            text = element.iterator();
+            while (text.hasNext()) {
             }
-            var75 = (class_1542) var74.next();
+            factor2 = ((class_1542) text.next());
             arg0.getContext().method_51448().pushMatrix();
-            arg0.getContext().method_51448().translate((var70.x - 58.2F), (var70.y - 4.0F));
+            arg0.getContext().method_51448().translate((vector4d.x - 58.2F), (vector4d.y - 4.0F));
             arg0.getContext().method_51448().scale(0.6F);
-            this.render(arg0.getContext(), var75.method_6983(), 1.0F);
+            this.render(arg0.getContext(), factor2.method_6983(), 1.0F);
             arg0.getContext().method_51448().popMatrix();
         }
-        stackShaderComponent.executeAction(arg0.getContext().method_51448(), this.getColor(), this.getOutlineColor(), 1);
+        stackShaderComponent.executeAction(arg0.getContext().method_51448(), this.getColor(), this.getOutlineColor(), true);
         SFMServiceComponent.resolveFontRenderHelper6().executeAction();
         if (this.getHighlight() == ItemEspHighlightMode.FRAME) {
-            int var61 = 4;
-            int var62 = 0;
-            int var63 = (this.resolveList().size() * 8);
-            VertexFormat var64 = class_290.field_1576;
-            iterator = new FormatRenderHelper();
-            var68 = this.resolveList().iterator();
-            while (var68.hasNext()) {
-                var69 = (class_1542) var68.next();
-                var70 = PolygonShaderComponent.INSTANCE.process();
-                var72 = 0;
-                iterator2 = var70;
-                if (var72 < iterator2) {
-                    var74 = var70[var72];
-                    var75 = PolygonShaderComponent.INSTANCE.resolveMinecraftObject(new Vec3d(var74.field_1352, var74.field_1351, var74.field_1350));
-                    if (var75.field_1350 > 0.0D) {
-                        if (var75.field_1350 < 1.0D) {
-                            if (positions2 == null) {
-                                positions2 = new Vector4d(var75.field_1352, var75.field_1351, var75.field_1350, 0.0D);
+            int index6 = 4;
+            int index7 = 0;
+            int index8 = (this.resolveList().size() * 8);
+            VertexFormat vertexFormat = class_290.field_1576;
+            iterator = new FormatRenderHelper(vertexFormat, index8, index7, index6);
+            iterable = this.resolveList().iterator();
+            while (iterable.hasNext()) {
+                index = ((class_1542) iterable.next());
+                vector4d = PolygonShaderComponent.INSTANCE.process(index);
+                factor = 0;
+                iterator2 = vector4d;
+                if (factor < iterator2) {
+                    text = vector4d[factor];
+                    factor2 = PolygonShaderComponent.INSTANCE.resolveMinecraftObject(new Vec3d(text.field_1352, text.field_1351, text.field_1350));
+                    if (factor2.field_1350 > 0.0D) {
+                        if (factor2.field_1350 < 1.0D) {
+                            if (list2 == null) {
+                                list2 = new Vector4d(factor2.field_1352, factor2.field_1351, factor2.field_1350, 0.0D);
                             }
-                            positions2.x = Math.min(var75.field_1352, positions2.x);
-                            positions2.y = Math.min(var75.field_1351, positions2.y);
-                            positions2.z = Math.max(var75.field_1352, positions2.z);
-                            positions2.w = Math.max(var75.field_1351, positions2.w);
+                            list2.x = Math.min(factor2.field_1352, list2.x);
+                            list2.y = Math.min(factor2.field_1351, list2.y);
+                            list2.z = Math.max(factor2.field_1352, list2.z);
+                            list2.w = Math.max(factor2.field_1351, list2.w);
                         }
                     }
                 }
-                var72 = positions2.x;
-                iterator2 = positions2.y;
-                var74 = positions2.z;
-                var75 = positions2.w;
-                PolygonShaderComponent.INSTANCE.executeAction(iterator, iterator2, this.getHighLightColor());
+                factor = list2.x;
+                iterator2 = list2.y;
+                text = list2.z;
+                factor2 = list2.w;
+                PolygonShaderComponent.INSTANCE.executeAction(iterator, factor, iterator2, text, factor2, this.getHighLightColor());
             }
-            FormatRenderHelper.executeAction(iterator, VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, null, new Matrix3x2f((Matrix3x2fc) arg0.getContext().method_51448()));
+            FormatRenderHelper.executeAction(iterator, VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, null, new Matrix3x2f(((Matrix3x2fc) arg0.getContext().method_51448())));
         }
         if (this.getShaderMode() == ItemEspShaderMode.DEFAULT) {
         } else {
         }
-        HandChamsModule.INSTANCE.executeAction(iterator, this.getHighLightColor(), minecraftRef, minecraftRef, 0, 0, 0.0F, 0.0F, 0.0F, this.getLineWithValue(), 0, Color.WHITE, Color.WHITE, 0, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
+        HandChamsModule.INSTANCE.executeAction(iterator, this.getHighLightColor(), minecraftRef, minecraftRef, false, false, 0.0F, 0.0F, 0.0F, this.getLineWithValue(), 0, Color.WHITE, Color.WHITE, 0, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
     }
 
     private List resolveList() {
-        List positions = new ArrayList();
-        List positions2 = this.resolveList();
-        List positions3 = new ArrayList();
-        Iterator iterator = positions2.iterator();
+        List list = new ArrayList();
+        List list2 = this.resolveList();
+        List list3 = new ArrayList();
+        Iterator iterator = list2.iterator();
         while (iterator.hasNext()) {
-            class_1542 var17 = (class_1542) iterator.next();
-            if (positions3.contains()) {
+            class_1542 class1542 = ((class_1542) iterator.next());
+            if (list3.contains(class1542)) {
             }
-            List positions4 = new ArrayList();
-            ItemsServiceComponent var18 = new ItemsServiceComponent(positions4);
-            var18.getList().add();
-            Iterator iterator2 = positions2.iterator();
+            List list4 = new ArrayList();
+            ItemsServiceComponent itemsServiceComponent = new ItemsServiceComponent(list4);
+            itemsServiceComponent.getList().add(class1542);
+            Iterator iterator2 = list2.iterator();
             while (iterator2.hasNext()) {
-                class_1542 var20 = (class_1542) iterator2.next();
+                class_1542 class15422 = ((class_1542) iterator2.next());
                 if (this.getMerge()) {
                 } else {
                 }
-                var18.getList().add();
-                positions3.add();
+                itemsServiceComponent.getList().add(class15422);
+                list3.add(class15422);
             }
-            positions.add();
+            list.add(itemsServiceComponent);
         }
-        return CollectionsKt.distinct((Iterable) positions);
+        return CollectionsKt.distinct(((Iterable) list));
     }
 
     private void render(DrawContext arg0, ItemStack arg1, float arg2) {
-        if ((class_9288) arg1.method_58694(class_9334.field_49622) == null) {
+        if (((class_9288) arg1.method_58694(class_9334.field_49622)) == null) {
             return;
         }
-        Item var10 = arg1.getItem();
-        if (!(var10 instanceof class_1747) || !((class_1747) var10.method_7711() instanceof class_2480)) {
+        Item item = arg1.getItem();
+        if (!(item instanceof class_1747) || !(((class_1747) item).method_7711() instanceof class_2480)) {
             return;
         }
-        if (var9.method_57489().toList().isEmpty()) {
+        if (this.method_57489().toList().isEmpty()) {
             return;
         }
         stackShaderComponent.executeAction(arg0.method_51448(), 12.0F, -79.0F, 169.0F, 60.0F, 2.0F);
-        int var11 = 0;
-        int var12 = 0;
-        Iterator iterator = var9.method_57489().toList().iterator();
+        int index = 0;
+        int index2 = 0;
+        Iterator iterator = this.method_57489().toList().iterator();
         while (iterator.hasNext()) {
-            ItemStack stack = (ItemStack) iterator.next();
-            arg0.method_51427(stack, (16 + (var12 * 18)), (-75 + (var11 * 18)));
-            arg0.method_51431(SharedKt.getMc().field_1772, stack, (16 + (var12 * 18)), (-75 + (var11 * 18)));
-            var12 = 0;
+            ItemStack stack = ((ItemStack) iterator.next());
+            arg0.method_51427(stack, (16 + (index2 * 18)), (-75 + (index * 18)));
+            arg0.method_51431(SharedKt.getMc().field_1772, stack, (16 + (index2 * 18)), (-75 + (index * 18)));
+            index2 = 0;
         }
     }
 
     private void render(MatrixStack arg0) {
-        class_4184 var13 = SharedKt.getMc().field_1773.method_19418();
-        float var14 = TextShaderComponent2.INSTANCE.computeValue();
-        boolean var16 = (Boolean) SharedKt.getMc().options.method_42435().method_41753();
-        SharedKt.getMc().options.method_42435().method_41748(Boolean.valueOf(0));
-        GofraState.INSTANCE.setModifyBuffer(1);
+        class_4184 class4184 = SharedKt.getMc().field_1773.method_19418();
+        float factor = TextShaderComponent2.INSTANCE.computeValue();
+        boolean flag = ((Boolean) SharedKt.getMc().options.method_42435().method_41753());
+        SharedKt.getMc().options.method_42435().method_41748(Boolean.valueOf(false));
+        GofraState.INSTANCE.setModifyBuffer(true);
         enabledFlag = 1;
         RenderSystem.backupProjectionMatrix();
-        RenderSystem.setProjectionMatrix((GameRendererAccessor) SharedKt.getMc().field_1773.getLevelProjectionMatrixBuffer().method_71123(TextShaderComponent2.INSTANCE.getMatrix4f()), RenderSystem.getProjectionType());
+        RenderSystem.setProjectionMatrix(((GameRendererAccessor) SharedKt.getMc().field_1773).getLevelProjectionMatrixBuffer().method_71123(TextShaderComponent2.INSTANCE.getMatrix4f()), RenderSystem.getProjectionType());
         Iterator iterator = this.resolveList().iterator();
         while (iterator.hasNext()) {
-            class_1542 var18 = (class_1542) iterator.next();
-            if (!(SharedKt.getMc().method_1561().method_3950(TextShaderComponent2.INSTANCE.getMinecraftObject(), var13.method_71156().field_1352, var13.method_71156().field_1351, var13.method_71156().field_1350))) {
+            class_1542 class1542 = ((class_1542) iterator.next());
+            if (!(SharedKt.getMc().method_1561().method_3950(class1542, TextShaderComponent2.INSTANCE.getMinecraftObject(), class4184.method_71156().field_1352, class4184.method_71156().field_1351, class4184.method_71156().field_1350))) {
             }
-            double var19 = (class_3532.method_16436(var18.field_6038, var18.getX()) - var13.method_71156().field_1352);
-            double var21 = (class_3532.method_16436(var18.field_5971, var18.getY()) - var13.method_71156().field_1351);
-            double var23 = (class_3532.method_16436(var18.field_5989, var18.getZ()) - var13.method_71156().field_1350);
-            class_10017 var26 = SharedKt.getMc().method_1561().method_3953().method_62425(TextShaderComponent2.INSTANCE.computeValue());
-            class_10039 var25 = (class_10039) var26;
-            var26 = (GameRendererAccessor) SharedKt.getMc().field_1773.getLevelRenderState().field_63082;
-            SharedKt.getMc().method_1561().method_72976((class_10017) var25, arg0, (class_11659) SharedKt.getMc().field_1773.method_72910());
+            double offset = (class_3532.method_16436(factor, class1542.field_6038, class1542.getX()) - class4184.method_71156().field_1352);
+            double offset2 = (class_3532.method_16436(factor, class1542.field_5971, class1542.getY()) - class4184.method_71156().field_1351);
+            double offset3 = (class_3532.method_16436(factor, class1542.field_5989, class1542.getZ()) - class4184.method_71156().field_1350);
+            class_10017 class10017 = SharedKt.getMc().method_1561().method_3953(class1542).method_62425(class1542, TextShaderComponent2.INSTANCE.computeValue());
+            class_10039 class10039 = ((class_10039) class10017);
+            class10017 = ((GameRendererAccessor) SharedKt.getMc().field_1773).getLevelRenderState().field_63082;
+            SharedKt.getMc().method_1561().method_72976(((class_10017) class10039), class10017, offset, offset2, offset3, arg0, ((class_11659) SharedKt.getMc().field_1773.method_72910()));
         }
         SharedKt.getMc().field_1773.method_72911().method_73002();
         SharedKt.getMc().method_22940().method_23000().method_22993();
         SharedKt.getMc().field_1773.method_72910().method_72953();
         RenderSystem.restoreProjectionMatrix();
         enabledFlag = 0;
-        GofraState.INSTANCE.setModifyBuffer(0);
-        SharedKt.getMc().options.method_42435().method_41748(Boolean.valueOf());
+        GofraState.INSTANCE.setModifyBuffer(false);
+        SharedKt.getMc().options.method_42435().method_41748(Boolean.valueOf(flag));
     }
 
     private void executeAction(char arg0) {
@@ -360,43 +359,38 @@ public class ItemEspModule extends Module {
         } else {
             if (arg0 >= 0) {
                 if (SharedKt.getMc().method_1522().field_1482 == minecraftRef.field_1482) {
+                    if (SharedKt.getMc().method_1522().field_1481 != minecraftRef.field_1481) {
+                        minecraftRef.method_1234(SharedKt.getMc().method_1522().field_1482, SharedKt.getMc().method_1522().field_1481);
+                    }
                 }
-                if (SharedKt.getMc().method_1522().field_1481 != minecraftRef.field_1481) {
-                }
-                minecraftRef.method_1234(SharedKt.getMc().method_1522().field_1482, SharedKt.getMc().method_1522().field_1481);
             }
             RenderSystem.getDevice().createCommandEncoder().clearColorAndDepthTextures(minecraftRef.method_30277(), 0, minecraftRef.method_30278(), 1.0D);
         }
     }
 
     private List resolveList(int arg0, char arg1) {
-        Iterable var11 = SharedKt.getWorld().method_18112();
-        int var12 = 0;
-        Object var13 = var11;
-        Collection var14 = (Collection) new ArrayList();
-        int var15 = 0;
-        Iterator iterator = var13.iterator();
+        Iterable iterable = SharedKt.getWorld().method_18112();
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var17 = iterator.next();
+            Object element = iterator.next();
             if (arg1 >= 0) {
-                var14.add();
-            }
-            var11 = (Iterable) var14;
-            var12 = 0;
-            var13 = var11;
-            var14 = (Collection) new ArrayList();
-            if (arg0 >= 0) {
-                var15 = 0;
+                collection.add(element);
+                iterable = ((Iterable) collection);
+                iterable2 = iterable;
+                collection = ((Collection) new ArrayList());
+                if (arg0 >= 0) {
+                }
             }
         }
-        iterator = var13.iterator();
+        iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            var17 = iterator.next();
-            class_1542 var18 = (class_1542) var17;
-            int var19 = 0;
-            var14.add();
+            element = iterator.next();
+            class_1542 class1542 = ((class_1542) element);
+            collection.add(element);
         }
-        return var14;
+        return collection;
     }
 
     private boolean checkCondition(ItemStack arg0) {
@@ -412,12 +406,10 @@ public class ItemEspModule extends Module {
     }
 
     private static boolean isActive3() {
-        if (var6) {
-            if (INSTANCE.getShaderMode() != ItemEspShaderMode.DEFAULT) {
-            }
+        if (INSTANCE.getShaderMode() != ItemEspShaderMode.DEFAULT) {
             if (INSTANCE.getHighlight() == ItemEspHighlightMode.SHADER) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -427,13 +419,13 @@ public class ItemEspModule extends Module {
     }
 
     static {
-        KProperty[] var37 = new KProperty[11];
+        KProperty[] items = new KProperty[11];
         INSTANCE = new ItemEspModule();
         highlightSetting = VisibleRenderHelper.registerSetting(INSTANCE, "highlight", ItemEspHighlightMode.OFF);
         shaderModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shader-mode", ItemEspShaderMode.DEFAULT, null, this::isActive);
-        mergeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "merge");
-        onePlateSetting = VisibleRenderHelper.registerSetting(INSTANCE, "one-plate", 1, null, this::isActive2);
-        shulkerLootSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shulkers");
+        mergeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "merge", true);
+        onePlateSetting = VisibleRenderHelper.registerSetting(INSTANCE, "one-plate", true, null, this::isActive2);
+        shulkerLootSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shulkers", true);
         colorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fill", new Color(150, 150, 150, 255));
         outlineColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "outline", new Color(-1));
         highLightColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "highlight-color", new Color(-1));

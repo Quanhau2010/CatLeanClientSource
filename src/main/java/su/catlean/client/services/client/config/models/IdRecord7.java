@@ -1,6 +1,5 @@
 package su.catlean.client.services.client.config.models;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.serialization.descriptors.SerialDescriptor;
 import kotlinx.serialization.encoding.CompositeEncoder;
@@ -28,19 +27,6 @@ public class IdRecord7 {
         this.textValue2 = server;
         this.countValue4 = dimension;
         this.enabledFlag = visible;
-    }
-
-    public IdRecord7(String arg0, int arg1, int arg2, int arg3, String arg4, int arg5, boolean arg6, int arg7, DefaultConstructorMarker arg8) {
-        if ((arg7 & 16)) {
-            arg4 = "localhost";
-        }
-        if ((arg7 & 32)) {
-            arg5 = 0;
-        }
-        if ((arg7 & 64)) {
-            arg6 = 1;
-        }
-        this(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
     }
 
     public String getString() {
@@ -132,50 +118,50 @@ public class IdRecord7 {
     }
 
     public static IdRecord7 resolveIdRecord7(IdRecord7 arg0, String arg1, int arg2, int arg3, int arg4, String arg5, int arg6, boolean arg7, int arg8, Object arg9) {
-        if ((arg8 & 1)) {
+        if ((arg8 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg8 & 2)) {
+        if ((arg8 & 2) != 0) {
             arg2 = arg0.countValue;
         }
-        if ((arg8 & 4)) {
+        if ((arg8 & 4) != 0) {
             arg3 = arg0.countValue2;
         }
-        if ((arg8 & 8)) {
+        if ((arg8 & 8) != 0) {
             arg4 = arg0.countValue3;
         }
-        if ((arg8 & 16)) {
+        if ((arg8 & 16) != 0) {
             arg5 = arg0.textValue2;
         }
-        if ((arg8 & 32)) {
+        if ((arg8 & 32) != 0) {
             arg6 = arg0.countValue4;
         }
-        if ((arg8 & 64)) {
+        if ((arg8 & 64) != 0) {
             arg7 = arg0.enabledFlag;
         }
         return arg0.resolveIdRecord7(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag;
-        int var4 = this.countValue4;
-        String var5 = this.textValue2;
-        int var6 = this.countValue3;
-        int var7 = this.countValue2;
-        int var8 = this.countValue;
-        String var9 = this.textValue;
-        return ("WayPoint(id=" + var9 + ", x=" + var8 + ", y=" + var7 + ", z=" + var6 + ", server=" + var5 + ", dimension=" + var4 + ", visible=" + var3 + ")");
+        boolean flag = this.enabledFlag;
+        int index = this.countValue4;
+        String text = this.textValue2;
+        int index2 = this.countValue3;
+        int index3 = this.countValue2;
+        int index4 = this.countValue;
+        String text2 = this.textValue;
+        return ("WayPoint(id=" + text2 + ", x=" + index4 + ", y=" + index3 + ", z=" + index2 + ", server=" + text + ", dimension=" + index + ", visible=" + flag + ")");
     }
 
     public int hashCode() {
-        int var4 = this.textValue.hashCode();
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue2));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue3));
-        var4 = ((var4 * 31) + this.textValue2.hashCode());
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue4));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag));
-        if (var4 != null) {
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        index = ((index * 31) + Integer.hashCode(this.countValue2));
+        index = ((index * 31) + Integer.hashCode(this.countValue3));
+        index = ((index * 31) + this.textValue2.hashCode());
+        index = ((index * 31) + Integer.hashCode(this.countValue4));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        if (index != null) {
         }
         return null;
     }
@@ -187,26 +173,26 @@ public class IdRecord7 {
         if (!(other instanceof IdRecord7)) {
             return false;
         }
-        IdRecord7 var5 = (IdRecord7) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord7 idRecord7 = ((IdRecord7) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord7.textValue))) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != idRecord7.countValue) {
             return false;
         }
-        if (this.countValue2 != var5.countValue2) {
+        if (this.countValue2 != idRecord7.countValue2) {
             return false;
         }
-        if (this.countValue3 != var5.countValue3) {
+        if (this.countValue3 != idRecord7.countValue3) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, idRecord7.textValue2))) {
             return false;
         }
-        if (this.countValue4 != var5.countValue4) {
+        if (this.countValue4 != idRecord7.countValue4) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != idRecord7.enabledFlag) {
             return false;
         }
         return true;
@@ -243,16 +229,16 @@ public class IdRecord7 {
         this.countValue = x;
         this.countValue2 = y;
         this.countValue3 = z;
-        if (!((seen0 & 16))) {
+        if ((seen0 & 16) == 0) {
             this.textValue2 = "localhost";
         }
         this.textValue2 = server;
-        if (!((seen0 & 32))) {
+        if ((seen0 & 32) == 0) {
             this.countValue4 = 0;
         }
         this.countValue4 = dimension;
-        if (!((seen0 & 64))) {
-            this.enabledFlag = 1;
+        if ((seen0 & 64) == 0) {
+            this.enabledFlag = true;
         }
         this.enabledFlag = visible;
     }

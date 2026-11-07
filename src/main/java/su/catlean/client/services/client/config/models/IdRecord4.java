@@ -58,10 +58,10 @@ public class IdRecord4 {
     }
 
     public static IdRecord4 resolveIdRecord4(IdRecord4 arg0, String arg1, Map arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.lookupMap;
         }
         return arg0.resolveIdRecord4(arg1, arg2);
@@ -72,9 +72,9 @@ public class IdRecord4 {
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * 3027519470538063903L) + this.lookupMap.hashCode());
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.lookupMap.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -84,20 +84,19 @@ public class IdRecord4 {
         if (!(other instanceof IdRecord4)) {
             return false;
         }
-        IdRecord4 var5 = (IdRecord4) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord4 idRecord4 = ((IdRecord4) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord4.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.lookupMap, var5.lookupMap))) {
+        if (!(Intrinsics.areEqual(this.lookupMap, idRecord4.lookupMap))) {
             return false;
         }
         return true;
     }
 
     public static void executeAction(IdRecord4 self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        Lazy[] var3 = lazyArray;
         output.encodeStringElement(serialDesc, 0, self.textValue);
-        output.encodeSerializableElement(serialDesc, 1, (SerializationStrategy) var3[1].getValue(), self.lookupMap);
+        output.encodeSerializableElement(serialDesc, 1, ((SerializationStrategy) lazyArray[1].getValue()), self.lookupMap);
     }
 
     public IdRecord4(int seen0, String id, Map items, SerializationConstructorMarker serializationConstructorMarker) {
@@ -109,7 +108,7 @@ public class IdRecord4 {
     }
 
     private static KSerializer getKSerializer() {
-        return (KSerializer) new LinkedHashMapSerializer((KSerializer) IntSerializer.INSTANCE, (KSerializer) new ItemServiceComponent2());
+        return ((KSerializer) new LinkedHashMapSerializer(((KSerializer) IntSerializer.INSTANCE), ((KSerializer) new ItemServiceComponent2())));
     }
 
     public static Lazy[] process() {
@@ -118,10 +117,10 @@ public class IdRecord4 {
 
     static {
         serviceComponent22 = new ServiceComponent22();
-        Lazy[] var16 = new Lazy[2];
-        var16[0] = null;
-        var16[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
-        lazyArray = var16;
+        Lazy[] items = new Lazy[2];
+        items[0] = null;
+        items[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
+        lazyArray = items;
     }
 
     public static void updateValue(String arg0) {

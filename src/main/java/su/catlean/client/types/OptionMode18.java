@@ -2,14 +2,11 @@ package su.catlean.client.types;
 
 public enum OptionMode18 {
 
-    public static final OptionMode18 NONE;
-    public static final OptionMode18 SILENT;
-    public static final OptionMode18 FORCE;
-    private static boolean enabledFlag;
+    NONE,
+    SILENT,
+    FORCE;
 
-    OptionMode18(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static boolean enabledFlag;
 
     public static void updateValue(boolean arg0) {
         enabledFlag = arg0;

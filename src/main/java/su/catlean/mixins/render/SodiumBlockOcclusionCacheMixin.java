@@ -14,9 +14,9 @@ public class SodiumBlockOcclusionCacheMixin {
     }
 
     private void shouldDrawSideHook(BlockState state, class_1922 view, BlockPos pos, Direction facing, CallbackInfoReturnable cir) {
-        XRayBlockEvent var6 = new XRayBlockEvent();
-        var6.call(state.getBlock());
-        cir.setReturnValue(Boolean.valueOf(var6.getCancelled()));
+        XRayBlockEvent xRayBlockEvent = new XRayBlockEvent();
+        xRayBlockEvent.call(state.getBlock());
+        cir.setReturnValue(Boolean.valueOf(xRayBlockEvent.getCancelled()));
     }
 
 }

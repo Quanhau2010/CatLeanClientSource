@@ -24,15 +24,14 @@ public class EventServiceComponent implements Contract9 {
     }
 
     public void onRender3DEvent(Render3DEvent event) {
-        long var5 = SharedKt.getNumericValue();
-        arrayDeque.addLast(Long.valueOf());
-        if ((Long) arrayDeque.firstOrNull() != null) {
-            long var7 = (Number) (Long) arrayDeque.firstOrNull().longValue();
-            int var9 = 0;
+        long time = SharedKt.getNumericValue();
+        arrayDeque.addLast(Long.valueOf(time));
+        if (((Long) arrayDeque.firstOrNull()) != null) {
+            long time2 = ((Number) ((Long) arrayDeque.firstOrNull())).longValue();
         } else {
-        }
-        if ((var7 + 1000) < var5 == 1) {
-            arrayDeque.removeFirst();
+            if ((time2 + 1000) < time == 1) {
+                arrayDeque.removeFirst();
+            }
         }
         countValue = Math.max(arrayDeque.size(), 4);
     }

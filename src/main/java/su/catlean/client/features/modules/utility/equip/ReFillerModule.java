@@ -57,23 +57,23 @@ public class ReFillerModule extends Module {
         } else {
             if (countValue > 0) {
                 if (!(Intrinsics.areEqual(SharedKt.getPlayer().method_31548().method_5438(countValue2).getItem(), Items.field_8288))) {
-                    Item[] var20 = new Item[1];
-                    var20[0] = Items.field_8288;
-                    StackServiceComponent2 var19 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-                    if (var19.isActive()) {
-                        HandServiceComponent.executeAction(var19.getNumericValue(), countValue2, class_1713.field_7791, 1);
+                    Item[] items = new Item[1];
+                    items[0] = Items.field_8288;
+                    StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+                    if (stackServiceComponent2.isActive()) {
+                        HandServiceComponent.executeAction(stackServiceComponent2.getNumericValue(), countValue2, class_1713.field_7791, true);
                         countValue = 0;
                     }
                 }
-                var19 = countValue;
-                countValue = (var19 + -1);
+                stackServiceComponent2 = countValue;
+                countValue = (stackServiceComponent2 + -1);
             }
         }
         if (!(serviceComponent38.checkCondition(10))) {
             return;
         }
-        var19 = 0;
-        if (this.checkCondition()) {
+        stackServiceComponent2 = 0;
+        if (this.checkCondition(stackServiceComponent2)) {
             return;
         }
     }
@@ -82,8 +82,8 @@ public class ReFillerModule extends Module {
         ItemStack stack = SharedKt.getPlayer().method_31548().method_5438(arg0);
         if (!(stack.isEmpty())) {
             if (!(stack.method_7946())) {
+                return false;
             }
-            return false;
         }
         if (stack.method_7914() == 16 && stack.method_7947() > 8) {
             return false;
@@ -91,26 +91,26 @@ public class ReFillerModule extends Module {
         if (stack.method_7914() == 64 && stack.method_7947() > 32) {
             return false;
         }
-        int var21 = 9;
-        if (var21 < 36) {
-            ItemStack stack2 = SharedKt.getPlayer().method_31548().method_5438();
+        int index = 9;
+        if (index < 36) {
+            ItemStack stack2 = SharedKt.getPlayer().method_31548().method_5438(index);
             if (!(stack2.isEmpty())) {
                 if (!(this.checkCondition(stack, stack2))) {
                 } else {
-                    boolean var23 = (stack2.method_7947() + stack.method_7947()) > stack2.method_7914();
+                    boolean flag = (stack2.method_7947() + stack.method_7947()) > stack2.method_7914();
                     if (stack2.method_7914() == stack2.method_7947()) {
-                        HandServiceComponent.executeAction(arg0, class_1713.field_7791, 1);
+                        HandServiceComponent.executeAction(index, arg0, class_1713.field_7791, true);
                     } else {
-                        HandServiceComponent.e();
+                        HandServiceComponent.e(index, 0, null, false);
                         if (arg0 < 9) {
                         } else {
                         }
-                        int var15 = 6;
-                        boolean var16 = !(var23);
-                        int var18 = 0;
-                        HandServiceComponent.e(arg0);
-                        if (var23) {
-                            HandServiceComponent.e();
+                        int index2 = 6;
+                        boolean flag2 = !(flag);
+                        int index3 = 0;
+                        HandServiceComponent.e(arg0, index3, flag2, index2);
+                        if (flag) {
+                            HandServiceComponent.e(index, 0, null, true);
                         }
                     }
                     serviceComponent38.updateValue();

@@ -12,20 +12,17 @@ public class SettingSettingRenderHelper6Impl extends SettingRenderHelper6 {
     }
 
     public void setValue(int mouseX) {
-        long var4 = (0L ^ 82773164258250L);
-        float var7 = Math.clamp(((mouseX - this.getNumericValue()) / (this.getNumericValue3() - 7.0F)), 0.0F, 1.0F);
-        float var8 = ((Number) this.resolveClosedFloatingPointRange().getStart() + (((Number) this.resolveClosedFloatingPointRange().getEndInclusive() - (Number) this.resolveClosedFloatingPointRange().getStart()) * var7));
-        if ((Number) this.resolveClosedFloatingPointRange().getEndInclusive() > 1.0F) {
+        float factor = Math.clamp(((mouseX - this.getNumericValue()) / (this.getNumericValue3() - 7.0F)), 0.0F, 1.0F);
+        float factor2 = (((Number) this.resolveClosedFloatingPointRange().getStart()) + ((((Number) this.resolveClosedFloatingPointRange().getEndInclusive()) - ((Number) this.resolveClosedFloatingPointRange().getStart())) * factor));
+        if (((Number) this.resolveClosedFloatingPointRange().getEndInclusive()) > 1.0F) {
         } else {
         }
-        float var9 = 100.0F;
-        this.getVisibleSettingProperty().updateValue(Float.valueOf((MathKt.roundToInt((var8 * var9)) / var9)));
+        float factor3 = 100.0F;
+        this.getVisibleSettingProperty().updateValue(Float.valueOf((MathKt.roundToInt((factor2 * factor3)) / factor3)));
     }
 
-    public float computeValue(char arg0, long arg1) {
-        int var4 = ((arg0 << 48) | ((arg1 << 16) >>> 16));
-        long var6 = (var4 ^ 106285934015789L);
-        return Math.clamp((((Number) this.getVisibleSettingProperty().getObject2() - (Number) this.resolveClosedFloatingPointRange().getStart()) / ((Number) this.resolveClosedFloatingPointRange().getEndInclusive() - (Number) this.resolveClosedFloatingPointRange().getStart())), 0.0F, 1.0F);
+    public float computeValue() {
+        return Math.clamp(((((Number) this.getVisibleSettingProperty().getObject2()) - ((Number) this.resolveClosedFloatingPointRange().getStart())) / (((Number) this.resolveClosedFloatingPointRange().getEndInclusive()) - ((Number) this.resolveClosedFloatingPointRange().getStart()))), 0.0F, 1.0F);
     }
 
     public Float resolveFloat(String value) {
@@ -33,21 +30,19 @@ public class SettingSettingRenderHelper6Impl extends SettingRenderHelper6 {
     }
 
     public void setValue() {
-        this.updateValue(0);
+        this.updateValue(false);
     }
 
     public Float resolveFloat(float current, int step) {
-        return Float.valueOf(new BigDecimal(String.valueOf((step * 0.1D))).add(new BigDecimal(String.valueOf((Number) this.getVisibleSettingProperty().getObject2()))));
+        return Float.valueOf(new BigDecimal(String.valueOf((step * 0.1D))).add(new BigDecimal(String.valueOf(((Number) this.getVisibleSettingProperty().getObject2())))));
     }
 
     public Number resolveNumber(String value) {
-        int var5 = (((0L << 32) | ((0L << 48) >>> 32)) | ((0L << 48) >>> 48));
-        long var7 = (var5 ^ 50856965502212L);
-        return (Number) this.resolveFloat(value);
+        return ((Number) this.resolveFloat(value));
     }
 
     public Number resolveNumber(Number current, int step) {
-        return (Number) this.resolveFloat(current, step);
+        return ((Number) this.resolveFloat(current, step));
     }
 
 }

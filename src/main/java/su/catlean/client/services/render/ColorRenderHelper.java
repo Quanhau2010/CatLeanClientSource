@@ -143,75 +143,75 @@ public class ColorRenderHelper implements class_11281 {
     }
 
     public static ColorRenderHelper resolveColorRenderHelper(ColorRenderHelper arg0, float arg1, Color arg2, Color arg3, int arg4, int arg5, float arg6, float arg7, int arg8, float arg9, class_241 arg10, float arg11, float arg12, int arg13, Object arg14) {
-        if ((arg13 & 1)) {
+        if ((arg13 & 1) != 0) {
             arg1 = arg0.factorValue;
         }
-        if ((arg13 & 2)) {
+        if ((arg13 & 2) != 0) {
             arg2 = arg0.colorValue;
         }
-        if ((arg13 & 4)) {
+        if ((arg13 & 4) != 0) {
             arg3 = arg0.colorValue2;
         }
-        if ((arg13 & 8)) {
+        if ((arg13 & 8) != 0) {
             arg4 = arg0.countValue;
         }
-        if ((arg13 & 16)) {
+        if ((arg13 & 16) != 0) {
             arg5 = arg0.countValue2;
         }
-        if ((arg13 & 32)) {
+        if ((arg13 & 32) != 0) {
             arg6 = arg0.factorValue2;
         }
-        if ((arg13 & 64)) {
+        if ((arg13 & 64) != 0) {
             arg7 = arg0.factorValue3;
         }
-        if ((arg13 & 128)) {
+        if ((arg13 & 128) != 0) {
             arg8 = arg0.countValue3;
         }
-        if ((arg13 & 256)) {
+        if ((arg13 & 256) != 0) {
             arg9 = arg0.factorValue4;
         }
-        if ((arg13 & 512)) {
+        if ((arg13 & 512) != 0) {
             arg10 = arg0.minecraftRef;
         }
-        if ((arg13 & 1024)) {
+        if ((arg13 & 1024) != 0) {
             arg11 = arg0.factorValue5;
         }
-        if ((arg13 & 2048)) {
+        if ((arg13 & 2048) != 0) {
             arg12 = arg0.factorValue6;
         }
         return arg0.resolveColorRenderHelper(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12);
     }
 
     public String toString() {
-        float var3 = this.factorValue6;
-        float var4 = this.factorValue5;
-        class_241 var5 = this.minecraftRef;
-        float var6 = this.factorValue4;
-        int var7 = this.countValue3;
-        float var8 = this.factorValue3;
-        float var9 = this.factorValue2;
-        int var10 = this.countValue2;
-        int var11 = this.countValue;
-        Color var12 = this.colorValue2;
-        Color var13 = this.colorValue;
-        float var14 = this.factorValue;
-        return ("UniformData(time=" + var14 + ", color=" + var13 + ", color2=" + var12 + ", colorMode=" + var11 + ", glowQuality=" + var10 + ", glowRadius=" + var9 + ", glowAlphaMult=" + var8 + ", glowThinOutline=" + var7 + ", fillAlphaMult=" + var6 + ", uHalfTexelSize=" + var5 + ", uSaturation=" + var4 + ", uBrightness=" + var3 + ")");
+        float factor = this.factorValue6;
+        float factor2 = this.factorValue5;
+        class_241 class241 = this.minecraftRef;
+        float factor3 = this.factorValue4;
+        int index = this.countValue3;
+        float factor4 = this.factorValue3;
+        float factor5 = this.factorValue2;
+        int index2 = this.countValue2;
+        int index3 = this.countValue;
+        Color color = this.colorValue2;
+        Color color2 = this.colorValue;
+        float factor6 = this.factorValue;
+        return ("UniformData(time=" + factor6 + ", color=" + color2 + ", color2=" + color + ", colorMode=" + index3 + ", glowQuality=" + index2 + ", glowRadius=" + factor5 + ", glowAlphaMult=" + factor4 + ", glowThinOutline=" + index + ", fillAlphaMult=" + factor3 + ", uHalfTexelSize=" + class241 + ", uSaturation=" + factor2 + ", uBrightness=" + factor + ")");
     }
 
     public int hashCode() {
-        int var4 = Float.hashCode(this.factorValue);
-        var4 = ((var4 * 31) + this.colorValue.hashCode());
-        var4 = ((var4 * 31) + this.colorValue2.hashCode());
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue2));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue2));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue3));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue3));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue4));
-        var4 = ((var4 * 31) + this.minecraftRef.hashCode());
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue5));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue6));
-        if (var4 != null) {
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + this.colorValue.hashCode());
+        index = ((index * 31) + this.colorValue2.hashCode());
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        index = ((index * 31) + Integer.hashCode(this.countValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + Integer.hashCode(this.countValue3));
+        index = ((index * 31) + Float.hashCode(this.factorValue4));
+        index = ((index * 31) + this.minecraftRef.hashCode());
+        index = ((index * 31) + Float.hashCode(this.factorValue5));
+        index = ((index * 31) + Float.hashCode(this.factorValue6));
+        if (index != null) {
         }
         return null;
     }
@@ -223,41 +223,41 @@ public class ColorRenderHelper implements class_11281 {
         if (!(other instanceof ColorRenderHelper)) {
             return false;
         }
-        ColorRenderHelper var5 = (ColorRenderHelper) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        ColorRenderHelper colorRenderHelper = ((ColorRenderHelper) other);
+        if (Float.compare(this.factorValue, colorRenderHelper.factorValue)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue, var5.colorValue))) {
+        if (!(Intrinsics.areEqual(this.colorValue, colorRenderHelper.colorValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue2, var5.colorValue2))) {
+        if (!(Intrinsics.areEqual(this.colorValue2, colorRenderHelper.colorValue2))) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != colorRenderHelper.countValue) {
             return false;
         }
-        if (this.countValue2 != var5.countValue2) {
+        if (this.countValue2 != colorRenderHelper.countValue2) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, colorRenderHelper.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, colorRenderHelper.factorValue3)) {
             return false;
         }
-        if (this.countValue3 != var5.countValue3) {
+        if (this.countValue3 != colorRenderHelper.countValue3) {
             return false;
         }
-        if (Float.compare(this.factorValue4, var5.factorValue4)) {
+        if (Float.compare(this.factorValue4, colorRenderHelper.factorValue4)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        if (!(Intrinsics.areEqual(this.minecraftRef, colorRenderHelper.minecraftRef))) {
             return false;
         }
-        if (Float.compare(this.factorValue5, var5.factorValue5)) {
+        if (Float.compare(this.factorValue5, colorRenderHelper.factorValue5)) {
             return false;
         }
-        if (Float.compare(this.factorValue6, var5.factorValue6)) {
+        if (Float.compare(this.factorValue6, colorRenderHelper.factorValue6)) {
             return false;
         }
         return true;

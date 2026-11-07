@@ -4,14 +4,11 @@ import su.catlean.client.features.modules.Module;
 
 public enum BlinkAttackActionMode {
 
-    public static final BlinkAttackActionMode REPEAT;
-    public static final BlinkAttackActionMode OFF;
-    public static final BlinkAttackActionMode NONE;
-    private static Module[] moduleArray;
+    REPEAT,
+    OFF,
+    NONE;
 
-    BlinkAttackActionMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static Module[] moduleArray;
 
     public static void updateValue(Module[] arg0) {
         moduleArray = arg0;

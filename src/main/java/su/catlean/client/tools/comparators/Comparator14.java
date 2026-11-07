@@ -12,12 +12,9 @@ public class Comparator14 implements Comparator {
     }
 
     public int compare(Object b) {
-        AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) 0L;
-        int var8 = 0;
-        player = (AbstractClientPlayerEntity) b;
-        Comparable var9 = (Comparable) Float.valueOf(SharedKt.getPlayer().distanceTo(player));
-        var8 = 0;
-        return ComparisonsKt.compareValues((Comparable) Float.valueOf(SharedKt.getPlayer().distanceTo(player)));
+        AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) b);
+        Comparable comparable = ((Comparable) Float.valueOf(SharedKt.getPlayer().distanceTo()));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Float.valueOf(SharedKt.getPlayer().distanceTo(player))));
     }
 
 }

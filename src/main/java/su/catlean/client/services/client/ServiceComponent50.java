@@ -21,28 +21,27 @@ public class ServiceComponent50 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var13 = 0;
-        int var14 = 5;
-        if (var14 < 45) {
+        int index = 5;
+        if (index < 45) {
             AutoArmorModule.INSTANCE.getServiceComponent38().executeAction(-5);
-            if (var14 >= 36) {
+            if (index >= 36) {
             } else {
             }
-            ItemStack stack = (var14 - 36).method_5438();
+            ItemStack stack = (index - 36).method_5438(index);
             if (!(stack.isEmpty())) {
                 if (!(stack.method_31578())) {
+                    if (index <= 8) {
+                        SharedKt.getInteractionManager().method_2906(SharedKt.getPlayer().field_7512.field_7763, index, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, ((PlayerEntity) SharedKt.getPlayer()));
+                        Thread.sleep(this.timestampValue);
+                        SharedKt.getNetwork().method_45730("fix hand");
+                        Thread.sleep(this.timestampValue);
+                        SharedKt.getInteractionManager().method_2906(SharedKt.getPlayer().field_7512.field_7763, index, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, ((PlayerEntity) SharedKt.getPlayer()));
+                        Thread.sleep(this.timestampValue);
+                    }
                 }
-                if (var14 <= 8) {
-                }
-                SharedKt.getInteractionManager().method_2906(SharedKt.getPlayer().field_7512.field_7763, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, (PlayerEntity) SharedKt.getPlayer());
-                Thread.sleep(this.timestampValue);
-                SharedKt.getNetwork().method_45730("fix hand");
-                Thread.sleep(this.timestampValue);
-                SharedKt.getInteractionManager().method_2906(SharedKt.getPlayer().field_7512.field_7763, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, (PlayerEntity) SharedKt.getPlayer());
-                Thread.sleep(this.timestampValue);
             }
         }
-        SharedKt.getInteractionManager().method_2906(SharedKt.getPlayer().field_7512.field_7763, 1, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, (PlayerEntity) SharedKt.getPlayer());
+        SharedKt.getInteractionManager().method_2906(SharedKt.getPlayer().field_7512.field_7763, 1, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, ((PlayerEntity) SharedKt.getPlayer()));
     }
 
 }

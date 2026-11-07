@@ -22,7 +22,7 @@ public class FinishUsingItemEvent extends Event {
     }
 
     public boolean call(ItemStack item) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         item = item;
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

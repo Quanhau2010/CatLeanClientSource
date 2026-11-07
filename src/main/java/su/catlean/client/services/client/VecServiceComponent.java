@@ -25,9 +25,9 @@ public class VecServiceComponent {
     public VecServiceComponent(String name, float volume) {
         this.textValue = name;
         this.factorValue = volume;
-        class_2960 var10 = StringServiceComponent2.resolveMinecraftObject(("catlean:" + this.textValue));
-        this.minecraftRef = class_3414.method_47908();
-        class_2378.method_10230(class_7923.field_41172, this.minecraftRef);
+        class_2960 class2960 = StringServiceComponent2.resolveMinecraftObject(("catlean:" + this.textValue));
+        this.minecraftRef = class_3414.method_47908(class2960);
+        class_2378.method_10230(class_7923.field_41172, class2960, this.minecraftRef);
     }
 
     public String getString() {
@@ -63,10 +63,10 @@ public class VecServiceComponent {
     }
 
     public static VecServiceComponent resolveVecServiceComponent(VecServiceComponent arg0, String arg1, float arg2, int arg3, Object arg4, long arg5) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.factorValue;
         }
         if (arg5 > 0L && arg0.resolveVecServiceComponent(arg1, arg2) != null) {
@@ -79,11 +79,11 @@ public class VecServiceComponent {
     }
 
     public int hashCode() {
-        int var4 = this.textValue.hashCode();
-        var4 = ((var4 * 3290624610130722847L) + Float.hashCode(this.factorValue));
-        if (var3 != null) {
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + Float.hashCode(this.factorValue));
+        if (__UNDEF_KEY__ != null) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -93,25 +93,25 @@ public class VecServiceComponent {
         if (!(other instanceof VecServiceComponent)) {
             return false;
         }
-        VecServiceComponent var5 = (VecServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        VecServiceComponent vecServiceComponent = ((VecServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.textValue, vecServiceComponent.textValue))) {
             return false;
         }
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        if (Float.compare(this.factorValue, vecServiceComponent.factorValue)) {
             return false;
         }
         return true;
     }
 
     private static void updateValue(VecServiceComponent arg0) {
-        class_3414 var5 = arg0.minecraftRef;
-        class_3419 var6 = class_3419.field_15246;
-        class_5819 var7 = class_1113.method_43221();
-        SharedKt.getMc().method_1483().method_4873((class_1113) new ServiceComponent2());
+        class_3414 class3414 = arg0.minecraftRef;
+        class_3419 class3419 = class_3419.field_15246;
+        class_5819 class5819 = class_1113.method_43221();
+        SharedKt.getMc().method_1483().method_4873(((class_1113) new ServiceComponent2(class3414, class3419, class5819)));
     }
 
     private static void executeAction(double arg0, double arg1, double arg2, VecServiceComponent arg3) {
-        SharedKt.getWorld().method_8486(arg0, arg1, arg2, arg3.minecraftRef, class_3419.field_15248, arg3.factorValue, 1.0F, 1);
+        SharedKt.getWorld().method_8486(arg0, arg1, arg2, arg3.minecraftRef, class_3419.field_15248, arg3.factorValue, 1.0F, true);
     }
 
     public static void updateValue(int[] arg0) {

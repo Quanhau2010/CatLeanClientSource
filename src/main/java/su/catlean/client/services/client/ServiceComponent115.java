@@ -20,23 +20,18 @@ public class ServiceComponent115 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var6 = 0;
-        Iterable var7 = (Iterable) CatleanInterfaceRenderHelper.getList();
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
+        Iterable iterable = ((Iterable) CatleanInterfaceRenderHelper.getList());
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            CategoryRenderHelper var11 = (CategoryRenderHelper) var10;
-            int var12 = 0;
-            Iterable var13 = (Iterable) var11.getArrayList2();
-            int var14 = 0;
-            Iterator iterator2 = var13.iterator();
+            Object element = iterator.next();
+            CategoryRenderHelper categoryRenderHelper = ((CategoryRenderHelper) element);
+            Iterable iterable2 = ((Iterable) categoryRenderHelper.getArrayList2());
+            Iterator iterator2 = iterable2.iterator();
             while (iterator2.hasNext()) {
-                Object var16 = iterator2.next();
-                CatComponentRenderHelper var17 = (CatComponentRenderHelper) var16;
-                int var18 = 0;
-                if (Intrinsics.areEqual(var17.getModule(), this.module)) {
-                    var17.updateValue();
+                Object element2 = iterator2.next();
+                CatComponentRenderHelper catComponentRenderHelper = ((CatComponentRenderHelper) element2);
+                if (Intrinsics.areEqual(catComponentRenderHelper.getModule(), this.module)) {
+                    catComponentRenderHelper.updateValue();
                 }
             }
         }

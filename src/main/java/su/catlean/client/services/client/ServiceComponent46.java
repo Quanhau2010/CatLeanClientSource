@@ -8,23 +8,23 @@ public class ServiceComponent46 {
     }
 
     public float computeValue(float endPoint, float current, float speed) {
-        float var10 = speed;
-        if (var10 < 0.0F) {
-            if (0L >= 0) {
-                var10 = 0.0F;
-            } else {
-                if (var10 > 1.0F) {
-                    var10 = 1.0F;
+        float factor = speed;
+        if (factor < 0.0F) {
+            if (__UNDEF_KEY__ >= 0) {
+                factor = 0.0F;
+                if (factor > 1.0F) {
+                    factor = 1.0F;
                 }
             }
+        } else {
         }
-        double var12 = (Math.max(endPoint, current) - Math.min(endPoint, current));
-        float var13 = (var12 * var10);
-        return (var13 + var13);
+        double offset = (Math.max(endPoint, current) - Math.min(endPoint, current));
+        double offset2 = (offset * factor);
+        return (offset2 + offset2);
     }
 
     public double computeValue() {
-        return Math.sqrt((1.0D - ((0L - 1.0D) * (0L - 1.0D))));
+        return Math.sqrt((1.0D - ((this - 1.0D) * (this - 1.0D))));
     }
 
     public double computeValue2(Number x) {

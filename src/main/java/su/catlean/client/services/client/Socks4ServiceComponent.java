@@ -10,11 +10,11 @@ public class Socks4ServiceComponent extends MutablePropertyReference0Impl {
     }
 
     public Object get() {
-        return Boolean.valueOf((IdRecord12) this.receiver.isActive());
+        return Boolean.valueOf(((IdRecord12) this.receiver).isActive());
     }
 
     public void set(Object value) {
-        (IdRecord12) this.receiver.updateValue((Boolean) value);
+        ((IdRecord12) this.receiver).updateValue(((Boolean) value));
     }
 
 }

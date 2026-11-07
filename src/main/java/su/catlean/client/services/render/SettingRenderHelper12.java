@@ -31,105 +31,78 @@ public class SettingRenderHelper12 extends SettingRenderHelper16 {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float factor) {
-        long var7 = (0L ^ 49494862758009L);
-        long var9 = (0L ^ 120713713833734L);
-        long var11 = ((0L ^ 20797107207379L) >>> 48);
-        long var12 = (((0L ^ 20797107207379L) << 16) >>> 48);
-        long var13 = (((0L ^ 20797107207379L) << 32) >>> 32);
-        long var14 = (0L ^ 39844814704388L);
-        long var16 = (0L ^ 136713714549074L);
-        long var18 = (0L ^ 114903264084220L);
-        long var20 = (0L ^ 115096991696004L);
-        long var22 = (0L ^ 127000398109451L);
-        long var24 = (0L ^ 120682356120742L);
         if (this.enabledFlag) {
         } else {
         }
-        String var27 = NoneServiceComponent.INSTANCE.resolveString((KeyRecord) this.getVisibleSettingProperty().getObject2().getNumericValue());
-        float var28 = SFMServiceComponent.resolveFontRenderHelper4().computeValue(NoneServiceComponent.INSTANCE.resolveString((KeyRecord) this.getVisibleSettingProperty().getObject2().getNumericValue()));
-        FontRenderHelper.W(SFMServiceComponent.resolveFontRenderHelper3(), context.method_51448(), this.getVisibleSettingProperty().getString2(), this.getNumericValue(), this.getNumericValue2(), NewThemeRenderHelper.INSTANCE.getColor7());
-        float var29 = (((this.getNumericValue() + this.getNumericValue3()) - var28) - 15.0F);
-        float var30 = ((this.getNumericValue() + this.getNumericValue3()) - 7.0F);
-        int var31 = mouseX;
-        if (0L > 0L) {
-            if (var26 != null) {
-                if (var29 <= var31) {
+        String text = NoneServiceComponent.INSTANCE.resolveString(((KeyRecord) this.getVisibleSettingProperty().getObject2()).getNumericValue());
+        float factor2 = SFMServiceComponent.resolveFontRenderHelper4().computeValue(NoneServiceComponent.INSTANCE.resolveString(((KeyRecord) this.getVisibleSettingProperty().getObject2()).getNumericValue()));
+        FontRenderHelper.W(SFMServiceComponent.resolveFontRenderHelper3(), context.method_51448(), this.getVisibleSettingProperty().getString2(), this.getNumericValue(), this.getNumericValue2(), NewThemeRenderHelper.INSTANCE.getColor7(), false);
+        float factor3 = (((this.getNumericValue() + this.getNumericValue3()) - factor2) - 15.0F);
+        float factor4 = ((this.getNumericValue() + this.getNumericValue3()) - 7.0F);
+        int index = mouseX;
+        if (__UNDEF_KEY__ != null) {
+            if (factor3 <= index) {
+                if (__UNDEF_KEY__ != null) {
                 }
-            }
-            if (var26 != null) {
-            }
-        } else {
-        }
-        if (var31 <= var30) {
-            var29 = this.getNumericValue2();
-            var30 = (this.getNumericValue2() + 12.0F);
-            var31 = mouseY;
-            if (0L >= 0L) {
-                if (var26 != null) {
-                    if (var29 <= var31) {
+            } else {
+                if (index <= factor4) {
+                    factor3 = this.getNumericValue2();
+                    factor4 = (this.getNumericValue2() + 12.0F);
+                    index = mouseY;
+                    if (__UNDEF_KEY__ != null) {
+                        if (factor3 <= index) {
+                            if (__UNDEF_KEY__ != null) {
+                            }
+                        } else {
+                            if (index <= factor4) {
+                            } else {
+                            }
+                        }
                     }
+                } else {
                 }
-                if (var26 != null) {
+            }
+        }
+        this.executeAction(0.0F);
+        StackShaderComponent2.executeAction(context.method_51448(), (((this.getNumericValue() + this.getNumericValue3()) - factor2) - 15.0F), this.getNumericValue2(), (factor2 + 8.0F), 12.0F, 3.0F, (2.5F + this.easingServiceComponent.getNumericValue()), 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor11(), NewThemeRenderHelper.INSTANCE.getColor12(), 0.0F, 0.0F, 0.0F);
+        SFMServiceComponent.resolveFontRenderHelper4().render(context, text, (((this.getNumericValue() + this.getNumericValue3()) - (factor2 / 2.0F)) - 11.0F), (this.getNumericValue2() + 5.0F), NewThemeRenderHelper.INSTANCE.getColor7());
+        factor3 = (((this.getNumericValue() + this.getNumericValue3()) - factor2) - 15.0F);
+        factor4 = ((this.getNumericValue() + this.getNumericValue3()) - 7.0F);
+        index = mouseX;
+        if (__UNDEF_KEY__ != null) {
+            if (factor3 <= index) {
+                if (__UNDEF_KEY__ != null) {
                 }
             } else {
             }
-            if (var31 <= var30) {
-            }
-        } else {
         }
-        }
-        1.0F.executeAction(0.0F);
-        StackShaderComponent2.executeAction(context.method_51448(), (((this.getNumericValue() + this.getNumericValue3()) - var28) - 15.0F), this.getNumericValue2(), (var28 + 8.0F), 12.0F, 3.0F, (2.5F + this.easingServiceComponent.getNumericValue()), 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor11(), NewThemeRenderHelper.INSTANCE.getColor12(), 0.0F, 0.0F, 0.0F);
-        SFMServiceComponent.resolveFontRenderHelper4().render(context, (((this.getNumericValue() + this.getNumericValue3()) - (var28 / 2.0F)) - 11.0F), (this.getNumericValue2() + 5.0F), NewThemeRenderHelper.INSTANCE.getColor7());
-        var29 = (((this.getNumericValue() + this.getNumericValue3()) - var28) - 15.0F);
-        var30 = ((this.getNumericValue() + this.getNumericValue3()) - 7.0F);
-        var31 = mouseX;
-        if (0L >= 0L) {
-            if (var26 != null) {
-                if (var29 <= var31) {
+        factor3 = this.getNumericValue2();
+        factor4 = (this.getNumericValue2() + 12.0F);
+        index = mouseY;
+        if (__UNDEF_KEY__ != null) {
+            if (factor3 <= index) {
+                if (__UNDEF_KEY__ != null) {
                 }
+            } else {
             }
-            if (var26 != null) {
-            }
-        } else {
-        }
-        var29 = this.getNumericValue2();
-        var30 = (this.getNumericValue2() + 12.0F);
-        var31 = mouseY;
-        if (0L > 0L) {
-            if (var26 != null) {
-                if (var29 <= var31) {
-                }
-            }
-            if (var26 != null) {
-            }
-        } else {
-        }
-        if (0L > 0L) {
         }
         GLFW.glfwSetCursor(SharedKt.getMc().method_22683().method_4490(), GLFW.glfwCreateStandardCursor(221188));
-        CatleanInterfaceRenderHelper.INSTANCE.updateValue(0);
+        CatleanInterfaceRenderHelper.INSTANCE.updateValue(false);
     }
 
     public void setValue(double mouseX, double mouseY, int button) {
-        long var8 = (0L ^ 115855010917359L);
-        long var10 = (0L ^ 138026233391681L);
-        float var13 = (SFMServiceComponent.resolveFontRenderHelper3().computeValue(this.getVisibleSettingProperty().getString()) + 6.0F);
+        float factor = (SFMServiceComponent.resolveFontRenderHelper3().computeValue(this.getVisibleSettingProperty().getString()) + 6.0F);
         if (this.enabledFlag) {
-            this.getVisibleSettingProperty().updateValue(new KeyRecord(button, 0, 1));
-            this.enabledFlag = 0;
+            this.getVisibleSettingProperty().updateValue(new KeyRecord(button, false, true));
+            this.enabledFlag = false;
             return;
         }
-        float var14 = (((this.getNumericValue() + this.getNumericValue3()) - var13) - 15.0F);
-        if (0L >= 0L && var12 != null) {
-            if (mouseX <= ((this.getNumericValue() + this.getNumericValue3()) - 7.0F)) {
-            }
+        float factor2 = (((this.getNumericValue() + this.getNumericValue3()) - factor) - 15.0F);
+        if (mouseX <= ((this.getNumericValue() + this.getNumericValue3()) - 7.0F)) {
         } else {
         }
-        var14 = this.getNumericValue2();
-        if (0L > 0L && var12 != null) {
-            if (mouseY <= (this.getNumericValue2() + 12.0F)) {
-            }
+        factor2 = this.getNumericValue2();
+        if (mouseY <= (this.getNumericValue2() + 12.0F)) {
         } else {
         }
         this.enabledFlag = !(this.enabledFlag);
@@ -139,13 +112,11 @@ public class SettingRenderHelper12 extends SettingRenderHelper16 {
     }
 
     public void setValue(int key) {
-        int var5 = (((0L << 48) | ((0L << 32) >>> 16)) | ((0L << 48) >>> 48));
-        long var7 = (var5 ^ 30484472853177L);
-        if (0L >= 0) {
-            this.getVisibleSettingProperty().updateValue(new KeyRecord());
-            this.getVisibleSettingProperty().updateValue(new KeyRecord(key, 0, 0));
+        if (__UNDEF_KEY__ >= 0) {
+            this.getVisibleSettingProperty().updateValue(new KeyRecord(0, false, false));
+            this.getVisibleSettingProperty().updateValue(new KeyRecord(key, false, false));
         }
-        this.enabledFlag = 0;
+        this.enabledFlag = false;
     }
 
     public void setValue() {
@@ -156,7 +127,7 @@ public class SettingRenderHelper12 extends SettingRenderHelper16 {
     }
 
     public void setValue() {
-        this.enabledFlag = 0;
+        this.enabledFlag = false;
     }
 
 }

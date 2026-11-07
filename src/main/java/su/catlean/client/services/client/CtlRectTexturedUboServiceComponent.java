@@ -23,7 +23,7 @@ public class CtlRectTexturedUboServiceComponent {
     static {
         INSTANCE = new CtlRectTexturedUboServiceComponent();
         countValue = new Std140SizeCalculator().putVec2().putFloat().putFloat().putVec4().putFloat().putVec4().putFloat().get();
-        minecraftRef = new class_11280(countValue);
+        minecraftRef = new class_11280(countValue, 0);
     }
 
 }

@@ -38,103 +38,92 @@ public class HoleFillerModule extends BlockPlacementModule {
     private static final DefaultValueVisibleSettingPropertyImpl10 preferBlocksSetting;
 
     private HoleFillerModule() {
-        super("hole-filler", SubCategoriesKt.getAttackCategory());
+        super("hole-filler", SubCategoriesKt.getAttackCategory(), 0, false);
     }
 
     private HoleFillerMode getMode() {
-        return (HoleFillerMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((HoleFillerMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private HoleFillerPreferBlocksMode getPreferBlocks() {
-        return (HoleFillerPreferBlocksMode) preferBlocksSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((HoleFillerPreferBlocksMode) preferBlocksSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        BlockPlacementModule.placeBlocks(this, this.resolveList());
+        BlockPlacementModule.placeBlocks(this, this.resolveList(), false, false, null, false);
     }
 
     private List resolveList() {
-        List positions = this.resolveList2();
+        List list = this.resolveList2();
         if (this.getMode() == HoleFillerMode.DEFAULT) {
-            return positions;
+            return list;
         }
-        List<BlockPos> positions2 = new ArrayList();
-        Iterator iterator = positions.iterator();
-        if (iterator.hasNext()) {
-            BlockPos blockPos = (BlockPos) iterator.next();
+        List<BlockPos> list2 = new ArrayList();
+        Iterator iterator = list.iterator();
+        while (iterator.hasNext()) {
+            BlockPos blockPos = ((BlockPos) iterator.next());
             Iterator iterator2 = SharedKt.getWorld().getPlayers().iterator();
-            AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) iterator2.next();
-            if (!(Intrinsics.areEqual(player, SharedKt.getMc().player)) && !(EntityHelper4.isFriend((PlayerEntity) player)) && player.distanceTo(SharedKt.getMc().player) > 12.0F) {
+            AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) iterator2.next());
+            if (!(Intrinsics.areEqual(player, SharedKt.getMc().player)) && !(EntityHelper4.isFriend(((PlayerEntity) player))) && player.distanceTo(SharedKt.getMc().player) > 12.0F) {
             }
             if (player.getY() < blockPos.up().method_10264()) {
             }
-            double var29 = Math.ceil(((TheNetherPacketHelper.f() * 1.5D) / 50.0D));
-            if (var29 <= 0) {
+            double offset = Math.ceil(((TheNetherPacketHelper.f() * 1.5D) / 50.0D));
+            if (offset <= 0) {
                 if (this.resolveMinecraftObject(player).method_1022(blockPos.toCenterPos()) > 2.0D) {
                 }
-                positions2.add(blockPos);
+                list2.add(blockPos);
             }
-            int var30 = 0;
-            Vec3d vec = PlayerEntityHelper2.INSTANCE.predictPosition((PlayerEntity) player);
+            int index = 0;
+            Vec3d vec = PlayerEntityHelper2.INSTANCE.predictPosition(((PlayerEntity) player), index);
             if (vec.method_1022(blockPos.toCenterPos()) > 2.0D) {
             } else {
-                positions2.add(blockPos);
+                list2.add(blockPos);
             }
         }
-        return positions2;
+        return list2;
     }
 
     private List resolveList2() {
-        List positions = new ArrayList();
+        List list = new ArrayList();
         BlockPos blockPos = BlockPos.ofFloored(SharedKt.getPlayer().getEyePos());
-        double var12 = Math.ceil(this.getRange());
-        int var13 = (blockPos.method_10263() - var12);
-        int var14 = (blockPos.method_10263() + var12);
-        if (var13 <= var14) {
-            int var15 = (blockPos.method_10264() - var12);
-            int var16 = (blockPos.method_10264() + var12);
-            if (var15 <= var16) {
-                int var17 = (blockPos.method_10260() - var12);
-                int var18 = (blockPos.method_10260() + var12);
-                if (var17 <= var18) {
-                    BlockPos blockPos2 = new BlockPos();
+        double offset = Math.ceil(this.getRange());
+        int index = (blockPos.method_10263() - offset);
+        int index2 = (blockPos.method_10263() + offset);
+        if (index <= index2) {
+            int index3 = (blockPos.method_10264() - offset);
+            int index4 = (blockPos.method_10264() + offset);
+            if (index3 <= index4) {
+                int index5 = (blockPos.method_10260() - offset);
+                int index6 = (blockPos.method_10260() + offset);
+                if (index5 <= index6) {
+                    BlockPos blockPos2 = new BlockPos(index, index3, index5);
                     if (ServiceComponent102.INSTANCE.checkCondition(blockPos2)) {
-                        positions.add(blockPos2);
+                        list.add(blockPos2);
                     }
-                    if (var17 != var18) {
+                    if (index5 != index6) {
                     }
                 }
-                if (var15 != var16) {
+                if (index3 != index4) {
                 }
             }
-            if (var13 != var14) {
+            if (index != index2) {
             }
         }
-        return positions;
+        return list;
     }
 
-    protected List resolveList(long arg0) {
-        long var3 = (arg0 ^ 57424830627199L);
-        long var5 = ((arg0 ^ 127027046720104L) >>> 32);
-        long var6 = (((arg0 ^ 127027046720104L) << 32) >>> 48);
-        long var7 = (((arg0 ^ 127027046720104L) << 48) >>> 48);
-        long var8 = (arg0 ^ 0L);
-        if (var10 != null) {
-            if (this.getPreferBlocks() == HoleFillerPreferBlocksMode.WEB) {
-                Block[] var11 = new Block[1];
-                var11[0] = Blocks.COBWEB;
-                if (ItemPacketHelper.INSTANCE.resolveStackServiceComponent2().isActive()) {
-                    return CollectionsKt.listOf(Blocks.COBWEB);
-                }
-            }
-        }
-        if (arg0 > 0L && var10 == null) {
+    protected List resolveList() {
+        Block[] items = new Block[1];
+        items[0] = Blocks.COBWEB;
+        if (ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items).isActive()) {
+            return CollectionsKt.listOf(Blocks.COBWEB);
         }
         return this.resolveList();
     }
 
     static {
-        KProperty[] var26 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new HoleFillerModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", HoleFillerMode.AROUND_PLAYERS);
         preferBlocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "prefer", HoleFillerPreferBlocksMode.OBBY);

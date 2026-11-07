@@ -52,42 +52,41 @@ public class RunnableServiceComponent implements Contract9 {
     }
 
     private void onTickEvent(TickEvent arg0) {
-        atomicBoolean.set(1);
+        atomicBoolean.set(true);
     }
 
     private void onPostTickEvent(PostTickEvent arg0) {
-        atomicBoolean.set(0);
+        atomicBoolean.set(false);
     }
 
     public boolean checkCondition() {
         if (!(SharedKt.getMc().method_18854())) {
             if (!(atomicBoolean.get())) {
+            } else {
             }
-        } else {
         }
         return false;
     }
 
     public void onPlayerUpdateEvent(PlayerUpdateEvent e) {
-        itemList = Lists.newArrayList((Iterable) SharedKt.getWorld().getPlayers());
+        itemList = Lists.newArrayList(((Iterable) SharedKt.getWorld().getPlayers()));
     }
 
     public void executeAction(int delay, Function0 runnable) {
-        int var8 = 0;
-        this.getExecutorService().execute((Runnable) new ServiceComponent14(delay, runnable));
+        this.getExecutorService().execute(((Runnable) new ServiceComponent14(delay, runnable)));
     }
 
     public static void executeAction(RunnableServiceComponent arg0, int arg1, Function0 arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = 0;
         }
         arg3 = 0;
-        arg0.getExecutorService().execute((Runnable) new ServiceComponent14(arg1, arg2));
+        arg0.getExecutorService().execute(((Runnable) new ServiceComponent14(arg1, arg2)));
     }
 
     static {
         INSTANCE = new RunnableServiceComponent();
-        atomicBoolean = new AtomicBoolean(0);
+        atomicBoolean = new AtomicBoolean(false);
         executorService = Executors.newVirtualThreadPerTaskExecutor();
         itemList = CollectionsKt.emptyList();
     }

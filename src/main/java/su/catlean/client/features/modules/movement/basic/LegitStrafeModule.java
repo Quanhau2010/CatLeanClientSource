@@ -28,11 +28,11 @@ public class LegitStrafeModule extends Module {
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (SharedKt.getMc().options.field_1894.method_1434()) {
             if (EventPacketHelper2.INSTANCE.checkCondition() && SharedKt.getMc().options.field_1881.method_1434()) {
+            } else {
             }
-        } else {
         }
-        int var18 = 0;
-        SequenceServiceComponent.INSTANCE.executeAction(new MoveFixServiceComponent(EventPacketHelper2.INSTANCE.computeValue(), SharedKt.getPlayer().method_36455(), 0, OptionMode18.FORCE), 0);
+        int index = 0;
+        SequenceServiceComponent.INSTANCE.executeAction(new MoveFixServiceComponent(EventPacketHelper2.INSTANCE.computeValue(), SharedKt.getPlayer().method_36455(), false, OptionMode18.FORCE), 0);
         enabledFlag = 1;
     }
 
@@ -41,12 +41,12 @@ public class LegitStrafeModule extends Module {
             return;
         }
         enabledFlag = 0;
-        float var10 = SharedKt.getPlayer().field_3913.method_3128().field_1342;
-        float var11 = SharedKt.getPlayer().field_3913.method_3128().field_1343;
-        float var12 = ((SharedKt.getPlayer().method_36454() - EventPacketHelper2.INSTANCE.computeValue()) * 0.017453292F);
-        double var13 = Math.cos();
-        double var14 = Math.sin();
-        (ClientInputAccessor) SharedKt.getPlayer().field_3913.setMoveVector(new class_241(MathKt.roundToInt(((var11 * var13) - (var10 * var14))), MathKt.roundToInt(((var10 * var13) + (var11 * var14)))));
+        float factor = SharedKt.getPlayer().field_3913.method_3128().field_1342;
+        float factor2 = SharedKt.getPlayer().field_3913.method_3128().field_1343;
+        float factor3 = ((SharedKt.getPlayer().method_36454() - EventPacketHelper2.INSTANCE.computeValue()) * 0.017453292F);
+        double offset = Math.cos(factor3);
+        double offset2 = Math.sin(factor3);
+        ((ClientInputAccessor) SharedKt.getPlayer().field_3913).setMoveVector(new class_241(MathKt.roundToInt(((factor2 * offset) - (factor * offset2))), MathKt.roundToInt(((factor * offset) + (factor2 * offset2)))));
     }
 
     static {

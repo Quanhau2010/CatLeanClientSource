@@ -18,11 +18,11 @@ public abstract class Event {
     }
 
     public void cancel() {
-        this.cancelled = 1;
+        this.cancelled = true;
     }
 
     public boolean call() {
-        this.cancelled = 0;
+        this.cancelled = false;
         Gofra.INSTANCE.drain(this);
         return this.cancelled;
     }

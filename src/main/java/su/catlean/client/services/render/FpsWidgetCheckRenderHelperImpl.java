@@ -16,16 +16,13 @@ public class FpsWidgetCheckRenderHelperImpl extends CheckRenderHelper {
     }
 
     public void render(DrawContext context) {
-        long var4 = (0L ^ 73719739740194L);
-        long var6 = (0L ^ 116853176505585L);
-        if ((Boolean) SharedKt.getMc().options.method_42433().method_41753()) {
+        if (((Boolean) SharedKt.getMc().options.method_42433().method_41753())) {
         } else {
         }
         context.render(countValue, ("v-sync" + "fps"));
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 38798774274332L);
+    public void updateValue() {
         countValue = EventServiceComponent.INSTANCE.getNumericValue();
     }
 

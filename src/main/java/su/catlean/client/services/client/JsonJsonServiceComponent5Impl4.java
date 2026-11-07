@@ -63,189 +63,145 @@ public class JsonJsonServiceComponent5Impl4 extends JsonServiceComponent5 {
         this.itemList = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 93109896899108L);
-        long var5 = ((arg0 ^ 35176628724501L) >>> 32);
-        long var6 = (((arg0 ^ 35176628724501L) << 32) >>> 48);
-        long var7 = (((arg0 ^ 35176628724501L) << 48) >>> 48);
-        long var8 = ((arg0 ^ 57321926096347L) >>> 32);
-        long var9 = (((arg0 ^ 57321926096347L) << 32) >>> 48);
-        long var10 = (((arg0 ^ 57321926096347L) << 48) >>> 48);
-        long var11 = (arg0 ^ 131961657424154L);
-        long var13 = (arg0 ^ 38802389819421L);
+    public void updateValue() {
         this.getFile().mkdirs();
-        Object var33 = this;
-        JsonServiceComponent5 var16 = this;
-        Object var34 = var33;
-        int var17 = 0;
-        if (var15 == null) {
-            if (var16.getFile().exists()) {
-                if (var15 == null) {
-                }
-                if (!(var16.getFile().isDirectory())) {
-                }
-            }
-        }
-        File[] var18 = var16.getFile().listFiles();
-        if (var15 == null) {
-            if (var18 != null) {
-            }
-            Object var19 = var18;
-            int var20 = 0;
-            Object var21 = var19;
-            Collection var22 = (Collection) new ArrayList();
-            int var23 = 0;
-            int var24 = 0;
-            Object var25 = var21;
-            if (var24 < var25) {
-                Object var26 = var21[var24];
-                Object var27 = var26;
-                int var28 = 0;
-                if (arg0 > 0L) {
-                    if (var15 == null) {
-                    }
-                    if (arg0 >= 0L) {
-                        if (var15 == null) {
-                            if (Intrinsics.areEqual(FilesKt.getExtension(), "ctlon")) {
-                                var22.add();
-                            }
-                        }
-                    }
-                }
-                var20 = (Iterable) var22;
-                var21 = 0;
-                var22 = var20;
-                var23 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-                var24 = 0;
-                if (arg0 >= 0L) {
-                    var25 = var22.iterator();
-                    if (var25.hasNext()) {
-                        var26 = var25.next();
-                        var27 = (File) var26;
-                        Object var29 = var23;
-                        var28 = 0;
-                        Json var30 = JsonServiceComponent5.S();
-                        String var31 = FilesKt.readText$default(null, 1, null);
-                        int var32 = 0;
-                        var30.getSerializersModule();
-                        var29.add(var30.decodeFromString((DeserializationStrategy) IdRecord8.serviceComponent32.getKSerializer()));
-                        if (arg0 > 0L) {
-                            if (var15 == null) {
-                            }
-                        }
-                        var20 = CollectionsKt.toMutableList((Collection) var23);
-                        if (var15 == null) {
-                            if (var20 != null) {
-                            }
-                        }
+        Object element = this;
+        JsonServiceComponent5 jsonServiceComponent5 = this;
+        int index = 0;
+        if (__UNDEF_KEY__ == null) {
+            if (jsonServiceComponent5.getFile().exists()) {
+                if (__UNDEF_KEY__ == null) {
+                    if (!(jsonServiceComponent5.getFile().isDirectory())) {
                     }
                 }
             }
-        } else {
         }
+        File[] items = jsonServiceComponent5.getFile().listFiles();
+        if (__UNDEF_KEY__ == null) {
+            if (items != null) {
+                File[] items2 = items;
+                int index2 = 0;
+                File[] items3 = items2;
+                Collection collection = ((Collection) new ArrayList());
+                int index3 = 0;
+                int index4 = 0;
+                File[] items4 = items3;
+                if (index4 < items4) {
+                    Object element2 = items3[index4];
+                    Object element3 = element2;
+                    if (__UNDEF_KEY__ == null) {
+                        if (__UNDEF_KEY__ == null) {
+                            if (Intrinsics.areEqual(FilesKt.getExtension(element3), "ctlon")) {
+                                collection.add(element2);
+                            }
+                        }
+                        index2 = ((Iterable) collection);
+                        items3 = 0;
+                        collection = index2;
+                        index3 = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(index2, 10)));
+                        index4 = 0;
+                        items4 = collection.iterator();
+                        while (items4.hasNext()) {
+                            element2 = items4.next();
+                            element3 = ((File) element2);
+                            Json json = JsonServiceComponent5.S(jsonServiceComponent5);
+                            String text = FilesKt.readText$default(element3);
+                            json.getSerializersModule();
+                            index3.add(json.decodeFromString(((DeserializationStrategy) IdRecord8.serviceComponent32.getKSerializer()), text));
+                            if (__UNDEF_KEY__ == null) {
+                                index2 = CollectionsKt.toMutableList(((Collection) index3));
+                                if (__UNDEF_KEY__ == null) {
+                                    if (index2 != null) {
+                                    } else {
+                                    }
+                                }
+                            } else {
+                            }
+                        }
+                    } else {
+                    }
+                }
+            } else {
+            }
         }
-        }
-        }
-        }
-        var16 = new ArrayList();
-        var17 = var34;
+        jsonServiceComponent5 = new ArrayList();
+        index = element;
         SharedKt.getLogger().warn("Widgets are not loaded from file for some reasons.");
-        var16 = new ArrayList();
-        var33.executeAction();
-        var17 = (Iterable) this.resolveList();
-        var33 = this;
-        var18 = 0;
-        var19 = var17.iterator();
-        if (var19.hasNext()) {
-            var20 = var19.next();
-            var21 = (IdRecord8) var20;
-            var22 = 0;
-        } else {
+        jsonServiceComponent5 = new ArrayList();
+        element.executeAction(jsonServiceComponent5);
+        index = ((Iterable) this.resolveList());
+        element = this;
+        items = 0;
+        items2 = index.iterator();
+        while (items2.hasNext()) {
+            index2 = items2.next();
+            items3 = ((IdRecord8) index2);
+            collection = 0;
         }
-        if (var15 == null) {
-            if ((IdRecord8) null == null) {
+        if (__UNDEF_KEY__ == null) {
+            if (((IdRecord8) null) == null) {
+                index = new IdRecord8(this.jsonServiceComponent4.resolveModulesConfigRecord().getString2());
+                items = index;
+                items2 = 0;
+                this.resolveList().add(items);
             }
-            var17 = new IdRecord8(this.jsonServiceComponent4.resolveModulesConfigRecord().getString2());
-            var18 = var17;
-            var19 = 0;
-            this.resolveList().add();
         }
-        var33.executeAction();
+        element.executeAction(index);
     }
 
-    public void executeAction(int arg0, int arg1, byte arg2) {
-        int var4 = (((arg0 << 32) | ((arg1 << 40) >>> 32)) | ((arg2 << 56) >>> 56));
-        long var6 = ((var4 ^ 15103071977056L) >>> 32);
-        long var7 = (((var4 ^ 15103071977056L) << 32) >>> 48);
-        long var8 = (((var4 ^ 15103071977056L) << 48) >>> 48);
-        Iterable var10 = (Iterable) this.resolveList();
-        int var11 = 0;
-        Iterator iterator = var10.iterator();
-        if (iterator.hasNext()) {
-            Object var13 = iterator.next();
-            IdRecord8 var14 = (IdRecord8) var13;
-            int var15 = 0;
-            File var16 = new File(this.getFile(), (var14.getString() + ".ctlon"));
-            Object var17 = var16;
-            int var18 = 0;
-            var17.createNewFile();
-            Object var19 = var16;
-            var16 = this.getJson();
-            var17 = var14;
-            var18 = 0;
-            var16.getSerializersModule();
-            FilesKt.writeText$default(var16.encodeToString((SerializationStrategy) IdRecord8.serviceComponent32.getKSerializer()));
-            if (arg1 > 0) {
+    public void executeAction(int arg0) {
+        Iterable iterable = ((Iterable) this.resolveList());
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            IdRecord8 idRecord8 = ((IdRecord8) element);
+            File file = new File(this.getFile(), (idRecord8.getString() + ".ctlon"));
+            File file2 = file;
+            file2.createNewFile();
+            file = this.getJson();
+            file2 = idRecord8;
+            file.getSerializersModule();
+            FilesKt.writeText$default(file, file.encodeToString(((SerializationStrategy) IdRecord8.serviceComponent32.getKSerializer()), file2));
+            if (arg0 > 0) {
             }
         }
     }
 
     public void executeAction(List widgets, String id) {
-        Iterable var21 = (Iterable) this.resolveList();
-        int var22 = 0;
-        Iterator iterator = var21.iterator();
-        if (iterator.hasNext()) {
-            Object var24 = iterator.next();
-            IdRecord8 var25 = (IdRecord8) var24;
-            int var26 = 0;
-        } else {
+        Iterable iterable = ((Iterable) this.resolveList());
+        int index = 0;
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            IdRecord8 idRecord8 = ((IdRecord8) element);
+            int index2 = 0;
         }
-        if ((IdRecord8) null == null) {
+        if (((IdRecord8) null) == null) {
         }
-        IdRecord8 var19 = new IdRecord8(id);
-        Iterable var20 = (Iterable) widgets;
-        Object var40 = var19;
-        var21 = 0;
-        var22 = var20;
-        iterator = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        var24 = 0;
-        var25 = var22.iterator();
-        if (var25.hasNext()) {
-            var26 = var25.next();
-            CheckRenderHelper var27 = (CheckRenderHelper) var26;
-            Object var41 = iterator;
-            int var28 = 0;
-            Iterable var29 = (Iterable) var27.getList();
-            String var30 = var27.getString();
-            int var31 = 0;
-            Object var32 = var29;
-            Collection var33 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-            int var34 = 0;
-            Iterator iterator2 = var32.iterator();
-            if (iterator2.hasNext()) {
-                Object var36 = iterator2.next();
-                VisibleSettingProperty var37 = (VisibleSettingProperty) var36;
-                Object var38 = var33;
-                int var39 = 0;
-                var38.add(new IdRecord10(var37.getString(), var37.toString()));
+        IdRecord8 idRecord82 = new IdRecord8(id);
+        Iterable iterable2 = ((Iterable) widgets);
+        iterable = 0;
+        index = iterable2;
+        iterator = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable2, 10)));
+        element = 0;
+        idRecord8 = index.iterator();
+        while (idRecord8.hasNext()) {
+            index2 = idRecord8.next();
+            CheckRenderHelper checkRenderHelper = ((CheckRenderHelper) index2);
+            Iterable iterable3 = ((Iterable) checkRenderHelper.getList());
+            String text = checkRenderHelper.getString();
+            Collection collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable3, 10)));
+            Iterator iterator2 = iterable3.iterator();
+            while (iterator2.hasNext()) {
+                Object element2 = iterator2.next();
+                VisibleSettingProperty visibleSettingProperty = ((VisibleSettingProperty) element2);
+                collection.add(new IdRecord10(visibleSettingProperty.getString(), visibleSettingProperty.toString()));
             }
-            List positions = var33;
-            Object var43 = var30;
-            var41.add(new IdRecord5(positions));
+            iterator.add(new IdRecord5(text, collection));
         }
-        var40.executeAction(iterator);
+        idRecord82.executeAction(iterator);
         this.resolveList().removeIf(this::checkCondition);
-        this.resolveList().add();
+        this.resolveList().add(idRecord82);
     }
 
     private static boolean checkCondition(String arg0, IdRecord8 arg1) {
@@ -253,7 +209,7 @@ public class JsonJsonServiceComponent5Impl4 extends JsonServiceComponent5 {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     public static void updateValue(String[] arg0) {

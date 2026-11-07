@@ -7,11 +7,11 @@ public class SpeedMineRenderModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[SpeedMineRenderMode.values()];
-        var0[SpeedMineRenderMode.Block.ordinal()] = 1;
-        var0[SpeedMineRenderMode.Grow.ordinal()] = 2;
-        var0[SpeedMineRenderMode.Shrink.ordinal()] = 3;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[SpeedMineRenderMode.values()];
+        element[SpeedMineRenderMode.Block.ordinal()] = 1;
+        element[SpeedMineRenderMode.Grow.ordinal()] = 2;
+        element[SpeedMineRenderMode.Shrink.ordinal()] = 3;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

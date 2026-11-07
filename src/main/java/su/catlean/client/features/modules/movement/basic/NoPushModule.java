@@ -46,7 +46,7 @@ public class NoPushModule extends Module {
     }
 
     private boolean getBlocks() {
-        return (Boolean) blocksSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) blocksSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setBlocks(boolean value) {
@@ -54,7 +54,7 @@ public class NoPushModule extends Module {
     }
 
     private boolean getEntities() {
-        return (Boolean) entitiesSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) entitiesSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setEntities(boolean value) {
@@ -62,7 +62,7 @@ public class NoPushModule extends Module {
     }
 
     private boolean getWater() {
-        return (Boolean) waterSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) waterSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setWater(boolean value) {
@@ -70,7 +70,7 @@ public class NoPushModule extends Module {
     }
 
     private boolean getFishingHook() {
-        return (Boolean) fishingHookSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) fishingHookSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setFishingHook(boolean value) {
@@ -78,7 +78,7 @@ public class NoPushModule extends Module {
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        FishingBobberEntity entity = (FishingBobberEntity) (class_2663) arg0.getPacket().method_11469((World) SharedKt.getWorld());
+        FishingBobberEntity entity = ((FishingBobberEntity) ((class_2663) arg0.getPacket()).method_11469(((World) SharedKt.getWorld())));
         arg0.cancel();
     }
 
@@ -86,14 +86,14 @@ public class NoPushModule extends Module {
         if (!(this.getWater()) || SharedKt.getMc().world == null || SharedKt.getMc().player == null) {
             return;
         }
-        class_2339 var11 = new class_2339();
+        class_2339 class2339 = new class_2339();
         Vec3d vec = Vec3d.ZERO;
-        if ((Boolean) arg0.getState().method_11654((class_2769) class_3609.field_15902)) {
+        if (((Boolean) arg0.getState().method_11654(((class_2769) class_3609.field_15902)))) {
             Iterator iterator = class_2353.field_11062.iterator();
             while (iterator.hasNext()) {
-                Direction var14 = (Direction) iterator.next();
-                var11.method_25505((class_2382) arg0.getPos());
-                if (!(this.checkCondition(arg0.getFluid(), (BlockPos) var11)) && !(this.checkCondition(arg0.getFluid(), var11.up()))) {
+                Direction direction = ((Direction) iterator.next());
+                class2339.method_25505(((class_2382) arg0.getPos()), direction);
+                if (!(this.checkCondition(arg0.getFluid(), ((BlockPos) class2339), direction)) && !(this.checkCondition(arg0.getFluid(), class2339.up(), direction))) {
                 }
                 vec = vec.method_1029().method_1031(0.0D, -6.0D, 0.0D);
             }
@@ -112,7 +112,6 @@ public class NoPushModule extends Module {
 
     private boolean checkCondition(class_3611 arg0, BlockPos arg1, Direction arg2) {
         BlockState state = SharedKt.getWorld().getBlockState(arg1);
-        int var10 = 0;
         if (SharedKt.getWorld().method_8316(arg1).method_15772().method_15780(arg0)) {
         } else {
             if (arg2 == Direction.UP) {
@@ -122,16 +121,16 @@ public class NoPushModule extends Module {
                 }
             }
         }
-        return state.method_26206((class_1922) SharedKt.getWorld(), arg1, arg2);
+        return state.method_26206(((class_1922) SharedKt.getWorld()), arg1, arg2);
     }
 
     static {
-        KProperty[] var26 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new NoPushModule();
-        blocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks");
-        entitiesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "entities");
-        waterSetting = VisibleRenderHelper.registerSetting(INSTANCE, "liquids");
-        fishingHookSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fishing-hook");
+        blocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks", true);
+        entitiesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "entities", true);
+        waterSetting = VisibleRenderHelper.registerSetting(INSTANCE, "liquids", true);
+        fishingHookSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fishing-hook", true);
     }
 
 }

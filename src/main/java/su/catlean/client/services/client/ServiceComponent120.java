@@ -8,7 +8,7 @@ public class ServiceComponent120 {
     private static String textValue;
 
     static {
-        enumEntries = EnumEntriesKt.enumEntries((Enum[]) Direction.values());
+        enumEntries = EnumEntriesKt.enumEntries(((Enum[]) Direction.values()));
     }
 
     public static void updateValue(String arg0) {

@@ -5,7 +5,7 @@ import su.catlean.client.services.client.config.models.KeyRecord;
 
 public interface Contract8 {
 
-    public static final ServiceComponent20 serviceComponent20;
+    public static final ServiceComponent20 serviceComponent20 = null;
 
     public String getString();
 
@@ -18,9 +18,5 @@ public interface Contract8 {
     public boolean isActive();
 
     public void updateValue(boolean arg0);
-
-    static {
-        serviceComponent20 = ServiceComponent20.INSTANCE;
-    }
 
 }

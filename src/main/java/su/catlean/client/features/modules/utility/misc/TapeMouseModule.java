@@ -36,15 +36,15 @@ public class TapeMouseModule extends Module {
     }
 
     private TapeMouseMode getMode() {
-        return (TapeMouseMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((TapeMouseMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private int getRandomize() {
-        return (Number) randomizeSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) randomizeSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     public void onRender2DEvent(Render2DEvent event) {
@@ -52,29 +52,29 @@ public class TapeMouseModule extends Module {
             return;
         }
         if (this.getMode() == TapeMouseMode.LEFT) {
-            if (var23 instanceof class_3966) {
-                SharedKt.getInteractionManager().method_2918((PlayerEntity) SharedKt.getPlayer(), (class_3966) var23.method_17782());
+            if (__UNDEF_KEY__ instanceof class_3966) {
+                SharedKt.getInteractionManager().method_2918(((PlayerEntity) SharedKt.getPlayer()), this.method_17782());
             }
-            if (var23 instanceof class_3965 && !(SharedKt.getWorld().method_22347((class_3965) var23.method_17777()))) {
-                SharedKt.getInteractionManager().method_2910((class_3965) var23.method_17777(), (class_3965) var23.method_17780());
+            if (__UNDEF_KEY__ instanceof class_3965 && !(SharedKt.getWorld().method_22347(this.method_17777()))) {
+                SharedKt.getInteractionManager().method_2910(this.method_17777(), this.method_17780());
             }
             SharedKt.getPlayer().method_6104(Hand.field_5808);
         } else {
-            if (var23 instanceof class_3966) {
-                SharedKt.getInteractionManager().method_2905((PlayerEntity) SharedKt.getPlayer(), (class_3966) var23.method_17782(), Hand.field_5808);
+            if (__UNDEF_KEY__ instanceof class_3966) {
+                SharedKt.getInteractionManager().method_2905(((PlayerEntity) SharedKt.getPlayer()), this.method_17782(), Hand.field_5808);
             } else {
-                SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808, (class_3965) var23);
+                SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808);
                 SharedKt.getPlayer().method_6104(Hand.field_5808);
             }
         }
     }
 
     static {
-        KProperty[] var28 = new KProperty[3];
+        KProperty[] items = new KProperty[3];
         INSTANCE = new TapeMouseModule();
-        modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "button", TapeMouseMode.LEFT, null, null, -2368371342132117492L);
-        delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", -3564021479207075240L, new IntRange(0, 6670998643585066768L), null, null, 2492425579781947416L);
-        randomizeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "randomize", -1516698010443055054L, new IntRange(0, 4379099134028687120L), null, null, 4038114593703198744L);
+        modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "button", TapeMouseMode.LEFT);
+        delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 600, new IntRange(0, 10000));
+        randomizeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "randomize", 50, new IntRange(0, 10000));
         serviceComponent10 = new ServiceComponent10();
     }
 

@@ -57,7 +57,7 @@ public class SoilRipperModule extends Module {
     }
 
     private WindHopSwitchMode getSwitchMode() {
-        return (WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSwitchMode(WindHopSwitchMode value) {
@@ -65,7 +65,7 @@ public class SoilRipperModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setDelay(int value) {
@@ -73,44 +73,39 @@ public class SoilRipperModule extends Module {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        Iterable var26 = (Iterable) VecPacketHelper.INSTANCE.resolveList();
-        int var27 = 0;
-        Object var28 = var26;
-        Collection var29 = (Collection) new ArrayList();
-        int var30 = 0;
-        Iterator iterator = var28.iterator();
+        Iterable iterable = ((Iterable) VecPacketHelper.INSTANCE.resolveList());
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var32 = iterator.next();
-            BlockPos blockPos = (BlockPos) var32;
-            int var34 = 0;
-            Block var35 = SharedKt.getWorld().getBlockState(blockPos).getBlock();
-            Block var36 = SharedKt.getWorld().getBlockState(blockPos.up()).getBlock();
-            if (!(Intrinsics.areEqual(Blocks.field_10219)) && !(Intrinsics.areEqual(Blocks.field_10566))) {
+            Object element = iterator.next();
+            BlockPos blockPos = ((BlockPos) element);
+            Block block = SharedKt.getWorld().getBlockState(blockPos).getBlock();
+            Block block2 = SharedKt.getWorld().getBlockState(blockPos.up()).getBlock();
+            if (!(Intrinsics.areEqual(block, Blocks.field_10219)) && !(Intrinsics.areEqual(block, Blocks.field_10566))) {
             }
-            var29.add();
+            collection.add(element);
         }
-        var26 = (Iterable) var29;
-        var27 = 0;
-        var28 = var26;
-        var29 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        var30 = 0;
-        iterator = var28.iterator();
+        iterable = ((Iterable) collection);
+        index = 0;
+        iterable2 = iterable;
+        collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable, 10)));
+        iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            var32 = iterator.next();
-            blockPos = (BlockPos) var32;
-            Object var37 = var29;
-            var34 = 0;
-            var37.add(new class_3965(blockPos.toCenterPos().method_1031(0.0D, 0.5D, 0.0D), Direction.UP, blockPos, 0));
+            element = iterator.next();
+            blockPos = ((BlockPos) element);
+            collection.add(new class_3965(blockPos.toCenterPos().method_1031(0.0D, 0.5D, 0.0D), Direction.UP, blockPos, false));
         }
-        var26 = (Iterable) var29;
-        var27 = 0;
-        List positions = CollectionsKt.sortedWith((Comparator) new Comparator21());
-        var26 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
-        if (!(serviceComponent38.checkCondition(this.getDelay())) || positions.isEmpty() || !(var26.isActive())) {
+        iterable = ((Iterable) collection);
+        index = 0;
+        List list = CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator21()));
+        iterable = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
+        if (!(serviceComponent38.checkCondition(this.getDelay())) || list.isEmpty() || !(iterable.isActive())) {
             return;
         }
-        var27 = (class_3965) CollectionsKt.first(positions);
-        SequenceServiceComponent.INSTANCE.executeAction((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var27.method_17784()), 0, this::resolveUnit));
+        index = ((class_3965) CollectionsKt.first(list));
+        SequenceServiceComponent.INSTANCE.executeAction(((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(index.method_17784()), 0, this::resolveUnit)));
     }
 
     private static boolean checkCondition(ItemStack arg0) {
@@ -129,7 +124,7 @@ public class SoilRipperModule extends Module {
     }
 
     static {
-        KProperty[] var31 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new SoilRipperModule();
         switchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch", WindHopSwitchMode.SILENT_FULL);
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 0, new IntRange(0, 10));

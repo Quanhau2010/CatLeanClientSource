@@ -22,40 +22,38 @@ public class WayPointsRecordSerializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, WayPointsRecord value) {
-        SerialDescriptor var5 = serialDescriptor;
-        CompositeEncoder var6 = encoder.beginStructure();
-        WayPointsRecord.executeAction(value);
-        var6.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        WayPointsRecord.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public WayPointsRecord resolveWayPointsRecord(Decoder decoder) {
-        SerialDescriptor var10 = serialDescriptor;
-        int var11 = 1;
-        int var13 = 0;
-        CompositeDecoder var15 = decoder.beginStructure();
-        Lazy[] var16 = WayPointsRecord.process();
-        if (var9 != null) {
-            if (var15.decodeSequentially()) {
-            }
-            List positions = var15.decodeSerializableElement(0, (DeserializationStrategy) var16[0].getValue());
-            if (0L >= 0) {
-                var13 = (var13 | 1);
-            }
-        }
-        if (var9 == null && var11) {
-            int var12 = var15.decodeElementIndex();
-            if (var9 != null) {
-                if (var9 != null) {
-                }
-                var11 = 0;
-                if (0L >= 0) {
-                    positions = var15.decodeSerializableElement(0, (DeserializationStrategy) var16[0].getValue(), positions);
-                    var13 = (var13 | 1);
+        int index = 1;
+        int index2 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        Lazy[] items = WayPointsRecord.process();
+        if (__UNDEF_KEY__ != null) {
+            if (compositeDecoder.decodeSequentially()) {
+                List list = compositeDecoder.decodeSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) items[0].getValue()));
+                if (__UNDEF_KEY__ >= 0) {
+                    index2 = (index2 | 1);
                 }
             }
-            var15.endStructure();
         }
-        return new WayPointsRecord(positions, null);
+        if (__UNDEF_KEY__ == null && index) {
+            int index3 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
+                }
+                index = 0;
+                if (__UNDEF_KEY__ >= 0) {
+                    list = compositeDecoder.decodeSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) items[0].getValue()), list);
+                    index2 = (index2 | 1);
+                }
+                compositeDecoder.endStructure(serialDescriptor);
+            }
+        }
+        return new WayPointsRecord(index2, list, null);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -63,10 +61,10 @@ public class WayPointsRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        Lazy[] var1 = WayPointsRecord.process();
-        KSerializer[] var2 = new KSerializer[1];
-        var2[0] = var1[0].getValue();
-        return var2;
+        Lazy[] items = WayPointsRecord.process();
+        KSerializer[] items2 = new KSerializer[1];
+        items2[0] = items[0].getValue();
+        return items2;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -74,7 +72,7 @@ public class WayPointsRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (WayPointsRecord) value);
+        this.executeAction(encoder, ((WayPointsRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -83,9 +81,9 @@ public class WayPointsRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new WayPointsRecordSerializer();
-        PluginGeneratedSerialDescriptor var11 = new PluginGeneratedSerialDescriptor("su.catlean.js", (GeneratedSerializer) INSTANCE, 1);
-        var11.addElement("wayPoints", 0);
-        serialDescriptor = (SerialDescriptor) var11;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.js", ((GeneratedSerializer) INSTANCE), 1);
+        pluginGeneratedSerialDescriptor.addElement("wayPoints", false);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

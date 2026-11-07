@@ -27,7 +27,7 @@ public class ShouldRenderEntityEvent extends Event {
     }
 
     public boolean call(Entity entity) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         this.setEntity(entity);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

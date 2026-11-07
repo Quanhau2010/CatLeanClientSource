@@ -30,13 +30,12 @@ public class SettingRenderHelper3 extends TitleRenderHelperImpl {
     }
 
     protected List resolveList() {
-        List positions = new ArrayList();
-        CollectionsKt.addAll((Collection) positions, (Iterable) class_7923.field_41175);
-        positions.remove(Blocks.AIR);
-        Iterable var4 = (Iterable) positions;
-        int var5 = 0;
-        CollectionsKt.sortedWith((Comparator) new Comparator18());
-        return positions;
+        List list = new ArrayList();
+        CollectionsKt.addAll(((Collection) list), ((Iterable) class_7923.field_41175));
+        list.remove(Blocks.AIR);
+        Iterable iterable = ((Iterable) list);
+        CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator18()));
+        return list;
     }
 
     protected String resolveString(Block item) {
@@ -44,7 +43,7 @@ public class SettingRenderHelper3 extends TitleRenderHelperImpl {
     }
 
     protected boolean checkCondition(Block item) {
-        return (BlocksServiceComponent) this.visibleSettingProperty.getObject2().getList().contains(item);
+        return ((BlocksServiceComponent) this.visibleSettingProperty.getObject2()).getList().contains(item);
     }
 
     public void render(DrawContext context, float x, float y, Block block) {
@@ -55,38 +54,29 @@ public class SettingRenderHelper3 extends TitleRenderHelperImpl {
     }
 
     protected void setValue(Block item) {
-        List positions = (BlocksServiceComponent) this.visibleSettingProperty.getObject2().getList();
-        int var6 = 0;
-        if (!(var4)) {
-            if (positions.contains(item)) {
+        List list = ((BlocksServiceComponent) this.visibleSettingProperty.getObject2()).getList();
+        if (!(__UNDEF_KEY__)) {
+            if (list.contains(item)) {
             } else {
             }
         }
-        positions.add(item);
+        list.add(item);
     }
 
     public String resolveString(Object item) {
-        long var4 = (0L ^ 5115181560600L);
-        return this.resolveString((Block) item);
+        return this.resolveString(((Block) item));
     }
 
     public boolean checkCondition(Object item) {
-        long var4 = ((0L ^ 83392101042522L) >>> 48);
-        long var5 = (((0L ^ 83392101042522L) << 16) >>> 32);
-        long var6 = (((0L ^ 83392101042522L) << 48) >>> 48);
-        return this.checkCondition((Block) item);
+        return this.checkCondition(((Block) item));
     }
 
     public void render(DrawContext context, float x, float y, Object component) {
-        long var7 = ((0L ^ 93427562403384L) >>> 32);
-        long var8 = (((0L ^ 93427562403384L) << 32) >>> 48);
-        long var9 = (((0L ^ 93427562403384L) << 48) >>> 48);
-        this.render(context, x, y, (Block) component);
+        this.render(context, x, y, ((Block) component));
     }
 
     public void setValue(Object item) {
-        long var4 = (0L ^ 119614146666790L);
-        this.setValue((Block) item);
+        this.setValue(((Block) item));
     }
 
 }

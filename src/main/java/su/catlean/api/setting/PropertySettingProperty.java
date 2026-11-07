@@ -15,12 +15,9 @@ public class PropertySettingProperty extends ObservableProperty {
     }
 
     protected void afterChange(KProperty property, Object oldValue, Object newValue) {
-        Object var14 = newValue;
-        Object var15 = oldValue;
-        int var16 = 0;
-        if (!(Intrinsics.areEqual())) {
+        if (!(Intrinsics.areEqual(oldValue, newValue))) {
             if (this.enabledFlag) {
-                this.executeAction(null, null, AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE, (Long) var14.longValue());
+                this.executeAction(null, null, AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE, ((Long) newValue).longValue());
             }
             AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE.executeAction(AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE.resolveDetailsRecord());
         }

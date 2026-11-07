@@ -1,7 +1,5 @@
 package su.catlean.client.services.client;
 
-import java.util.concurrent.ThreadLocalRandom;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import su.catlean.client.features.modules.Module;
 
 public class ServiceComponent96 {
@@ -29,31 +27,6 @@ public class ServiceComponent96 {
         this.factorValue7 = spinSpeed;
         this.countValue = lifeTime;
         this.countValue2 = age;
-    }
-
-    public ServiceComponent96(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5, boolean arg6, float arg7, int arg8, int arg9, int arg10, DefaultConstructorMarker arg11) {
-        if ((arg10 & 2)) {
-            arg1 = arg0;
-        }
-        if ((arg10 & 16)) {
-            arg4 = 0.0F;
-        }
-        if ((arg10 & 32)) {
-            arg5 = 0.0F;
-        }
-        if ((arg10 & 64)) {
-            arg6 = 1;
-        }
-        if ((arg10 & 128)) {
-            arg7 = (1.5F + (ThreadLocalRandom.current().nextFloat() * 1.0F));
-        }
-        if ((arg10 & 256)) {
-            arg8 = ThreadLocalRandom.current().nextInt(15, 35);
-        }
-        if ((arg10 & 512)) {
-            arg9 = 0;
-        }
-        this(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
     }
 
     public float getNumericValue() {
@@ -169,34 +142,34 @@ public class ServiceComponent96 {
     }
 
     public static ServiceComponent96 resolveServiceComponent96(ServiceComponent96 arg0, float arg1, float arg2, float arg3, float arg4, float arg5, float arg6, boolean arg7, float arg8, int arg9, int arg10, int arg11, Object arg12) {
-        if ((arg11 & 1)) {
+        if ((arg11 & 1) != 0) {
             arg1 = arg0.factorValue;
         }
-        if ((arg11 & 2)) {
+        if ((arg11 & 2) != 0) {
             arg2 = arg0.factorValue2;
         }
-        if ((arg11 & 4)) {
+        if ((arg11 & 4) != 0) {
             arg3 = arg0.factorValue3;
         }
-        if ((arg11 & 8)) {
+        if ((arg11 & 8) != 0) {
             arg4 = arg0.factorValue4;
         }
-        if ((arg11 & 16)) {
+        if ((arg11 & 16) != 0) {
             arg5 = arg0.factorValue5;
         }
-        if ((arg11 & 32)) {
+        if ((arg11 & 32) != 0) {
             arg6 = arg0.factorValue6;
         }
-        if ((arg11 & 64)) {
+        if ((arg11 & 64) != 0) {
             arg7 = arg0.enabledFlag;
         }
-        if ((arg11 & 128)) {
+        if ((arg11 & 128) != 0) {
             arg8 = arg0.factorValue7;
         }
-        if ((arg11 & 256)) {
+        if ((arg11 & 256) != 0) {
             arg9 = arg0.countValue;
         }
-        if ((arg11 & 512)) {
+        if ((arg11 & 512) != 0) {
             arg10 = arg0.countValue2;
         }
         if (arg0.resolveServiceComponent96(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10) != null) {
@@ -205,33 +178,33 @@ public class ServiceComponent96 {
     }
 
     public String toString() {
-        int var3 = this.countValue2;
-        int var4 = this.countValue;
-        float var5 = this.factorValue7;
-        boolean var6 = this.enabledFlag;
-        float var7 = this.factorValue6;
-        float var8 = this.factorValue5;
-        float var9 = this.factorValue4;
-        float var10 = this.factorValue3;
-        float var11 = this.factorValue2;
-        float var12 = this.factorValue;
-        return ("Particle3D(yaw=" + var12 + ", prevYaw=" + var11 + ", pitch=" + var10 + ", radius=" + var9 + ", alpha=" + var8 + ", prevAlpha=" + var7 + ", fadeIn=" + var6 + ", spinSpeed=" + var5 + ", lifeTime=" + var4 + ", age=" + var3 + ")");
+        int index = this.countValue2;
+        int index2 = this.countValue;
+        float factor = this.factorValue7;
+        boolean flag = this.enabledFlag;
+        float factor2 = this.factorValue6;
+        float factor3 = this.factorValue5;
+        float factor4 = this.factorValue4;
+        float factor5 = this.factorValue3;
+        float factor6 = this.factorValue2;
+        float factor7 = this.factorValue;
+        return ("Particle3D(yaw=" + factor7 + ", prevYaw=" + factor6 + ", pitch=" + factor5 + ", radius=" + factor4 + ", alpha=" + factor3 + ", prevAlpha=" + factor2 + ", fadeIn=" + flag + ", spinSpeed=" + factor + ", lifeTime=" + index2 + ", age=" + index + ")");
     }
 
     public int hashCode() {
-        int var4 = Float.hashCode(this.factorValue);
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue2));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue3));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue4));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue5));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue6));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue7));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue2));
-        if (var3 != null) {
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + Float.hashCode(this.factorValue4));
+        index = ((index * 31) + Float.hashCode(this.factorValue5));
+        index = ((index * 31) + Float.hashCode(this.factorValue6));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        index = ((index * 31) + Float.hashCode(this.factorValue7));
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        index = ((index * 31) + Integer.hashCode(this.countValue2));
+        if (__UNDEF_KEY__ != null) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -241,35 +214,35 @@ public class ServiceComponent96 {
         if (!(other instanceof ServiceComponent96)) {
             return false;
         }
-        ServiceComponent96 var5 = (ServiceComponent96) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        ServiceComponent96 serviceComponent96 = ((ServiceComponent96) other);
+        if (Float.compare(this.factorValue, serviceComponent96.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, serviceComponent96.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, serviceComponent96.factorValue3)) {
             return false;
         }
-        if (Float.compare(this.factorValue4, var5.factorValue4)) {
+        if (Float.compare(this.factorValue4, serviceComponent96.factorValue4)) {
             return false;
         }
-        if (Float.compare(this.factorValue5, var5.factorValue5)) {
+        if (Float.compare(this.factorValue5, serviceComponent96.factorValue5)) {
             return false;
         }
-        if (Float.compare(this.factorValue6, var5.factorValue6)) {
+        if (Float.compare(this.factorValue6, serviceComponent96.factorValue6)) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != serviceComponent96.enabledFlag) {
             return false;
         }
-        if (Float.compare(this.factorValue7, var5.factorValue7)) {
+        if (Float.compare(this.factorValue7, serviceComponent96.factorValue7)) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != serviceComponent96.countValue) {
             return false;
         }
-        if (this.countValue2 != var5.countValue2) {
+        if (this.countValue2 != serviceComponent96.countValue2) {
             return false;
         }
         return true;

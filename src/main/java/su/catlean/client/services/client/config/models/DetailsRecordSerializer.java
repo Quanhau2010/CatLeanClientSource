@@ -24,52 +24,50 @@ public class DetailsRecordSerializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, DetailsRecord value) {
-        SerialDescriptor var8 = serialDescriptor;
-        CompositeEncoder var9 = encoder.beginStructure();
-        DetailsRecord.executeAction(value);
-        var9.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        DetailsRecord.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public DetailsRecord resolveDetailsRecord(Decoder decoder) {
-        SerialDescriptor var7 = serialDescriptor;
-        int var8 = 1;
-        int var10 = 0;
-        CompositeDecoder var16 = decoder.beginStructure();
-        Lazy[] var17 = DetailsRecord.process();
-        if (var6 != null) {
-            if (var16.decodeSequentially()) {
+        int index = 1;
+        int index2 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        Lazy[] items = DetailsRecord.process();
+        if (__UNDEF_KEY__ != null) {
+            if (compositeDecoder.decodeSequentially()) {
+                String text = ((String) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) StringSerializer.INSTANCE)));
+                index2 = (index2 | 1);
+                String text2 = ((String) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) StringSerializer.INSTANCE)));
+                index2 = (index2 | 2);
+                StartRecord startRecord = ((StartRecord) compositeDecoder.decodeSerializableElement(serialDescriptor, 2, ((DeserializationStrategy) StartRecordSerializer.INSTANCE)));
+                index2 = (index2 | 4);
+                LargeImageRecord largeImageRecord = ((LargeImageRecord) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 3, ((DeserializationStrategy) LargeImageRecordSerializer.INSTANCE)));
+                index2 = (index2 | 8);
+                List list = compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 4, ((DeserializationStrategy) items[4].getValue()));
+                index2 = (index2 | 16);
             }
-            String var11 = (String) var16.decodeNullableSerializableElement(0, (DeserializationStrategy) StringSerializer.INSTANCE);
-            var10 = (var10 | 1);
-            String var12 = (String) var16.decodeNullableSerializableElement(1, (DeserializationStrategy) StringSerializer.INSTANCE);
-            var10 = (var10 | 2);
-            StartRecord var13 = (StartRecord) var16.decodeSerializableElement(2, (DeserializationStrategy) StartRecordSerializer.INSTANCE);
-            var10 = (var10 | 4);
-            LargeImageRecord var14 = (LargeImageRecord) var16.decodeNullableSerializableElement(3, (DeserializationStrategy) LargeImageRecordSerializer.INSTANCE);
-            var10 = (var10 | 8);
-            List positions = var16.decodeNullableSerializableElement(4, (DeserializationStrategy) var17[4].getValue());
-            var10 = (var10 | 16);
         }
-        if (var6 == null && var8) {
-            int var9 = var16.decodeElementIndex();
-            if (var6 != null) {
-                if (var6 != null) {
+        if (__UNDEF_KEY__ == null && index) {
+            int index3 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                var8 = 0;
-                var11 = (String) var16.decodeNullableSerializableElement(0, (DeserializationStrategy) StringSerializer.INSTANCE);
-                var10 = (var10 | 1);
-                var12 = (String) var16.decodeNullableSerializableElement(1, (DeserializationStrategy) StringSerializer.INSTANCE);
-                var10 = (var10 | 2);
-                var13 = (StartRecord) var16.decodeSerializableElement(2, (DeserializationStrategy) StartRecordSerializer.INSTANCE);
-                var10 = (var10 | 4);
-                var14 = (LargeImageRecord) var16.decodeNullableSerializableElement(3, (DeserializationStrategy) LargeImageRecordSerializer.INSTANCE);
-                var10 = (var10 | 8);
-                positions = var16.decodeNullableSerializableElement(4, (DeserializationStrategy) var17[4].getValue(), positions);
-                var10 = (var10 | 16);
+                index = 0;
+                text = ((String) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) StringSerializer.INSTANCE), text));
+                index2 = (index2 | 1);
+                text2 = ((String) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) StringSerializer.INSTANCE), text2));
+                index2 = (index2 | 2);
+                startRecord = ((StartRecord) compositeDecoder.decodeSerializableElement(serialDescriptor, 2, ((DeserializationStrategy) StartRecordSerializer.INSTANCE), startRecord));
+                index2 = (index2 | 4);
+                largeImageRecord = ((LargeImageRecord) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 3, ((DeserializationStrategy) LargeImageRecordSerializer.INSTANCE), largeImageRecord));
+                index2 = (index2 | 8);
+                list = compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 4, ((DeserializationStrategy) items[4].getValue()), list);
+                index2 = (index2 | 16);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var16.endStructure();
         }
-        return new DetailsRecord(positions, null);
+        return new DetailsRecord(index2, text, text2, startRecord, largeImageRecord, list);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -77,14 +75,14 @@ public class DetailsRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        Lazy[] var1 = DetailsRecord.process();
-        KSerializer[] var2 = new KSerializer[5];
-        var2[0] = BuiltinSerializersKt.getNullable((KSerializer) StringSerializer.INSTANCE);
-        var2[1] = BuiltinSerializersKt.getNullable((KSerializer) StringSerializer.INSTANCE);
-        var2[2] = StartRecordSerializer.INSTANCE;
-        var2[3] = BuiltinSerializersKt.getNullable((KSerializer) LargeImageRecordSerializer.INSTANCE);
-        var2[4] = BuiltinSerializersKt.getNullable((KSerializer) var1[4].getValue());
-        return var2;
+        Lazy[] items = DetailsRecord.process();
+        KSerializer[] items2 = new KSerializer[5];
+        items2[0] = BuiltinSerializersKt.getNullable(((KSerializer) StringSerializer.INSTANCE));
+        items2[1] = BuiltinSerializersKt.getNullable(((KSerializer) StringSerializer.INSTANCE));
+        items2[2] = StartRecordSerializer.INSTANCE;
+        items2[3] = BuiltinSerializersKt.getNullable(((KSerializer) LargeImageRecordSerializer.INSTANCE));
+        items2[4] = BuiltinSerializersKt.getNullable(((KSerializer) items[4].getValue()));
+        return items2;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -92,7 +90,7 @@ public class DetailsRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (DetailsRecord) value);
+        this.executeAction(encoder, ((DetailsRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -101,13 +99,13 @@ public class DetailsRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new DetailsRecordSerializer();
-        PluginGeneratedSerialDescriptor var22 = new PluginGeneratedSerialDescriptor("su.catlean.yq", (GeneratedSerializer) INSTANCE, 5);
-        var22.addElement("details", 0);
-        var22.addElement("state", 0);
-        var22.addElement("timestamps", 0);
-        var22.addElement("assets", 0);
-        var22.addElement("buttons", 0);
-        serialDescriptor = (SerialDescriptor) var22;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.yq", ((GeneratedSerializer) INSTANCE), 5);
+        pluginGeneratedSerialDescriptor.addElement("details", false);
+        pluginGeneratedSerialDescriptor.addElement("state", false);
+        pluginGeneratedSerialDescriptor.addElement("timestamps", false);
+        pluginGeneratedSerialDescriptor.addElement("assets", false);
+        pluginGeneratedSerialDescriptor.addElement("buttons", false);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

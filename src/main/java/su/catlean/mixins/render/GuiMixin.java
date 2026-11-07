@@ -45,7 +45,7 @@ public abstract class GuiMixin {
     }
 
     private void renderStatusEffectOverlayHook(DrawContext context, class_9779 tickCounter, CallbackInfo ci) {
-        Collection var4 = MinecraftClient.method_1551().player.method_6026();
+        Collection collection = MinecraftClient.method_1551().player.method_6026();
         ci.cancel();
     }
 

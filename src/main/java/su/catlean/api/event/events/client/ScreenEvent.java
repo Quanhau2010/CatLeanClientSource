@@ -22,7 +22,7 @@ public class ScreenEvent extends Event {
     }
 
     public boolean call(Screen screen) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         screen = screen;
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

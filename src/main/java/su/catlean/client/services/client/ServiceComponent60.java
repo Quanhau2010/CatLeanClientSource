@@ -1,7 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
-
 public class ServiceComponent60 {
 
     private static int[] countValueArray;
@@ -11,10 +9,6 @@ public class ServiceComponent60 {
 
     public ReaderServiceComponent2 getReaderServiceComponent2() {
         return new ReaderServiceComponent2();
-    }
-
-    public ServiceComponent60(DefaultConstructorMarker $constructor_marker) {
-        this();
     }
 
     public static void updateValue(int[] arg0) {

@@ -25,7 +25,7 @@ public class MatrixServiceComponent {
         this.factorValue3 = r;
         this.factorValue4 = g;
         this.factorValue5 = b;
-        this.factorValue6 = 0L;
+        this.factorValue6 = __UNDEF_KEY__;
         this.countValue = w;
         this.countValue2 = h;
         this.countValue3 = ow;

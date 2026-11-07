@@ -75,7 +75,7 @@ public class AutoLandModule extends Module {
     }
 
     private WindHopSwitchMode getSwitchMode() {
-        return (WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSwitchMode(WindHopSwitchMode value) {
@@ -83,7 +83,7 @@ public class AutoLandModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setDelay(int value) {
@@ -91,11 +91,11 @@ public class AutoLandModule extends Module {
     }
 
     private SettingGroup getGroup() {
-        return (SettingGroup) groupSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((SettingGroup) groupSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getWheat() {
-        return (Boolean) wheatSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) wheatSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setWheat(boolean value) {
@@ -103,7 +103,7 @@ public class AutoLandModule extends Module {
     }
 
     private boolean getCarrot() {
-        return (Boolean) carrotSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) carrotSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setCarrot(boolean value) {
@@ -111,7 +111,7 @@ public class AutoLandModule extends Module {
     }
 
     private boolean getPotato() {
-        return (Boolean) potatoSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) potatoSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void setPotato(boolean value) {
@@ -119,7 +119,7 @@ public class AutoLandModule extends Module {
     }
 
     private boolean getMelon() {
-        return (Boolean) melonSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) melonSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setMelon(boolean value) {
@@ -127,7 +127,7 @@ public class AutoLandModule extends Module {
     }
 
     private boolean getPumpkin() {
-        return (Boolean) pumpkinSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) pumpkinSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private void setPumpkin(boolean value) {
@@ -135,7 +135,7 @@ public class AutoLandModule extends Module {
     }
 
     private boolean getBeetRoot() {
-        return (Boolean) beetRootSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) beetRootSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private void setBeetRoot(boolean value) {
@@ -143,7 +143,7 @@ public class AutoLandModule extends Module {
     }
 
     private boolean getSugarCane() {
-        return (Boolean) sugarCaneSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Boolean) sugarCaneSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private void setSugarCane(boolean value) {
@@ -151,7 +151,7 @@ public class AutoLandModule extends Module {
     }
 
     private boolean getNetherWart() {
-        return (Boolean) netherWartSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Boolean) netherWartSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private void setNetherWart(boolean value) {
@@ -169,188 +169,169 @@ public class AutoLandModule extends Module {
     }
 
     private boolean checkCondition() {
-        Iterable var23 = (Iterable) VecPacketHelper.INSTANCE.resolveList();
-        int var24 = 0;
-        Object var25 = var23;
-        Collection var26 = (Collection) new ArrayList();
-        int var27 = 0;
-        Iterator iterator = var25.iterator();
+        Iterable iterable = ((Iterable) VecPacketHelper.INSTANCE.resolveList());
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var29 = iterator.next();
-            BlockPos blockPos = (BlockPos) var29;
-            int var31 = 0;
-            Block var32 = SharedKt.getWorld().getBlockState(blockPos).getBlock();
-            var26.add();
+            Object element = iterator.next();
+            BlockPos blockPos = ((BlockPos) element);
+            Block block = SharedKt.getWorld().getBlockState(blockPos).getBlock();
+            collection.add(element);
         }
-        var23 = (Iterable) var26;
-        var24 = 0;
-        var25 = var23;
-        var26 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        var27 = 0;
-        iterator = var25.iterator();
+        iterable = ((Iterable) collection);
+        index = 0;
+        iterable2 = iterable;
+        collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable, 10)));
+        iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            var29 = iterator.next();
-            blockPos = (BlockPos) var29;
-            Object var33 = var26;
-            var31 = 0;
-            var33.add(new class_3965(blockPos.toCenterPos().method_1031(0.0D, 0.4375D, 0.0D), Direction.UP, blockPos, 0));
+            element = iterator.next();
+            blockPos = ((BlockPos) element);
+            collection.add(new class_3965(blockPos.toCenterPos().method_1031(0.0D, 0.4375D, 0.0D), Direction.UP, blockPos, false));
         }
-        var23 = (Iterable) var26;
-        var24 = 0;
-        List positions = CollectionsKt.sortedWith((Comparator) new Comparator26());
-        var23 = this.resolveList();
-        var24 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
-        if (!(positions.isEmpty())) {
-            if (!(var24.isActive())) {
+        iterable = ((Iterable) collection);
+        index = 0;
+        List list = CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator26()));
+        iterable = this.resolveList();
+        index = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
+        if (!(list.isEmpty())) {
+            if (!(index.isActive())) {
+                return false;
             }
-            return false;
         }
-        var25 = (class_3965) CollectionsKt.first(positions);
-        SequenceServiceComponent.INSTANCE.executeAction((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var25.method_17784()), 0, this::resolveUnit));
+        iterable2 = ((class_3965) CollectionsKt.first(list));
+        SequenceServiceComponent.INSTANCE.executeAction(((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(iterable2.method_17784()), 0, this::resolveUnit)));
         return true;
     }
 
     private boolean checkCondition2() {
-        Iterable var21 = (Iterable) VecPacketHelper.INSTANCE.resolveList();
-        int var22 = 0;
-        Object var23 = var21;
-        Collection var24 = (Collection) new ArrayList();
-        int var25 = 0;
-        Iterator iterator = var23.iterator();
+        Iterable iterable = ((Iterable) VecPacketHelper.INSTANCE.resolveList());
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var27 = iterator.next();
-            BlockPos blockPos = (BlockPos) var27;
-            int var29 = 0;
-            Block var30 = SharedKt.getWorld().getBlockState(blockPos).getBlock();
-            var24.add();
+            Object element = iterator.next();
+            BlockPos blockPos = ((BlockPos) element);
+            Block block = SharedKt.getWorld().getBlockState(blockPos).getBlock();
+            collection.add(element);
         }
-        var21 = (Iterable) var24;
-        var22 = 0;
-        var23 = var21;
-        var24 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        var25 = 0;
-        iterator = var23.iterator();
+        iterable = ((Iterable) collection);
+        index = 0;
+        iterable2 = iterable;
+        collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable, 10)));
+        iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            var27 = iterator.next();
-            blockPos = (BlockPos) var27;
-            Object var31 = var24;
-            var29 = 0;
-            var31.add(new class_3965(blockPos.toCenterPos().method_1031(0.0D, 0.5D, 0.0D), Direction.UP, blockPos, 0));
+            element = iterator.next();
+            blockPos = ((BlockPos) element);
+            collection.add(new class_3965(blockPos.toCenterPos().method_1031(0.0D, 0.5D, 0.0D), Direction.UP, blockPos, false));
         }
-        var21 = (Iterable) var24;
-        var22 = 0;
-        List positions = CollectionsKt.sortedWith((Comparator) new Comparator2());
-        var21 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
-        if (!(positions.isEmpty())) {
-            if (!(var21.isActive())) {
+        iterable = ((Iterable) collection);
+        index = 0;
+        List list = CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator2()));
+        iterable = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
+        if (!(list.isEmpty())) {
+            if (!(iterable.isActive())) {
+                return false;
             }
-            return false;
         }
-        var22 = (class_3965) CollectionsKt.first(positions);
-        SequenceServiceComponent.INSTANCE.executeAction((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var22.method_17784()), 0, this::resolveUnit2));
+        index = ((class_3965) CollectionsKt.first(list));
+        SequenceServiceComponent.INSTANCE.executeAction(((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(index.method_17784()), 0, this::resolveUnit2)));
         return true;
     }
 
     private boolean checkCondition3() {
-        Iterable var21 = (Iterable) VecPacketHelper.INSTANCE.resolveList();
-        int var22 = 0;
-        Object var23 = var21;
-        Collection var24 = (Collection) new ArrayList();
-        int var25 = 0;
-        Iterator iterator = var23.iterator();
+        Iterable iterable = ((Iterable) VecPacketHelper.INSTANCE.resolveList());
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var27 = iterator.next();
-            BlockPos blockPos = (BlockPos) var27;
-            int var29 = 0;
-            Block var30 = SharedKt.getWorld().getBlockState(blockPos).getBlock();
-            if (!(Intrinsics.areEqual(Blocks.field_10102)) && !(Intrinsics.areEqual(Blocks.field_10566)) && !(Intrinsics.areEqual(Blocks.field_10219))) {
-                if (Intrinsics.areEqual(Blocks.field_10534)) {
-                }
-                Iterable var31 = (Iterable) ServiceComponent124.enumEntries;
-                int var32 = 0;
-                Object var33 = var31;
-                Collection var34 = (Collection) new ArrayList();
-                int var35 = 0;
-                Iterator iterator2 = var33.iterator();
-                while (iterator2.hasNext()) {
-                    Object var37 = iterator2.next();
-                    Direction var38 = (Direction) var37;
-                    int var39 = 0;
-                    var34.add();
-                }
-                var31 = (Iterable) var34;
-                var32 = 0;
-                if (var31 instanceof Collection) {
-                    if ((Collection) var31.isEmpty()) {
+            Object element = iterator.next();
+            BlockPos blockPos = ((BlockPos) element);
+            Block block = SharedKt.getWorld().getBlockState(blockPos).getBlock();
+            if (!(Intrinsics.areEqual(block, Blocks.field_10102)) && !(Intrinsics.areEqual(block, Blocks.field_10566)) && !(Intrinsics.areEqual(block, Blocks.field_10219))) {
+                if (Intrinsics.areEqual(block, Blocks.field_10534)) {
+                    Iterable iterable3 = ((Iterable) ServiceComponent124.enumEntries);
+                    Iterable iterable4 = iterable3;
+                    Collection collection2 = ((Collection) new ArrayList());
+                    int index2 = 0;
+                    Iterator iterator2 = iterable4.iterator();
+                    while (iterator2.hasNext()) {
+                        Object element2 = iterator2.next();
+                        Direction direction = ((Direction) element2);
+                        collection2.add(element2);
                     }
-                } else {
-                    var33 = var31.iterator();
-                    if (var33.hasNext()) {
-                        var34 = var33.next();
-                        var35 = (Direction) var34;
-                        iterator2 = 0;
+                    iterable3 = ((Iterable) collection2);
+                    if (iterable3 instanceof Collection) {
+                        if (((Collection) iterable3).isEmpty()) {
+                        } else {
+                            iterable4 = iterable3.iterator();
+                            while (iterable4.hasNext()) {
+                                collection2 = iterable4.next();
+                                index2 = ((Direction) collection2);
+                                iterator2 = 0;
+                            }
+                        }
                     } else {
                     }
+                    if (0) {
+                        if (SharedKt.getPlayer().getEyePos().method_1022(blockPos.toCenterPos().method_1031(0.0D, 0.5D, 0.0D)) < SharedKt.getPlayer().method_55754()) {
+                        } else {
+                        }
+                    } else {
+                    }
+                } else {
                 }
             }
-            if (0) {
-                if (SharedKt.getPlayer().getEyePos().method_1022(blockPos.toCenterPos().method_1031(0.0D, 0.5D, 0.0D)) < SharedKt.getPlayer().method_55754()) {
-                }
-            }
-        } else {
+            collection.add(element);
         }
-        }
-        }
-        var24.add();
-        }
-        var21 = (Iterable) var24;
-        var22 = 0;
-        var23 = var21;
-        var24 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        var25 = 0;
-        iterator = var23.iterator();
+        iterable = ((Iterable) collection);
+        index = 0;
+        iterable2 = iterable;
+        collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable, 10)));
+        iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            var27 = iterator.next();
-            blockPos = (BlockPos) var27;
-            Object var40 = var24;
-            var29 = 0;
-            var40.add(new class_3965(blockPos.toCenterPos().method_1031(0.0D, 0.5D, 0.0D), Direction.UP, blockPos, 0));
+            element = iterator.next();
+            blockPos = ((BlockPos) element);
+            collection.add(new class_3965(blockPos.toCenterPos().method_1031(0.0D, 0.5D, 0.0D), Direction.UP, blockPos, false));
         }
-        var21 = (Iterable) var24;
-        var22 = 0;
-        List positions = CollectionsKt.sortedWith((Comparator) new Comparator24());
-        var21 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition2, this.getSwitchMode());
-        if (!(positions.isEmpty())) {
-            if (!(var21.isActive())) {
+        iterable = ((Iterable) collection);
+        index = 0;
+        List list = CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator24()));
+        iterable = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition2, this.getSwitchMode());
+        if (!(list.isEmpty())) {
+            if (!(iterable.isActive())) {
+                return false;
             }
-            return false;
         }
-        var22 = (class_3965) CollectionsKt.first(positions);
-        SequenceServiceComponent.INSTANCE.executeAction((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var22.method_17784()), 0, this::resolveUnit3));
+        index = ((class_3965) CollectionsKt.first(list));
+        SequenceServiceComponent.INSTANCE.executeAction(((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(index.method_17784()), 0, this::resolveUnit3)));
         return true;
     }
 
     private List resolveList() {
-        List positions = new ArrayList();
+        List list = new ArrayList();
         if (this.getWheat()) {
-            positions.add(Items.field_8317);
+            list.add(Items.field_8317);
         }
         if (this.getCarrot()) {
-            positions.add(Items.field_8179);
+            list.add(Items.field_8179);
         }
         if (this.getPotato()) {
-            positions.add(Items.field_8567);
+            list.add(Items.field_8567);
         }
         if (this.getPumpkin()) {
-            positions.add(Items.field_46249);
+            list.add(Items.field_46249);
         }
         if (this.getMelon()) {
-            positions.add(Items.field_46250);
+            list.add(Items.field_46250);
         }
         if (this.getBeetRoot()) {
-            positions.add(Items.field_8309);
+            list.add(Items.field_8309);
         }
-        return positions;
+        return list;
     }
 
     private static boolean checkCondition(List arg0, ItemStack arg1) {
@@ -399,19 +380,19 @@ public class AutoLandModule extends Module {
     }
 
     static {
-        KProperty[] var38 = new KProperty[11];
+        KProperty[] items = new KProperty[11];
         INSTANCE = new AutoLandModule();
         switchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch", WindHopSwitchMode.SILENT_FULL);
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 0, new IntRange(0, 10));
         groupSetting = VisibleRenderHelper.registerSetting(INSTANCE, "selection", OptionMode14.BOOLS);
-        wheatSetting = VisibleRenderHelper.registerSetting(INSTANCE, "wheat", 1, INSTANCE.getGroup());
-        carrotSetting = VisibleRenderHelper.registerSetting(INSTANCE, "carrot", 1, INSTANCE.getGroup());
-        potatoSetting = VisibleRenderHelper.registerSetting(INSTANCE, "potato", 1, INSTANCE.getGroup());
-        melonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "melon", 0, INSTANCE.getGroup());
-        pumpkinSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pumpkin", 0, INSTANCE.getGroup());
-        beetRootSetting = VisibleRenderHelper.registerSetting(INSTANCE, "beetroot", 0, INSTANCE.getGroup());
-        sugarCaneSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sugar-cane", 0, INSTANCE.getGroup());
-        netherWartSetting = VisibleRenderHelper.registerSetting(INSTANCE, "nether-wart", 0, INSTANCE.getGroup());
+        wheatSetting = VisibleRenderHelper.registerSetting(INSTANCE, "wheat", true, INSTANCE.getGroup());
+        carrotSetting = VisibleRenderHelper.registerSetting(INSTANCE, "carrot", true, INSTANCE.getGroup());
+        potatoSetting = VisibleRenderHelper.registerSetting(INSTANCE, "potato", true, INSTANCE.getGroup());
+        melonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "melon", false, INSTANCE.getGroup());
+        pumpkinSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pumpkin", false, INSTANCE.getGroup());
+        beetRootSetting = VisibleRenderHelper.registerSetting(INSTANCE, "beetroot", false, INSTANCE.getGroup());
+        sugarCaneSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sugar-cane", false, INSTANCE.getGroup());
+        netherWartSetting = VisibleRenderHelper.registerSetting(INSTANCE, "nether-wart", false, INSTANCE.getGroup());
         serviceComponent38 = new ServiceComponent38();
     }
 

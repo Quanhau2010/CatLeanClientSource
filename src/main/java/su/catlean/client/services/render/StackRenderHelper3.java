@@ -53,298 +53,289 @@ public class StackRenderHelper3 {
     public void render(MatrixStack stack, PlayerEspRenderMode mode, Color fillColor, Color lineColor, int vDistance, int hDistance) {
         if (SharedKt.getMc().method_1560() != null) {
             if (EntityHelper.resolveMinecraftObject(SharedKt.getMc().method_1560()) == null) {
+                EntityHelper.resolveMinecraftObject(SharedKt.getMc().method_1560());
             }
-            EntityHelper.resolveMinecraftObject(SharedKt.getMc().method_1560());
         }
         Vec3d vec = EntityHelper.resolveMinecraftObject(SharedKt.getPlayer());
-        Iterable var42 = SharedKt.getWorld().method_18112();
-        int var43 = 0;
-        Object var44 = var42;
-        Collection var45 = (Collection) new ArrayList();
-        int var46 = 0;
-        Iterator iterator = var44.iterator();
+        Iterable iterable = SharedKt.getWorld().method_18112();
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var48 = iterator.next();
-            if (0L >= 0) {
-                var45.add();
-            }
-            var42 = (Iterable) var45;
-            var43 = 0;
-            var44 = var42;
-            var45 = (Collection) new ArrayList();
-            if (0L >= 0) {
-                var46 = 0;
+            Object element = iterator.next();
+            if (__UNDEF_KEY__ >= 0) {
+                collection.add(element);
+                iterable = ((Iterable) collection);
+                index = 0;
+                iterable2 = iterable;
+                collection = ((Collection) new ArrayList());
+                if (__UNDEF_KEY__ >= 0) {
+                    index2 = 0;
+                }
             }
         }
-        iterator = var44.iterator();
-        if (iterator.hasNext()) {
-            var48 = iterator.next();
-            EndCrystalEntity entity = (EndCrystalEntity) var48;
-            int var50 = 0;
-            if (0L >= 0 && !(var39)) {
+        iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            element = iterator.next();
+            EndCrystalEntity entity = ((EndCrystalEntity) element);
+            if (__UNDEF_KEY__ >= 0 && !(__UNDEF_KEY__)) {
             }
-            var45.add();
+            collection.add(element);
         }
-        List positions = var45;
-        if (0L >= 0) {
-            if (positions.isEmpty()) {
+        if (__UNDEF_KEY__ >= 0) {
+            if (collection.isEmpty()) {
                 return;
             }
         }
-        if (0L >= 0) {
-            if (!(var39)) {
+        if (__UNDEF_KEY__ >= 0) {
+            if (!(__UNDEF_KEY__)) {
                 if (mode != PlayerEspRenderMode.BOTH) {
-                }
-            }
-            if (0L >= 0) {
-                if (!(var39)) {
-                    if (mode == PlayerEspRenderMode.FILL) {
-                    }
-                    int var35 = 4;
-                    int var36 = 0;
-                    int var37 = (positions.size() * 72);
-                    VertexFormat var38 = class_290.field_1576;
-                    var42 = new FormatRenderHelper();
-                    var43 = (Iterable) positions;
-                    var44 = 0;
-                    var45 = var43.iterator();
-                    while (var45.hasNext()) {
-                        var46 = var45.next();
-                        iterator = (EndCrystalEntity) var46;
-                        var48 = 0;
-                        INSTANCE.render(stack, iterator, fillColor, PlayerEspRenderMode.FILL, CrystalChamsModule.INSTANCE.computeValue((iterator.field_6012 + TextShaderComponent2.INSTANCE.computeValue())));
-                        if (0L < 0 || !(var39)) {
-                            continue;
+                    if (__UNDEF_KEY__ >= 0) {
+                        if (!(__UNDEF_KEY__)) {
+                            if (mode == PlayerEspRenderMode.FILL) {
+                                int index3 = 4;
+                                int index4 = 0;
+                                int index5 = (collection.size() * 72);
+                                VertexFormat vertexFormat = class_290.field_1576;
+                                iterable = new FormatRenderHelper(vertexFormat, index5, index4, index3);
+                                index = ((Iterable) collection);
+                                iterable2 = 0;
+                                collection = index.iterator();
+                                while (collection.hasNext()) {
+                                    index2 = collection.next();
+                                    iterator = ((EndCrystalEntity) index2);
+                                    element = 0;
+                                    INSTANCE.render(stack, iterator, fillColor, PlayerEspRenderMode.FILL, iterable, CrystalChamsModule.INSTANCE.computeValue((iterator.field_6012 + TextShaderComponent2.INSTANCE.computeValue())));
+                                    if (__UNDEF_KEY__ < 0 || !(__UNDEF_KEY__)) {
+                                        continue;
+                                    }
+                                }
+                                FormatRenderHelper.executeAction(iterable, VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, stack.method_23760().method_23761());
+                            }
                         }
                     }
-                    FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, stack.method_23760().method_23761());
                 }
             }
         }
         if (mode != PlayerEspRenderMode.BOTH) {
         }
-        int var34 = 1;
-        var35 = (positions.size() * 144);
-        var36 = class_290.field_1576;
-        var42 = new FormatRenderHelper();
-        var43 = (Iterable) positions;
-        var44 = 0;
-        var45 = var43.iterator();
-        while (var45.hasNext()) {
-            var46 = var45.next();
-            iterator = (EndCrystalEntity) var46;
-            var48 = 0;
-            INSTANCE.render(stack, iterator, lineColor, PlayerEspRenderMode.OUTLINE, CrystalChamsModule.INSTANCE.computeValue((iterator.field_6012 + TextShaderComponent2.INSTANCE.computeValue())));
-            if (mode != PlayerEspRenderMode.OUTLINE || 0L <= 0 || !(var39)) {
+        int index6 = 1;
+        index3 = (collection.size() * 144);
+        index4 = class_290.field_1576;
+        iterable = new FormatRenderHelper(index4, index3, index6);
+        index = ((Iterable) collection);
+        iterable2 = 0;
+        collection = index.iterator();
+        while (collection.hasNext()) {
+            index2 = collection.next();
+            iterator = ((EndCrystalEntity) index2);
+            element = 0;
+            INSTANCE.render(stack, iterator, lineColor, PlayerEspRenderMode.OUTLINE, iterable, CrystalChamsModule.INSTANCE.computeValue((iterator.field_6012 + TextShaderComponent2.INSTANCE.computeValue())));
+            if (mode != PlayerEspRenderMode.OUTLINE || __UNDEF_KEY__ <= 0 || !(__UNDEF_KEY__)) {
                 continue;
             }
         }
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline25(), null, null, stack.method_23760().method_23761());
+        FormatRenderHelper.executeAction(iterable, VertexUBOShaderComponent.INSTANCE.getRenderPipeline25(), null, null, stack.method_23760().method_23761());
     }
 
     public void render(MatrixStack stack, PlayerEspRenderMode mode, Color fillColor, Color lineColor, Color friendFillColor, Color friendLineColor, int vDistance, int hDistance) {
         if (SharedKt.getMc().method_1560() != null) {
             if (EntityHelper.resolveMinecraftObject(SharedKt.getMc().method_1560()) == null) {
+                EntityHelper.resolveMinecraftObject(SharedKt.getMc().method_1560());
             }
-            EntityHelper.resolveMinecraftObject(SharedKt.getMc().method_1560());
         }
         Vec3d vec = EntityHelper.resolveMinecraftObject(SharedKt.getPlayer());
-        Iterable var38 = SharedKt.getWorld().method_18112();
-        int var39 = 0;
-        Object var40 = var38;
-        Collection var41 = (Collection) new ArrayList();
-        int var42 = 0;
-        Iterator iterator = var40.iterator();
+        Iterable iterable = SharedKt.getWorld().method_18112();
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var44 = iterator.next();
-            Entity entity = var44;
-            int var46 = 0;
-            if (Intrinsics.areEqual(entity, SharedKt.getPlayer())) {
+            Object element = iterator.next();
+            if (Intrinsics.areEqual(element, SharedKt.getPlayer())) {
             }
-            var41.add();
+            collection.add(element);
         }
-        List positions = var41;
-        if (positions.isEmpty()) {
+        if (collection.isEmpty()) {
             return;
         }
         if (mode != PlayerEspRenderMode.BOTH) {
             if (mode == PlayerEspRenderMode.FILL) {
-            }
-            int var31 = 4;
-            int var32 = 0;
-            int var33 = (positions.size() * 144);
-            VertexFormat var34 = class_290.field_1576;
-            var38 = new FormatRenderHelper();
-            var39 = (Iterable) positions;
-            var40 = 0;
-            var41 = var39.iterator();
-            while (var41.hasNext()) {
-                var42 = var41.next();
-                iterator = var42;
-                var44 = 0;
-                if (EntityHelper4.isFriend((PlayerEntity) iterator)) {
-                } else {
+                int index3 = 4;
+                int index4 = 0;
+                int index5 = (collection.size() * 144);
+                VertexFormat vertexFormat = class_290.field_1576;
+                iterable = new FormatRenderHelper(vertexFormat, index5, index4, index3);
+                index = ((Iterable) collection);
+                iterable2 = 0;
+                collection = index.iterator();
+                while (collection.hasNext()) {
+                    index2 = collection.next();
+                    iterator = index2;
+                    element = 0;
+                    if (EntityHelper4.isFriend(((PlayerEntity) iterator))) {
+                    } else {
+                    }
+                    render(stack, iterator, friendFillColor, fillColor, PlayerEspRenderMode.FILL, iterable, 0.0F);
                 }
-                render(stack, iterator, friendFillColor, fillColor, PlayerEspRenderMode.FILL, 0.0F);
+                FormatRenderHelper.executeAction(iterable, VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, stack.method_23760().method_23761());
             }
-            FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, stack.method_23760().method_23761());
         }
         if (mode != PlayerEspRenderMode.BOTH) {
         }
-        int var30 = 1;
-        var31 = (positions.size() * 288);
-        var32 = class_290.field_1576;
-        var38 = new FormatRenderHelper();
-        var39 = (Iterable) positions;
-        var40 = 0;
-        var41 = var39.iterator();
-        while (var41.hasNext()) {
-            var42 = var41.next();
-            iterator = var42;
-            var44 = 0;
-            if (EntityHelper4.isFriend((PlayerEntity) iterator)) {
+        int index6 = 1;
+        index3 = (collection.size() * 288);
+        index4 = class_290.field_1576;
+        iterable = new FormatRenderHelper(index4, index3, index6);
+        index = ((Iterable) collection);
+        iterable2 = 0;
+        collection = index.iterator();
+        while (collection.hasNext()) {
+            index2 = collection.next();
+            iterator = index2;
+            element = 0;
+            if (EntityHelper4.isFriend(((PlayerEntity) iterator))) {
             } else {
             }
-            render(stack, iterator, friendLineColor, lineColor, PlayerEspRenderMode.OUTLINE, 0.0F);
+            render(stack, iterator, friendLineColor, lineColor, PlayerEspRenderMode.OUTLINE, iterable, 0.0F);
         }
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline25(), null, null, stack.method_23760().method_23761());
+        FormatRenderHelper.executeAction(iterable, VertexUBOShaderComponent.INSTANCE.getRenderPipeline25(), null, null, stack.method_23760().method_23761());
     }
 
     public void render(MatrixStack stack, PlayerEspRenderMode mode, Color fillColor, Color lineColor, ArrayList list, int vDistance, int hDistance) {
         if (SharedKt.getMc().method_1560() != null) {
             if (EntityHelper.resolveMinecraftObject(SharedKt.getMc().method_1560()) == null) {
+                EntityHelper.resolveMinecraftObject(SharedKt.getMc().method_1560());
             }
-            EntityHelper.resolveMinecraftObject(SharedKt.getMc().method_1560());
         }
         Vec3d vec = EntityHelper.resolveMinecraftObject(SharedKt.getPlayer());
-        Iterable var34 = (Iterable) list;
-        int var35 = 0;
-        Object var36 = var34;
-        Collection var37 = (Collection) new ArrayList();
-        int var38 = 0;
-        Iterator iterator = var36.iterator();
+        Iterable iterable = ((Iterable) list);
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var40 = iterator.next();
-            PlayerEntity player = (PlayerEntity) var40;
-            int var42 = 0;
+            Object element = iterator.next();
+            PlayerEntity player = ((PlayerEntity) element);
             if (Intrinsics.areEqual(player, SharedKt.getPlayer())) {
                 if (SharedKt.getMc().options.method_31044() != class_5498.field_26664 && Math.hypot((vec.field_1352 - player.getX()), (vec.field_1350 - player.getZ())) < hDistance && Math.abs((vec.field_1351 - player.getY())) < vDistance) {
+                } else {
                 }
-            } else {
             }
-            var37.add();
+            collection.add(element);
         }
-        List positions = var37;
-        if (positions.isEmpty()) {
+        if (collection.isEmpty()) {
             return;
         }
         if (mode != PlayerEspRenderMode.BOTH) {
             if (mode == PlayerEspRenderMode.FILL) {
+                int index3 = 4;
+                int index4 = 0;
+                int index5 = (list.size() * 144);
+                VertexFormat vertexFormat = class_290.field_1576;
+                iterable = new FormatRenderHelper(vertexFormat, index5, index4, index3);
+                index = ((Iterable) collection);
+                iterable2 = 0;
+                collection = index.iterator();
+                while (collection.hasNext()) {
+                    index2 = collection.next();
+                    iterator = ((PlayerEntity) index2);
+                    element = 0;
+                    INSTANCE.render(stack, iterator, fillColor, PlayerEspRenderMode.FILL, iterable, 1.0F);
+                }
+                FormatRenderHelper.executeAction(iterable, VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, stack.method_23760().method_23761());
             }
-            int var27 = 4;
-            int var28 = 0;
-            int var29 = (list.size() * 144);
-            VertexFormat var30 = class_290.field_1576;
-            var34 = new FormatRenderHelper();
-            var35 = (Iterable) positions;
-            var36 = 0;
-            var37 = var35.iterator();
-            while (var37.hasNext()) {
-                var38 = var37.next();
-                iterator = (PlayerEntity) var38;
-                var40 = 0;
-                INSTANCE.render(stack, iterator, fillColor, PlayerEspRenderMode.FILL, 1.0F);
-            }
-            FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, stack.method_23760().method_23761());
         }
         if (mode != PlayerEspRenderMode.BOTH) {
         }
-        int var26 = 1;
-        var27 = (list.size() * 288);
-        var28 = class_290.field_1576;
-        var34 = new FormatRenderHelper();
-        var35 = (Iterable) positions;
-        var36 = 0;
-        var37 = var35.iterator();
-        while (var37.hasNext()) {
-            var38 = var37.next();
-            iterator = (PlayerEntity) var38;
-            var40 = 0;
-            INSTANCE.render(stack, iterator, lineColor, PlayerEspRenderMode.OUTLINE, 1.0F);
+        int index6 = 1;
+        index3 = (list.size() * 288);
+        index4 = class_290.field_1576;
+        iterable = new FormatRenderHelper(index4, index3, index6);
+        index = ((Iterable) collection);
+        iterable2 = 0;
+        collection = index.iterator();
+        while (collection.hasNext()) {
+            index2 = collection.next();
+            iterator = ((PlayerEntity) index2);
+            element = 0;
+            INSTANCE.render(stack, iterator, lineColor, PlayerEspRenderMode.OUTLINE, iterable, 1.0F);
         }
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline25(), null, null, stack.method_23760().method_23761());
+        FormatRenderHelper.executeAction(iterable, VertexUBOShaderComponent.INSTANCE.getRenderPipeline25(), null, null, stack.method_23760().method_23761());
     }
 
     private void render(MatrixStack arg0, Entity arg1, Color arg2, PlayerEspRenderMode arg3, FormatRenderHelper arg4, float arg5, long arg6) {
         if (!(arg1 instanceof PlayerEntity)) {
             return;
         }
-        PolygonRenderHelper var25 = new PolygonRenderHelper(arg4, arg3, arg2);
-        class_591 var26 = (class_591) (class_1007) SharedKt.getMc().method_1561().method_3953(arg1).method_4038();
-        class_10055 var27 = (class_10055) SharedKt.getMc().method_1561().method_3953(arg1).method_62425(arg1, TextShaderComponent2.INSTANCE.computeValue());
+        PolygonRenderHelper polygonRenderHelper = new PolygonRenderHelper(arg4, arg3, arg2);
+        class_591 class591 = ((class_591) ((class_1007) SharedKt.getMc().method_1561().method_3953(arg1)).method_4038());
+        class_10055 class10055 = ((class_10055) SharedKt.getMc().method_1561().method_3953(arg1).method_62425(arg1, TextShaderComponent2.INSTANCE.computeValue()));
         arg0.method_22903();
-        Vec3d vec = TextShaderComponent2.INSTANCE.resolveMinecraftObject((PlayerEntity) arg1, arg5);
-        double var29 = vec.field_1352;
-        double var31 = vec.field_1351;
-        double var33 = vec.field_1350;
-        class_4184 var35 = SharedKt.getMc().field_1773.method_19418();
-        arg0.method_22907((Quaternionfc) class_7833.field_40716.rotationDegrees((var35.method_19330() + 180.0F)));
-        arg0.method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees(var35.method_19329()));
-        arg0.method_46416();
-        arg0.method_22905(var27.field_53453, var27.field_53453, var27.field_53453);
-        LogoutSpotsModule.INSTANCE.render(arg0, var27.field_53446);
+        Vec3d vec = TextShaderComponent2.INSTANCE.resolveMinecraftObject(((PlayerEntity) arg1), arg5);
+        double offset = vec.field_1352;
+        double offset2 = vec.field_1351;
+        double offset3 = vec.field_1350;
+        class_4184 class4184 = SharedKt.getMc().field_1773.method_19418();
+        arg0.method_22907(((Quaternionfc) class_7833.field_40716.rotationDegrees((class4184.method_19330() + 180.0F))));
+        arg0.method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees(class4184.method_19329())));
+        arg0.method_46416(offset, offset2, offset3);
+        arg0.method_22905(class10055.field_53453, class10055.field_53453, class10055.field_53453);
+        LogoutSpotsModule.INSTANCE.render(class10055, arg0, class10055.field_53446);
         arg0.method_22905(-1.0F, -1.0F, 1.0F);
         if (arg6 >= 0L) {
-            if (var24) {
-                arg0.method_22905(0.9375F, 0.9375F, 0.9375F);
-            }
-            if ((PlayerEntity) arg1.method_5715()) {
-            }
+            arg0.method_22905(0.9375F, 0.9375F, 0.9375F);
+        }
+        if (((PlayerEntity) arg1).method_5715()) {
         } else {
         }
-        0.0F.method_46416(-1.37F, -1.501F, 0.0F);
-        var26.method_62110();
-        var26.field_3483.field_3665 = 0;
-        var26.field_3484.field_3665 = 0;
-        var26.field_3486.field_3665 = 0;
-        var26.field_3482.field_3665 = 0;
-        var26.field_3479.field_3665 = 0;
-        var26.field_3394.field_3665 = 0;
-        var26.method_60879(arg0, (class_4588) var25, 15728880, 0);
+        this.method_46416(-1.37F, -1.501F, 0.0F);
+        class591.method_62110(class10055);
+        class591.field_3483.field_3665 = false;
+        class591.field_3484.field_3665 = false;
+        class591.field_3486.field_3665 = false;
+        class591.field_3482.field_3665 = false;
+        class591.field_3479.field_3665 = false;
+        class591.field_3394.field_3665 = false;
+        class591.method_60879(arg0, ((class_4588) polygonRenderHelper), 15728880, 0);
         arg0.method_22909();
     }
 
     private static void render(StackRenderHelper3 arg0, MatrixStack arg1, Entity arg2, Color arg3, PlayerEspRenderMode arg4, FormatRenderHelper arg5, float arg6, int arg7, Object arg8) {
-        if ((arg7 & 32)) {
+        if ((arg7 & 32) != 0) {
             arg6 = TextShaderComponent2.INSTANCE.computeValue();
         }
         arg0.render(arg1, arg2, arg3, arg4, arg5, arg6);
     }
 
     public void render(MatrixStack stack, class_591 model, class_10055 state, Vec3d pos, Color color, PlayerEspRenderMode mode, FormatRenderHelper polygon) {
-        PolygonRenderHelper var18 = new PolygonRenderHelper(polygon, mode, color);
+        PolygonRenderHelper polygonRenderHelper = new PolygonRenderHelper(polygon, mode, color);
         stack.method_22903();
         Vec3d vec = SharedKt.getMc().method_1561().field_4686.method_71156();
-        double var20 = (pos.field_1352 - vec.field_1352);
-        double var22 = (pos.field_1351 - vec.field_1351);
-        double var24 = (pos.field_1350 - vec.field_1350);
-        class_4184 var26 = SharedKt.getMc().field_1773.method_19418();
-        stack.method_22907((Quaternionfc) class_7833.field_40716.rotationDegrees((var26.method_19330() + 180.0F)));
-        stack.method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees(var26.method_19329()));
-        stack.method_46416();
+        double offset = (pos.field_1352 - vec.field_1352);
+        double offset2 = (pos.field_1351 - vec.field_1351);
+        double offset3 = (pos.field_1350 - vec.field_1350);
+        class_4184 class4184 = SharedKt.getMc().field_1773.method_19418();
+        stack.method_22907(((Quaternionfc) class_7833.field_40716.rotationDegrees((class4184.method_19330() + 180.0F))));
+        stack.method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees(class4184.method_19329())));
+        stack.method_46416(offset, offset2, offset3);
         stack.method_22905(state.field_53453, state.field_53453, state.field_53453);
         LogoutSpotsModule.INSTANCE.render(state, stack, state.field_53446);
         stack.method_22905(-1.0F, -1.0F, 1.0F);
         stack.method_22905(0.9375F, 0.9375F, 0.9375F);
         stack.method_46416(0.0F, -1.501F, 0.0F);
         model.method_62110(state);
-        model.field_3483.field_3665 = 0;
-        model.field_3484.field_3665 = 0;
-        model.field_3486.field_3665 = 0;
-        model.field_3482.field_3665 = 0;
-        model.field_3479.field_3665 = 0;
-        model.field_3394.field_3665 = 0;
-        model.method_60879(stack, (class_4588) var18, 15728880, 0);
+        model.field_3483.field_3665 = false;
+        model.field_3484.field_3665 = false;
+        model.field_3486.field_3665 = false;
+        model.field_3482.field_3665 = false;
+        model.field_3479.field_3665 = false;
+        model.field_3394.field_3665 = false;
+        model.method_60879(stack, ((class_4588) polygonRenderHelper), 15728880, 0);
         stack.method_22909();
     }
 
@@ -352,24 +343,24 @@ public class StackRenderHelper3 {
         if (!(arg1 instanceof EndCrystalEntity)) {
             return;
         }
-        PolygonRenderHelper var16 = new PolygonRenderHelper(arg4, arg3, arg2);
-        class_897 var17 = SharedKt.getMc().method_1561().method_3953(arg1);
-        class_9946 var18 = (EndCrystalRendererAccessor) (class_892) var17.getModel();
-        class_10014 var19 = (class_10014) (class_892) var17.method_62425(arg1, TextShaderComponent2.INSTANCE.computeValue());
+        PolygonRenderHelper polygonRenderHelper = new PolygonRenderHelper(arg4, arg3, arg2);
+        class_897 class897 = SharedKt.getMc().method_1561().method_3953(arg1);
+        class_9946 class9946 = ((EndCrystalRendererAccessor) ((class_892) class897)).getModel();
+        class_10014 class10014 = ((class_10014) ((class_892) class897).method_62425(arg1, TextShaderComponent2.INSTANCE.computeValue()));
         Vec3d vec = SharedKt.getMc().method_1561().field_4686.method_71156();
-        double var21 = ((EndCrystalEntity) arg1.getX() - vec.field_1352);
-        double var23 = ((EndCrystalEntity) arg1.getY() - vec.field_1351);
-        double var25 = ((EndCrystalEntity) arg1.getZ() - vec.field_1350);
+        double offset = (((EndCrystalEntity) arg1).getX() - vec.field_1352);
+        double offset2 = (((EndCrystalEntity) arg1).getY() - vec.field_1351);
+        double offset3 = (((EndCrystalEntity) arg1).getZ() - vec.field_1350);
         arg0.method_22903();
-        class_4184 var27 = SharedKt.getMc().field_1773.method_19418();
-        arg0.method_22907((Quaternionfc) class_7833.field_40716.rotationDegrees((var27.method_19330() + 180.0F)));
-        arg0.method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees(var27.method_19329()));
-        arg0.method_22904();
+        class_4184 class4184 = SharedKt.getMc().field_1773.method_19418();
+        arg0.method_22907(((Quaternionfc) class_7833.field_40716.rotationDegrees((class4184.method_19330() + 180.0F))));
+        arg0.method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees(class4184.method_19329())));
+        arg0.method_22904(offset, offset2, offset3);
         arg0.method_22905(arg5, arg5, arg5);
         arg0.method_22905(2.0F, 2.0F, 2.0F);
         arg0.method_46416(0.0F, -0.5F, 0.0F);
-        var18.method_62083();
-        var18.method_60879(arg0, (class_4588) var16, 15728880, 0);
+        class9946.method_62083(class10014);
+        class9946.method_60879(arg0, ((class_4588) polygonRenderHelper), 15728880, 0);
         arg0.method_22909();
     }
 

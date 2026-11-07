@@ -47,17 +47,17 @@ public class TrapPlacementModule extends BlockPlacementModule {
     private static String textValue;
 
     public TrapPlacementModule(String id, SubCategory category) {
-        super(id, category, 131, 1);
-        Block[] var18 = new Block[1];
-        var18[0] = Blocks.OBSIDIAN;
-        int var14 = 12;
-        BlocksServiceComponent var17 = new BlocksServiceComponent(CollectionsKt.mutableListOf());
-        this.selectedBlocksSetting = VisibleRenderHelper.registerSetting(this, "blocks");
-        this.onlyStandingSetting = VisibleRenderHelper.registerSetting(this, "only-standing");
+        super(id, category, 131, true);
+        Block[] items = new Block[1];
+        items[0] = Blocks.OBSIDIAN;
+        int index = 12;
+        BlocksServiceComponent blocksServiceComponent = new BlocksServiceComponent(CollectionsKt.mutableListOf(items));
+        this.selectedBlocksSetting = VisibleRenderHelper.registerSetting(this, "blocks", blocksServiceComponent, index);
+        this.onlyStandingSetting = VisibleRenderHelper.registerSetting(this, "only-standing", true);
     }
 
     private BlocksServiceComponent getSelectedBlocks() {
-        return (BlocksServiceComponent) this.selectedBlocksSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((BlocksServiceComponent) this.selectedBlocksSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSelectedBlocks(BlocksServiceComponent value) {
@@ -65,93 +65,84 @@ public class TrapPlacementModule extends BlockPlacementModule {
     }
 
     public boolean getOnlyStanding() {
-        return (Boolean) this.onlyStandingSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) this.onlyStandingSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     public void executeAction(PlayerEntity target) {
         if (Intrinsics.areEqual(target, SharedKt.getPlayer()) && SharedKt.getPlayer().method_20232() && this.getOnlyStanding()) {
             return;
         }
-        double[] var21 = EventPacketHelper2.process(0.5F, 1, 0.0F, 0.0F, 0.0F);
-        double var22 = target.method_5829().field_1323;
-        double var24 = target.method_5829().field_1322;
-        double var26 = target.method_5829().field_1321;
-        double var28 = target.method_5829().field_1320;
-        double var30 = target.method_5829().field_1325;
-        double var32 = target.method_5829().field_1324;
+        double[] items = EventPacketHelper2.process(0.5F, true, 0.0F, 0.0F, 0.0F);
+        double offset = target.method_5829().field_1323;
+        double offset2 = target.method_5829().field_1322;
+        double offset3 = target.method_5829().field_1321;
+        double offset4 = target.method_5829().field_1320;
+        double offset5 = target.method_5829().field_1325;
+        double offset6 = target.method_5829().field_1324;
         if (!(target.isOnGround())) {
-            target.method_5857(new Box((var30 - 0.5F)));
+            target.method_5857(new Box(offset, offset2, offset3, offset4, (offset5 - 0.5F), offset6));
         }
-        List positions = CollectionsKt.toList((Iterable) this.resolveList(BlockPos.ofFloored(this.resolveMinecraftObject(target)), (Set) new LinkedHashSet()));
+        List list = CollectionsKt.toList(((Iterable) this.resolveList(BlockPos.ofFloored(this.resolveMinecraftObject(target)), ((Set) new LinkedHashSet()))));
         if (Intrinsics.areEqual(target, SharedKt.getPlayer())) {
-            Iterable var35 = (Iterable) positions;
-            int var36 = 0;
+            Iterable iterable = ((Iterable) list);
         } else {
-            var35 = (Iterable) positions;
-            var36 = 0;
+            iterable = ((Iterable) list);
         }
-        positions = CollectionsKt.sortedWith((Comparator) new Comparator22());
-        if (0L < 0) {
-            BlockPlacementModule.placeBlocks(this, positions);
+        list = CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator22()));
+        if (__UNDEF_KEY__ < 0) {
+            BlockPlacementModule.placeBlocks(this, list, false, false, null, false);
         }
-        target.method_5857(new Box());
+        target.method_5857(new Box(offset, offset2, offset3, offset4, offset5, offset6));
     }
 
     protected boolean checkCondition(Entity crystal) {
-        long var4 = ((0L ^ 75096564203215L) >>> 56);
-        long var5 = (((0L ^ 75096564203215L) << 8) >>> 8);
-        long var7 = (0L ^ 124027046021740L);
-        long var9 = (0L ^ 42888259370702L);
-        return (ExplosionPosEntityHelper.computeValue(this.resolveMinecraftObject(crystal), (PlayerEntity) SharedKt.getPlayer()) + 4.0F) < (SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067());
+        return (ExplosionPosEntityHelper.computeValue(this.resolveMinecraftObject(crystal), ((PlayerEntity) SharedKt.getPlayer()), 0, false, null, false) + 4.0F) < (SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067());
     }
 
     private List resolveList(BlockPos arg0, Set arg1) {
-        List positions = new ArrayList();
+        List list = new ArrayList();
         Iterator iterator = ServiceComponent44.enumEntries.iterator();
         while (iterator.hasNext()) {
-            Direction var22 = (Direction) iterator.next();
-            BlockPos blockPos = arg0.offset();
+            Direction direction = ((Direction) iterator.next());
+            BlockPos blockPos = arg0.offset(direction);
             BlockState state = SharedKt.getWorld().getBlockState(blockPos);
             if (arg1.contains(blockPos) || !(state.method_45474())) {
                 continue;
             }
             arg1.add(blockPos);
             if (this.checkCondition(blockPos)) {
-                positions.addAll((Collection) this.resolveList(blockPos, arg1));
+                list.addAll(((Collection) this.resolveList(blockPos, arg1)));
             }
-            Iterable var27 = (Iterable) ServiceComponent44.enumEntries;
-            int var28 = 0;
-            Collection var30 = (Collection) new ArrayList();
-            int var31 = 0;
-            Iterator iterator2 = var29.iterator();
+            Iterable iterable = ((Iterable) ServiceComponent44.enumEntries);
+            int index = 0;
+            Collection collection = ((Collection) new ArrayList());
+            Iterator iterator2 = this.iterator();
             while (iterator2.hasNext()) {
-                Object var33 = iterator2.next();
-                Direction var34 = (Direction) var33;
-                int var35 = 0;
-                var30.add();
+                Object element = iterator2.next();
+                Direction direction2 = ((Direction) element);
+                collection.add(element);
             }
-            Iterator iterator3 = var30.iterator();
+            Iterator iterator3 = collection.iterator();
             while (iterator3.hasNext()) {
             }
-            var27 = (Direction) iterator3.next();
-            var28 = blockPos.offset();
-            if (!(SharedKt.getWorld().getBlockState().method_45474())) {
+            iterable = ((Direction) iterator3.next());
+            index = blockPos.offset(iterable);
+            if (!(SharedKt.getWorld().getBlockState(index).method_45474())) {
             }
-            arg1.add();
-            positions.add();
-            positions.add(blockPos);
-            positions.add(blockPos);
+            arg1.add(index);
+            list.add(index);
+            list.add(blockPos);
+            list.add(blockPos);
         }
-        return positions;
+        return list;
     }
 
-    protected List resolveList(long arg0) {
-        long var3 = (arg0 ^ 139471251167438L);
+    protected List resolveList() {
         return this.getSelectedBlocks().getList();
     }
 
     static {
-        KProperty[] var22 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
     }
 
     public static void updateValue(String arg0) {

@@ -42,37 +42,30 @@ public abstract class Module implements Contract5, Contract {
         this.itemList = aliases;
         this.itemList2 = new ArrayList();
         this.itemList3 = new ArrayList();
-        StringBuilder var13 = new StringBuilder();
-        Object var14 = var13;
-        Object var28 = this;
-        int var15 = 0;
-        String[] var16 = new String[1];
-        var16[0] = "-";
-        var16 = (Iterable) StringsKt.split$default((CharSequence) this.textValue);
-        int var17 = 0;
-        Iterator iterator = var16.iterator();
+        StringBuilder stringBuilder = new StringBuilder();
+        String[] items = new String[1];
+        items[0] = "-";
+        items = ((Iterable) StringsKt.split$default(((CharSequence) this.textValue), items, false));
+        Iterator iterator = items.iterator();
         while (iterator.hasNext()) {
-            Object var19 = iterator.next();
-            String var20 = (String) var19;
-            int var21 = 0;
-            Object var22 = var20;
-            if ((CharSequence) var22.length() > 0) {
-                char var23 = var22.charAt(0);
-                StringBuilder var24 = new StringBuilder();
-                Object var25 = var14;
-                int var26 = 0;
-                CharSequence var27 = (CharSequence) String.valueOf().toUpperCase(Locale.ROOT);
-                var23 = var22;
-                var26 = 1;
+            Object element = iterator.next();
+            String text = ((String) element);
+            if (((CharSequence) text).length() > 0) {
+                char ch = text.charAt(0);
+                StringBuilder stringBuilder2 = new StringBuilder();
+                int index = 0;
+                CharSequence charSequence = ((CharSequence) String.valueOf(ch).toUpperCase(Locale.ROOT));
+                ch = text;
+                index = 1;
             } else {
             }
-            var24.append().append(var23.substring()).toString().append();
-            var14.append(32);
-            StringsKt.trim((CharSequence) var14);
+            stringBuilder2.append(charSequence).append(ch.substring(index)).toString().append(text);
+            stringBuilder.append(32);
+            StringsKt.trim(((CharSequence) stringBuilder));
         }
-        var28.textValue2 = var13.toString();
-        this.enabledSetting = VisibleRenderHelper.registerSetting(this, "enabled");
-        this.bindSetting = VisibleRenderHelper.registerSetting(this, "bind", new KeyRecord());
+        this.textValue2 = stringBuilder.toString();
+        this.enabledSetting = VisibleRenderHelper.registerSetting(this, "enabled", false);
+        this.bindSetting = VisibleRenderHelper.registerSetting(this, "bind", new KeyRecord(0, false, false));
     }
 
     public String getString() {
@@ -100,7 +93,7 @@ public abstract class Module implements Contract5, Contract {
     }
 
     public boolean getEnabled() {
-        return (Boolean) this.enabledSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) this.enabledSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public void setEnabled(boolean value) {
@@ -108,7 +101,7 @@ public abstract class Module implements Contract5, Contract {
     }
 
     public KeyRecord getBind() {
-        return (KeyRecord) this.bindSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((KeyRecord) this.bindSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     public void setBind(KeyRecord value) {
@@ -119,48 +112,31 @@ public abstract class Module implements Contract5, Contract {
         return SharedKt.getMc().world != null;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 67469537118988L) >>> 56);
-        long var4 = (((arg0 ^ 67469537118988L) << 8) >>> 8);
-        long var6 = (arg0 ^ 65469789313429L);
-        long var8 = (arg0 ^ 130783482560314L);
+    public void updateValue() {
         if (this.getEnabled()) {
             this.updateValue2();
         }
         this.executeAction();
     }
 
-    public void executeAction(byte arg0, long arg1) {
-        int var4 = ((arg0 << 56) | ((arg1 << 8) >>> 8));
-        long var6 = (var4 ^ 106488220257691L);
-        long var8 = ((var4 ^ 39325524053189L) >>> 32);
-        long var9 = (((var4 ^ 39325524053189L) << 32) >>> 40);
-        long var10 = (((var4 ^ 39325524053189L) << 56) >>> 56);
-        long var11 = (var4 ^ 23933300365065L);
-        long var13 = (var4 ^ 81931170417796L);
-        this.setEnabled(1);
+    public void executeAction() {
+        this.setEnabled(true);
         Gofra.INSTANCE.unplug(this);
         Gofra.INSTANCE.plug(this);
         this.updateValue();
-        TitleRenderHelper.executeAction(this.textValue2, MessageServiceComponent.resolveString(this, "enable", new Object[0], 1), 1, OptionMode16.ENABLED);
+        TitleRenderHelper.executeAction(this.textValue2, MessageServiceComponent.resolveString(this, "enable", new Object[0], true), 1, OptionMode16.ENABLED);
     }
 
     public void executeAction(String message) {
         this.updateValue2();
-        MessageServiceComponent.S(this, message);
+        MessageServiceComponent.S(this, message, false);
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 112210832039682L);
-        long var5 = ((arg0 ^ 40765843988060L) >>> 32);
-        long var6 = (((arg0 ^ 40765843988060L) << 32) >>> 40);
-        long var7 = (((arg0 ^ 40765843988060L) << 56) >>> 56);
-        long var8 = (arg0 ^ 57994491392730L);
-        long var10 = (arg0 ^ 83922319646237L);
-        this.setEnabled(0);
+    public void updateValue2() {
+        this.setEnabled(false);
         Gofra.INSTANCE.unplug(this);
         this.updateValue2();
-        TitleRenderHelper.executeAction(this.textValue2, MessageServiceComponent.resolveString(this, "disable", new Object[0], 1), 1, OptionMode16.DISABLED);
+        TitleRenderHelper.executeAction(this.textValue2, MessageServiceComponent.resolveString(this, "disable", new Object[0], true), 1, OptionMode16.DISABLED);
     }
 
     public void updateValue() {
@@ -170,11 +146,11 @@ public abstract class Module implements Contract5, Contract {
     }
 
     public Vec3d resolveMinecraftObject(Entity receiver) {
-        return (IEntity) receiver.catLean$getPosition();
+        return ((IEntity) receiver).catLean$getPosition();
     }
 
     static {
-        KProperty[] var22 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
     }
 
     public static void updateValue(Module[] arg0) {

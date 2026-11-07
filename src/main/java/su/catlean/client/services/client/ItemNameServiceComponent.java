@@ -44,13 +44,13 @@ public class ItemNameServiceComponent {
     }
 
     public static ItemNameServiceComponent resolveItemNameServiceComponent(ItemNameServiceComponent arg0, String arg1, ItemStack arg2, long arg3, int arg4, Object arg5) {
-        if ((arg4 & 1)) {
+        if ((arg4 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg4 & 2)) {
+        if ((arg4 & 2) != 0) {
             arg2 = arg0.itemStack;
         }
-        if ((arg4 & 4)) {
+        if ((arg4 & 4) != 0) {
         }
         if (arg0.resolveItemNameServiceComponent(arg1, arg2, arg3) != null) {
         }
@@ -59,16 +59,16 @@ public class ItemNameServiceComponent {
 
     public String toString() {
         ItemStack stack = this.itemStack;
-        String var6 = this.textValue;
-        return ("UsageInfo(itemName=" + var6 + ", i=" + stack + ", startTime=" + var3 + ")");
+        String text = this.textValue;
+        return ("UsageInfo(itemName=" + text + ", i=" + stack + ", startTime=" + __UNDEF_KEY__ + ")");
     }
 
     public int hashCode() {
-        int var4 = this.textValue.hashCode();
-        var4 = ((var4 * 31) + this.itemStack.hashCode());
-        if (var3 == null) {
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.itemStack.hashCode());
+        if (__UNDEF_KEY__ == null) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -78,14 +78,14 @@ public class ItemNameServiceComponent {
         if (!(other instanceof ItemNameServiceComponent)) {
             return false;
         }
-        ItemNameServiceComponent var5 = (ItemNameServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        ItemNameServiceComponent itemNameServiceComponent = ((ItemNameServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.textValue, itemNameServiceComponent.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.itemStack, var5.itemStack))) {
+        if (!(Intrinsics.areEqual(this.itemStack, itemNameServiceComponent.itemStack))) {
             return false;
         }
-        if (this.timestampValue != var5.timestampValue) {
+        if (this.timestampValue != itemNameServiceComponent.timestampValue) {
             return false;
         }
         return true;

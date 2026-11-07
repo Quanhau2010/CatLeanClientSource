@@ -46,27 +46,27 @@ public class AutoToolModule extends Module {
     }
 
     private boolean getSilent() {
-        return (Boolean) silentSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) silentSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getSwapBack() {
-        return (Boolean) swapBackSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) swapBackSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getSaveItem() {
-        return (Boolean) saveItemSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) saveItemSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getEchestSilk() {
-        return (Boolean) echestSilkSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) echestSilkSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     public void onPlayerUpdateEvent(PlayerUpdateEvent e) {
         if (!(SharedKt.getMc().field_1765 instanceof class_3965)) {
             return;
         }
-        class_3965 var19 = (class_3965) SharedKt.getMc().field_1765;
-        BlockPos blockPos = var19.method_17777();
+        class_3965 class3965 = ((class_3965) SharedKt.getMc().field_1765);
+        BlockPos blockPos = class3965.method_17777();
         if (SharedKt.getWorld().getBlockState(blockPos).method_26215()) {
             return;
         }
@@ -82,91 +82,91 @@ public class AutoToolModule extends Module {
             timestampValue = SharedKt.getNumericValue();
         } else {
             if (!(this.getSwapBack())) {
-                if (enabledFlag && !((Collection) itemList.isEmpty()) && SharedKt.getNumericValue() >= (timestampValue + 300) && this.getSilent()) {
+                if (enabledFlag && !(((Collection) itemList).isEmpty()) && SharedKt.getNumericValue() >= (timestampValue + 300) && this.getSilent()) {
+                    if (this.getSilent()) {
+                        ItemPacketHelper.INSTANCE.executeAction(((Number) itemList.get(0)));
+                    } else {
+                        SharedKt.getPlayer().method_31548().method_61496(((Number) itemList.get(0)));
+                    }
+                    countValue = ((Number) itemList.get(0));
+                    itemList.clear();
+                    enabledFlag = 0;
                 }
-                if (this.getSilent()) {
-                    ItemPacketHelper.INSTANCE.executeAction((Number) itemList.get(0));
-                } else {
-                    SharedKt.getPlayer().method_31548().method_61496((Number) itemList.get(0));
-                }
-                countValue = (Number) itemList.get(0);
-                itemList.clear();
-                enabledFlag = 0;
             }
         }
     }
 
     public void onCalcBlockBreakingDeltaEvent(CalcBlockBreakingDeltaEvent event) {
-        float var13 = event.getState().method_26214((class_1922) SharedKt.getWorld(), event.getBlockPos());
-        if (var13 < 0.0F) {
+        float factor = event.getState().method_26214(((class_1922) SharedKt.getWorld()), event.getBlockPos());
+        if (factor < 0.0F) {
             event.setDelta(0.0F);
         }
-        float var14 = (this.computeValue(event.getState(), SharedKt.getPlayer().method_31548().method_5438(countValue)) / var13);
+        float factor2 = (this.computeValue(event.getState(), SharedKt.getPlayer().method_31548().method_5438(countValue)) / factor);
         if (SharedKt.getPlayer().method_31548().method_5438(countValue).method_7951(event.getState())) {
         } else {
         }
-        (var14 / 30.0F).setDelta((var14 / 100.0F));
+        (factor2 / 30.0F).setDelta((factor2 / 100.0F));
         event.cancel();
     }
 
     private float computeValue(BlockState arg0, ItemStack arg1) {
-        float var8 = arg1.method_7924(arg0);
-        int var10 = StackServiceComponent3.computeValue(arg1, class_1893.field_9131);
-        if (var8 > 1.0D) {
+        float factor = arg1.method_7924(arg0);
+        int index = StackServiceComponent3.computeValue(arg1, class_1893.field_9131);
+        if (factor > 1.0D) {
         } else {
         }
-        return Math.max((((var10 * var10) + 1.0D) + 0.0D), 0.0D);
+        return Math.max((((index * index) + 1.0D) + 0.0D), 0.0D);
     }
 
     private int computeValue(int arg0, int arg1, BlockPos arg2) {
-        int var19 = -1;
-        float var20 = 1.0F;
-        int var21 = 0;
-        if (var21 < 9) {
-            ItemStack stack = SharedKt.getPlayer().method_31548().method_5438();
+        int index = -1;
+        float factor = 1.0F;
+        int index2 = 0;
+        if (index2 < 9) {
+            ItemStack stack = SharedKt.getPlayer().method_31548().method_5438(index2);
             if (!(Intrinsics.areEqual(stack, ItemStack.field_8037))) {
                 if (arg1 >= 0) {
                 }
                 if (arg1 > 0) {
-                    if ((SharedKt.getPlayer().method_31548().method_5438().method_7936() - SharedKt.getPlayer().method_31548().method_5438().method_7919()) <= 10 && this.getSaveItem()) {
-                    }
-                } else {
-                    BlockState state = SharedKt.getWorld().getBlockState(arg2);
-                    int var24 = StackServiceComponent3.computeValue(stack, class_1893.field_9131);
-                    float var25 = stack.method_7924(state);
-                    if (arg1 > 0 && !(var18)) {
-                        if (state.getBlock() instanceof class_2189) {
-                            return -1;
+                    if ((SharedKt.getPlayer().method_31548().method_5438(index2).method_7936() - SharedKt.getPlayer().method_31548().method_5438(index2).method_7919()) <= 10 && this.getSaveItem()) {
+                    } else {
+                        BlockState state = SharedKt.getWorld().getBlockState(arg2);
+                        int index3 = StackServiceComponent3.computeValue(stack, class_1893.field_9131);
+                        float factor2 = stack.method_7924(state);
+                        if (arg1 > 0 && !(__UNDEF_KEY__)) {
+                            if (state.getBlock() instanceof class_2189) {
+                                return -1;
+                            }
                         }
-                    }
-                    if (arg0 >= 0) {
-                        if (!(var18)) {
-                            if (arg0 >= 0) {
-                                if (state.getBlock() instanceof class_2336 && this.getEchestSilk()) {
-                                    if (arg0 >= 0) {
-                                        if (!(var18)) {
-                                        }
-                                        if (arg1 > 0) {
-                                        }
-                                        if (StackServiceComponent3.checkCondition(stack, class_1893.field_9099) && (var24 + var25) > var20) {
-                                            var20 = (var24 + var25);
-                                            var19 = var21;
-                                        }
+                        if (arg0 >= 0) {
+                            if (!(__UNDEF_KEY__)) {
+                                if (arg0 >= 0) {
+                                    if (state.getBlock() instanceof class_2336 && this.getEchestSilk()) {
                                         if (arg0 >= 0) {
+                                            if (!(__UNDEF_KEY__)) {
+                                            }
+                                            if (arg1 > 0) {
+                                                if (StackServiceComponent3.checkCondition(stack, class_1893.field_9099) && (index3 + factor2) > factor) {
+                                                    factor = (index3 + factor2);
+                                                    index = index2;
+                                                    if (arg0 >= 0) {
+                                                    }
+                                                    if (__UNDEF_KEY__ && (index3 + factor2) > factor) {
+                                                        factor = (index3 + factor2);
+                                                        index = index2;
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
-                        if (var18 && (var24 + var25) > var20) {
-                            var20 = (var24 + var25);
-                            var19 = var21;
-                        }
                     }
                 }
             }
         }
-        return var19;
+        return index;
     }
 
     private static boolean isActive() {
@@ -174,12 +174,12 @@ public class AutoToolModule extends Module {
     }
 
     static {
-        KProperty[] var26 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new AutoToolModule();
-        silentSetting = VisibleRenderHelper.registerSetting(INSTANCE, "silent");
-        swapBackSetting = VisibleRenderHelper.registerSetting(INSTANCE, "swap-back", 1, null, this::isActive);
-        saveItemSetting = VisibleRenderHelper.registerSetting(INSTANCE, "save-item");
-        echestSilkSetting = VisibleRenderHelper.registerSetting(INSTANCE, "echest-silk");
+        silentSetting = VisibleRenderHelper.registerSetting(INSTANCE, "silent", false);
+        swapBackSetting = VisibleRenderHelper.registerSetting(INSTANCE, "swap-back", true, null, this::isActive);
+        saveItemSetting = VisibleRenderHelper.registerSetting(INSTANCE, "save-item", true);
+        echestSilkSetting = VisibleRenderHelper.registerSetting(INSTANCE, "echest-silk", true);
         itemList = new ArrayList();
     }
 

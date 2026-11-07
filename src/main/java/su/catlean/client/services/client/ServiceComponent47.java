@@ -18,7 +18,6 @@ public class ServiceComponent47 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var8 = 0;
         AutoBasePlaceModule.updateValue(ConfigStateEntityHelper.resolveMinecraftObject(AutoCrystalModule.INSTANCE, AutoBasePlaceModule.checkCondition(), this.enabledFlag));
     }
 

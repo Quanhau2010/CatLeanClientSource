@@ -8,13 +8,13 @@ public class ServiceComponent39 {
     private static int[] countValueArray2;
 
     static {
-        Object var2 = new int[BreakEspMode.values()];
-        var2[BreakEspMode.DEFAULT.ordinal()] = 1;
-        var2[BreakEspMode.GROW.ordinal()] = 2;
-        var2[BreakEspMode.SHRINK.ordinal()] = 3;
-        var2[BreakEspMode.FILL.ordinal()] = 4;
-        var2[BreakEspMode.EMPTY.ordinal()] = 5;
-        countValueArray = var2;
+        Object element = new int[BreakEspMode.values()];
+        element[BreakEspMode.DEFAULT.ordinal()] = 1;
+        element[BreakEspMode.GROW.ordinal()] = 2;
+        element[BreakEspMode.SHRINK.ordinal()] = 3;
+        element[BreakEspMode.FILL.ordinal()] = 4;
+        element[BreakEspMode.EMPTY.ordinal()] = 5;
+        countValueArray = element;
     }
 
     public static void updateValue(int[] arg0) {

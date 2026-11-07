@@ -67,152 +67,148 @@ public class AutoPotionBrewModule extends Module {
     }
 
     private AutoPotionBrewMode getMode() {
-        return (AutoPotionBrewMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((AutoPotionBrewMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getAddGunpowder() {
-        return (Boolean) addGunpowderSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) addGunpowderSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private AutoPotionBrewAfterCompleteMode getAfterComplete() {
-        return (AutoPotionBrewAfterCompleteMode) afterCompleteSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((AutoPotionBrewAfterCompleteMode) afterCompleteSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getOpen() {
-        return (Boolean) openSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) openSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (SharedKt.getPlayer().field_7512 instanceof class_1708) {
-            class_1708 var47 = (class_1708) SharedKt.getPlayer().field_7512;
+            class_1708 class1708 = ((class_1708) SharedKt.getPlayer().field_7512);
             if (this.checkCondition2()) {
-                int var41 = 4;
-                Item var42 = Items.field_8183;
-                this.executeAction();
+                int index = 4;
+                Item item = Items.field_8183;
+                this.executeAction(item, index);
                 return;
             }
-            int var48 = 0;
-            if (this.computeValue(Items.field_8183) == -1 || var48 < 3) {
+            int index2 = 0;
+            if (this.computeValue(Items.field_8183) == -1 || index2 < 3) {
                 return;
             }
-            if (this.checkCondition((class_1842) class_1847.field_8991.comp_349()) && this.computeValue(Items.field_8790) != -1 && !(Intrinsics.areEqual((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(3).method_7677().getItem(), Items.field_8790))) {
-                var41 = 3;
-                var42 = Items.field_8790;
-                this.executeAction();
+            if (this.checkCondition(((class_1842) class_1847.field_8991.comp_349())) && this.computeValue(Items.field_8790) != -1 && !(Intrinsics.areEqual(((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(3)).method_7677().getItem(), Items.field_8790))) {
+                index = 3;
+                item = Items.field_8790;
+                this.executeAction(item, index);
                 return;
             }
-            if (this.checkCondition((class_1842) class_1847.field_8999.comp_349()) && this.computeValue(this.getMode().getMinecraftObject()) != -1 && !(Intrinsics.areEqual((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(3).method_7677().getItem(), this.getMode().getMinecraftObject()))) {
+            if (this.checkCondition(((class_1842) class_1847.field_8999.comp_349())) && this.computeValue(this.getMode().getMinecraftObject()) != -1 && !(Intrinsics.areEqual(((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(3)).method_7677().getItem(), this.getMode().getMinecraftObject()))) {
                 this.executeAction(this.getMode().getMinecraftObject(), 3);
                 return;
             }
-            if (this.checkCondition((class_1842) class_1847.field_8968.comp_349()) && !(Intrinsics.areEqual(this.getMode().getMinecraftObject2(), Items.field_8162)) && this.computeValue(this.getMode().getMinecraftObject2()) != -1 && !(Intrinsics.areEqual((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(3).method_7677().getItem(), this.getMode().getMinecraftObject2()))) {
+            if (this.checkCondition(((class_1842) class_1847.field_8968.comp_349())) && !(Intrinsics.areEqual(this.getMode().getMinecraftObject2(), Items.field_8162)) && this.computeValue(this.getMode().getMinecraftObject2()) != -1 && !(Intrinsics.areEqual(((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(3)).method_7677().getItem(), this.getMode().getMinecraftObject2()))) {
                 this.executeAction(this.getMode().getMinecraftObject2(), 3);
                 return;
             }
-            if (!(this.checkCondition((class_1842) class_1847.field_8978.comp_349())) && !(this.checkCondition((class_1842) class_1847.field_9005.comp_349())) && !(this.checkCondition((class_1842) class_1847.field_9005.comp_349()))) {
-                if (this.checkCondition((class_1842) class_1847.field_8997.comp_349())) {
+            if (!(this.checkCondition(((class_1842) class_1847.field_8978.comp_349()))) && !(this.checkCondition(((class_1842) class_1847.field_9005.comp_349()))) && !(this.checkCondition(((class_1842) class_1847.field_9005.comp_349())))) {
+                if (this.checkCondition(((class_1842) class_1847.field_8997.comp_349()))) {
+                } else {
                 }
-            } else {
             }
-            var48 = 0;
-            int var49 = 1;
-            if (var48 && !(Intrinsics.areEqual((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(3).method_7677().getItem(), this.getMode().getMinecraftObject3()))) {
+            index2 = 0;
+            int index3 = 1;
+            if (index2 && !(Intrinsics.areEqual(((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(3)).method_7677().getItem(), this.getMode().getMinecraftObject3()))) {
                 if (this.computeValue(this.getMode().getMinecraftObject3()) != -1) {
                     this.executeAction(this.getMode().getMinecraftObject3(), 3);
                     return;
                 }
-                var49 = 0;
+                index3 = 0;
             }
-            if (!(this.checkCondition((class_1842) class_1847.field_8993.comp_349())) && !(this.checkCondition((class_1842) class_1847.field_8966.comp_349())) && !(this.checkCondition((class_1842) class_1847.field_8969.comp_349()))) {
-                if (this.checkCondition((class_1842) class_1847.field_9000.comp_349())) {
+            if (!(this.checkCondition(((class_1842) class_1847.field_8993.comp_349()))) && !(this.checkCondition(((class_1842) class_1847.field_8966.comp_349()))) && !(this.checkCondition(((class_1842) class_1847.field_8969.comp_349())))) {
+                if (this.checkCondition(((class_1842) class_1847.field_9000.comp_349()))) {
+                } else {
                 }
-            } else {
             }
-            int var50 = 0;
-            if (var48 && !(var49)) {
-                var50 = 1;
+            int index4 = 0;
+            if (index2 && !(index3)) {
+                index4 = 1;
             }
             if (this.getAddGunpowder()) {
                 if (this.computeValue(Items.field_8054) != -1) {
                     if (!(this.checkCondition())) {
-                        if (var50 && !(Intrinsics.areEqual((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(3).method_7677().getItem(), Items.field_8054))) {
-                            var41 = 3;
-                            var42 = Items.field_8054;
-                            this.executeAction();
+                        if (index4 && !(Intrinsics.areEqual(((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(3)).method_7677().getItem(), Items.field_8054))) {
+                            index = 3;
+                            item = Items.field_8054;
+                            this.executeAction(item, index);
+                            return;
+                            this.updateValue();
                             return;
                         }
                     }
                 }
-                this.updateValue();
-                return;
             }
             SharedKt.getPlayer().method_7346();
-            lookupMap.put(blockPos, Integer.valueOf((SharedKt.getPlayer().field_6012 + var47.method_17378())));
+            lookupMap.put(blockPos, Integer.valueOf((SharedKt.getPlayer().field_6012 + class1708.method_17378())));
         } else {
-            var47 = TheNetherPacketHelper.INSTANCE.getList().iterator();
-            while (var47.hasNext()) {
-                var48 = (class_2586) var47.next();
-                if (lookupMap.get((class_2589) var48.method_11016()) != null) {
+            class1708 = TheNetherPacketHelper.INSTANCE.getList().iterator();
+            while (class1708.hasNext()) {
+                index2 = ((class_2586) class1708.next());
+                if (lookupMap.get(((class_2589) index2).method_11016()) != null) {
                 }
-                var49 = new class_3965(new Vec3d(((class_2589) var48.method_11016().method_10263() + 0.5F), ((class_2589) var48.method_11016().method_10264() + 0.125D), ((class_2589) var48.method_11016().method_10260() + 0.5F)), Direction.UP, (class_2589) var48.method_11016(), 0);
-                SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var49.method_17784()), 0, this::resolveUnit));
+                index3 = new class_3965(Direction.UP, ((class_2589) index2).method_11016(), false);
+                SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(index3.method_17784()), 0, this::resolveUnit));
             }
         }
     }
 
     private void updateValue() {
-        int var13 = 0;
+        int index = 0;
         if (this.getAfterComplete() == AutoPotionBrewAfterCompleteMode.TAKE) {
-            HandServiceComponent.e(0, class_1713.field_7794);
+            HandServiceComponent.e(index, 0, class_1713.field_7794, false);
         } else {
             if (serviceComponent10.checkCondition(this.getDelay()) && this.getAfterComplete() == AutoPotionBrewAfterCompleteMode.THROW) {
-                HandServiceComponent.e(0, class_1713.field_7795);
+                HandServiceComponent.e(index, 0, class_1713.field_7795, false);
             }
         }
     }
 
     private boolean checkCondition() {
-        int var6 = 0;
-        if (var6 < 3) {
-            if (var5) {
-                if (var5) {
-                    if (!(Intrinsics.areEqual((class_1735) SharedKt.getPlayer().field_7512.field_7761.get().method_7677().getItem(), Items.field_8436))) {
-                    }
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    private boolean checkCondition(class_1842 arg0) {
-        int var7 = 0;
-        if (var7 < 3) {
-            ItemStack stack = (class_1735) SharedKt.getPlayer().field_7512.field_7761.get().method_7677();
-            class_1844 var9 = (class_1844) stack.method_58694(class_9334.field_49651);
-            if (var9 != null && var9.comp_2378().isPresent()) {
-                class_1842 var10 = (class_1842) (class_6880) var9.comp_2378().get().comp_349();
-                if (!(Intrinsics.areEqual(arg0))) {
-                    return false;
-                }
+        int index = 0;
+        if (index < 3) {
+            if (!(Intrinsics.areEqual(((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(index)).method_7677().getItem(), Items.field_8436))) {
                 return false;
             }
         }
         return true;
     }
 
+    private boolean checkCondition(class_1842 arg0) {
+        int index = 0;
+        if (index < 3) {
+            ItemStack stack = ((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(index)).method_7677();
+            class_1844 class1844 = ((class_1844) stack.method_58694(class_9334.field_49651));
+            if (class1844 != null && class1844.comp_2378().isPresent()) {
+                class_1842 class1842 = ((class_1842) ((class_6880) class1844.comp_2378().get()).comp_349());
+                if (!(Intrinsics.areEqual(class1842, arg0))) {
+                    return false;
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     private int computeValue(class_1842 arg0) {
-        int var7 = 5;
-        if (var7 < 41) {
-            ItemStack stack = (class_1735) SharedKt.getPlayer().field_7512.field_7761.get().method_7677();
-            if (var9.comp_2378().isPresent()) {
-                class_1842 var10 = (class_1842) (class_6880) var9.comp_2378().get().comp_349();
-                if (Intrinsics.areEqual(arg0)) {
-                    return var7;
+        int index = 5;
+        if (index < 41) {
+            ItemStack stack = ((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(index)).method_7677();
+            if (this.comp_2378().isPresent()) {
+                class_1842 class1842 = ((class_1842) ((class_6880) this.comp_2378().get()).comp_349());
+                if (Intrinsics.areEqual(class1842, arg0)) {
+                    return index;
                 }
             }
         }
@@ -220,29 +216,25 @@ public class AutoPotionBrewModule extends Module {
     }
 
     private void executeAction(Item arg0, int arg1) {
-        int var23 = this.computeValue(arg0);
-        HandServiceComponent.e();
-        HandServiceComponent.e(arg1);
-        int var18 = 14;
-        int var19 = 0;
-        int var21 = 0;
-        HandServiceComponent.e();
+        int index = this.computeValue(arg0);
+        HandServiceComponent.e(index, 0, null, false);
+        HandServiceComponent.e(arg1, 1, null, false);
+        int index2 = 14;
+        int index3 = 0;
+        int index4 = 0;
+        HandServiceComponent.e(index, index4, index3, index2);
         serviceComponent10.executeAction();
     }
 
     private boolean checkCondition2() {
-        return (class_1735) SharedKt.getPlayer().field_7512.field_7761.get(4).method_7677().getItem() instanceof class_1739;
+        return ((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(4)).method_7677().getItem() instanceof class_1739;
     }
 
     private int computeValue(Item arg0) {
-        int var7 = 5;
-        if (var7 < 41) {
-            if (!(var6)) {
-                if (!(var6)) {
-                    if (Intrinsics.areEqual((class_1735) SharedKt.getPlayer().field_7512.field_7761.get().method_7677().getItem(), arg0)) {
-                    }
-                    return var7;
-                }
+        int index = 5;
+        if (index < 41) {
+            if (Intrinsics.areEqual(((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(index)).method_7677().getItem(), arg0)) {
+                return index;
             }
         }
         return -1;
@@ -250,20 +242,20 @@ public class AutoPotionBrewModule extends Module {
 
     private static Unit resolveUnit(class_3965 arg0, class_2586 arg1) {
         SharedKt.getInteractionManager().method_2896(SharedKt.getPlayer(), Hand.field_5808, arg0);
-        blockPos = (class_2589) arg1.method_11016();
+        blockPos = ((class_2589) arg1).method_11016();
         return Unit.INSTANCE;
     }
 
     static {
-        KProperty[] var30 = new KProperty[5];
+        KProperty[] items = new KProperty[5];
         INSTANCE = new AutoPotionBrewModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "potion", AutoPotionBrewMode.STRENGTH);
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 100, new IntRange(0, 1000));
-        addGunpowderSetting = VisibleRenderHelper.registerSetting(INSTANCE, "throwable");
+        addGunpowderSetting = VisibleRenderHelper.registerSetting(INSTANCE, "throwable", true);
         afterCompleteSetting = VisibleRenderHelper.registerSetting(INSTANCE, "after-complete", AutoPotionBrewAfterCompleteMode.TAKE);
-        openSetting = VisibleRenderHelper.registerSetting(INSTANCE, "open");
+        openSetting = VisibleRenderHelper.registerSetting(INSTANCE, "open", true);
         serviceComponent10 = new ServiceComponent10();
-        lookupMap = (Map) new LinkedHashMap();
+        lookupMap = ((Map) new LinkedHashMap());
     }
 
 }

@@ -33,62 +33,54 @@ public class ItemsServiceComponent {
         if (this.itemList.isEmpty()) {
             return Vec3d.ZERO;
         }
-        double var8 = 0.0D;
-        double var10 = 0.0D;
-        double var12 = 0.0D;
+        double offset = 0.0D;
+        double offset2 = 0.0D;
+        double offset3 = 0.0D;
         Iterator iterator = this.itemList.iterator();
-        if (iterator.hasNext()) {
-            class_1542 var15 = (class_1542) iterator.next();
-            var8 = (var8 + var5.computeValue(PolygonShaderComponent.INSTANCE, var15.field_6014, EntityHelper.resolveMinecraftObject().field_1352));
-            var10 = (var10 + var5.computeValue(PolygonShaderComponent.INSTANCE, var15.field_6036, EntityHelper.resolveMinecraftObject().field_1351));
-            var12 = (var12 + var5.computeValue(PolygonShaderComponent.INSTANCE, var15.field_5969, EntityHelper.resolveMinecraftObject().field_1350));
+        while (iterator.hasNext()) {
+            class_1542 class1542 = ((class_1542) iterator.next());
+            offset = (offset + this.computeValue(PolygonShaderComponent.INSTANCE, class1542.field_6014, EntityHelper.resolveMinecraftObject(class1542).field_1352));
+            offset2 = (offset2 + this.computeValue(PolygonShaderComponent.INSTANCE, class1542.field_6036, EntityHelper.resolveMinecraftObject(class1542).field_1351));
+            offset3 = (offset3 + this.computeValue(PolygonShaderComponent.INSTANCE, class1542.field_5969, EntityHelper.resolveMinecraftObject(class1542).field_1350));
         }
         iterator = this.itemList.size();
-        return new Vec3d((var8 / iterator), ((var10 / iterator) + 0.7D), (var12 / iterator));
+        return new Vec3d((offset / iterator), ((offset2 / iterator) + 0.7D), (offset3 / iterator));
     }
 
     public List resolveList() {
-        Iterable var4 = (Iterable) this.itemList;
-        int var5 = 0;
-        var4 = (Grouping) new ServiceComponent129();
-        var5 = Integer.valueOf(0);
-        int var6 = 0;
-        Object var7 = var4;
-        int var8 = 0;
-        Object var9 = var7;
-        Map var10 = (Map) new LinkedHashMap();
-        int var11 = 0;
-        Iterator iterator = var9.sourceIterator();
+        Iterable iterable = ((Iterable) this.itemList);
+        int index = 0;
+        iterable = ((Grouping) new ServiceComponent129(iterable));
+        index = Integer.valueOf(0);
+        int index2 = 0;
+        Iterable iterable2 = iterable;
+        Iterable iterable3 = iterable2;
+        Map map = ((Map) new LinkedHashMap());
+        int index3 = 0;
+        Iterator iterator = iterable3.sourceIterator();
         while (iterator.hasNext()) {
-            Object var13 = iterator.next();
-            Object var14 = var9.keyOf();
-            boolean var17 = !(var10.containsKey());
-            Object var18 = var13;
-            Object var19 = var15;
-            Object var20 = var14;
-            int var21 = 0;
-            class_1542 var22 = (class_1542) var17;
-            int var23 = (Number) var18;
-            int var24 = 0;
-            var23 = Integer.valueOf((var23 + var22.method_6983().method_7947()));
-            var20.put();
+            Object element = iterator.next();
+            Object element2 = iterable3.keyOf(element);
+            boolean flag = !(map.containsKey(element2));
+            class_1542 class1542 = ((class_1542) flag);
+            int index4 = ((Number) element);
+            index4 = Integer.valueOf((index4 + class1542.method_6983().method_7947()));
+            element2.put(index4);
         }
-        var4 = var10;
-        var5 = 0;
-        var6 = var4;
-        var7 = (Collection) new ArrayList(var4.size());
-        var8 = 0;
-        var9 = var6.entrySet().iterator();
-        while (var9.hasNext()) {
-            var10 = (Entry) var9.next();
-            var11 = var10;
-            Object var25 = var7;
+        iterable = map;
+        index = 0;
+        index2 = iterable;
+        iterable2 = ((Collection) new ArrayList(iterable.size()));
+        iterable3 = index2.entrySet().iterator();
+        while (iterable3.hasNext()) {
+            map = ((Entry) iterable3.next());
+            index3 = map;
             iterator = 0;
-            var13 = (String) var11.getKey();
-            var14 = (Number) var11.getValue();
-            var25.add((var13 + " x" + var14));
+            element = ((String) index3.getKey());
+            element2 = ((Number) index3.getValue());
+            iterable2.add((element + " x" + element2));
         }
-        return var7;
+        return iterable2;
     }
 
     public List getList2() {
@@ -100,7 +92,7 @@ public class ItemsServiceComponent {
     }
 
     public static ItemsServiceComponent resolveItemsServiceComponent(ItemsServiceComponent arg0, List arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
             arg1 = arg0.itemList;
         }
         return arg0.resolveItemsServiceComponent(arg1);
@@ -121,8 +113,8 @@ public class ItemsServiceComponent {
         if (!(other instanceof ItemsServiceComponent)) {
             return false;
         }
-        ItemsServiceComponent var5 = (ItemsServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        ItemsServiceComponent itemsServiceComponent = ((ItemsServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.itemList, itemsServiceComponent.itemList))) {
             return false;
         }
         return true;

@@ -7,12 +7,12 @@ public class AntiKnockBackModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[AntiKnockBackMode.values()];
-        var0[AntiKnockBackMode.Custom.ordinal()] = 1;
-        var0[AntiKnockBackMode.Cancel.ordinal()] = 2;
-        var0[AntiKnockBackMode.OldGrim.ordinal()] = 3;
-        var0[AntiKnockBackMode.GrimNew.ordinal()] = 4;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[AntiKnockBackMode.values()];
+        element[AntiKnockBackMode.Custom.ordinal()] = 1;
+        element[AntiKnockBackMode.Cancel.ordinal()] = 2;
+        element[AntiKnockBackMode.OldGrim.ordinal()] = 3;
+        element[AntiKnockBackMode.GrimNew.ordinal()] = 4;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

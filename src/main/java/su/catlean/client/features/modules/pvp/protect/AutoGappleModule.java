@@ -31,22 +31,22 @@ public class AutoGappleModule extends Module {
     }
 
     private float getHealth() {
-        return (Number) healthSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) healthSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         enabledFlag = 0;
         if (!(Intrinsics.areEqual(SharedKt.getPlayer().method_6079().getItem(), Items.field_8463))) {
             if (Intrinsics.areEqual(SharedKt.getPlayer().method_6079().getItem(), Items.field_8367)) {
+            } else {
             }
-        } else {
         }
         if (!(Intrinsics.areEqual(SharedKt.getPlayer().method_6047().getItem(), Items.field_8463))) {
             if (Intrinsics.areEqual(SharedKt.getPlayer().method_6047().getItem(), Items.field_8367)) {
+            } else {
             }
-        } else {
         }
-        int var13 = 0;
+        int index = 0;
         if (!(SharedKt.getPlayer().method_6115())) {
             HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
         }
@@ -62,7 +62,7 @@ public class AutoGappleModule extends Module {
     }
 
     static {
-        KProperty[] var26 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new AutoGappleModule();
         healthSetting = VisibleRenderHelper.registerSetting(INSTANCE, "health", 15.0F, RangesKt.rangeTo(1.0F, 36.0F));
     }

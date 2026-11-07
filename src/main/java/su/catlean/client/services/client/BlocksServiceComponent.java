@@ -40,8 +40,8 @@ public class BlocksServiceComponent {
         if (!(other instanceof BlocksServiceComponent)) {
             return false;
         }
-        BlocksServiceComponent var5 = (BlocksServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        BlocksServiceComponent blocksServiceComponent = ((BlocksServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.itemList, blocksServiceComponent.itemList))) {
             return false;
         }
         return true;

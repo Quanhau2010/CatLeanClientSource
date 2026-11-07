@@ -17,9 +17,9 @@ public class MixinDynamic {
         this.field_51958 = (((timeMillis - this.field_51962) / this.field_51964) * TickFactorEvent.INSTANCE.getFactor());
         this.field_51962 = timeMillis;
         this.field_51959 = (this.field_51959 + this.field_51958);
-        float var4 = this.field_51959;
-        this.field_51959 = (this.field_51959 - var4);
-        cir.setReturnValue(Integer.valueOf());
+        float factor = this.field_51959;
+        this.field_51959 = (this.field_51959 - factor);
+        cir.setReturnValue(Integer.valueOf(factor));
     }
 
 }

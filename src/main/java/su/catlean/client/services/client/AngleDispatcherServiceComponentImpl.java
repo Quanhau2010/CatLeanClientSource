@@ -18,19 +18,16 @@ public class AngleDispatcherServiceComponentImpl extends DispatcherServiceCompon
     }
 
     public void executeAction(LiteralArgumentBuilder builder) {
-        long var4 = (0L ^ 61473902788714L);
     }
 
     private static float computeValue(String arg0, float arg1) {
-        if (var4 == null) {
-            if (StringsKt.startsWith$default(arg0, "~")) {
-                if (StringsKt.toFloatOrNull(StringsKt.removePrefix(arg0, (CharSequence) "~")) != null) {
-                } else {
-                    StringsKt.toFloatOrNull(StringsKt.removePrefix(arg0, (CharSequence) "~"));
-                }
-                float var5 = 0.0F;
+        if (StringsKt.startsWith$default(arg0, "~", false)) {
+            if (StringsKt.toFloatOrNull(StringsKt.removePrefix(arg0, ((CharSequence) "~"))) != null) {
             } else {
+                StringsKt.toFloatOrNull(StringsKt.removePrefix(arg0, ((CharSequence) "~")));
             }
+            float factor = 0.0F;
+        } else {
             if (StringsKt.toFloatOrNull(arg0) != null) {
             } else {
                 StringsKt.toFloatOrNull(arg0);
@@ -40,10 +37,10 @@ public class AngleDispatcherServiceComponentImpl extends DispatcherServiceCompon
     }
 
     private static int computeValue(CommandContext arg0) {
-        String var7 = (String) arg0.getArgument("yaw", String.class);
-        String var8 = (String) arg0.getArgument("pitch", String.class);
-        SharedKt.getPlayer().method_36456(computeValue(SharedKt.getPlayer().method_36454()));
-        SharedKt.getPlayer().method_36457(computeValue(SharedKt.getPlayer().method_36455()));
+        String text = ((String) arg0.getArgument("yaw", String.class));
+        String text2 = ((String) arg0.getArgument("pitch", String.class));
+        SharedKt.getPlayer().method_36456(computeValue(text, SharedKt.getPlayer().method_36454()));
+        SharedKt.getPlayer().method_36457(computeValue(text2, SharedKt.getPlayer().method_36455()));
         return 1;
     }
 

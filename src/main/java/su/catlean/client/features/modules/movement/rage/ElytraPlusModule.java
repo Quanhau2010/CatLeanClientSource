@@ -117,263 +117,263 @@ public class ElytraPlusModule extends Module {
     }
 
     public ElytraPlusMode getMode() {
-        return (ElytraPlusMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((ElytraPlusMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public boolean getTwoBee() {
-        return (Boolean) twoBeeSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) twoBeeSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     public KeyRecord getLift() {
-        return (KeyRecord) liftSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((KeyRecord) liftSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     public boolean getOnlySpace() {
-        return (Boolean) onlySpaceSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) onlySpaceSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     public boolean getStopOnGround() {
-        return (Boolean) stopOnGroundSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) stopOnGroundSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     public boolean getInfDurability() {
-        return (Boolean) infDurabilitySetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) infDurabilitySetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     public boolean getVertical() {
-        return (Boolean) verticalSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) verticalSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     public ElytraPlusNcpStrictMode getNcpStrictMode() {
-        return (ElytraPlusNcpStrictMode) ncpStrictModeSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((ElytraPlusNcpStrictMode) ncpStrictModeSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     public ElytraPlusAntiKickMode getAntiKick() {
-        return (ElytraPlusAntiKickMode) antiKickSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((ElytraPlusAntiKickMode) antiKickSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     public float getXzSpeed() {
-        return (Number) xzSpeedSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Number) xzSpeedSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     public float getYSpeed() {
-        return (Number) ySpeedSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Number) ySpeedSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     public int getFireSlot() {
-        return (Number) fireSlotSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Number) fireSlotSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     public boolean getAccelerate() {
-        return (Boolean) accelerateSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Boolean) accelerateSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     public float getAccelerateFactor() {
-        return (Number) accelerateFactorSetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Number) accelerateFactorSetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     public float getFireDelay() {
-        return (Number) fireDelaySetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Number) fireDelaySetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     public boolean getRotate() {
-        return (Boolean) rotateSetting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((Boolean) rotateSetting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     public boolean getStayMad() {
-        return (Boolean) stayMadSetting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((Boolean) stayMadSetting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     public boolean getKeepFlying() {
-        return (Boolean) keepFlyingSetting.getValue(this, DELEGATED_PROPERTIES[17]);
+        return ((Boolean) keepFlyingSetting.getValue(this, DELEGATED_PROPERTIES[17]));
     }
 
     public boolean getDisableOnFlag() {
-        return (Boolean) disableOnFlagSetting.getValue(this, DELEGATED_PROPERTIES[18]);
+        return ((Boolean) disableOnFlagSetting.getValue(this, DELEGATED_PROPERTIES[18]));
     }
 
     public boolean getAllowFireSwap() {
-        return (Boolean) allowFireSwapSetting.getValue(this, DELEGATED_PROPERTIES[19]);
+        return ((Boolean) allowFireSwapSetting.getValue(this, DELEGATED_PROPERTIES[19]));
     }
 
     public boolean getInstantFly() {
-        return (Boolean) instantFlySetting.getValue(this, DELEGATED_PROPERTIES[20]);
+        return ((Boolean) instantFlySetting.getValue(this, DELEGATED_PROPERTIES[20]));
     }
 
     public boolean getCruiseControl() {
-        return (Boolean) cruiseControlSetting.getValue(this, DELEGATED_PROPERTIES[21]);
+        return ((Boolean) cruiseControlSetting.getValue(this, DELEGATED_PROPERTIES[21]));
     }
 
     public boolean getPitchControl() {
-        return (Boolean) pitchControlSetting.getValue(this, DELEGATED_PROPERTIES[22]);
+        return ((Boolean) pitchControlSetting.getValue(this, DELEGATED_PROPERTIES[22]));
     }
 
     public float getFactor() {
-        return (Number) factorSetting.getValue(this, DELEGATED_PROPERTIES[23]);
+        return ((Number) factorSetting.getValue(this, DELEGATED_PROPERTIES[23]));
     }
 
     public float getUpSpeed() {
-        return (Number) upSpeedSetting.getValue(this, DELEGATED_PROPERTIES[24]);
+        return ((Number) upSpeedSetting.getValue(this, DELEGATED_PROPERTIES[24]));
     }
 
     public float getDownFactor() {
-        return (Number) downFactorSetting.getValue(this, DELEGATED_PROPERTIES[25]);
+        return ((Number) downFactorSetting.getValue(this, DELEGATED_PROPERTIES[25]));
     }
 
     public boolean getStopMotion() {
-        return (Boolean) stopMotionSetting.getValue(this, DELEGATED_PROPERTIES[26]);
+        return ((Boolean) stopMotionSetting.getValue(this, DELEGATED_PROPERTIES[26]));
     }
 
     public float getMinUpSpeed() {
-        return (Number) minUpSpeedSetting.getValue(this, DELEGATED_PROPERTIES[27]);
+        return ((Number) minUpSpeedSetting.getValue(this, DELEGATED_PROPERTIES[27]));
     }
 
     public boolean getForceHeight() {
-        return (Boolean) forceHeightSetting.getValue(this, DELEGATED_PROPERTIES[28]);
+        return ((Boolean) forceHeightSetting.getValue(this, DELEGATED_PROPERTIES[28]));
     }
 
     public int getManualHeight() {
-        return (Number) manualHeightSetting.getValue(this, DELEGATED_PROPERTIES[29]);
+        return ((Number) manualHeightSetting.getValue(this, DELEGATED_PROPERTIES[29]));
     }
 
     public float getSneakDownSpeed() {
-        return (Number) sneakDownSpeedSetting.getValue(this, DELEGATED_PROPERTIES[30]);
+        return ((Number) sneakDownSpeedSetting.getValue(this, DELEGATED_PROPERTIES[30]));
     }
 
     public boolean getSpeedLimit() {
-        return (Boolean) speedLimitSetting.getValue(this, DELEGATED_PROPERTIES[31]);
+        return ((Boolean) speedLimitSetting.getValue(this, DELEGATED_PROPERTIES[31]));
     }
 
     public float getMaxSpeed() {
-        return (Number) maxSpeedSetting.getValue(this, DELEGATED_PROPERTIES[32]);
+        return ((Number) maxSpeedSetting.getValue(this, DELEGATED_PROPERTIES[32]));
     }
 
     public float getRedeployInterval() {
-        return (Number) redeployIntervalSetting.getValue(this, DELEGATED_PROPERTIES[33]);
+        return ((Number) redeployIntervalSetting.getValue(this, DELEGATED_PROPERTIES[33]));
     }
 
     public float getRedeployTimeOut() {
-        return (Number) redeployTimeOutSetting.getValue(this, DELEGATED_PROPERTIES[34]);
+        return ((Number) redeployTimeOutSetting.getValue(this, DELEGATED_PROPERTIES[34]));
     }
 
     public float getRedeployDelay() {
-        return (Number) redeployDelaySetting.getValue(this, DELEGATED_PROPERTIES[35]);
+        return ((Number) redeployDelaySetting.getValue(this, DELEGATED_PROPERTIES[35]));
     }
 
     public int getInfiniteMaxHeight() {
-        return (Number) infiniteMaxHeightSetting.getValue(this, DELEGATED_PROPERTIES[36]);
+        return ((Number) infiniteMaxHeightSetting.getValue(this, DELEGATED_PROPERTIES[36]));
     }
 
     public ElytraPlusStopMoveMode getStopMove() {
-        return (ElytraPlusStopMoveMode) stopMoveSetting.getValue(this, DELEGATED_PROPERTIES[37]);
+        return ((ElytraPlusStopMoveMode) stopMoveSetting.getValue(this, DELEGATED_PROPERTIES[37]));
     }
 
     public int getSwapDelay() {
-        return (Number) swapDelaySetting.getValue(this, DELEGATED_PROPERTIES[38]);
+        return ((Number) swapDelaySetting.getValue(this, DELEGATED_PROPERTIES[38]));
     }
 
     public int getFireworkDelay() {
-        return (Number) fireworkDelaySetting.getValue(this, DELEGATED_PROPERTIES[39]);
+        return ((Number) fireworkDelaySetting.getValue(this, DELEGATED_PROPERTIES[39]));
     }
 
     public boolean getOffHandFirework() {
-        return (Boolean) offHandFireworkSetting.getValue(this, DELEGATED_PROPERTIES[40]);
+        return ((Boolean) offHandFireworkSetting.getValue(this, DELEGATED_PROPERTIES[40]));
     }
 
     public boolean getAlternativeFireworkSwap() {
-        return (Boolean) alternativeFireworkSwapSetting.getValue(this, DELEGATED_PROPERTIES[41]);
+        return ((Boolean) alternativeFireworkSwapSetting.getValue(this, DELEGATED_PROPERTIES[41]));
     }
 
     public boolean getPauseWhileEating() {
-        return (Boolean) pauseWhileEatingSetting.getValue(this, DELEGATED_PROPERTIES[42]);
+        return ((Boolean) pauseWhileEatingSetting.getValue(this, DELEGATED_PROPERTIES[42]));
     }
 
     public boolean getMinimizeClicks() {
-        return (Boolean) minimizeClicksSetting.getValue(this, DELEGATED_PROPERTIES[43]);
+        return ((Boolean) minimizeClicksSetting.getValue(this, DELEGATED_PROPERTIES[43]));
     }
 
     public boolean getBoost() {
-        return (Boolean) boostSetting.getValue(this, DELEGATED_PROPERTIES[44]);
+        return ((Boolean) boostSetting.getValue(this, DELEGATED_PROPERTIES[44]));
     }
 
     public boolean getCustomSpeed() {
-        return (Boolean) customSpeedSetting.getValue(this, DELEGATED_PROPERTIES[45]);
+        return ((Boolean) customSpeedSetting.getValue(this, DELEGATED_PROPERTIES[45]));
     }
 
     public float getDegrees0() {
-        return (Number) degrees0Setting.getValue(this, DELEGATED_PROPERTIES[46]);
+        return ((Number) degrees0Setting.getValue(this, DELEGATED_PROPERTIES[46]));
     }
 
     public float getDegrees5() {
-        return (Number) degrees5Setting.getValue(this, DELEGATED_PROPERTIES[47]);
+        return ((Number) degrees5Setting.getValue(this, DELEGATED_PROPERTIES[47]));
     }
 
     public float getDegrees10() {
-        return (Number) degrees10Setting.getValue(this, DELEGATED_PROPERTIES[48]);
+        return ((Number) degrees10Setting.getValue(this, DELEGATED_PROPERTIES[48]));
     }
 
     public float getDegrees15() {
-        return (Number) degrees15Setting.getValue(this, DELEGATED_PROPERTIES[49]);
+        return ((Number) degrees15Setting.getValue(this, DELEGATED_PROPERTIES[49]));
     }
 
     public float getDegrees20() {
-        return (Number) degrees20Setting.getValue(this, DELEGATED_PROPERTIES[50]);
+        return ((Number) degrees20Setting.getValue(this, DELEGATED_PROPERTIES[50]));
     }
 
     public float getDegrees25() {
-        return (Number) degrees25Setting.getValue(this, DELEGATED_PROPERTIES[51]);
+        return ((Number) degrees25Setting.getValue(this, DELEGATED_PROPERTIES[51]));
     }
 
     public float getDegrees30() {
-        return (Number) degrees30Setting.getValue(this, DELEGATED_PROPERTIES[52]);
+        return ((Number) degrees30Setting.getValue(this, DELEGATED_PROPERTIES[52]));
     }
 
     public float getDegrees35() {
-        return (Number) degrees35Setting.getValue(this, DELEGATED_PROPERTIES[53]);
+        return ((Number) degrees35Setting.getValue(this, DELEGATED_PROPERTIES[53]));
     }
 
     public float getDegrees40() {
-        return (Number) degrees40Setting.getValue(this, DELEGATED_PROPERTIES[54]);
+        return ((Number) degrees40Setting.getValue(this, DELEGATED_PROPERTIES[54]));
     }
 
     public float getDegrees45() {
-        return (Number) degrees45Setting.getValue(this, DELEGATED_PROPERTIES[55]);
+        return ((Number) degrees45Setting.getValue(this, DELEGATED_PROPERTIES[55]));
     }
 
     public float getDegrees50() {
-        return (Number) degrees50Setting.getValue(this, DELEGATED_PROPERTIES[56]);
+        return ((Number) degrees50Setting.getValue(this, DELEGATED_PROPERTIES[56]));
     }
 
     public float getDegrees55() {
-        return (Number) degrees55Setting.getValue(this, DELEGATED_PROPERTIES[57]);
+        return ((Number) degrees55Setting.getValue(this, DELEGATED_PROPERTIES[57]));
     }
 
     public float getDegrees60() {
-        return (Number) degrees60Setting.getValue(this, DELEGATED_PROPERTIES[58]);
+        return ((Number) degrees60Setting.getValue(this, DELEGATED_PROPERTIES[58]));
     }
 
     public float getDegrees65() {
-        return (Number) degrees65Setting.getValue(this, DELEGATED_PROPERTIES[59]);
+        return ((Number) degrees65Setting.getValue(this, DELEGATED_PROPERTIES[59]));
     }
 
     public float getDegrees70() {
-        return (Number) degrees70Setting.getValue(this, DELEGATED_PROPERTIES[60]);
+        return ((Number) degrees70Setting.getValue(this, DELEGATED_PROPERTIES[60]));
     }
 
     public float getDegrees75() {
-        return (Number) degrees75Setting.getValue(this, DELEGATED_PROPERTIES[61]);
+        return ((Number) degrees75Setting.getValue(this, DELEGATED_PROPERTIES[61]));
     }
 
     public float getDegrees80() {
-        return (Number) degrees80Setting.getValue(this, DELEGATED_PROPERTIES[62]);
+        return ((Number) degrees80Setting.getValue(this, DELEGATED_PROPERTIES[62]));
     }
 
     public float getDegrees85() {
-        return (Number) degrees85Setting.getValue(this, DELEGATED_PROPERTIES[63]);
+        return ((Number) degrees85Setting.getValue(this, DELEGATED_PROPERTIES[63]));
     }
 
     public float getDegrees90() {
-        return (Number) degrees90Setting.getValue(this, DELEGATED_PROPERTIES[64]);
+        return ((Number) degrees90Setting.getValue(this, DELEGATED_PROPERTIES[64]));
     }
 
     public ServiceComponent10 getServiceComponent10() {
@@ -424,19 +424,11 @@ public class ElytraPlusModule extends Module {
         factorValue3 = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = (arg0 ^ 60613550834554L);
-        long var7 = ((arg0 ^ 116822717865188L) >>> 48);
-        long var8 = (((arg0 ^ 116822717865188L) << 16) >>> 32);
-        long var9 = (((arg0 ^ 116822717865188L) << 48) >>> 48);
-        long var10 = (arg0 ^ 67464996320865L);
-        if (arg0 > 0L) {
-            if (SharedKt.getMc().world == null) {
-                return;
-            }
-            factorValue = 0.0F;
+    public void updateValue() {
+        if (SharedKt.getMc().world == null) {
+            return;
         }
+        factorValue = 0.0F;
         factorValue2 = SharedKt.getPlayer().getY();
         this.getMode().getContract6().executeAction();
     }
@@ -481,9 +473,7 @@ public class ElytraPlusModule extends Module {
         this.getMode().getContract6().executeAction(arg0);
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 18200288539696L);
-        long var5 = (arg0 ^ 95879002268822L);
+    public void updateValue2() {
         this.getMode().getContract6().updateValue();
     }
 
@@ -496,7 +486,7 @@ public class ElytraPlusModule extends Module {
     }
 
     public void executeAction(String m) {
-        if (!((CharSequence) m.length())) {
+        if (!(((CharSequence) m).length())) {
             this.updateValue2();
         } else {
             this.executeAction(m);
@@ -504,24 +494,24 @@ public class ElytraPlusModule extends Module {
     }
 
     public static void executeAction(ElytraPlusModule arg0, String arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
             arg1 = "";
         }
         arg0.executeAction(arg1);
     }
 
     public String resolveString(String key, Object[] args) {
-        Object[] var9 = new Object[1];
-        var9[0] = args;
-        if (var8 != null) {
+        Object[] items = new Object[1];
+        items[0] = args;
+        if (__UNDEF_KEY__ != null) {
         }
-        return MessageServiceComponent.Z(this, key);
+        return MessageServiceComponent.Z(this, key, items, false);
     }
 
     public void updateValue() {
-        Object[] var11 = new Object[1];
-        var11[0] = String.valueOf(this.getInfiniteMaxHeight());
-        this.executeAction(MessageServiceComponent.Z(this, "need-more-height"));
+        Object[] items = new Object[1];
+        items[0] = String.valueOf(this.getInfiniteMaxHeight());
+        this.executeAction(MessageServiceComponent.Z(this, "need-more-height", items, false));
     }
 
     private static boolean isActive3() {
@@ -563,8 +553,8 @@ public class ElytraPlusModule extends Module {
     private static boolean isActive12() {
         if (INSTANCE.getMode() != ElytraPlusMode.FIRE_WORK) {
             if (INSTANCE.getMode() == ElytraPlusMode.PACKET && INSTANCE.getVertical()) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -576,8 +566,8 @@ public class ElytraPlusModule extends Module {
     private static boolean isActive14() {
         if (INSTANCE.getMode() != ElytraPlusMode.CONTROL) {
             if (INSTANCE.getMode() == ElytraPlusMode.PACKET) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -585,8 +575,8 @@ public class ElytraPlusModule extends Module {
     private static boolean isActive15() {
         if (INSTANCE.getMode() != ElytraPlusMode.CONTROL) {
             if (INSTANCE.getAccelerate() && INSTANCE.getMode() == ElytraPlusMode.PACKET) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -618,10 +608,10 @@ public class ElytraPlusModule extends Module {
     private static boolean isActive22() {
         if (INSTANCE.getMode() == ElytraPlusMode.BOOST) {
             if (INSTANCE.getTwoBee()) {
+                if (INSTANCE.getMode() == ElytraPlusMode.CONTROL) {
+                } else {
+                }
             }
-            if (INSTANCE.getMode() == ElytraPlusMode.CONTROL) {
-            }
-        } else {
         }
         return false;
     }
@@ -633,8 +623,8 @@ public class ElytraPlusModule extends Module {
     private static boolean isActive24() {
         if (INSTANCE.getMode() != ElytraPlusMode.CONTROL) {
             if (INSTANCE.getMode() == ElytraPlusMode.SILENT_FIRE_WORK) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -646,10 +636,10 @@ public class ElytraPlusModule extends Module {
     private static boolean isActive26() {
         if (INSTANCE.getMode() == ElytraPlusMode.BOOST) {
             if (INSTANCE.getTwoBee()) {
+                if (INSTANCE.getMode() == ElytraPlusMode.CONTROL) {
+                } else {
+                }
             }
-            if (INSTANCE.getMode() == ElytraPlusMode.CONTROL) {
-            }
-        } else {
         }
         return false;
     }
@@ -657,10 +647,10 @@ public class ElytraPlusModule extends Module {
     private static boolean isActive27() {
         if (INSTANCE.getMode() == ElytraPlusMode.BOOST) {
             if (INSTANCE.getTwoBee()) {
+                if (INSTANCE.getMode() == ElytraPlusMode.CONTROL) {
+                } else {
+                }
             }
-            if (INSTANCE.getMode() == ElytraPlusMode.CONTROL) {
-            }
-        } else {
         }
         return false;
     }
@@ -726,8 +716,6 @@ public class ElytraPlusModule extends Module {
     }
 
     private static boolean isActive43() {
-        if (var6 == null) {
-        }
         return INSTANCE.getMode() == ElytraPlusMode.SILENT_FIRE_WORK;
     }
 
@@ -744,8 +732,6 @@ public class ElytraPlusModule extends Module {
     }
 
     private static boolean isActive47() {
-        if (var6 == null) {
-        }
         return INSTANCE.getMode() == ElytraPlusMode.SILENT_FIRE_WORK;
     }
 
@@ -826,40 +812,40 @@ public class ElytraPlusModule extends Module {
     }
 
     static {
-        KProperty[] var38 = new KProperty[65];
+        KProperty[] items = new KProperty[65];
         INSTANCE = new ElytraPlusModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", ElytraPlusMode.FIRE_WORK);
-        twoBeeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vanilla", 0, null, this::isActive3);
-        liftSetting = VisibleRenderHelper.registerSetting(INSTANCE, "lift", new KeyRecord(), null, this::isActive4);
-        onlySpaceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-space", 1, null, this::isActive5);
-        stopOnGroundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "stop-on-ground", 0, null, this::isActive6);
-        infDurabilitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "inf-durability", 1, null, this::isActive7);
-        verticalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vertical", 0, null, this::isActive8);
+        twoBeeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vanilla", false, null, this::isActive3);
+        liftSetting = VisibleRenderHelper.registerSetting(INSTANCE, "lift", new KeyRecord(0, false, false), null, this::isActive4);
+        onlySpaceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-space", true, null, this::isActive5);
+        stopOnGroundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "stop-on-ground", false, null, this::isActive6);
+        infDurabilitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "inf-durability", true, null, this::isActive7);
+        verticalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "vertical", false, null, this::isActive8);
         ncpStrictModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ncp-strict", ElytraPlusNcpStrictMode.Off, null, this::isActive9);
         antiKickSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anti-kick", ElytraPlusAntiKickMode.Jitter, null, this::isActive10);
         xzSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "x-z-speed", 1.55F, RangesKt.rangeTo(0.1F, 10.0F), null, this::isActive11);
         ySpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "y-speed", 0.47F, RangesKt.rangeTo(0.0F, 2.0F), null, this::isActive12);
         fireSlotSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-slot", 1, new IntRange(1, 9), null, this::isActive13);
-        accelerateSetting = VisibleRenderHelper.registerSetting(INSTANCE, "acceleration", 0, null, this::isActive14);
+        accelerateSetting = VisibleRenderHelper.registerSetting(INSTANCE, "acceleration", false, null, this::isActive14);
         accelerateFactorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "accelerate-factor", 9.0F, RangesKt.rangeTo(0.1F, 10.0F), null, this::isActive15);
         fireDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-delay", 1.5F, RangesKt.rangeTo(0.0F, 1.5F), null, this::isActive16);
-        rotateSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotate", 1, null, this::isActive17);
-        stayMadSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ground-safe", 0, null, this::isActive18);
-        keepFlyingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "keep-flying", 0, null, this::isActive19);
-        disableOnFlagSetting = VisibleRenderHelper.registerSetting(INSTANCE, "disable-on-flag", 0, null, this::isActive20);
-        allowFireSwapSetting = VisibleRenderHelper.registerSetting(INSTANCE, "allow-fire-swap", 0, null, this::isActive21);
-        instantFlySetting = VisibleRenderHelper.registerSetting(INSTANCE, "instant-fly", 1, null, this::isActive22);
-        cruiseControlSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cruise-control", 0, null, this::isActive23);
-        pitchControlSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pitch-control", 0, null, this::isActive24);
+        rotateSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotate", true, null, this::isActive17);
+        stayMadSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ground-safe", false, null, this::isActive18);
+        keepFlyingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "keep-flying", false, null, this::isActive19);
+        disableOnFlagSetting = VisibleRenderHelper.registerSetting(INSTANCE, "disable-on-flag", false, null, this::isActive20);
+        allowFireSwapSetting = VisibleRenderHelper.registerSetting(INSTANCE, "allow-fire-swap", false, null, this::isActive21);
+        instantFlySetting = VisibleRenderHelper.registerSetting(INSTANCE, "instant-fly", true, null, this::isActive22);
+        cruiseControlSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cruise-control", false, null, this::isActive23);
+        pitchControlSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pitch-control", false, null, this::isActive24);
         factorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "factor", 1.5F, RangesKt.rangeTo(0.1F, 50.0F), null, this::isActive25);
         upSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "up-speed", 1.0F, RangesKt.rangeTo(0.01F, 5.0F), null, this::isActive26);
         downFactorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glide", 1.0F, RangesKt.rangeTo(0.0F, 2.0F), null, this::isActive27);
-        stopMotionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "stop-motion", 1, null, this::isActive28);
+        stopMotionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "stop-motion", true, null, this::isActive28);
         minUpSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "min-up-speed", 0.5F, RangesKt.rangeTo(0.1F, 5.0F), null, this::isActive29);
-        forceHeightSetting = VisibleRenderHelper.registerSetting(INSTANCE, "force-height", 0, null, this::isActive30);
+        forceHeightSetting = VisibleRenderHelper.registerSetting(INSTANCE, "force-height", false, null, this::isActive30);
         manualHeightSetting = VisibleRenderHelper.registerSetting(INSTANCE, "height", 121, new IntRange(1, 256), null, this::isActive31);
         sneakDownSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "down-speed", 1.0F, RangesKt.rangeTo(0.01F, 5.0F), null, this::isActive32);
-        speedLimitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed-limit", 1, null, this::isActive33);
+        speedLimitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed-limit", true, null, this::isActive33);
         maxSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "max-speed", 2.5F, RangesKt.rangeTo(0.1F, 10.0F), null, this::isActive34);
         redeployIntervalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "redeploy-interval", 1.0F, RangesKt.rangeTo(0.1F, 5.0F), null, this::isActive35);
         redeployTimeOutSetting = VisibleRenderHelper.registerSetting(INSTANCE, "redeploy-timeout", 5.0F, RangesKt.rangeTo(0.1F, 20.0F), null, this::isActive36);
@@ -868,12 +854,12 @@ public class ElytraPlusModule extends Module {
         stopMoveSetting = VisibleRenderHelper.registerSetting(INSTANCE, "stop-move", ElytraPlusStopMoveMode.BLOCK, null, this::isActive39);
         swapDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "elytra-delay", 2, new IntRange(0, 40), null, this::isActive40);
         fireworkDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "firework-delay", 8, new IntRange(0, 40), null, this::isActive41);
-        offHandFireworkSetting = VisibleRenderHelper.registerSetting(INSTANCE, "offhand-firework", 1, null, this::isActive42);
-        alternativeFireworkSwapSetting = VisibleRenderHelper.registerSetting(INSTANCE, "alt-firework-swap", 0, null, this::isActive43);
-        pauseWhileEatingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-while-eating", 1, null, this::isActive44);
-        minimizeClicksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "minimize-clicks", 0, null, this::isActive45);
-        boostSetting = VisibleRenderHelper.registerSetting(INSTANCE, "boost", 0, null, this::isActive46);
-        customSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "custom-speed", 0, null, this::isActive47);
+        offHandFireworkSetting = VisibleRenderHelper.registerSetting(INSTANCE, "offhand-firework", true, null, this::isActive42);
+        alternativeFireworkSwapSetting = VisibleRenderHelper.registerSetting(INSTANCE, "alt-firework-swap", false, null, this::isActive43);
+        pauseWhileEatingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-while-eating", true, null, this::isActive44);
+        minimizeClicksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "minimize-clicks", false, null, this::isActive45);
+        boostSetting = VisibleRenderHelper.registerSetting(INSTANCE, "boost", false, null, this::isActive46);
+        customSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "custom-speed", false, null, this::isActive47);
         degrees0Setting = VisibleRenderHelper.registerSetting(INSTANCE, "0-degrees", 0.15F, RangesKt.rangeTo(0.0F, 1.0F), null, this::isActive48);
         degrees5Setting = VisibleRenderHelper.registerSetting(INSTANCE, "5-degrees", 0.15F, RangesKt.rangeTo(0.0F, 1.0F), null, this::isActive49);
         degrees10Setting = VisibleRenderHelper.registerSetting(INSTANCE, "10-degrees", 0.15F, RangesKt.rangeTo(0.0F, 1.0F), null, this::isActive50);

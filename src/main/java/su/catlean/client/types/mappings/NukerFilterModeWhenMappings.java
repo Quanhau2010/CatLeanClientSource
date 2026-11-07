@@ -7,11 +7,11 @@ public class NukerFilterModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[NukerFilterMode.values()];
-        var0[NukerFilterMode.All.ordinal()] = 1;
-        var0[NukerFilterMode.Select.ordinal()] = 2;
-        var0[NukerFilterMode.WhiteList.ordinal()] = 3;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[NukerFilterMode.values()];
+        element[NukerFilterMode.All.ordinal()] = 1;
+        element[NukerFilterMode.Select.ordinal()] = 2;
+        element[NukerFilterMode.WhiteList.ordinal()] = 3;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

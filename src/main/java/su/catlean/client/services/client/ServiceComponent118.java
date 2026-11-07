@@ -8,14 +8,14 @@ public class ServiceComponent118 {
     private static String[] textValueArray;
 
     static {
-        Object var9 = new int[HoleEspMode.values()];
-        var9[HoleEspMode.CubeFill.ordinal()] = 1;
-        var9[HoleEspMode.Shader.ordinal()] = 2;
-        var9[HoleEspMode.CubeOutline.ordinal()] = 3;
-        var9[HoleEspMode.CubeBoth.ordinal()] = 4;
-        var9[HoleEspMode.Fade.ordinal()] = 5;
-        var9[HoleEspMode.BLOOM.ordinal()] = 0L;
-        countValueArray = var9;
+        Object element = new int[HoleEspMode.values()];
+        element[HoleEspMode.CubeFill.ordinal()] = 1;
+        element[HoleEspMode.Shader.ordinal()] = 2;
+        element[HoleEspMode.CubeOutline.ordinal()] = 3;
+        element[HoleEspMode.CubeBoth.ordinal()] = 4;
+        element[HoleEspMode.Fade.ordinal()] = 5;
+        element[HoleEspMode.BLOOM.ordinal()] = 0;
+        countValueArray = element;
     }
 
     public static void updateValue(String[] arg0) {

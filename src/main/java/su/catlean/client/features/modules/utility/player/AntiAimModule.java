@@ -45,15 +45,15 @@ public class AntiAimModule extends Module {
     }
 
     private AntiAimYawMode getYawMode() {
-        return (AntiAimYawMode) yawModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((AntiAimYawMode) yawModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private AntiAimYawMode getPitchMode() {
-        return (AntiAimYawMode) pitchModeSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((AntiAimYawMode) pitchModeSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private int getYawDelay() {
-        return (Number) yawDelaySetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) yawDelaySetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setYawDelay(int value) {
@@ -61,7 +61,7 @@ public class AntiAimModule extends Module {
     }
 
     private int getPitchDelay() {
-        return (Number) pitchDelaySetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) pitchDelaySetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setPitchDelay(int value) {
@@ -69,7 +69,7 @@ public class AntiAimModule extends Module {
     }
 
     private float getYawDelta() {
-        return (Number) yawDeltaSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Number) yawDeltaSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setYawDelta(float value) {
@@ -77,7 +77,7 @@ public class AntiAimModule extends Module {
     }
 
     private float getPitchDelta() {
-        return (Number) pitchDeltaSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) pitchDeltaSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void setPitchDelta(float value) {
@@ -85,7 +85,7 @@ public class AntiAimModule extends Module {
     }
 
     private float getYawOffset() {
-        return (Number) yawOffsetSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Number) yawOffsetSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setYawOffset(float value) {
@@ -93,7 +93,7 @@ public class AntiAimModule extends Module {
     }
 
     private boolean getOffGroundOnly() {
-        return (Boolean) offGroundOnlySetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) offGroundOnlySetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
@@ -104,10 +104,10 @@ public class AntiAimModule extends Module {
             return;
         }
         if (this.getPitchMode() == AntiAimYawMode.RANDOM && !((SharedKt.getPlayer().field_6012 % this.getPitchDelay()))) {
-            factorValue2 = RangeServiceComponent.p((ClosedRange) RangesKt.rangeTo(90.0F, -90.0F));
+            factorValue2 = RangeServiceComponent.p(((ClosedRange) RangesKt.rangeTo(90.0F, -90.0F)), false);
         }
         if (this.getYawMode() == AntiAimYawMode.RANDOM && !((SharedKt.getPlayer().field_6012 % this.getYawDelay()))) {
-            factorValue = RangeServiceComponent.p((ClosedRange) RangesKt.rangeTo(0.0F, 360.0F));
+            factorValue = RangeServiceComponent.p(((ClosedRange) RangesKt.rangeTo(0.0F, 360.0F)), false);
         }
         if (this.getYawMode() == AntiAimYawMode.SPIN && !((SharedKt.getPlayer().field_6012 % this.getYawDelay()))) {
             factorValue = (factorValue + this.getYawDelta());
@@ -149,37 +149,37 @@ public class AntiAimModule extends Module {
         if (this.getYawMode() == AntiAimYawMode.STATIC) {
             factorValue = (360 + this.getYawDelta());
         }
-        int var34 = (SharedKt.getPlayer().field_6012 % (this.getYawDelay() * 2));
-        int var35 = (SharedKt.getPlayer().field_6012 % (this.getPitchDelay() * 2));
+        int index = (SharedKt.getPlayer().field_6012 % (this.getYawDelay() * 2));
+        int index2 = (SharedKt.getPlayer().field_6012 % (this.getPitchDelay() * 2));
         if (this.getPitchMode() == AntiAimYawMode.JITTER) {
-            if (!(var34)) {
+            if (!(index)) {
                 factorValue2 = (this.getPitchDelta() / 2.0F);
             }
-            if (var34 == this.getPitchDelay()) {
+            if (index == this.getPitchDelay()) {
                 factorValue2 = (this.getPitchDelta() / -2.0F);
             }
         }
         if (this.getYawMode() == AntiAimYawMode.JITTER) {
-            if (!(var35)) {
+            if (!(index2)) {
                 factorValue = (((this.getYawDelta() / 2.0F) + this.getYawOffset()) + SharedKt.getPlayer().method_36454());
             }
-            if (var35 == this.getYawDelay()) {
+            if (index2 == this.getYawDelay()) {
                 factorValue = (((this.getYawDelta() / -2.0F) + this.getYawOffset()) + SharedKt.getPlayer().method_36454());
             }
         }
         if (this.getYawMode() != AntiAimYawMode.OFF) {
         } else {
         }
-        float var36 = SharedKt.getPlayer().method_36454();
+        float factor = SharedKt.getPlayer().method_36454();
         if (this.getPitchMode() != AntiAimYawMode.OFF) {
         } else {
         }
-        float var37 = SharedKt.getPlayer().method_36455();
-        SequenceServiceComponent.INSTANCE.executeAction(new MoveFixServiceComponent(), 0);
+        float factor2 = SharedKt.getPlayer().method_36455();
+        SequenceServiceComponent.INSTANCE.executeAction(new MoveFixServiceComponent(factor, factor2, false), 0);
     }
 
     static {
-        KProperty[] var32 = new KProperty[8];
+        KProperty[] items = new KProperty[8];
         INSTANCE = new AntiAimModule();
         yawModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "yaw", AntiAimYawMode.OFF);
         pitchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pitch", AntiAimYawMode.OFF);
@@ -188,7 +188,7 @@ public class AntiAimModule extends Module {
         yawDeltaSetting = VisibleRenderHelper.registerSetting(INSTANCE, "yaw-delta", 60.0F, RangesKt.rangeTo(-360.0F, 360.0F));
         pitchDeltaSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pitch-delta", 10.0F, RangesKt.rangeTo(-90.0F, 90.0F));
         yawOffsetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "yaw-offset", 0.0F, RangesKt.rangeTo(-180.0F, 180.0F));
-        offGroundOnlySetting = VisibleRenderHelper.registerSetting(INSTANCE, "off-ground-only");
+        offGroundOnlySetting = VisibleRenderHelper.registerSetting(INSTANCE, "off-ground-only", true);
     }
 
 }

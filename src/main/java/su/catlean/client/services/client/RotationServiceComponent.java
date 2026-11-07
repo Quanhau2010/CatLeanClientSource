@@ -63,31 +63,22 @@ public class RotationServiceComponent implements Contract2 {
     }
 
     public void executeAction(MoveFixServiceComponent rotation) {
-        int var5 = (((0L << 48) | ((0L << 32) >>> 16)) | ((0L << 48) >>> 48));
-        long var7 = ((var5 ^ 86959730434430L) >>> 48);
-        long var8 = (((var5 ^ 86959730434430L) << 16) >>> 32);
-        long var9 = (((var5 ^ 86959730434430L) << 48) >>> 48);
-        long var10 = (var5 ^ 132427939850213L);
-        long var12 = (var5 ^ 45796165513343L);
-        long var14 = (var5 ^ 117761595250026L);
-        float var17 = ((20.0F / AuraModule.INSTANCE.getMinCps()) - 1);
-        float var18 = ((20.0F / AuraModule.INSTANCE.getMaxCps()) - 1);
-        int var19 = Math.min();
-        int var20 = Math.max();
-        int var21 = countValue3;
-        countValue3 = (var21 + 1);
+        float factor = ((20.0F / AuraModule.INSTANCE.getMinCps()) - 1);
+        float factor2 = ((20.0F / AuraModule.INSTANCE.getMaxCps()) - 1);
+        int index = Math.min(factor, factor2);
+        int index2 = Math.max(factor, factor2);
+        countValue3 = (countValue3 + 1);
         if (AuraModule.INSTANCE.getOldDelay()) {
         } else {
         }
         countValue = this.computeValue();
         countValue2 = countValue;
-        if (0L >= 0) {
+        if (__UNDEF_KEY__ >= 0) {
         }
     }
 
     public void updateValue() {
-        int var3 = countValue;
-        countValue = (var3 + -1);
+        countValue = (countValue + -1);
     }
 
     public boolean checkCondition(int offset) {
@@ -97,7 +88,7 @@ public class RotationServiceComponent implements Contract2 {
     }
 
     public static boolean checkCondition(RotationServiceComponent arg0, int arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
             arg1 = 0;
         }
         return arg0.checkCondition(arg1);
@@ -110,51 +101,51 @@ public class RotationServiceComponent implements Contract2 {
     private boolean checkCondition2(int arg0) {
         if (EventPacketHelper2.INSTANCE.getNumericValue() <= 0.0D) {
             if (!(SharedKt.getPlayer().isOnGround()) && SharedKt.getPlayer().method_18798().field_1351 < 0.0031D && arg0) {
+                double offset = EventPacketHelper2.INSTANCE.getNumericValue();
+                if (1.13D <= offset) {
+                } else {
+                    if (offset <= 1.146D) {
+                        if (!(SharedKt.getMc().options.field_1903.method_1434())) {
+                        } else {
+                        }
+                    }
+                }
             }
-            double var20 = EventPacketHelper2.INSTANCE.getNumericValue();
-            if (1.13D <= var20) {
-            } else {
-            }
-            if (var20 <= 1.146D) {
-            }
-            if (!(SharedKt.getMc().options.field_1903.method_1434())) {
-            }
-        } else {
         }
-        int var19 = 0;
+        int index = 0;
         if (!(SharedKt.getPlayer().method_5799())) {
             if (SharedKt.getPlayer().method_5771()) {
             }
-            if (!(SharedKt.getPlayer().method_6059(class_1294.field_5919)) && !(SharedKt.getPlayer().method_6059(class_1294.field_5902)) && !(SharedKt.getPlayer().method_5777(class_3486.field_15517)) && !(SharedKt.getPlayer().method_5777(class_3486.field_15518)) && !(TargetEntityHelper.INSTANCE.isSurroundedOrWebbed((PlayerEntity) SharedKt.getPlayer())) && !(TargetEntityHelper.INSTANCE.isSurroundedOrWebbed((PlayerEntity) SharedKt.getPlayer())) && !(SharedKt.getPlayer().method_21754())) {
+            if (!(SharedKt.getPlayer().method_6059(class_1294.field_5919)) && !(SharedKt.getPlayer().method_6059(class_1294.field_5902)) && !(SharedKt.getPlayer().method_5777(class_3486.field_15517)) && !(SharedKt.getPlayer().method_5777(class_3486.field_15518)) && !(TargetEntityHelper.INSTANCE.isSurroundedOrWebbed(((PlayerEntity) SharedKt.getPlayer()))) && !(TargetEntityHelper.INSTANCE.isSurroundedOrWebbed(((PlayerEntity) SharedKt.getPlayer()))) && !(SharedKt.getPlayer().method_21754())) {
                 if (SharedKt.getPlayer().method_31549().field_7479) {
-                }
-            } else {
-            }
-            var20 = 0;
-            if (!(var20)) {
-                return var19;
-            }
-            var20 = SharedKt.getWorld().getBlockState(BlockPos.ofFloored(AuraModule.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer())).up()).getBlock() instanceof class_2189;
-            if (var20) {
-                if (SharedKt.getPlayer().method_31549().field_7479) {
-                }
-            } else {
-            }
-            int var21 = 0;
-            if (!(SharedKt.getPlayer().method_5681())) {
-                if (!(SharedKt.getMc().options.field_1903.method_1434())) {
-                    return true;
+                } else {
                 }
             }
-            if (!(var21)) {
-                return var19;
+            offset = 0;
+            if (!(offset)) {
+                return index;
+                offset = SharedKt.getWorld().getBlockState(BlockPos.ofFloored(AuraModule.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer())).up()).getBlock() instanceof class_2189;
+                if (offset) {
+                    if (SharedKt.getPlayer().method_31549().field_7479) {
+                    } else {
+                    }
+                }
+                int index2 = 0;
+                if (!(SharedKt.getPlayer().method_5681())) {
+                    if (!(SharedKt.getMc().options.field_1903.method_1434())) {
+                        return true;
+                    }
+                }
+                if (!(index2)) {
+                    return index;
+                }
             }
         }
         return true;
     }
 
     private static boolean checkCondition(RotationServiceComponent arg0, int arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
             arg1 = 0;
         }
         return arg0.checkCondition2(arg1);
@@ -164,40 +155,40 @@ public class RotationServiceComponent implements Contract2 {
         if (MaceElytraTargetModule.INSTANCE.checkCondition()) {
             return 10;
         }
-        double var15 = SharedKt.getPlayer().method_45325(class_5134.field_23723);
-        float var17 = ((1.0F / SharedKt.getPlayer().method_45325(class_5134.field_23723)) * 18);
-        var17 = Math.max(10);
-        if (4.4D <= var15) {
+        double offset = SharedKt.getPlayer().method_45325(class_5134.field_23723);
+        float factor = ((1.0F / SharedKt.getPlayer().method_45325(class_5134.field_23723)) * 18);
+        factor = Math.max(factor, 10);
+        if (4.4D <= offset) {
         } else {
-        }
-        if (var15 != 4.0D && var15 > 4.401D) {
-            if (4.8D <= var15) {
-            } else {
+            if (offset != 4.0D && offset > 4.401D) {
+                if (4.8D <= offset) {
+                } else {
+                    if (offset <= 4.801D) {
+                        factor = 10;
+                    }
+                }
             }
-            if (var15 <= 4.801D) {
-            }
-            var17 = 10;
         }
         if (AuraModule.INSTANCE.getSplashWhileOnGround() && !(SharedKt.getMc().options.field_1903.method_1434()) && SharedKt.getPlayer().isOnGround()) {
-            var17 = 12;
+            factor = 12;
         }
-        boolean var18 = !(SharedKt.getMc().options.field_1903.method_1434());
+        boolean flag = !(SharedKt.getMc().options.field_1903.method_1434());
         if ((countValue3 % 7) == 3) {
         } else {
             if (!((countValue3 % 5))) {
                 if (SharedKt.getPlayer().isOnGround()) {
                     if (!(SharedKt.getMc().options.field_1903.method_1434())) {
-                    }
-                } else {
-                } else {
-                    if ((countValue3 % 7) == 3) {
                     } else {
+                        if ((countValue3 % 7) == 3) {
+                        } else {
+                        }
                     }
+                } else {
                 }
+            } else {
+                return factor;
             }
         }
-        }
-        return var17;
     }
 
     static {

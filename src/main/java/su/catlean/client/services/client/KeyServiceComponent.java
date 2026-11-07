@@ -42,65 +42,58 @@ public class KeyServiceComponent {
     }
 
     private void onScreenEvent(ScreenEvent arg0) {
-        Iterable var7 = (Iterable) OptionMode13.getEnumEntries();
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
-        if (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            OptionMode13 var11 = (OptionMode13) var10;
-            int var12 = 0;
-        } else {
+        Iterable iterable = ((Iterable) OptionMode13.getEnumEntries());
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            OptionMode13 optionMode13 = ((OptionMode13) element);
         }
-        if ((OptionMode13) null == null) {
+        if (((OptionMode13) null) == null) {
         }
         optionMode13 = OptionMode13.INSTANCE;
     }
 
     public String resolveString(String key, Object[] args) {
-        if ((String) optionMode13.getMap().get(key) == null && (String) OptionMode13.INSTANCE.getMap().get(key) == null) {
+        if (((String) optionMode13.getMap().get(key)) == null && ((String) OptionMode13.INSTANCE.getMap().get(key)) == null) {
         }
-        String var8 = class_1074.method_4662(key, new Object[0]);
-        Object[] var10 = Arrays.copyOf(args, args);
-        String var9 = String.format(Arrays.copyOf());
-        var9 = ("Format error: " + var8);
-        return var9;
+        String text = class_1074.method_4662(key, new Object[0]);
+        Object[] items = Arrays.copyOf(args, args);
+        String text2 = String.format(text, Arrays.copyOf(items, items));
+        text2 = ("Format error: " + text);
+        return text2;
     }
 
     public void executeAction(short arg0, char arg1, int arg2) {
-        Object var7 = this;
-        KeyServiceComponent var8 = (KeyServiceComponent) var7;
-        int var9 = 0;
+        int index = 0;
         Iterator iterator = OptionMode13.getEnumEntries().iterator();
-        if (iterator.hasNext()) {
-            OptionMode13 var11 = (OptionMode13) iterator.next();
-            InputStream var12 = CatLean.class.getClassLoader().getResourceAsStream(("assets/catlean/translations/" + var11.name().toLowerCase(Locale.ROOT) + ".ctlang"));
-            Object var13 = var12;
-            Charset var14 = Charsets.UTF_8;
-            Reader var15 = (Reader) new InputStreamReader();
-            long var16 = 3923600994541248512L;
-            if (var6 != null) {
-                if (var15 instanceof BufferedReader) {
+        while (iterator.hasNext()) {
+            OptionMode13 optionMode13 = ((OptionMode13) iterator.next());
+            InputStream inputStream = CatLean.class.getClassLoader().getResourceAsStream(("assets/catlean/translations/" + optionMode13.name().toLowerCase(Locale.ROOT) + ".ctlang"));
+            InputStream inputStream2 = inputStream;
+            Charset charset = Charsets.UTF_8;
+            Reader reader = ((Reader) new InputStreamReader(inputStream2, charset));
+            int index2 = 8192;
+            if (__UNDEF_KEY__ != null) {
+                if (reader instanceof BufferedReader) {
+                } else {
                 }
-            } else {
             }
-            JsonElement var17 = (BufferedReader) var15.parseToJsonElement(TextStreamsKt.readText((Reader) new BufferedReader()));
-            if (var6 != null) {
+            JsonElement jsonElement = ((BufferedReader) reader).parseToJsonElement(TextStreamsKt.readText(((Reader) new BufferedReader(reader, index2))));
+            if (__UNDEF_KEY__ != null) {
             }
-            var13 = (Map) var17.entrySet().iterator();
-            var14 = (Entry) var13.next();
-            var15 = (String) var14.getKey();
-            var16 = (JsonElement) var14.getValue();
-            var11.getMap().put(JsonElementKt.getJsonPrimitive().getContent());
+            inputStream2 = ((Map) jsonElement).entrySet().iterator();
+            charset = ((Entry) inputStream2.next());
+            reader = ((String) charset.getKey());
+            index2 = ((JsonElement) charset.getValue());
+            optionMode13.getMap().put(reader, JsonElementKt.getJsonPrimitive(index2).getContent());
             if (arg0 >= 0) {
                 if (arg0 >= 0) {
-                    if (var6 != null) {
+                    if (__UNDEF_KEY__ != null) {
                     }
                 }
             }
-            var8 = Result.constructor-impl(Unit.INSTANCE);
         }
-        var9 = Json.Default;
-        var8 = Result.constructor-impl(ResultKt.createFailure());
+        index = Json.Default;
     }
 
     static {

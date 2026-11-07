@@ -37,32 +37,25 @@ public class JsonServiceComponent2 implements Contract3 {
         this.itemList = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 99836442500987L) >>> 48);
-        long var4 = (((arg0 ^ 99836442500987L) << 16) >>> 16);
+    public void updateValue() {
         if (this.file.createNewFile()) {
         }
-        List positions = new ArrayList();
-        Json var7 = this.json;
-        String var8 = FilesKt.readText$default(this.file);
-        int var9 = 0;
-        var7.getSerializersModule();
-        var7 = var7.decodeFromString((DeserializationStrategy) new ArrayListSerializer(StringSerializer.INSTANCE));
-        var8 = positions;
+        List list = new ArrayList();
+        Json json = this.json;
+        String text = FilesKt.readText$default(this.file);
+        json.getSerializersModule();
+        json = json.decodeFromString(((DeserializationStrategy) new ArrayListSerializer(StringSerializer.INSTANCE)), text);
+        text = list;
         SharedKt.getLogger().warn("Homies are not loaded from file for some reasons.");
-        var7 = new ArrayList();
-        Object var6 = var7;
-        positions.executeAction();
+        json = new ArrayList();
+        list.executeAction(json);
     }
 
-    public void executeAction(int arg0, int arg1, byte arg2) {
-        int var4 = (((arg0 << 32) | ((arg1 << 40) >>> 32)) | ((arg2 << 56) >>> 56));
-        long var6 = (var4 ^ 33217499204655L);
-        Json var8 = this.json;
-        List positions = this.resolveList();
-        int var10 = 0;
-        var8.getSerializersModule();
-        FilesKt.writeText$default(this.file, var8.encodeToString((SerializationStrategy) new ArrayListSerializer(StringSerializer.INSTANCE), positions));
+    public void executeAction() {
+        Json json = this.json;
+        List list = this.resolveList();
+        json.getSerializersModule();
+        FilesKt.writeText$default(this.file, json.encodeToString(((SerializationStrategy) new ArrayListSerializer(StringSerializer.INSTANCE)), list));
     }
 
 }

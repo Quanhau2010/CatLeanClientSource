@@ -3,7 +3,6 @@ package su.catlean.client.features.modules.utility.misc;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,7 +37,7 @@ public class PingSpoofModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
@@ -48,54 +47,50 @@ public class PingSpoofModule extends Module {
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
-        Iterable var12 = (Iterable) concurrentHashMap.entrySet();
-        int var13 = 0;
-        Object var14 = var12;
-        Collection var15 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        int var16 = 0;
-        Iterator iterator = var14.iterator();
-        if (iterator.hasNext()) {
-            Object var18 = iterator.next();
-            Entry var19 = (Entry) var18;
-            if (var10 != null) {
-                Object var22 = var15;
-                int var20 = 0;
-                Object var21 = var19;
-                var22.add(new Pair(var21.getKey(), var21.getValue()));
+        Iterable iterable = ((Iterable) concurrentHashMap.entrySet());
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable, 10)));
+        int index = 0;
+        Iterator iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            Entry entry = ((Entry) element);
+            if (__UNDEF_KEY__ != null) {
+                int index2 = 0;
+                Entry entry2 = entry;
+                collection.add(new Pair(entry2.getKey(), entry2.getValue()));
             }
         }
-        List positions = var15;
-        var12 = (Iterable) positions;
-        var13 = 0;
-        var14 = var12.iterator();
-        if (var14.hasNext()) {
-            var15 = var14.next();
-            var16 = (Pair) var15;
+        iterable = ((Iterable) collection);
+        iterable2 = iterable.iterator();
+        while (iterable2.hasNext()) {
+            collection = iterable2.next();
+            index = ((Pair) collection);
             iterator = 0;
-            var18 = (Packet) var16.component1();
-            var19 = (Long) var16.component2();
-            if (var10 != null) {
-                if ((SharedKt.getNumericValue() - var19.longValue()) >= INSTANCE.getDelay()) {
-                    var20 = var18;
-                    if (var10 != null) {
-                        if (var20 instanceof class_6373) {
-                            (class_6373) var18.method_36949((class_8705) SharedKt.getNetwork());
+            element = ((Packet) index.component1());
+            entry = ((Long) index.component2());
+            if (__UNDEF_KEY__ != null) {
+                if ((SharedKt.getNumericValue() - entry.longValue()) >= INSTANCE.getDelay()) {
+                    index2 = element;
+                    if (__UNDEF_KEY__ != null) {
+                        if (index2 instanceof class_6373) {
+                            ((class_6373) element).method_36949(((class_8705) SharedKt.getNetwork()));
                         }
-                        if (var10 != null) {
-                        }
-                        if (var10 == null && var20 instanceof class_2670) {
-                            (class_2670) var18.method_11518((class_8705) SharedKt.getNetwork());
+                        if (__UNDEF_KEY__ != null) {
+                            if (__UNDEF_KEY__ == null && index2 instanceof class_2670) {
+                                ((class_2670) element).method_11518(((class_8705) SharedKt.getNetwork()));
+                            }
                         }
                     }
-                    concurrentHashMap.remove();
-                    MessageServiceComponent.S(INSTANCE, ("Error processing packet: " + var21.getMessage()));
+                    concurrentHashMap.remove(element);
+                    MessageServiceComponent.S(INSTANCE, ("Error processing packet: " + entry2.getMessage()), false);
                 }
             }
         }
     }
 
     static {
-        KProperty[] var27 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new PingSpoofModule();
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 100, new IntRange(1, 29500));
         concurrentHashMap = new ConcurrentHashMap();

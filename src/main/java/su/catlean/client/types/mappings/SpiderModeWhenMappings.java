@@ -7,13 +7,13 @@ public class SpiderModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[SpiderMode.values()];
-        var0[SpiderMode.MATRIX.ordinal()] = 1;
-        var0[SpiderMode.DEFAULT.ordinal()] = 2;
-        var0[SpiderMode.WATER_BUCKET.ordinal()] = 3;
-        var0[SpiderMode.MATRIX_2.ordinal()] = 4;
-        var0[SpiderMode.FT_FENCE.ordinal()] = 5;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[SpiderMode.values()];
+        element[SpiderMode.MATRIX.ordinal()] = 1;
+        element[SpiderMode.DEFAULT.ordinal()] = 2;
+        element[SpiderMode.WATER_BUCKET.ordinal()] = 3;
+        element[SpiderMode.MATRIX_2.ordinal()] = 4;
+        element[SpiderMode.FT_FENCE.ordinal()] = 5;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

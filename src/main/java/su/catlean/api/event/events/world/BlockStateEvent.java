@@ -38,7 +38,7 @@ public class BlockStateEvent extends Event {
     }
 
     public boolean call(BlockPos pos, BlockState prevState, BlockState state) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         pos = pos;
         state = state;
         prevState = prevState;

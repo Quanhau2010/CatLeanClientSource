@@ -51,19 +51,19 @@ public class AutoFishModule extends Module {
     }
 
     private AutoFishDetectMode getDetectMode() {
-        return (AutoFishDetectMode) detectModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((AutoFishDetectMode) detectModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getRodSave() {
-        return (Boolean) rodSaveSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) rodSaveSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getChangeRod() {
-        return (Boolean) changeRodSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) changeRodSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getLegit() {
-        return (Boolean) legitSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) legitSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     public void updateValue2() {
@@ -77,11 +77,11 @@ public class AutoFishModule extends Module {
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (SharedKt.getPlayer().method_6047().getItem() instanceof class_1787 && SharedKt.getPlayer().method_6047().method_7919() > 52 && this.getRodSave()) {
             if (this.getChangeRod() && this.computeValue() != -1) {
-                MessageServiceComponent.S(this, MessageServiceComponent.Z(this, "swapped", new Object[0]));
+                MessageServiceComponent.S(this, MessageServiceComponent.Z(this, "swapped", new Object[0], false), false);
                 ItemPacketHelper.INSTANCE.executeAction(this.computeValue());
                 serviceComponent102.executeAction();
             } else {
-                this.executeAction(MessageServiceComponent.Z(this, "almost-broken", new Object[0]));
+                this.executeAction(MessageServiceComponent.Z(this, "almost-broken", new Object[0], false));
             }
         }
         if (!(serviceComponent102.checkCondition(1000))) {
@@ -93,8 +93,8 @@ public class AutoFishModule extends Module {
             serviceComponent10.executeAction();
             serviceComponent102.executeAction();
         }
-        boolean var31 = (Boolean) SharedKt.getPlayer().field_7513.method_5841().method_12789(FishingBobberEntity.field_23234);
-        if (!(enabledFlag) && var31) {
+        boolean flag = ((Boolean) SharedKt.getPlayer().field_7513.method_5841().method_12789(FishingBobberEntity.field_23234));
+        if (!(enabledFlag) && flag) {
             this.updateValue();
             enabledFlag = 1;
         } else {
@@ -103,36 +103,30 @@ public class AutoFishModule extends Module {
     }
 
     private void updateValue() {
-        if (var9 != null) {
-            if (this.getLegit()) {
-                double var10 = ((Random.Default.nextDouble() * 150.0D) + 200.0D);
-                RunnableServiceComponent var11 = RunnableServiceComponent.INSTANCE;
-                int var12 = var10;
-                int var13 = 0;
-                var11.getExecutorService().execute((Runnable) new ServiceComponent123());
-                var11 = RunnableServiceComponent.INSTANCE;
-                var12 = (var10 * 2);
-                var13 = 0;
-                var11.getExecutorService().execute((Runnable) new ServiceComponent100());
-            }
-            HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
-            SharedKt.getPlayer().method_6104(Hand.field_5808);
-            HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
-            SharedKt.getPlayer().method_6104(Hand.field_5808);
-        }
+        double offset = ((Random.Default.nextDouble() * 150.0D) + 200.0D);
+        RunnableServiceComponent runnableServiceComponent = RunnableServiceComponent.INSTANCE;
+        double offset2 = offset;
+        runnableServiceComponent.getExecutorService().execute(((Runnable) new ServiceComponent123(offset2)));
+        runnableServiceComponent = RunnableServiceComponent.INSTANCE;
+        offset2 = (offset * 2);
+        runnableServiceComponent.getExecutorService().execute(((Runnable) new ServiceComponent100(offset2)));
+        HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
+        SharedKt.getPlayer().method_6104(Hand.field_5808);
+        HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
+        SharedKt.getPlayer().method_6104(Hand.field_5808);
         serviceComponent10.executeAction();
     }
 
     private int computeValue() {
-        int var6 = 0;
-        if (var6 < 9) {
-            if (var5 != null) {
-                if (var5 != null) {
+        int index = 0;
+        if (index < 9) {
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                if (var5 != null) {
-                    if (Intrinsics.areEqual(SharedKt.getPlayer().method_31548().method_5438().getItem(), Items.field_8378) && SharedKt.getPlayer().method_31548().method_5438().method_7919() < 52) {
+                if (__UNDEF_KEY__ != null) {
+                    if (Intrinsics.areEqual(SharedKt.getPlayer().method_31548().method_5438(index).getItem(), Items.field_8378) && SharedKt.getPlayer().method_31548().method_5438(index).method_7919() < 52) {
+                        return index;
                     }
-                    return var6;
                 }
             }
         }
@@ -144,12 +138,12 @@ public class AutoFishModule extends Module {
     }
 
     static {
-        KProperty[] var28 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new AutoFishModule();
         detectModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "detect-mode", AutoFishDetectMode.V1_17);
-        rodSaveSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rod-save");
-        changeRodSetting = VisibleRenderHelper.registerSetting(INSTANCE, "change-rod");
-        legitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "legit");
+        rodSaveSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rod-save", true);
+        changeRodSetting = VisibleRenderHelper.registerSetting(INSTANCE, "change-rod", false);
+        legitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "legit", true);
         serviceComponent10 = new ServiceComponent10();
         serviceComponent102 = new ServiceComponent10();
     }

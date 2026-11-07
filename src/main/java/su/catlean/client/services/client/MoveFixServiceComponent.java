@@ -1,6 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.math.MathKt;
 import kotlin.ranges.RangesKt;
 import net.minecraft.class_315;
@@ -24,16 +23,6 @@ public class MoveFixServiceComponent {
         this.factorValue2 = pitch;
         this.enabledFlag = grim;
         this.optionMode18 = moveFix;
-    }
-
-    public MoveFixServiceComponent(float arg0, float arg1, boolean arg2, OptionMode18 arg3, int arg4, DefaultConstructorMarker arg5) {
-        if ((arg4 & 4)) {
-            arg2 = 0;
-        }
-        if ((arg4 & 8)) {
-            arg3 = OptionMode18.NONE;
-        }
-        this(arg0, arg1, arg2, arg3);
     }
 
     public float getNumericValue() {
@@ -69,13 +58,13 @@ public class MoveFixServiceComponent {
     }
 
     public MoveFixServiceComponent resolveMoveFixServiceComponent() {
-        double var7 = ((Math.pow((((Number) SharedKt.getMc().options.method_42495().method_41753() * 0.6D) + 0.2D), 3) * 8.0D) * 0.15F);
-        float var9 = class_3532.method_15393((this.factorValue - (LocalPlayerAccessor) SharedKt.getPlayer().getLastYaw()));
-        float var10 = class_3532.method_15393((this.factorValue2 - (LocalPlayerAccessor) SharedKt.getPlayer().getLastPitch()));
-        int var11 = (MathKt.roundToInt((var9 / var7)) * var7);
-        int var13 = (MathKt.roundToInt((var10 / var7)) * var7);
-        this.factorValue = ((LocalPlayerAccessor) SharedKt.getPlayer().getLastYaw() + var11);
-        this.factorValue2 = RangesKt.coerceIn(((LocalPlayerAccessor) SharedKt.getPlayer().getLastPitch() + var13), -90.0F, 90.0F);
+        double offset = ((Math.pow(((((Number) SharedKt.getMc().options.method_42495().method_41753()) * 0.6D) + 0.2D), 3) * 8.0D) * 0.15F);
+        float factor = class_3532.method_15393((this.factorValue - ((LocalPlayerAccessor) SharedKt.getPlayer()).getLastYaw()));
+        float factor2 = class_3532.method_15393((this.factorValue2 - ((LocalPlayerAccessor) SharedKt.getPlayer()).getLastPitch()));
+        int index = (MathKt.roundToInt((factor / offset)) * offset);
+        int index2 = (MathKt.roundToInt((factor2 / offset)) * offset);
+        this.factorValue = (((LocalPlayerAccessor) SharedKt.getPlayer()).getLastYaw() + index);
+        this.factorValue2 = RangesKt.coerceIn((((LocalPlayerAccessor) SharedKt.getPlayer()).getLastPitch() + index2), -90.0F, 90.0F);
         return this;
     }
 
@@ -110,35 +99,35 @@ public class MoveFixServiceComponent {
     }
 
     public static MoveFixServiceComponent resolveMoveFixServiceComponent(MoveFixServiceComponent arg0, float arg1, float arg2, boolean arg3, OptionMode18 arg4, int arg5, Object arg6) {
-        if ((arg5 & 1)) {
+        if ((arg5 & 1) != 0) {
             arg1 = arg0.factorValue;
         }
-        if ((arg5 & 2)) {
+        if ((arg5 & 2) != 0) {
             arg2 = arg0.factorValue2;
         }
-        if ((arg5 & 4)) {
+        if ((arg5 & 4) != 0) {
             arg3 = arg0.enabledFlag;
         }
-        if ((arg5 & 8)) {
+        if ((arg5 & 8) != 0) {
             arg4 = arg0.optionMode18;
         }
         return arg0.resolveMoveFixServiceComponent(arg1, arg2, arg3, arg4);
     }
 
     public String toString() {
-        OptionMode18 var3 = this.optionMode18;
-        boolean var4 = this.enabledFlag;
-        float var5 = this.factorValue2;
-        float var6 = this.factorValue;
-        return ("Rotation(yaw=" + var6 + ", pitch=" + var5 + ", grim=" + var4 + ", moveFix=" + var3 + ")");
+        OptionMode18 optionMode18 = this.optionMode18;
+        boolean flag = this.enabledFlag;
+        float factor = this.factorValue2;
+        float factor2 = this.factorValue;
+        return ("Rotation(yaw=" + factor2 + ", pitch=" + factor + ", grim=" + flag + ", moveFix=" + optionMode18 + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        var3 = ((var3 * 31) + this.optionMode18.hashCode());
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        index = ((index * 31) + this.optionMode18.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -148,17 +137,17 @@ public class MoveFixServiceComponent {
         if (!(other instanceof MoveFixServiceComponent)) {
             return false;
         }
-        MoveFixServiceComponent var5 = (MoveFixServiceComponent) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        MoveFixServiceComponent moveFixServiceComponent = ((MoveFixServiceComponent) other);
+        if (Float.compare(this.factorValue, moveFixServiceComponent.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, moveFixServiceComponent.factorValue2)) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != moveFixServiceComponent.enabledFlag) {
             return false;
         }
-        if (this.optionMode18 != var5.optionMode18) {
+        if (this.optionMode18 != moveFixServiceComponent.optionMode18) {
             return false;
         }
         return true;

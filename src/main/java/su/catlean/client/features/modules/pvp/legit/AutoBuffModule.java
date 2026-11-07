@@ -64,43 +64,43 @@ public class AutoBuffModule extends Module {
     }
 
     private boolean getStrength() {
-        return (Boolean) strengthSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) strengthSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getSpeedPotion() {
-        return (Boolean) speedPotionSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) speedPotionSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getFire() {
-        return (Boolean) fireSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) fireSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getHeal() {
-        return (Boolean) healSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) healSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private int getHealthH() {
-        return (Number) healthHSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Number) healthHSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getRegen() {
-        return (Boolean) regenSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) regenSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private AutoBuffTriggerOnMode getTriggerOn() {
-        return (AutoBuffTriggerOnMode) triggerOnSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((AutoBuffTriggerOnMode) triggerOnSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private int getHealthR() {
-        return (Number) healthRSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Number) healthRSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private int getPotionsPerTick() {
-        return (Number) potionsPerTickSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Number) potionsPerTickSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private WindHopSwitchMode getSwitchMode() {
-        return (WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private void setSwitchMode(WindHopSwitchMode value) {
@@ -109,12 +109,11 @@ public class AutoBuffModule extends Module {
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         countValue = 0;
-        SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(new MoveFixServiceComponent(EventPacketHelper2.INSTANCE.computeValue(), 90.0F), 200, this::getUnit));
+        SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(200, this::getUnit));
     }
 
     private void updateValue() {
         ClientPlayerEntity player = SharedKt.getPlayer();
-        int var31 = 0;
         if (!(player.method_6059(class_1294.field_5904)) && INSTANCE.getSpeedPotion() && countValue < INSTANCE.getPotionsPerTick()) {
             INSTANCE.executeAction(class_1294.field_5904);
         }
@@ -138,11 +137,11 @@ public class AutoBuffModule extends Module {
     }
 
     private void executeAction(class_6880 arg0) {
-        int var11 = this.computeValue(arg0);
-        if (var11 == -1) {
+        int index = this.computeValue(arg0);
+        if (index == -1) {
             return;
         }
-        ItemPacketHelper.INSTANCE.executeAction(this.getSwitchMode(), this::getUnit2);
+        ItemPacketHelper.INSTANCE.executeAction(index, this.getSwitchMode(), this::getUnit2);
     }
 
     private int computeValue(class_6880 arg0) {
@@ -159,93 +158,90 @@ public class AutoBuffModule extends Module {
             arg0.getItem();
         }
         if (null instanceof class_1828) {
-            Iterable var6 = (class_1844) arg0.method_58695(class_9334.field_49651, class_1844.field_49274).method_57397();
-            int var7 = 0;
-            if (var6 instanceof Collection && (Collection) var6.isEmpty()) {
+            Iterable iterable = ((class_1844) arg0.method_58695(class_9334.field_49651, class_1844.field_49274)).method_57397();
+            if (iterable instanceof Collection && ((Collection) iterable).isEmpty()) {
             } else {
-                Iterator iterator = var6.iterator();
-                if (iterator.hasNext()) {
-                    Object var9 = iterator.next();
-                    class_1293 var10 = (class_1293) var9;
-                    int var11 = 0;
-                } else {
+                Iterator iterator = iterable.iterator();
+                while (iterator.hasNext()) {
+                    Object element = iterator.next();
+                    class_1293 class1293 = ((class_1293) element);
                 }
             }
         } else {
+            return false;
         }
-        return false;
     }
 
     private boolean checkCondition(int arg0, int arg1, char arg2) {
         if (serviceComponent38.checkCondition((6 + Math.floor((TheNetherPacketHelper.f() / 50.0D))))) {
-            if (arg1 > 0 && var35 != null) {
+            if (arg1 > 0 && __UNDEF_KEY__ != null) {
                 if (SharedKt.getPlayer().field_6012 <= 100) {
+                    return false;
                 }
-                return false;
             }
         }
         if (arg0 > 0) {
-            if (var35 != null) {
+            if (__UNDEF_KEY__ != null) {
                 if (AuraModule.INSTANCE.getEnabled() && AuraModule.INSTANCE.getTarget() != null && SharedKt.getPlayer().method_7261(1.0F) > 0.5F) {
                     return false;
                 }
             }
         }
         if (arg0 > 0) {
-            if (var35 != null) {
+            if (__UNDEF_KEY__ != null) {
                 if (SharedKt.getPlayer().isFallFlying()) {
                     return false;
                 }
             }
         }
         if (arg1 >= 0) {
-            if (var35 != null) {
+            if (__UNDEF_KEY__ != null) {
                 if (this.checkCondition(class_1294.field_5904)) {
                 }
             }
         }
         if (arg2 > 0) {
-            if (var35 != null) {
+            if (__UNDEF_KEY__ != null) {
                 if (this.checkCondition(class_1294.field_5910)) {
                 }
             }
         }
         if (arg1 > 0) {
-            if (var35 != null) {
+            if (__UNDEF_KEY__ != null) {
                 if (this.checkCondition(class_1294.field_5918)) {
                 }
             }
             if (arg1 >= 0) {
-            }
-            if ((SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067()) < this.getHealthH()) {
-                if (arg1 > 0) {
-                    if (var35 != null) {
-                    }
-                    if (arg2 >= 0) {
-                        if (this.checkCondition(class_1294.field_5915)) {
+                if ((SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067()) < this.getHealthH()) {
+                    if (arg1 > 0) {
+                        if (__UNDEF_KEY__ != null) {
+                            if (arg2 >= 0) {
+                                if (this.checkCondition(class_1294.field_5915)) {
+                                }
+                            }
+                        }
+                        if (arg0 > 0) {
+                            if (this.getTriggerOn() == AutoBuffTriggerOnMode.LackOfRegen) {
+                                if (arg1 >= 0) {
+                                    if (this.checkCondition(class_1294.field_5924)) {
+                                        if (!(this.getSpeedPotion()) && !(this.getStrength()) && !(this.getFire()) && !(this.getHeal()) && !(this.getRegen())) {
+                                            if (arg2 >= 0) {
+                                            }
+                                            if (arg0 > 0) {
+                                                if (__UNDEF_KEY__ != null) {
+                                                }
+                                            }
+                                            if ((SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067()) < this.getHealthR() && this.getTriggerOn() == AutoBuffTriggerOnMode.Health && this.checkCondition(class_1294.field_5924) && this.getRegen()) {
+                                            } else {
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
-            if (arg0 > 0) {
-            }
-            if (this.getTriggerOn() == AutoBuffTriggerOnMode.LackOfRegen) {
-            }
-            if (arg1 >= 0) {
-                if (this.checkCondition(class_1294.field_5924)) {
-                    if (!(this.getSpeedPotion()) && !(this.getStrength()) && !(this.getFire()) && !(this.getHeal()) && !(this.getRegen())) {
-                    }
-                }
-            }
-            if (arg2 >= 0) {
-            }
-            if (arg0 > 0) {
-                if (var35 != null) {
-                }
-            }
-            if ((SharedKt.getPlayer().method_6032() + SharedKt.getPlayer().method_6067()) < this.getHealthR() && this.getTriggerOn() == AutoBuffTriggerOnMode.Health && this.checkCondition(class_1294.field_5924) && this.getRegen()) {
-            }
-        } else {
         }
         return false;
     }
@@ -261,9 +257,8 @@ public class AutoBuffModule extends Module {
 
     private static Unit getUnit2() {
         HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
-        PacketPacketHelper.handlePacket((Packet) new class_2879(Hand.field_5808));
-        int var6 = countValue;
-        countValue = (var6 + 1);
+        PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
+        countValue = (countValue + 1);
         return Unit.INSTANCE;
     }
 
@@ -272,14 +267,14 @@ public class AutoBuffModule extends Module {
     }
 
     static {
-        KProperty[] var33 = new KProperty[10];
+        KProperty[] items = new KProperty[10];
         INSTANCE = new AutoBuffModule();
-        strengthSetting = VisibleRenderHelper.registerSetting(INSTANCE, "strength");
-        speedPotionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed");
-        fireSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-resistance");
-        healSetting = VisibleRenderHelper.registerSetting(INSTANCE, "instant-healing");
+        strengthSetting = VisibleRenderHelper.registerSetting(INSTANCE, "strength", true);
+        speedPotionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", true);
+        fireSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-resistance", true);
+        healSetting = VisibleRenderHelper.registerSetting(INSTANCE, "instant-healing", true);
         healthHSetting = VisibleRenderHelper.registerSetting(INSTANCE, "health", 8, new IntRange(0, 20));
-        regenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "regeneration");
+        regenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "regeneration", true);
         triggerOnSetting = VisibleRenderHelper.registerSetting(INSTANCE, "trigger", AutoBuffTriggerOnMode.LackOfRegen);
         healthRSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hp", 8, new IntRange(0, 20), null, this::isActive);
         potionsPerTickSetting = VisibleRenderHelper.registerSetting(INSTANCE, "potions-per-tick", 3, new IntRange(1, 3));

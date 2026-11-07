@@ -55,64 +55,63 @@ public class AutoSignModule extends Module {
     }
 
     private String getLine1() {
-        return (String) line1Setting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((String) line1Setting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private String getLine2() {
-        return (String) line2Setting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((String) line2Setting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private String getLine3() {
-        return (String) line3Setting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((String) line3Setting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private String getLine4() {
-        return (String) line4Setting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((String) line4Setting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private String getDateFormat() {
-        return (String) dateFormatSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((String) dateFormatSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getGlow() {
-        return (Boolean) glowSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) glowSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     public void onScreenEvent(ScreenEvent e) {
-        SignEditScreenAccessor var41 = (SignEditScreenAccessor) e.getScreen();
+        SignEditScreenAccessor signEditScreenAccessor = ((SignEditScreenAccessor) e.getScreen());
         e.cancel();
-        PacketPacketHelper.handlePacket((Packet) new class_2877(var41.getSign().method_11016(), var41.isIsFrontText(), this.resolveString(this.getLine1()), this.resolveString(this.getLine2()), this.resolveString(this.getLine3()), this.resolveString(this.getLine4())));
-        var43[0] = Items.field_28410;
-        StackServiceComponent2 var42 = new Item[1].resolveStackServiceComponent2();
-        boolean var44 = SharedKt.getMc().player.method_5715();
-        if (!(var42.isActive())) {
+        PacketPacketHelper.handlePacket(((Packet) new class_2877(signEditScreenAccessor.getSign().method_11016(), signEditScreenAccessor.isIsFrontText(), this.resolveString(this.getLine1()), this.resolveString(this.getLine2()), this.resolveString(this.getLine3()), this.resolveString(this.getLine4()))));
+        __UNDEF_KEY__[0] = Items.field_28410;
+        StackServiceComponent2 stackServiceComponent2 = new Item[1].resolveStackServiceComponent2();
+        boolean flag = SharedKt.getMc().player.method_5715();
+        if (!(stackServiceComponent2.isActive())) {
         }
         ItemPacketHelper.INSTANCE.updateValue();
-        var42.updateValue();
-        if (var44) {
-            ViafabricplusServiceComponent.INSTANCE.executeAction(0);
+        stackServiceComponent2.updateValue();
+        if (flag) {
+            ViafabricplusServiceComponent.INSTANCE.executeAction(false);
         }
-        SharedKt.getPlayer().method_2896(Hand.field_5810, Hand.field_5808, new class_3965(var41.getSign().method_11016().toCenterPos().method_1031(0.0D, 0.5D, 0.0D), Direction.UP, var41.getSign().method_11016(), 0));
-        if (var44) {
-            ViafabricplusServiceComponent.INSTANCE.executeAction(1);
+        SharedKt.getPlayer().method_2896(Hand.field_5810, Hand.field_5808, new class_3965(signEditScreenAccessor.getSign().method_11016().toCenterPos().method_1031(0.0D, 0.5D, 0.0D), Direction.UP, signEditScreenAccessor.getSign().method_11016(), false));
+        if (flag) {
+            ViafabricplusServiceComponent.INSTANCE.executeAction(true);
         }
-        Hand.field_5810.<init>(Hand.field_5808);
-        PacketPacketHelper.handlePacket((Packet) new class_2879);
+        PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
         ItemPacketHelper.INSTANCE.updateValue2();
     }
 
     private String resolveString(String arg0) {
-        String var13 = "dd/MM/yyyy";
-        var13 = new SimpleDateFormat(this.getDateFormat()).format(new Date());
-        MessageServiceComponent.S(this, (class_124.field_1061 + "Your date format is wrong!"));
-        return StringsKt.replace$default(StringsKt.replace$default(arg0, "<player>", SharedKt.getMc().method_1548().method_1676()), "<date>");
+        String text = "dd/MM/yyyy";
+        text = new SimpleDateFormat(this.getDateFormat()).format(new Date());
+        MessageServiceComponent.S(this, (class_124.field_1061 + "Your date format is wrong!"), false);
+        return StringsKt.replace$default(StringsKt.replace$default(arg0, "<player>", SharedKt.getMc().method_1548().method_1676(), false), "<date>", text, false);
     }
 
     private boolean checkCondition() {
-        if (!(StringsKt.contains$default((CharSequence) this.getLine1(), (CharSequence) "<date>")) && !(StringsKt.contains$default((CharSequence) this.getLine2(), (CharSequence) "<date>")) && !(StringsKt.contains$default((CharSequence) this.getLine3(), (CharSequence) "<date>"))) {
-            if (StringsKt.contains$default((CharSequence) this.getLine4(), (CharSequence) "<date>")) {
+        if (!(StringsKt.contains$default(((CharSequence) this.getLine1()), ((CharSequence) "<date>"), false)) && !(StringsKt.contains$default(((CharSequence) this.getLine2()), ((CharSequence) "<date>"), false)) && !(StringsKt.contains$default(((CharSequence) this.getLine3()), ((CharSequence) "<date>"), false))) {
+            if (StringsKt.contains$default(((CharSequence) this.getLine4()), ((CharSequence) "<date>"), false)) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -122,14 +121,14 @@ public class AutoSignModule extends Module {
     }
 
     static {
-        KProperty[] var28 = new KProperty[-1878568491397677050L];
+        KProperty[] items = new KProperty[6];
         INSTANCE = new AutoSignModule();
-        line1Setting = VisibleRenderHelper.registerSetting(INSTANCE, "line1", "<player>", null, null, -3804141311041208308L);
-        line2Setting = VisibleRenderHelper.registerSetting(INSTANCE, "line2", "was here", null, null, -5193130229874294772L);
-        line3Setting = VisibleRenderHelper.registerSetting(INSTANCE, "line3", "<------------->", null, null, -5193130229874294772L);
-        line4Setting = VisibleRenderHelper.registerSetting(INSTANCE, "line4", "<date>", null, null, -5193130229874294772L);
+        line1Setting = VisibleRenderHelper.registerSetting(INSTANCE, "line1", "<player>");
+        line2Setting = VisibleRenderHelper.registerSetting(INSTANCE, "line2", "was here");
+        line3Setting = VisibleRenderHelper.registerSetting(INSTANCE, "line3", "<------------->");
+        line4Setting = VisibleRenderHelper.registerSetting(INSTANCE, "line4", "<date>");
         dateFormatSetting = VisibleRenderHelper.registerSetting(INSTANCE, "date-format", "dd/MM/yyyy", null, this::isActive);
-        glowSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glowing", 0, null, null, -5193130229874294772L);
+        glowSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glowing", false);
     }
 
 }

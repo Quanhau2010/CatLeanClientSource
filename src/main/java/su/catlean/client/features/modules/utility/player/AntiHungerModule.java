@@ -25,25 +25,25 @@ public class AntiHungerModule extends Module {
     }
 
     private boolean getGround() {
-        return (Boolean) groundSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) groundSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getSprint() {
-        return (Boolean) sprintSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) sprintSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void onSendPacket(SendPacket arg0) {
         if (arg0.getPacket() instanceof PlayerMoveC2SPacket && this.getGround()) {
-            (ServerboundMovePlayerPacketAccessor) arg0.getPacket().setGround(0);
+            ((ServerboundMovePlayerPacketAccessor) arg0.getPacket()).setGround(false);
         }
         arg0.cancel();
     }
 
     static {
-        KProperty[] var26 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new AntiHungerModule();
-        groundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel-ground", 1, null, null, 7562069023085559820L);
-        sprintSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel-sprint", 1, null, null, -6478272053580398580L);
+        groundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel-ground", true);
+        sprintSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel-sprint", true);
     }
 
 }

@@ -15,7 +15,7 @@ public class SelfTrapModule extends TrapPlacementModule {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        this.executeAction((PlayerEntity) SharedKt.getPlayer());
+        this.executeAction(((PlayerEntity) SharedKt.getPlayer()));
     }
 
     static {

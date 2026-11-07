@@ -20,11 +20,11 @@ public class EasingsdebugDispatcherServiceComponentImpl extends DispatcherServic
     }
 
     private static void executeAction() {
-        SharedKt.getMc().method_1507((Screen) new TestRenderHelper());
+        SharedKt.getMc().method_1507(((Screen) new TestRenderHelper()));
     }
 
     private static int computeValue(CommandContext arg0) {
-        RunnableServiceComponent2.executeAction(10, 0, 0, this::executeAction);
+        RunnableServiceComponent2.executeAction(10, 0, false, this::executeAction);
         return 1;
     }
 

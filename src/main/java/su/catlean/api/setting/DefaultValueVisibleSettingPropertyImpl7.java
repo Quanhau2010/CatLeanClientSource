@@ -12,7 +12,7 @@ public class DefaultValueVisibleSettingPropertyImpl7 extends VisibleSettingPrope
     private static boolean enabledFlag;
 
     public DefaultValueVisibleSettingPropertyImpl7(String id, SettingGroup defaultValue, Function0 visible) {
-        super(id, defaultValue, null, null, visible, 6476153685515698188L);
+        super(id, defaultValue, null, null, visible);
         this.json = JsonKt.Json$default(null, this::resolveUnit);
     }
 
@@ -29,8 +29,8 @@ public class DefaultValueVisibleSettingPropertyImpl7 extends VisibleSettingPrope
     }
 
     private static Unit resolveUnit(JsonBuilder arg0) {
-        arg0.setIgnoreUnknownKeys(1);
-        arg0.setEncodeDefaults(1);
+        arg0.setIgnoreUnknownKeys(true);
+        arg0.setEncodeDefaults(true);
         return Unit.INSTANCE;
     }
 

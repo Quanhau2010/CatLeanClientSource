@@ -11,12 +11,9 @@ public class Comparator16 implements Comparator {
     }
 
     public int compare(Object b) {
-        ProfileServiceComponent var7 = (ProfileServiceComponent) 0L;
-        int var8 = 0;
-        var7 = (ProfileServiceComponent) b;
-        Comparable var9 = (Comparable) Integer.valueOf(EntryPacketHelper.computeValue());
-        var8 = 0;
-        return ComparisonsKt.compareValues((Comparable) Integer.valueOf(EntryPacketHelper.computeValue()));
+        ProfileServiceComponent profileServiceComponent = ((ProfileServiceComponent) b);
+        Comparable comparable = ((Comparable) Integer.valueOf(EntryPacketHelper.computeValue()));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Integer.valueOf(EntryPacketHelper.computeValue(profileServiceComponent))));
     }
 
 }

@@ -1,6 +1,5 @@
 package su.catlean.client.services.client.config.models;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.serialization.descriptors.SerialDescriptor;
 import kotlinx.serialization.encoding.CompositeEncoder;
@@ -25,25 +24,6 @@ public class ModulesConfigRecord {
         this.textValue3 = inventoriesConfig;
         this.textValue4 = themeConfig;
         this.enabledFlag = rpcAsked;
-    }
-
-    public ModulesConfigRecord(String arg0, String arg1, String arg2, String arg3, boolean arg4, int arg5, DefaultConstructorMarker arg6) {
-        if ((arg5 & 1)) {
-            arg0 = "default";
-        }
-        if ((arg5 & 2)) {
-            arg1 = "default";
-        }
-        if ((arg5 & 4)) {
-            arg2 = "default";
-        }
-        if ((arg5 & 8)) {
-            arg3 = CatLeanServiceComponent.getIdRecord6().getString();
-        }
-        if ((arg5 & 16)) {
-            arg4 = 0;
-        }
-        this(arg0, arg1, arg2, arg3, arg4);
     }
 
     public String getString() {
@@ -111,40 +91,40 @@ public class ModulesConfigRecord {
     }
 
     public static ModulesConfigRecord resolveModulesConfigRecord(ModulesConfigRecord arg0, String arg1, String arg2, String arg3, String arg4, boolean arg5, int arg6, Object arg7) {
-        if ((arg6 & 1)) {
+        if ((arg6 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg6 & 2)) {
+        if ((arg6 & 2) != 0) {
             arg2 = arg0.textValue2;
         }
-        if ((arg6 & 4)) {
+        if ((arg6 & 4) != 0) {
             arg3 = arg0.textValue3;
         }
-        if ((arg6 & 8)) {
+        if ((arg6 & 8) != 0) {
             arg4 = arg0.textValue4;
         }
-        if ((arg6 & 16)) {
+        if ((arg6 & 16) != 0) {
             arg5 = arg0.enabledFlag;
         }
         return arg0.resolveModulesConfigRecord(arg1, arg2, arg3, arg4, arg5);
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag;
-        String var4 = this.textValue4;
-        String var5 = this.textValue3;
-        String var6 = this.textValue2;
-        String var7 = this.textValue;
-        return ("SharedConfig(modulesConfig=" + var7 + ", widgetsConfig=" + var6 + ", inventoriesConfig=" + var5 + ", themeConfig=" + var4 + ", rpcAsked=" + var3 + ")");
+        boolean flag = this.enabledFlag;
+        String text = this.textValue4;
+        String text2 = this.textValue3;
+        String text3 = this.textValue2;
+        String text4 = this.textValue;
+        return ("SharedConfig(modulesConfig=" + text4 + ", widgetsConfig=" + text3 + ", inventoriesConfig=" + text2 + ", themeConfig=" + text + ", rpcAsked=" + flag + ")");
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * 31) + this.textValue2.hashCode());
-        var3 = ((var3 * 31) + this.textValue3.hashCode());
-        var3 = ((var3 * 31) + this.textValue4.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.textValue2.hashCode());
+        index = ((index * 31) + this.textValue3.hashCode());
+        index = ((index * 31) + this.textValue4.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -154,20 +134,20 @@ public class ModulesConfigRecord {
         if (!(other instanceof ModulesConfigRecord)) {
             return false;
         }
-        ModulesConfigRecord var5 = (ModulesConfigRecord) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        ModulesConfigRecord modulesConfigRecord = ((ModulesConfigRecord) other);
+        if (!(Intrinsics.areEqual(this.textValue, modulesConfigRecord.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, modulesConfigRecord.textValue2))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue3, var5.textValue3))) {
+        if (!(Intrinsics.areEqual(this.textValue3, modulesConfigRecord.textValue3))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue4, var5.textValue4))) {
+        if (!(Intrinsics.areEqual(this.textValue4, modulesConfigRecord.textValue4))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != modulesConfigRecord.enabledFlag) {
             return false;
         }
         return true;
@@ -205,33 +185,33 @@ public class ModulesConfigRecord {
     }
 
     public ModulesConfigRecord(int seen0, String modulesConfig, String widgetsConfig, String inventoriesConfig, String themeConfig, boolean rpcAsked, SerializationConstructorMarker serializationConstructorMarker) {
-        if ((0 & seen0)) {
+        if ((0 & seen0) != 0) {
             PluginExceptionsKt.throwMissingFieldException(seen0, 0, ModulesConfigRecordSerializer.INSTANCE.getDescriptor());
         }
-        if (!((seen0 & 1))) {
+        if ((seen0 & 1) == 0) {
             this.textValue = "default";
         }
         this.textValue = modulesConfig;
-        if (!((seen0 & 2))) {
+        if ((seen0 & 2) == 0) {
             this.textValue2 = "default";
         }
         this.textValue2 = widgetsConfig;
-        if (!((seen0 & 4))) {
+        if ((seen0 & 4) == 0) {
             this.textValue3 = "default";
         }
         this.textValue3 = inventoriesConfig;
-        if (!((seen0 & 8))) {
+        if ((seen0 & 8) == 0) {
             this.textValue4 = CatLeanServiceComponent.getIdRecord6().getString();
         }
         this.textValue4 = themeConfig;
-        if (!((seen0 & 16))) {
-            this.enabledFlag = 0;
+        if ((seen0 & 16) == 0) {
+            this.enabledFlag = false;
         }
         this.enabledFlag = rpcAsked;
     }
 
     public ModulesConfigRecord() {
-        this();
+        this(null, null, null, null, false);
     }
 
     static {

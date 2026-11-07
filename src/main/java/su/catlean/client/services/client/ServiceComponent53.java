@@ -59,19 +59,19 @@ public class ServiceComponent53 {
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag;
-        List positions = this.itemList;
-        int var5 = this.countValue2;
-        int var6 = this.countValue;
-        return ("SearchChunk(x=" + var6 + ", z=" + var5 + ", list=" + positions + ", recalc=" + var3 + ")");
+        boolean flag = this.enabledFlag;
+        List list = this.itemList;
+        int index = this.countValue2;
+        int index2 = this.countValue;
+        return ("SearchChunk(x=" + index2 + ", z=" + index + ", list=" + list + ", recalc=" + flag + ")");
     }
 
     public int hashCode() {
-        int var3 = Integer.hashCode(this.countValue);
-        var3 = ((var3 * 31) + Integer.hashCode(this.countValue2));
-        var3 = ((var3 * 31) + this.itemList.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        return var3;
+        int index = Integer.hashCode(this.countValue);
+        index = ((index * 31) + Integer.hashCode(this.countValue2));
+        index = ((index * 31) + this.itemList.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -81,17 +81,17 @@ public class ServiceComponent53 {
         if (!(other instanceof ServiceComponent53)) {
             return false;
         }
-        ServiceComponent53 var5 = (ServiceComponent53) other;
-        if (this.countValue != var5.countValue) {
+        ServiceComponent53 serviceComponent53 = ((ServiceComponent53) other);
+        if (this.countValue != serviceComponent53.countValue) {
             return false;
         }
-        if (this.countValue2 != var5.countValue2) {
+        if (this.countValue2 != serviceComponent53.countValue2) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        if (!(Intrinsics.areEqual(this.itemList, serviceComponent53.itemList))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != serviceComponent53.enabledFlag) {
             return false;
         }
         return true;

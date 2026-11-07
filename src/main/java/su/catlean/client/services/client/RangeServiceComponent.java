@@ -26,15 +26,15 @@ public class RangeServiceComponent {
     }
 
     public static double computeValue(ClosedRange range, boolean normalDistribution) {
-        return computeValue((Number) range.getStart(), (Number) range.getEndInclusive(), normalDistribution);
+        return computeValue(((Number) range.getStart()), ((Number) range.getEndInclusive()), normalDistribution);
     }
 
     public static float computeValue(ClosedRange range, boolean normalDistribution) {
-        return computeValue((Number) range.getStart(), (Number) range.getEndInclusive(), normalDistribution);
+        return computeValue(((Number) range.getStart()), ((Number) range.getEndInclusive()), normalDistribution);
     }
 
     public static int computeValue(ClosedRange range, boolean normalDistribution) {
-        if (computeValue((Number) range.getStart(), (Number) range.getEndInclusive(), normalDistribution) != null) {
+        if (computeValue(((Number) range.getStart()), ((Number) range.getEndInclusive()), normalDistribution) != null) {
         }
         return null;
     }

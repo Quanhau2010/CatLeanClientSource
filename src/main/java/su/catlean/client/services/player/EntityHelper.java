@@ -9,7 +9,7 @@ public class EntityHelper {
     private static String[] textValueArray;
 
     public static Vec3d resolveMinecraftObject(Entity receiver) {
-        return (IEntity) receiver.catLean$getPosition();
+        return ((IEntity) receiver).catLean$getPosition();
     }
 
     public static void updateValue(String[] arg0) {

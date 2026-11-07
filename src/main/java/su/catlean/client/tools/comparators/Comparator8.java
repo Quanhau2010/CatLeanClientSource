@@ -10,12 +10,9 @@ public class Comparator8 implements Comparator {
     }
 
     public int compare(Object b) {
-        VisibleSettingProperty var3 = (VisibleSettingProperty) 0L;
-        int var4 = 0;
-        var3 = (VisibleSettingProperty) b;
-        Comparable var5 = (Comparable) Integer.valueOf(var3.getString2().length());
-        var4 = 0;
-        return ComparisonsKt.compareValues((Comparable) Integer.valueOf(var3.getString2().length()));
+        VisibleSettingProperty visibleSettingProperty = ((VisibleSettingProperty) b);
+        Comparable comparable = ((Comparable) Integer.valueOf(this.getString2().length()));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Integer.valueOf(visibleSettingProperty.getString2().length())));
     }
 
 }

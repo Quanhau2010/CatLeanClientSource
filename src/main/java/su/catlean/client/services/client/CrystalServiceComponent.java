@@ -40,11 +40,11 @@ public class CrystalServiceComponent {
     }
 
     public int hashCode() {
-        int var4 = this.minecraftRef.hashCode();
-        var4 = ((var4 * 6656333662436458527L) + Boolean.hashCode(this.enabledFlag));
-        if (var3) {
+        int index = this.minecraftRef.hashCode();
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        if (__UNDEF_KEY__) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -54,11 +54,11 @@ public class CrystalServiceComponent {
         if (!(other instanceof CrystalServiceComponent)) {
             return false;
         }
-        CrystalServiceComponent var5 = (CrystalServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        CrystalServiceComponent crystalServiceComponent = ((CrystalServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.minecraftRef, crystalServiceComponent.minecraftRef))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != crystalServiceComponent.enabledFlag) {
             return false;
         }
         return true;

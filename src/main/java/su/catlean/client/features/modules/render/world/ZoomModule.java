@@ -33,19 +33,19 @@ public class ZoomModule extends Module {
     }
 
     private KeyRecord getTeleBind() {
-        return (KeyRecord) teleBindSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((KeyRecord) teleBindSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private float getTeleScale() {
-        return (Number) teleScaleSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) teleScaleSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private KeyRecord getWideBind() {
-        return (KeyRecord) wideBindSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((KeyRecord) wideBindSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private float getWideScale() {
-        return (Number) wideScaleSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) wideScaleSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void onBasicProjectionMatrixEvent(BasicProjectionMatrixEvent arg0) {
@@ -64,12 +64,12 @@ public class ZoomModule extends Module {
     }
 
     static {
-        KProperty[] var40 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new ZoomModule();
-        teleBindSetting = VisibleRenderHelper.registerSetting(INSTANCE, "telephoto", new KeyRecord(0, 0, 0, var7[3]), null, null, var7[0]);
-        teleScaleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "crop", 8.0F, RangesKt.rangeTo(1.0F, 25.0F), null, null, var7[1]);
-        wideBindSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ultra-wide", new KeyRecord(0, 0, 0, var7[2]), null, null, var7[4]);
-        wideScaleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "reversed-crop", 0.75F, RangesKt.rangeTo(0.1F, 1.0F), null, null, var7[5]);
+        teleBindSetting = VisibleRenderHelper.registerSetting(INSTANCE, "telephoto", new KeyRecord(0, false, false));
+        teleScaleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "crop", 8.0F, RangesKt.rangeTo(1.0F, 25.0F));
+        wideBindSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ultra-wide", new KeyRecord(0, false, false));
+        wideScaleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "reversed-crop", 0.75F, RangesKt.rangeTo(0.1F, 1.0F));
         easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);
     }
 

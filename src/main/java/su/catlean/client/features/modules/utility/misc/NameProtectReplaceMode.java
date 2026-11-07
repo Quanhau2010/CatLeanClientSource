@@ -4,14 +4,11 @@ import su.catlean.client.features.modules.Module;
 
 public enum NameProtectReplaceMode {
 
-    public static final NameProtectReplaceMode ONLY_SELF;
-    public static final NameProtectReplaceMode FRIENDS;
-    public static final NameProtectReplaceMode ALL;
-    private static Module[] moduleArray;
+    ONLY_SELF,
+    FRIENDS,
+    ALL;
 
-    NameProtectReplaceMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static Module[] moduleArray;
 
     public static void updateValue(Module[] arg0) {
         moduleArray = arg0;

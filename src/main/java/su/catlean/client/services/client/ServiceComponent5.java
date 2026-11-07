@@ -19,7 +19,7 @@ public class ServiceComponent5 {
         this.factorValue2 = y;
         this.factorValue3 = w;
         this.factorValue4 = h;
-        this.factorValue5 = 0L;
+        this.factorValue5 = __UNDEF_KEY__;
     }
 
     public Matrix3x2f getMatrix3x2f() {
@@ -75,25 +75,25 @@ public class ServiceComponent5 {
     }
 
     public String toString() {
-        float var3 = this.factorValue5;
-        float var4 = this.factorValue4;
-        float var5 = this.factorValue3;
-        float var6 = this.factorValue2;
-        float var7 = this.factorValue;
-        Matrix3x2f var8 = this.matrix3x2f;
-        return ("PlateRenderState(m=" + var8 + ", x=" + var7 + ", y=" + var6 + ", w=" + var5 + ", h=" + var4 + ", a=" + var3 + ")");
+        float factor = this.factorValue5;
+        float factor2 = this.factorValue4;
+        float factor3 = this.factorValue3;
+        float factor4 = this.factorValue2;
+        float factor5 = this.factorValue;
+        Matrix3x2f matrix3x2f = this.matrix3x2f;
+        return ("PlateRenderState(m=" + matrix3x2f + ", x=" + factor5 + ", y=" + factor4 + ", w=" + factor3 + ", h=" + factor2 + ", a=" + factor + ")");
     }
 
     public int hashCode() {
-        int var4 = this.matrix3x2f.hashCode();
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue2));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue3));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue4));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue5));
-        if (!(var3)) {
+        int index = this.matrix3x2f.hashCode();
+        index = ((index * 31) + Float.hashCode(this.factorValue));
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + Float.hashCode(this.factorValue4));
+        index = ((index * 31) + Float.hashCode(this.factorValue5));
+        if (!(__UNDEF_KEY__)) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -103,23 +103,23 @@ public class ServiceComponent5 {
         if (!(other instanceof ServiceComponent5)) {
             return false;
         }
-        ServiceComponent5 var5 = (ServiceComponent5) other;
-        if (!(Intrinsics.areEqual(this.matrix3x2f, var5.matrix3x2f))) {
+        ServiceComponent5 serviceComponent5 = ((ServiceComponent5) other);
+        if (!(Intrinsics.areEqual(this.matrix3x2f, serviceComponent5.matrix3x2f))) {
             return false;
         }
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        if (Float.compare(this.factorValue, serviceComponent5.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, serviceComponent5.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, serviceComponent5.factorValue3)) {
             return false;
         }
-        if (Float.compare(this.factorValue4, var5.factorValue4)) {
+        if (Float.compare(this.factorValue4, serviceComponent5.factorValue4)) {
             return false;
         }
-        if (Float.compare(this.factorValue5, var5.factorValue5)) {
+        if (Float.compare(this.factorValue5, serviceComponent5.factorValue5)) {
             return false;
         }
         return true;

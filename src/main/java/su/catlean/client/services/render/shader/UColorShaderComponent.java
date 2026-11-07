@@ -101,55 +101,55 @@ public class UColorShaderComponent implements class_11281 {
     }
 
     public static UColorShaderComponent resolveUColorShaderComponent(UColorShaderComponent arg0, float arg1, float arg2, float arg3, float arg4, float arg5, Color arg6, Color arg7, float arg8, int arg9, Object arg10) {
-        if ((arg9 & 1)) {
+        if ((arg9 & 1) != 0) {
             arg1 = arg0.factorValue;
         }
-        if ((arg9 & 2)) {
+        if ((arg9 & 2) != 0) {
             arg2 = arg0.factorValue2;
         }
-        if ((arg9 & 4)) {
+        if ((arg9 & 4) != 0) {
             arg3 = arg0.factorValue3;
         }
-        if ((arg9 & 8)) {
+        if ((arg9 & 8) != 0) {
             arg4 = arg0.factorValue4;
         }
-        if ((arg9 & 16)) {
+        if ((arg9 & 16) != 0) {
             arg5 = arg0.factorValue5;
         }
-        if ((arg9 & 32)) {
+        if ((arg9 & 32) != 0) {
             arg6 = arg0.colorValue;
         }
-        if ((arg9 & 64)) {
+        if ((arg9 & 64) != 0) {
             arg7 = arg0.colorValue2;
         }
-        if ((arg9 & 128)) {
+        if ((arg9 & 128) != 0) {
             arg8 = arg0.factorValue6;
         }
         return arg0.resolveUColorShaderComponent(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
     }
 
     public String toString() {
-        float var3 = this.factorValue6;
-        Color var4 = this.colorValue2;
-        Color var5 = this.colorValue;
-        float var6 = this.factorValue5;
-        float var7 = this.factorValue4;
-        float var8 = this.factorValue3;
-        float var9 = this.factorValue2;
-        float var10 = this.factorValue;
-        return ("UniformData(uSizeX=" + var10 + ", uSizeY=" + var9 + ", uRadius=" + var8 + ", uAlpha=" + var7 + ", uBorderWidth=" + var6 + ", uColor=" + var5 + ", uBorderColor=" + var4 + ", uMix=" + var3 + ")");
+        float factor = this.factorValue6;
+        Color color = this.colorValue2;
+        Color color2 = this.colorValue;
+        float factor2 = this.factorValue5;
+        float factor3 = this.factorValue4;
+        float factor4 = this.factorValue3;
+        float factor5 = this.factorValue2;
+        float factor6 = this.factorValue;
+        return ("UniformData(uSizeX=" + factor6 + ", uSizeY=" + factor5 + ", uRadius=" + factor4 + ", uAlpha=" + factor3 + ", uBorderWidth=" + factor2 + ", uColor=" + color2 + ", uBorderColor=" + color + ", uMix=" + factor + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue3));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue4));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue5));
-        var3 = ((var3 * 31) + this.colorValue.hashCode());
-        var3 = ((var3 * 31) + this.colorValue2.hashCode());
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue6));
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + Float.hashCode(this.factorValue4));
+        index = ((index * 31) + Float.hashCode(this.factorValue5));
+        index = ((index * 31) + this.colorValue.hashCode());
+        index = ((index * 31) + this.colorValue2.hashCode());
+        index = ((index * 31) + Float.hashCode(this.factorValue6));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -159,29 +159,29 @@ public class UColorShaderComponent implements class_11281 {
         if (!(other instanceof UColorShaderComponent)) {
             return false;
         }
-        UColorShaderComponent var5 = (UColorShaderComponent) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        UColorShaderComponent uColorShaderComponent = ((UColorShaderComponent) other);
+        if (Float.compare(this.factorValue, uColorShaderComponent.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, uColorShaderComponent.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, uColorShaderComponent.factorValue3)) {
             return false;
         }
-        if (Float.compare(this.factorValue4, var5.factorValue4)) {
+        if (Float.compare(this.factorValue4, uColorShaderComponent.factorValue4)) {
             return false;
         }
-        if (Float.compare(this.factorValue5, var5.factorValue5)) {
+        if (Float.compare(this.factorValue5, uColorShaderComponent.factorValue5)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue, var5.colorValue))) {
+        if (!(Intrinsics.areEqual(this.colorValue, uColorShaderComponent.colorValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue2, var5.colorValue2))) {
+        if (!(Intrinsics.areEqual(this.colorValue2, uColorShaderComponent.colorValue2))) {
             return false;
         }
-        if (Float.compare(this.factorValue6, var5.factorValue6)) {
+        if (Float.compare(this.factorValue6, uColorShaderComponent.factorValue6)) {
             return false;
         }
         return true;

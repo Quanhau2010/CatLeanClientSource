@@ -28,7 +28,7 @@ public abstract class CameraMixin {
     }
 
     private void updateHook(World area, Entity focusedEntity, boolean thirdPerson, boolean inverseView, float tickDelta, CallbackInfo ci) {
-        this.field_18719 = 1;
+        this.field_18719 = true;
     }
 
     private void setRotationHook(Args args) {

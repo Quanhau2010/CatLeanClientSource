@@ -4,7 +4,6 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Optional;
 import kotlin.NoWhenBranchMatchedException;
 import kotlin.jvm.internal.Intrinsics;
@@ -23,7 +22,6 @@ import net.minecraft.class_3965;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
@@ -61,7 +59,7 @@ public class BowAimbotModule extends Module {
     }
 
     private boolean getSilent() {
-        return (Boolean) silentSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) silentSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSilent(boolean value) {
@@ -69,7 +67,7 @@ public class BowAimbotModule extends Module {
     }
 
     private BowAimbotPredictMode getPredict() {
-        return (BowAimbotPredictMode) predictSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((BowAimbotPredictMode) predictSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setPredict(BowAimbotPredictMode value) {
@@ -77,7 +75,7 @@ public class BowAimbotModule extends Module {
     }
 
     private int getPredictTicks() {
-        return (Number) predictTicksSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) predictTicksSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setPredictTicks(int value) {
@@ -85,7 +83,7 @@ public class BowAimbotModule extends Module {
     }
 
     private boolean getIgnoreNaked() {
-        return (Boolean) ignoreNakedSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) ignoreNakedSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setIgnoreNaked(boolean value) {
@@ -93,7 +91,7 @@ public class BowAimbotModule extends Module {
     }
 
     private boolean getIgnoreCreative() {
-        return (Boolean) ignoreCreativeSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) ignoreCreativeSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setIgnoreCreative(boolean value) {
@@ -109,153 +107,151 @@ public class BowAimbotModule extends Module {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        if (var23 != null || EntityPacketHelper.INSTANCE.findTarget(256.0F, AutoCrystalTargetSortMode.FOV, this.getIgnoreNaked(), this.getIgnoreCreative()) == null) {
+        if (EntityPacketHelper.INSTANCE.findTarget(256.0F, AutoCrystalTargetSortMode.FOV, this.getIgnoreNaked(), this.getIgnoreCreative()) == null) {
+            EntityPacketHelper.INSTANCE.findTarget(256.0F, AutoCrystalTargetSortMode.FOV, this.getIgnoreNaked(), this.getIgnoreCreative());
             return;
         }
-        PlayerEntity player = EntityPacketHelper.INSTANCE.findTarget(256.0F, AutoCrystalTargetSortMode.FOV, this.getIgnoreNaked(), this.getIgnoreCreative());
-        NoWhenBranchMatchedException var25 = new NoWhenBranchMatchedException();
-        var25 = var25.method_1031(0.0D, 0.9D, 0.0D);
-        SequenceServiceComponent.executeAction(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent());
+        NoWhenBranchMatchedException noWhenBranchMatchedException = new NoWhenBranchMatchedException();
+        noWhenBranchMatchedException = noWhenBranchMatchedException.method_1031(0.0D, 0.9D, 0.0D);
+        SequenceServiceComponent.executeAction(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(noWhenBranchMatchedException));
     }
 
     public void executeAction(Item item, float yaw) {
-        double var20 = SharedKt.getPlayer().getX();
-        double var22 = (SharedKt.getPlayer().getY() + SharedKt.getPlayer().method_18381(SharedKt.getPlayer().method_18376()));
-        double var24 = SharedKt.getPlayer().getZ();
-        float var26 = PolygonShaderComponent.INSTANCE.computeValue(SharedKt.getPlayer().field_6004, SharedKt.getPlayer().method_36455());
-        double var27 = (Math.sin(((yaw / 180.0F) * 3.1415927F)) * Math.cos(((var26 / 180.0F) * 3.1415927F)));
-        double var29 = Math.sin(((var26 / 180.0F) * 3.141593F));
-        double var31 = (Math.cos(((yaw / 180.0F) * 3.1415927F)) * Math.cos(((var26 / 180.0F) * 3.1415927F)));
-        float var33 = (PolygonShaderComponent.INSTANCE.computeValue(Math.max(0.0F, (SharedKt.getPlayer().method_6048() - 1.0F)), SharedKt.getPlayer().method_6048()) / 20.0F);
-        var33 = (((var33 * var33) + (var33 * 2.0F)) / 3.0F);
-        if (var19 == null) {
-            if (var33 <= 1.0F) {
-                if (var19 == null) {
-                    if (var33 == 0.0F) {
-                    }
-                } else {
-                }
-                if (0) {
-                }
-            }
-            var33 = 1.0F;
-        }
-        float var34 = class_3532.method_15355((((var27 * var27) + (var29 * var29)) + (var31 * var31)));
-        var27 = (var27 / var34);
-        var29 = (var29 / var34);
-        var31 = (var31 / var34);
-        float var35 = (var33 * 2.0F);
-        var27 = (var27 * var35);
-        var29 = (var29 * var35);
-        var31 = (var31 * var35);
-        var27 = (var27 + SharedKt.getPlayer().method_18798().field_1352);
-        var29 = (var29 + SharedKt.getPlayer().method_18798().field_1351);
-        var31 = (var31 + SharedKt.getPlayer().method_18798().field_1350);
-        int var37 = 0;
-        if (var37 < 300) {
-            Vec3d vec = new Vec3d();
-            var20 = (var20 + var27);
-            var22 = (var22 + var29);
-            var24 = (var24 + var31);
-            var27 = (var27 * 0.99D);
-            var29 = (var29 * 0.99D);
-            var31 = (var31 * 0.99D);
-            var29 = (var29 - 0.05D);
-            Vec3d vec2 = new Vec3d();
-            class_3965 var39 = SharedKt.getWorld().method_17742(new class_3959(vec, vec2, class_3960.field_17558, class_242.field_1348, SharedKt.getPlayer()));
-            if (0L >= 0) {
-                if (var39.method_17783() == class_240.field_1332) {
-                }
-                if (var19 != null) {
-                }
-                Iterable var41 = SharedKt.getWorld().method_18112();
-                int var42 = 0;
-                Object var43 = var41;
-                Collection var44 = (Collection) new ArrayList();
-                int var45 = 0;
-                Iterator iterator = var43.iterator();
-                if (iterator.hasNext()) {
-                    Object var47 = iterator.next();
-                    Entity entity = var47;
-                    int var49 = 0;
-                    if (0L > 0) {
-                        if (var19 == null) {
-                        }
-                    }
-                    if (0L >= 0) {
-                        if (var19 == null) {
-                        }
-                    }
-                    if (var19 == null) {
-                        if (entity.method_5707(vec2) >= 25.0D) {
-                            if (var19 == null) {
-                                if (!(entity instanceof class_1676) && !(Intrinsics.areEqual(entity, SharedKt.getPlayer())) && entity.method_5707(vec) < 25.0D) {
-                                }
-                            }
-                        }
+        double offset = SharedKt.getPlayer().getX();
+        double offset2 = (SharedKt.getPlayer().getY() + SharedKt.getPlayer().method_18381(SharedKt.getPlayer().method_18376()));
+        double offset3 = SharedKt.getPlayer().getZ();
+        float factor = PolygonShaderComponent.INSTANCE.computeValue(SharedKt.getPlayer().field_6004, SharedKt.getPlayer().method_36455());
+        double offset4 = (Math.sin(((yaw / 180.0F) * 3.1415927F)) * Math.cos(((factor / 180.0F) * 3.1415927F)));
+        double offset5 = Math.sin(((factor / 180.0F) * 3.141593F));
+        double offset6 = (Math.cos(((yaw / 180.0F) * 3.1415927F)) * Math.cos(((factor / 180.0F) * 3.1415927F)));
+        float factor2 = (PolygonShaderComponent.INSTANCE.computeValue(Math.max(0.0F, (SharedKt.getPlayer().method_6048() - 1.0F)), SharedKt.getPlayer().method_6048()) / 20.0F);
+        factor2 = (((factor2 * factor2) + (factor2 * 2.0F)) / 3.0F);
+        if (__UNDEF_KEY__ == null) {
+            if (factor2 <= 1.0F) {
+                if (__UNDEF_KEY__ == null) {
+                    if (factor2 == 0.0F) {
                     } else {
                     }
-                    var44.add();
                 }
-                List positions = var44;
-                var41 = 0;
-                var42 = (Iterable) positions;
-                var43 = 0;
-                var44 = var42.iterator();
-                if (var44.hasNext()) {
-                    var45 = var44.next();
-                    iterator = var45;
-                    var47 = 0;
-                    entity = iterator.method_5829();
-                    var49 = entity.method_992(vec, vec2);
-                    int var50 = 0;
-                    if (0L >= 0) {
-                        if (var19 == null) {
-                            if (0L >= 0) {
-                                if (var19 == null) {
-                                    if (var19 == null) {
-                                        if (var49.isPresent() && !(var41)) {
-                                            TextShaderComponent2.checkCondition(vec, (Vec3d) var49.get(), NewThemeRenderHelper.INSTANCE.resolveColor());
+                if (0) {
+                    factor2 = 1.0F;
+                }
+            }
+        }
+        float factor3 = class_3532.method_15355((((offset4 * offset4) + (offset5 * offset5)) + (offset6 * offset6)));
+        offset4 = (offset4 / factor3);
+        offset5 = (offset5 / factor3);
+        offset6 = (offset6 / factor3);
+        float factor4 = (factor2 * 2.0F);
+        offset4 = (offset4 * factor4);
+        offset5 = (offset5 * factor4);
+        offset6 = (offset6 * factor4);
+        offset4 = (offset4 + SharedKt.getPlayer().method_18798().field_1352);
+        offset5 = (offset5 + SharedKt.getPlayer().method_18798().field_1351);
+        offset6 = (offset6 + SharedKt.getPlayer().method_18798().field_1350);
+        int index = 0;
+        if (index < 300) {
+            Vec3d vec = new Vec3d(offset, offset2, offset3);
+            offset = (offset + offset4);
+            offset2 = (offset2 + offset5);
+            offset3 = (offset3 + offset6);
+            offset4 = (offset4 * 0.99D);
+            offset5 = (offset5 * 0.99D);
+            offset6 = (offset6 * 0.99D);
+            offset5 = (offset5 - 0.05D);
+            Vec3d vec2 = new Vec3d(offset, offset2, offset3);
+            class_3965 class3965 = SharedKt.getWorld().method_17742(new class_3959(vec, vec2, class_3960.field_17558, class_242.field_1348, SharedKt.getPlayer()));
+            if (__UNDEF_KEY__ >= 0) {
+                if (class3965.method_17783() == class_240.field_1332) {
+                    if (__UNDEF_KEY__ != null) {
+                        Iterable iterable = SharedKt.getWorld().method_18112();
+                        int index2 = 0;
+                        Iterable iterable2 = iterable;
+                        Collection collection = ((Collection) new ArrayList());
+                        int index3 = 0;
+                        Iterator iterator = iterable2.iterator();
+                        while (iterator.hasNext()) {
+                            Object element = iterator.next();
+                            Entity entity = element;
+                            int index4 = 0;
+                            if (__UNDEF_KEY__ > 0) {
+                                if (__UNDEF_KEY__ == null) {
+                                }
+                            }
+                            if (__UNDEF_KEY__ >= 0) {
+                                if (__UNDEF_KEY__ == null) {
+                                }
+                            }
+                            if (__UNDEF_KEY__ == null) {
+                                if (entity.method_5707(vec2) >= 25.0D) {
+                                    if (__UNDEF_KEY__ == null) {
+                                        if (!(entity instanceof class_1676) && !(Intrinsics.areEqual(entity, SharedKt.getPlayer())) && entity.method_5707(vec) < 25.0D) {
+                                        } else {
                                         }
-                                        var41 = 1;
                                     }
                                 }
                             }
+                            collection.add(element);
                         }
-                        if (0L > 0) {
-                        }
-                    }
-                    if (0L >= 0) {
-                        if (var19 == null) {
-                            if (var41) {
+                        iterable = 0;
+                        index2 = ((Iterable) collection);
+                        iterable2 = 0;
+                        collection = index2.iterator();
+                        while (collection.hasNext()) {
+                            index3 = collection.next();
+                            iterator = index3;
+                            element = 0;
+                            entity = iterator.method_5829();
+                            index4 = entity.method_992(vec, vec2);
+                            if (__UNDEF_KEY__ >= 0) {
+                                if (__UNDEF_KEY__ == null) {
+                                    if (__UNDEF_KEY__ >= 0) {
+                                        if (__UNDEF_KEY__ == null) {
+                                            if (__UNDEF_KEY__ == null) {
+                                                if (index4.isPresent() && !(iterable)) {
+                                                    TextShaderComponent2.checkCondition(vec, ((Vec3d) index4.get()), NewThemeRenderHelper.INSTANCE.resolveColor(index), null, false);
+                                                    iterable = 1;
+                                                }
+                                            }
+                                            if (__UNDEF_KEY__ > 0) {
+                                                if (__UNDEF_KEY__ >= 0) {
+                                                    if (__UNDEF_KEY__ == null) {
+                                                        if (iterable) {
+                                                        }
+                                                    }
+                                                }
+                                                if (__UNDEF_KEY__ >= 0) {
+                                                    if (__UNDEF_KEY__ == null) {
+                                                        if (__UNDEF_KEY__ != null && offset2 > -65.0D) {
+                                                            if (__UNDEF_KEY__ == null) {
+                                                                if (offset4 == 0.0D) {
+                                                                } else {
+                                                                }
+                                                            }
+                                                            if (__UNDEF_KEY__ >= 0) {
+                                                            }
+                                                            if (__UNDEF_KEY__ == null) {
+                                                                if (offset5 == 0.0D) {
+                                                                } else {
+                                                                }
+                                                            }
+                                                            if (__UNDEF_KEY__ > 0) {
+                                                            }
+                                                            if (__UNDEF_KEY__ == null) {
+                                                                if (offset6 == 0.0D) {
+                                                                } else {
+                                                                }
+                                                            }
+                                                            if (0 && 0 && 0) {
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
-                        }
-                    }
-                    if (0L >= 0) {
-                        if (var19 == null) {
-                            if (var19 != null && var22 > -65.0D) {
-                            }
-                        }
-                        if (var19 == null) {
-                            if (var27 == 0.0D) {
-                            }
-                        } else {
-                        }
-                        if (0L >= 0) {
-                        }
-                        if (var19 == null) {
-                            if (var29 == 0.0D) {
-                            }
-                        } else {
-                        }
-                        if (0L > 0) {
-                        }
-                        if (var19 == null) {
-                            if (var31 == 0.0D) {
-                            }
-                        } else {
-                        }
-                        if (0 && 0 && 0) {
                         }
                     }
                 }
@@ -268,13 +264,13 @@ public class BowAimbotModule extends Module {
     }
 
     static {
-        KProperty[] var30 = new KProperty[5];
+        KProperty[] items = new KProperty[5];
         INSTANCE = new BowAimbotModule();
-        silentSetting = VisibleRenderHelper.registerSetting(INSTANCE, "silent");
+        silentSetting = VisibleRenderHelper.registerSetting(INSTANCE, "silent", true);
         predictSetting = VisibleRenderHelper.registerSetting(INSTANCE, "predict", BowAimbotPredictMode.SMART);
         predictTicksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "predict-ticks", 1, new IntRange(1, 20), null, this::isActive);
-        ignoreNakedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-naked");
-        ignoreCreativeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-creative");
+        ignoreNakedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-naked", true);
+        ignoreCreativeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-creative", true);
     }
 
 }

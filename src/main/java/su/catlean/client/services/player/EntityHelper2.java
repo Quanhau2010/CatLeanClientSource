@@ -16,34 +16,34 @@ public class EntityHelper2 {
     private static int countValue;
 
     public static List resolveList(ClientPlayerEntity receiver) {
-        ItemStack[] var4 = new ItemStack[4];
-        var4[0] = receiver.method_31548().method_5438(39);
-        var4[1] = receiver.method_31548().method_5438(38);
-        var4[2] = receiver.method_31548().method_5438(37);
-        var4[3] = receiver.method_31548().method_5438(36);
-        if (CollectionsKt.listOf() != null) {
+        ItemStack[] items = new ItemStack[4];
+        items[0] = receiver.method_31548().method_5438(39);
+        items[1] = receiver.method_31548().method_5438(38);
+        items[2] = receiver.method_31548().method_5438(37);
+        items[3] = receiver.method_31548().method_5438(36);
+        if (CollectionsKt.listOf(items) != null) {
         }
         return null;
     }
 
     public static List resolveList(PlayerEntity receiver) {
-        ItemStack[] var4 = new ItemStack[4];
-        var4[0] = receiver.method_31548().method_5438(39);
-        var4[1] = receiver.method_31548().method_5438(38);
-        var4[2] = receiver.method_31548().method_5438(37);
-        var4[3] = receiver.method_31548().method_5438(36);
-        if (var3) {
+        ItemStack[] items = new ItemStack[4];
+        items[0] = receiver.method_31548().method_5438(39);
+        items[1] = receiver.method_31548().method_5438(38);
+        items[2] = receiver.method_31548().method_5438(37);
+        items[3] = receiver.method_31548().method_5438(36);
+        if (__UNDEF_KEY__) {
         }
-        return CollectionsKt.mutableListOf();
+        return CollectionsKt.mutableListOf(items);
     }
 
     public static List resolveList(LivingEntity receiver) {
-        ItemStack[] var6 = new ItemStack[4];
-        var6[0] = Items.field_8162.method_7854();
-        var6[1] = Items.field_8162.method_7854();
-        var6[2] = Items.field_8162.method_7854();
-        var6[3] = Items.field_8162.method_7854();
-        return CollectionsKt.mutableListOf();
+        ItemStack[] items = new ItemStack[4];
+        items[0] = Items.field_8162.method_7854();
+        items[1] = Items.field_8162.method_7854();
+        items[2] = Items.field_8162.method_7854();
+        items[3] = Items.field_8162.method_7854();
+        return CollectionsKt.mutableListOf(items);
     }
 
     public static void updateValue(int arg0) {

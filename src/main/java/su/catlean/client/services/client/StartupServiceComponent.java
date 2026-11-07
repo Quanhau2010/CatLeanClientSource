@@ -131,7 +131,7 @@ public class StartupServiceComponent implements Contract9 {
     }
 
     private void onPostTickEvent(PostTickEvent arg0) {
-        SoundEngineAccessor var11 = (SoundEngineAccessor) (SoundManagerAccessor) SharedKt.getMc().method_1483().getSoundEngine();
+        SoundEngineAccessor soundEngineAccessor = ((SoundEngineAccessor) ((SoundManagerAccessor) SharedKt.getMc().method_1483()).getSoundEngine());
         enabledFlag = 1;
         if (!(ProxyGuiElement.INSTANCE.getJsonServiceComponent4().resolveModulesConfigRecord().isActive())) {
             vecServiceComponent3.updateValue();

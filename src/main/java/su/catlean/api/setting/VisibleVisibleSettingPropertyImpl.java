@@ -15,7 +15,7 @@ public class VisibleVisibleSettingPropertyImpl extends VisibleSettingProperty {
     }
 
     public String toString() {
-        return String.valueOf((Boolean) this.getObject2());
+        return String.valueOf(((Boolean) this.getObject2()));
     }
 
     private static boolean isActive() {

@@ -32,120 +32,117 @@ public class LineColorRenderHelper {
     }
 
     public void render(DrawContext context, Color lineColor) {
-        Iterable var27 = SharedKt.getWorld().method_18112();
-        int var28 = 0;
-        Object var29 = var27;
-        Collection var30 = (Collection) new ArrayList();
-        int var31 = 0;
-        Iterator iterator = var29.iterator();
+        Iterable iterable = SharedKt.getWorld().method_18112();
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var33 = iterator.next();
-            var30.add();
+            Object element = iterator.next();
+            collection.add(element);
         }
-        List positions = var30;
-        int var21 = 4;
-        int var22 = 0;
-        int var23 = (positions.size() * 8);
-        VertexFormat var24 = class_290.field_1576;
-        var27 = new FormatRenderHelper();
-        var28 = (Iterable) positions;
-        var29 = 0;
-        var30 = var28.iterator();
-        while (var30.hasNext()) {
-            var31 = var30.next();
-            iterator = (EndCrystalEntity) var31;
-            var33 = 0;
-            Vec3d[] var34 = PolygonShaderComponent.INSTANCE.process(iterator);
-            int var36 = 0;
-            if (0L <= 0L || 0L >= 0L) {
+        int index3 = 4;
+        int index4 = 0;
+        int index5 = (collection.size() * 8);
+        VertexFormat vertexFormat = class_290.field_1576;
+        iterable = new FormatRenderHelper(vertexFormat, index5, index4, index3);
+        index = ((Iterable) collection);
+        iterable2 = 0;
+        collection = index.iterator();
+        while (collection.hasNext()) {
+            index2 = collection.next();
+            iterator = ((EndCrystalEntity) index2);
+            element = 0;
+            Vec3d[] items = PolygonShaderComponent.INSTANCE.process(iterator);
+            int index6 = 0;
+            if (__UNDEF_KEY__ <= 0L || __UNDEF_KEY__ >= 0L) {
                 continue;
             }
-            int var37 = var25;
-            if (var36 < var37) {
-                Object var38 = var34[var36];
-                Vec3d vec = PolygonShaderComponent.INSTANCE.resolveMinecraftObject(new Vec3d(var38.field_1352, var38.field_1351, var38.field_1350));
-                if (0L < 0) {
+            if (index6 < __UNDEF_KEY__) {
+                Object element2 = items[index6];
+                Vec3d vec = PolygonShaderComponent.INSTANCE.resolveMinecraftObject(new Vec3d(element2.field_1352, element2.field_1351, element2.field_1350));
+                if (__UNDEF_KEY__ < 0) {
                 }
                 if (vec.field_1350 > 0.0D && vec.field_1350 < 1.0D) {
-                    if (var35 == null) {
-                        Vector4d var35 = new Vector4d(vec.field_1352, vec.field_1351, vec.field_1350, 0.0D);
+                    if (__UNDEF_KEY__ == null) {
+                        Vector4d vector4d = new Vector4d(vec.field_1352, vec.field_1351, vec.field_1350, 0.0D);
                     }
-                    var35.x = Math.min(vec.field_1352, var35.x);
-                    var35.y = Math.min(vec.field_1351, var35.y);
-                    var35.z = Math.max(vec.field_1352, var35.z);
-                    var35.w = Math.max(vec.field_1351, var35.w);
+                    vector4d.x = Math.min(vec.field_1352, vector4d.x);
+                    vector4d.y = Math.min(vec.field_1351, vector4d.y);
+                    vector4d.z = Math.max(vec.field_1352, vector4d.z);
+                    vector4d.w = Math.max(vec.field_1351, vector4d.w);
                 }
             }
-            if (0L <= 0L || var25 || var35 != null) {
+            if (__UNDEF_KEY__ <= 0L || __UNDEF_KEY__ || vector4d != null) {
                 continue;
             }
         }
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, null, new Matrix3x2f((Matrix3x2fc) context.method_51448()));
+        FormatRenderHelper.executeAction(iterable, VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, null, new Matrix3x2f(((Matrix3x2fc) context.method_51448())));
     }
 
     public void render(DrawContext context, Color lineColor, Color friendLineColor) {
-        Iterable var31 = SharedKt.getWorld().method_18112();
-        int var32 = 0;
-        Object var33 = var31;
-        Collection var34 = (Collection) new ArrayList();
-        int var35 = 0;
-        Iterator iterator = var33.iterator();
+        Iterable iterable = SharedKt.getWorld().method_18112();
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var37 = iterator.next();
-            Entity entity = var37;
-            int var39 = 0;
+            Object element = iterator.next();
+            Entity entity = element;
+            int index3 = 0;
             if (Intrinsics.areEqual(entity, SharedKt.getPlayer())) {
                 if (entity instanceof PlayerEntity && SharedKt.getMc().options.method_31044() != class_5498.field_26664) {
-                }
-            } else {
-            }
-            var34.add();
-        }
-        List positions = var34;
-        int var25 = 4;
-        int var26 = 0;
-        int var27 = (positions.size() * 8);
-        VertexFormat var28 = class_290.field_1576;
-        var31 = new FormatRenderHelper();
-        var32 = (Iterable) positions;
-        var33 = 0;
-        var34 = var32.iterator();
-        while (var34.hasNext()) {
-            var35 = var34.next();
-            iterator = var35;
-            var37 = 0;
-            entity = PolygonShaderComponent.INSTANCE.process(iterator);
-            int var40 = 0;
-            Object var41 = entity;
-            if (var40 < var41) {
-                Object var42 = entity[var40];
-                Vec3d vec = PolygonShaderComponent.INSTANCE.resolveMinecraftObject(new Vec3d(var42.field_1352, var42.field_1351, var42.field_1350));
-                if (vec.field_1350 > 0.0D && vec.field_1350 < 1.0D) {
-                    if (var39 == null) {
-                        var39 = new Vector4d(vec.field_1352, vec.field_1351, vec.field_1350, 0.0D);
-                    }
-                    var39.x = Math.min(vec.field_1352, var39.x);
-                    var39.y = Math.min(vec.field_1351, var39.y);
-                    var39.z = Math.max(vec.field_1352, var39.z);
-                    var39.w = Math.max(vec.field_1351, var39.w);
-                }
-            }
-            if (var39 != null) {
-                var40 = var39.x;
-                var41 = var39.y;
-                var42 = var39.z;
-                vec = var39.w;
-                if (EntityHelper4.isFriend((PlayerEntity) iterator)) {
                 } else {
                 }
-                Object var24 = lineColor;
-                var25 = friendLineColor;
-                var26 = vec;
-                var27 = var42;
-                var31.executeAction();
+            }
+            collection.add(element);
+        }
+        int index4 = 4;
+        int index5 = 0;
+        int index6 = (collection.size() * 8);
+        VertexFormat vertexFormat = class_290.field_1576;
+        iterable = new FormatRenderHelper(vertexFormat, index6, index5, index4);
+        index = ((Iterable) collection);
+        iterable2 = 0;
+        collection = index.iterator();
+        while (collection.hasNext()) {
+            index2 = collection.next();
+            iterator = index2;
+            element = 0;
+            entity = PolygonShaderComponent.INSTANCE.process(iterator);
+            int index7 = 0;
+            Entity entity2 = entity;
+            if (index7 < entity2) {
+                Object element2 = entity[index7];
+                Vec3d vec = PolygonShaderComponent.INSTANCE.resolveMinecraftObject(new Vec3d(element2.field_1352, element2.field_1351, element2.field_1350));
+                if (vec.field_1350 > 0.0D && vec.field_1350 < 1.0D) {
+                    if (index3 == null) {
+                        index3 = new Vector4d(vec.field_1352, vec.field_1351, vec.field_1350, 0.0D);
+                    }
+                    index3.x = Math.min(vec.field_1352, index3.x);
+                    index3.y = Math.min(vec.field_1351, index3.y);
+                    index3.z = Math.max(vec.field_1352, index3.z);
+                    index3.w = Math.max(vec.field_1351, index3.w);
+                }
+            }
+            if (index3 != null) {
+                index7 = index3.x;
+                entity2 = index3.y;
+                element2 = index3.z;
+                vec = index3.w;
+                if (EntityHelper4.isFriend(((PlayerEntity) iterator))) {
+                } else {
+                }
+                Color color = lineColor;
+                index4 = friendLineColor;
+                index5 = vec;
+                index6 = element2;
+                iterable.executeAction(index7, entity2, index6, index5, index4, color);
             }
         }
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, null, new Matrix3x2f((Matrix3x2fc) context.method_51448()));
+        FormatRenderHelper.executeAction(iterable, VertexUBOShaderComponent.INSTANCE.getRenderPipeline22(), null, null, null, new Matrix3x2f(((Matrix3x2fc) context.method_51448())));
     }
 
     static {

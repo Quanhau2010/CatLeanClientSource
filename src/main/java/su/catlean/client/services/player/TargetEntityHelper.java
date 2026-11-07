@@ -28,42 +28,42 @@ public class TargetEntityHelper implements Contract9 {
     }
 
     public int getPredictTicks(PlayerEntity target) {
-        int var10 = TheNetherPacketHelper.f();
-        int var11 = TheNetherPacketHelper.INSTANCE.computeValue(target);
-        float var12 = ((0.12857F * (var10 + var11)) - 7);
-        return RangesKt.coerceIn(MathKt.roundToInt(), 0, 100);
+        int index = TheNetherPacketHelper.f();
+        int index2 = TheNetherPacketHelper.INSTANCE.computeValue(target);
+        float factor = ((0.12857F * (index + index2)) - 7);
+        return RangesKt.coerceIn(MathKt.roundToInt(factor), 0, 100);
     }
 
     public boolean isSurroundedOrWebbed(PlayerEntity receiver) {
         BlockPos blockPos = BlockPos.ofFloored(AntiKnockBackModule.INSTANCE.resolveMinecraftObject(receiver));
-        int var14 = (blockPos.method_10263() - 2);
-        int var15 = (blockPos.method_10263() + 2);
-        if (var14 <= var15) {
-            int var16 = (blockPos.method_10264() - 1);
-            int var17 = (blockPos.method_10264() + 4);
-            if (var16 <= var17) {
-                int var18 = (blockPos.method_10260() - 2);
-                int var19 = (blockPos.method_10260() + 2);
-                if (var18 <= var19) {
-                    BlockPos blockPos2 = new BlockPos();
-                    if (0L >= 0) {
+        int index = (blockPos.method_10263() - 2);
+        int index2 = (blockPos.method_10263() + 2);
+        if (index <= index2) {
+            int index3 = (blockPos.method_10264() - 1);
+            int index4 = (blockPos.method_10264() + 4);
+            if (index3 <= index4) {
+                int index5 = (blockPos.method_10260() - 2);
+                int index6 = (blockPos.method_10260() + 2);
+                if (index5 <= index6) {
+                    BlockPos blockPos2 = new BlockPos(index, index3, index5);
+                    if (__UNDEF_KEY__ >= 0) {
                         if (receiver.method_5829().method_994(new Box(blockPos2)) && Intrinsics.areEqual(SharedKt.getWorld().getBlockState(blockPos2).getBlock(), Blocks.COBWEB)) {
                             return true;
                         }
                     }
-                    if (0L >= 0) {
-                        if (var12 != null) {
-                            if (var18 != var19) {
+                    if (__UNDEF_KEY__ >= 0) {
+                        if (__UNDEF_KEY__ != null) {
+                            if (index5 != index6) {
+                            }
+                        }
+                        if (__UNDEF_KEY__ >= 0) {
+                            if (index3 != index4) {
                             }
                         }
                     }
-                    if (0L >= 0) {
-                    }
-                    if (var16 != var17) {
-                    }
                 }
             }
-            if (var14 != var15 && 0L > 0) {
+            if (index != index2 && __UNDEF_KEY__ > 0) {
             }
         }
         return false;
@@ -71,55 +71,55 @@ public class TargetEntityHelper implements Contract9 {
 
     public boolean isSurroundedOrWebbed(PlayerEntity receiver) {
         BlockPos blockPos = BlockPos.ofFloored(AntiKnockBackModule.INSTANCE.resolveMinecraftObject(receiver));
-        int var11 = (blockPos.method_10263() - 2);
-        int var12 = (blockPos.method_10263() + 2);
-        if (var11 <= var12) {
-            int var13 = (blockPos.method_10264() - 1);
-            int var14 = (blockPos.method_10264() + 4);
-            if (var13 <= var14) {
-                int var15 = (blockPos.method_10260() - 2);
-                int var16 = (blockPos.method_10260() + 2);
-                if (var15 <= var16) {
-                    BlockPos blockPos2 = new BlockPos();
+        int index = (blockPos.method_10263() - 2);
+        int index2 = (blockPos.method_10263() + 2);
+        if (index <= index2) {
+            int index3 = (blockPos.method_10264() - 1);
+            int index4 = (blockPos.method_10264() + 4);
+            if (index3 <= index4) {
+                int index5 = (blockPos.method_10260() - 2);
+                int index6 = (blockPos.method_10260() + 2);
+                if (index5 <= index6) {
+                    BlockPos blockPos2 = new BlockPos(index, index3, index5);
                     if (receiver.method_5829().method_994(new Box(blockPos2)) && Intrinsics.areEqual(SharedKt.getWorld().getBlockState(blockPos2).getBlock(), Blocks.field_16999)) {
                         return true;
                     }
-                    if (var15 != var16) {
+                    if (index5 != index6) {
                     }
                 }
-                if (var13 != var14) {
+                if (index3 != index4) {
                 }
             }
-            if (var11 != var12) {
+            if (index != index2) {
             }
         }
         return false;
     }
 
     public List resolveList(PlayerEntity receiver) {
-        int var8 = BlockPos.method_49637(receiver.getX(), MathKt.roundToInt(receiver.getY()), receiver.getZ()).method_10264();
-        Box var10 = receiver.method_5829();
-        float var11 = 1.0E-5F;
-        BlockPos[] var13 = new BlockPos[4];
-        var13[0] = BlockPos.method_49637(var10.field_1323, var10.field_1321);
-        var13[1] = BlockPos.method_49637(var10.field_1323, (var10.field_1324 - var11));
-        var13[2] = BlockPos.method_49637((var10.field_1320 - var11), var10.field_1321);
-        var13[3] = BlockPos.method_49637((var10.field_1320 - var11), (var10.field_1324 - var11));
-        Set var12 = SetsKt.setOf();
-        if (CollectionsKt.toList((Iterable) var12) != null) {
+        int index = BlockPos.method_49637(receiver.getX(), MathKt.roundToInt(receiver.getY()), receiver.getZ()).method_10264();
+        Box box = receiver.method_5829();
+        float factor = 1.0E-5F;
+        BlockPos[] items = new BlockPos[4];
+        items[0] = BlockPos.method_49637(box.field_1323, index, box.field_1321);
+        items[1] = BlockPos.method_49637(box.field_1323, index, (box.field_1324 - factor));
+        items[2] = BlockPos.method_49637((box.field_1320 - factor), index, box.field_1321);
+        items[3] = BlockPos.method_49637((box.field_1320 - factor), index, (box.field_1324 - factor));
+        Set set = SetsKt.setOf(items);
+        if (CollectionsKt.toList(((Iterable) set)) != null) {
         }
         return null;
     }
 
     public boolean isSurroundedOrWebbed(Vec3d from, Vec3d to) {
-        return ExplosionPosEntityHelper.resolveMinecraftObject(from, to) == null;
+        return ExplosionPosEntityHelper.resolveMinecraftObject(from, to, false, null, false) == null;
     }
 
     public boolean isSurroundedOrWebbed(PlayerEntity receiver, boolean checkFace) {
         if (checkFace) {
             if (Intrinsics.areEqual(SharedKt.getWorld().getBlockState(BlockPos.ofFloored(AntiKnockBackModule.INSTANCE.resolveMinecraftObject(receiver))).getBlock(), Blocks.COBWEB) && Intrinsics.areEqual(SharedKt.getWorld().getBlockState(BlockPos.ofFloored(AntiKnockBackModule.INSTANCE.resolveMinecraftObject(receiver)).up()).getBlock(), Blocks.COBWEB)) {
+            } else {
             }
-        } else {
         }
         return false;
     }

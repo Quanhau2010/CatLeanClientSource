@@ -16,24 +16,21 @@ public class DefaultValueVisibleSettingPropertyImpl2 extends VisibleSettingPrope
     private static int countValue;
 
     public DefaultValueVisibleSettingPropertyImpl2(String id, KeyRecord defaultValue, Function0 visible) {
-        super(id, defaultValue, null, null, visible, 7831325809976541196L);
+        super(id, defaultValue, null, null, visible);
         this.json = JsonKt.Json$default(null, this::resolveUnit);
     }
 
     public void setValue(String setting) {
-        Json var4 = this.json;
-        Object var5 = setting;
-        int var6 = 0;
-        var4.getSerializersModule();
-        this.updateValue(var4.decodeFromString((DeserializationStrategy) KeyRecord.serviceComponent70.getKSerializer()));
+        Json json = this.json;
+        json.getSerializersModule();
+        this.updateValue(json.decodeFromString(((DeserializationStrategy) KeyRecord.serviceComponent70.getKSerializer()), setting));
     }
 
     public String toString() {
-        Json var1 = this.json;
-        Object var2 = this.getObject2();
-        int var3 = 0;
-        var1.getSerializersModule();
-        return var1.encodeToString((SerializationStrategy) KeyRecord.serviceComponent70.getKSerializer());
+        Json json = this.json;
+        Object element = this.getObject2();
+        json.getSerializersModule();
+        return json.encodeToString(((SerializationStrategy) KeyRecord.serviceComponent70.getKSerializer()), element);
     }
 
     private static boolean isActive() {
@@ -41,8 +38,8 @@ public class DefaultValueVisibleSettingPropertyImpl2 extends VisibleSettingPrope
     }
 
     private static Unit resolveUnit(JsonBuilder arg0) {
-        arg0.setIgnoreUnknownKeys(1);
-        arg0.setEncodeDefaults(1);
+        arg0.setIgnoreUnknownKeys(true);
+        arg0.setEncodeDefaults(true);
         return Unit.INSTANCE;
     }
 

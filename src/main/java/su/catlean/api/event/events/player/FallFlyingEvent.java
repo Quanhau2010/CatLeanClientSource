@@ -21,7 +21,7 @@ public class FallFlyingEvent extends Event {
     }
 
     public boolean call(boolean value) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         value = value;
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

@@ -11,11 +11,11 @@ public class HoveringComponentServiceComponent5 extends MutablePropertyReference
     }
 
     public Object get() {
-        return (WaypointPanelGuiElement) this.receiver.getRenderHelper2();
+        return ((WaypointPanelGuiElement) this.receiver).getRenderHelper2();
     }
 
     public void set(Object value) {
-        (WaypointPanelGuiElement) this.receiver.updateValue((RenderHelper2) value);
+        ((WaypointPanelGuiElement) this.receiver).updateValue(((RenderHelper2) value));
     }
 
 }

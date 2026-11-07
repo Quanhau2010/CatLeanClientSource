@@ -52,19 +52,19 @@ public class ServiceComponent95 {
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag2;
-        boolean var4 = this.enabledFlag;
-        float var5 = this.factorValue2;
-        float var6 = this.factorValue;
-        return ("DamageComparatorResult(damage=" + var6 + ", selfDamage=" + var5 + ", override=" + var4 + ", lethal=" + var3 + ")");
+        boolean flag = this.enabledFlag2;
+        boolean flag2 = this.enabledFlag;
+        float factor = this.factorValue2;
+        float factor2 = this.factorValue;
+        return ("DamageComparatorResult(damage=" + factor2 + ", selfDamage=" + factor + ", override=" + flag2 + ", lethal=" + flag + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag2));
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag2));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -74,17 +74,17 @@ public class ServiceComponent95 {
         if (!(other instanceof ServiceComponent95)) {
             return false;
         }
-        ServiceComponent95 var5 = (ServiceComponent95) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        ServiceComponent95 serviceComponent95 = ((ServiceComponent95) other);
+        if (Float.compare(this.factorValue, serviceComponent95.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, serviceComponent95.factorValue2)) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != serviceComponent95.enabledFlag) {
             return false;
         }
-        if (this.enabledFlag2 != var5.enabledFlag2) {
+        if (this.enabledFlag2 != serviceComponent95.enabledFlag2) {
             return false;
         }
         return true;

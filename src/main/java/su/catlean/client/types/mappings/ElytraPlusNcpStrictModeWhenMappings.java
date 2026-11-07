@@ -7,11 +7,11 @@ public class ElytraPlusNcpStrictModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[ElytraPlusNcpStrictMode.values()];
-        var0[ElytraPlusNcpStrictMode.New.ordinal()] = 1;
-        var0[ElytraPlusNcpStrictMode.Motion.ordinal()] = 2;
-        var0[ElytraPlusNcpStrictMode.Old.ordinal()] = 3;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[ElytraPlusNcpStrictMode.values()];
+        element[ElytraPlusNcpStrictMode.New.ordinal()] = 1;
+        element[ElytraPlusNcpStrictMode.Motion.ordinal()] = 2;
+        element[ElytraPlusNcpStrictMode.Old.ordinal()] = 3;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

@@ -43,7 +43,7 @@ public class InteractBlockEvent extends Event {
     public boolean call(Hand hand, class_3965 hitResult) {
         this.setHand(hand);
         this.setHitResult(hitResult);
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }

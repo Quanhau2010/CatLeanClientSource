@@ -37,109 +37,109 @@ public class VisibleRenderHelper {
     private static boolean enabledFlag;
 
     public static VisibleVisibleSettingPropertyImpl resolveVisibleVisibleSettingPropertyImpl(Contract5 receiver, String id, boolean defaultValue, SettingGroup group, Function0 visible) {
-        VisibleVisibleSettingPropertyImpl var9 = new VisibleVisibleSettingPropertyImpl(id, defaultValue, group, visible);
-        return var9;
+        VisibleVisibleSettingPropertyImpl visibleVisibleSettingPropertyImpl = new VisibleVisibleSettingPropertyImpl(id, defaultValue, group, visible);
+        return visibleVisibleSettingPropertyImpl;
     }
 
     public static RangeVisibleSettingPropertyImpl resolveRangeVisibleSettingPropertyImpl(Contract5 receiver, String id, int defaultValue, IntRange range, SettingGroup group, Function0 visible) {
-        RangeVisibleSettingPropertyImpl var10 = new RangeVisibleSettingPropertyImpl(id, defaultValue, range, group, visible);
-        return var10;
+        RangeVisibleSettingPropertyImpl rangeVisibleSettingPropertyImpl = new RangeVisibleSettingPropertyImpl(id, defaultValue, range, group, visible);
+        return rangeVisibleSettingPropertyImpl;
     }
 
     public static RangeVisibleSettingPropertyImpl2 resolveRangeVisibleSettingPropertyImpl2(Contract5 receiver, String id, float defaultValue, ClosedFloatingPointRange range, SettingGroup group, Function0 visible) {
-        RangeVisibleSettingPropertyImpl2 var10 = new RangeVisibleSettingPropertyImpl2(id, defaultValue, range, group, visible);
-        return var10;
+        RangeVisibleSettingPropertyImpl2 rangeVisibleSettingPropertyImpl2 = new RangeVisibleSettingPropertyImpl2(id, defaultValue, range, group, visible);
+        return rangeVisibleSettingPropertyImpl2;
     }
 
     public static SettingIdVisibleSettingPropertyImpl resolveSettingIdVisibleSettingPropertyImpl(Contract5 receiver, String id, String defaultValue, SettingGroup group, Function0 visible) {
-        SettingIdVisibleSettingPropertyImpl var12 = new SettingIdVisibleSettingPropertyImpl(id, defaultValue, group, visible);
-        return var12;
+        SettingIdVisibleSettingPropertyImpl settingIdVisibleSettingPropertyImpl = new SettingIdVisibleSettingPropertyImpl(id, defaultValue, group, visible);
+        return settingIdVisibleSettingPropertyImpl;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl2 resolveDefaultValueVisibleSettingPropertyImpl2(Contract5 receiver, String id, KeyRecord defaultValue, SettingGroup group, Function0 visible) {
-        DefaultValueVisibleSettingPropertyImpl2 var9 = new DefaultValueVisibleSettingPropertyImpl2(id, defaultValue, visible);
-        var9.updateValue(group);
-        return var9;
+        DefaultValueVisibleSettingPropertyImpl2 defaultValueVisibleSettingPropertyImpl2 = new DefaultValueVisibleSettingPropertyImpl2(id, defaultValue, visible);
+        defaultValueVisibleSettingPropertyImpl2.updateValue(group);
+        return defaultValueVisibleSettingPropertyImpl2;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl10 resolveDefaultValueVisibleSettingPropertyImpl10(Contract5 receiver, String id, Enum defaultValue, SettingGroup group, Function0 visible) {
-        DefaultValueVisibleSettingPropertyImpl10 var9 = new DefaultValueVisibleSettingPropertyImpl10(id, defaultValue, group, visible);
-        return var9;
+        DefaultValueVisibleSettingPropertyImpl10 defaultValueVisibleSettingPropertyImpl10 = new DefaultValueVisibleSettingPropertyImpl10(id, defaultValue, group, visible);
+        return defaultValueVisibleSettingPropertyImpl10;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl5 resolveDefaultValueVisibleSettingPropertyImpl5(Contract5 receiver, String id, XRecord defaultValue, SettingGroup group, Function0 visible) {
-        DefaultValueVisibleSettingPropertyImpl5 var9 = new DefaultValueVisibleSettingPropertyImpl5(id, defaultValue, group, visible);
-        receiver.getList().add();
-        return var9;
+        DefaultValueVisibleSettingPropertyImpl5 defaultValueVisibleSettingPropertyImpl5 = new DefaultValueVisibleSettingPropertyImpl5(id, defaultValue, group, visible);
+        receiver.getList().add(defaultValueVisibleSettingPropertyImpl5);
+        return defaultValueVisibleSettingPropertyImpl5;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl9 resolveDefaultValueVisibleSettingPropertyImpl9(Contract5 receiver, String id, Color defaultValue, SettingGroup group, Function0 visible) {
-        DefaultValueVisibleSettingPropertyImpl9 var9 = new DefaultValueVisibleSettingPropertyImpl9(id, defaultValue, group, visible);
-        receiver.getList().add();
-        return var9;
+        DefaultValueVisibleSettingPropertyImpl9 defaultValueVisibleSettingPropertyImpl9 = new DefaultValueVisibleSettingPropertyImpl9(id, defaultValue, group, visible);
+        receiver.getList().add(defaultValueVisibleSettingPropertyImpl9);
+        return defaultValueVisibleSettingPropertyImpl9;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl3 resolveDefaultValueVisibleSettingPropertyImpl3(Contract5 receiver, String id, BlocksServiceComponent defaultValue, SettingGroup group, Function0 visible) {
-        DefaultValueVisibleSettingPropertyImpl3 var12 = new DefaultValueVisibleSettingPropertyImpl3(id, defaultValue, group, visible);
-        receiver.getList().add();
-        return var12;
+        DefaultValueVisibleSettingPropertyImpl3 defaultValueVisibleSettingPropertyImpl3 = new DefaultValueVisibleSettingPropertyImpl3(id, defaultValue, group, visible);
+        receiver.getList().add(defaultValueVisibleSettingPropertyImpl3);
+        return defaultValueVisibleSettingPropertyImpl3;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl6 resolveDefaultValueVisibleSettingPropertyImpl6(Contract5 receiver, String id, EntitiesServiceComponent defaultValue, SettingGroup group, Function0 visible) {
-        DefaultValueVisibleSettingPropertyImpl6 var12 = new DefaultValueVisibleSettingPropertyImpl6(id, defaultValue, group, visible);
-        receiver.getList().add();
-        return var12;
+        DefaultValueVisibleSettingPropertyImpl6 defaultValueVisibleSettingPropertyImpl6 = new DefaultValueVisibleSettingPropertyImpl6(id, defaultValue, group, visible);
+        receiver.getList().add(defaultValueVisibleSettingPropertyImpl6);
+        return defaultValueVisibleSettingPropertyImpl6;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl8 resolveDefaultValueVisibleSettingPropertyImpl8(Contract5 receiver, String id, ItemsServiceComponent2 defaultValue, SettingGroup group, Function0 visible) {
-        DefaultValueVisibleSettingPropertyImpl8 var12 = new DefaultValueVisibleSettingPropertyImpl8(id, defaultValue, group, visible);
-        receiver.getList().add();
-        return var12;
+        DefaultValueVisibleSettingPropertyImpl8 defaultValueVisibleSettingPropertyImpl8 = new DefaultValueVisibleSettingPropertyImpl8(id, defaultValue, group, visible);
+        receiver.getList().add(defaultValueVisibleSettingPropertyImpl8);
+        return defaultValueVisibleSettingPropertyImpl8;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl resolveDefaultValueVisibleSettingPropertyImpl(Contract5 receiver, String id, Function0 defaultValue, SettingGroup group, Function0 visible) {
-        DefaultValueVisibleSettingPropertyImpl var15 = new DefaultValueVisibleSettingPropertyImpl(id, new ActionServiceComponent2(defaultValue), group, visible);
-        receiver.getList().add();
-        return var15;
+        DefaultValueVisibleSettingPropertyImpl defaultValueVisibleSettingPropertyImpl = new DefaultValueVisibleSettingPropertyImpl(id, group, visible);
+        receiver.getList().add(defaultValueVisibleSettingPropertyImpl);
+        return defaultValueVisibleSettingPropertyImpl;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl4 resolveDefaultValueVisibleSettingPropertyImpl4(Contract5 receiver, String id, TextServiceComponent defaultValue, SettingGroup group, Function0 visible) {
-        DefaultValueVisibleSettingPropertyImpl4 var10 = new DefaultValueVisibleSettingPropertyImpl4(id, defaultValue, group, visible);
-        receiver.getList().add();
-        return var10;
+        DefaultValueVisibleSettingPropertyImpl4 defaultValueVisibleSettingPropertyImpl4 = new DefaultValueVisibleSettingPropertyImpl4(id, defaultValue, group, visible);
+        receiver.getList().add(defaultValueVisibleSettingPropertyImpl4);
+        return defaultValueVisibleSettingPropertyImpl4;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl7 resolveDefaultValueVisibleSettingPropertyImpl7(Contract5 receiver, String id, OptionMode14 type, Function0 visible) {
-        SettingGroup var10 = new SettingGroup(0, type);
-        DefaultValueVisibleSettingPropertyImpl7 var11 = new DefaultValueVisibleSettingPropertyImpl7(id, visible);
-        receiver.getList().add();
-        return var11;
+        SettingGroup settingGroup = new SettingGroup(false, type);
+        DefaultValueVisibleSettingPropertyImpl7 defaultValueVisibleSettingPropertyImpl7 = new DefaultValueVisibleSettingPropertyImpl7(id, settingGroup, visible);
+        receiver.getList().add(defaultValueVisibleSettingPropertyImpl7);
+        return defaultValueVisibleSettingPropertyImpl7;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl7 resolveDefaultValueVisibleSettingPropertyImpl7(Module parent, String id, OptionMode14 type, Function0 visible) {
-        SettingGroup var13 = new SettingGroup(0, type);
-        DefaultValueVisibleSettingPropertyImpl7 var14 = new DefaultValueVisibleSettingPropertyImpl7(id, visible);
-        return var14;
+        SettingGroup settingGroup = new SettingGroup(false, type);
+        DefaultValueVisibleSettingPropertyImpl7 defaultValueVisibleSettingPropertyImpl7 = new DefaultValueVisibleSettingPropertyImpl7(id, settingGroup, visible);
+        return defaultValueVisibleSettingPropertyImpl7;
     }
 
     public static RangeVisibleSettingPropertyImpl2 resolveRangeVisibleSettingPropertyImpl2(Module parent, String id, float defaultValue, ClosedFloatingPointRange range, SettingGroup group, Function0 visible) {
-        RangeVisibleSettingPropertyImpl2 var10 = new RangeVisibleSettingPropertyImpl2(id, defaultValue, range, group, visible);
-        return var10;
+        RangeVisibleSettingPropertyImpl2 rangeVisibleSettingPropertyImpl2 = new RangeVisibleSettingPropertyImpl2(id, defaultValue, range, group, visible);
+        return rangeVisibleSettingPropertyImpl2;
     }
 
     public static RangeVisibleSettingPropertyImpl resolveRangeVisibleSettingPropertyImpl(Module parent, String id, int defaultValue, IntRange range, SettingGroup group, Function0 visible) {
-        RangeVisibleSettingPropertyImpl var10 = new RangeVisibleSettingPropertyImpl(id, defaultValue, range, group, visible);
-        return var10;
+        RangeVisibleSettingPropertyImpl rangeVisibleSettingPropertyImpl = new RangeVisibleSettingPropertyImpl(id, defaultValue, range, group, visible);
+        return rangeVisibleSettingPropertyImpl;
     }
 
     public static VisibleVisibleSettingPropertyImpl resolveVisibleVisibleSettingPropertyImpl(Module parent, String id, boolean defaultValue, SettingGroup group, Function0 visible) {
-        VisibleVisibleSettingPropertyImpl var12 = new VisibleVisibleSettingPropertyImpl(id, defaultValue, group, visible);
-        return var12;
+        VisibleVisibleSettingPropertyImpl visibleVisibleSettingPropertyImpl = new VisibleVisibleSettingPropertyImpl(id, defaultValue, group, visible);
+        return visibleVisibleSettingPropertyImpl;
     }
 
     public static DefaultValueVisibleSettingPropertyImpl10 resolveDefaultValueVisibleSettingPropertyImpl10(Module parent, String id, Enum defaultValue, SettingGroup group, Function0 visible) {
-        DefaultValueVisibleSettingPropertyImpl10 var12 = new DefaultValueVisibleSettingPropertyImpl10(id, defaultValue, group, visible);
-        return var12;
+        DefaultValueVisibleSettingPropertyImpl10 defaultValueVisibleSettingPropertyImpl10 = new DefaultValueVisibleSettingPropertyImpl10(id, defaultValue, group, visible);
+        return defaultValueVisibleSettingPropertyImpl10;
     }
 
     private static boolean isActive() {

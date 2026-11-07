@@ -11,11 +11,11 @@ public class SettingServiceComponent3 extends MutablePropertyReference0Impl {
     }
 
     public Object get() {
-        return (ThemeRenderHelper) this.receiver.getColor();
+        return ((ThemeRenderHelper) this.receiver).getColor();
     }
 
     public void set(Object value) {
-        (ThemeRenderHelper) this.receiver.executeAction((Color) value);
+        ((ThemeRenderHelper) this.receiver).executeAction(((Color) value));
     }
 
 }

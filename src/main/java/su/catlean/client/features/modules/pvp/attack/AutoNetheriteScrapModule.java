@@ -61,19 +61,19 @@ public class AutoNetheriteScrapModule extends Module {
     }
 
     private KeyRecord getPlaceWithRegion() {
-        return (KeyRecord) placeWithRegionSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((KeyRecord) placeWithRegionSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private KeyRecord getPlaceNormal() {
-        return (KeyRecord) placeNormalSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((KeyRecord) placeNormalSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getPrivateOthers() {
-        return (Boolean) privateOthersSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) privateOthersSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getCheckRange() {
-        return (Boolean) checkRangeSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) checkRangeSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void onInputEvent(InputEvent arg0) {
@@ -83,11 +83,11 @@ public class AutoNetheriteScrapModule extends Module {
             return;
         }
         if (!(serviceComponent10.checkCondition(50000))) {
-            MessageServiceComponent.S(this, MessageServiceComponent.Z(this, "delay", new Object[0]));
+            MessageServiceComponent.S(this, MessageServiceComponent.Z(this, "delay", new Object[0], false), false);
             return;
         }
-        if (this.getCheckRange() && EntityPacketHelper.findTarget(1.5F, AutoCrystalTargetSortMode.DISTANCE) == null) {
-            MessageServiceComponent.S(this, MessageServiceComponent.Z(this, "distance", new Object[0]));
+        if (this.getCheckRange() && EntityPacketHelper.findTarget(1.5F, AutoCrystalTargetSortMode.DISTANCE, false, false) == null) {
+            MessageServiceComponent.S(this, MessageServiceComponent.Z(this, "distance", new Object[0], false), false);
             return;
         }
         if (arg0.getKey() == this.getPlaceWithRegion().getNumericValue()) {
@@ -100,15 +100,13 @@ public class AutoNetheriteScrapModule extends Module {
         if (!(enabledFlag)) {
         }
         BlockPos blockPos = BlockPos.ofFloored(SharedKt.getPlayer().getEyePos()).up();
-        int var23 = this.computeValue();
-        if (var23 == -1) {
+        int index = this.computeValue();
+        if (index == -1) {
             return;
         }
-        RotationServiceComponent4 var24 = VecPacketHelper.resolveRotationServiceComponent4(blockPos, BlockPlacementInteractMode.Strict, BlockPlacementPlaceMode.Normal, OptionMode15.NONE, 4.0F, 0.0F, 200, BlockPlacementSwitchMode.Alternative);
-        if (var24 != null) {
-            Object var25 = var24;
-            int var26 = 0;
-            SequenceServiceComponent.INSTANCE.executeAction();
+        RotationServiceComponent4 rotationServiceComponent4 = VecPacketHelper.resolveRotationServiceComponent4(blockPos, index, BlockPlacementInteractMode.Strict, BlockPlacementPlaceMode.Normal, OptionMode15.NONE, 4.0F, 0.0F, 200, BlockPlacementSwitchMode.Alternative, null, false);
+        if (rotationServiceComponent4 != null) {
+            SequenceServiceComponent.INSTANCE.executeAction(rotationServiceComponent4);
             serviceComponent102.executeAction();
             enabledFlag = 0;
         } else {
@@ -116,26 +114,26 @@ public class AutoNetheriteScrapModule extends Module {
     }
 
     private int computeValue() {
-        StackServiceComponent2 var7 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(itemList);
-        if (var7.isActive()) {
-            return var7.getNumericValue();
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(itemList);
+        if (stackServiceComponent2.isActive()) {
+            return stackServiceComponent2.getNumericValue();
         }
         return -1;
     }
 
     private boolean checkCondition() {
         BlockPos blockPos = BlockPos.ofFloored(SharedKt.getPlayer().getEyePos()).up();
-        int var9 = -5;
-        if (var9 < 6) {
-            if (var7 != null) {
-                int var10 = -5;
-                if (var10 < 6) {
-                    int var11 = -5;
-                    if (var11 < 6) {
-                        if (var7 != null) {
-                            if (itemList.contains(SharedKt.getWorld().getBlockState(blockPos.method_10069()).getBlock())) {
+        int index = -5;
+        if (index < 6) {
+            if (__UNDEF_KEY__ != null) {
+                int index2 = -5;
+                if (index2 < 6) {
+                    int index3 = -5;
+                    if (index3 < 6) {
+                        if (__UNDEF_KEY__ != null) {
+                            if (itemList.contains(SharedKt.getWorld().getBlockState(blockPos.method_10069(index, index2, index3)).getBlock())) {
+                                return true;
                             }
-                            return true;
                         }
                     }
                 }
@@ -147,27 +145,27 @@ public class AutoNetheriteScrapModule extends Module {
     private void updateValue() {
         this.executeAction();
         enabledFlag = 1;
-        RunnableServiceComponent2.executeAction(10, 0, 0, this::executeAction);
+        RunnableServiceComponent2.executeAction(10, 0, false, this::executeAction);
     }
 
     private void executeAction(long arg0) {
-        StackServiceComponent2 var22 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition);
-        if (var22.isActive()) {
-            ItemPacketHelper.INSTANCE.executeAction(var22.getNumericValue());
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition);
+        if (stackServiceComponent2.isActive()) {
+            ItemPacketHelper.INSTANCE.executeAction(stackServiceComponent2.getNumericValue());
             HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
             SharedKt.getPlayer().method_6104(Hand.field_5808);
             ItemPacketHelper.INSTANCE.updateValue2();
             serviceComponent10.executeAction();
             return;
         }
-        StackServiceComponent2 var23 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition2);
+        StackServiceComponent2 stackServiceComponent22 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition2);
         if (arg0 > 0L) {
-            GuiMoveModule.INSTANCE.updateValue(1);
-            HandServiceComponent.e(var23.getNumericValue(), SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791);
+            GuiMoveModule.INSTANCE.updateValue(true);
+            HandServiceComponent.e(stackServiceComponent22.getNumericValue(), SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, false);
             HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
             SharedKt.getPlayer().method_6104(Hand.field_5808);
-            HandServiceComponent.e(var23.getNumericValue(), SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791);
-            GuiMoveModule.INSTANCE.updateValue(0);
+            HandServiceComponent.e(stackServiceComponent22.getNumericValue(), SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, false);
+            GuiMoveModule.INSTANCE.updateValue(false);
         }
         serviceComponent10.executeAction();
     }
@@ -185,21 +183,21 @@ public class AutoNetheriteScrapModule extends Module {
     }
 
     static {
-        KProperty[] var32 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new AutoNetheriteScrapModule();
-        placeWithRegionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "place-with-region", new KeyRecord());
-        placeNormalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "place-normal", new KeyRecord());
-        privateOthersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "private-others");
-        checkRangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "check-range");
+        placeWithRegionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "place-with-region", new KeyRecord(0, false, false));
+        placeNormalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "place-normal", new KeyRecord(0, false, false));
+        privateOthersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "private-others", true);
+        checkRangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "check-range", false);
         serviceComponent10 = new ServiceComponent10();
         serviceComponent102 = new ServiceComponent10();
-        var32 = new Block[5];
-        var32[0] = Blocks.field_10381;
-        var32[1] = Blocks.field_10442;
-        var32[2] = Blocks.field_10201;
-        var32[3] = Blocks.field_10013;
-        var32[4] = Blocks.NETHERITE_BLOCK;
-        itemList = CollectionsKt.listOf();
+        items = new Block[5];
+        items[0] = Blocks.field_10381;
+        items[1] = Blocks.field_10442;
+        items[2] = Blocks.field_10201;
+        items[3] = Blocks.field_10013;
+        items[4] = Blocks.NETHERITE_BLOCK;
+        itemList = CollectionsKt.listOf(items);
     }
 
 }

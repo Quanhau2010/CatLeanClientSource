@@ -37,11 +37,11 @@ public class SourceFillerModule extends BlockPlacementModule {
     private static final DefaultValueVisibleSettingPropertyImpl3 blackListSetting;
 
     private SourceFillerModule() {
-        super("source-filler", SubCategoriesKt.getMiscUtilityCategory());
+        super("source-filler", SubCategoriesKt.getMiscUtilityCategory(), 0, false);
     }
 
     private BlocksServiceComponent getBlackList() {
-        return (BlocksServiceComponent) blackListSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((BlocksServiceComponent) blackListSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setBlackList(BlocksServiceComponent value) {
@@ -50,65 +50,44 @@ public class SourceFillerModule extends BlockPlacementModule {
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         BlockPos blockPos = BlockPos.ofFloored(SharedKt.getPlayer().getEyePos());
-        double var17 = (Math.ceil(this.getRange()) + 1);
-        List positions = new ArrayList();
-        Iterable var19 = (Iterable) new IntRange((blockPos.method_10263() - var17), (blockPos.method_10263() + var17));
-        int var20 = 0;
-        Object var21 = var19;
-        Collection var22 = (Collection) new ArrayList();
-        int var23 = 0;
-        Iterator iterator = var21.iterator();
+        double offset = (Math.ceil(this.getRange()) + 1);
+        List list = new ArrayList();
+        Iterable iterable = ((Iterable) new IntRange((blockPos.method_10263() - offset), (blockPos.method_10263() + offset)));
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            int var25 = (IntIterator) iterator.nextInt();
-            int var26 = var25;
-            int var27 = 0;
-            Iterable var28 = (Iterable) new IntRange((blockPos.method_10264() - var17), (blockPos.method_10264() + var17));
-            int var29 = 0;
-            Object var30 = var28;
-            Collection var31 = (Collection) new ArrayList();
-            int var32 = 0;
-            Iterator iterator2 = var30.iterator();
+            int index = ((IntIterator) iterator).nextInt();
+            Iterable iterable2 = ((Iterable) new IntRange((blockPos.method_10264() - offset), (blockPos.method_10264() + offset)));
+            Collection collection2 = ((Collection) new ArrayList());
+            Iterator iterator2 = iterable2.iterator();
             while (iterator2.hasNext()) {
-                int var34 = (IntIterator) iterator2.nextInt();
-                int var35 = var34;
-                int var36 = 0;
-                Iterable var37 = (Iterable) new IntRange((blockPos.method_10260() - var17), (blockPos.method_10260() + var17));
-                int var38 = 0;
-                Object var39 = var37;
-                Collection var40 = (Collection) new ArrayList();
-                int var41 = 0;
-                Object var42 = var39;
-                int var43 = 0;
-                Iterator iterator3 = var42.iterator();
+                int index2 = ((IntIterator) iterator2).nextInt();
+                Iterable iterable3 = ((Iterable) new IntRange((blockPos.method_10260() - offset), (blockPos.method_10260() + offset)));
+                Collection collection3 = ((Collection) new ArrayList());
+                Iterator iterator3 = iterable3.iterator();
                 while (iterator3.hasNext()) {
-                    int var45 = (IntIterator) iterator3.nextInt();
-                    int var46 = var45;
-                    int var47 = 0;
-                    int var48 = var46;
-                    int var49 = 0;
-                    BlockPos blockPos2 = new BlockPos();
-                    Block var51 = SharedKt.getWorld().getBlockState(blockPos2).getBlock();
-                    if (!(Intrinsics.areEqual(Blocks.BEDROCK))) {
-                        if (Intrinsics.areEqual(Blocks.field_10164)) {
-                        }
-                        class_3610 var52 = SharedKt.getWorld().method_8316(blockPos2);
-                        if (var52.method_15771() && INSTANCE.checkCondition(blockPos2)) {
-                            positions.add(blockPos2);
+                    int index3 = ((IntIterator) iterator3).nextInt();
+                    BlockPos blockPos2 = new BlockPos(index, index2, index3);
+                    Block block = SharedKt.getWorld().getBlockState(blockPos2).getBlock();
+                    if (!(Intrinsics.areEqual(block, Blocks.BEDROCK))) {
+                        if (Intrinsics.areEqual(block, Blocks.field_10164)) {
+                            class_3610 class3610 = SharedKt.getWorld().method_8316(blockPos2);
+                            if (class3610.method_15771() && INSTANCE.checkCondition(blockPos2)) {
+                                list.add(blockPos2);
+                            }
                         }
                     }
-                    Unit var53 = Unit.INSTANCE;
-                    int var54 = 0;
-                    var40.add();
+                    Unit unit = Unit.INSTANCE;
+                    collection3.add(unit);
                 }
-                Iterable var55 = (Iterable) var40;
-                CollectionsKt.addAll();
+                Iterable iterable4 = ((Iterable) collection3);
+                CollectionsKt.addAll(collection2, iterable4);
             }
-            Iterable var56 = (Iterable) var31;
-            CollectionsKt.addAll();
+            Iterable iterable5 = ((Iterable) collection2);
+            CollectionsKt.addAll(collection, iterable5);
         }
-        var19 = (Iterable) positions;
-        var20 = 0;
-        BlockPlacementModule.placeBlocks(this, CollectionsKt.sortedWith((Comparator) new Comparator10()));
+        iterable = ((Iterable) list);
+        BlockPlacementModule.placeBlocks(this, CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator10())), false, false, null, true);
     }
 
     public boolean checkCondition(BlockPos pos) {
@@ -117,19 +96,18 @@ public class SourceFillerModule extends BlockPlacementModule {
         return null;
     }
 
-    protected List resolveList(long arg0) {
-        long var3 = (arg0 ^ 86286072903909L);
+    protected List resolveList() {
         return this.getBlackList().getList();
     }
 
     static {
-        KProperty[] var34 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new SourceFillerModule();
-        var34 = new Block[1];
-        var34[0] = Blocks.OBSIDIAN;
-        int var30 = 12;
-        BlocksServiceComponent var33 = new BlocksServiceComponent(CollectionsKt.mutableListOf());
-        blackListSetting = VisibleRenderHelper.registerSetting(INSTANCE, "black-list");
+        items = new Block[1];
+        items[0] = Blocks.OBSIDIAN;
+        int index = 12;
+        BlocksServiceComponent blocksServiceComponent = new BlocksServiceComponent(CollectionsKt.mutableListOf(items));
+        blackListSetting = VisibleRenderHelper.registerSetting(INSTANCE, "black-list", blocksServiceComponent, index);
     }
 
 }

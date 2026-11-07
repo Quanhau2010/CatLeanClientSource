@@ -37,7 +37,7 @@ public class ProxiesRecord {
     }
 
     public static ProxiesRecord resolveProxiesRecord(ProxiesRecord arg0, List arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
             arg1 = arg0.itemList;
         }
         return arg0.resolveProxiesRecord(arg1);
@@ -58,16 +58,15 @@ public class ProxiesRecord {
         if (!(other instanceof ProxiesRecord)) {
             return false;
         }
-        ProxiesRecord var5 = (ProxiesRecord) other;
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        ProxiesRecord proxiesRecord = ((ProxiesRecord) other);
+        if (!(Intrinsics.areEqual(this.itemList, proxiesRecord.itemList))) {
             return false;
         }
         return true;
     }
 
     public static void executeAction(ProxiesRecord self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        Lazy[] var3 = lazyArray;
-        output.encodeSerializableElement(serialDesc, 0, (SerializationStrategy) var3[0].getValue(), self.itemList);
+        output.encodeSerializableElement(serialDesc, 0, ((SerializationStrategy) lazyArray[0].getValue()), self.itemList);
     }
 
     public ProxiesRecord(int seen0, List proxies, SerializationConstructorMarker serializationConstructorMarker) {
@@ -78,7 +77,7 @@ public class ProxiesRecord {
     }
 
     private static KSerializer getKSerializer() {
-        return (KSerializer) new ArrayListSerializer((KSerializer) IdRecord12Serializer.INSTANCE);
+        return ((KSerializer) new ArrayListSerializer(((KSerializer) IdRecord12Serializer.INSTANCE)));
     }
 
     public static Lazy[] process() {
@@ -87,9 +86,9 @@ public class ProxiesRecord {
 
     static {
         serviceComponent125 = new ServiceComponent125();
-        Lazy[] var11 = new Lazy[1];
-        var11[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
-        lazyArray = var11;
+        Lazy[] items = new Lazy[1];
+        items[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
+        lazyArray = items;
     }
 
 }

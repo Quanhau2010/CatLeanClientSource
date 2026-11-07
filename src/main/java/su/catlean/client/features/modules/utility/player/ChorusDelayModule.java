@@ -44,11 +44,11 @@ public class ChorusDelayModule extends Module {
     }
 
     private KeyRecord getConfirm() {
-        return (KeyRecord) confirmSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((KeyRecord) confirmSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private Color getColor() {
-        return (Color) colorSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Color) colorSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     public void updateValue() {
@@ -56,22 +56,19 @@ public class ChorusDelayModule extends Module {
         enabledFlag = 0;
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = ((arg0 ^ 97978716797187L) >>> 32);
-        long var4 = (((arg0 ^ 97978716797187L) << 32) >>> 48);
-        long var5 = (((arg0 ^ 97978716797187L) << 48) >>> 48);
+    public void updateValue2() {
         this.executeAction();
     }
 
     public void onRender3DEvent(Render3DEvent e) {
-        int var9 = 4;
-        Color var11 = this.getColor();
-        Box var12 = new Box((class_2708) CollectionsKt.first(linkedList).comp_3228().comp_3148().method_1031(-0.27D, 0.0D, -0.27D), (class_2708) CollectionsKt.first(linkedList).comp_3228().comp_3148().method_1031(0.27D, 1.8D, 0.27D));
-        TextShaderComponent2.checkCondition();
+        int index = 4;
+        Color color = this.getColor();
+        Box box = new Box(((class_2708) CollectionsKt.first(linkedList)).comp_3228().comp_3148().method_1031(-0.27D, 0.0D, -0.27D), ((class_2708) CollectionsKt.first(linkedList)).comp_3228().comp_3148().method_1031(0.27D, 1.8D, 0.27D));
+        TextShaderComponent2.checkCondition(box, color, index);
     }
 
     public void onInputEvent(InputEvent e) {
-        if (var9 == null) {
+        if (__UNDEF_KEY__ == null) {
         }
         if (e.getKey() == this.getConfirm().getNumericValue() && e.getAction() == Action.Release) {
             this.executeAction();
@@ -81,7 +78,7 @@ public class ChorusDelayModule extends Module {
     public void onReceivePacket(ReceivePacket e) {
         if (!(enabledFlag)) {
         }
-        linkedList.add((class_2708) e.getPacket());
+        linkedList.add(((class_2708) e.getPacket()));
         e.cancel();
     }
 
@@ -92,15 +89,15 @@ public class ChorusDelayModule extends Module {
     private void executeAction(short arg0) {
         enabledFlag = 0;
         if (!(linkedList.isEmpty())) {
-            (class_2708) linkedList.poll().method_11740((class_2602) SharedKt.getNetwork());
+            ((class_2708) linkedList.poll()).method_11740(((class_2602) SharedKt.getNetwork()));
         }
     }
 
     static {
-        KProperty[] var32 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new ChorusDelayModule();
-        confirmSetting = VisibleRenderHelper.registerSetting(INSTANCE, "confirm", new KeyRecord(7570150686952784212L, 0, 0, 689587429216092166L), null, null, -8482684791852892148L);
-        colorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "color", new Color(3253805521966202879L), null, null, 2858437878088728588L);
+        confirmSetting = VisibleRenderHelper.registerSetting(INSTANCE, "confirm", new KeyRecord(340, false, false));
+        colorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "color", new Color(16777215));
         linkedList = new LinkedList();
     }
 

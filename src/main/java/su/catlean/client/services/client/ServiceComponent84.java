@@ -35,10 +35,10 @@ public class ServiceComponent84 {
     }
 
     public static ServiceComponent84 resolveServiceComponent84(ServiceComponent84 arg0, int arg1, class_1293 arg2, int arg3, short arg4, Object arg5) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.countValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.minecraftRef;
         }
         if (arg4 >= 0) {
@@ -53,9 +53,9 @@ public class ServiceComponent84 {
     }
 
     public int hashCode() {
-        int var4 = Integer.hashCode(this.countValue);
-        var4 = ((var4 * -4194200521352937441L) + this.minecraftRef != null);
-        return var4;
+        int index = Integer.hashCode(this.countValue);
+        index = ((index * 31) + this.minecraftRef != null);
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -65,11 +65,11 @@ public class ServiceComponent84 {
         if (!(other instanceof ServiceComponent84)) {
             return false;
         }
-        ServiceComponent84 var5 = (ServiceComponent84) other;
-        if (this.countValue != var5.countValue) {
+        ServiceComponent84 serviceComponent84 = ((ServiceComponent84) other);
+        if (this.countValue != serviceComponent84.countValue) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        if (!(Intrinsics.areEqual(this.minecraftRef, serviceComponent84.minecraftRef))) {
             return false;
         }
         return true;

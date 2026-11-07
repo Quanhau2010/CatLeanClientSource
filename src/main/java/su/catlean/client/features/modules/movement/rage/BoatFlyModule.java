@@ -84,131 +84,116 @@ public class BoatFlyModule extends Module {
     }
 
     private BoatFlyMode getMode() {
-        return (BoatFlyMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((BoatFlyMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getPhase() {
-        return (Boolean) phaseSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) phaseSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getGravity() {
-        return (Boolean) gravitySetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) gravitySetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getAutomount() {
-        return (Boolean) automountSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) automountSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getAllowShift() {
-        return (Boolean) allowShiftSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) allowShiftSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private float getSpeed() {
-        return (Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private float getYspeed() {
-        return (Number) yspeedSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Number) yspeedSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private SettingGroup getAdvanced() {
-        return (SettingGroup) advancedSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((SettingGroup) advancedSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private float getGlidespeed() {
-        return (Number) glidespeedSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Number) glidespeedSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private boolean getSlotClick() {
-        return (Boolean) slotClickSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Boolean) slotClickSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private boolean getLimit() {
-        return (Boolean) limitSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Boolean) limitSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private boolean getOngroundpacket() {
-        return (Boolean) ongroundpacketSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Boolean) ongroundpacketSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private boolean getSpoofpackets() {
-        return (Boolean) spoofpacketsSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Boolean) spoofpacketsSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private float getJitter() {
-        return (Number) jitterSetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Number) jitterSetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     private boolean getCancelrotations() {
-        return (Boolean) cancelrotationsSetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Boolean) cancelrotationsSetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     private boolean getCancel() {
-        return (Boolean) cancelSetting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((Boolean) cancelSetting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     private boolean getPause() {
-        return (Boolean) pauseSetting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((Boolean) pauseSetting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     private int getEnableticks() {
-        return (Number) enableticksSetting.getValue(this, DELEGATED_PROPERTIES[17]);
+        return ((Number) enableticksSetting.getValue(this, DELEGATED_PROPERTIES[17]));
     }
 
     private int getWaitTicks() {
-        return (Number) waitTicksSetting.getValue(this, DELEGATED_PROPERTIES[18]);
+        return ((Number) waitTicksSetting.getValue(this, DELEGATED_PROPERTIES[18]));
     }
 
     private float getTimer() {
-        return (Number) timerSetting.getValue(this, DELEGATED_PROPERTIES[19]);
+        return ((Number) timerSetting.getValue(this, DELEGATED_PROPERTIES[19]));
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = (arg0 ^ 122304444111779L);
-        long var7 = (arg0 ^ 76401611909238L);
-        long var9 = (arg0 ^ 20975573779856L);
+    public void updateValue() {
         if (SharedKt.getMc().world != null) {
-            if (var11 == null || arg0 > 0L) {
+            if (SharedKt.getMc().player == null) {
+                this.updateValue2();
                 return;
             }
         }
-        if (var11 != null) {
-            if (this.getAutomount()) {
-            }
+        if (this.getAutomount()) {
             this.updateValue();
         }
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 64129331416845L);
-        long var5 = ((arg0 ^ 34594838020248L) >>> 56);
-        long var6 = (((arg0 ^ 34594838020248L) << 8) >>> 8);
-        long var8 = (arg0 ^ 78613518204234L);
-        long var10 = (arg0 ^ 29647348875563L);
+    public void updateValue2() {
         arrayList.clear();
         enabledFlag = 0;
-        if (arg0 >= 0L && SharedKt.getMc().player == null) {
+        if (SharedKt.getMc().player == null) {
             return;
-        }
-        if (arg0 > 0L) {
         }
         if (this.getPhase() && this.getMode() == BoatFlyMode.Motion) {
             if (SharedKt.getPlayer().method_49694() != null) {
                 Entity entity = SharedKt.getPlayer().method_49694();
-                int var14 = 0;
-                entity.field_5960 = 0;
+                entity.field_5960 = false;
             } else {
             }
-            SharedKt.getPlayer().field_5960 = 0;
+            SharedKt.getPlayer().field_5960 = false;
         }
-        if (arg0 >= 0L) {
-            if (SharedKt.getPlayer().method_49694() != null) {
-                SharedKt.getPlayer().method_49694().method_5875(0);
-            }
+        if (SharedKt.getPlayer().method_49694() != null) {
+            SharedKt.getPlayer().method_49694().method_5875(false);
         } else {
         }
-        SharedKt.getPlayer().method_5875(0);
+        SharedKt.getPlayer().method_5875(false);
     }
 
     private float computeValue() {
@@ -221,17 +206,15 @@ public class BoatFlyModule extends Module {
 
     private void executeAction(class_2833 arg0) {
         arrayList.add(arg0);
-        PacketPacketHelper.handlePacket((Packet) arg0);
+        PacketPacketHelper.handlePacket(((Packet) arg0));
     }
 
     private void executeAction(Entity arg0, short arg1) {
         BlockPos blockPos = BlockPos.ofFloored(this.resolveMinecraftObject(arg0));
-        int var16 = 255;
-        int var17 = 0;
-        int var18 = var17;
-        int var19 = 0;
+        int index = 255;
+        int index2 = 0;
         if (SharedKt.getWorld().getBlockState(blockPos).method_45474()) {
-            if (var17 >= var16 || var14 == null || arg1 >= 0) {
+            if (index2 >= index || __UNDEF_KEY__ == null || arg1 >= 0) {
                 return;
             }
         }
@@ -243,7 +226,7 @@ public class BoatFlyModule extends Module {
             Entity entity = iterator.next();
             if (SharedKt.getPlayer().squaredDistanceTo(entity) > 25.0D) {
             }
-            PacketPacketHelper.handlePacket((Packet) class_2824.method_34207(entity, 0, Hand.field_5808));
+            PacketPacketHelper.handlePacket(((Packet) class_2824.method_34207(entity, false, Hand.field_5808)));
         }
     }
 
@@ -290,56 +273,56 @@ public class BoatFlyModule extends Module {
         if (this.getTimer() != 1.0F) {
             ServiceComponent98.INSTANCE.updateValue2(this.getTimer());
         }
-        var63.method_36456(SharedKt.getPlayer().method_36454());
-        double[] var64 = EventPacketHelper2.process(this.getSpeed(), 0, 0.0F, 0.0F, 0.0F);
-        double var65 = (var63.getX() + var64[0]);
-        double var67 = (var63.getZ() + var64[1]);
-        double var69 = var63.getY();
+        this.method_36456(SharedKt.getPlayer().method_36454());
+        double[] items = EventPacketHelper2.process(this.getSpeed(), false, 0.0F, 0.0F, 0.0F);
+        double offset = (this.getX() + items[0]);
+        double offset2 = (this.getZ() + items[1]);
+        double offset3 = this.getY();
         enabledFlag2 = 0;
-        var63.method_18800(var63.method_18798().method_10216(), (this.getGlidespeed() / 100.0F), var63.method_18798().method_10215());
+        this.method_18800(this.method_18798().method_10216(), (this.getGlidespeed() / 100.0F), this.method_18798().method_10215());
         if (this.getMode() == BoatFlyMode.Motion) {
-            var63.method_18800(var64[0], var63.method_18798().method_10214(), var64[1]);
+            this.method_18800(items[0], this.method_18798().method_10214(), items[1]);
         }
         if (SharedKt.getMc().options.field_1903.method_1434()) {
             if (this.getMode() == BoatFlyMode.Motion) {
-                var63.method_18800(var63.method_18798().method_10216(), (var63.method_18798().method_10214() + this.getYspeed()), var63.method_18798().method_10215());
+                this.method_18800(this.method_18798().method_10216(), (this.method_18798().method_10214() + this.getYspeed()), this.method_18798().method_10215());
             } else {
-                var69 = (var69 + this.getYspeed());
-            } else {
+                offset3 = (offset3 + this.getYspeed());
                 if (SharedKt.getMc().options.field_1832.method_1434()) {
                     if (this.getMode() == BoatFlyMode.Motion) {
-                        var63.method_18800(var63.method_18798().method_10216(), (var63.method_18798().method_10214() - this.getYspeed()), var63.method_18798().method_10215());
+                        this.method_18800(this.method_18798().method_10216(), (this.method_18798().method_10214() - this.getYspeed()), this.method_18798().method_10215());
                     } else {
-                        var69 = (var69 - this.getYspeed());
+                        offset3 = (offset3 - this.getYspeed());
                     }
                 }
             }
+        } else {
         }
         if (!(EventPacketHelper2.INSTANCE.checkCondition())) {
-            var63.method_18800(0.0D, var63.method_18798().method_10214(), 0.0D);
+            this.method_18800(0.0D, this.method_18798().method_10214(), 0.0D);
         }
         if (this.getOngroundpacket()) {
             this.executeAction();
         }
         if (this.getMode() == BoatFlyMode.Packet) {
-            var63.method_5814();
+            this.method_5814(offset, offset3, offset2);
             this.executeAction(class_2833.method_65307());
         }
         if (this.getSlotClick()) {
-            SharedKt.getInteractionManager().method_2906(SharedKt.getPlayer().field_7512.field_7763, 0, 0, class_1713.field_7796, (PlayerEntity) SharedKt.getPlayer());
+            SharedKt.getInteractionManager().method_2906(SharedKt.getPlayer().field_7512.field_7763, 0, 0, class_1713.field_7796, ((PlayerEntity) SharedKt.getPlayer()));
         }
         if (this.getSpoofpackets()) {
             Vec3d vec = this.resolveMinecraftObject().method_1031(0.0D, this.computeValue(), 0.0D);
-            float var72 = var63.method_36454();
-            float var73 = var63.method_36455();
+            float factor = this.method_36454();
+            float factor2 = this.method_36455();
             Vec3d vec2 = this.resolveMinecraftObject();
-            var63.method_36456(var63.method_36454());
-            var63.method_36457(var63.method_36455());
-            var63.method_33574(vec);
+            this.method_36456(this.method_36454());
+            this.method_36457(this.method_36455());
+            this.method_33574(vec);
             this.executeAction(class_2833.method_65307());
-            var63.method_36456();
-            var63.method_36457();
-            var63.method_33574(vec2);
+            this.method_36456(factor);
+            this.method_36457(factor2);
+            this.method_33574(vec2);
         }
         SharedKt.getPlayer().method_5784(class_1313.field_6308, SharedKt.getPlayer().method_18798());
         arg0.cancel();
@@ -408,25 +391,25 @@ public class BoatFlyModule extends Module {
     }
 
     static {
-        KProperty[] var39 = new KProperty[20];
+        KProperty[] items = new KProperty[20];
         INSTANCE = new BoatFlyModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", BoatFlyMode.Packet);
-        phaseSetting = VisibleRenderHelper.registerSetting(INSTANCE, "phase");
-        gravitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "gravity");
-        automountSetting = VisibleRenderHelper.registerSetting(INSTANCE, "auto-mount");
-        allowShiftSetting = VisibleRenderHelper.registerSetting(INSTANCE, "allow-shift");
+        phaseSetting = VisibleRenderHelper.registerSetting(INSTANCE, "phase", false);
+        gravitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "gravity", false);
+        automountSetting = VisibleRenderHelper.registerSetting(INSTANCE, "auto-mount", true);
+        allowShiftSetting = VisibleRenderHelper.registerSetting(INSTANCE, "allow-shift", true);
         speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", 2.0F, RangesKt.rangeTo(0.0F, 25.0F));
         yspeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "y-speed", 1.0F, RangesKt.rangeTo(0.0F, 10.0F));
         advancedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "advanced");
         glidespeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glide-speed", 0.0F, RangesKt.rangeTo(0.0F, 10.0F), INSTANCE.getAdvanced());
-        slotClickSetting = VisibleRenderHelper.registerSetting(INSTANCE, "click-slot", 0, INSTANCE.getAdvanced());
-        limitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "limit", 1, INSTANCE.getAdvanced());
-        ongroundpacketSetting = VisibleRenderHelper.registerSetting(INSTANCE, "on-ground-packet", 0, INSTANCE.getAdvanced());
-        spoofpacketsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "spoof-packets", 0, INSTANCE.getAdvanced());
+        slotClickSetting = VisibleRenderHelper.registerSetting(INSTANCE, "click-slot", false, INSTANCE.getAdvanced());
+        limitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "limit", true, INSTANCE.getAdvanced());
+        ongroundpacketSetting = VisibleRenderHelper.registerSetting(INSTANCE, "on-ground-packet", false, INSTANCE.getAdvanced());
+        spoofpacketsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "spoof-packets", false, INSTANCE.getAdvanced());
         jitterSetting = VisibleRenderHelper.resolveRangeVisibleSettingPropertyImpl2(INSTANCE, "jitter", 0.1F, RangesKt.rangeTo(0.0F, 10.0F), INSTANCE.getAdvanced(), this::isActive);
-        cancelrotationsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel-rotations", 1, INSTANCE.getAdvanced());
-        cancelSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel", 1, INSTANCE.getAdvanced());
-        pauseSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause", 0, INSTANCE.getAdvanced());
+        cancelrotationsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel-rotations", true, INSTANCE.getAdvanced());
+        cancelSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel", true, INSTANCE.getAdvanced());
+        pauseSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause", false, INSTANCE.getAdvanced());
         enableticksSetting = VisibleRenderHelper.resolveRangeVisibleSettingPropertyImpl(INSTANCE, "enable-ticks", 10, new IntRange(1, 100), INSTANCE.getAdvanced(), this::isActive2);
         waitTicksSetting = VisibleRenderHelper.resolveRangeVisibleSettingPropertyImpl(INSTANCE, "wait-ticks", 10, new IntRange(1, 100), INSTANCE.getAdvanced(), this::isActive3);
         timerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timer", 1.0F, RangesKt.rangeTo(0.1F, 5.0F), INSTANCE.getAdvanced());

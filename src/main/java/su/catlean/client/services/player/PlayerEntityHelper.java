@@ -20,8 +20,8 @@ public class PlayerEntityHelper implements Contract9 {
     }
 
     public boolean checkCondition(PlayerEntity player) {
-        String var7 = player.method_7334().name();
-        return this.checkCondition();
+        String text = player.method_7334().name();
+        return this.checkCondition(text);
     }
 
     public boolean checkCondition(String name) {

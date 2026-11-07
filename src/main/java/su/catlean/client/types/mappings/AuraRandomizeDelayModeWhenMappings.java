@@ -7,10 +7,10 @@ public class AuraRandomizeDelayModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[AuraRandomizeDelayMode.values()];
-        var0[AuraRandomizeDelayMode.DEFAULT.ordinal()] = 1;
-        var0[AuraRandomizeDelayMode.VULCAN.ordinal()] = 2;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[AuraRandomizeDelayMode.values()];
+        element[AuraRandomizeDelayMode.DEFAULT.ordinal()] = 1;
+        element[AuraRandomizeDelayMode.VULCAN.ordinal()] = 2;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

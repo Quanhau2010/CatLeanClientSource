@@ -119,96 +119,49 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
         return easingServiceComponent;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 115595886169135L) >>> 48);
-        long var4 = (((arg0 ^ 115595886169135L) << 16) >>> 32);
-        long var5 = (((arg0 ^ 115595886169135L) << 48) >>> 48);
-        long var6 = ((arg0 ^ 115779852416719L) >>> 32);
-        long var7 = (((arg0 ^ 115779852416719L) << 32) >>> 32);
+    public void updateValue() {
         itemList.clear();
-        Iterable var8 = (Iterable) MacroServiceComponent.INSTANCE.resolveList();
-        int var9 = 0;
-        Iterator iterator = var8.iterator();
-        if (iterator.hasNext()) {
-            Object var11 = iterator.next();
-            Contract8 var12 = var11;
-            int var13 = 0;
-            itemList.add(new MacrosRenderHelper2Impl());
+        Iterable iterable = ((Iterable) MacroServiceComponent.INSTANCE.resolveList());
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            itemList.add(new MacrosRenderHelper2Impl(element));
         }
     }
 
     public void render(DrawContext context, int mouseX, int mouseY) {
-        long var6 = ((0L ^ 138493012530694L) >>> 32);
-        long var7 = (((0L ^ 138493012530694L) << 32) >>> 48);
-        long var8 = (((0L ^ 138493012530694L) << 48) >>> 48);
-        long var9 = (0L ^ 136208856317167L);
-        long var11 = (0L ^ 38443269427772L);
-        long var13 = (0L ^ 136208856317167L);
-        long var15 = (0L ^ 2439703879599L);
-        long var17 = (0L ^ 129382754651428L);
-        long var19 = (0L ^ 24054421754188L);
-        long var21 = (0L ^ 60583055863356L);
-        long var23 = ((0L ^ 55302899458674L) >>> 48);
-        long var24 = (((0L ^ 55302899458674L) << 16) >>> 32);
-        long var25 = (((0L ^ 55302899458674L) << 48) >>> 48);
-        long var26 = (0L ^ 133028505816902L);
-        long var28 = ((0L ^ 22135879901675L) >>> 48);
-        long var29 = (((0L ^ 22135879901675L) << 16) >>> 48);
-        long var30 = (((0L ^ 22135879901675L) << 32) >>> 32);
-        long var31 = (0L ^ 27182768661316L);
-        long var33 = (0L ^ 0L);
-        long var35 = (0L ^ 89114448831051L);
-        long var37 = (0L ^ 136208856317167L);
-        long var39 = (0L ^ 97910750751556L);
-        long var41 = (0L ^ 55127167163707L);
-        long var43 = (0L ^ 76831427342201L);
-        long var45 = (0L ^ 101408683801774L);
-        long var47 = (0L ^ 2881734234662L);
-        long var49 = (0L ^ 55531218400380L);
-        long var51 = (0L ^ 136208856317167L);
-        long var53 = ((0L ^ 128917815534086L) >>> 32);
-        long var54 = (((0L ^ 128917815534086L) << 32) >>> 40);
-        long var55 = (((0L ^ 128917815534086L) << 56) >>> 56);
         this.render(context, mouseX, mouseY);
-        if (var71) {
+        if (__UNDEF_KEY__) {
             easingServiceComponent.executeAction(1.0F);
             if (this.getContract4() != null) {
+            } else {
             }
-        } else {
         }
-        0.5F.executeAction(0.0F);
+        this.executeAction(0.0F);
         easingServiceComponent3.executeAction(factorValue);
-        float var72 = (this.getNumericValue() + 3.0F);
-        float var73 = (this.getNumericValue() + 72.0F);
-        int var74 = mouseX;
-        if (0L >= 0L) {
-            if (var71) {
-                if (var72 <= var74) {
-                }
-            }
-            if (var71) {
-                if (var74 <= var73) {
-                }
-            }
-        } else {
-        }
-        if (0) {
-            var72 = (this.getNumericValue2() + 5.0F);
-            var73 = (this.getNumericValue2() + 13.0F);
-            var74 = mouseY;
-            if (0L >= 0L) {
-                if (var71) {
-                    if (var72 <= var74) {
-                    }
-                }
-                if (var71) {
-                    if (var74 <= var73) {
+        float factor = (this.getNumericValue() + 3.0F);
+        float factor2 = (this.getNumericValue() + 72.0F);
+        int index = mouseX;
+        if (__UNDEF_KEY__) {
+            if (factor <= index) {
+                if (__UNDEF_KEY__) {
+                    if (index <= factor2) {
                     }
                 }
             } else {
             }
-            if (0L > 0L) {
-                if (0) {
+        }
+        if (0) {
+            factor = (this.getNumericValue2() + 5.0F);
+            factor2 = (this.getNumericValue2() + 13.0F);
+            index = mouseY;
+            if (__UNDEF_KEY__) {
+                if (factor <= index) {
+                    if (__UNDEF_KEY__) {
+                        if (index <= factor2) {
+                        }
+                    }
+                } else {
                 }
             }
         }
@@ -217,107 +170,87 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
         }
         if (enabledFlag2) {
         }
-        int var57 = 14336;
-        float var58 = 0.0F;
-        float var59 = 0.0F;
-        float var60 = 0.0F;
-        Color var61 = NewThemeRenderHelper.INSTANCE.getColor6();
-        Color var62 = NewThemeRenderHelper.INSTANCE.getColor4();
-        float var63 = 1.0F;
-        float var64 = 0.0F;
-        float var65 = 0.1F;
-        float var66 = 2.0F;
-        float var67 = 2.5F;
-        float var68 = 2.0F;
-        float var69 = 8.0F;
-        float var70 = 69.0F;
-        StackShaderComponent2.executeAction((this.getNumericValue2() + 3.0F));
+        int index2 = 14336;
+        float factor3 = 0.0F;
+        float factor4 = 0.0F;
+        float factor5 = 0.0F;
+        Color color = NewThemeRenderHelper.INSTANCE.getColor6();
+        Color color2 = NewThemeRenderHelper.INSTANCE.getColor4();
+        float factor6 = 1.0F;
+        float factor7 = 0.0F;
+        float factor8 = 0.1F;
+        float factor9 = 2.0F;
+        float factor10 = 2.5F;
+        float factor11 = 2.0F;
+        float factor12 = 8.0F;
+        float factor13 = 69.0F;
+        StackShaderComponent2.executeAction((this.getNumericValue2() + 3.0F), factor13, factor12, factor11, factor10, factor9, factor8, factor7, factor6, color2, color, factor5, factor4, factor3, index2);
         SFMServiceComponent.resolveFontRenderHelper().render(context, "+", (this.getNumericValue() + 36.0F), (this.getNumericValue2() + 1.0F), Color.WHITE);
         StackShaderComponent2.executeAction(context.method_51448(), (this.getNumericValue() + 76.0F), this.getNumericValue2(), 6.0F, this.getNumericValue4(), 1.0F, 0.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
         renderHelper23 = null;
         renderHelper2 = null;
         enabledFlag = 0;
-        var72 = 0.0F;
-        var72 = (17.0F + easingServiceComponent3.getNumericValue());
+        factor = 0.0F;
+        factor = (17.0F + easingServiceComponent3.getNumericValue());
         PolygonShaderComponent.INSTANCE.render(context, new ServiceComponent78(this.getNumericValue(), (this.getNumericValue2() + 14), (this.getNumericValue() + 76), ((this.getNumericValue2() + this.getNumericValue4()) - 2.0F)));
-        var73 = (Iterable) itemList;
-        var74 = 0;
-        Iterator iterator = var73.iterator();
-        if (iterator.hasNext()) {
-            Object var76 = iterator.next();
-            MacrosRenderHelper2Impl var77 = (MacrosRenderHelper2Impl) var76;
-            int var78 = 0;
-            var77.render(context, INSTANCE.getNumericValue(), (INSTANCE.getNumericValue2() + var72), mouseX, mouseY);
-            var72 = (var72 + 29.0F);
-            if (0L > 0L) {
-                if (var71) {
-                }
+        factor2 = ((Iterable) itemList);
+        index = 0;
+        Iterator iterator = factor2.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            MacrosRenderHelper2Impl macrosRenderHelper2Impl = ((MacrosRenderHelper2Impl) element);
+            macrosRenderHelper2Impl.render(context, INSTANCE.getNumericValue(), (INSTANCE.getNumericValue2() + factor), mouseX, mouseY);
+            factor = (factor + 29.0F);
+            if (__UNDEF_KEY__) {
                 PolygonShaderComponent.INSTANCE.render(context);
             }
         }
-        if (0L >= 0L) {
-            if (var71) {
-                if (macrosRenderHelper2Impl != null) {
-                    var73 = ((1.0F - easingServiceComponent.getNumericValue()) * 10.0F);
-                    var74 = this::getUnit;
-                    suggestionsRenderHelper2Impl.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 17.0F) + var73), mouseX, mouseY);
-                    iterator = macrosRenderHelper2Impl.getContract8();
-                    if (0L > 0L) {
-                        if (var71) {
-                            if (iterator instanceof IdRecord9) {
-                                suggestionsRenderHelper2Impl2.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 32.0F) + var73), mouseX, mouseY);
-                                new ClickActionRenderHelper2Impl(this.getNumericValue3(), (KMutableProperty0) new HoveringComponentServiceComponent8(this)).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 47.0F) + var73), mouseX, mouseY);
-                                if (!(var71)) {
-                                }
-                            }
-                            if (0L > 0L) {
-                            }
-                            if (var71) {
-                                if (iterator instanceof IdRecord) {
-                                    suggestionsRenderHelper2Impl3.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 32.0F) + var73), mouseX, mouseY);
-                                    new FirstRenderHelper2Impl(this.getNumericValue3(), "Rage", "Legit", (KMutableProperty0) new LegitServiceComponent((IdRecord) macrosRenderHelper2Impl.getContract8()), (KMutableProperty0) new HoveringComponentServiceComponent2(this)).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 47.0F) + var73), mouseX, mouseY);
-                                    new ClickActionRenderHelper2Impl(this.getNumericValue3(), (KMutableProperty0) new HoveringComponentServiceComponent(this)).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 62.0F) + var73), mouseX, mouseY);
-                                    if (!(var71)) {
-                                    }
-                                }
-                            }
-                            if (0L >= 0L) {
-                                if (iterator instanceof IdRecord11) {
-                                    suggestionsRenderHelper2Impl4.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 32.0F) + var73), mouseX, mouseY);
-                                    suggestionsRenderHelper2Impl5.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 47.0F) + var73), mouseX, mouseY);
-                                    suggestionsRenderHelper2Impl6.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 62.0F) + var73), mouseX, mouseY);
-                                    suggestionsRenderHelper2Impl7.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 77.0F) + var73), mouseX, mouseY);
-                                    new FirstRenderHelper2Impl(this.getNumericValue3(), "Toggle", "Hold", (KMutableProperty0) new HoldServiceComponent((IdRecord11) macrosRenderHelper2Impl.getContract8()), (KMutableProperty0) new HoveringComponentServiceComponent4(this)).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 92.0F) + var73), mouseX, mouseY);
-                                    new ClickActionRenderHelper2Impl(this.getNumericValue3(), (KMutableProperty0) new HoveringComponentServiceComponent3(this)).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 107.0F) + var73), mouseX, mouseY);
-                                    if (0L >= 0L && 0L >= 0L && 0L >= 0L) {
-                                    }
-                                    if (!(var71)) {
-                                    }
-                                }
-                            }
-                        }
+        if (__UNDEF_KEY__) {
+            if (macrosRenderHelper2Impl != null) {
+                factor2 = ((1.0F - easingServiceComponent.getNumericValue()) * 10.0F);
+                index = this::getUnit;
+                suggestionsRenderHelper2Impl.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 17.0F) + factor2), mouseX, mouseY);
+                iterator = macrosRenderHelper2Impl.getContract8();
+                if (__UNDEF_KEY__) {
+                    if (iterator instanceof IdRecord9) {
+                        suggestionsRenderHelper2Impl2.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 32.0F) + factor2), mouseX, mouseY);
+                        new ClickActionRenderHelper2Impl(index, this.getNumericValue3(), ((KMutableProperty0) new HoveringComponentServiceComponent8(this))).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 47.0F) + factor2), mouseX, mouseY);
                     }
-                    ColorValue1RenderHelper.executeAction(this.getNumericValue(), this.getNumericValue2(), this.getNumericValue3(), this.getNumericValue4(), 5.0F, PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), context.method_51448(), 0.0F);
+                }
+                if (__UNDEF_KEY__) {
+                    if (iterator instanceof IdRecord) {
+                        suggestionsRenderHelper2Impl3.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 32.0F) + factor2), mouseX, mouseY);
+                        new FirstRenderHelper2Impl(this.getNumericValue3(), "Rage", "Legit", ((KMutableProperty0) new LegitServiceComponent(((IdRecord) macrosRenderHelper2Impl.getContract8()))), ((KMutableProperty0) new HoveringComponentServiceComponent2(this))).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 47.0F) + factor2), mouseX, mouseY);
+                        new ClickActionRenderHelper2Impl(index, this.getNumericValue3(), ((KMutableProperty0) new HoveringComponentServiceComponent(this))).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 62.0F) + factor2), mouseX, mouseY);
+                    }
+                }
+                if (iterator instanceof IdRecord11) {
+                    suggestionsRenderHelper2Impl4.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 32.0F) + factor2), mouseX, mouseY);
+                    suggestionsRenderHelper2Impl5.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 47.0F) + factor2), mouseX, mouseY);
+                    suggestionsRenderHelper2Impl6.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 62.0F) + factor2), mouseX, mouseY);
+                    suggestionsRenderHelper2Impl7.render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 77.0F) + factor2), mouseX, mouseY);
+                    new FirstRenderHelper2Impl(this.getNumericValue3(), "Toggle", "Hold", ((KMutableProperty0) new HoldServiceComponent(((IdRecord11) macrosRenderHelper2Impl.getContract8()))), ((KMutableProperty0) new HoveringComponentServiceComponent4(this))).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 92.0F) + factor2), mouseX, mouseY);
+                    new ClickActionRenderHelper2Impl(index, this.getNumericValue3(), ((KMutableProperty0) new HoveringComponentServiceComponent3(this))).render(context, (this.getNumericValue() + 84.0F), ((this.getNumericValue2() + 107.0F) + factor2), mouseX, mouseY);
+                    if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
+                    }
                 }
             }
+            ColorValue1RenderHelper.executeAction(this.getNumericValue(), this.getNumericValue2(), this.getNumericValue3(), this.getNumericValue4(), 5.0F, PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), PolygonShaderComponent.INSTANCE.resolveColor(Color.BLACK, easingServiceComponent2.getNumericValue()), context.method_51448(), 0.0F);
         }
-        if (var71) {
+        if (__UNDEF_KEY__) {
             if (this.getContract4() != null) {
                 this.getContract4().render(context, ((this.getNumericValue() + (this.getNumericValue3() / 2.0F)) - 60.0F), ((this.getNumericValue2() + (this.getNumericValue4() / 2)) - 35.0F), mouseX, mouseY);
+            } else {
             }
-        } else {
         }
-        if (var71) {
+        if (__UNDEF_KEY__) {
         }
     }
 
     public void executeAction(int keyCode, int scanCode, int modifiers) {
-        long var6 = (0L ^ 0L);
-        long var8 = (0L ^ 37401059096302L);
-        long var10 = (0L ^ 103591931905114L);
         if (macrosRenderHelper2Impl2 != null) {
             if (macrosRenderHelper2Impl2 != null && macrosRenderHelper2Impl2.getContract8() != null) {
-                macrosRenderHelper2Impl2.getContract8().executeAction(new KeyRecord(keyCode));
+                macrosRenderHelper2Impl2.getContract8().executeAction(new KeyRecord(keyCode, false, false));
             }
             macrosRenderHelper2Impl2 = null;
             return;
@@ -326,19 +259,10 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
     }
 
     public void executeAction(float mX, float mY, int button) {
-        int var7 = (((0L << 48) | ((0L << 32) >>> 16)) | ((0L << 48) >>> 48));
-        long var9 = (var7 ^ 72650074335561L);
-        long var11 = ((var7 ^ 0L) >>> 48);
-        long var12 = (((var7 ^ 0L) << 16) >>> 32);
-        long var13 = (((var7 ^ 0L) << 48) >>> 48);
-        long var14 = (var7 ^ 38836403100948L);
-        long var16 = (var7 ^ 102667265312912L);
-        long var18 = (var7 ^ 36642135734820L);
-        long var20 = (var7 ^ 20362906346987L);
         this.executeAction(mX, mY, button);
-        if (!(var22)) {
+        if (!(__UNDEF_KEY__)) {
             if (this.getContract4() != null) {
-                if (!(var22)) {
+                if (!(__UNDEF_KEY__)) {
                     if (this.getContract4().checkCondition(mX, mY, button) == 1) {
                     }
                 }
@@ -348,7 +272,7 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
         if (0) {
             return;
         }
-        if (0L >= 0) {
+        if (__UNDEF_KEY__ >= 0) {
             if (enabledFlag2) {
                 SuggestionsRenderHelper2Impl.serviceComponent7.updateValue(null);
                 this.updateValue(new CancelRenderHelper());
@@ -356,16 +280,16 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
             }
             this.updateValue(null);
         }
-        if (0L >= 0) {
-            if (!(var22)) {
+        if (__UNDEF_KEY__ >= 0) {
+            if (!(__UNDEF_KEY__)) {
                 if (macrosRenderHelper2Impl2 != null) {
-                    macrosRenderHelper2Impl2.getContract8().executeAction(new KeyRecord(button));
+                    macrosRenderHelper2Impl2.getContract8().executeAction(new KeyRecord(button, false, true));
                     macrosRenderHelper2Impl2 = null;
                     return;
                 }
             }
         }
-        if (0L > 0 && !(var22)) {
+        if (__UNDEF_KEY__ > 0 && !(__UNDEF_KEY__)) {
             if (renderHelper2 != null) {
                 renderHelper22 = renderHelper2;
                 renderHelper2.checkCondition(mX, mY, button);
@@ -373,72 +297,72 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
             }
             renderHelper22 = null;
         }
-        if (0L >= 0 && !(var22)) {
+        if (__UNDEF_KEY__ >= 0 && !(__UNDEF_KEY__)) {
         }
         if (enabledFlag) {
-            macrosRenderHelper2Impl2 = (MacrosRenderHelper2Impl) renderHelper23;
+            macrosRenderHelper2Impl2 = ((MacrosRenderHelper2Impl) renderHelper23);
             return;
         }
-        if (!(var22)) {
-            if (!((MacrosRenderHelper2Impl) renderHelper23.getContract8().isActive())) {
+        if (!(__UNDEF_KEY__)) {
+            if (!(((MacrosRenderHelper2Impl) renderHelper23).getContract8().isActive())) {
+            } else {
             }
-        } else {
         }
-        1.updateValue(0);
-        if (0L >= 0) {
-            macrosRenderHelper2Impl = (MacrosRenderHelper2Impl) renderHelper23;
+        this.updateValue(false);
+        if (__UNDEF_KEY__ >= 0) {
+            macrosRenderHelper2Impl = ((MacrosRenderHelper2Impl) renderHelper23);
             suggestionsRenderHelper2Impl.executeAction(macrosRenderHelper2Impl.getContract8().getString());
         }
-        if (0L >= 0) {
-            if (!(var22)) {
+        if (__UNDEF_KEY__ >= 0) {
+            if (!(__UNDEF_KEY__)) {
                 if (macrosRenderHelper2Impl.getContract8() instanceof IdRecord9) {
-                    suggestionsRenderHelper2Impl2.executeAction((IdRecord9) macrosRenderHelper2Impl.getContract8().getString());
+                    suggestionsRenderHelper2Impl2.executeAction(((IdRecord9) macrosRenderHelper2Impl.getContract8()).getString());
                 }
             }
         }
-        if (0L > 0 && !(var22)) {
+        if (__UNDEF_KEY__ > 0 && !(__UNDEF_KEY__)) {
             if (macrosRenderHelper2Impl.getContract8() instanceof IdRecord) {
-                suggestionsRenderHelper2Impl3.executeAction((IdRecord) macrosRenderHelper2Impl.getContract8().getString());
+                suggestionsRenderHelper2Impl3.executeAction(((IdRecord) macrosRenderHelper2Impl.getContract8()).getString());
             }
         }
-        if (0L >= 0) {
+        if (__UNDEF_KEY__ >= 0) {
             if (macrosRenderHelper2Impl.getContract8() instanceof IdRecord11) {
-                suggestionsRenderHelper2Impl4.executeAction((IdRecord11) macrosRenderHelper2Impl.getContract8().getString());
-                suggestionsRenderHelper2Impl5.executeAction((IdRecord11) macrosRenderHelper2Impl.getContract8().getString2());
-                suggestionsRenderHelper2Impl6.executeAction((IdRecord11) macrosRenderHelper2Impl.getContract8().getString3());
-                suggestionsRenderHelper2Impl7.executeAction((IdRecord11) macrosRenderHelper2Impl.getContract8().getString4());
+                suggestionsRenderHelper2Impl4.executeAction(((IdRecord11) macrosRenderHelper2Impl.getContract8()).getString());
+                suggestionsRenderHelper2Impl5.executeAction(((IdRecord11) macrosRenderHelper2Impl.getContract8()).getString2());
+                suggestionsRenderHelper2Impl6.executeAction(((IdRecord11) macrosRenderHelper2Impl.getContract8()).getString3());
+                suggestionsRenderHelper2Impl7.executeAction(((IdRecord11) macrosRenderHelper2Impl.getContract8()).getString4());
             }
             easingServiceComponent.updateValue2(0.0F);
-            if (0L > 0) {
+            if (__UNDEF_KEY__ > 0) {
+                macrosRenderHelper2Impl2 = ((MacrosRenderHelper2Impl) renderHelper23);
             }
-            macrosRenderHelper2Impl2 = (MacrosRenderHelper2Impl) renderHelper23;
         }
     }
 
     public void executeAction(double mouseX, double mouseY, double amount) {
-        float var10 = this.getNumericValue();
-        if (0L >= 0L) {
-            if (!(var9)) {
+        float factor = this.getNumericValue();
+        if (__UNDEF_KEY__ >= 0L) {
+            if (!(__UNDEF_KEY__)) {
                 if (mouseX <= (this.getNumericValue() + 76.0F)) {
+                    if (!(__UNDEF_KEY__)) {
+                        if (factor <= mouseX) {
+                        }
+                    }
+                } else {
                 }
             }
-            if (!(var9)) {
-                if (var10 <= mouseX) {
-                }
-            }
-        } else {
         }
-        var10 = this.getNumericValue2();
-        if (0L >= 0L) {
-            if (!(var9)) {
+        factor = this.getNumericValue2();
+        if (__UNDEF_KEY__ >= 0L) {
+            if (!(__UNDEF_KEY__)) {
                 if (mouseY <= ((this.getNumericValue2() + this.getNumericValue4()) - 2.0F)) {
+                    if (!(__UNDEF_KEY__)) {
+                        if (factor <= mouseY) {
+                        }
+                    }
+                } else {
                 }
             }
-            if (!(var9)) {
-                if (var10 <= mouseY) {
-                }
-            }
-        } else {
         }
         factorValue = (factorValue + (amount * 7.0F));
         factorValue = Math.clamp(factorValue, (itemList.size() * -29.0F), 0.0F);
@@ -452,7 +376,7 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
     }
 
     private static Unit resolveUnit2(SuggestionsRenderHelper2Impl arg0) {
-        if (!(var5)) {
+        if (!(__UNDEF_KEY__)) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
@@ -460,17 +384,17 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
         if (!(null instanceof IdRecord9)) {
             return Unit.INSTANCE;
         }
-        if (!(var5)) {
+        if (!(__UNDEF_KEY__)) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
         }
-        (IdRecord9) null.executeAction(arg0.getString2());
+        ((IdRecord9) null).executeAction(arg0.getString2());
         return Unit.INSTANCE;
     }
 
     private static Unit resolveUnit3(SuggestionsRenderHelper2Impl arg0) {
-        if (var6) {
+        if (__UNDEF_KEY__) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
@@ -478,17 +402,17 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
         if (!(null instanceof IdRecord)) {
             return Unit.INSTANCE;
         }
-        if (var6) {
+        if (__UNDEF_KEY__) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
         }
-        (IdRecord) null.executeAction(arg0.getString2());
+        ((IdRecord) null).executeAction(arg0.getString2());
         return Unit.INSTANCE;
     }
 
     private static Unit resolveUnit4(SuggestionsRenderHelper2Impl arg0) {
-        if (var5) {
+        if (__UNDEF_KEY__) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
@@ -496,17 +420,17 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
         if (!(null instanceof IdRecord11)) {
             return Unit.INSTANCE;
         }
-        if (var5) {
+        if (__UNDEF_KEY__) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
         }
-        (IdRecord11) null.executeAction(arg0.getString2());
+        ((IdRecord11) null).executeAction(arg0.getString2());
         return Unit.INSTANCE;
     }
 
     private static Unit resolveUnit5(SuggestionsRenderHelper2Impl arg0) {
-        if (var9) {
+        if (__UNDEF_KEY__) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
@@ -514,58 +438,52 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
         if (!(null instanceof IdRecord11)) {
             return Unit.INSTANCE;
         }
-        if (var9) {
+        if (__UNDEF_KEY__) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
         }
-        IdRecord11 var10 = (IdRecord11) null;
-        int var11 = 0;
-        Iterable var12 = (Iterable) EnabledServiceComponent.INSTANCE.getArrayList2();
-        Object var13 = arg0;
-        int var14 = 0;
-        Iterator iterator = var12.iterator();
-        if (iterator.hasNext()) {
-            Object var16 = iterator.next();
-            Module var17 = (Module) var16;
-            int var18 = 0;
-        } else {
+        IdRecord11 idRecord11 = ((IdRecord11) null);
+        Iterable iterable = ((Iterable) EnabledServiceComponent.INSTANCE.getArrayList2());
+        SuggestionsRenderHelper2Impl suggestionsRenderHelper2Impl = arg0;
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            Module module = ((Module) element);
+            int index = 0;
         }
-        Module var20 = (Module) null;
-        if (var9) {
-            if (var20 != null) {
-            }
-            var12 = var20.getList();
-            if (var9) {
-                if (var12 != null) {
-                }
-                iterator = (Iterable) var12;
-                var16 = 0;
-                var17 = iterator;
-                var18 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterator, 10));
-                int var21 = 0;
-                Iterator iterator2 = var17.iterator();
-                if (iterator2.hasNext()) {
-                    Object var23 = iterator2.next();
-                    VisibleSettingProperty var24 = (VisibleSettingProperty) var23;
-                    if (var9) {
-                        Object var19 = var18;
-                        int var25 = 0;
-                        var19.add(var24.getString());
+        Module module2 = ((Module) null);
+        if (__UNDEF_KEY__) {
+            if (module2 != null) {
+                iterable = module2.getList();
+                if (__UNDEF_KEY__) {
+                    if (iterable != null) {
+                        iterator = ((Iterable) iterable);
+                        element = 0;
+                        module = iterator;
+                        index = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterator, 10)));
+                        Iterator iterator2 = module.iterator();
+                        while (iterator2.hasNext()) {
+                            Object element2 = iterator2.next();
+                            VisibleSettingProperty visibleSettingProperty = ((VisibleSettingProperty) element2);
+                            if (__UNDEF_KEY__) {
+                                index.add(visibleSettingProperty.getString());
+                            }
+                        }
+                    } else {
                     }
                 }
+            } else {
             }
-        } else {
         }
-        }
-        List positions = CollectionsKt.emptyList();
-        var18.executeAction(new SuggestionsServiceComponent(positions));
-        var10.executeAction2(arg0.getString2());
+        List list = CollectionsKt.emptyList();
+        index.executeAction(new SuggestionsServiceComponent(list));
+        idRecord11.executeAction2(arg0.getString2());
         return Unit.INSTANCE;
     }
 
     private static Unit resolveUnit6(SuggestionsRenderHelper2Impl arg0) {
-        if (!(var6)) {
+        if (!(__UNDEF_KEY__)) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
@@ -573,17 +491,17 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
         if (!(null instanceof IdRecord11)) {
             return Unit.INSTANCE;
         }
-        if (!(var6)) {
+        if (!(__UNDEF_KEY__)) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
         }
-        (IdRecord11) null.executeAction(arg0.getString2());
+        ((IdRecord11) null).executeAction(arg0.getString2());
         return Unit.INSTANCE;
     }
 
     private static Unit resolveUnit7(SuggestionsRenderHelper2Impl arg0) {
-        if (!(var5)) {
+        if (!(__UNDEF_KEY__)) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
@@ -591,20 +509,19 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
         if (!(null instanceof IdRecord11)) {
             return Unit.INSTANCE;
         }
-        if (!(var5)) {
+        if (!(__UNDEF_KEY__)) {
             if (macrosRenderHelper2Impl != null) {
             }
             macrosRenderHelper2Impl.getContract8();
         }
-        (IdRecord11) null.executeAction3(arg0.getString2());
+        ((IdRecord11) null).executeAction3(arg0.getString2());
         return Unit.INSTANCE;
     }
 
     private static Unit getUnit() {
         MacroServiceComponent.INSTANCE.checkCondition(macrosRenderHelper2Impl.getContract8());
-        Collection var5 = (Collection) itemList;
-        MacrosRenderHelper2Impl var6 = macrosRenderHelper2Impl;
-        TypeIntrinsics.asMutableCollection().remove();
+        Collection collection = ((Collection) itemList);
+        TypeIntrinsics.asMutableCollection(collection).remove(macrosRenderHelper2Impl);
         macrosRenderHelper2Impl = null;
         return Unit.INSTANCE;
     }
@@ -612,75 +529,64 @@ public class MacroPanelRenderHelper3Impl extends RenderHelper3 {
     static {
         INSTANCE = new MacroPanelRenderHelper3Impl();
         itemList = new ArrayList();
-        easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, var0[2]);
-        easingServiceComponent2 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, var0[1]);
-        easingServiceComponent3 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, var0[0]);
+        easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);
+        easingServiceComponent2 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);
+        easingServiceComponent3 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);
         suggestionsRenderHelper2Impl = new SuggestionsRenderHelper2Impl("Name", INSTANCE.getNumericValue3(), null, this::resolveUnit);
         suggestionsRenderHelper2Impl2 = new SuggestionsRenderHelper2Impl("Text", INSTANCE.getNumericValue3(), null, this::resolveUnit2);
-        List positions = new ArrayList();
-        Object var46 = positions;
-        float var60 = INSTANCE.getNumericValue3();
-        String var59 = "Item";
-        int var47 = 0;
-        Iterable var48 = (Iterable) class_7923.field_41175;
-        Object var49 = var46;
-        int var50 = 0;
-        Object var51 = var48;
-        Collection var52 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        int var53 = 0;
-        Iterator iterator = var51.iterator();
-        if (iterator.hasNext()) {
-            Object var55 = iterator.next();
-            Block var56 = (Block) var55;
-            Object var57 = var52;
-            int var58 = 0;
-            var57.add(StringsKt.replace$default(var56.method_63499(), "block.minecraft.", ""));
+        List list = new ArrayList();
+        List list2 = list;
+        float factor = INSTANCE.getNumericValue3();
+        String text = "Item";
+        int index = 0;
+        Iterable iterable = ((Iterable) class_7923.field_41175);
+        List list3 = list2;
+        int index2 = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable, 10)));
+        Iterator iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            Block block = ((Block) element);
+            Collection collection2 = collection;
+            collection2.add(StringsKt.replace$default(block.method_63499(), "block.minecraft.", "", false));
         }
-        var49.addAll((Collection) var52);
-        var48 = (Iterable) class_7923.field_41178;
-        var49 = var46;
-        var50 = 0;
-        var51 = var48;
-        var52 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        var53 = 0;
-        iterator = var51.iterator();
-        if (iterator.hasNext()) {
-            var55 = iterator.next();
-            var56 = (Item) var55;
-            var57 = var52;
-            var58 = 0;
-            var57.add(StringsKt.replace$default(var56.method_7876(), "item.minecraft.", ""));
+        list3.addAll(((Collection) collection));
+        iterable = ((Iterable) class_7923.field_41178);
+        list3 = list2;
+        index2 = 0;
+        iterable2 = iterable;
+        collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable, 10)));
+        iterator = iterable2.iterator();
+        while (iterator.hasNext()) {
+            element = iterator.next();
+            block = ((Item) element);
+            collection2 = collection;
+            collection2.add(StringsKt.replace$default(block.method_7876(), "item.minecraft.", "", false));
         }
-        var49.addAll((Collection) var52);
-        Unit var61 = Unit.INSTANCE;
-        Object var62 = positions;
-        Function1 var63 = this::resolveUnit3;
-        SuggestionsServiceComponent var64 = new SuggestionsServiceComponent();
-        float var65 = var60;
-        Object var66 = var59;
-        suggestionsRenderHelper2Impl3 = new SuggestionsRenderHelper2Impl();
-        positions = (Iterable) EnabledServiceComponent.INSTANCE.getArrayList2();
-        var60 = INSTANCE.getNumericValue3();
-        var59 = "Module";
-        var46 = 0;
-        var47 = positions;
-        var48 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(positions, 10));
-        var49 = 0;
-        var50 = var47.iterator();
-        if (var50.hasNext()) {
-            var51 = var50.next();
-            var52 = (Module) var51;
-            var61 = var48;
-            var53 = 0;
-            var61.add(var52.getString());
+        list3.addAll(((Collection) collection));
+        Unit unit = Unit.INSTANCE;
+        Function1 function1 = this::resolveUnit3;
+        SuggestionsServiceComponent suggestionsServiceComponent = new SuggestionsServiceComponent(list);
+        suggestionsRenderHelper2Impl3 = new SuggestionsRenderHelper2Impl(text, factor, suggestionsServiceComponent, function1);
+        list = ((Iterable) EnabledServiceComponent.INSTANCE.getArrayList2());
+        factor = INSTANCE.getNumericValue3();
+        text = "Module";
+        list2 = 0;
+        index = list;
+        iterable = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(list, 10)));
+        list3 = 0;
+        index2 = index.iterator();
+        while (index2.hasNext()) {
+            iterable2 = index2.next();
+            collection = ((Module) iterable2);
+            unit = iterable;
+            unit.add(collection.getString());
         }
-        var61 = var48;
-        Object var67 = var61;
-        Function1 var68 = this::resolveUnit4;
-        SuggestionsServiceComponent var69 = new SuggestionsServiceComponent();
-        float var70 = var60;
-        Object var71 = var59;
-        suggestionsRenderHelper2Impl4 = new SuggestionsRenderHelper2Impl();
+        unit = iterable;
+        Function1 function12 = this::resolveUnit4;
+        SuggestionsServiceComponent suggestionsServiceComponent2 = new SuggestionsServiceComponent(unit);
+        suggestionsRenderHelper2Impl4 = new SuggestionsRenderHelper2Impl(text, factor, suggestionsServiceComponent2, function12);
         suggestionsRenderHelper2Impl5 = new SuggestionsRenderHelper2Impl("Setting", INSTANCE.getNumericValue3(), null, this::resolveUnit5);
         suggestionsRenderHelper2Impl6 = new SuggestionsRenderHelper2Impl("Press", INSTANCE.getNumericValue3(), null, this::resolveUnit6);
         suggestionsRenderHelper2Impl7 = new SuggestionsRenderHelper2Impl("Release", INSTANCE.getNumericValue3(), null, this::resolveUnit7);

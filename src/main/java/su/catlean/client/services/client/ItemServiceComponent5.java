@@ -44,27 +44,27 @@ public class ItemServiceComponent5 {
     }
 
     public static ItemServiceComponent5 resolveItemServiceComponent5(ItemServiceComponent5 arg0, Vec3d arg1, long arg2, Item arg3, int arg4, Object arg5) {
-        if ((arg4 & 1)) {
+        if ((arg4 & 1) != 0) {
             arg1 = arg0.vec3d;
         }
-        if ((arg4 & 2)) {
+        if ((arg4 & 2) != 0) {
         }
-        if ((arg4 & 4)) {
+        if ((arg4 & 4) != 0) {
             arg3 = arg0.minecraftRef;
         }
         return arg0.resolveItemServiceComponent5(arg1, arg2, arg3);
     }
 
     public String toString() {
-        Item var3 = this.minecraftRef;
+        Item item = this.minecraftRef;
         Vec3d vec = this.vec3d;
-        return ("Consumable(pos=" + vec + ", expiresOn=" + var4 + ", item=" + var3 + ")");
+        return ("Consumable(pos=" + vec + ", expiresOn=" + __UNDEF_KEY__ + ", item=" + item + ")");
     }
 
     public int hashCode() {
-        int var3 = this.vec3d.hashCode();
-        var3 = ((var3 * 31) + this.minecraftRef.hashCode());
-        return var3;
+        int index = this.vec3d.hashCode();
+        index = ((index * 31) + this.minecraftRef.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -74,14 +74,14 @@ public class ItemServiceComponent5 {
         if (!(other instanceof ItemServiceComponent5)) {
             return false;
         }
-        ItemServiceComponent5 var5 = (ItemServiceComponent5) other;
-        if (!(Intrinsics.areEqual(this.vec3d, var5.vec3d))) {
+        ItemServiceComponent5 itemServiceComponent5 = ((ItemServiceComponent5) other);
+        if (!(Intrinsics.areEqual(this.vec3d, itemServiceComponent5.vec3d))) {
             return false;
         }
-        if (this.timestampValue != var5.timestampValue) {
+        if (this.timestampValue != itemServiceComponent5.timestampValue) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        if (!(Intrinsics.areEqual(this.minecraftRef, itemServiceComponent5.minecraftRef))) {
             return false;
         }
         return true;

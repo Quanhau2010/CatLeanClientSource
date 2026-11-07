@@ -81,31 +81,31 @@ public class PhaseModule extends Module {
     }
 
     private PhaseMode getMode() {
-        return (PhaseMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((PhaseMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getOnlyOnGround() {
-        return (Boolean) onlyOnGroundSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) onlyOnGroundSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getAutoDisable() {
-        return (Boolean) autoDisableSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) autoDisableSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getAntiSwim() {
-        return (Boolean) antiSwimSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) antiSwimSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getFill() {
-        return (Boolean) fillSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) fillSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getGrim() {
-        return (Boolean) grimSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) grimSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private WindHopSwitchMode getSwitchMode() {
-        return (WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setSwitchMode(WindHopSwitchMode value) {
@@ -119,76 +119,59 @@ public class PhaseModule extends Module {
         arg0.setState(Blocks.AIR.method_9564());
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = ((arg0 ^ 22016185369135L) >>> 32);
-        long var6 = (((arg0 ^ 22016185369135L) << 32) >>> 40);
-        long var7 = (((arg0 ^ 22016185369135L) << 56) >>> 56);
-        long var8 = ((arg0 ^ 93374518548743L) >>> 48);
-        long var9 = (((arg0 ^ 93374518548743L) << 16) >>> 48);
-        long var10 = (((arg0 ^ 93374518548743L) << 32) >>> 32);
-        long var11 = (arg0 ^ 6620550408232L);
-        long var13 = (arg0 ^ 68640045030270L);
-        long var15 = (arg0 ^ 67109487395364L);
-        long var17 = (arg0 ^ 67464996320865L);
-        double[] var20 = EventPacketHelper2.INSTANCE.process(0.44D);
-        int var22 = 90;
-        if (arg0 > 0L && var19 == null) {
-            if (35.0F <= var22) {
-            }
+    public void updateValue() {
+        double[] items = EventPacketHelper2.INSTANCE.process(0.44D);
+        int index = 90;
+        if (35.0F <= index) {
         } else {
+            boolean flag = index <= 55.0F;
         }
-        boolean var21 = var22 <= 55.0F;
-        PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12981));
-        if (var21) {
-            double[] var23 = EventPacketHelper2.INSTANCE.process(0.51D);
-            int var24 = 0;
-            INSTANCE.executeAction();
-            INSTANCE.executeAction();
-            if (arg0 > 0L) {
-            } else {
-                var23 = EventPacketHelper2.INSTANCE.process(0.57D);
-                var24 = 0;
-                INSTANCE.executeAction();
-                SharedKt.getPlayer().method_5814((SharedKt.getPlayer().getX() + var23[0]), SharedKt.getPlayer().getY(), (SharedKt.getPlayer().getZ() + var23[1]));
-                PacketPacketHelper.handlePacket((Packet) new class_2829(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), 1, SharedKt.getPlayer().field_5976));
-                INSTANCE.executeAction();
-            }
+        PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12981)));
+        if (flag) {
+            double[] items2 = EventPacketHelper2.INSTANCE.process(0.51D);
+            INSTANCE.executeAction(items, items2);
+            INSTANCE.executeAction(items, items2);
+        } else {
+            items2 = EventPacketHelper2.INSTANCE.process(0.57D);
+            INSTANCE.executeAction(items, items2);
+            SharedKt.getPlayer().method_5814((SharedKt.getPlayer().getX() + items2[0]), SharedKt.getPlayer().getY(), (SharedKt.getPlayer().getZ() + items2[1]));
+            PacketPacketHelper.handlePacket(((Packet) new class_2829(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), true, SharedKt.getPlayer().field_5976)));
+            INSTANCE.executeAction(items, items2);
         }
     }
 
     private void executeAction(double[] arg0, double[] arg1) {
-        if (ExplosionPosEntityHelper.resolveMinecraftObject(SharedKt.getPlayer().getEyePos(), SharedKt.getPlayer().getEyePos().method_1031(arg0[0], 0.0D, arg0[1])) != null) {
+        if (ExplosionPosEntityHelper.resolveMinecraftObject(SharedKt.getPlayer().getEyePos(), SharedKt.getPlayer().getEyePos().method_1031(arg0[0], 0.0D, arg0[1]), false, null, false) != null) {
         } else {
         }
-        boolean var12 = ExplosionPosEntityHelper.resolveMinecraftObject(SharedKt.getPlayer().getEyePos(), SharedKt.getPlayer().getEyePos().method_1031(arg0[0], 0.0D, arg0[1])).equals(class_240.field_1333) == 1;
-        SharedKt.getPlayer().method_5814((SharedKt.getPlayer().getX() + arg1[0]), (SharedKt.getPlayer().getY() + var12), (SharedKt.getPlayer().getZ() + arg1[1]));
-        PacketPacketHelper.handlePacket((Packet) new class_2829(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), 1, SharedKt.getPlayer().field_5976));
+        boolean flag = ExplosionPosEntityHelper.resolveMinecraftObject(SharedKt.getPlayer().getEyePos(), SharedKt.getPlayer().getEyePos().method_1031(arg0[0], 0.0D, arg0[1]), false, null, false).equals(class_240.field_1333) == 1;
+        SharedKt.getPlayer().method_5814((SharedKt.getPlayer().getX() + arg1[0]), (SharedKt.getPlayer().getY() + flag), (SharedKt.getPlayer().getZ() + arg1[1]));
+        PacketPacketHelper.handlePacket(((Packet) new class_2829(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), true, SharedKt.getPlayer().field_5976)));
     }
 
     private void executeAction(double[] arg0, double[] arg1) {
         if (SharedKt.getWorld().method_22347(BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()).method_1031(arg0[0], -2.0D, arg0[1])))) {
         } else {
         }
-        int var15 = 1;
-        SharedKt.getPlayer().method_5814((SharedKt.getPlayer().getX() + arg1[0]), (SharedKt.getPlayer().getY() - var15), (SharedKt.getPlayer().getZ() + arg1[1]));
-        PacketPacketHelper.handlePacket((Packet) new class_2829(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), 1, SharedKt.getPlayer().field_5976));
+        int index = 1;
+        SharedKt.getPlayer().method_5814((SharedKt.getPlayer().getX() + arg1[0]), (SharedKt.getPlayer().getY() - index), (SharedKt.getPlayer().getZ() + arg1[1]));
+        PacketPacketHelper.handlePacket(((Packet) new class_2829(SharedKt.getPlayer().getX(), SharedKt.getPlayer().getY(), SharedKt.getPlayer().getZ(), true, SharedKt.getPlayer().field_5976)));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (this.getMode() != PhaseMode.PEARL) {
             return;
         }
-        boolean var45 = SharedKt.getPlayer().method_18376() == class_4050.field_18079;
+        boolean flag = SharedKt.getPlayer().method_18376() == class_4050.field_18079;
         if (serviceComponent10.checkCondition(500)) {
             if (!(SharedKt.getPlayer().method_7357().method_7904(Items.field_8634.method_7854()))) {
+            } else {
+                boolean flag2 = SharedKt.getPlayer().field_6012 > 60;
             }
         } else {
         }
-        }
-        boolean var46 = SharedKt.getPlayer().field_6012 > 60;
         if (SharedKt.getPlayer().isOnGround()) {
-            if (var45) {
+            if (flag) {
                 SharedKt.getPlayer().method_6043();
             }
         }
@@ -201,31 +184,31 @@ public class PhaseModule extends Module {
         if (SharedKt.getWorld().getBlockState(BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()))).getBlock() instanceof class_3736) {
             SharedKt.getInteractionManager().method_2910(BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer())), Direction.UP);
         }
-        double[] var47 = EventPacketHelper2.process(0.5F, 1, 0.0F, 0.0F, 0.0F);
-        BlockPos blockPos = BlockPos.method_49637((SharedKt.getPlayer().getX() + var47[0]), SharedKt.getPlayer().getY(), (SharedKt.getPlayer().getZ() + var47[1]));
+        double[] items = EventPacketHelper2.process(0.5F, true, 0.0F, 0.0F, 0.0F);
+        BlockPos blockPos = BlockPos.method_49637((SharedKt.getPlayer().getX() + items[0]), SharedKt.getPlayer().getY(), (SharedKt.getPlayer().getZ() + items[1]));
         if (SharedKt.getMc().options.field_1832.method_1434()) {
             return;
         }
-        ObjectRef var49 = new ObjectRef();
-        var49.element = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(blockPos.toCenterPos());
-        var49.element = new MoveFixServiceComponent((MoveFixServiceComponent) var49.element.getNumericValue(), this.computeValue());
-        StackServiceComponent2 var50 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
-        SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4((MoveFixServiceComponent) var49.element, 201, this::resolveUnit));
+        ObjectRef objectRef = new ObjectRef();
+        objectRef.element = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(blockPos.toCenterPos());
+        objectRef.element = new MoveFixServiceComponent(((MoveFixServiceComponent) objectRef.element).getNumericValue(), this.computeValue(), false);
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
+        SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(((MoveFixServiceComponent) objectRef.element), 201, this::resolveUnit));
     }
 
     private void executeAction(BlockPos arg0) {
         BlockState state = SharedKt.getWorld().getBlockState(arg0);
-        StackServiceComponent2 var26 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition2, this.getSwitchMode());
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition2, this.getSwitchMode());
         if (this.getGrim()) {
         } else {
         }
-        int var19 = 64;
-        double var21 = SharedKt.getPlayer().method_55754();
-        double var22 = SharedKt.getPlayer().method_55754();
-        OptionMode15 var23 = OptionMode15.ALL;
-        BlockPlacementInteractMode var24 = BlockPlacementInteractMode.Strict;
-        class_3965 var27 = VecPacketHelper.resolveMinecraftObject(arg0, -1, BlockPlacementInteractMode.GRIM);
-        ItemPacketHelper.INSTANCE.executeAction(var26.getNumericValue(), this.getSwitchMode(), this::resolveUnit);
+        int index = 64;
+        double offset = SharedKt.getPlayer().method_55754();
+        double offset2 = SharedKt.getPlayer().method_55754();
+        OptionMode15 optionMode15 = OptionMode15.ALL;
+        BlockPlacementInteractMode blockPlacementInteractMode = BlockPlacementInteractMode.Strict;
+        class_3965 class3965 = VecPacketHelper.resolveMinecraftObject(arg0, -1, BlockPlacementInteractMode.GRIM, blockPlacementInteractMode, optionMode15, offset2, offset, index);
+        ItemPacketHelper.INSTANCE.executeAction(stackServiceComponent2.getNumericValue(), this.getSwitchMode(), this::resolveUnit);
     }
 
     private float computeValue() {
@@ -242,8 +225,8 @@ public class PhaseModule extends Module {
         BlockPos blockPos = BlockPos.method_49637(SharedKt.getPlayer().getX(), MathKt.roundToInt(SharedKt.getPlayer().getY()), SharedKt.getPlayer().getZ());
         BlockState state = SharedKt.getWorld().getBlockState(blockPos);
         BlockState state2 = SharedKt.getWorld().getBlockState(blockPos);
-        boolean var11 = !(Intrinsics.areEqual(state.method_26220((class_1922) SharedKt.getWorld(), blockPos), class_259.method_1073()));
-        boolean var12 = !(Intrinsics.areEqual(state2.method_26220((class_1922) SharedKt.getWorld(), blockPos.up()), class_259.method_1073()));
+        boolean flag = !(Intrinsics.areEqual(state.method_26220(((class_1922) SharedKt.getWorld()), blockPos), class_259.method_1073()));
+        boolean flag2 = !(Intrinsics.areEqual(state2.method_26220(((class_1922) SharedKt.getWorld()), blockPos.up()), class_259.method_1073()));
         return !(Intrinsics.areEqual(state.getBlock(), Blocks.field_9983));
     }
 
@@ -277,7 +260,7 @@ public class PhaseModule extends Module {
 
     private static Unit getUnit() {
         HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
-        PacketPacketHelper.handlePacket((Packet) new class_2879(Hand.field_5808));
+        PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
         return Unit.INSTANCE;
     }
 
@@ -286,18 +269,17 @@ public class PhaseModule extends Module {
             INSTANCE.executeAction(arg0.down());
             INSTANCE.executeAction(arg0);
         }
-        if (EventPacketHelper2.INSTANCE.resolveMinecraftObject((MoveFixServiceComponent) arg1.element.getNumericValue(), (MoveFixServiceComponent) arg1.element.getNumericValue2(), 3.0F, 0, 0) != null) {
-            Entity entity = EventPacketHelper2.INSTANCE.resolveMinecraftObject((MoveFixServiceComponent) arg1.element.getNumericValue(), (MoveFixServiceComponent) arg1.element.getNumericValue2(), 3.0F, 0, 0);
-            int var29 = 0;
-            if (entity instanceof class_1533 && !((class_1533) entity.method_6940().isEmpty())) {
-                SharedKt.getInteractionManager().method_2918((PlayerEntity) SharedKt.getPlayer(), entity);
-                PacketPacketHelper.handlePacket((Packet) new class_2879(Hand.field_5808));
+        if (EventPacketHelper2.INSTANCE.resolveMinecraftObject(((MoveFixServiceComponent) arg1.element).getNumericValue(), ((MoveFixServiceComponent) arg1.element).getNumericValue2(), 3.0F, false, false) != null) {
+            Entity entity = EventPacketHelper2.INSTANCE.resolveMinecraftObject(((MoveFixServiceComponent) arg1.element).getNumericValue(), ((MoveFixServiceComponent) arg1.element).getNumericValue2(), 3.0F, false, false);
+            if (entity instanceof class_1533 && !(((class_1533) entity).method_6940().isEmpty())) {
+                SharedKt.getInteractionManager().method_2918(((PlayerEntity) SharedKt.getPlayer()), entity);
+                PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
             }
             if (!(entity instanceof class_1533)) {
                 if (entity instanceof EndCrystalEntity) {
+                    SharedKt.getInteractionManager().method_2918(((PlayerEntity) SharedKt.getPlayer()), entity);
+                    PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
                 }
-                SharedKt.getInteractionManager().method_2918((PlayerEntity) SharedKt.getPlayer(), entity);
-                PacketPacketHelper.handlePacket((Packet) new class_2879(Hand.field_5808));
             }
         } else {
         }
@@ -320,14 +302,14 @@ public class PhaseModule extends Module {
     }
 
     static {
-        KProperty[] var29 = new KProperty[7];
+        KProperty[] items = new KProperty[7];
         INSTANCE = new PhaseModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", PhaseMode.VANILLA);
-        onlyOnGroundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-on-ground", 0, null, this::isActive);
-        autoDisableSetting = VisibleRenderHelper.registerSetting(INSTANCE, "auto-disable", 0, null, this::isActive2);
-        antiSwimSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anti-swim", 1, null, this::isActive3);
-        fillSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fill", 1, null, this::isActive4);
-        grimSetting = VisibleRenderHelper.registerSetting(INSTANCE, "grim", 1, null, this::isActive5);
+        onlyOnGroundSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-on-ground", false, null, this::isActive);
+        autoDisableSetting = VisibleRenderHelper.registerSetting(INSTANCE, "auto-disable", false, null, this::isActive2);
+        antiSwimSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anti-swim", true, null, this::isActive3);
+        fillSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fill", true, null, this::isActive4);
+        grimSetting = VisibleRenderHelper.registerSetting(INSTANCE, "grim", true, null, this::isActive5);
         switchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch", WindHopSwitchMode.SILENT_FULL, null, this::isActive6);
         serviceComponent10 = new ServiceComponent10();
     }

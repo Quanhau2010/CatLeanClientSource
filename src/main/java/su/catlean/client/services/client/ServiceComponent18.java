@@ -71,45 +71,45 @@ public class ServiceComponent18 {
     }
 
     public static ServiceComponent18 resolveServiceComponent18(ServiceComponent18 arg0, double arg1, double arg2, double arg3, double arg4, double arg5, double arg6, int arg7, Object arg8) {
-        if ((arg7 & 1)) {
+        if ((arg7 & 1) != 0) {
             arg1 = arg0.preciseValue;
         }
-        if ((arg7 & 2)) {
+        if ((arg7 & 2) != 0) {
             arg2 = arg0.preciseValue2;
         }
-        if ((arg7 & 4)) {
+        if ((arg7 & 4) != 0) {
             arg3 = arg0.preciseValue3;
         }
-        if ((arg7 & 8)) {
+        if ((arg7 & 8) != 0) {
             arg4 = arg0.preciseValue4;
         }
-        if ((arg7 & 16)) {
+        if ((arg7 & 16) != 0) {
             arg5 = arg0.preciseValue5;
         }
-        if ((arg7 & 32)) {
+        if ((arg7 & 32) != 0) {
             arg6 = arg0.preciseValue6;
         }
         return arg0.resolveServiceComponent18(arg1, arg2, arg3, arg4, arg5, arg6);
     }
 
     public String toString() {
-        double var3 = this.preciseValue6;
-        double var5 = this.preciseValue5;
-        double var7 = this.preciseValue4;
-        double var9 = this.preciseValue3;
-        double var11 = this.preciseValue2;
-        double var13 = this.preciseValue;
-        return ("DirectionDeltas(westDelta=" + var13 + ", eastDelta=" + var11 + ", northDelta=" + var9 + ", southDelta=" + var7 + ", upDelta=" + var5 + ", downDelta=" + var3 + ")");
+        double offset = this.preciseValue6;
+        double offset2 = this.preciseValue5;
+        double offset3 = this.preciseValue4;
+        double offset4 = this.preciseValue3;
+        double offset5 = this.preciseValue2;
+        double offset6 = this.preciseValue;
+        return ("DirectionDeltas(westDelta=" + offset6 + ", eastDelta=" + offset5 + ", northDelta=" + offset4 + ", southDelta=" + offset3 + ", upDelta=" + offset2 + ", downDelta=" + offset + ")");
     }
 
     public int hashCode() {
-        int var3 = Double.hashCode(this.preciseValue);
-        var3 = ((var3 * 31) + Double.hashCode(this.preciseValue2));
-        var3 = ((var3 * 31) + Double.hashCode(this.preciseValue3));
-        var3 = ((var3 * 31) + Double.hashCode(this.preciseValue4));
-        var3 = ((var3 * 31) + Double.hashCode(this.preciseValue5));
-        var3 = ((var3 * 31) + Double.hashCode(this.preciseValue6));
-        return var3;
+        int index = Double.hashCode(this.preciseValue);
+        index = ((index * 31) + Double.hashCode(this.preciseValue2));
+        index = ((index * 31) + Double.hashCode(this.preciseValue3));
+        index = ((index * 31) + Double.hashCode(this.preciseValue4));
+        index = ((index * 31) + Double.hashCode(this.preciseValue5));
+        index = ((index * 31) + Double.hashCode(this.preciseValue6));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -119,23 +119,23 @@ public class ServiceComponent18 {
         if (!(other instanceof ServiceComponent18)) {
             return false;
         }
-        ServiceComponent18 var5 = (ServiceComponent18) other;
-        if (Double.compare(this.preciseValue, var5.preciseValue)) {
+        ServiceComponent18 serviceComponent18 = ((ServiceComponent18) other);
+        if (Double.compare(this.preciseValue, serviceComponent18.preciseValue)) {
             return false;
         }
-        if (Double.compare(this.preciseValue2, var5.preciseValue2)) {
+        if (Double.compare(this.preciseValue2, serviceComponent18.preciseValue2)) {
             return false;
         }
-        if (Double.compare(this.preciseValue3, var5.preciseValue3)) {
+        if (Double.compare(this.preciseValue3, serviceComponent18.preciseValue3)) {
             return false;
         }
-        if (Double.compare(this.preciseValue4, var5.preciseValue4)) {
+        if (Double.compare(this.preciseValue4, serviceComponent18.preciseValue4)) {
             return false;
         }
-        if (Double.compare(this.preciseValue5, var5.preciseValue5)) {
+        if (Double.compare(this.preciseValue5, serviceComponent18.preciseValue5)) {
             return false;
         }
-        if (Double.compare(this.preciseValue6, var5.preciseValue6)) {
+        if (Double.compare(this.preciseValue6, serviceComponent18.preciseValue6)) {
             return false;
         }
         return true;

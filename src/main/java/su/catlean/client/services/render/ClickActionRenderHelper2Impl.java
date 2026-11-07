@@ -30,49 +30,27 @@ public class ClickActionRenderHelper2Impl extends RenderHelper2 {
     }
 
     public void render(DrawContext context, float x, float y, float mouseX, float mouseY) {
-        long var8 = ((0L ^ 122872324218116L) >>> 48);
-        long var9 = (((0L ^ 122872324218116L) << 16) >>> 48);
-        long var10 = (((0L ^ 122872324218116L) << 32) >>> 32);
-        long var11 = (0L ^ 81101117301204L);
-        long var13 = (0L ^ 18592005668209L);
-        long var15 = ((0L ^ 81010294496925L) >>> 48);
-        long var16 = (((0L ^ 81010294496925L) << 16) >>> 32);
-        long var17 = (((0L ^ 81010294496925L) << 48) >>> 48);
         if (x <= mouseX) {
         } else {
         }
-        if (0L >= 0L) {
-        }
-        if (0L >= 0L) {
-            if (var33 != null) {
-                if (y <= mouseY) {
-                }
-            }
+        if (y <= mouseY) {
         } else {
         }
-        if (0L >= 0L) {
-            if (mouseX <= (x + (this.factorValue - 88.0F)) && mouseY <= (y + 13.0F)) {
-            }
-        } else {
-        }
-        if (0L > 0L) {
-            this.kMutableProperty0.set(this);
-        }
-        long var19 = 8996027473573459968L;
-        float var20 = 0.0F;
-        float var21 = 0.0F;
-        float var22 = 0.0F;
-        Color var23 = Color.RED;
-        Color var24 = PolygonShaderComponent.INSTANCE.resolveColor(Color.RED, 0.5F);
-        float var25 = 1.0F;
-        float var26 = 0.1F;
-        float var27 = 1.0F;
-        float var28 = 2.0F;
-        float var29 = 2.0F;
-        float var30 = 13.0F;
-        float var31 = (this.factorValue - 88.0F);
-        float var32 = y;
-        StackShaderComponent2.executeAction(x);
+        this.kMutableProperty0.set(this);
+        int index = 14336;
+        float factor = 0.0F;
+        float factor2 = 0.0F;
+        float factor3 = 0.0F;
+        Color color = Color.RED;
+        Color color2 = PolygonShaderComponent.INSTANCE.resolveColor(Color.RED, 0.5F);
+        float factor4 = 1.0F;
+        float factor5 = 0.1F;
+        float factor6 = 1.0F;
+        float factor7 = 2.0F;
+        float factor8 = 2.0F;
+        float factor9 = 13.0F;
+        float factor10 = (this.factorValue - 88.0F);
+        StackShaderComponent2.executeAction(x, y, factor10, factor9, factor8, factor7, factor6, factor5, factor4, color2, color, factor3, factor2, factor, index);
         SFMServiceComponent.resolveFontRenderHelper().render(context, "Delete", (x + ((this.factorValue - 88.0F) / 2.0F)), (y + 5.0F), Color.WHITE);
     }
 

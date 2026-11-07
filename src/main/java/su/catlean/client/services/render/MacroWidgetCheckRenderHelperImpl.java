@@ -32,96 +32,57 @@ public class MacroWidgetCheckRenderHelperImpl extends CheckRenderHelper {
     }
 
     public void render(DrawContext context) {
-        long var4 = (0L ^ 112807673159841L);
-        long var6 = (0L ^ 50910300018319L);
-        long var8 = (0L ^ 4149061658461L);
-        long var10 = ((0L ^ 89424814517768L) >>> 48);
-        long var11 = (((0L ^ 89424814517768L) << 16) >>> 32);
-        long var12 = (((0L ^ 89424814517768L) << 48) >>> 48);
-        long var13 = (0L ^ 109580710346244L);
-        long var15 = ((0L ^ 104104530525409L) >>> 48);
-        long var16 = (((0L ^ 104104530525409L) << 16) >>> 32);
-        long var17 = (((0L ^ 104104530525409L) << 48) >>> 48);
-        long var18 = ((0L ^ 117179548680370L) >>> 48);
-        long var19 = (((0L ^ 117179548680370L) << 16) >>> 32);
-        long var20 = (((0L ^ 117179548680370L) << 48) >>> 48);
-        long var21 = ((0L ^ 137326906772616L) >>> 48);
-        long var22 = (((0L ^ 137326906772616L) << 16) >>> 48);
-        long var23 = (((0L ^ 137326906772616L) << 32) >>> 32);
-        long var24 = ((0L ^ 64416723276910L) >>> 48);
-        long var25 = (((0L ^ 64416723276910L) << 16) >>> 16);
-        long var27 = (0L ^ 128377113661390L);
-        long var29 = (0L ^ 20173347401993L);
-        long var31 = (0L ^ 99949442920536L);
-        long var33 = (0L ^ 20494741382199L);
-        long var35 = (0L ^ 23238624456863L);
-        long var37 = (0L ^ 30591967126976L);
-        float var40 = this.computeValue();
-        float var41 = this.computeValue2();
-        float var42 = 0.0F;
-        Iterable var44 = (Iterable) MacroServiceComponent.INSTANCE.resolveList();
-        int var45 = 0;
-        Object var46 = var44;
-        Collection var47 = (Collection) new ArrayList();
-        int var48 = 0;
-        Iterator iterator = var46.iterator();
+        float factor = this.computeValue();
+        float factor2 = this.computeValue2();
+        float factor3 = 0.0F;
+        Iterable iterable = ((Iterable) MacroServiceComponent.INSTANCE.resolveList());
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            if (0L > 0L) {
-            }
-            Object var50 = iterator.next();
-            Contract8 var51 = var50;
-            int var52 = 0;
-            if (0L >= 0L && var39) {
-            }
-            var47.add();
+            Object element = iterator.next();
+            int index3 = 0;
+            collection.add(element);
         }
-        Iterator iterator2 = var47.iterator();
+        Iterator iterator2 = collection.iterator();
         while (iterator2.hasNext()) {
-            var44 = iterator2.next();
-            var45 = (IdRecord) var44;
-            if (0L > 0L) {
+            iterable = iterator2.next();
+            index = ((IdRecord) iterable);
+            if (MacroServiceComponent.INSTANCE.resolveMinecraftObject(index.getString()) == null) {
+                MacroServiceComponent.INSTANCE.resolveMinecraftObject(index.getString());
             }
-            if (MacroServiceComponent.INSTANCE.resolveMinecraftObject(var45.getString()) == null) {
-                MacroServiceComponent.INSTANCE.resolveMinecraftObject(var45.getString());
-            }
-            var48 = new Item[1];
-            var48[0] = var46;
-            var47 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2().isActive();
-            var48 = ServiceComponent13.checkCondition(var45.getKeyRecord().getNumericValue());
-            iterator = NoneServiceComponent.INSTANCE.resolveString(var45.getKeyRecord().getNumericValue());
-            var50 = (SFMServiceComponent.resolveFontRenderHelper().computeValue(iterator) + 22.0F);
-            var51 = SharedKt.getPlayer().method_7357().method_7904(var46.method_7854());
-            CheckRenderHelper.executeAction(this, context.method_51448(), 16.0F, 0.0F);
-            if (0L > 0L) {
-                if (var39) {
-                }
-                if (var51) {
-                    var52 = SharedKt.getPlayer().method_7357().method_7905(var46.method_7854(), PolygonShaderComponent.INSTANCE.computeValue());
-                    StackShaderComponent2.executeAction(context.method_51448(), (var41 + (16.0F * (1.0F - var52))), (16.0F * var52), 3.0F, 0.0F, 0.0F, 1.0F, Color.RED, NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-                }
-                context.method_51448().pushMatrix();
-                context.method_51448().translate((var40 + 2.0F), (var41 + 2.0F));
-                context.method_51448().scale(0.7F);
-                context.method_51427(var46.method_7854(), 0, 0);
-                context.method_51448().popMatrix();
-            }
-            var52 = new Color[1];
-            var52[0] = new Color(1157627903, 1);
-            PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), (var40 + 14), (var41 + 4.0F), 0.5F, 9.0F);
-            if (0L > 0L) {
-                if (var48) {
-                } else {
-                }
-                if (var47) {
+            iterable2 = element;
+            index2 = new Item[1];
+            index2[0] = iterable2;
+            collection = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(index2).isActive();
+            index2 = ServiceComponent13.checkCondition(index.getKeyRecord().getNumericValue());
+            iterator = NoneServiceComponent.INSTANCE.resolveString(index.getKeyRecord().getNumericValue());
+            element = (SFMServiceComponent.resolveFontRenderHelper().computeValue(iterator) + 22.0F);
+            CheckRenderHelper.executeAction(this, context.method_51448(), factor, factor2, element, 16.0F, 0.0F, false);
+            index3 = SharedKt.getPlayer().method_7357().method_7905(iterable2.method_7854(), PolygonShaderComponent.INSTANCE.computeValue());
+            StackShaderComponent2.executeAction(context.method_51448(), factor, (factor2 + (16.0F * (1.0F - index3))), element, (16.0F * index3), 3.0F, 0.0F, 0.0F, 1.0F, Color.RED, NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+            context.method_51448().pushMatrix();
+            context.method_51448().translate((factor + 2.0F), (factor2 + 2.0F));
+            context.method_51448().scale(0.7F);
+            context.method_51427(iterable2.method_7854(), 0, 0);
+            context.method_51448().popMatrix();
+            index3 = new Color[1];
+            index3[0] = new Color(1157627903, true);
+            PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), (factor + 14), (factor2 + 4.0F), 0.5F, 9.0F, index3);
+            if (index2) {
+            } else {
+                if (collection) {
                 } else {
                 }
             }
-            var52 = Color.RED;
-            this.render(context, iterator, (var40 + 18.0F), (var41 + 3.0F));
-            var40 = (var40 + (var50 + 2.0F));
-            var42 = (var42 + (var50 + 2.0F));
+            index3 = Color.RED;
+            this.render(context, iterator, (factor + 18.0F), (factor2 + 3.0F), index3);
+            factor = (factor + (element + 2.0F));
+            factor3 = (factor3 + (element + 2.0F));
         }
-        this.executeAction(16.0F);
+        this.executeAction(factor3, 16.0F);
     }
 
     static {

@@ -64,23 +64,23 @@ public class TracersModule extends Module {
     }
 
     public TracersMode getMode() {
-        return (TracersMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((TracersMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getFlat() {
-        return (Boolean) flatSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) flatSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getOnlyOffscreen() {
-        return (Boolean) onlyOffscreenSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) onlyOffscreenSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private Color getFriendColor() {
-        return (Color) friendColorSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Color) friendColorSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getTeamColor() {
-        return (Boolean) teamColorSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) teamColorSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     public void onRender2DEvent(Render2DEvent e) {
@@ -89,61 +89,57 @@ public class TracersModule extends Module {
         }
         if (!(this.getFlat())) {
         }
-        90.0F.executeAction(42.0F);
-        150.0F.executeAction(40.0F);
-        int var35 = (SharedKt.getMc().method_22683().method_4486() / 2.0F);
-        int var36 = (SharedKt.getMc().method_22683().method_4502() / 2.0F);
+        this.executeAction(42.0F);
+        this.executeAction(40.0F);
+        int index = (SharedKt.getMc().method_22683().method_4486() / 2.0F);
+        int index2 = (SharedKt.getMc().method_22683().method_4502() / 2.0F);
         factorValue = this.computeValue(factorValue, SharedKt.getPlayer().method_36454(), 13.0F);
-        Iterable var37 = (Iterable) RunnableServiceComponent.INSTANCE.getList();
-        int var38 = 0;
-        int var39 = 0;
-        Iterator iterator = var37.iterator();
+        Iterable iterable = ((Iterable) RunnableServiceComponent.INSTANCE.getList());
+        int index3 = 0;
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var41 = iterator.next();
-            int var42 = var39;
-            if (var42 < 0) {
+            Object element = iterator.next();
+            if (index3 < 0) {
                 CollectionsKt.throwIndexOverflow();
             }
-            AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) var41;
-            int var44 = var42;
-            int var45 = 0;
+            AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) element);
             if (!(Intrinsics.areEqual(player, SharedKt.getMc().player))) {
                 if (INSTANCE.getOnlyOffscreen()) {
                     if (!(TextShaderComponent2.INSTANCE.getMinecraftObject().method_23093(player.method_5829()))) {
-                    }
-                    MatrixStack matrices = new MatrixStack();
-                    matrices.method_22903();
-                    matrices.method_46416(0.0F);
-                    float var47 = Math.min(90.0F, Math.max(SharedKt.getPlayer().method_36455(), easingServiceComponent.getNumericValue()));
-                    matrices.method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees((Math.abs() - 102)));
-                    matrices.method_46416(0.0F);
-                    double var48 = PolygonShaderComponent.INSTANCE.computeValue(player.field_6014, player.getX(), TextShaderComponent2.INSTANCE.computeValue());
-                    double var50 = PolygonShaderComponent.INSTANCE.computeValue(player.field_5969, player.getZ(), TextShaderComponent2.INSTANCE.computeValue());
-                    double var52 = PolygonShaderComponent.INSTANCE.computeValue(SharedKt.getPlayer().field_6014, SharedKt.getPlayer().getX(), TextShaderComponent2.INSTANCE.computeValue());
-                    double var54 = PolygonShaderComponent.INSTANCE.computeValue(SharedKt.getPlayer().field_5969, SharedKt.getPlayer().getZ(), TextShaderComponent2.INSTANCE.computeValue());
-                    double var56 = (class_3532.method_15338((Math.toDegrees(Math.atan2((var50 - var54), (var48 - var52))) - 90.0D)) - factorValue);
-                    matrices.method_46416(0.0F);
-                    matrices.method_22907((Quaternionfc) class_7833.field_40718.rotationDegrees());
-                    matrices.method_46416(0.0F);
-                    if (EntityHelper4.isFriend((PlayerEntity) player)) {
-                    } else {
-                    }
-                    Color var57 = NewThemeRenderHelper.INSTANCE.resolveColor((var44 * 30));
-                    if (player.method_5781() != null) {
-                        if (INSTANCE.getTeamColor()) {
-                            var57 = new Color(player.method_22861());
+                        MatrixStack matrices = new MatrixStack();
+                        matrices.method_22903();
+                        matrices.method_46416(index, index2, 0.0F);
+                        float factor = Math.min(90.0F, Math.max(SharedKt.getPlayer().method_36455(), easingServiceComponent.getNumericValue()));
+                        matrices.method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees((Math.abs(factor) - 102))));
+                        matrices.method_46416(index, index2, 0.0F);
+                        double offset = PolygonShaderComponent.INSTANCE.computeValue(player.field_6014, player.getX(), TextShaderComponent2.INSTANCE.computeValue());
+                        double offset2 = PolygonShaderComponent.INSTANCE.computeValue(player.field_5969, player.getZ(), TextShaderComponent2.INSTANCE.computeValue());
+                        double offset3 = PolygonShaderComponent.INSTANCE.computeValue(SharedKt.getPlayer().field_6014, SharedKt.getPlayer().getX(), TextShaderComponent2.INSTANCE.computeValue());
+                        double offset4 = PolygonShaderComponent.INSTANCE.computeValue(SharedKt.getPlayer().field_5969, SharedKt.getPlayer().getZ(), TextShaderComponent2.INSTANCE.computeValue());
+                        double offset5 = (class_3532.method_15338((Math.toDegrees(Math.atan2((offset2 - offset4), (offset - offset3))) - 90.0D)) - factorValue);
+                        matrices.method_46416(index, index2, 0.0F);
+                        matrices.method_22907(((Quaternionfc) class_7833.field_40718.rotationDegrees(offset5)));
+                        matrices.method_46416(index, index2, 0.0F);
+                        if (EntityHelper4.isFriend(((PlayerEntity) player))) {
+                        } else {
                         }
+                        Color color = NewThemeRenderHelper.INSTANCE.resolveColor((index3 * 30));
+                        if (player.method_5781() != null) {
+                            if (INSTANCE.getTeamColor()) {
+                                color = new Color(player.method_22861());
+                            }
+                        }
+                        INSTANCE.render(matrices, index, (index2 - easingServiceComponent2.getNumericValue()), 18.0F, color);
+                        matrices.method_22909();
                     }
-                    INSTANCE.render(matrices, (var36 - easingServiceComponent2.getNumericValue()), 18.0F);
-                    matrices.method_22909();
                 }
             }
         }
     }
 
     public void render(MatrixStack matrices, float x, float y, float size, Color color) {
-        Matrix4f var16 = matrices.method_23760().method_23761();
-        PolygonShaderComponent.INSTANCE.executeAction(AtlasTextureServiceComponent.getMinecraftObject(), x, y, size, size, color, color, color, color, 1, this.getMode().getOptionMode6().getNumericValue(), this.getMode().getOptionMode6().getNumericValue2(), this.getMode().getOptionMode6().getNumericValue3(), this.getMode().getOptionMode6().getNumericValue4());
+        Matrix4f matrix4f = matrices.method_23760().method_23761();
+        PolygonShaderComponent.INSTANCE.executeAction(matrix4f, AtlasTextureServiceComponent.getMinecraftObject(), x, y, size, size, color, color, color, color, true, this.getMode().getOptionMode6().getNumericValue(), this.getMode().getOptionMode6().getNumericValue2(), this.getMode().getOptionMode6().getNumericValue3(), this.getMode().getOptionMode6().getNumericValue4());
     }
 
     public void onRender3DEvent(Render3DEvent e) {
@@ -151,20 +147,20 @@ public class TracersModule extends Module {
             return;
         }
         Iterator iterator = SharedKt.getWorld().getPlayers().iterator();
-        if (iterator.hasNext()) {
-            AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) iterator.next();
+        while (iterator.hasNext()) {
+            AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) iterator.next());
             if (Intrinsics.areEqual(player, SharedKt.getPlayer())) {
             }
-            Box var28 = TextShaderComponent2.INSTANCE.resolveMinecraftObject(player);
+            Box box = TextShaderComponent2.INSTANCE.resolveMinecraftObject(player);
             Vec3d vec = new Vec3d(0.0D, 0.0D, 75.0D).method_1037(Math.toRadians(SharedKt.getMc().field_1773.method_19418().method_19329())).method_1024(Math.toRadians(SharedKt.getMc().field_1773.method_19418().method_19330())).method_1019(SharedKt.getMc().field_1773.method_19418().method_71156());
-            if (EntityHelper4.isFriend((PlayerEntity) player)) {
+            if (EntityHelper4.isFriend(((PlayerEntity) player))) {
             } else {
             }
-            Color var30 = NewThemeRenderHelper.INSTANCE.resolveColor(30);
+            Color color = NewThemeRenderHelper.INSTANCE.resolveColor(30);
             if (player.method_5781() != null && this.getTeamColor()) {
-                var30 = new Color(player.method_22861());
+                color = new Color(player.method_22861());
             }
-            TextShaderComponent2.checkCondition(vec, var28.method_1005());
+            TextShaderComponent2.checkCondition(vec, box.method_1005(), color, null, true);
         }
     }
 
@@ -172,20 +168,20 @@ public class TracersModule extends Module {
         if (EventServiceComponent.INSTANCE.getNumericValue() > 5) {
         } else {
         }
-        float var6 = Math.clamp((0.016F * arg2), 0.0F, 1.0F);
-        return (((1.0F - var6) * arg0) + (var6 * arg1));
+        float factor = Math.clamp((0.016F * arg2), 0.0F, 1.0F);
+        return (((1.0F - factor) * arg0) + (factor * arg1));
     }
 
     static {
-        KProperty[] var44 = new KProperty[5];
+        KProperty[] items = new KProperty[5];
         INSTANCE = new TracersModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", TracersMode.ARROWS_1);
-        flatSetting = VisibleRenderHelper.registerSetting(INSTANCE, "flat");
-        onlyOffscreenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-off-screen");
+        flatSetting = VisibleRenderHelper.registerSetting(INSTANCE, "flat", false);
+        onlyOffscreenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-off-screen", false);
         friendColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "friend", Color.GREEN);
-        teamColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "team-colors");
-        easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, var0[1]);
-        easingServiceComponent2 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, var0[0]);
+        teamColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "team-colors", false);
+        easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);
+        easingServiceComponent2 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);
     }
 
 }

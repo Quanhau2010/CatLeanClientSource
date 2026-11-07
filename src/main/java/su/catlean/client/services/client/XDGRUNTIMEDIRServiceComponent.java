@@ -37,12 +37,12 @@ public class XDGRUNTIMEDIRServiceComponent {
     private static final long timestampValue2;
 
     public XDGRUNTIMEDIRServiceComponent() {
-        String[] var6 = new String[4];
-        var6[0] = "XDG_RUNTIME_DIR";
-        var6[1] = "TMPDIR";
-        var6[2] = "TMP";
-        var6[3] = "TEMP";
-        this.textValueArray = var6;
+        String[] items = new String[4];
+        items[0] = "XDG_RUNTIME_DIR";
+        items[1] = "TMPDIR";
+        items[2] = "TMP";
+        items[3] = "TEMP";
+        this.textValueArray = items;
         this.timestampValue = Instant.now().getEpochSecond();
         this.idRecord2 = new IdRecord2();
         this.idRecord22 = this.idRecord2;
@@ -69,33 +69,21 @@ public class XDGRUNTIMEDIRServiceComponent {
     }
 
     protected void updateValue() {
-        if (var8 != null) {
-        }
         this.executeAction();
         ServiceComponent76.INSTANCE.updateValue();
     }
 
     protected void executeAction(long appId) {
-        if (var18 != null) {
-            if (this.opcodeServiceComponent2 != null) {
-                OpcodeServiceComponent2 var19 = this.opcodeServiceComponent2;
-                int var20 = 0;
-                this.resolveUnit();
-            } else {
-            }
-        }
-        if (0L > 0) {
+        this.resolveUnit();
+        if (__UNDEF_KEY__ > 0) {
             this.opcodeServiceComponent2 = this.resolveOpcodeServiceComponent2();
-            if (var18 != null) {
-            }
+        } else {
             if (this.opcodeServiceComponent2 != null) {
-                var19 = this.opcodeServiceComponent2;
-                var20 = 0;
-                Json var21 = ServiceComponent80.getJson();
-                VRecord var22 = new VRecord(1, String.valueOf(appId));
-                int var23 = 0;
-                var21.getSerializersModule();
-                var19.executeAction(OptionMode2.HANDSHAKE, var21.encodeToJsonElement((SerializationStrategy) VRecord.serviceComponent35.getKSerializer()));
+                OpcodeServiceComponent2 opcodeServiceComponent2 = this.opcodeServiceComponent2;
+                Json json = ServiceComponent80.getJson();
+                VRecord vRecord = new VRecord(1, String.valueOf(appId));
+                json.getSerializersModule();
+                opcodeServiceComponent2.executeAction(OptionMode2.HANDSHAKE, json.encodeToJsonElement(((SerializationStrategy) VRecord.serviceComponent35.getKSerializer()), vRecord));
                 this.updateValue2();
             } else {
             }
@@ -107,43 +95,21 @@ public class XDGRUNTIMEDIRServiceComponent {
     }
 
     public Unit resolveUnit() {
-        if (var3 != null) {
-            if (this.opcodeServiceComponent2 != null) {
-                OpcodeServiceComponent2 var4 = this.opcodeServiceComponent2;
-                int var5 = 0;
-                var4.executeAction();
-                this.opcodeServiceComponent2 = null;
-                this.enabledFlag = 0;
-                this.detailsRecord = null;
-                this.idRecord22 = this.idRecord2;
-            } else {
-            }
-        }
+        this.executeAction();
+        this.opcodeServiceComponent2 = null;
+        this.enabledFlag = false;
+        this.detailsRecord = null;
+        this.idRecord22 = this.idRecord2;
         return null;
     }
 
     private void executeAction() {
-        if (var18 != null) {
-            if (this.opcodeServiceComponent2 != null) {
-                OpcodeServiceComponent2 var19 = this.opcodeServiceComponent2;
-                int var20 = 0;
-                if (var18 != null) {
-                    if (this.detailsRecord != null) {
-                        DetailsRecord var21 = this.detailsRecord;
-                        int var22 = 0;
-                        Json var23 = ServiceComponent80.getJson();
-                        PidRecord var16 = new PidRecord(this.computeValue());
-                        OptionMode var17 = OptionMode.SET_ACTIVITY;
-                        CmdRecord var24 = new CmdRecord();
-                        int var25 = 0;
-                        var23.getSerializersModule();
-                        var19.executeAction(OptionMode2.FRAME, var23.encodeToJsonElement((SerializationStrategy) CmdRecord.serviceComponent77.getKSerializer()));
-                    } else {
-                    }
-                }
-            } else {
-            }
-        }
+        Json json = ServiceComponent80.getJson();
+        PidRecord pidRecord = new PidRecord(this.computeValue());
+        OptionMode optionMode = OptionMode.SET_ACTIVITY;
+        CmdRecord cmdRecord = new CmdRecord(optionMode, pidRecord);
+        json.getSerializersModule();
+        this.executeAction(OptionMode2.FRAME, json.encodeToJsonElement(((SerializationStrategy) CmdRecord.serviceComponent77.getKSerializer()), cmdRecord));
         this.detailsRecord = null;
     }
 
@@ -152,86 +118,81 @@ public class XDGRUNTIMEDIRServiceComponent {
             System.out.println((b2WhenMappings.ENUM_SWITCH_MAP[packet.getOptionMode2().ordinal()] + packet.getEvtRecord().getUserRecord().getInteger() + " with message: " + packet.getEvtRecord().getUserRecord().getString()));
         } else {
             if (packet.getEvtRecord().getOptionMode() == OptionMode.DISPATCH) {
-                this.enabledFlag = 1;
+                this.enabledFlag = true;
                 this.idRecord22 = packet.getEvtRecord().getUserRecord().getIdRecord2();
                 if (this.detailsRecord != null) {
-                    DetailsRecord var10 = this.detailsRecord;
-                    int var11 = 0;
                     this.executeAction();
-                } else {
                 } else {
                     System.out.println((Unit.INSTANCE + packet.getEvtRecord().getUserRecord().getInteger() + " with message: " + packet.getEvtRecord().getUserRecord().getString()));
                 }
+            } else {
             }
         }
         return Unit.INSTANCE;
     }
 
     private OpcodeServiceComponent2 resolveOpcodeServiceComponent2() {
-        String var9 = System.getProperty("os.name");
-        String var8 = var9.toLowerCase(Locale.getDefault());
-        if (var7 != null) {
-            if (StringsKt.contains$default((CharSequence) var8, (CharSequence) "win")) {
-            }
-            var9 = 10;
-            int var10 = 0;
-            if (var7 != null) {
-                if (var10 < var9) {
-                }
-                int var11 = var10;
-                int var12 = 0;
-                Object var13 = this;
-                XDGRUNTIMEDIRServiceComponent var14 = (XDGRUNTIMEDIRServiceComponent) var13;
-                int var15 = 0;
-                return (OpcodeServiceComponent2) new BufferOpcodeServiceComponent2Impl2(("\\\\?\\pipe\\discord-ipc-" + var11));
-                Result.constructor-impl(ResultKt.createFailure());
-            }
-            var10 = this.textValueArray;
-            var11 = 0;
-            var12 = var10;
-            if (var11 < var12) {
-                var13 = var10[var11];
-                var14 = 0;
-                if (var7 != null) {
-                    if (var7 != null && System.getenv() == null) {
-                        System.getenv();
+        String text = System.getProperty("os.name");
+        String text2 = text.toLowerCase(Locale.getDefault());
+        if (__UNDEF_KEY__ != null) {
+            if (StringsKt.contains$default(((CharSequence) text2), ((CharSequence) "win"), false)) {
+                text = 10;
+                int index = 0;
+                if (__UNDEF_KEY__ != null) {
+                    if (index < text) {
+                        int index2 = index;
+                        int index3 = 0;
+                        Object element = this;
+                        XDGRUNTIMEDIRServiceComponent xDGRUNTIMEDIRServiceComponent = ((XDGRUNTIMEDIRServiceComponent) element);
+                        int index4 = 0;
+                        return ((OpcodeServiceComponent2) new BufferOpcodeServiceComponent2Impl2(("\\\\?\\pipe\\discord-ipc-" + index2)));
+                        Result.constructor_impl(ResultKt.createFailure(index4));
+                        index = this.textValueArray;
+                        index2 = 0;
+                        index3 = index;
+                        if (index2 < index3) {
+                            element = index[index2];
+                            xDGRUNTIMEDIRServiceComponent = 0;
+                            if (__UNDEF_KEY__ != null) {
+                                if (__UNDEF_KEY__ != null && System.getenv(element) == null) {
+                                    System.getenv(element);
+                                }
+                            }
+                        }
+                        index = 10;
+                        index2 = 0;
+                        if (__UNDEF_KEY__ != null) {
+                            if (index2 < index) {
+                                index3 = index2;
+                                element = 0;
+                                xDGRUNTIMEDIRServiceComponent = this;
+                                index4 = ((XDGRUNTIMEDIRServiceComponent) xDGRUNTIMEDIRServiceComponent);
+                                int index5 = 0;
+                                if (text == null) {
+                                }
+                                return ((OpcodeServiceComponent2) new BufferOpcodeServiceComponent2Impl(("/tmp" + "/discord-ipc-" + index3)));
+                                Result.constructor_impl(ResultKt.createFailure(index5));
+                            }
+                        }
                     }
                 }
-            }
-            var10 = 10;
-            var11 = 0;
-            if (var7 != null) {
-                if (var11 < var10) {
-                    var12 = var11;
-                }
-                var13 = 0;
-                var14 = this;
-                var15 = (XDGRUNTIMEDIRServiceComponent) var14;
-                int var16 = 0;
-                if (var9 == null) {
-                }
-                return (OpcodeServiceComponent2) new BufferOpcodeServiceComponent2Impl(("/tmp" + "/discord-ipc-" + var12));
-                Result.constructor-impl(ResultKt.createFailure());
             }
         }
         return null;
     }
 
     private void updateValue2() {
-        ThreadsKt.thread$default(1, 1, null, "Discord IPC - Update thread", 0, this::resolveUnit);
+        ThreadsKt.thread$default(true, true, null, "Discord IPC - Update thread", 0, this::resolveUnit);
     }
 
     private static Unit resolveUnit(XDGRUNTIMEDIRServiceComponent arg0) {
         if (arg0.checkCondition()) {
-            Object var8 = arg0;
-            Object var9 = var8;
-            int var10 = 0;
-            var9.updateValue();
-            if (var7 != null) {
-                var9 = Result.constructor-impl(Unit.INSTANCE);
-                var9 = Result.constructor-impl(ResultKt.createFailure());
-                Thread.sleep(timestampValue2);
-            }
+            XDGRUNTIMEDIRServiceComponent xDGRUNTIMEDIRServiceComponent = arg0;
+            int index = 0;
+            xDGRUNTIMEDIRServiceComponent.updateValue();
+            index = Unit.INSTANCE;
+            xDGRUNTIMEDIRServiceComponent = Result.constructor_impl(ResultKt.createFailure(index));
+            Thread.sleep(timestampValue2);
         }
         return Unit.INSTANCE;
     }

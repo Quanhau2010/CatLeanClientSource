@@ -39,9 +39,9 @@ public class ColorRenderHelper2 {
     }
 
     public int hashCode() {
-        int var3 = this.blockPos.hashCode();
-        var3 = ((var3 * -1213040884858224609L) + this.colorValue.hashCode());
-        return var3;
+        int index = this.blockPos.hashCode();
+        index = ((index * 31) + this.colorValue.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -51,11 +51,11 @@ public class ColorRenderHelper2 {
         if (!(other instanceof ColorRenderHelper2)) {
             return false;
         }
-        ColorRenderHelper2 var5 = (ColorRenderHelper2) other;
-        if (!(Intrinsics.areEqual(this.blockPos, var5.blockPos))) {
+        ColorRenderHelper2 colorRenderHelper2 = ((ColorRenderHelper2) other);
+        if (!(Intrinsics.areEqual(this.blockPos, colorRenderHelper2.blockPos))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue, var5.colorValue))) {
+        if (!(Intrinsics.areEqual(this.colorValue, colorRenderHelper2.colorValue))) {
             return false;
         }
         return true;

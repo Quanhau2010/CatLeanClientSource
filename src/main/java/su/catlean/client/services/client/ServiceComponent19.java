@@ -17,7 +17,6 @@ public class ServiceComponent19 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var11 = 0;
         if (EntryPacketHelper.checkCondition(this.profileServiceComponent.resolveString()) && EntryPacketHelper.getCopyOnWriteArrayList().add(this.profileServiceComponent)) {
             EntryPacketHelper.executeAction(this.textValueArray);
         }

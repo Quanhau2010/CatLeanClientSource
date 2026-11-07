@@ -74,65 +74,63 @@ public class NoSlowModule extends Module {
     }
 
     public NoSlowMode getMode() {
-        if (!(var5)) {
-        }
-        return (NoSlowMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((NoSlowMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getLimitPackets() {
-        return (Boolean) limitPacketsSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) limitPacketsSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getMainHand() {
-        return (Boolean) mainHandSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) mainHandSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private SettingGroup getSelection() {
-        return (SettingGroup) selectionSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((SettingGroup) selectionSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getFood() {
-        return (Boolean) foodSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) foodSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getProjectiles() {
-        return (Boolean) projectilesSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) projectilesSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private boolean getShield() {
-        return (Boolean) shieldSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) shieldSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private boolean getSoulSand() {
-        return (Boolean) soulSandSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) soulSandSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private boolean getHoney() {
-        return (Boolean) honeySetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Boolean) honeySetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private boolean getSlime() {
-        return (Boolean) slimeSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Boolean) slimeSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private boolean getIce() {
-        return (Boolean) iceSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Boolean) iceSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private boolean getSweetBerryBush() {
-        return (Boolean) sweetBerryBushSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Boolean) sweetBerryBushSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private boolean getSneak() {
-        return (Boolean) sneakSetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Boolean) sneakSetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     private boolean getCrawl() {
-        return (Boolean) crawlSetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Boolean) crawlSetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
@@ -143,14 +141,14 @@ public class NoSlowModule extends Module {
             enabledFlag4 = 0;
         }
         if (enabledFlag) {
-            SharedKt.getMc().options.field_1832.method_23481(0);
-            SharedKt.getPlayer().method_5728(0);
+            SharedKt.getMc().options.field_1832.method_23481(false);
+            SharedKt.getPlayer().method_5728(false);
             enabledFlag = 0;
         }
-        PacketPacketHelper.handlePacket((Packet) new class_2868(SharedKt.getPlayer().method_31548().method_67532()));
+        PacketPacketHelper.handlePacket(((Packet) new class_2868(SharedKt.getPlayer().method_31548().method_67532())));
         if (SharedKt.getPlayer().method_6058() == Hand.field_5810) {
-            PacketPacketHelper.handlePacket((Packet) new class_2868(((SharedKt.getPlayer().method_31548().method_67532() % 8) + 1)));
-            PacketPacketHelper.handlePacket((Packet) new class_2868(SharedKt.getPlayer().method_31548().method_67532()));
+            PacketPacketHelper.handlePacket(((Packet) new class_2868(((SharedKt.getPlayer().method_31548().method_67532() % 8) + 1))));
+            PacketPacketHelper.handlePacket(((Packet) new class_2868(SharedKt.getPlayer().method_31548().method_67532())));
         } else {
             if (SharedKt.getPlayer().method_6048() > 3 && (SharedKt.getPlayer().field_6012 % 2)) {
             }
@@ -185,20 +183,20 @@ public class NoSlowModule extends Module {
 
     private void onKeyboardInputEvent(KeyboardInputEvent arg0) {
         if (this.getMode() == NoSlowMode.MATRIX && SharedKt.getPlayer().method_6115() && !(SharedKt.getPlayer().isFallFlying())) {
-            (ClientInputAccessor) SharedKt.getPlayer().field_3913.setMoveVector(new class_241((SharedKt.getPlayer().field_3913.method_3128().field_1343 * 5), (SharedKt.getPlayer().field_3913.method_3128().field_1342 * 5)));
+            ((ClientInputAccessor) SharedKt.getPlayer().field_3913).setMoveVector(new class_241((SharedKt.getPlayer().field_3913.method_3128().field_1343 * 5), (SharedKt.getPlayer().field_3913.method_3128().field_1342 * 5)));
             if (SharedKt.getPlayer().isOnGround()) {
                 if (SharedKt.getPlayer().field_3913.method_3128().field_1342 != 0.0F && SharedKt.getPlayer().field_3913.method_3128().field_1343 != 0.0F) {
-                } else {
                 } else {
                     if (SharedKt.getPlayer().field_3913.method_3128().field_1342 != 0.0F && SharedKt.getPlayer().field_3913.method_3128().field_1343 != 0.0F) {
                     } else {
                     }
                 }
+            } else {
             }
-            float var11 = 0.67F;
-            (ClientInputAccessor) SharedKt.getPlayer().field_3913.setMoveVector(new class_241((SharedKt.getPlayer().field_3913.method_3128().field_1343 * var11), (SharedKt.getPlayer().field_3913.method_3128().field_1342 * var11)));
+            float factor = 0.67F;
+            ((ClientInputAccessor) SharedKt.getPlayer().field_3913).setMoveVector(new class_241((SharedKt.getPlayer().field_3913.method_3128().field_1343 * factor), (SharedKt.getPlayer().field_3913.method_3128().field_1342 * factor)));
         } else {
-            (ClientInputAccessor) SharedKt.getPlayer().field_3913.setMoveVector(new class_241((SharedKt.getPlayer().field_3913.method_3128().field_1343 * 5), (SharedKt.getPlayer().field_3913.method_3128().field_1342 * 5)));
+            ((ClientInputAccessor) SharedKt.getPlayer().field_3913).setMoveVector(new class_241((SharedKt.getPlayer().field_3913.method_3128().field_1343 * 5), (SharedKt.getPlayer().field_3913.method_3128().field_1342 * 5)));
         }
     }
 
@@ -231,9 +229,9 @@ public class NoSlowModule extends Module {
         if (!(Intrinsics.areEqual(SharedKt.getPlayer().method_6030().getItem(), Items.field_8399))) {
             if (!(Intrinsics.areEqual(SharedKt.getPlayer().method_6030().getItem(), Items.field_8102))) {
                 if (!(this.getProjectiles()) && Intrinsics.areEqual(SharedKt.getPlayer().method_6030().getItem(), Items.field_8547)) {
+                    return false;
                 }
             }
-            return false;
         }
         if (!(this.getMainHand()) && SharedKt.getPlayer().method_6058() == Hand.field_5808) {
             return false;
@@ -242,27 +240,27 @@ public class NoSlowModule extends Module {
             if (SharedKt.getPlayer().method_6048() < this.getDelay()) {
                 if (SharedKt.getPlayer().method_6115() && SharedKt.getPlayer().method_6048() <= 2) {
                     enabledFlag6 = 1;
-                    HandServiceComponent.e();
+                    HandServiceComponent.e(1, 0, null, true);
                     enabledFlag6 = 0;
-                } else {
                     return true;
                 }
+            } else {
             }
             return false;
         }
         if (this.getMode() == NoSlowMode.GRIM_3) {
             if (SharedKt.getPlayer().method_6115()) {
                 enabledFlag5 = SharedKt.getPlayer().method_5624();
-                SharedKt.getPlayer().method_5728(0);
-                SprintModule.INSTANCE.updateValue(1);
+                SharedKt.getPlayer().method_5728(false);
+                SprintModule.INSTANCE.updateValue(true);
                 return false;
                 enabledFlag6 = 1;
-                HandServiceComponent.e();
+                HandServiceComponent.e(1, 0, null, true);
                 enabledFlag6 = 0;
-                SprintModule.INSTANCE.updateValue(1);
+                SprintModule.INSTANCE.updateValue(true);
                 return false;
                 SharedKt.getPlayer().method_5728(enabledFlag5);
-                SprintModule.INSTANCE.updateValue(1);
+                SprintModule.INSTANCE.updateValue(true);
                 return false;
                 return true;
             }
@@ -304,23 +302,23 @@ public class NoSlowModule extends Module {
     }
 
     static {
-        KProperty[] var35 = new KProperty[15];
+        KProperty[] items = new KProperty[15];
         INSTANCE = new NoSlowModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", NoSlowMode.VANILLA);
-        limitPacketsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "limit-packets", 0, null, this::isActive);
+        limitPacketsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "limit-packets", false, null, this::isActive);
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 3, new IntRange(1, 10), null, this::isActive2);
-        mainHandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "main-hand");
+        mainHandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "main-hand", true);
         selectionSetting = VisibleRenderHelper.registerSetting(INSTANCE, "selection", OptionMode14.BOOLS);
-        foodSetting = VisibleRenderHelper.registerSetting(INSTANCE, "food", 1, INSTANCE.getSelection());
-        projectilesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "projectiles", 1, INSTANCE.getSelection());
-        shieldSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shield", 1, INSTANCE.getSelection());
-        soulSandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "soul-sand", 1, INSTANCE.getSelection());
-        honeySetting = VisibleRenderHelper.registerSetting(INSTANCE, "honey", 1, INSTANCE.getSelection());
-        slimeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "slime", 1, INSTANCE.getSelection());
-        iceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ice", 1, INSTANCE.getSelection());
-        sweetBerryBushSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sweet-berry-bush", 1, INSTANCE.getSelection());
-        sneakSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sneak", 0, INSTANCE.getSelection());
-        crawlSetting = VisibleRenderHelper.registerSetting(INSTANCE, "crawl", 0, INSTANCE.getSelection());
+        foodSetting = VisibleRenderHelper.registerSetting(INSTANCE, "food", true, INSTANCE.getSelection());
+        projectilesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "projectiles", true, INSTANCE.getSelection());
+        shieldSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shield", true, INSTANCE.getSelection());
+        soulSandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "soul-sand", true, INSTANCE.getSelection());
+        honeySetting = VisibleRenderHelper.registerSetting(INSTANCE, "honey", true, INSTANCE.getSelection());
+        slimeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "slime", true, INSTANCE.getSelection());
+        iceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ice", true, INSTANCE.getSelection());
+        sweetBerryBushSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sweet-berry-bush", true, INSTANCE.getSelection());
+        sneakSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sneak", false, INSTANCE.getSelection());
+        crawlSetting = VisibleRenderHelper.registerSetting(INSTANCE, "crawl", false, INSTANCE.getSelection());
     }
 
 }

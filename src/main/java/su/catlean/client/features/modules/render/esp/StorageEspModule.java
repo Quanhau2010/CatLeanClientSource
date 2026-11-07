@@ -86,155 +86,153 @@ public class StorageEspModule extends Module {
     }
 
     public StorageEspShaderMode getShaderMode() {
-        if (var5 == null) {
-        }
-        return (StorageEspShaderMode) shaderModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((StorageEspShaderMode) shaderModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getTracers() {
-        return (Boolean) tracersSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) tracersSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getChests() {
-        return (Boolean) chestsSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) chestsSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private Color getChest() {
-        return (Color) chestSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Color) chestSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getTrappedChests() {
-        return (Boolean) trappedChestsSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) trappedChestsSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private Color getTrappedChest() {
-        return (Color) trappedChestSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Color) trappedChestSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getEnderChests() {
-        return (Boolean) enderChestsSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) enderChestsSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private Color getEnderChest() {
-        return (Color) enderChestSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Color) enderChestSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private boolean getFurnaces() {
-        return (Boolean) furnacesSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) furnacesSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private Color getFurnace() {
-        return (Color) furnaceSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Color) furnaceSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private boolean getDispencers() {
-        return (Boolean) dispencersSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Boolean) dispencersSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private Color getDispencer() {
-        return (Color) dispencerSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Color) dispencerSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private boolean getHoppers() {
-        return (Boolean) hoppersSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Boolean) hoppersSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private Color getHopper() {
-        return (Color) hopperSetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Color) hopperSetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     private boolean getShulkers() {
-        return (Boolean) shulkersSetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Boolean) shulkersSetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     private Color getShulker() {
-        return (Color) shulkerSetting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((Color) shulkerSetting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     private boolean getBrewingStands() {
-        return (Boolean) brewingStandsSetting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((Boolean) brewingStandsSetting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     private Color getBrewingStand() {
-        return (Color) brewingStandSetting.getValue(this, DELEGATED_PROPERTIES[17]);
+        return ((Color) brewingStandSetting.getValue(this, DELEGATED_PROPERTIES[17]));
     }
 
     private boolean getBarrels() {
-        return (Boolean) barrelsSetting.getValue(this, DELEGATED_PROPERTIES[18]);
+        return ((Boolean) barrelsSetting.getValue(this, DELEGATED_PROPERTIES[18]));
     }
 
     private Color getBarrel() {
-        return (Color) barrelSetting.getValue(this, DELEGATED_PROPERTIES[19]);
+        return ((Color) barrelSetting.getValue(this, DELEGATED_PROPERTIES[19]));
     }
 
     private boolean getChestMinecarts() {
-        return (Boolean) chestMinecartsSetting.getValue(this, DELEGATED_PROPERTIES[20]);
+        return ((Boolean) chestMinecartsSetting.getValue(this, DELEGATED_PROPERTIES[20]));
     }
 
     private Color getChestMinecart() {
-        return (Color) chestMinecartSetting.getValue(this, DELEGATED_PROPERTIES[21]);
+        return ((Color) chestMinecartSetting.getValue(this, DELEGATED_PROPERTIES[21]));
     }
 
     private boolean getFurnaceMinecarts() {
-        return (Boolean) furnaceMinecartsSetting.getValue(this, DELEGATED_PROPERTIES[22]);
+        return ((Boolean) furnaceMinecartsSetting.getValue(this, DELEGATED_PROPERTIES[22]));
     }
 
     private Color getFurnaceMinecart() {
-        return (Color) furnaceMinecartSetting.getValue(this, DELEGATED_PROPERTIES[23]);
+        return ((Color) furnaceMinecartSetting.getValue(this, DELEGATED_PROPERTIES[23]));
     }
 
     private boolean getHopperMinecarts() {
-        return (Boolean) hopperMinecartsSetting.getValue(this, DELEGATED_PROPERTIES[24]);
+        return ((Boolean) hopperMinecartsSetting.getValue(this, DELEGATED_PROPERTIES[24]));
     }
 
     private Color getHopperMinecart() {
-        return (Color) hopperMinecartSetting.getValue(this, DELEGATED_PROPERTIES[25]);
+        return ((Color) hopperMinecartSetting.getValue(this, DELEGATED_PROPERTIES[25]));
     }
 
     private boolean getFrames() {
-        return (Boolean) framesSetting.getValue(this, DELEGATED_PROPERTIES[26]);
+        return ((Boolean) framesSetting.getValue(this, DELEGATED_PROPERTIES[26]));
     }
 
     private Color getEmptyFrame() {
-        return (Color) emptyFrameSetting.getValue(this, DELEGATED_PROPERTIES[27]);
+        return ((Color) emptyFrameSetting.getValue(this, DELEGATED_PROPERTIES[27]));
     }
 
     private Color getItemFrame() {
-        return (Color) itemFrameSetting.getValue(this, DELEGATED_PROPERTIES[28]);
+        return ((Color) itemFrameSetting.getValue(this, DELEGATED_PROPERTIES[28]));
     }
 
     private boolean getBeds() {
-        return (Boolean) bedsSetting.getValue(this, DELEGATED_PROPERTIES[29]);
+        return ((Boolean) bedsSetting.getValue(this, DELEGATED_PROPERTIES[29]));
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
         Iterator iterator = TheNetherPacketHelper.INSTANCE.getList().iterator();
         while (iterator.hasNext()) {
-            class_2586 var24 = (class_2586) iterator.next();
-            Color var25 = this.resolveColor();
-            if (var24 instanceof class_2589) {
-                Box var26 = new Box((class_2589) var24.method_11016());
-                TextShaderComponent2.checkCondition(var26.method_1002(0.1D, 0.9D, 0.1D).method_989(0.05D, 0.0D, 0.05D));
+            class_2586 class2586 = ((class_2586) iterator.next());
+            Color color = this.resolveColor(class2586);
+            if (class2586 instanceof class_2589) {
+                Box box = new Box(((class_2589) class2586).method_11016());
+                TextShaderComponent2.checkCondition(box.method_1002(0.1D, 0.9D, 0.1D).method_989(0.05D, 0.0D, 0.05D), color);
             } else {
-                if (var24 instanceof class_2614) {
-                    var26 = new Box((class_2614) var24.method_11016());
-                    TextShaderComponent2.checkCondition(var26.method_1002(0.0D, 0.62D, 0.0D).method_989(0.0D, 0.62D, 0.0D));
-                    TextShaderComponent2.checkCondition(var26.method_1002(0.5D, 0.63D, 0.5D).method_989(0.25D, 0.25D, 0.25D));
+                if (class2586 instanceof class_2614) {
+                    box = new Box(((class_2614) class2586).method_11016());
+                    TextShaderComponent2.checkCondition(box.method_1002(0.0D, 0.62D, 0.0D).method_989(0.0D, 0.62D, 0.0D), color);
+                    TextShaderComponent2.checkCondition(box.method_1002(0.5D, 0.63D, 0.5D).method_989(0.25D, 0.25D, 0.25D), color);
                 } else {
-                    var26 = var24.method_11010().method_26218((class_1922) SharedKt.getWorld(), var24.method_11016()).method_1107().method_996(var24.method_11016());
+                    box = class2586.method_11010().method_26218(((class_1922) SharedKt.getWorld()), class2586.method_11016()).method_1107().method_996(class2586.method_11016());
                 }
             }
-            TextShaderComponent2.checkCondition();
-            var26 = new Vec3d(0.0D, 0.0D, 75.0D).method_1037(Math.toRadians(SharedKt.getMc().field_1773.method_19418().method_19329())).method_1024(Math.toRadians(SharedKt.getMc().field_1773.method_19418().method_19330())).method_1019(SharedKt.getMc().field_1773.method_19418().method_71156());
-            TextShaderComponent2.checkCondition(var24.method_11016().toCenterPos(), PolygonShaderComponent.INSTANCE.resolveColor(1.0F));
+            TextShaderComponent2.checkCondition(box, color);
+            box = new Vec3d(0.0D, 0.0D, 75.0D).method_1037(Math.toRadians(SharedKt.getMc().field_1773.method_19418().method_19329())).method_1024(Math.toRadians(SharedKt.getMc().field_1773.method_19418().method_19330())).method_1019(SharedKt.getMc().field_1773.method_19418().method_71156());
+            TextShaderComponent2.checkCondition(box, class2586.method_11016().toCenterPos(), PolygonShaderComponent.INSTANCE.resolveColor(color, 1.0F), null, true);
         }
         iterator = SharedKt.getWorld().method_18112().iterator();
         while (iterator.hasNext()) {
-            var24 = iterator.next();
-            var25 = this.resolveColor();
-            TextShaderComponent2.checkCondition(var24.method_5829());
-            var26 = new Vec3d(0.0D, 0.0D, 75.0D).method_1037(Math.toRadians(SharedKt.getMc().field_1773.method_19418().method_19329())).method_1024(Math.toRadians(SharedKt.getMc().field_1773.method_19418().method_19330())).method_1019(SharedKt.getMc().field_1773.method_19418().method_71156());
-            TextShaderComponent2.checkCondition(var24.method_5829().method_1005(), PolygonShaderComponent.INSTANCE.resolveColor(1.0F));
+            class2586 = iterator.next();
+            color = this.resolveColor(class2586);
+            TextShaderComponent2.checkCondition(class2586.method_5829(), color);
+            box = new Vec3d(0.0D, 0.0D, 75.0D).method_1037(Math.toRadians(SharedKt.getMc().field_1773.method_19418().method_19329())).method_1024(Math.toRadians(SharedKt.getMc().field_1773.method_19418().method_19330())).method_1019(SharedKt.getMc().field_1773.method_19418().method_71156());
+            TextShaderComponent2.checkCondition(box, class2586.method_5829().method_1005(), PolygonShaderComponent.INSTANCE.resolveColor(color, 1.0F), null, true);
         }
     }
 
@@ -270,7 +268,7 @@ public class StorageEspModule extends Module {
             return this.getBarrel();
         }
         if (arg0 instanceof class_2587 && this.getBeds()) {
-            return new Color((class_2587) arg0.method_11018().method_7787());
+            return new Color(((class_2587) arg0).method_11018().method_7787());
         }
         return Color.WHITE;
     }
@@ -286,7 +284,7 @@ public class StorageEspModule extends Module {
             return this.getHopperMinecart();
         }
         if (arg0 instanceof class_1533 && this.getFrames()) {
-            if ((class_1533) arg0.method_6940().isEmpty()) {
+            if (((class_1533) arg0).method_6940().isEmpty()) {
             } else {
             }
             return this.getItemFrame();
@@ -351,38 +349,38 @@ public class StorageEspModule extends Module {
     }
 
     static {
-        KProperty[] var31 = new KProperty[30];
+        KProperty[] items = new KProperty[30];
         INSTANCE = new StorageEspModule();
         shaderModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shader-mode", StorageEspShaderMode.DEFAULT);
-        tracersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "tracers");
-        chestsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "chests");
+        tracersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "tracers", false);
+        chestsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "chests", true);
         chestSetting = VisibleRenderHelper.registerSetting(INSTANCE, "chest", new Color(255, 155, 75, 100), null, this::isActive);
-        trappedChestsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "trapped-chests");
+        trappedChestsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "trapped-chests", true);
         trappedChestSetting = VisibleRenderHelper.registerSetting(INSTANCE, "trapped-chest", new Color(255, 255, 12, 100), null, this::isActive2);
-        enderChestsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ender-chests");
+        enderChestsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ender-chests", true);
         enderChestSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ender-chest", new Color(255, 13, 255, 100), null, this::isActive3);
-        furnacesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "furnaces");
+        furnacesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "furnaces", true);
         furnaceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "furnace", new Color(128, 128, 128, 100), null, this::isActive4);
-        dispencersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "dispencers");
+        dispencersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "dispencers", true);
         dispencerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "dispencer", new Color(140, 140, 178, 100), null, this::isActive5);
-        hoppersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hoppers");
+        hoppersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hoppers", true);
         hopperSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hopper", new Color(115, 115, 155, 100), null, this::isActive6);
-        shulkersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shulkers");
+        shulkersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shulkers", true);
         shulkerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shulker", new Color(128, 50, 255, 100), null, this::isActive7);
-        brewingStandsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "brewing-stands");
+        brewingStandsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "brewing-stands", true);
         brewingStandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "brewing-stand", new Color(128, 100, 50, 100), null, this::isActive8);
-        barrelsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "barrels");
+        barrelsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "barrels", true);
         barrelSetting = VisibleRenderHelper.registerSetting(INSTANCE, "barrel", new Color(255, 155, 75, 100), null, this::isActive9);
-        chestMinecartsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "chest-minecarts");
+        chestMinecartsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "chest-minecarts", true);
         chestMinecartSetting = VisibleRenderHelper.registerSetting(INSTANCE, "chest-minecart", new Color(255, 165, 75, 100), null, this::isActive10);
-        furnaceMinecartsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "furnace-minecarts");
+        furnaceMinecartsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "furnace-minecarts", true);
         furnaceMinecartSetting = VisibleRenderHelper.registerSetting(INSTANCE, "furnace-minecart", new Color(128, 128, 128, 100), null, this::isActive11);
-        hopperMinecartsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hopper-minecarts");
+        hopperMinecartsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hopper-minecarts", true);
         hopperMinecartSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hopper-minecart", new Color(115, 115, 155, 100), null, this::isActive12);
-        framesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "frames");
+        framesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "frames", true);
         emptyFrameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "empty-frame", new Color(115, 25, 25, 100), null, this::isActive13);
         itemFrameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "item-frame", new Color(115, 25, 25, 100), null, this::isActive14);
-        bedsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "beds");
+        bedsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "beds", true);
     }
 
 }

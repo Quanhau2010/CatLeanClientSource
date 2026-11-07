@@ -54,19 +54,19 @@ public class AnimationServiceComponent {
     }
 
     public String toString() {
-        Function0 var3 = this.function0;
-        EasingServiceComponent var4 = this.easingServiceComponent;
-        String var5 = this.textValue;
-        float var6 = this.factorValue;
-        return ("HubSelector(x=" + var6 + ", name=" + var5 + ", animation=" + var4 + ", action=" + var3 + ")");
+        Function0 function0 = this.function0;
+        EasingServiceComponent easingServiceComponent = this.easingServiceComponent;
+        String text = this.textValue;
+        float factor = this.factorValue;
+        return ("HubSelector(x=" + factor + ", name=" + text + ", animation=" + easingServiceComponent + ", action=" + function0 + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + this.textValue.hashCode());
-        var3 = ((var3 * 31) + this.easingServiceComponent.hashCode());
-        var3 = ((var3 * 31) + this.function0.hashCode());
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + this.textValue.hashCode());
+        index = ((index * 31) + this.easingServiceComponent.hashCode());
+        index = ((index * 31) + this.function0.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -76,17 +76,17 @@ public class AnimationServiceComponent {
         if (!(other instanceof AnimationServiceComponent)) {
             return false;
         }
-        AnimationServiceComponent var5 = (AnimationServiceComponent) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        AnimationServiceComponent animationServiceComponent = ((AnimationServiceComponent) other);
+        if (Float.compare(this.factorValue, animationServiceComponent.factorValue)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        if (!(Intrinsics.areEqual(this.textValue, animationServiceComponent.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.easingServiceComponent, var5.easingServiceComponent))) {
+        if (!(Intrinsics.areEqual(this.easingServiceComponent, animationServiceComponent.easingServiceComponent))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.function0, var5.function0))) {
+        if (!(Intrinsics.areEqual(this.function0, animationServiceComponent.function0))) {
             return false;
         }
         return true;

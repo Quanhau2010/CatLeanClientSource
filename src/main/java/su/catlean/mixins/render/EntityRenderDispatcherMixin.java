@@ -17,11 +17,11 @@ public class EntityRenderDispatcherMixin {
     }
 
     private void onRenderHead(class_10017 renderState, class_12075 cameraRenderState, double d, double e, double f, MatrixStack matrixStack, class_11659 orderedRenderCommandQueue, CallbackInfo ci) {
-        renderState.field_53335 = 0;
+        renderState.field_53335 = false;
     }
 
     public void onRenderEntity(Entity entity, class_4604 frustum, double x, double y, double z, CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(0));
+        cir.setReturnValue(Boolean.valueOf(false));
     }
 
 }

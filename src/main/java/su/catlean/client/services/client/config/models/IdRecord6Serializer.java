@@ -23,84 +23,82 @@ public class IdRecord6Serializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, IdRecord6 value) {
-        SerialDescriptor var7 = serialDescriptor;
-        CompositeEncoder var8 = encoder.beginStructure();
-        IdRecord6.executeAction(value);
-        var8.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        IdRecord6.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public IdRecord6 resolveIdRecord6(Decoder decoder) {
-        SerialDescriptor var7 = serialDescriptor;
-        int var8 = 1;
-        int var10 = 0;
-        CompositeDecoder var24 = decoder.beginStructure();
-        Lazy[] var25 = IdRecord6.process();
-        if (var6 != null) {
-            if (var24.decodeSequentially()) {
+        int index = 1;
+        int index2 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        Lazy[] items = IdRecord6.process();
+        if (__UNDEF_KEY__ != null) {
+            if (compositeDecoder.decodeSequentially()) {
+                String text = compositeDecoder.decodeStringElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                Color color = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) items[1].getValue())));
+                index2 = (index2 | 2);
+                Color color2 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 2, ((DeserializationStrategy) items[2].getValue())));
+                index2 = (index2 | 4);
+                Color color3 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 3, ((DeserializationStrategy) items[3].getValue())));
+                index2 = (index2 | 8);
+                Color color4 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 4, ((DeserializationStrategy) items[4].getValue())));
+                index2 = (index2 | 16);
+                Color color5 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 5, ((DeserializationStrategy) items[5].getValue())));
+                index2 = (index2 | 32);
+                Color color6 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 6, ((DeserializationStrategy) items[6].getValue())));
+                index2 = (index2 | 64);
+                Color color7 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 7, ((DeserializationStrategy) items[7].getValue())));
+                index2 = (index2 | 128);
+                Color color8 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 8, ((DeserializationStrategy) items[8].getValue())));
+                index2 = (index2 | 256);
+                Color color9 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 9, ((DeserializationStrategy) items[9].getValue())));
+                index2 = (index2 | 512);
+                Color color10 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 10, ((DeserializationStrategy) items[10].getValue())));
+                index2 = (index2 | 1024);
+                Color color11 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 11, ((DeserializationStrategy) items[11].getValue())));
+                index2 = (index2 | 2048);
+                Color color12 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 12, ((DeserializationStrategy) items[12].getValue())));
+                index2 = (index2 | 4096);
             }
-            String var11 = var24.decodeStringElement(0);
-            var10 = (var10 | 1);
-            Color var12 = (Color) var24.decodeSerializableElement(1, (DeserializationStrategy) var25[1].getValue());
-            var10 = (var10 | 2);
-            Color var13 = (Color) var24.decodeSerializableElement(2, (DeserializationStrategy) var25[2].getValue());
-            var10 = (var10 | 4);
-            Color var14 = (Color) var24.decodeSerializableElement(3, (DeserializationStrategy) var25[3].getValue());
-            var10 = (var10 | 8);
-            Color var15 = (Color) var24.decodeSerializableElement(4, (DeserializationStrategy) var25[4].getValue());
-            var10 = (var10 | 16);
-            Color var16 = (Color) var24.decodeSerializableElement(5, (DeserializationStrategy) var25[5].getValue());
-            var10 = (var10 | 32);
-            Color var17 = (Color) var24.decodeSerializableElement(6, (DeserializationStrategy) var25[6].getValue());
-            var10 = (var10 | 64);
-            Color var18 = (Color) var24.decodeSerializableElement(7, (DeserializationStrategy) var25[7].getValue());
-            var10 = (var10 | 128);
-            Color var19 = (Color) var24.decodeSerializableElement(8, (DeserializationStrategy) var25[8].getValue());
-            var10 = (var10 | 256);
-            Color var20 = (Color) var24.decodeSerializableElement(9, (DeserializationStrategy) var25[9].getValue());
-            var10 = (var10 | 512);
-            Color var21 = (Color) var24.decodeSerializableElement(10, (DeserializationStrategy) var25[10].getValue());
-            var10 = (var10 | 1024);
-            Color var22 = (Color) var24.decodeSerializableElement(11, (DeserializationStrategy) var25[11].getValue());
-            var10 = (var10 | 2048);
-            Color var23 = (Color) var24.decodeSerializableElement(12, (DeserializationStrategy) var25[12].getValue());
-            var10 = (var10 | 4096);
         }
-        if (var6 == null && var8) {
-            int var9 = var24.decodeElementIndex();
-            if (var6 != null) {
-                if (var6 != null) {
+        if (__UNDEF_KEY__ == null && index) {
+            int index3 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                var8 = 0;
-                var11 = var24.decodeStringElement(0);
-                var10 = (var10 | 1);
-                var12 = (Color) var24.decodeSerializableElement(1, (DeserializationStrategy) var25[1].getValue());
-                var10 = (var10 | 2);
-                var13 = (Color) var24.decodeSerializableElement(2, (DeserializationStrategy) var25[2].getValue());
-                var10 = (var10 | 4);
-                var14 = (Color) var24.decodeSerializableElement(3, (DeserializationStrategy) var25[3].getValue());
-                var10 = (var10 | 8);
-                var15 = (Color) var24.decodeSerializableElement(4, (DeserializationStrategy) var25[4].getValue());
-                var10 = (var10 | 16);
-                var16 = (Color) var24.decodeSerializableElement(5, (DeserializationStrategy) var25[5].getValue());
-                var10 = (var10 | 32);
-                var17 = (Color) var24.decodeSerializableElement(6, (DeserializationStrategy) var25[6].getValue());
-                var10 = (var10 | 64);
-                var18 = (Color) var24.decodeSerializableElement(7, (DeserializationStrategy) var25[7].getValue());
-                var10 = (var10 | 128);
-                var19 = (Color) var24.decodeSerializableElement(8, (DeserializationStrategy) var25[8].getValue());
-                var10 = (var10 | 256);
-                var20 = (Color) var24.decodeSerializableElement(9, (DeserializationStrategy) var25[9].getValue());
-                var10 = (var10 | 512);
-                var21 = (Color) var24.decodeSerializableElement(10, (DeserializationStrategy) var25[10].getValue());
-                var10 = (var10 | 1024);
-                var22 = (Color) var24.decodeSerializableElement(11, (DeserializationStrategy) var25[11].getValue());
-                var10 = (var10 | 2048);
-                var23 = (Color) var24.decodeSerializableElement(12, (DeserializationStrategy) var25[12].getValue());
-                var10 = (var10 | 4096);
+                index = 0;
+                text = compositeDecoder.decodeStringElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                color = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) items[1].getValue()), color));
+                index2 = (index2 | 2);
+                color2 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 2, ((DeserializationStrategy) items[2].getValue()), color2));
+                index2 = (index2 | 4);
+                color3 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 3, ((DeserializationStrategy) items[3].getValue()), color3));
+                index2 = (index2 | 8);
+                color4 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 4, ((DeserializationStrategy) items[4].getValue()), color4));
+                index2 = (index2 | 16);
+                color5 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 5, ((DeserializationStrategy) items[5].getValue()), color5));
+                index2 = (index2 | 32);
+                color6 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 6, ((DeserializationStrategy) items[6].getValue()), color6));
+                index2 = (index2 | 64);
+                color7 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 7, ((DeserializationStrategy) items[7].getValue()), color7));
+                index2 = (index2 | 128);
+                color8 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 8, ((DeserializationStrategy) items[8].getValue()), color8));
+                index2 = (index2 | 256);
+                color9 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 9, ((DeserializationStrategy) items[9].getValue()), color9));
+                index2 = (index2 | 512);
+                color10 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 10, ((DeserializationStrategy) items[10].getValue()), color10));
+                index2 = (index2 | 1024);
+                color11 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 11, ((DeserializationStrategy) items[11].getValue()), color11));
+                index2 = (index2 | 2048);
+                color12 = ((Color) compositeDecoder.decodeSerializableElement(serialDescriptor, 12, ((DeserializationStrategy) items[12].getValue()), color12));
+                index2 = (index2 | 4096);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var24.endStructure();
         }
-        return new IdRecord6(null);
+        return new IdRecord6(index2, text, color, color2, color3, color4, color5, color6, color7, color8, color9, color10, color11, color12);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -108,22 +106,22 @@ public class IdRecord6Serializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        Lazy[] var3 = IdRecord6.process();
-        KSerializer[] var4 = new KSerializer[13];
-        var4[0] = StringSerializer.INSTANCE;
-        var4[1] = var3[1].getValue();
-        var4[2] = var3[2].getValue();
-        var4[3] = var3[3].getValue();
-        var4[4] = var3[4].getValue();
-        var4[5] = var3[5].getValue();
-        var4[6] = var3[6].getValue();
-        var4[7] = var3[7].getValue();
-        var4[8] = var3[8].getValue();
-        var4[9] = var3[9].getValue();
-        var4[10] = var3[10].getValue();
-        var4[11] = var3[11].getValue();
-        var4[12] = var3[12].getValue();
-        return var4;
+        Lazy[] items = IdRecord6.process();
+        KSerializer[] items2 = new KSerializer[13];
+        items2[0] = StringSerializer.INSTANCE;
+        items2[1] = items[1].getValue();
+        items2[2] = items[2].getValue();
+        items2[3] = items[3].getValue();
+        items2[4] = items[4].getValue();
+        items2[5] = items[5].getValue();
+        items2[6] = items[6].getValue();
+        items2[7] = items[7].getValue();
+        items2[8] = items[8].getValue();
+        items2[9] = items[9].getValue();
+        items2[10] = items[10].getValue();
+        items2[11] = items[11].getValue();
+        items2[12] = items[12].getValue();
+        return items2;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -131,7 +129,7 @@ public class IdRecord6Serializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (IdRecord6) value);
+        this.executeAction(encoder, ((IdRecord6) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -140,21 +138,21 @@ public class IdRecord6Serializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new IdRecord6Serializer();
-        PluginGeneratedSerialDescriptor var22 = new PluginGeneratedSerialDescriptor("su.catlean.o_", (GeneratedSerializer) INSTANCE, 13);
-        var22.addElement("id", 0);
-        var22.addElement("primaryColor", 0);
-        var22.addElement("secondaryColor", 0);
-        var22.addElement("blurColor", 0);
-        var22.addElement("widgetBlurColor", 0);
-        var22.addElement("outlineColor", 0);
-        var22.addElement("textColor", 0);
-        var22.addElement("nonactiveTextColor", 0);
-        var22.addElement("slidersColor", 0);
-        var22.addElement("nonActiveModuleColor", 0);
-        var22.addElement("moduleColor", 0);
-        var22.addElement("moduleOutlineColor", 0);
-        var22.addElement("nonActiveOutlineModuleColor", 0);
-        serialDescriptor = (SerialDescriptor) var22;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.o_", ((GeneratedSerializer) INSTANCE), 13);
+        pluginGeneratedSerialDescriptor.addElement("id", false);
+        pluginGeneratedSerialDescriptor.addElement("primaryColor", false);
+        pluginGeneratedSerialDescriptor.addElement("secondaryColor", false);
+        pluginGeneratedSerialDescriptor.addElement("blurColor", false);
+        pluginGeneratedSerialDescriptor.addElement("widgetBlurColor", false);
+        pluginGeneratedSerialDescriptor.addElement("outlineColor", false);
+        pluginGeneratedSerialDescriptor.addElement("textColor", false);
+        pluginGeneratedSerialDescriptor.addElement("nonactiveTextColor", false);
+        pluginGeneratedSerialDescriptor.addElement("slidersColor", false);
+        pluginGeneratedSerialDescriptor.addElement("nonActiveModuleColor", false);
+        pluginGeneratedSerialDescriptor.addElement("moduleColor", false);
+        pluginGeneratedSerialDescriptor.addElement("moduleOutlineColor", false);
+        pluginGeneratedSerialDescriptor.addElement("nonActiveOutlineModuleColor", false);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

@@ -30,15 +30,15 @@ public class PortalGodModeModule extends Module {
     }
 
     public void onPlayerUpdateEvent(PlayerUpdateEvent e) {
-        double var9 = (SharedKt.getPlayer().getX() - 2);
-        double var10 = (SharedKt.getPlayer().getX() + 2);
-        double var11 = (SharedKt.getPlayer().getZ() - 2);
-        double var12 = (SharedKt.getPlayer().getZ() + 2);
-        if (var11 < var12) {
-            double var13 = (SharedKt.getPlayer().getY() - 2);
-            double var14 = (SharedKt.getPlayer().getY() + 2);
-            if (var13 < var14) {
-                if (Intrinsics.areEqual(SharedKt.getWorld().getBlockState(BlockPos.method_49637()).getBlock(), Blocks.field_10316)) {
+        double offset = (SharedKt.getPlayer().getX() - 2);
+        double offset2 = (SharedKt.getPlayer().getX() + 2);
+        double offset3 = (SharedKt.getPlayer().getZ() - 2);
+        double offset4 = (SharedKt.getPlayer().getZ() + 2);
+        if (offset3 < offset4) {
+            double offset5 = (SharedKt.getPlayer().getY() - 2);
+            double offset6 = (SharedKt.getPlayer().getY() + 2);
+            if (offset5 < offset6) {
+                if (Intrinsics.areEqual(SharedKt.getWorld().getBlockState(BlockPos.method_49637(offset, offset5, offset3)).getBlock(), Blocks.field_10316)) {
                     serviceComponent10.executeAction();
                 }
             }
@@ -48,7 +48,7 @@ public class PortalGodModeModule extends Module {
     static {
         INSTANCE = new PortalGodModeModule();
         serviceComponent10 = new ServiceComponent10();
-        serviceComponent10.updateValue();
+        serviceComponent10.updateValue(0);
     }
 
 }

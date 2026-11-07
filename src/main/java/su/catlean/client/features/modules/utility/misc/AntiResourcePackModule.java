@@ -37,17 +37,16 @@ public class AntiResourcePackModule extends Module {
     public void onPlayerUpdateEvent(PlayerUpdateEvent e) {
         if (SharedKt.getNetwork().method_45734() != null && SharedKt.getNetwork().method_45734().field_3761 != null) {
         } else {
+            if (StringsKt.contains$default(((CharSequence) SharedKt.getNetwork().method_45734().field_3761), ((CharSequence) "crystalpvp.cc"), false) == 1) {
+                this.updateValue2();
+            }
         }
-        if (StringsKt.contains$default((CharSequence) SharedKt.getNetwork().method_45734().field_3761, (CharSequence) "crystalpvp.cc") == 1) {
-            this.updateValue2();
-        }
-        int var13 = countValue;
-        countValue = (var13 + 1);
+        countValue = (countValue + 1);
         if (countValue > (15 + (Math.random() * 15)) && !(enabledFlag2)) {
-            PacketPacketHelper.handlePacket((Packet) new class_2856(SharedKt.getPlayer().method_5667(), class_2857.field_13016));
+            PacketPacketHelper.handlePacket(((Packet) new class_2856(SharedKt.getPlayer().method_5667(), class_2857.field_13016)));
             enabledFlag2 = 1;
         }
-        PacketPacketHelper.handlePacket((Packet) new class_2856(SharedKt.getPlayer().method_5667(), class_2857.field_13017));
+        PacketPacketHelper.handlePacket(((Packet) new class_2856(SharedKt.getPlayer().method_5667(), class_2857.field_13017)));
         enabledFlag = 0;
     }
 

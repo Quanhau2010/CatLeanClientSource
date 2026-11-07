@@ -28,7 +28,7 @@ public class FireWorkVectorEvent extends Event {
 
     public boolean call(Vec3d vec) {
         this.setVector(vec);
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }

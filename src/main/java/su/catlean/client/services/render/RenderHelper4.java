@@ -11,8 +11,8 @@ public class RenderHelper4 {
     private static Module[] moduleArray;
 
     public static void render(MatrixStack receiver, Quaternionfc q) {
-        class_4665 var4 = receiver.method_23760();
-        var4.method_23761().rotate(q);
+        class_4665 class4665 = receiver.method_23760();
+        class4665.method_23761().rotate(q);
     }
 
     public static void updateValue(Module[] arg0) {

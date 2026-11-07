@@ -23,7 +23,7 @@ public class Render2DEvent extends Event {
     }
 
     public boolean call(DrawContext context) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         context = context;
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

@@ -70,30 +70,30 @@ public class ExplosionPosEntityHelper implements Contract9 {
         if (predictTicks > 0) {
         } else {
         }
-        Box var18 = target.method_5829();
-        double var19 = (var18.method_1005().method_1031(0.0D, (var18.method_17940() / 2.0D), 0.0D).method_1022(explosionPos) / 12.0D);
-        if (SharedKt.getWorld().method_8407() != class_1267.field_5801 && var19 <= 1.0D) {
+        Box box = target.method_5829();
+        double offset = (box.method_1005().method_1031(0.0D, (box.method_17940() / 2.0D), 0.0D).method_1022(explosionPos) / 12.0D);
+        if (SharedKt.getWorld().method_8407() != class_1267.field_5801 && offset <= 1.0D) {
             if (target.method_68878()) {
+                return 0.0F;
             }
-            return 0.0F;
         }
-        return this.computeValue(target, this.computeValue(explosionPos, ignoreTerrain, ghost, solid));
+        return this.computeValue(target, offset, this.computeValue(explosionPos, box, ignoreTerrain, ghost, solid));
     }
 
     public static float computeValue(ExplosionPosEntityHelper arg0, Vec3d arg1, PlayerEntity arg2, int arg3, boolean arg4, List arg5, boolean arg6, int arg7, Object arg8) {
-        if ((arg7 & 2)) {
-            arg2 = (PlayerEntity) SharedKt.getPlayer();
+        if ((arg7 & 2) != 0) {
+            arg2 = ((PlayerEntity) SharedKt.getPlayer());
         }
-        if ((arg7 & 4)) {
+        if ((arg7 & 4) != 0) {
             arg3 = 0;
         }
-        if ((arg7 & 8)) {
+        if ((arg7 & 8) != 0) {
             arg4 = 0;
         }
-        if ((arg7 & 16)) {
+        if ((arg7 & 16) != 0) {
             arg5 = CollectionsKt.emptyList();
         }
-        if ((arg7 & 32)) {
+        if ((arg7 & 32) != 0) {
             arg6 = 0;
         }
         return arg0.computeValue(arg1, arg2, arg3, arg4, arg5, arg6);
@@ -101,111 +101,108 @@ public class ExplosionPosEntityHelper implements Contract9 {
 
     private float computeValue(PlayerEntity arg0, double arg1, double arg2) {
         if (minecraftRef2 == null) {
-            minecraftRef2 = new class_1282((class_6880) SharedKt.getWorld().method_48963().field_42296.method_46747(class_8111.field_42331), null, null);
+            minecraftRef2 = new class_1282(((class_6880) SharedKt.getWorld().method_48963().field_42296.method_46747(class_8111.field_42331)), null, null);
         }
-        float var18 = this.computeValue(arg1, arg2);
+        float factor = this.computeValue(arg1, arg2);
         if (SharedKt.getWorld().method_8407() == class_1267.field_5805) {
-            var18 = Math.min(((var18 / 2.0D) + 1.0D));
+            factor = Math.min(((factor / 2.0D) + 1.0D), factor);
         } else {
             if (SharedKt.getWorld().method_8407() == class_1267.field_5807) {
-                var18 = (var18 * 1.5F);
+                factor = (factor * 1.5F);
             }
         }
-        var18 = class_1280.method_5496((LivingEntity) arg0, minecraftRef2, arg0.method_6096(), arg0.method_5996(class_5134.field_23725).method_6194());
+        factor = class_1280.method_5496(((LivingEntity) arg0), factor, minecraftRef2, arg0.method_6096(), arg0.method_5996(class_5134.field_23725).method_6194());
         if (arg0.method_6059(class_1294.field_5907)) {
-            int var19 = (25 - ((arg0.method_6112(class_1294.field_5907).method_5578() + 1) * 5));
-            var18 = Math.max(((var18 * var19) / 25.0F), 0.0D);
+            int index = (25 - ((arg0.method_6112(class_1294.field_5907).method_5578() + 1) * 5));
+            factor = Math.max(((factor * index) / 25.0F), 0.0D);
         }
-        if (var18 <= 0.0F) {
-            var18 = 0.0F;
+        if (factor <= 0.0F) {
+            factor = 0.0F;
         } else {
             if (AutoCrystalModule.INSTANCE.getAssumeBestArmor() && !(Intrinsics.areEqual(arg0, SharedKt.getPlayer()))) {
             } else {
             }
-            var19 = this.computeValue((Iterable) EntityHelper2.resolveList(arg0));
-            if (var19 > 0.0F) {
-                var18 = class_1280.method_5497();
+            index = this.computeValue(((Iterable) EntityHelper2.resolveList(arg0)));
+            if (index > 0.0F) {
+                factor = class_1280.method_5497(factor, index);
             }
         }
-        return var18;
+        return factor;
     }
 
     private float computeValue(Iterable arg0) {
-        float var2 = 0.0F;
-        Object var3 = arg0;
-        int var4 = 0;
-        Iterator iterator = var3.iterator();
+        float factor = 0.0F;
+        Iterator iterator = arg0.iterator();
         while (iterator.hasNext()) {
-            Object var6 = iterator.next();
-            ItemStack stack = (ItemStack) var6;
-            int var8 = 0;
+            Object element = iterator.next();
+            ItemStack stack = ((ItemStack) element);
             if (!(stack.isEmpty())) {
-                var2 = (var2 + 8.0F);
+                factor = (factor + 8.0F);
             }
         }
-        return var2;
+        return factor;
     }
 
     private float computeValue(double arg0, double arg1) {
-        double var5 = ((1.0D - arg0) * arg1);
-        return ((((((var5 * var5) + var5) / 2.0D) * 7.0D) * 12.0D) + 1.0D);
+        double offset = ((1.0D - arg0) * arg1);
+        return ((((((offset * offset) + offset) / 2.0D) * 7.0D) * 12.0D) + 1.0D);
     }
 
     private float computeValue(Vec3d arg0, Box arg1, boolean arg2, List arg3, boolean arg4) {
-        Pair var15 = this.resolvePair(arg0, arg1, arg2, arg3, arg4);
-        if (((Number) var15.getFirst() / (Number) var15.getSecond()) == 1.0F) {
+        Pair pair = this.resolvePair(arg0, arg1, arg2, arg3, arg4);
+        if ((((Number) pair.getFirst()) / ((Number) pair.getSecond())) == 1.0F) {
             return 1.0F;
         }
-        if (((Number) var15.getFirst() / (Number) var15.getSecond()) == 0.0F) {
+        if ((((Number) pair.getFirst()) / ((Number) pair.getSecond())) == 0.0F) {
             return 0.0F;
         }
-        double var16 = (1.0D / (((arg1.field_1320 - arg1.field_1323) * 2.0D) + 1.0D));
-        double var18 = (1.0D / (((arg1.field_1325 - arg1.field_1322) * 2.0D) + 1.0D));
-        double var20 = (1.0D / (((arg1.field_1324 - arg1.field_1321) * 2.0D) + 1.0D));
-        double var22 = ((1.0D - (Math.floor((1.0D / var16)) * var16)) / 2.0D);
-        double var24 = ((1.0D - (Math.floor((1.0D / var20)) * var20)) / 2.0D);
-        if (var16 >= 0.0D && var18 >= 0.0D && var20 >= 0.0D) {
-            int var26 = (Number) var15.getFirst();
-            int var27 = (Number) var15.getSecond();
-            double var28 = 0.0D;
-            if (var28 <= 1.0D) {
-                double var30 = 0.0D;
-                if (var30 <= 1.0D) {
-                    double var32 = 0.0D;
-                    if (var32 <= 1.0D) {
-                        double var34 = class_3532.method_16436(arg1.field_1323, arg1.field_1320);
-                        double var36 = class_3532.method_16436(arg1.field_1322, arg1.field_1325);
-                        double var38 = class_3532.method_16436(arg1.field_1321, arg1.field_1324);
-                        if (!(this.checkCondition())) {
-                            if (this.resolveMinecraftObject(new Vec3d((var34 + var22), (var38 + var24)), arg0, arg2, arg3, arg4) == null) {
+        double offset = (1.0D / (((arg1.field_1320 - arg1.field_1323) * 2.0D) + 1.0D));
+        double offset2 = (1.0D / (((arg1.field_1325 - arg1.field_1322) * 2.0D) + 1.0D));
+        double offset3 = (1.0D / (((arg1.field_1324 - arg1.field_1321) * 2.0D) + 1.0D));
+        double offset4 = ((1.0D - (Math.floor((1.0D / offset)) * offset)) / 2.0D);
+        double offset5 = ((1.0D - (Math.floor((1.0D / offset3)) * offset3)) / 2.0D);
+        if (offset >= 0.0D && offset2 >= 0.0D && offset3 >= 0.0D) {
+            int index = ((Number) pair.getFirst());
+            int index2 = ((Number) pair.getSecond());
+            double offset6 = 0.0D;
+            if (offset6 <= 1.0D) {
+                double offset7 = 0.0D;
+                if (offset7 <= 1.0D) {
+                    double offset8 = 0.0D;
+                    if (offset8 <= 1.0D) {
+                        double offset9 = class_3532.method_16436(offset6, arg1.field_1323, arg1.field_1320);
+                        double offset10 = class_3532.method_16436(offset7, arg1.field_1322, arg1.field_1325);
+                        double offset11 = class_3532.method_16436(offset8, arg1.field_1321, arg1.field_1324);
+                        if (!(this.checkCondition(offset6, offset7, offset8))) {
+                            if (this.resolveMinecraftObject(new Vec3d((offset9 + offset4), offset10, (offset11 + offset5)), arg0, arg2, arg3, arg4) == null) {
                             }
                         }
-                        var32 = (var32 + var20);
+                        offset8 = (offset8 + offset3);
                     }
-                    var30 = (var30 + var18);
+                    offset7 = (offset7 + offset2);
                 }
-                var28 = (var28 + var16);
+                offset6 = (offset6 + offset);
             }
-            return (var26 / var27);
+            return (index / index2);
         }
         return 0.0F;
     }
 
     private static float computeValue(ExplosionPosEntityHelper arg0, Vec3d arg1, Box arg2, boolean arg3, List arg4, boolean arg5, int arg6, Object arg7) {
-        if ((arg6 & 8)) {
+        if ((arg6 & 8) != 0) {
             arg4 = CollectionsKt.emptyList();
         }
         return arg0.computeValue(arg1, arg2, arg3, arg4, arg5);
     }
 
     private boolean checkCondition(double arg0, double arg1, double arg2) {
-        int var7 = 0;
-        if (var7 < 2) {
-            int var8 = 0;
-            if (var8 < 2) {
-                int var9 = 0;
-                if (var9 < 2) {
-                    if (arg0 == var7 && arg1 == var8 && arg2 == var9) {
+        int index = 0;
+        if (index < 2) {
+            int index2 = 0;
+            if (index2 < 2) {
+                int index3 = 0;
+                if (index3 < 2) {
+                    if (arg0 == index && arg1 == index2 && arg2 == index3) {
                         return true;
                     }
                 }
@@ -215,101 +212,99 @@ public class ExplosionPosEntityHelper implements Contract9 {
     }
 
     private Pair resolvePair(Vec3d arg0, Box arg1, boolean arg2, List arg3, boolean arg4) {
-        double var10 = (1.0D / (((arg1.field_1320 - arg1.field_1323) * 2.0D) + 1.0D));
-        double var12 = (1.0D / (((arg1.field_1324 - arg1.field_1321) * 2.0D) + 1.0D));
-        double var14 = ((1.0D - (Math.floor((1.0D / var10)) * var10)) / 2.0D);
-        double var16 = ((1.0D - (Math.floor((1.0D / var12)) * var12)) / 2.0D);
-        int var18 = 0;
-        int var19 = 0;
-        double var20 = 0.0D;
-        if (var20 <= 1.0D) {
-            double var22 = 0.0D;
-            if (var22 <= 1.0D) {
-                double var24 = 0.0D;
-                if (var24 <= 1.0D) {
-                    double var26 = class_3532.method_16436(arg1.field_1323, arg1.field_1320);
-                    double var28 = class_3532.method_16436(arg1.field_1322, arg1.field_1325);
-                    double var30 = class_3532.method_16436(arg1.field_1321, arg1.field_1324);
-                    Vec3d vec = new Vec3d((var26 + var14), (var30 + var16));
+        double offset = (1.0D / (((arg1.field_1320 - arg1.field_1323) * 2.0D) + 1.0D));
+        double offset2 = (1.0D / (((arg1.field_1324 - arg1.field_1321) * 2.0D) + 1.0D));
+        double offset3 = ((1.0D - (Math.floor((1.0D / offset)) * offset)) / 2.0D);
+        double offset4 = ((1.0D - (Math.floor((1.0D / offset2)) * offset2)) / 2.0D);
+        int index = 0;
+        int index2 = 0;
+        double offset5 = 0.0D;
+        if (offset5 <= 1.0D) {
+            double offset6 = 0.0D;
+            if (offset6 <= 1.0D) {
+                double offset7 = 0.0D;
+                if (offset7 <= 1.0D) {
+                    double offset8 = class_3532.method_16436(offset5, arg1.field_1323, arg1.field_1320);
+                    double offset9 = class_3532.method_16436(offset6, arg1.field_1322, arg1.field_1325);
+                    double offset10 = class_3532.method_16436(offset7, arg1.field_1321, arg1.field_1324);
+                    Vec3d vec = new Vec3d((offset8 + offset3), offset9, (offset10 + offset4));
                     if (this.resolveMinecraftObject(vec, arg0, arg2, arg3, arg4) == null) {
                     }
-                    var24 = (var24 + 1.0D);
+                    offset7 = (offset7 + 1.0D);
                 }
-                var22 = (var22 + 1.0D);
+                offset6 = (offset6 + 1.0D);
             }
-            var20 = (var20 + 1.0D);
+            offset5 = (offset5 + 1.0D);
         }
-        return new Pair(Integer.valueOf(), Integer.valueOf());
+        return new Pair(Integer.valueOf(index), Integer.valueOf(index2));
     }
 
     private static Pair resolvePair(ExplosionPosEntityHelper arg0, Vec3d arg1, Box arg2, boolean arg3, List arg4, boolean arg5, int arg6, Object arg7) {
-        if ((arg6 & 8)) {
+        if ((arg6 & 8) != 0) {
             arg4 = CollectionsKt.emptyList();
         }
         return arg0.resolvePair(arg1, arg2, arg3, arg4, arg5);
     }
 
     private class_3965 resolveMinecraftObject(BlockPos arg0, Vec3d arg1, Vec3d arg2, boolean arg3, List arg4, boolean arg5) {
-        float var12 = 0.0F;
+        float factor = 0.0F;
         if (arg4.contains(arg0)) {
             return null;
         }
-        long var13 = arg0.method_10063();
+        long time = arg0.method_10063();
         if (enabledFlag) {
-            class_265 var11 = this.resolveMinecraftObject();
-            var12 = this.computeValue();
+            class_265 class265 = this.resolveMinecraftObject();
+            factor = this.computeValue();
         } else {
             BlockState state = SharedKt.getWorld().getBlockState(arg0);
-            var11 = state.method_26220((class_1922) SharedKt.getWorld(), arg0);
-            var12 = state.getBlock().method_9520();
-            if (!(var11.method_1110()) && !(Intrinsics.areEqual(state.getBlock(), Blocks.ENDER_CHEST))) {
-                if (Intrinsics.areEqual(class_259.method_1077())) {
+            class265 = state.method_26220(((class_1922) SharedKt.getWorld()), arg0);
+            factor = state.getBlock().method_9520();
+            if (!(class265.method_1110()) && !(Intrinsics.areEqual(state.getBlock(), Blocks.ENDER_CHEST))) {
+                if (Intrinsics.areEqual(class265, class_259.method_1077())) {
+                    Map map = ((Map) long2ByteOpenHashMap);
+                    Long value = Long.valueOf(time);
+                    Byte value2 = Byte.valueOf(this.process(state.getBlock(), class265.method_1110()));
+                    map.put(value, value2);
                 }
-                Map var17 = (Map) long2ByteOpenHashMap;
-                Long var18 = Long.valueOf();
-                Byte var19 = Byte.valueOf(this.process(state.getBlock(), var11.method_1110()));
-                var17.put();
             }
         }
-        if (var12 < 600.0F) {
+        if (factor < 600.0F) {
             return null;
         }
-        return var11.method_1092(arg1, arg2, arg0);
+        return class265.method_1092(arg1, arg2, arg0);
     }
 
     private static class_3965 resolveMinecraftObject(ExplosionPosEntityHelper arg0, BlockPos arg1, Vec3d arg2, Vec3d arg3, boolean arg4, List arg5, boolean arg6, int arg7, Object arg8) {
-        if ((arg7 & 8)) {
+        if ((arg7 & 8) != 0) {
             arg4 = 0;
         }
-        if ((arg7 & 16)) {
+        if ((arg7 & 16) != 0) {
             arg5 = CollectionsKt.emptyList();
         }
-        if ((arg7 & 32)) {
+        if ((arg7 & 32) != 0) {
             arg6 = 1;
         }
         return arg0.resolveMinecraftObject(arg1, arg2, arg3, arg4, arg5, arg6);
     }
 
     private float computeValue(byte arg0) {
-        int var2 = arg0;
-        if (var2 != 1) {
-            if (var2 == 2) {
+        if (arg0 != 1) {
+            if (arg0 == 2) {
+            } else {
             }
-        } else {
         }
         return 600.0F;
     }
 
     private class_265 resolveMinecraftObject(byte arg0) {
-        int var3 = arg0;
-        if (var3 == 1) {
+        if (arg0 == 1) {
         } else {
-            if (var3 == 4) {
+            if (arg0 == 4) {
             } else {
             }
         }
-        class_265 var2 = class_259.method_1077();
-        return var2;
+        class_265 class265 = class_259.method_1077();
+        return class265;
     }
 
     private byte process(Block arg0, boolean arg1) {
@@ -327,99 +322,80 @@ public class ExplosionPosEntityHelper implements Contract9 {
         if (Intrinsics.areEqual(start, end)) {
             return null;
         }
-        double var10 = class_3532.method_16436(-1.0E-7D, end.field_1352, start.field_1352);
-        double var12 = class_3532.method_16436(-1.0E-7D, end.field_1351, start.field_1351);
-        double var14 = class_3532.method_16436(-1.0E-7D, end.field_1350, start.field_1350);
-        double var16 = class_3532.method_16436(-1.0E-7D, start.field_1352, end.field_1352);
-        double var18 = class_3532.method_16436(-1.0E-7D, start.field_1351, end.field_1351);
-        double var20 = class_3532.method_16436(-1.0E-7D, start.field_1350, end.field_1350);
-        int var22 = class_3532.method_15357();
-        int var23 = class_3532.method_15357();
-        int var24 = class_3532.method_15357();
-        class_2339 var25 = new class_2339();
-        return var26;
-        double var27 = (var10 - var16);
-        double var29 = (var12 - var18);
-        double var31 = (var14 - var20);
-        int var36 = (var33 / var27);
-        int var38 = (var34 / var29);
-        int var40 = (var35 / var31);
-        double var42 = (var36 * class_3532.method_15385());
-        double var44 = (var38 * class_3532.method_15385());
-        double var46 = (var40 * class_3532.method_15385());
-        if (var42 > 1.0D && var44 > 1.0D) {
-            if (var46 <= 1.0D) {
-            }
-            if (var42 < var44) {
-                if (var42 < var46) {
-                    var22 = (var22 + var33);
-                    var42 = (var42 + var36);
-                } else {
-                    var24 = (var24 + var35);
-                    var46 = (var46 + var40);
-                } else {
-                    if (var44 < var46) {
-                        var23 = (var23 + var34);
-                        var44 = (var44 + var38);
+        double offset = class_3532.method_16436(-1.0E-7D, end.field_1352, start.field_1352);
+        double offset2 = class_3532.method_16436(-1.0E-7D, end.field_1351, start.field_1351);
+        double offset3 = class_3532.method_16436(-1.0E-7D, end.field_1350, start.field_1350);
+        double offset4 = class_3532.method_16436(-1.0E-7D, start.field_1352, end.field_1352);
+        double offset5 = class_3532.method_16436(-1.0E-7D, start.field_1351, end.field_1351);
+        double offset6 = class_3532.method_16436(-1.0E-7D, start.field_1350, end.field_1350);
+        int index = class_3532.method_15357(offset4);
+        int index2 = class_3532.method_15357(offset5);
+        int index3 = class_3532.method_15357(offset6);
+        class_2339 class2339 = new class_2339(index, index2, index3);
+        return __UNDEF_KEY__;
+        double offset7 = (offset - offset4);
+        double offset8 = (offset2 - offset5);
+        double offset9 = (offset3 - offset6);
+        if (__UNDEF_KEY__ > 1.0D && __UNDEF_KEY__ > 1.0D) {
+            if (__UNDEF_KEY__ <= 1.0D) {
+                if (__UNDEF_KEY__ < __UNDEF_KEY__) {
+                    if (__UNDEF_KEY__ < __UNDEF_KEY__) {
                     } else {
-                        var24 = (var24 + var35);
-                        var46 = (var46 + var40);
+                        if (__UNDEF_KEY__ < __UNDEF_KEY__) {
+                        } else {
+                        }
                     }
+                } else {
                 }
+                class_3965 class3965 = this.resolveMinecraftObject(((BlockPos) class2339.method_10103(index, index2, index3)), start, end, ignoreTerrain, ghost, solid);
+                return class3965;
             }
-            class_3965 var48 = this.resolveMinecraftObject((BlockPos) var25.method_10103(), start, end, ignoreTerrain, ghost, solid);
-            Object var49 = var48;
-            int var50 = 0;
-            return var49;
         }
         return null;
     }
 
     public static class_3965 resolveMinecraftObject(ExplosionPosEntityHelper arg0, Vec3d arg1, Vec3d arg2, boolean arg3, List arg4, boolean arg5, int arg6, Object arg7) {
-        if ((arg6 & 4)) {
+        if ((arg6 & 4) != 0) {
             arg3 = 0;
         }
-        if ((arg6 & 8)) {
+        if ((arg6 & 8) != 0) {
             arg4 = CollectionsKt.emptyList();
         }
-        if ((arg6 & 16)) {
+        if ((arg6 & 16) != 0) {
             arg5 = 1;
         }
         return arg0.resolveMinecraftObject(arg1, arg2, arg3, arg4, arg5);
     }
 
     public boolean checkCondition(Vec3d point) {
-        if (resolveMinecraftObject(this, VecPacketHelper.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()), point) != null) {
-            if (resolveMinecraftObject(this, VecPacketHelper.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()), point).method_17783() == null) {
+        if (resolveMinecraftObject(this, VecPacketHelper.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()), point, false, null, false) != null) {
+            if (resolveMinecraftObject(this, VecPacketHelper.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()), point, false, null, false).method_17783() == null) {
+                resolveMinecraftObject(this, VecPacketHelper.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()), point, false, null, false).method_17783();
             }
-            resolveMinecraftObject(this, VecPacketHelper.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()), point).method_17783();
         }
         return class_240.field_1333 == class_240.field_1333;
     }
 
     private int computeValue(Iterable arg0) {
-        int var6 = 0;
-        Object var7 = arg0;
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
+        int index = 0;
+        Iterator iterator = arg0.iterator();
         while (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            ItemStack stack = (ItemStack) var10;
-            int var12 = 0;
-            var6 = (var6 + INSTANCE.computeValue(stack));
+            Object element = iterator.next();
+            ItemStack stack = ((ItemStack) element);
+            index = (index + INSTANCE.computeValue(stack));
         }
-        return var6;
+        return index;
     }
 
     private int computeValue(ItemStack arg0) {
         if (arg0 != null) {
             if (arg0.isEmpty()) {
+                return 0;
             }
-            return 0;
         }
-        int var6 = StackServiceComponent3.computeValue(arg0, class_1893.field_9107);
-        int var7 = StackServiceComponent3.computeValue(arg0, class_1893.field_9111);
-        return ((var6 * 2) + var7);
+        int index = StackServiceComponent3.computeValue(arg0, class_1893.field_9107);
+        int index2 = StackServiceComponent3.computeValue(arg0, class_1893.field_9111);
+        return ((index * 2) + index2);
     }
 
     static {

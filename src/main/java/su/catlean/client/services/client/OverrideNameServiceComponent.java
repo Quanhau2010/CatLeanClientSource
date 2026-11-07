@@ -44,30 +44,30 @@ public class OverrideNameServiceComponent {
     }
 
     public static OverrideNameServiceComponent resolveOverrideNameServiceComponent(OverrideNameServiceComponent arg0, String arg1, Number arg2, String arg3, int arg4, Object arg5) {
-        if ((arg4 & 1)) {
+        if ((arg4 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg4 & 2)) {
+        if ((arg4 & 2) != 0) {
             arg2 = arg0.number;
         }
-        if ((arg4 & 4)) {
+        if ((arg4 & 4) != 0) {
             arg3 = arg0.textValue2;
         }
         return arg0.resolveOverrideNameServiceComponent(arg1, arg2, arg3);
     }
 
     public String toString() {
-        String var3 = this.textValue2;
-        Number var4 = this.number;
-        String var5 = this.textValue;
-        return ("SettingNameOverride(name=" + var5 + ", value=" + var4 + ", overrideName=" + var3 + ")");
+        String text = this.textValue2;
+        Number number = this.number;
+        String text2 = this.textValue;
+        return ("SettingNameOverride(name=" + text2 + ", value=" + number + ", overrideName=" + text + ")");
     }
 
     public int hashCode() {
-        int var4 = this.textValue.hashCode();
-        var4 = ((var4 * 31) + this.number.hashCode());
-        var4 = ((var4 * 31) + this.textValue2.hashCode());
-        if (var4 != null) {
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.number.hashCode());
+        index = ((index * 31) + this.textValue2.hashCode());
+        if (index != null) {
         }
         return null;
     }
@@ -79,14 +79,14 @@ public class OverrideNameServiceComponent {
         if (!(other instanceof OverrideNameServiceComponent)) {
             return false;
         }
-        OverrideNameServiceComponent var5 = (OverrideNameServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        OverrideNameServiceComponent overrideNameServiceComponent = ((OverrideNameServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.textValue, overrideNameServiceComponent.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.number, var5.number))) {
+        if (!(Intrinsics.areEqual(this.number, overrideNameServiceComponent.number))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, overrideNameServiceComponent.textValue2))) {
             return false;
         }
         return true;

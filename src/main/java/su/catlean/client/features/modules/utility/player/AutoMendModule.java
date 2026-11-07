@@ -70,39 +70,39 @@ public class AutoMendModule extends Module {
     }
 
     private int getMinDurability() {
-        return (Number) minDurabilitySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) minDurabilitySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private int getMaxDurability() {
-        return (Number) maxDurabilitySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) maxDurabilitySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getOverrideOnLoot() {
-        return (Boolean) overrideOnLootSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) overrideOnLootSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private int getXpFactor() {
-        return (Number) xpFactorSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) xpFactorSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private SettingGroup getPauseGroup() {
-        return (SettingGroup) pauseGroupSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((SettingGroup) pauseGroupSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getIfMove() {
-        return (Boolean) ifMoveSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) ifMoveSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getIfMining() {
-        return (Boolean) ifMiningSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) ifMiningSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private boolean getIfEating() {
-        return (Boolean) ifEatingSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) ifEatingSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private boolean getIfNotInHole() {
-        return (Boolean) ifNotInHoleSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) ifNotInHoleSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     public ServiceComponent10 getServiceComponent10() {
@@ -122,10 +122,10 @@ public class AutoMendModule extends Module {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        Item[] var62 = new Item[1];
-        var62[0] = Items.field_8287;
-        StackServiceComponent2 var61 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        if (this.getIfMining() && !((Collection) SpeedMineModule.INSTANCE.getLinkedList().isEmpty())) {
+        Item[] items = new Item[1];
+        items[0] = Items.field_8287;
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+        if (this.getIfMining() && !(((Collection) SpeedMineModule.INSTANCE.getLinkedList()).isEmpty())) {
         }
         if (SharedKt.getInteractionManager().method_2923() || SpeedMineModule.INSTANCE.getResetOnSwitch() || !(serviceComponent10.checkCondition(500))) {
             return;
@@ -139,122 +139,120 @@ public class AutoMendModule extends Module {
         if (this.getIfNotInHole() && !(ServiceComponent102.INSTANCE.checkCondition(BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()))))) {
             return;
         }
-        if (AutoCrystalModule.INSTANCE.getEnabled() && AutoCrystalModule.INSTANCE.getTarget() != null && AutoCrystalModule.INSTANCE.getAtomicReference().get() != null && (DamageDataServiceComponent) AutoCrystalModule.INSTANCE.getAtomicReference().get().getServiceComponent95().getNumericValue() > 4.0F) {
+        if (AutoCrystalModule.INSTANCE.getEnabled() && AutoCrystalModule.INSTANCE.getTarget() != null && AutoCrystalModule.INSTANCE.getAtomicReference().get() != null && ((DamageDataServiceComponent) AutoCrystalModule.INSTANCE.getAtomicReference().get()).getServiceComponent95().getNumericValue() > 4.0F) {
             enabledFlag = 0;
             return;
         }
-        Iterable var63 = SharedKt.getWorld().method_18112();
-        int var64 = 0;
-        Object var65 = var63;
-        Collection var66 = (Collection) new ArrayList();
-        int var67 = 0;
-        Iterator iterator = var65.iterator();
+        Iterable iterable = SharedKt.getWorld().method_18112();
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        int index2 = 0;
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var69 = iterator.next();
-            var66.add();
+            Object element = iterator.next();
+            collection.add(element);
         }
-        var63 = (Iterable) var66;
-        var64 = 0;
-        if (var63 instanceof Collection && (Collection) var63.isEmpty()) {
+        iterable = ((Iterable) collection);
+        index = 0;
+        if (iterable instanceof Collection && ((Collection) iterable).isEmpty()) {
         } else {
-            var65 = var63.iterator();
-            if (var65.hasNext()) {
-                var66 = var65.next();
-                var67 = (class_1542) var66;
+            iterable2 = iterable.iterator();
+            while (iterable2.hasNext()) {
+                collection = iterable2.next();
+                index2 = ((class_1542) collection);
                 iterator = 0;
+            }
+        }
+        items = 0;
+        if (items) {
+            if (this.getOverrideOnLoot()) {
             } else {
             }
+        } else {
         }
-        var62 = 0;
-        if (var62) {
+        iterable = this.getMaxDurability();
+        if (items) {
             if (this.getOverrideOnLoot()) {
+            } else {
             }
         } else {
         }
-        }
-        var63 = this.getMaxDurability();
-        if (var62) {
-            if (this.getOverrideOnLoot()) {
-            }
-        } else {
-        }
-        }
-        var64 = this.getMinDurability();
-        var66 = (Iterable) EntityHelper2.resolveList(SharedKt.getPlayer());
-        var67 = 0;
-        iterator = var66;
-        var69 = (Collection) new ArrayList();
-        int var70 = 0;
+        index = this.getMinDurability();
+        collection = ((Iterable) EntityHelper2.resolveList(SharedKt.getPlayer()));
+        index2 = 0;
+        iterator = collection;
+        element = ((Collection) new ArrayList());
+        int index3 = 0;
         Iterator iterator2 = iterator.iterator();
         while (iterator2.hasNext()) {
-            Object var72 = iterator2.next();
-            ItemStack stack = (ItemStack) var72;
-            int var74 = 0;
-            var69.add();
+            Object element2 = iterator2.next();
+            ItemStack stack = ((ItemStack) element2);
+            element.add(element2);
         }
-        var65 = var69;
+        iterable2 = element;
         if (!(enabledFlag)) {
-            iterator = (Iterable) var65.iterator();
+            iterator = ((Iterable) iterable2).iterator();
             if (!(iterator.hasNext())) {
             } else {
-                var69 = (ItemStack) iterator.next();
-                var70 = 0;
-                var69 = INSTANCE.computeValue();
+                element = ((ItemStack) iterator.next());
+                index3 = 0;
+                element = INSTANCE.computeValue(element);
                 while (iterator.hasNext()) {
-                    var70 = (ItemStack) iterator.next();
+                    index3 = ((ItemStack) iterator.next());
                     iterator2 = 0;
-                    var70 = INSTANCE.computeValue();
-                    var69 = Math.min();
+                    index3 = INSTANCE.computeValue(index3);
+                    element = Math.min(element, index3);
                 }
             }
-            if (Float.valueOf() != null) {
+            if (Float.valueOf(element) != null) {
             } else {
-                Float.valueOf();
+                Float.valueOf(element);
             }
-            if (100.0F < var64) {
+            if (100.0F < index) {
                 enabledFlag = 1;
             }
         }
         if (enabledFlag) {
-            iterator = (Iterable) var65.iterator();
+            iterator = ((Iterable) iterable2).iterator();
             if (!(iterator.hasNext())) {
             } else {
-                var69 = (ItemStack) iterator.next();
-                var70 = 0;
-                var69 = INSTANCE.computeValue();
+                element = ((ItemStack) iterator.next());
+                index3 = 0;
+                element = INSTANCE.computeValue(element);
                 while (iterator.hasNext()) {
-                    var70 = (ItemStack) iterator.next();
+                    index3 = ((ItemStack) iterator.next());
                     iterator2 = 0;
-                    var70 = INSTANCE.computeValue();
-                    var69 = Math.min();
+                    index3 = INSTANCE.computeValue(index3);
+                    element = Math.min(element, index3);
                 }
             }
-            if (Float.valueOf() != null) {
+            if (Float.valueOf(element) != null) {
             } else {
-                Float.valueOf();
+                Float.valueOf(element);
             }
-            if (100.0F >= var63) {
+            if (100.0F >= iterable) {
                 enabledFlag = 0;
             }
         }
         if (!(SharedKt.getPlayer().isFallFlying())) {
             if (SharedKt.getWorld().getBlockState(BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer())).down()).method_45474()) {
                 if (!(SharedKt.getWorld().getBlockState(BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer())).method_10087(2)).method_45474())) {
-                }
-                if (!(var61.isActive())) {
+                    if (!(stackServiceComponent2.isActive())) {
+                        enabledFlag = 0;
+                    }
                 }
             }
-            enabledFlag = 0;
         }
-        var66 = PlayerEntityHelper2.INSTANCE.predictPosition((PlayerEntity) SharedKt.getPlayer(), Math.ceil((TheNetherPacketHelper.f() / 50.0F)));
-        SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(), 150, this::resolveUnit));
+        collection = PlayerEntityHelper2.INSTANCE.predictPosition(((PlayerEntity) SharedKt.getPlayer()), Math.ceil((TheNetherPacketHelper.f() / 50.0F)));
+        SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(collection), 150, this::resolveUnit));
     }
 
     private float computeValue(ItemStack arg0) {
         if (!(arg0.isEmpty())) {
             if (!(arg0.method_7936())) {
+                return 100.0F;
             }
-            return 100.0F;
         }
         return (((arg0.method_7936() - arg0.method_7919()) / arg0.method_7936()) * 100.0F);
     }
@@ -265,17 +263,17 @@ public class AutoMendModule extends Module {
     }
 
     static {
-        KProperty[] var33 = new KProperty[9];
+        KProperty[] items = new KProperty[9];
         INSTANCE = new AutoMendModule();
         minDurabilitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "min-durability", 30, new IntRange(0, 100));
         maxDurabilitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "max-durability", 90, new IntRange(0, 100));
-        overrideOnLootSetting = VisibleRenderHelper.registerSetting(INSTANCE, "override-on-loot");
+        overrideOnLootSetting = VisibleRenderHelper.registerSetting(INSTANCE, "override-on-loot", true);
         xpFactorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "xp-factor", 1, new IntRange(1, 16));
         pauseGroupSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause", OptionMode14.BOOLS);
-        ifMoveSetting = VisibleRenderHelper.registerSetting(INSTANCE, "if-move", 1, INSTANCE.getPauseGroup());
-        ifMiningSetting = VisibleRenderHelper.registerSetting(INSTANCE, "if-mining", 0, INSTANCE.getPauseGroup());
-        ifEatingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "if-eating", 0, INSTANCE.getPauseGroup());
-        ifNotInHoleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "if-not-in-hole", 0, INSTANCE.getPauseGroup());
+        ifMoveSetting = VisibleRenderHelper.registerSetting(INSTANCE, "if-move", true, INSTANCE.getPauseGroup());
+        ifMiningSetting = VisibleRenderHelper.registerSetting(INSTANCE, "if-mining", false, INSTANCE.getPauseGroup());
+        ifEatingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "if-eating", false, INSTANCE.getPauseGroup());
+        ifNotInHoleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "if-not-in-hole", false, INSTANCE.getPauseGroup());
         serviceComponent10 = new ServiceComponent10();
     }
 

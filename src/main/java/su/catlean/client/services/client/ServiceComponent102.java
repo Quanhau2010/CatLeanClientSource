@@ -60,16 +60,16 @@ public class ServiceComponent102 implements Contract9 {
             itemList = CollectionsKt.emptyList();
             return;
         }
-        future = (Future) CompletableFuture.supplyAsync(this::getList, (Executor) executorService).exceptionally(this::resolveList);
+        future = ((Future) CompletableFuture.supplyAsync(this::getList, ((Executor) executorService)).exceptionally(this::resolveList));
     }
 
     public List resolveList() {
         serviceComponent10.executeAction();
         if (future != null) {
         } else {
-        }
-        if (future.isDone() == 1) {
-            itemList = future.get();
+            if (future.isDone() == 1) {
+                itemList = future.get();
+            }
         }
         return itemList;
     }
@@ -77,18 +77,18 @@ public class ServiceComponent102 implements Contract9 {
     public boolean checkCondition(BlockPos pos) {
         serviceComponent10.executeAction();
         Iterator iterator = this.resolveList().iterator();
-        if (iterator.hasNext()) {
-            SafetyServiceComponent var8 = (SafetyServiceComponent) iterator.next();
-            if (Intrinsics.areEqual(pos, var8.getMinecraftObject())) {
+        while (iterator.hasNext()) {
+            SafetyServiceComponent safetyServiceComponent = ((SafetyServiceComponent) iterator.next());
+            if (Intrinsics.areEqual(pos, safetyServiceComponent.getMinecraftObject())) {
                 return true;
             }
-            if (var8.getOptionMode17() == OptionMode17.DOUBLE_X && Intrinsics.areEqual(pos, var8.getMinecraftObject().method_10069(1, 0, 0))) {
+            if (safetyServiceComponent.getOptionMode17() == OptionMode17.DOUBLE_X && Intrinsics.areEqual(pos, safetyServiceComponent.getMinecraftObject().method_10069(1, 0, 0))) {
                 return true;
             }
-            if (var8.getOptionMode17() == OptionMode17.DOUBLE_Z && Intrinsics.areEqual(pos, var8.getMinecraftObject().method_10069(0, 0, 1))) {
+            if (safetyServiceComponent.getOptionMode17() == OptionMode17.DOUBLE_Z && Intrinsics.areEqual(pos, safetyServiceComponent.getMinecraftObject().method_10069(0, 0, 1))) {
                 return true;
             }
-            if (!(Intrinsics.areEqual(pos, var8.getMinecraftObject().method_10069(0, 0, 1))) && !(Intrinsics.areEqual(pos, var8.getMinecraftObject().method_10069(1, 0, 1)))) {
+            if (!(Intrinsics.areEqual(pos, safetyServiceComponent.getMinecraftObject().method_10069(0, 0, 1))) && !(Intrinsics.areEqual(pos, safetyServiceComponent.getMinecraftObject().method_10069(1, 0, 1)))) {
             }
             return true;
         }
@@ -96,20 +96,15 @@ public class ServiceComponent102 implements Contract9 {
     }
 
     public BlockState resolveMinecraftObject(int i, int j, int k) {
-        class_2818 var12 = SharedKt.getWorld().method_8497((i >> 4), (k >> 4));
-        int var13 = SharedKt.getWorld().method_31602(j);
-        if (var11 != null) {
+        class_2818 class2818 = SharedKt.getWorld().method_8497((i >> 4), (k >> 4));
+        int index = SharedKt.getWorld().method_31602(j);
+        if (__UNDEF_KEY__ > 0) {
         }
-        if (0L > 0) {
-            if (var11 != null) {
-                if (var11 != null) {
-                }
-            }
-            if (var13 >= 0 && var13 < var12.method_12006() && !(var12.method_12006()[var13].method_38292())) {
-            }
-            return var12.method_12006()[var13].method_12254((i & 15), (j & 15), (k & 15));
+        if (index < class2818.method_12006() && !(class2818.method_12006()[index].method_38292())) {
+            return class2818.method_12006()[index].method_12254((i & 15), (j & 15), (k & 15));
         }
         return Blocks.AIR.method_9564();
+        class2818 = index;
         return Blocks.AIR.method_9564();
     }
 
@@ -122,11 +117,11 @@ public class ServiceComponent102 implements Contract9 {
     }
 
     private boolean checkCondition(class_2791 arg0, int arg1, int arg2, int arg3) {
-        Block var11 = this.resolveMinecraftObject(arg1, arg2, arg3).getBlock();
-        if (!(itemSet2.contains())) {
-            if (itemSet.contains()) {
+        Block block = this.resolveMinecraftObject(arg1, arg2, arg3).getBlock();
+        if (!(itemSet2.contains(block))) {
+            if (itemSet.contains(block)) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -140,8 +135,8 @@ public class ServiceComponent102 implements Contract9 {
     }
 
     private SafetyServiceComponent resolveSafetyServiceComponent(int arg0, int arg1, int arg2) {
-        int var19 = 0;
-        int var20 = 0;
+        int index = 0;
+        int index2 = 0;
         if (this.checkCondition((arg0 - 1), arg1, arg2)) {
         } else {
             if (this.checkCondition((arg0 - 1), arg1, arg2)) {
@@ -152,61 +147,58 @@ public class ServiceComponent102 implements Contract9 {
             if (this.checkCondition(arg0, arg1, (arg2 - 1))) {
             }
         }
-        if ((var19 + var20) < 2) {
+        if ((index + index2) < 2) {
             return null;
         }
-        boolean var21 = this.resolveMinecraftObject(arg0, arg1, (arg2 + 1)).method_26215();
-        boolean var22 = this.resolveMinecraftObject((arg0 + 1), arg1, arg2).method_26215();
-        if (var21 && var22) {
+        boolean flag = this.resolveMinecraftObject(arg0, arg1, (arg2 + 1)).method_26215();
+        boolean flag2 = this.resolveMinecraftObject((arg0 + 1), arg1, arg2).method_26215();
+        if (flag && flag2) {
             if (!(this.resolveMinecraftObject((arg0 + 1), arg1, (arg2 + 1)).method_26215())) {
                 return null;
             }
             Iterator iterator = itemList2.iterator();
             while (iterator.hasNext()) {
-                class_2382 var24 = (class_2382) iterator.next();
-                if (this.checkCondition((arg0 + var24.method_10263()), (arg1 + var24.method_10264()), (arg2 + var24.method_10260()))) {
+                class_2382 class2382 = ((class_2382) iterator.next());
+                if (this.checkCondition((arg0 + class2382.method_10263()), (arg1 + class2382.method_10264()), (arg2 + class2382.method_10260()))) {
                 }
             }
-            if (var19 != 8 && var20 != 8 && (var19 + var20) != 8) {
+            if (index != 8 && index2 != 8 && (index + index2) != 8) {
                 return null;
             }
-            if (var20 == 8) {
+            if (index2 == 8) {
             } else {
             }
-            new BlockPos(arg0, arg1, arg2)(OptionMode12.SAFE, OptionMode12.UNSAFE, OptionMode17.QUAD);
-            return new SafetyServiceComponent;
+            return new SafetyServiceComponent(OptionMode12.SAFE, OptionMode12.UNSAFE, OptionMode17.QUAD);
         }
-        if (var21 && this.checkCondition(arg0, arg1, (arg2 + 1))) {
+        if (flag && this.checkCondition(arg0, arg1, (arg2 + 1))) {
             iterator = itemList3.iterator();
             while (iterator.hasNext()) {
-                var24 = (class_2382) iterator.next();
-                if (this.checkCondition((arg0 + var24.method_10263()), (arg1 + var24.method_10264()), (arg2 + var24.method_10260()))) {
+                class2382 = ((class_2382) iterator.next());
+                if (this.checkCondition((arg0 + class2382.method_10263()), (arg1 + class2382.method_10264()), (arg2 + class2382.method_10260()))) {
                 }
             }
-            if (var19 != 6 && var20 != 6 && (var19 + var20) != 6) {
+            if (index != 6 && index2 != 6 && (index + index2) != 6) {
                 return null;
             }
-            if (var20 == 6) {
+            if (index2 == 6) {
             } else {
             }
-            new BlockPos(arg0, arg1, arg2)(OptionMode12.SAFE, OptionMode12.UNSAFE, OptionMode17.DOUBLE_Z);
-            return new SafetyServiceComponent;
+            return new SafetyServiceComponent(OptionMode12.SAFE, OptionMode12.UNSAFE, OptionMode17.DOUBLE_Z);
         }
-        if (var22 && this.checkCondition((arg0 + 1), arg1, arg2)) {
+        if (flag2 && this.checkCondition((arg0 + 1), arg1, arg2)) {
             iterator = itemList4.iterator();
             while (iterator.hasNext()) {
-                var24 = (class_2382) iterator.next();
-                if (this.checkCondition((arg0 + var24.method_10263()), (arg1 + var24.method_10264()), (arg2 + var24.method_10260()))) {
+                class2382 = ((class_2382) iterator.next());
+                if (this.checkCondition((arg0 + class2382.method_10263()), (arg1 + class2382.method_10264()), (arg2 + class2382.method_10260()))) {
                 }
             }
-            if (var19 != 6 && var20 != 6 && (var19 + var20) != 6) {
+            if (index != 6 && index2 != 6 && (index + index2) != 6) {
                 return null;
             }
-            if (var20 == 6) {
+            if (index2 == 6) {
             } else {
             }
-            new BlockPos(arg0, arg1, arg2)(OptionMode12.SAFE, OptionMode12.UNSAFE, OptionMode17.DOUBLE_X);
-            return new SafetyServiceComponent;
+            return new SafetyServiceComponent(OptionMode12.SAFE, OptionMode12.UNSAFE, OptionMode17.DOUBLE_X);
         }
         if (this.checkCondition(arg0, arg1, (arg2 + 1))) {
         } else {
@@ -218,54 +210,52 @@ public class ServiceComponent102 implements Contract9 {
             if (this.checkCondition((arg0 + 1), arg1, arg2)) {
             }
         }
-        if (var19 != 4 && var20 != 4 && (var19 + var20) != 4) {
+        if (index != 4 && index2 != 4 && (index + index2) != 4) {
             return null;
         }
-        if (var20 == 4) {
+        if (index2 == 4) {
         } else {
         }
-        new BlockPos(arg0, arg1, arg2)(OptionMode12.SAFE, OptionMode12.UNSAFE, OptionMode17.SINGLE);
-        return new SafetyServiceComponent;
+        return new SafetyServiceComponent(OptionMode12.SAFE, OptionMode12.UNSAFE, OptionMode17.SINGLE);
     }
 
     private List resolveList(int arg0, char arg1, int arg2) {
-        List positions = new ArrayList();
+        List list = new ArrayList();
         BlockPos blockPos = BlockPos.ofFloored(AntiKnockBackModule.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()));
-        int var30 = (blockPos.method_10263() - this.computeValue());
-        int var31 = (blockPos.method_10263() + this.computeValue());
-        int var32 = (blockPos.method_10264() - this.computeValue());
-        int var33 = (blockPos.method_10264() + this.computeValue());
-        int var34 = (blockPos.method_10260() - this.computeValue());
-        int var35 = (blockPos.method_10260() + this.computeValue());
-        int var36 = var30;
-        if (var36 <= var31) {
-            int var37 = var32;
+        int index = (blockPos.method_10263() - this.computeValue());
+        int index2 = (blockPos.method_10263() + this.computeValue());
+        int index3 = (blockPos.method_10264() - this.computeValue());
+        int index4 = (blockPos.method_10264() + this.computeValue());
+        int index5 = (blockPos.method_10260() - this.computeValue());
+        int index6 = (blockPos.method_10260() + this.computeValue());
+        int index7 = index;
+        if (index7 <= index2) {
+            int index8 = index3;
             if (arg2 >= 0) {
-                if (var37 <= var33) {
-                    int var38 = var34;
-                    if (var38 <= var35) {
-                        class_2818 var39 = SharedKt.getWorld().method_8497((var36 >> 4), (var38 >> 4));
-                        BlockState state = this.resolveMinecraftObject();
+                if (index8 <= index4) {
+                    int index9 = index5;
+                    if (index9 <= index6) {
+                        class_2818 class2818 = SharedKt.getWorld().method_8497((index7 >> 4), (index9 >> 4));
+                        BlockState state = this.resolveMinecraftObject(index7, index8, index9);
                         if (!(state.method_45474())) {
                         } else {
                             if (arg2 >= 0) {
-                                if (var27 != null) {
-                                    if (!(this.checkCondition((var37 + 1)))) {
+                                if (__UNDEF_KEY__ != null) {
+                                    if (!(this.checkCondition(index7, (index8 + 1), index9))) {
                                     } else {
-                                    }
-                                    if (arg2 > 0) {
-                                    }
-                                    if (!(this.checkCondition((var37 + 2)))) {
-                                    } else {
-                                    }
-                                    if (!(this.checkCondition((class_2791) var39, (var37 - 1)))) {
-                                        if (arg2 >= 0 && arg0 > 0 && arg2 > 0 && arg2 >= 0) {
-                                        } else {
-                                            if (this.resolveSafetyServiceComponent() != null) {
-                                                SafetyServiceComponent var41 = this.resolveSafetyServiceComponent();
-                                                int var42 = 0;
-                                                positions.add();
+                                        if (arg2 > 0) {
+                                            if (!(this.checkCondition(index7, (index8 + 2), index9))) {
                                             } else {
+                                                if (!(this.checkCondition(((class_2791) class2818), index7, (index8 - 1), index9))) {
+                                                    if (arg2 >= 0 && arg0 > 0 && arg2 > 0 && arg2 >= 0) {
+                                                        if (this.resolveSafetyServiceComponent(index7, index8, index9) != null) {
+                                                            SafetyServiceComponent safetyServiceComponent = this.resolveSafetyServiceComponent(index7, index8, index9);
+                                                            list.add(safetyServiceComponent);
+                                                        } else {
+                                                        }
+                                                    }
+                                                } else {
+                                                }
                                             }
                                         }
                                     }
@@ -273,22 +263,22 @@ public class ServiceComponent102 implements Contract9 {
                             }
                         }
                         if (arg1 >= 0) {
-                            if (var27 != null) {
-                                if (var38 != var35) {
+                            if (__UNDEF_KEY__ != null) {
+                                if (index9 != index6) {
                                 }
                             }
-                        }
-                        if (arg2 > 0) {
-                        }
-                        if (var37 != var33) {
+                            if (arg2 > 0) {
+                                if (index8 != index4) {
+                                }
+                            }
                         }
                     }
                 }
             }
-            if (var36 != var31) {
+            if (index7 != index2) {
             }
         }
-        return positions;
+        return list;
     }
 
     private static List getList() {
@@ -303,37 +293,37 @@ public class ServiceComponent102 implements Contract9 {
         INSTANCE = new ServiceComponent102();
         executorService = Executors.newVirtualThreadPerTaskExecutor();
         serviceComponent10 = new ServiceComponent10();
-        Block[] var22 = new Block[4];
-        var22[0] = Blocks.OBSIDIAN;
-        var22[1] = Blocks.ENDER_CHEST;
-        var22[2] = Blocks.NETHERITE_BLOCK;
-        var22[3] = Blocks.field_22108;
-        itemSet = SetsKt.setOf();
-        var22 = new Block[2];
-        var22[0] = Blocks.field_9987;
-        var22[1] = Blocks.field_10499;
-        itemSet2 = SetsKt.setOf();
+        Block[] items = new Block[4];
+        items[0] = Blocks.OBSIDIAN;
+        items[1] = Blocks.ENDER_CHEST;
+        items[2] = Blocks.NETHERITE_BLOCK;
+        items[3] = Blocks.field_22108;
+        itemSet = SetsKt.setOf(items);
+        items = new Block[2];
+        items[0] = Blocks.field_9987;
+        items[1] = Blocks.field_10499;
+        itemSet2 = SetsKt.setOf(items);
         itemList = CollectionsKt.emptyList();
-        var22 = new class_2382[6];
-        var22[0] = new class_2382(-1, 0, 1);
-        var22[1] = new class_2382(0, 0, 2);
-        var22[2] = new class_2382(1, 0, 2);
-        var22[3] = new class_2382(2, 0, 1);
-        var22[4] = new class_2382(2, 0, 0);
-        var22[5] = new class_2382(1, 0, -1);
-        itemList2 = CollectionsKt.listOf();
-        var22 = new class_2382[4];
-        var22[0] = new class_2382(-1, 0, 1);
-        var22[1] = new class_2382(0, 0, 2);
-        var22[2] = new class_2382(1, 0, 1);
-        var22[3] = new class_2382(1, 0, 0);
-        itemList3 = CollectionsKt.listOf();
-        var22 = new class_2382[4];
-        var22[0] = new class_2382(0, 0, 1);
-        var22[1] = new class_2382(1, 0, 1);
-        var22[2] = new class_2382(2, 0, 0);
-        var22[3] = new class_2382(1, 0, -1);
-        itemList4 = CollectionsKt.mutableListOf();
+        items = new class_2382[6];
+        items[0] = new class_2382(-1, 0, 1);
+        items[1] = new class_2382(0, 0, 2);
+        items[2] = new class_2382(1, 0, 2);
+        items[3] = new class_2382(2, 0, 1);
+        items[4] = new class_2382(2, 0, 0);
+        items[5] = new class_2382(1, 0, -1);
+        itemList2 = CollectionsKt.listOf(items);
+        items = new class_2382[4];
+        items[0] = new class_2382(-1, 0, 1);
+        items[1] = new class_2382(0, 0, 2);
+        items[2] = new class_2382(1, 0, 1);
+        items[3] = new class_2382(1, 0, 0);
+        itemList3 = CollectionsKt.listOf(items);
+        items = new class_2382[4];
+        items[0] = new class_2382(0, 0, 1);
+        items[1] = new class_2382(1, 0, 1);
+        items[2] = new class_2382(2, 0, 0);
+        items[3] = new class_2382(1, 0, -1);
+        itemList4 = CollectionsKt.mutableListOf(items);
     }
 
 }

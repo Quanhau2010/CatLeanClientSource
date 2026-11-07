@@ -8,7 +8,7 @@ public class ServiceComponent99 {
     private static String textValue;
 
     public static void executeAction(IPasteable receiver) {
-        Runtime.getRuntime().addShutdownHook((Thread) new ServiceComponent61());
+        Runtime.getRuntime().addShutdownHook(((Thread) new ServiceComponent61()));
     }
 
     public static void updateValue(String arg0) {

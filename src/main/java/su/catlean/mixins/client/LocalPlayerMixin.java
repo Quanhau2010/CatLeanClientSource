@@ -41,19 +41,19 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayerEntity {
     }
 
     public void onMoveHook(class_1313 movementType, Vec3d movement, CallbackInfo ci) {
-        double var4 = this.getX();
-        double var6 = this.getZ();
+        double offset = this.getX();
+        double offset2 = this.getZ();
         this.method_5784(movementType, new Vec3d(MoveEvent.INSTANCE.getX(), MoveEvent.INSTANCE.getY(), MoveEvent.INSTANCE.getZ()));
-        this.field_5994 = (this.field_5994 + (class_3532.method_61344((this.getX() - var4), (this.getZ() - var6)) * 0.6F));
+        this.field_5994 = (this.field_5994 + (class_3532.method_61344((this.getX() - offset), (this.getZ() - offset2)) * 0.6F));
         ci.cancel();
     }
 
     public void shouldSlowDownHook(CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(0));
+        cir.setReturnValue(Boolean.valueOf(false));
     }
 
     public void isUsingItemHook(CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(1));
+        cir.setReturnValue(Boolean.valueOf(true));
     }
 
     private void onPushOutOfBlocksHook(double x, double d, CallbackInfo info) {
@@ -61,7 +61,7 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayerEntity {
     }
 
     public void shouldStopSprintingHook(CallbackInfoReturnable cir) {
-        cir.setReturnValue(Boolean.valueOf(0));
+        cir.setReturnValue(Boolean.valueOf(false));
     }
 
 }

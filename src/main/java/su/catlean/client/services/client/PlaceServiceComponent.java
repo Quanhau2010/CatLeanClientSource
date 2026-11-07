@@ -62,15 +62,15 @@ public class PlaceServiceComponent {
         }
         if (1.0F < 10.0F) {
             if ((SharedKt.getNumericValue() - this.timestampValue) > timestampValue2) {
+            } else {
             }
-        } else {
         }
         return false;
     }
 
     public void executeAction(int arg0) {
-        int var14 = this.countValue;
-        this.countValue = (var14 + 1);
+        int index = this.countValue;
+        this.countValue = (index + 1);
         if (arg0 >= 0) {
             if (this.enabledFlag) {
             } else {
@@ -80,9 +80,7 @@ public class PlaceServiceComponent {
     }
 
     public boolean checkCondition() {
-        if (var6 != null) {
-            if (this.countValue >= Math.max(5, Math.ceil((TheNetherPacketHelper.f() / 25.0F)))) {
-            }
+        if (this.countValue >= Math.max(5, Math.ceil((TheNetherPacketHelper.f() / 25.0F)))) {
         } else {
         }
         return false;
@@ -109,17 +107,14 @@ public class PlaceServiceComponent {
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag;
+        boolean flag = this.enabledFlag;
         Vec3d vec = this.vec3d;
-        int var5 = this.countValue;
-        return ("Attempt(time=" + var6 + ", attempts=" + var5 + ", pos=" + vec + ", place=" + var3 + ")");
+        int index = this.countValue;
+        return ("Attempt(time=" + __UNDEF_KEY__ + ", attempts=" + index + ", pos=" + vec + ", place=" + flag + ")");
     }
 
     public int hashCode() {
-        int var3 = ((var3 * 31) + Integer.hashCode(this.countValue));
-        var3 = ((var3 * 31) + this.vec3d.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        return var3;
+        return __UNDEF_KEY__;
     }
 
     public boolean equals(Object other) {
@@ -129,17 +124,17 @@ public class PlaceServiceComponent {
         if (!(other instanceof PlaceServiceComponent)) {
             return false;
         }
-        PlaceServiceComponent var5 = (PlaceServiceComponent) other;
-        if (this.timestampValue != var5.timestampValue) {
+        PlaceServiceComponent placeServiceComponent = ((PlaceServiceComponent) other);
+        if (this.timestampValue != placeServiceComponent.timestampValue) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != placeServiceComponent.countValue) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.vec3d, var5.vec3d))) {
+        if (!(Intrinsics.areEqual(this.vec3d, placeServiceComponent.vec3d))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != placeServiceComponent.enabledFlag) {
             return false;
         }
         return true;

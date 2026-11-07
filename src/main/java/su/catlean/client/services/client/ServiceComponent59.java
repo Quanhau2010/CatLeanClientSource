@@ -8,12 +8,12 @@ public class ServiceComponent59 {
     private static String[] textValueArray;
 
     static {
-        Object var2 = new int[AutoEzMode.values()];
-        var2[AutoEzMode.GLOBAL.ordinal()] = 1;
-        var2[AutoEzMode.LOCAL.ordinal()] = 2;
-        var2[AutoEzMode.WHISPERS.ordinal()] = 3;
-        var2[AutoEzMode.SILENT.ordinal()] = 4;
-        countValueArray = var2;
+        Object element = new int[AutoEzMode.values()];
+        element[AutoEzMode.GLOBAL.ordinal()] = 1;
+        element[AutoEzMode.LOCAL.ordinal()] = 2;
+        element[AutoEzMode.WHISPERS.ordinal()] = 3;
+        element[AutoEzMode.SILENT.ordinal()] = 4;
+        countValueArray = element;
     }
 
     public static void updateValue(String[] arg0) {

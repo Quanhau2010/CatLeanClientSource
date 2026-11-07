@@ -52,55 +52,55 @@ public class BuffEffectModule extends Module {
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
-        class_4184 var29 = SharedKt.getMc().field_1773.method_19418();
+        class_4184 class4184 = SharedKt.getMc().field_1773.method_19418();
         arg0.getStack().method_22903();
-        RenderHelper4.render(arg0.getStack(), (Quaternionfc) class_7833.field_40716.rotationDegrees((var29.method_19330() + 180.0F)));
-        RenderHelper4.render(arg0.getStack(), (Quaternionfc) class_7833.field_40714.rotationDegrees(var29.method_19329()));
-        int var24 = 4;
-        int var25 = 0;
-        int var26 = (itemList.size() * 2);
-        VertexFormat var27 = class_290.field_1575;
-        FormatRenderHelper var30 = new FormatRenderHelper();
+        RenderHelper4.render(arg0.getStack(), ((Quaternionfc) class_7833.field_40716.rotationDegrees((class4184.method_19330() + 180.0F))));
+        RenderHelper4.render(arg0.getStack(), ((Quaternionfc) class_7833.field_40714.rotationDegrees(class4184.method_19329())));
+        int index = 4;
+        int index2 = 0;
+        int index3 = (itemList.size() * 2);
+        VertexFormat vertexFormat = class_290.field_1575;
+        FormatRenderHelper formatRenderHelper = new FormatRenderHelper(vertexFormat, index3, index2, index);
         Iterator iterator = itemList.iterator();
         while (iterator.hasNext()) {
-            ServiceComponent101 var32 = (ServiceComponent101) iterator.next();
-            float var33 = 0.0F;
-            float var34 = 90.0F;
-            float var35 = PolygonShaderComponent.INSTANCE.computeValue(Math.max(1, (var32.getNumericValue2() - 1)), var32.getNumericValue2());
-            if (var32.getNumericValue2() < 3) {
+            ServiceComponent101 serviceComponent101 = ((ServiceComponent101) iterator.next());
+            float factor = 0.0F;
+            float factor2 = 90.0F;
+            float factor3 = PolygonShaderComponent.INSTANCE.computeValue(Math.max(1, (serviceComponent101.getNumericValue2() - 1)), serviceComponent101.getNumericValue2());
+            if (serviceComponent101.getNumericValue2() < 3) {
             } else {
-                if (var32.getNumericValue2() > 25) {
+                if (serviceComponent101.getNumericValue2() > 25) {
                 } else {
                 }
             }
-            float var36 = 1.0F;
-            float var37 = (8.0F * var36);
-            Color var38 = PolygonShaderComponent.INSTANCE.resolveColor(new Color(var32.getNumericValue()));
-            Color var39 = PolygonShaderComponent.INSTANCE.resolveColor(new Color(var32.getNumericValue()), (var36 * 0.3F));
+            float factor4 = 1.0F;
+            float factor5 = (8.0F * factor4);
+            Color color = PolygonShaderComponent.INSTANCE.resolveColor(new Color(serviceComponent101.getNumericValue()), factor4);
+            Color color2 = PolygonShaderComponent.INSTANCE.resolveColor(new Color(serviceComponent101.getNumericValue()), (factor4 * 0.3F));
             MatrixStack matrices = new MatrixStack();
             matrices.method_22903();
-            RenderHelper4.render(matrices, (Quaternionfc) class_7833.field_40714.rotationDegrees(var29.method_19329()));
-            RenderHelper4.render(matrices, (Quaternionfc) class_7833.field_40716.rotationDegrees((var29.method_19330() + 180.0F)));
-            matrices.method_22904((var32.getMinecraftObject().field_1352 - var29.method_71156().field_1352), ((var32.getMinecraftObject().field_1351 + 0.05F) - var29.method_71156().field_1351), (var32.getMinecraftObject().field_1350 - var29.method_71156().field_1350));
-            RenderHelper4.render(matrices, (Quaternionfc) class_7833.field_40716.rotationDegrees());
-            RenderHelper4.render(matrices, (Quaternionfc) class_7833.field_40714.rotationDegrees());
+            RenderHelper4.render(matrices, ((Quaternionfc) class_7833.field_40714.rotationDegrees(class4184.method_19329())));
+            RenderHelper4.render(matrices, ((Quaternionfc) class_7833.field_40716.rotationDegrees((class4184.method_19330() + 180.0F))));
+            matrices.method_22904((serviceComponent101.getMinecraftObject().field_1352 - class4184.method_71156().field_1352), ((serviceComponent101.getMinecraftObject().field_1351 + 0.05F) - class4184.method_71156().field_1351), (serviceComponent101.getMinecraftObject().field_1350 - class4184.method_71156().field_1350));
+            RenderHelper4.render(matrices, ((Quaternionfc) class_7833.field_40716.rotationDegrees(factor)));
+            RenderHelper4.render(matrices, ((Quaternionfc) class_7833.field_40714.rotationDegrees(factor2)));
             matrices.method_22904(-4.0D, -4.0D, 0.0D);
-            Matrix4f var41 = matrices.method_23760().method_23761();
-            OptionMode6 var42 = OptionMode6.CRACK;
-            var30.resolveFormatRenderHelper(0.0F, 8.0F, 0.0F).resolveFormatRenderHelper(var42.getNumericValue3(), var42.getNumericValue2()).resolveFormatRenderHelper();
-            var30.resolveFormatRenderHelper(8.0F, 8.0F, 0.0F).resolveFormatRenderHelper(var42.getNumericValue(), var42.getNumericValue2()).resolveFormatRenderHelper();
-            var30.resolveFormatRenderHelper(8.0F, 0.0F, 0.0F).resolveFormatRenderHelper(var42.getNumericValue(), var42.getNumericValue4()).resolveFormatRenderHelper();
-            var30.resolveFormatRenderHelper(0.0F, 0.0F, 0.0F).resolveFormatRenderHelper(var42.getNumericValue3(), var42.getNumericValue4()).resolveFormatRenderHelper();
+            Matrix4f matrix4f = matrices.method_23760().method_23761();
+            OptionMode6 optionMode6 = OptionMode6.CRACK;
+            formatRenderHelper.resolveFormatRenderHelper(matrix4f, 0.0F, 8.0F, 0.0F).resolveFormatRenderHelper(optionMode6.getNumericValue3(), optionMode6.getNumericValue2()).resolveFormatRenderHelper(color2);
+            formatRenderHelper.resolveFormatRenderHelper(matrix4f, 8.0F, 8.0F, 0.0F).resolveFormatRenderHelper(optionMode6.getNumericValue(), optionMode6.getNumericValue2()).resolveFormatRenderHelper(color2);
+            formatRenderHelper.resolveFormatRenderHelper(matrix4f, 8.0F, 0.0F, 0.0F).resolveFormatRenderHelper(optionMode6.getNumericValue(), optionMode6.getNumericValue4()).resolveFormatRenderHelper(color2);
+            formatRenderHelper.resolveFormatRenderHelper(matrix4f, 0.0F, 0.0F, 0.0F).resolveFormatRenderHelper(optionMode6.getNumericValue3(), optionMode6.getNumericValue4()).resolveFormatRenderHelper(color2);
             matrices.method_22904(4.0D, 4.0D, 0.0D);
-            OptionMode6 var43 = OptionMode6.CIRCLE;
-            matrices.method_22904((var37 / 2.0D), (var37 / 2.0D), 0.0D);
-            var30.resolveFormatRenderHelper(0.0F, 0.0F).resolveFormatRenderHelper(var43.getNumericValue3(), var43.getNumericValue2()).resolveFormatRenderHelper();
-            var30.resolveFormatRenderHelper(0.0F).resolveFormatRenderHelper(var43.getNumericValue(), var43.getNumericValue2()).resolveFormatRenderHelper();
-            var30.resolveFormatRenderHelper(0.0F, 0.0F).resolveFormatRenderHelper(var43.getNumericValue(), var43.getNumericValue4()).resolveFormatRenderHelper();
-            var30.resolveFormatRenderHelper(0.0F, 0.0F, 0.0F).resolveFormatRenderHelper(var43.getNumericValue3(), var43.getNumericValue4()).resolveFormatRenderHelper();
+            OptionMode6 optionMode62 = OptionMode6.CIRCLE;
+            matrices.method_22904((factor5 / 2.0D), (factor5 / 2.0D), 0.0D);
+            formatRenderHelper.resolveFormatRenderHelper(matrix4f, 0.0F, factor5, 0.0F).resolveFormatRenderHelper(optionMode62.getNumericValue3(), optionMode62.getNumericValue2()).resolveFormatRenderHelper(color);
+            formatRenderHelper.resolveFormatRenderHelper(matrix4f, factor5, factor5, 0.0F).resolveFormatRenderHelper(optionMode62.getNumericValue(), optionMode62.getNumericValue2()).resolveFormatRenderHelper(color);
+            formatRenderHelper.resolveFormatRenderHelper(matrix4f, factor5, 0.0F, 0.0F).resolveFormatRenderHelper(optionMode62.getNumericValue(), optionMode62.getNumericValue4()).resolveFormatRenderHelper(color);
+            formatRenderHelper.resolveFormatRenderHelper(matrix4f, 0.0F, 0.0F, 0.0F).resolveFormatRenderHelper(optionMode62.getNumericValue3(), optionMode62.getNumericValue4()).resolveFormatRenderHelper(color);
             matrices.method_22909();
         }
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline19(), null, null, arg0.getStack().method_23760().method_23761(), null, MapsKt.mapOf(TuplesKt.to("Sampler0", SharedKt.getMc().method_1531().method_4619(AtlasTextureServiceComponent.getMinecraftObject()).method_71659())));
+        FormatRenderHelper.executeAction(formatRenderHelper, VertexUBOShaderComponent.INSTANCE.getRenderPipeline19(), null, null, arg0.getStack().method_23760().method_23761(), null, MapsKt.mapOf(TuplesKt.to("Sampler0", SharedKt.getMc().method_1531().method_4619(AtlasTextureServiceComponent.getMinecraftObject()).method_71659())));
         arg0.getStack().method_22909();
     }
 
@@ -109,51 +109,47 @@ public class BuffEffectModule extends Module {
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        if ((class_2673) arg0.getPacket().method_11532() != 2007) {
+        if (((class_2673) arg0.getPacket()).method_11532() != 2007) {
         }
-        int var5 = (class_2673) arg0.getPacket().method_11534();
-        int var6 = (((var5 >> 16) & 255) / 255.0F);
-        int var7 = (((var5 >> 8) & 255) / 255.0F);
-        int var8 = (((var5 >> 0) & 255) / 255.0F);
-        Color var9 = new Color();
-        if (var9.getRGB() == -13083194) {
+        int index = ((class_2673) arg0.getPacket()).method_11534();
+        int index2 = (((index >> 16) & 255) / 255.0F);
+        int index3 = (((index >> 8) & 255) / 255.0F);
+        int index4 = (((index >> 0) & 255) / 255.0F);
+        Color color = new Color(index2, index3, index4);
+        if (color.getRGB() == -13083194) {
             return;
         }
-        countValue = var9.getRGB();
+        countValue = color.getRGB();
     }
 
     private void onEntityRemove(EntityRemove arg0) {
-        if (var9) {
-        }
-        class_10691 var10 = (class_10691) arg0.getEntity();
-        BlockPos blockPos = BlockPos.ofFloored(this.resolveMinecraftObject());
+        class_10691 class10691 = ((class_10691) arg0.getEntity());
+        BlockPos blockPos = BlockPos.ofFloored(this.resolveMinecraftObject(class10691));
         itemList.add(new ServiceComponent101(blockPos.toCenterPos().method_1031(0.0D, -0.5D, 0.0D), countValue));
     }
 
     private static boolean checkCondition(ServiceComponent101 arg0) {
         if (arg0.getNumericValue2() == 3) {
-            int var11 = 25;
-            int var12 = 0;
-            if (var12 < var11) {
-                int var13 = var12;
-                int var14 = 0;
-                POSITIONTEXCOLORShaderComponent.INSTANCE.checkCondition(new TexRenderHelper(OptionMode6.FIREFLY, arg0.getMinecraftObject().method_1031(RangeServiceComponent.a(-3.0D, 3.0D), 0.0D, RangeServiceComponent.a(-3.0D, 3.0D)), 0.0F, 0.25F, 12, new Vec3d(((Math.random() / 2.0F) - 0.25F), (Math.random() / 4.0F), ((Math.random() / 2.0F) - 0.25F)), new Color(arg0.getNumericValue()), 0.0F, 0.0F));
+            int index = 25;
+            int index2 = 0;
+            if (index2 < index) {
+                int index3 = index2;
+                POSITIONTEXCOLORShaderComponent.INSTANCE.checkCondition(new TexRenderHelper(OptionMode6.FIREFLY, arg0.getMinecraftObject().method_1031(RangeServiceComponent.a(-3.0D, 3.0D, false), 0.0D, RangeServiceComponent.a(-3.0D, 3.0D, false)), 0.0F, 0.25F, 12, 0.0F, 0.0F, false));
             }
-            var11 = 5;
-            var12 = 0;
-            if (var12 < var11) {
-                var13 = var12;
-                var14 = 0;
-                POSITIONTEXCOLORShaderComponent.INSTANCE.checkCondition(new TexRenderHelper(OptionMode6.FIREFLY, arg0.getMinecraftObject().method_1031(0.0D, -0.3D, 0.0D), 0.0F, 6.0F, 4, new Vec3d(0.0D, (var13 * 0.15D), 0.0D), PolygonShaderComponent.INSTANCE.resolveColor(new Color(arg0.getNumericValue()), 0.5F), 0.0F, 0.0F));
+            index = 5;
+            index2 = 0;
+            if (index2 < index) {
+                index3 = index2;
+                POSITIONTEXCOLORShaderComponent.INSTANCE.checkCondition(new TexRenderHelper(OptionMode6.FIREFLY, arg0.getMinecraftObject().method_1031(0.0D, -0.3D, 0.0D), 0.0F, 6.0F, 4, PolygonShaderComponent.INSTANCE.resolveColor(new Color(arg0.getNumericValue()), 0.5F), 0.0F, 0.0F, false));
             }
         }
-        var11 = arg0.getNumericValue2();
-        arg0.updateValue2((var11 + 1));
-        return var11 > 30;
+        index = arg0.getNumericValue2();
+        arg0.updateValue2((index + 1));
+        return index > 30;
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {

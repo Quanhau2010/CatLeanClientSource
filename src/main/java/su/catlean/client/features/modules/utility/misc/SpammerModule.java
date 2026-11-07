@@ -57,7 +57,7 @@ public class SpammerModule extends Module {
     }
 
     private ActionServiceComponent2 getOpenFile() {
-        return (ActionServiceComponent2) openFileSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((ActionServiceComponent2) openFileSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setOpenFile(ActionServiceComponent2 value) {
@@ -65,7 +65,7 @@ public class SpammerModule extends Module {
     }
 
     private SpammerMode getMode() {
-        return (SpammerMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((SpammerMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setMode(SpammerMode value) {
@@ -73,7 +73,7 @@ public class SpammerModule extends Module {
     }
 
     private String getWhisperPrefix() {
-        return (String) whisperPrefixSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((String) whisperPrefixSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setWhisperPrefix(String value) {
@@ -81,7 +81,7 @@ public class SpammerModule extends Module {
     }
 
     private boolean getAntiSpam() {
-        return (Boolean) antiSpamSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) antiSpamSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setAntiSpam(boolean value) {
@@ -89,65 +89,61 @@ public class SpammerModule extends Module {
     }
 
     private float getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setDelay(float value) {
         delaySetting.setValue(this, DELEGATED_PROPERTIES[4], Float.valueOf(value));
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 80685729543634L) >>> 32);
-        long var4 = (((arg0 ^ 80685729543634L) << 32) >>> 48);
-        long var5 = (((arg0 ^ 80685729543634L) << 48) >>> 48);
+    public void updateValue() {
         itemList = this.resolveList();
     }
 
     public void onPlayerUpdateEvent(PlayerUpdateEvent event) {
         if (!((SharedKt.getPlayer().field_6012 % 60))) {
             if (file.exists()) {
-                if (var31 && var31 && var31) {
+                if (__UNDEF_KEY__ && __UNDEF_KEY__ && __UNDEF_KEY__) {
                     if (file.lastModified() > timestampValue) {
                         itemList = this.resolveList();
                     }
                 }
             }
         }
-        if (var31) {
-            if (var31) {
-                if (!((Collection) itemList.isEmpty())) {
-                }
-            } else {
-            }
-            if (serviceComponent10.checkCondition((this.getDelay() * 1000)) && 0) {
-                if (var31) {
-                    if (this.getAntiSpam()) {
-                    }
+        if (__UNDEF_KEY__) {
+            if (__UNDEF_KEY__) {
+                if (!(((Collection) itemList).isEmpty())) {
                 } else {
                 }
-                String var32 = ((this.resolveString()) + "");
-                if (var31) {
-                    if (StringsKt.startsWith$default("/")) {
-                        Object var33 = var32;
-                        int var34 = 0;
-                        int var35 = 1;
-                        var32 = StringsKt.removeRange((CharSequence) var33).toString();
-                        SharedKt.getNetwork().method_45730();
+            }
+            if (serviceComponent10.checkCondition((this.getDelay() * 1000)) && 0) {
+                if (__UNDEF_KEY__) {
+                    if (this.getAntiSpam()) {
+                    } else {
                     }
                 }
-                SharedKt.getNetwork().method_45729((var32));
-                SharedKt.getNetwork().method_45729();
-                SharedKt.getNetwork().method_45730((this.getWhisperPrefix() + this.resolveString() + var32));
-                if (!(var31) && !(var31) && !(var31) && !(var31)) {
+                String text = ((this.resolveString()) + "");
+                if (__UNDEF_KEY__) {
+                    if (StringsKt.startsWith$default(text, "/", false)) {
+                        int index = 0;
+                        int index2 = 1;
+                        text = StringsKt.removeRange(((CharSequence) text), index, index2).toString();
+                        SharedKt.getNetwork().method_45730(text);
+                    }
+                }
+                SharedKt.getNetwork().method_45729((text));
+                SharedKt.getNetwork().method_45729(text);
+                SharedKt.getNetwork().method_45730((this.getWhisperPrefix() + this.resolveString() + text));
+                if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__) && !(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
                 }
                 serviceComponent10.executeAction();
             }
         }
-        this.executeAction(MessageServiceComponent.Z(this, "empty", new Object[0]));
+        this.executeAction(MessageServiceComponent.Z(this, "empty", new Object[0], false));
     }
 
     private String resolveString() {
-        return (String) CollectionsKt.randomOrNull((Collection) SequencesKt.toList(SequencesKt.filter(SequencesKt.map(CollectionsKt.asSequence((Iterable) SharedKt.getNetwork().method_2880()), this::resolveString), this::checkCondition)), (Random) Random.Default);
+        return ((String) CollectionsKt.randomOrNull(((Collection) SequencesKt.toList(SequencesKt.filter(SequencesKt.map(CollectionsKt.asSequence(((Iterable) SharedKt.getNetwork().method_2880())), this::resolveString), this::checkCondition))), ((Random) Random.Default)));
     }
 
     private String resolveString() {
@@ -155,71 +151,49 @@ public class SpammerModule extends Module {
     }
 
     private List resolveList(int arg0, short arg1) {
-        if (var6) {
-            if (file.createNewFile()) {
-                return CollectionsKt.emptyList();
-            }
-            timestampValue = file.lastModified();
+        if (file.createNewFile()) {
+            return CollectionsKt.emptyList();
         }
-        File var7 = file;
-        Object var8 = var7;
-        int var9 = 0;
-        if (var6) {
-            if (!(var8.exists())) {
-                var8.createNewFile();
-            }
+        timestampValue = file.lastModified();
+        File file2 = file;
+        int index = 0;
+        if (!(file2.exists())) {
+            file2.createNewFile();
         }
-        var7 = (Iterable) FilesKt.readLines$default(null, 1, null);
-        var8 = 0;
-        var9 = var7;
-        Collection var10 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        int var11 = 0;
-        Iterator iterator = var9.iterator();
-        if (iterator.hasNext()) {
-            Object var13 = iterator.next();
-            String var14 = (String) var13;
+        file = ((Iterable) FilesKt.readLines$default(file));
+        file2 = 0;
+        index = file;
+        Collection collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(file, 10)));
+        Iterator iterator = index.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            String text = ((String) element);
             if (arg1 >= 0) {
-                Object var16 = var10;
-                int var15 = 0;
-                var16.add(StringsKt.trim((CharSequence) var14).toString());
-                if (var6) {
-                }
-                var7 = (Iterable) var10;
-                var8 = 0;
-                var9 = var7;
-                var10 = (Collection) new ArrayList();
-                var11 = 0;
+                collection.add(StringsKt.trim(((CharSequence) text)).toString());
+                file = ((Iterable) collection);
+                file2 = 0;
+                index = file;
+                collection = ((Collection) new ArrayList());
             }
         }
-        iterator = var9.iterator();
-        if (iterator.hasNext()) {
-            var13 = iterator.next();
-            var14 = (String) var13;
-            var15 = 0;
-            if (var6) {
-                if (!(StringsKt.isBlank((CharSequence) var14))) {
-                }
-            } else {
-            }
+        iterator = index.iterator();
+        while (iterator.hasNext()) {
+            element = iterator.next();
+            text = ((String) element);
             if (arg1 > 0) {
-                if (var6) {
-                }
-                var10.add();
+                collection.add(element);
             }
         }
-        return var10;
+        return collection;
     }
 
     private static Unit getUnit() {
-        File var3 = file;
-        Object var4 = var3;
-        class_158 var6 = class_156.method_668();
-        int var5 = 0;
-        if (var2) {
-            if (!(var4.exists())) {
-                var4.createNewFile();
+        class_158 class158 = class_156.method_668();
+        if (__UNDEF_KEY__) {
+            if (!(file.exists())) {
+                file.createNewFile();
             }
-            var6.method_672();
+            class158.method_672(file);
         }
         return Unit.INSTANCE;
     }
@@ -233,16 +207,16 @@ public class SpammerModule extends Module {
     }
 
     private static boolean checkCondition(String arg0) {
-        return Pattern.matches("^\\w{3,16}$", (CharSequence) arg0);
+        return Pattern.matches("^\\w{3,16}$", ((CharSequence) arg0));
     }
 
     static {
-        KProperty[] var35 = new KProperty[5];
+        KProperty[] items = new KProperty[5];
         INSTANCE = new SpammerModule();
         openFileSetting = VisibleRenderHelper.registerSetting(INSTANCE, "open-file", this::getUnit);
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", SpammerMode.GLOBAL);
         whisperPrefixSetting = VisibleRenderHelper.registerSetting(INSTANCE, "prefix", "msg", null, this::isActive);
-        antiSpamSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anti-spam");
+        antiSpamSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anti-spam", false);
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 5.0F, RangesKt.rangeTo(0.0F, 30.0F));
         serviceComponent10 = new ServiceComponent10();
         itemList = CollectionsKt.emptyList();

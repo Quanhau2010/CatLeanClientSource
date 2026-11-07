@@ -1,9 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.ranges.ClosedRange;
-import kotlin.ranges.IntRange;
-import kotlin.ranges.RangesKt;
 import su.catlean.client.features.modules.Module;
 
 public class ServiceComponent30 {
@@ -38,45 +34,6 @@ public class ServiceComponent30 {
         this.factorValue11 = rotationSpeed;
         this.countValue2 = offset;
         this.countValue3 = maxAge;
-    }
-
-    public ServiceComponent30(float arg0, float arg1, float arg2, char arg3, float arg4, float arg5, float arg6, float arg7, float arg8, float arg9, int arg10, float arg11, float arg12, int arg13, int arg14, int arg15, DefaultConstructorMarker arg16) {
-        if ((arg15 & 8)) {
-            arg4 = arg0;
-        }
-        if ((arg15 & 16)) {
-            arg5 = arg1;
-        }
-        if ((arg15 & 32)) {
-            arg6 = arg2;
-        }
-        if ((arg15 & 64)) {
-            arg7 = RangeServiceComponent.p((ClosedRange) RangesKt.rangeTo(-0.1F, 0.1F));
-        }
-        if ((arg15 & 128)) {
-            arg8 = RangeServiceComponent.p((ClosedRange) RangesKt.rangeTo(0.01F, 0.03F));
-        }
-        if ((arg15 & 256)) {
-            arg9 = RangeServiceComponent.p((ClosedRange) RangesKt.rangeTo(-0.1F, 0.1F));
-        }
-        if ((arg15 & 512)) {
-            arg10 = 0;
-        }
-        if ((arg15 & 1024)) {
-            arg11 = RangeServiceComponent.p((ClosedRange) RangesKt.rangeTo(-15.0F, 15.0F));
-        }
-        if ((arg15 & 2048)) {
-            arg12 = RangeServiceComponent.p((ClosedRange) RangesKt.rangeTo(-0.5F, 0.5F));
-        }
-        if ((arg15 & 4096)) {
-            arg13 = RangeServiceComponent.f((ClosedRange) new IntRange(0, 360));
-        }
-        if ((arg15 & 8192)) {
-            arg14 = RangeServiceComponent.f((ClosedRange) new IntRange(100, 200));
-        }
-        this(arg0, arg1, arg2, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14);
-        if (arg3 > 0) {
-        }
     }
 
     public float getNumericValue() {

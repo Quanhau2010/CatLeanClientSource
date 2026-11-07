@@ -49,75 +49,71 @@ public class ContentTypeServiceComponent implements Contract9 {
 
     private void onTickEvent(TickEvent arg0) {
         if (!(enabledFlag2) && SharedKt.getMc().method_1548() != null && SharedKt.getMc().method_1548().method_1676() != null) {
-            if ((CharSequence) SharedKt.getMc().method_1548().method_1676().length() <= 0) {
+            if (((CharSequence) SharedKt.getMc().method_1548().method_1676()).length() <= 0) {
+                if (serviceComponent102.checkCondition2(150000)) {
+                    enabledFlag2 = 1;
+                    RunnableServiceComponent runnableServiceComponent = RunnableServiceComponent.INSTANCE;
+                    int index = 0;
+                    runnableServiceComponent.getExecutorService().execute(((Runnable) new AnonimServiceComponent(index)));
+                }
             }
-            if (serviceComponent102.checkCondition2(150000)) {
-            }
-            enabledFlag2 = 1;
-            RunnableServiceComponent var9 = RunnableServiceComponent.INSTANCE;
-            int var10 = 0;
-            int var11 = 0;
-            var9.getExecutorService().execute((Runnable) new AnonimServiceComponent());
         }
         if (!(enabledFlag) && SharedKt.getMc().method_1548() != null && SharedKt.getMc().method_1548().method_1676() != null) {
-            if ((CharSequence) SharedKt.getMc().method_1548().method_1676().length() <= 0) {
+            if (((CharSequence) SharedKt.getMc().method_1548().method_1676()).length() <= 0) {
             }
         }
         enabledFlag = 1;
-        var9 = RunnableServiceComponent.INSTANCE;
-        var10 = 0;
-        var11 = 0;
-        var9.getExecutorService().execute((Runnable) new ServiceComponent94());
+        runnableServiceComponent = RunnableServiceComponent.INSTANCE;
+        index = 0;
+        runnableServiceComponent.getExecutorService().execute(((Runnable) new ServiceComponent94(index)));
     }
 
     public void executeAction(String name) {
-        String var4 = ("{\"value\":\"" + name + "\"}");
-        HttpRequest var5 = HttpRequest.newBuilder(URI.create("https://api.catlean.su/v1/add")).header("Content-Type", "application/json").POST(BodyPublishers.ofString()).build();
-        HttpClient.newHttpClient().send(BodyHandlers.ofString());
+        String text = ("{\"value\":\"" + name + "\"}");
+        HttpRequest httpRequest = HttpRequest.newBuilder(URI.create("https://api.catlean.su/v1/add")).header("Content-Type", "application/json").POST(BodyPublishers.ofString(text)).build();
+        HttpClient.newHttpClient().send(httpRequest, BodyHandlers.ofString());
     }
 
     public List resolveList() {
-        HttpRequest var3 = HttpRequest.newBuilder(URI.create("https://api.catlean.su/v1/online")).GET().build();
-        HttpResponse var4 = HttpClient.newHttpClient().send(BodyHandlers.ofString());
-        if (var4.statusCode() == 200) {
-            Json var5 = ServiceComponent17.getJson();
-            String var6 = (String) var4.body();
-            int var7 = 0;
-            var5.getSerializersModule();
+        HttpRequest httpRequest = HttpRequest.newBuilder(URI.create("https://api.catlean.su/v1/online")).GET().build();
+        HttpResponse httpResponse = HttpClient.newHttpClient().send(httpRequest, BodyHandlers.ofString());
+        if (httpResponse.statusCode() == 200) {
+            Json json = ServiceComponent17.getJson();
+            String text = ((String) httpResponse.body());
+            json.getSerializersModule();
         } else {
         }
-        var4 = new ArrayList();
-        var5 = var5.decodeFromString((DeserializationStrategy) new ArrayListSerializer(StringSerializer.INSTANCE));
-        var4 = new ArrayList();
-        return var4;
+        httpResponse = new ArrayList();
+        json = json.decodeFromString(((DeserializationStrategy) new ArrayListSerializer(StringSerializer.INSTANCE)), text);
+        httpResponse = new ArrayList();
+        return httpResponse;
     }
 
     public boolean checkCondition(String string) {
-        String var7 = (string + "1f");
-        if (concurrentHashMap.contains()) {
-            return (Boolean) concurrentHashMap.get();
+        String text = (string + "1f");
+        if (concurrentHashMap.contains(text)) {
+            return ((Boolean) concurrentHashMap.get(text));
         }
-        String var8 = this.resolveString();
-        boolean var9 = Lists.newArrayList(copyOnWriteArrayList.iterator()).contains();
-        return var9;
+        String text2 = this.resolveString(text);
+        boolean flag = Lists.newArrayList(copyOnWriteArrayList.iterator()).contains(text2);
+        return flag;
     }
 
     private String resolveString(String arg0) {
-        Object var8 = arg0;
-        byte[] var7 = var8.getBytes(Charsets.UTF_8);
-        String var9 = "sahur1337";
-        var8 = var9.getBytes(Charsets.UTF_8);
-        var9 = new byte[var7];
-        int var10 = 0;
-        Object var11 = var7;
-        if (var10 < var11) {
-            var9[var10] = (var7[var10] ^ var8[(var10 % var8)]);
+        String text = arg0;
+        byte[] items = text.getBytes(Charsets.UTF_8);
+        String text2 = "sahur1337";
+        text = text2.getBytes(Charsets.UTF_8);
+        text2 = new byte[items];
+        int index = 0;
+        if (index < items) {
+            text2[index] = (items[index] ^ text[(index % text)]);
         }
-        return this.resolveString();
+        return this.resolveString(text2);
     }
 
     private String resolveString(byte[] arg0) {
-        return StringsKt.replace$default(StringsKt.replace$default(StringsKt.replace$default(Base64.getEncoder().encodeToString(arg0))));
+        return StringsKt.replace$default(StringsKt.replace$default(StringsKt.replace$default(Base64.getEncoder().encodeToString(arg0), 64, 40, false), 42, 41, false), 94, 37, false);
     }
 
     public static String resolveString(ContentTypeServiceComponent $this, String input) {

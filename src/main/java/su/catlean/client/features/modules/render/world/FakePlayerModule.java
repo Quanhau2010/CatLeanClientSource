@@ -23,7 +23,6 @@ import net.minecraft.class_745;
 import net.minecraft.class_8109;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -61,19 +60,19 @@ public class FakePlayerModule extends Module {
     }
 
     private ActionServiceComponent2 getRecordButton() {
-        return (ActionServiceComponent2) recordButtonSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((ActionServiceComponent2) recordButtonSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private ActionServiceComponent2 getButton() {
-        return (ActionServiceComponent2) buttonSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((ActionServiceComponent2) buttonSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getCopyInventory() {
-        return (Boolean) copyInventorySetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) copyInventorySetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private String getName() {
-        return (String) nameSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((String) nameSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     public class_745 getMinecraftObject() {
@@ -84,26 +83,19 @@ public class FakePlayerModule extends Module {
         minecraftRef = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = (arg0 ^ 124491995633628L);
-        long var7 = (arg0 ^ 76517038092751L);
-        long var9 = (arg0 ^ 69599493015750L);
-        long var11 = (arg0 ^ 67464996320865L);
+    public void updateValue() {
         if (SharedKt.getMc().player == null) {
             return;
         }
-        minecraftRef = new class_745(SharedKt.getWorld(), new GameProfile(UUID.fromString("66123666-6666-6666-6666-613376666600"), this.getName()));
+        minecraftRef = new class_745(SharedKt.getWorld());
         minecraftRef.method_5719(SharedKt.getPlayer());
         if (this.getCopyInventory()) {
             minecraftRef.method_6122(Hand.field_5808, SharedKt.getPlayer().method_6047().method_7972());
             minecraftRef.method_6122(Hand.field_5810, SharedKt.getPlayer().method_6079().method_7972());
-            int var14 = 4;
-            int var15 = 0;
-            if (var15 < var14) {
-                int var16 = var15;
-                int var17 = 0;
-                minecraftRef.method_31548().method_5447((35 + var16), SharedKt.getPlayer().method_31548().method_5438((35 + var16)).method_7972());
+            int index = 4;
+            int index2 = 0;
+            if (index2 < index) {
+                minecraftRef.method_31548().method_5447((35 + index2), SharedKt.getPlayer().method_31548().method_5438((35 + index2)).method_7972());
             }
             minecraftRef.method_6127().method_26846(SharedKt.getPlayer().method_6127());
         }
@@ -114,13 +106,11 @@ public class FakePlayerModule extends Module {
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        class_745 var9 = minecraftRef;
-        int var10 = 0;
-        var9.method_48922(SharedKt.getWorld().method_48963().method_48830());
-        var9.method_6033((var9.method_6032() + (var9.method_6067() - ExplosionPosEntityHelper.computeValue((class_2664) arg0.getPacket().comp_2883(), (PlayerEntity) var9))));
-        if (arg0.getPacket() instanceof class_2664 && var9 != null && !(var9.field_6235) && var9.method_29504()) {
-            var9.method_6033(10.0F);
-            class_2663 var11 = new class_2663(minecraftRef, 35);
+        minecraftRef.method_48922(SharedKt.getWorld().method_48963().method_48830());
+        minecraftRef.method_6033((minecraftRef.method_6032() + (minecraftRef.method_6067() - ExplosionPosEntityHelper.computeValue(((class_2664) arg0.getPacket()).comp_2883(), ((PlayerEntity) minecraftRef), 0, false, null, false))));
+        if (arg0.getPacket() instanceof class_2664 && minecraftRef != null && !(minecraftRef.field_6235) && minecraftRef.method_29504()) {
+            minecraftRef.method_6033(10.0F);
+            class_2663 class2663 = new class_2663(minecraftRef, 35);
         }
     }
 
@@ -131,31 +121,30 @@ public class FakePlayerModule extends Module {
         }
         if (minecraftRef != null) {
             if (!((minecraftRef.field_6012 % 8))) {
-                class_745 var13 = minecraftRef;
-                var13.method_6033((var13.method_6032() + 0.5F));
+                class_745 class745 = minecraftRef;
+                class745.method_6033((class745.method_6032() + 0.5F));
             }
-            Entity entity = minecraftRef;
-            if (this.resolveMinecraftObject(entity).method_1025(this.resolveMinecraftObject(SharedKt.getPlayer())) > 400.0D) {
+            if (this.resolveMinecraftObject(minecraftRef).method_1025(this.resolveMinecraftObject(SharedKt.getPlayer())) > 400.0D) {
                 this.updateValue2();
                 return;
             }
-            if (enabledFlag2 && !((Collection) itemList.isEmpty())) {
-                var13 = countValue;
-                countValue = (var13 + 1);
+            if (enabledFlag2 && !(((Collection) itemList).isEmpty())) {
+                class745 = countValue;
+                countValue = (class745 + 1);
                 if (countValue >= itemList.size()) {
                     countValue = 0;
                     return;
                 }
-                var13 = (ServiceComponent130) itemList.get(countValue);
-                minecraftRef.method_36456(var13.getNumericValue());
-                minecraftRef.method_36457(var13.getNumericValue2());
-                minecraftRef.field_6241 = var13.getNumericValue();
-                minecraftRef.method_43391(var13.getNumericValue(), var13.getNumericValue2(), var13.getNumericValue3());
-                minecraftRef.method_66246(new Vec3d(var13.getNumericValue(), var13.getNumericValue2(), var13.getNumericValue3()), var13.getNumericValue(), var13.getNumericValue2());
+                class745 = ((ServiceComponent130) itemList.get(countValue));
+                minecraftRef.method_36456(class745.getNumericValue());
+                minecraftRef.method_36457(class745.getNumericValue2());
+                minecraftRef.field_6241 = class745.getNumericValue();
+                minecraftRef.method_43391(class745.getNumericValue(), class745.getNumericValue2(), class745.getNumericValue3());
+                minecraftRef.method_66246(new Vec3d(class745.getNumericValue(), class745.getNumericValue2(), class745.getNumericValue3()), class745.getNumericValue(), class745.getNumericValue2());
             } else {
                 countValue = 0;
             }
-            minecraftRef.method_6122(Hand.field_5810, new ItemStack((class_1935) Items.field_8288));
+            minecraftRef.method_6122(Hand.field_5810, new ItemStack(((class_1935) Items.field_8288)));
         } else {
             this.updateValue2();
         }
@@ -190,11 +179,11 @@ public class FakePlayerModule extends Module {
     }
 
     static {
-        KProperty[] var30 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new FakePlayerModule();
         recordButtonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "record-/-stop", this::getUnit, null, this::isActive);
         buttonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "play-/-stop", this::getUnit2, null, this::isActive2);
-        copyInventorySetting = VisibleRenderHelper.registerSetting(INSTANCE, "copy-inventory");
+        copyInventorySetting = VisibleRenderHelper.registerSetting(INSTANCE, "copy-inventory", true);
         nameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "name", "OLD_GOD");
         itemList = new ArrayList();
     }

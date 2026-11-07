@@ -52,13 +52,11 @@ public class ThemeRenderHelper {
         this.easingServiceComponent2 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, 300L);
         this.easingServiceComponent3 = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT, 300L);
         this.arrayList = new ArrayList();
-        int var19 = 4;
-        int var20 = 0;
-        if (var20 < var19) {
-            int var21 = var20;
-            int var22 = 0;
-            this.arrayList.add(new SettingRenderHelper4((KMutableProperty0) new SettingServiceComponent3(this), this.factorValue, this.factorValue2));
-            if (0L >= 0) {
+        int index = 4;
+        int index2 = 0;
+        if (index2 < index) {
+            this.arrayList.add(new SettingRenderHelper4(((KMutableProperty0) new SettingServiceComponent3(this)), this.factorValue, this.factorValue2, index2));
+            if (__UNDEF_KEY__ >= 0) {
             }
         }
     }
@@ -116,366 +114,336 @@ public class ThemeRenderHelper {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY) {
-        Matrix3x2fStack var59 = context.method_51448();
+        Matrix3x2fStack matrix3x2fStack = context.method_51448();
         SFMServiceComponent.resolveFontRenderHelper3().render(context, KeyServiceComponent.INSTANCE.resolveString(("hub.theme-editor." + this.textValue), new Object[0]), (this.factorValue - 1.0F), (this.factorValue2 - 1.0F), NewThemeRenderHelper.INSTANCE.getColor7());
         if (this.enabledFlag) {
         } else {
         }
-        65.0F.factorValue4 = 14.0F;
+        this.factorValue4 = 14.0F;
         if (this.enabledFlag) {
         } else {
         }
-        1.0F.executeAction(0.0F);
-        float var60 = (1.0F - this.easingServiceComponent.getNumericValue());
+        this.executeAction(0.0F);
+        float factor = (1.0F - this.easingServiceComponent.getNumericValue());
         if (this.enabledFlag) {
-            float var61 = this.factorValue;
-            float var62 = (this.factorValue + 25.0F);
-            int var63 = mouseX;
-            if (var61 <= var63) {
+            float factor2 = this.factorValue;
+            float factor3 = (this.factorValue + 25.0F);
+            int index = mouseX;
+            if (factor2 <= index) {
             } else {
-            }
-            if (var63 <= var62) {
-                var61 = (this.factorValue2 + 24.0F);
-                var62 = (this.factorValue2 + 34.0F);
-                var63 = mouseY;
-                if (var61 <= var63) {
+                if (index <= factor3) {
+                    factor2 = (this.factorValue2 + 24.0F);
+                    factor3 = (this.factorValue2 + 34.0F);
+                    index = mouseY;
+                    if (factor2 <= index) {
+                    } else {
+                        if (index <= factor3) {
+                        } else {
+                        }
+                    }
                 } else {
                 }
-                if (var63 <= var62) {
-                }
             }
         } else {
         }
-        }
-        }
-        1.0F.executeAction(0.0F);
+        this.executeAction(0.0F);
         if (this.enabledFlag) {
-            var61 = this.factorValue;
-            var62 = (this.factorValue + 25.0F);
-            var63 = mouseX;
-            if (var61 <= var63) {
+            factor2 = this.factorValue;
+            factor3 = (this.factorValue + 25.0F);
+            index = mouseX;
+            if (factor2 <= index) {
             } else {
-            }
-            if (var63 <= var62) {
-                var61 = (this.factorValue2 + 38.0F);
-                var62 = (this.factorValue2 + 47.0F);
-                var63 = mouseY;
-                if (var61 <= var63) {
+                if (index <= factor3) {
+                    factor2 = (this.factorValue2 + 38.0F);
+                    factor3 = (this.factorValue2 + 47.0F);
+                    index = mouseY;
+                    if (factor2 <= index) {
+                    } else {
+                        if (index <= factor3) {
+                        } else {
+                        }
+                    }
                 } else {
                 }
-                if (var63 <= var62) {
-                }
             }
         } else {
         }
-        }
-        }
-        1.0F.executeAction(0.0F);
-        var61 = new float[3];
-        Color.RGBtoHSB(this.colorValue.getRed(), this.colorValue.getGreen(), this.colorValue.getBlue());
-        StackShaderComponent2.executeAction(context.method_51448(), ((this.factorValue + this.factorValue3) - 18.0F), (this.factorValue2 + (11 * this.easingServiceComponent.getNumericValue())), 11.0F, (11.0F * var60), 3.0F, 2.5F, 1.0F, 1.0F, this.colorValue, NewThemeRenderHelper.INSTANCE.getColor12(), 0.0F, 0.0F, 0.0F);
+        this.executeAction(0.0F);
+        factor2 = new float[3];
+        Color.RGBtoHSB(this.colorValue.getRed(), this.colorValue.getGreen(), this.colorValue.getBlue(), factor2);
+        StackShaderComponent2.executeAction(context.method_51448(), ((this.factorValue + this.factorValue3) - 18.0F), (this.factorValue2 + (11 * this.easingServiceComponent.getNumericValue())), 11.0F, (11.0F * factor), 3.0F, 2.5F, 1.0F, 1.0F, this.colorValue, NewThemeRenderHelper.INSTANCE.getColor12(), 0.0F, 0.0F, 0.0F);
         if (this.enabledFlag) {
-            MissingnoRenderHelper.executeAction(REDGuiElement.INSTANCE.getMissingnoRenderHelper(), (Matrix3x2f) context.method_51448(), ((this.factorValue + this.factorValue3) - 17.0D), (this.factorValue2 - 2.0D), 0.0F, 0.0F, PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor7(), this.easingServiceComponent.getNumericValue()), null, 0.0F);
-            int var44 = 3072;
-            float var46 = 0.0F;
-            Object var47 = var59;
-            Color var48 = new Color(Color.HSBtoRGB(var61[0], 1.0F, 1.0F));
-            Color var49 = new Color(0);
-            ColorValue1RenderHelper.executeAction(((this.factorValue + this.factorValue3) - (48.0F * this.easingServiceComponent.getNumericValue())), (this.factorValue2 + (10.0F * this.easingServiceComponent.getNumericValue())), (40.0F * this.easingServiceComponent.getNumericValue()), (39.5F * this.easingServiceComponent.getNumericValue()), 3.0F, new Color(0), new Color(-1));
-            var62 = (Iterable) this.arrayList;
-            var63 = 0;
-            Iterator iterator = var62.iterator();
+            MissingnoRenderHelper.executeAction(REDGuiElement.INSTANCE.getMissingnoRenderHelper(), ((Matrix3x2f) context.method_51448()), ((this.factorValue + this.factorValue3) - 17.0D), (this.factorValue2 - 2.0D), 0.0F, 0.0F, PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor7(), this.easingServiceComponent.getNumericValue()), null, 0.0F);
+            int index2 = 3072;
+            float factor4 = 0.0F;
+            Matrix3x2fStack matrix3x2fStack2 = matrix3x2fStack;
+            Color color = new Color(Color.HSBtoRGB(factor2[0], 1.0F, 1.0F));
+            Color color2 = new Color(0);
+            ColorValue1RenderHelper.executeAction(((this.factorValue + this.factorValue3) - (48.0F * this.easingServiceComponent.getNumericValue())), (this.factorValue2 + (10.0F * this.easingServiceComponent.getNumericValue())), (40.0F * this.easingServiceComponent.getNumericValue()), (39.5F * this.easingServiceComponent.getNumericValue()), 3.0F, new Color(0), new Color(-1), color2, color, matrix3x2fStack2, factor4, index2);
+            factor3 = ((Iterable) this.arrayList);
+            index = 0;
+            Iterator iterator = factor3.iterator();
             while (iterator.hasNext()) {
-                Object var65 = iterator.next();
-                SettingRenderHelper4 var66 = (SettingRenderHelper4) var65;
-                int var67 = 0;
-                var66.updateValue(this.factorValue);
-                var66.updateValue2(this.factorValue2);
-                var66.render(context);
+                Object element = iterator.next();
+                SettingRenderHelper4 settingRenderHelper4 = ((SettingRenderHelper4) element);
+                int index3 = 0;
+                settingRenderHelper4.updateValue(this.factorValue);
+                settingRenderHelper4.updateValue2(this.factorValue2);
+                settingRenderHelper4.render(matrix3x2fStack, context);
             }
             iterator = "%02X%02X%02X";
-            var65 = new Object[3];
-            var65[0] = Integer.valueOf(this.colorValue.getRed());
-            var65[1] = Integer.valueOf(this.colorValue.getGreen());
-            var65[2] = Integer.valueOf(this.colorValue.getBlue());
-            var62 = String.format(iterator, Arrays.copyOf());
-            var63 = 3;
+            element = new Object[3];
+            element[0] = Integer.valueOf(this.colorValue.getRed());
+            element[1] = Integer.valueOf(this.colorValue.getGreen());
+            element[2] = Integer.valueOf(this.colorValue.getBlue());
+            factor3 = String.format(iterator, Arrays.copyOf(element, element));
+            index = 3;
             iterator = 0;
-            if (iterator < var63) {
-                var65 = iterator;
-                var66 = 0;
-                var44 = 14336;
-                float var45 = 0.0F;
-                var46 = 0.0F;
-                var47 = 0.0F;
-                var48 = NewThemeRenderHelper.INSTANCE.getColor9();
-                var49 = NewThemeRenderHelper.INSTANCE.getColor11();
-                float var50 = 1.0F;
-                float var51 = (this.easingServiceComponent3.getNumericValue() * 0.0F);
-                float var52 = this.easingServiceComponent2.getNumericValue();
-                int var53 = var65;
-                float var54 = 0.5F;
-                float var55 = (this.easingServiceComponent3.getNumericValue() + 0.0F);
-                float var56 = this.easingServiceComponent2.getNumericValue();
-                int var57 = var65;
-                StackShaderComponent2.executeAction(2.0F);
-                var67 = new String[3];
-                var67[0] = var62;
-                var67[1] = "Copy";
-                var67[2] = "Paste";
-                SFMServiceComponent.resolveFontRenderHelper4().render(context, (String) CollectionsKt.listOf().get(), (this.factorValue + 13.5F), ((this.factorValue2 + 14.5F) + (var65 * 14.0F)), NewThemeRenderHelper.INSTANCE.getColor7());
+            if (iterator < index) {
+                element = iterator;
+                settingRenderHelper4 = 0;
+                index2 = 14336;
+                float factor5 = 0.0F;
+                factor4 = 0.0F;
+                matrix3x2fStack2 = 0.0F;
+                color = NewThemeRenderHelper.INSTANCE.getColor9();
+                color2 = NewThemeRenderHelper.INSTANCE.getColor11();
+                float factor6 = 1.0F;
+                float factor7 = (this.easingServiceComponent3.getNumericValue() * 0.0F);
+                float factor8 = this.easingServiceComponent2.getNumericValue();
+                float factor9 = 0.5F;
+                float factor10 = (this.easingServiceComponent3.getNumericValue() + 0.0F);
+                float factor11 = this.easingServiceComponent2.getNumericValue();
+                StackShaderComponent2.executeAction(2.0F, element, factor11, factor10, factor9, element, factor8, factor7, factor6, color2, color, matrix3x2fStack2, factor4, factor5, index2);
+                index3 = new String[3];
+                index3[0] = factor3;
+                index3[1] = "Copy";
+                index3[2] = "Paste";
+                SFMServiceComponent.resolveFontRenderHelper4().render(context, ((String) CollectionsKt.listOf(index3).get(element)), (this.factorValue + 13.5F), ((this.factorValue2 + 14.5F) + (element * 14.0F)), NewThemeRenderHelper.INSTANCE.getColor7());
             }
-            var63 = new Color[4];
-            var63[0] = PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, 0.0F);
-            var63[1] = PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, 0.0F);
-            var63[2] = PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, 1.0F);
-            var63[3] = PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, 1.0F);
-            PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), (this.factorValue + 61.0F), (this.factorValue2 + 10.0F), 2.0F, 39.0F);
-            var63 = 1;
-            if (var63 < 108) {
-                iterator = Math.clamp((1.0F / (107.0F / ((var63 * this.easingServiceComponent.getNumericValue()) * this.easingServiceComponent.getNumericValue()))), 0.0F, 1.0F);
-                var65 = Color.getHSBColor(iterator, 1.0F, 1.0F);
-                var66 = new Color[4];
-                var66[0] = var65;
-                var66[1] = var65;
-                var66[2] = var65;
-                var66[3] = var65;
-                PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), (this.factorValue + var63), (this.factorValue2 + 55.0F), 1.0F, 2.0F);
+            index = new Color[4];
+            index[0] = PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, 0.0F);
+            index[1] = PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, 0.0F);
+            index[2] = PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, 1.0F);
+            index[3] = PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, 1.0F);
+            PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), (this.factorValue + 61.0F), (this.factorValue2 + 10.0F), 2.0F, 39.0F, index);
+            index = 1;
+            if (index < 108) {
+                iterator = Math.clamp((1.0F / (107.0F / ((index * this.easingServiceComponent.getNumericValue()) * this.easingServiceComponent.getNumericValue()))), 0.0F, 1.0F);
+                element = Color.getHSBColor(iterator, 1.0F, 1.0F);
+                settingRenderHelper4 = new Color[4];
+                settingRenderHelper4[0] = element;
+                settingRenderHelper4[1] = element;
+                settingRenderHelper4[2] = element;
+                settingRenderHelper4[3] = element;
+                PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), (this.factorValue + index), (this.factorValue2 + 55.0F), 1.0F, 2.0F, settingRenderHelper4);
             }
-            this.executeAction(mouseX);
-            this.executeAction(mouseX, mouseY);
-            this.executeAction(mouseY);
+            this.executeAction(matrix3x2fStack, mouseX);
+            this.executeAction(matrix3x2fStack, mouseX, mouseY);
+            this.executeAction(matrix3x2fStack, mouseY);
         }
         this.executeAction(this.idRecord6);
     }
 
     private void executeAction(Matrix3x2fStack arg0, int arg1, int arg2) {
-        float var13 = (((this.factorValue + this.factorValue3) - 48.0F) + 2.0F);
-        float var14 = ((this.factorValue2 + 10.0F) + 2.0F);
-        Object var15 = new float[3];
-        Color.RGBtoHSB(this.colorValue.getRed(), this.colorValue.getGreen(), this.colorValue.getBlue());
-        StackShaderComponent2.executeAction(arg0, ((var13 - 4.0F) + (40 * var15[1])), ((var14 - 4.0F) + (40 * (1.0F - var15[2]))), 7.0F, 7.0F, 2.5F, 1.5F, 1.0F, 1.0F, this.colorValue, Color.BLACK, 0.0F, 0.0F, 0.0F);
-        float var16 = Math.clamp(((arg1 - var13) / 40.0F), 0.0F, 1.0F);
-        float var17 = Math.clamp((1.0F - ((arg2 - var14) / 40.0F)), 0.0F, 1.0F);
-        this.colorValue = PolygonShaderComponent.INSTANCE.resolveColor(new Color(Color.HSBtoRGB(var15[0])), (this.colorValue.getAlpha() / 255.0F));
+        float factor = (((this.factorValue + this.factorValue3) - 48.0F) + 2.0F);
+        float factor2 = ((this.factorValue2 + 10.0F) + 2.0F);
+        Object element = new float[3];
+        Color.RGBtoHSB(this.colorValue.getRed(), this.colorValue.getGreen(), this.colorValue.getBlue(), element);
+        StackShaderComponent2.executeAction(arg0, ((factor - 4.0F) + (40 * element[1])), ((factor2 - 4.0F) + (40 * (1.0F - element[2]))), 7.0F, 7.0F, 2.5F, 1.5F, 1.0F, 1.0F, this.colorValue, Color.BLACK, 0.0F, 0.0F, 0.0F);
+        float factor3 = Math.clamp(((arg1 - factor) / 40.0F), 0.0F, 1.0F);
+        float factor4 = Math.clamp((1.0F - ((arg2 - factor2) / 40.0F)), 0.0F, 1.0F);
+        this.colorValue = PolygonShaderComponent.INSTANCE.resolveColor(new Color(Color.HSBtoRGB(element[0], factor3, factor4)), (this.colorValue.getAlpha() / 255.0F));
     }
 
     private void executeAction(Matrix3x2fStack arg0, int arg1) {
-        float var12 = (this.factorValue2 + 11.0F);
-        StackShaderComponent2.executeAction(arg0, (this.factorValue + 58.0F), ((var12 - 4.0F) + (38 * (1.0F - (this.colorValue.getAlpha() / 255.0F)))), 7.0F, 7.0F, 2.5F, 1.0F, 1.0F, 1.0F, this.colorValue, PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, 1.0F), 0.0F, 0.0F, 0.0F);
-        if (var11 != null) {
+        float factor = (this.factorValue2 + 11.0F);
+        StackShaderComponent2.executeAction(arg0, (this.factorValue + 58.0F), ((factor - 4.0F) + (38 * (1.0F - (this.colorValue.getAlpha() / 255.0F)))), 7.0F, 7.0F, 2.5F, 1.0F, 1.0F, 1.0F, this.colorValue, PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, 1.0F), 0.0F, 0.0F, 0.0F);
+        if (__UNDEF_KEY__ != null) {
         }
-        this.colorValue = PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, Math.clamp((1.0F - ((arg1 - var12) / 39.0F)), 0.0F, 1.0F));
+        this.colorValue = PolygonShaderComponent.INSTANCE.resolveColor(this.colorValue, Math.clamp((1.0F - ((arg1 - factor) / 39.0F)), 0.0F, 1.0F));
     }
 
     private void executeAction(Matrix3x2fStack arg0, int arg1) {
-        float var15 = this.factorValue;
-        Object var16 = new float[3];
-        Color.RGBtoHSB(this.colorValue.getRed(), this.colorValue.getGreen(), this.colorValue.getBlue());
-        StackShaderComponent2.executeAction(arg0, ((var15 - 3.5F) + (106 * var16[0])), (this.factorValue2 + 52.0F), 7.0F, 7.0F, 2.5F, 1.0F, 1.0F, 1.0F, new Color(Color.HSBtoRGB(var16[0], 1.0F, 1.0F)), new Color(Color.HSBtoRGB(var16[0], 1.0F, 1.0F)), 0.0F, 0.0F, 0.0F);
-        float var17 = Math.clamp(((arg1 - var15) / 107.0F), 0.0F, 1.0F);
-        this.colorValue = PolygonShaderComponent.INSTANCE.resolveColor(new Color(Color.HSBtoRGB(var16[1], var16[2])), (this.colorValue.getAlpha() / 255.0F));
+        float factor = this.factorValue;
+        Object element = new float[3];
+        Color.RGBtoHSB(this.colorValue.getRed(), this.colorValue.getGreen(), this.colorValue.getBlue(), element);
+        StackShaderComponent2.executeAction(arg0, ((factor - 3.5F) + (106 * element[0])), (this.factorValue2 + 52.0F), 7.0F, 7.0F, 2.5F, 1.0F, 1.0F, 1.0F, new Color(Color.HSBtoRGB(element[0], 1.0F, 1.0F)), new Color(Color.HSBtoRGB(element[0], 1.0F, 1.0F)), 0.0F, 0.0F, 0.0F);
+        float factor2 = Math.clamp(((arg1 - factor) / 107.0F), 0.0F, 1.0F);
+        this.colorValue = PolygonShaderComponent.INSTANCE.resolveColor(new Color(Color.HSBtoRGB(factor2, element[1], element[2])), (this.colorValue.getAlpha() / 255.0F));
     }
 
     public void executeAction(double mouseX, double mouseY) {
-        float var13 = this.factorValue;
+        float factor = this.factorValue;
         if (mouseX <= (this.factorValue + this.factorValue3)) {
         } else {
-        }
-        if (var13 <= mouseX) {
-            var13 = this.factorValue2;
-            if (mouseY <= (this.factorValue2 + 8.0F)) {
-            } else {
-            }
-            if (var13 <= mouseY) {
-                this.enabledFlag = !(this.enabledFlag);
-                this.enabledFlag3 = 0;
-                this.enabledFlag4 = 0;
-                this.enabledFlag2 = 0;
-                return;
+            if (factor <= mouseX) {
+                factor = this.factorValue2;
+                if (mouseY <= (this.factorValue2 + 8.0F)) {
+                } else {
+                    if (factor <= mouseY) {
+                        this.enabledFlag = !(this.enabledFlag);
+                        this.enabledFlag3 = false;
+                        this.enabledFlag4 = false;
+                        this.enabledFlag2 = false;
+                        return;
+                    }
+                }
             }
         }
         if (!(this.enabledFlag)) {
             return;
         }
-        var13 = (Iterable) this.arrayList;
-        int var14 = 0;
-        Iterator iterator = var13.iterator();
+        factor = ((Iterable) this.arrayList);
+        Iterator iterator = factor.iterator();
         while (iterator.hasNext()) {
-            Object var16 = iterator.next();
-            SettingRenderHelper4 var17 = (SettingRenderHelper4) var16;
-            int var18 = 0;
-            var17.setValue(mouseX, mouseY);
+            Object element = iterator.next();
+            SettingRenderHelper4 settingRenderHelper4 = ((SettingRenderHelper4) element);
+            settingRenderHelper4.setValue(mouseX, mouseY);
         }
         if (this.enabledFlag) {
-            var13 = (this.factorValue + 57.0F);
+            factor = (this.factorValue + 57.0F);
             if (mouseX <= (this.factorValue + 68.0F)) {
             } else {
-            }
-            if (var13 <= mouseX) {
-                var13 = (this.factorValue2 + 11.0F);
-                if (mouseY <= (this.factorValue2 + 50.0F)) {
-                } else {
-                }
-                if (var13 <= mouseY) {
-                    this.enabledFlag3 = 1;
-                }
-            }
-        } else {
-            if (this.enabledFlag) {
-                var13 = this.factorValue;
-                if (mouseX <= (this.factorValue + 108.0F)) {
-                } else {
-                }
-                if (var13 <= mouseX) {
-                    var13 = (this.factorValue2 + 53.0F);
-                    if (mouseY <= (this.factorValue2 + 58.0F)) {
+                if (factor <= mouseX) {
+                    factor = (this.factorValue2 + 11.0F);
+                    if (mouseY <= (this.factorValue2 + 50.0F)) {
                     } else {
-                    }
-                    if (var13 <= mouseY) {
-                        this.enabledFlag4 = 1;
-                    }
-                }
-            } else {
-                if (this.enabledFlag) {
-                    var13 = ((this.factorValue + this.factorValue3) - 48.0F);
-                    if (mouseX <= ((this.factorValue + this.factorValue3) - 8.0F)) {
-                    } else {
-                    }
-                    if (var13 <= mouseX) {
-                        var13 = (this.factorValue2 + 11.0F);
-                        if (mouseY <= (this.factorValue2 + 51.0F)) {
+                        if (factor <= mouseY) {
+                            this.enabledFlag3 = true;
                         } else {
-                        }
-                        if (var13 <= mouseY) {
-                            this.enabledFlag2 = 1;
-                        }
-                    }
-                } else {
-                    if (this.enabledFlag) {
-                        var13 = this.factorValue;
-                        if (mouseX <= (this.factorValue + 25.0F)) {
-                        } else {
-                        }
-                        if (var13 <= mouseX) {
-                            var13 = (this.factorValue2 + 24.0F);
-                            if (mouseY <= (this.factorValue2 + 34.0F)) {
-                            } else {
+                            if (this.enabledFlag) {
+                                factor = this.factorValue;
+                                if (mouseX <= (this.factorValue + 108.0F)) {
+                                } else {
+                                    if (factor <= mouseX) {
+                                        factor = (this.factorValue2 + 53.0F);
+                                        if (mouseY <= (this.factorValue2 + 58.0F)) {
+                                        } else {
+                                            if (factor <= mouseY) {
+                                                this.enabledFlag4 = true;
+                                            } else {
+                                                if (this.enabledFlag) {
+                                                    factor = ((this.factorValue + this.factorValue3) - 48.0F);
+                                                    if (mouseX <= ((this.factorValue + this.factorValue3) - 8.0F)) {
+                                                    } else {
+                                                        if (factor <= mouseX) {
+                                                            factor = (this.factorValue2 + 11.0F);
+                                                            if (mouseY <= (this.factorValue2 + 51.0F)) {
+                                                            } else {
+                                                                if (factor <= mouseY) {
+                                                                    this.enabledFlag2 = true;
+                                                                } else {
+                                                                    if (this.enabledFlag) {
+                                                                        factor = this.factorValue;
+                                                                        if (mouseX <= (this.factorValue + 25.0F)) {
+                                                                        } else {
+                                                                            if (factor <= mouseX) {
+                                                                                factor = (this.factorValue2 + 24.0F);
+                                                                                if (mouseY <= (this.factorValue2 + 34.0F)) {
+                                                                                } else {
+                                                                                    if (factor <= mouseY) {
+                                                                                        NewThemeRenderHelper.INSTANCE.executeAction(this.colorValue);
+                                                                                    } else {
+                                                                                        factor = this.factorValue;
+                                                                                        if (mouseX <= (this.factorValue + 25.0F)) {
+                                                                                        } else {
+                                                                                        }
+                                                                                        factor = (this.factorValue2 + 38.0F);
+                                                                                        if (mouseY <= (this.factorValue2 + 47.0F)) {
+                                                                                        } else {
+                                                                                        }
+                                                                                        this.colorValue = NewThemeRenderHelper.INSTANCE.getColor();
+                                                                                    }
+                                                                                }
+                                                                            } else {
+                                                                            }
+                                                                        }
+                                                                    } else {
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
-                            if (var13 <= mouseY) {
-                                NewThemeRenderHelper.INSTANCE.executeAction(this.colorValue);
-                            }
                         }
-                    } else {
-                        var13 = this.factorValue;
-                        if (mouseX <= (this.factorValue + 25.0F)) {
-                        } else {
-                        }
-                        var13 = (this.factorValue2 + 38.0F);
-                        if (mouseY <= (this.factorValue2 + 47.0F)) {
-                        } else {
-                        }
-                        this.colorValue = NewThemeRenderHelper.INSTANCE.getColor();
                     }
                 }
             }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
-        }
         }
     }
 
     public void executeAction() {
-        this.enabledFlag2 = 0;
-        this.enabledFlag4 = 0;
-        this.enabledFlag3 = 0;
+        this.enabledFlag2 = false;
+        this.enabledFlag4 = false;
+        this.enabledFlag3 = false;
     }
 
     public void executeAction(int key) {
-        if (var6 != null) {
-        }
-        Iterable var7 = (Iterable) this.arrayList;
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
-        if (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            SettingRenderHelper4 var11 = (SettingRenderHelper4) var10;
-            int var12 = 0;
-            var11.setValue(key);
+        Iterable iterable = ((Iterable) this.arrayList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            SettingRenderHelper4 settingRenderHelper4 = ((SettingRenderHelper4) element);
+            settingRenderHelper4.setValue(key);
         }
     }
 
-    public void executeAction(char char) {
-        if (var7 != null) {
-        }
-        Iterable var8 = (Iterable) this.arrayList;
-        int var9 = 0;
-        Iterator iterator = var8.iterator();
-        if (iterator.hasNext()) {
-            Object var11 = iterator.next();
-            SettingRenderHelper4 var12 = (SettingRenderHelper4) var11;
-            int var13 = 0;
-            var12.setValue(char);
+    public void executeAction(char charParam) {
+        Iterable iterable = ((Iterable) this.arrayList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            SettingRenderHelper4 settingRenderHelper4 = ((SettingRenderHelper4) element);
+            settingRenderHelper4.setValue(charParam);
         }
     }
 
     public void executeAction(double mouseX, double mouseY, double verticalAmount) {
-        if (var11 != null) {
-        }
-        Iterable var12 = (Iterable) this.arrayList;
-        int var13 = 0;
-        Iterator iterator = var12.iterator();
-        if (iterator.hasNext()) {
-            Object var15 = iterator.next();
-            SettingRenderHelper4 var16 = (SettingRenderHelper4) var15;
-            int var17 = 0;
-            var16.setValue(mouseX, mouseY, verticalAmount);
+        Iterable iterable = ((Iterable) this.arrayList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            SettingRenderHelper4 settingRenderHelper4 = ((SettingRenderHelper4) element);
+            settingRenderHelper4.setValue(mouseX, mouseY, verticalAmount);
         }
     }
 
     private void executeAction(IdRecord6 arg0) {
-        String var31 = this.textValue;
-        if (!(var31.equals("secondary"))) {
-            if (!(var31.equals("widget-blur"))) {
-                if (!(var31.equals("outline"))) {
-                    if (!(var31.equals("inactive-module-outline"))) {
-                        if (!(var31.equals("inactive-text"))) {
-                            if (!(var31.equals("inactive-module"))) {
-                                if (!(var31.equals("module"))) {
-                                    if (!(var31.equals("module-outline"))) {
-                                        if (!(var31.equals("blur"))) {
-                                            if (!(var31.equals("text"))) {
-                                                if (!(var31.equals("sliders"))) {
+        String text = this.textValue;
+        if (!(text.equals("secondary"))) {
+            if (!(text.equals("widget-blur"))) {
+                if (!(text.equals("outline"))) {
+                    if (!(text.equals("inactive-module-outline"))) {
+                        if (!(text.equals("inactive-text"))) {
+                            if (!(text.equals("inactive-module"))) {
+                                if (!(text.equals("module"))) {
+                                    if (!(text.equals("module-outline"))) {
+                                        if (!(text.equals("blur"))) {
+                                            if (!(text.equals("text"))) {
+                                                if (!(text.equals("sliders"))) {
                                                     arg0.executeAction(this.colorValue);
-                                                } else {
                                                     arg0.executeAction(this.colorValue);
-                                                } else {
                                                     arg0.executeAction2(this.colorValue);
-                                                } else {
                                                     arg0.executeAction3(this.colorValue);
-                                                } else {
                                                     arg0.executeAction2(this.colorValue);
-                                                } else {
                                                     arg0.executeAction4(this.colorValue);
-                                                } else {
                                                     arg0.executeAction5(this.colorValue);
                                                 } else {
                                                     arg0.executeAction(this.colorValue);
-                                                } else {
                                                     arg0.executeAction3(this.colorValue);
-                                                } else {
                                                     arg0.executeAction(this.colorValue);
-                                                } else {
                                                     arg0.executeAction4(this.colorValue);
-                                                } else {
                                                     arg0.executeAction6(this.colorValue);
                                                 }
+                                            } else {
                                             }
+                                        } else {
                                         }
                                     }
                                 }

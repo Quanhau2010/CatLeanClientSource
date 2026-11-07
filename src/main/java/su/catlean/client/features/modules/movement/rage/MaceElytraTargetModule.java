@@ -109,148 +109,148 @@ public class MaceElytraTargetModule extends Module {
     }
 
     private int getHeight() {
-        return (Number) heightSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) heightSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private int getSwapDelay() {
-        return (Number) swapDelaySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) swapDelaySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private int getFireworkDelay() {
-        return (Number) fireworkDelaySetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) fireworkDelaySetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getOffHandFirework() {
-        return (Boolean) offHandFireworkSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) offHandFireworkSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getAlternativeFireworkSwap() {
-        return (Boolean) alternativeFireworkSwapSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) alternativeFireworkSwapSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getPauseWhileEating() {
-        return (Boolean) pauseWhileEatingSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) pauseWhileEatingSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getMinimizeClicks() {
-        return (Boolean) minimizeClicksSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) minimizeClicksSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private boolean getPeekAssist() {
-        return (Boolean) peekAssistSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) peekAssistSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private boolean getWindBurstSync() {
-        return (Boolean) windBurstSyncSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) windBurstSyncSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private boolean getBoost() {
-        return (Boolean) boostSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Boolean) boostSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private boolean getCustomSpeed() {
-        return (Boolean) customSpeedSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Boolean) customSpeedSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private float getDegrees0() {
-        return (Number) degrees0Setting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Number) degrees0Setting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private float getDegrees5() {
-        return (Number) degrees5Setting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Number) degrees5Setting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private float getDegrees10() {
-        return (Number) degrees10Setting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Number) degrees10Setting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     private float getDegrees15() {
-        return (Number) degrees15Setting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Number) degrees15Setting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     private float getDegrees20() {
-        return (Number) degrees20Setting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((Number) degrees20Setting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     private float getDegrees25() {
-        return (Number) degrees25Setting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((Number) degrees25Setting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     private float getDegrees30() {
-        return (Number) degrees30Setting.getValue(this, DELEGATED_PROPERTIES[17]);
+        return ((Number) degrees30Setting.getValue(this, DELEGATED_PROPERTIES[17]));
     }
 
     private float getDegrees35() {
-        return (Number) degrees35Setting.getValue(this, DELEGATED_PROPERTIES[18]);
+        return ((Number) degrees35Setting.getValue(this, DELEGATED_PROPERTIES[18]));
     }
 
     private float getDegrees40() {
-        return (Number) degrees40Setting.getValue(this, DELEGATED_PROPERTIES[19]);
+        return ((Number) degrees40Setting.getValue(this, DELEGATED_PROPERTIES[19]));
     }
 
     private float getDegrees45() {
-        return (Number) degrees45Setting.getValue(this, DELEGATED_PROPERTIES[20]);
+        return ((Number) degrees45Setting.getValue(this, DELEGATED_PROPERTIES[20]));
     }
 
     private float getDegrees50() {
-        return (Number) degrees50Setting.getValue(this, DELEGATED_PROPERTIES[21]);
+        return ((Number) degrees50Setting.getValue(this, DELEGATED_PROPERTIES[21]));
     }
 
     private float getDegrees55() {
-        return (Number) degrees55Setting.getValue(this, DELEGATED_PROPERTIES[22]);
+        return ((Number) degrees55Setting.getValue(this, DELEGATED_PROPERTIES[22]));
     }
 
     private float getDegrees60() {
-        return (Number) degrees60Setting.getValue(this, DELEGATED_PROPERTIES[23]);
+        return ((Number) degrees60Setting.getValue(this, DELEGATED_PROPERTIES[23]));
     }
 
     private float getDegrees65() {
-        return (Number) degrees65Setting.getValue(this, DELEGATED_PROPERTIES[24]);
+        return ((Number) degrees65Setting.getValue(this, DELEGATED_PROPERTIES[24]));
     }
 
     private float getDegrees70() {
-        return (Number) degrees70Setting.getValue(this, DELEGATED_PROPERTIES[25]);
+        return ((Number) degrees70Setting.getValue(this, DELEGATED_PROPERTIES[25]));
     }
 
     private float getDegrees75() {
-        return (Number) degrees75Setting.getValue(this, DELEGATED_PROPERTIES[26]);
+        return ((Number) degrees75Setting.getValue(this, DELEGATED_PROPERTIES[26]));
     }
 
     private float getDegrees80() {
-        return (Number) degrees80Setting.getValue(this, DELEGATED_PROPERTIES[27]);
+        return ((Number) degrees80Setting.getValue(this, DELEGATED_PROPERTIES[27]));
     }
 
     private float getDegrees85() {
-        return (Number) degrees85Setting.getValue(this, DELEGATED_PROPERTIES[28]);
+        return ((Number) degrees85Setting.getValue(this, DELEGATED_PROPERTIES[28]));
     }
 
     private float getDegrees90() {
-        return (Number) degrees90Setting.getValue(this, DELEGATED_PROPERTIES[29]);
+        return ((Number) degrees90Setting.getValue(this, DELEGATED_PROPERTIES[29]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (countValue > 0) {
-            int var34 = countValue;
-            countValue = (var34 + -1);
+            int index = countValue;
+            countValue = (index + -1);
             return;
         }
-        var34 = ItemPacketHelper.INSTANCE.computeValue();
-        Item[] var36 = new Item[1];
-        var36[0] = Items.FIREWORK_ROCKET;
-        StackServiceComponent2 var35 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        var36 = AuraModule.INSTANCE.getTarget() != null;
-        if (var36) {
+        index = ItemPacketHelper.INSTANCE.computeValue();
+        Item[] items = new Item[1];
+        items[0] = Items.FIREWORK_ROCKET;
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+        items = AuraModule.INSTANCE.getTarget() != null;
+        if (items) {
             Entity entity = AuraModule.INSTANCE.getTarget();
             if (SharedKt.getPlayer().getEyePos().method_1022(this.resolveMinecraftObject(entity)) < 4.0D) {
                 if (SharedKt.getPlayer().method_18798().field_1351 < -1.0D) {
+                } else {
+                    boolean flag = RotationServiceComponent.INSTANCE.getNumericValue() <= 0;
                 }
+            } else {
             }
         } else {
         }
-        }
-        }
-        boolean var37 = RotationServiceComponent.INSTANCE.getNumericValue() <= 0;
-        if (var34 < 0 || !(var35.isActive()) || SharedKt.getPlayer().method_5799() || SharedKt.getPlayer().method_5771()) {
+        if (index < 0 || !(stackServiceComponent2.isActive()) || SharedKt.getPlayer().method_5799() || SharedKt.getPlayer().method_5771()) {
             return;
         }
         if (this.getPauseWhileEating()) {
@@ -261,11 +261,11 @@ public class MaceElytraTargetModule extends Module {
             }
         }
         if (SharedKt.getPlayer().isOnGround()) {
-            SharedKt.getMc().options.field_1903.method_23481(1);
-            RunnableServiceComponent2.executeAction(3, 0, 0, this::executeAction);
+            SharedKt.getMc().options.field_1903.method_23481(true);
+            RunnableServiceComponent2.executeAction(3, 0, false, this::executeAction);
             return;
         }
-        if (SharedKt.getMc().options.field_1903.method_1434() || !(var37)) {
+        if (SharedKt.getMc().options.field_1903.method_1434() || !(flag)) {
             return;
         }
         this.updateValue();
@@ -276,67 +276,67 @@ public class MaceElytraTargetModule extends Module {
             AuraModule.INSTANCE.getTarget();
             return;
         }
-        MoveFixServiceComponent var23 = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(AuraModule.INSTANCE.getTarget().getEyePos().method_1031(0.0D, this.getHeight(), 0.0D));
-        boolean var24 = (SharedKt.getPlayer().getY() - AuraModule.INSTANCE.getTarget().getY()) > this.getHeight();
+        MoveFixServiceComponent moveFixServiceComponent = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(AuraModule.INSTANCE.getTarget().getEyePos().method_1031(0.0D, this.getHeight(), 0.0D));
+        boolean flag = (SharedKt.getPlayer().getY() - AuraModule.INSTANCE.getTarget().getY()) > this.getHeight();
         if (RotationServiceComponent.INSTANCE.getNumericValue() <= 0) {
             if (!(serviceComponent383.checkCondition(10))) {
+            } else {
             }
-        } else {
         }
-        int var25 = 0;
-        if (var25) {
+        int index = 0;
+        if (index) {
             if (!(enabledFlag)) {
                 ElytraTargetModule.INSTANCE.executeAction(this.getOffHandFirework(), this.getAlternativeFireworkSwap());
             }
             enabledFlag = 1;
         }
-        if (var24) {
+        if (flag) {
             enabledFlag = 0;
         }
-        SequenceServiceComponent.INSTANCE.executeAction(200);
+        SequenceServiceComponent.INSTANCE.executeAction(moveFixServiceComponent, 200);
     }
 
     private void executeAction(int arg0) {
-        GuiMoveModule.INSTANCE.updateValue(1);
-        if (var8 != null) {
+        GuiMoveModule.INSTANCE.updateValue(true);
+        if (__UNDEF_KEY__ != null) {
             if (arg0 >= 36) {
                 this.executeAction2((arg0 - 36));
+                if (__UNDEF_KEY__ == null) {
+                    this.executeAction(arg0);
+                }
             }
-            if (var8 == null) {
-            }
-            this.executeAction(arg0);
         }
-        GuiMoveModule.INSTANCE.updateValue(0);
+        GuiMoveModule.INSTANCE.updateValue(false);
     }
 
     private void executeAction(int arg0) {
-        HandServiceComponent.e(arg0);
-        HandServiceComponent.e();
+        HandServiceComponent.e(arg0, 0, null, false);
+        HandServiceComponent.e(6, 0, null, false);
         if (!(this.getMinimizeClicks())) {
-            HandServiceComponent.e(arg0);
+            HandServiceComponent.e(arg0, 0, null, true);
         }
-        ElytraSwapModule.INSTANCE.updateValue(1);
+        ElytraSwapModule.INSTANCE.updateValue(true);
         SharedKt.getPlayer().startFallFlying();
-        PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12982));
+        PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12982)));
         if (serviceComponent38.checkCondition(this.getFireworkDelay())) {
             ElytraTargetModule.INSTANCE.executeAction(this.getOffHandFirework(), this.getAlternativeFireworkSwap());
         }
         if (!(this.getMinimizeClicks())) {
-            HandServiceComponent.e(arg0);
+            HandServiceComponent.e(arg0, 0, null, false);
         }
-        HandServiceComponent.e();
-        HandServiceComponent.e(arg0);
+        HandServiceComponent.e(6, 0, null, false);
+        HandServiceComponent.e(arg0, 0, null, true);
     }
 
     private void executeAction2(int arg0) {
-        HandServiceComponent.executeAction(6, arg0, class_1713.field_7791, 1);
-        ElytraSwapModule.INSTANCE.updateValue(1);
+        HandServiceComponent.executeAction(6, arg0, class_1713.field_7791, true);
+        ElytraSwapModule.INSTANCE.updateValue(true);
         SharedKt.getPlayer().startFallFlying();
-        PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12982));
+        PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12982)));
         if (serviceComponent38.checkCondition(this.getFireworkDelay())) {
             ElytraTargetModule.INSTANCE.executeAction(this.getOffHandFirework(), this.getAlternativeFireworkSwap());
         }
-        HandServiceComponent.executeAction(6, arg0, class_1713.field_7791, 1);
+        HandServiceComponent.executeAction(6, arg0, class_1713.field_7791, true);
     }
 
     private void onFireWorkVelocityEvent(FireWorkVelocityEvent arg0) {
@@ -348,41 +348,40 @@ public class MaceElytraTargetModule extends Module {
         if (this.getCustomSpeed()) {
             this.updateValue2();
         }
-        float var18 = Math.abs(Math.toDegrees(Math.atan2(vec.field_1351, Math.hypot(vec.field_1352, vec.field_1350))));
+        float factor = Math.abs(Math.toDegrees(Math.atan2(vec.field_1351, Math.hypot(vec.field_1352, vec.field_1350))));
         if (!(BlinkModule.INSTANCE.getEnabled())) {
             if (!(this.getBoost())) {
-            }
-        } else {
-            if (this.getCustomSpeed()) {
             } else {
-            }
-            Iterable var21 = (Iterable) (Map) ElytraTargetModule.INSTANCE.getHashMap().entrySet();
-            Iterator iterator = var21.iterator();
-            if (!(iterator.hasNext())) {
-            } else {
-                Object var23 = iterator.next();
+                if (this.getCustomSpeed()) {
+                } else {
+                }
+                Iterable iterable = ((Iterable) ((Map) ElytraTargetModule.INSTANCE.getHashMap()).entrySet());
+                Iterator iterator = iterable.iterator();
                 if (!(iterator.hasNext())) {
                 } else {
-                    Entry var24 = (Entry) var23;
-                    int var25 = 0;
-                    var24 = Math.abs((var18 - (Number) var24.getKey()));
-                    var25 = iterator.next();
-                    Entry var26 = (Entry) var25;
-                    int var27 = 0;
-                    var26 = Math.abs((var18 - (Number) var26.getKey()));
-                    if (Float.compare() > 0) {
-                        var23 = var25;
-                        var24 = var26;
+                    Object element = iterator.next();
+                    if (!(iterator.hasNext())) {
+                    } else {
+                        Entry entry = ((Entry) element);
+                        int index = 0;
+                        entry = Math.abs((factor - ((Number) entry.getKey())));
+                        index = iterator.next();
+                        Entry entry2 = ((Entry) index);
+                        entry2 = Math.abs((factor - ((Number) entry2.getKey())));
+                        if (Float.compare(entry, entry2) > 0) {
+                            element = index;
+                            entry = entry2;
+                        }
                     }
                 }
-            }
-            if ((Entry) var23 != null) {
-            } else {
+                if (((Entry) element) != null) {
+                } else {
+                }
             }
         }
-        float var19 = 0.1F;
-        float var20 = 1.5F;
-        arg0.setVelocity(SharedKt.getPlayer().method_18798().method_1031(((vec.field_1352 * var19) + (((vec.field_1352 * var20) - SharedKt.getPlayer().method_18798().field_1352) * 0.5D)), ((vec.field_1351 * var19) + (((vec.field_1351 * var20) - SharedKt.getPlayer().method_18798().field_1351) * 0.5D)), ((vec.field_1350 * var19) + (((vec.field_1350 * var20) - SharedKt.getPlayer().method_18798().field_1350) * 0.5D))));
+        float factor2 = 0.1F;
+        float factor3 = 1.5F;
+        arg0.setVelocity(SharedKt.getPlayer().method_18798().method_1031(((vec.field_1352 * factor2) + (((vec.field_1352 * factor3) - SharedKt.getPlayer().method_18798().field_1352) * 0.5D)), ((vec.field_1351 * factor2) + (((vec.field_1351 * factor3) - SharedKt.getPlayer().method_18798().field_1351) * 0.5D)), ((vec.field_1350 * factor2) + (((vec.field_1350 * factor3) - SharedKt.getPlayer().method_18798().field_1350) * 0.5D))));
     }
 
     private void onSetPoseEvent(SetPoseEvent arg0) {
@@ -391,14 +390,14 @@ public class MaceElytraTargetModule extends Module {
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        class_6880 var5 = (class_2767) arg0.getPacket().method_11894();
-        if (!(Intrinsics.areEqual(class_3417.field_14966)) && !(Intrinsics.areEqual(class_3417.field_21866)) && !(Intrinsics.areEqual(class_3417.field_15103)) && !(Intrinsics.areEqual(class_3417.field_14761)) && !(Intrinsics.areEqual(class_3417.field_14862)) && !(Intrinsics.areEqual(class_3417.field_14883)) && !(Intrinsics.areEqual(class_3417.field_15191))) {
+        class_6880 class6880 = ((class_2767) arg0.getPacket()).method_11894();
+        if (!(Intrinsics.areEqual(class6880, class_3417.field_14966)) && !(Intrinsics.areEqual(class6880, class_3417.field_21866)) && !(Intrinsics.areEqual(class6880, class_3417.field_15103)) && !(Intrinsics.areEqual(class6880, class_3417.field_14761)) && !(Intrinsics.areEqual(class6880, class_3417.field_14862)) && !(Intrinsics.areEqual(class6880, class_3417.field_14883)) && !(Intrinsics.areEqual(class6880, class_3417.field_15191))) {
         }
         arg0.cancel();
     }
 
     private void onSendPacket(SendPacket arg0) {
-        if (!(arg0.getPacket() instanceof class_2824) || !(CriticalsModule.INSTANCE.checkCondition((class_2824) arg0.getPacket())) || !(this.checkCondition()) || !(Intrinsics.areEqual(CriticalsModule.INSTANCE.resolveMinecraftObject((class_2824) arg0.getPacket()), AuraModule.INSTANCE.getTarget())) || EventPacketHelper2.INSTANCE.getNumericValue() < 3.0D) {
+        if (!(arg0.getPacket() instanceof class_2824) || !(CriticalsModule.INSTANCE.checkCondition(((class_2824) arg0.getPacket()))) || !(this.checkCondition()) || !(Intrinsics.areEqual(CriticalsModule.INSTANCE.resolveMinecraftObject(((class_2824) arg0.getPacket())), AuraModule.INSTANCE.getTarget())) || EventPacketHelper2.INSTANCE.getNumericValue() < 3.0D) {
             return;
         }
         countValue = 7;
@@ -406,34 +405,34 @@ public class MaceElytraTargetModule extends Module {
 
     public boolean checkCondition(byte arg0) {
         if (arg0 >= 0) {
-            if (var15 != null) {
+            if (__UNDEF_KEY__ != null) {
             }
         }
         return StackServiceComponent3.checkCondition(SharedKt.getPlayer().method_6047(), class_1893.field_50159);
     }
 
     private void updateValue2() {
-        Pair[] var43 = new Pair[19];
-        var43[0] = TuplesKt.to(Float.valueOf(0.0F), Float.valueOf(this.getDegrees0()));
-        var43[1] = TuplesKt.to(Float.valueOf(5.0F), Float.valueOf(this.getDegrees5()));
-        var43[2] = TuplesKt.to(Float.valueOf(10.0F), Float.valueOf(this.getDegrees10()));
-        var43[3] = TuplesKt.to(Float.valueOf(15.0F), Float.valueOf(this.getDegrees15()));
-        var43[4] = TuplesKt.to(Float.valueOf(20.0F), Float.valueOf(this.getDegrees20()));
-        var43[5] = TuplesKt.to(Float.valueOf(25.0F), Float.valueOf(this.getDegrees25()));
-        var43[6] = TuplesKt.to(Float.valueOf(30.0F), Float.valueOf(this.getDegrees30()));
-        var43[7] = TuplesKt.to(Float.valueOf(35.0F), Float.valueOf(this.getDegrees35()));
-        var43[8] = TuplesKt.to(Float.valueOf(40.0F), Float.valueOf(this.getDegrees40()));
-        var43[9] = TuplesKt.to(Float.valueOf(45.0F), Float.valueOf(this.getDegrees45()));
-        var43[10] = TuplesKt.to(Float.valueOf(50.0F), Float.valueOf(this.getDegrees50()));
-        var43[11] = TuplesKt.to(Float.valueOf(55.0F), Float.valueOf(this.getDegrees55()));
-        var43[12] = TuplesKt.to(Float.valueOf(60.0F), Float.valueOf(this.getDegrees60()));
-        var43[13] = TuplesKt.to(Float.valueOf(65.0F), Float.valueOf(this.getDegrees65()));
-        var43[14] = TuplesKt.to(Float.valueOf(70.0F), Float.valueOf(this.getDegrees70()));
-        var43[15] = TuplesKt.to(Float.valueOf(75.0F), Float.valueOf(this.getDegrees75()));
-        var43[16] = TuplesKt.to(Float.valueOf(80.0F), Float.valueOf(this.getDegrees80()));
-        var43[17] = TuplesKt.to(Float.valueOf(85.0F), Float.valueOf(this.getDegrees85()));
-        var43[18] = TuplesKt.to(Float.valueOf(90.0F), Float.valueOf(this.getDegrees90()));
-        hashMap = MapsKt.hashMapOf();
+        Pair[] items = new Pair[19];
+        items[0] = TuplesKt.to(Float.valueOf(0.0F), Float.valueOf(this.getDegrees0()));
+        items[1] = TuplesKt.to(Float.valueOf(5.0F), Float.valueOf(this.getDegrees5()));
+        items[2] = TuplesKt.to(Float.valueOf(10.0F), Float.valueOf(this.getDegrees10()));
+        items[3] = TuplesKt.to(Float.valueOf(15.0F), Float.valueOf(this.getDegrees15()));
+        items[4] = TuplesKt.to(Float.valueOf(20.0F), Float.valueOf(this.getDegrees20()));
+        items[5] = TuplesKt.to(Float.valueOf(25.0F), Float.valueOf(this.getDegrees25()));
+        items[6] = TuplesKt.to(Float.valueOf(30.0F), Float.valueOf(this.getDegrees30()));
+        items[7] = TuplesKt.to(Float.valueOf(35.0F), Float.valueOf(this.getDegrees35()));
+        items[8] = TuplesKt.to(Float.valueOf(40.0F), Float.valueOf(this.getDegrees40()));
+        items[9] = TuplesKt.to(Float.valueOf(45.0F), Float.valueOf(this.getDegrees45()));
+        items[10] = TuplesKt.to(Float.valueOf(50.0F), Float.valueOf(this.getDegrees50()));
+        items[11] = TuplesKt.to(Float.valueOf(55.0F), Float.valueOf(this.getDegrees55()));
+        items[12] = TuplesKt.to(Float.valueOf(60.0F), Float.valueOf(this.getDegrees60()));
+        items[13] = TuplesKt.to(Float.valueOf(65.0F), Float.valueOf(this.getDegrees65()));
+        items[14] = TuplesKt.to(Float.valueOf(70.0F), Float.valueOf(this.getDegrees70()));
+        items[15] = TuplesKt.to(Float.valueOf(75.0F), Float.valueOf(this.getDegrees75()));
+        items[16] = TuplesKt.to(Float.valueOf(80.0F), Float.valueOf(this.getDegrees80()));
+        items[17] = TuplesKt.to(Float.valueOf(85.0F), Float.valueOf(this.getDegrees85()));
+        items[18] = TuplesKt.to(Float.valueOf(90.0F), Float.valueOf(this.getDegrees90()));
+        hashMap = MapsKt.hashMapOf(items);
     }
 
     private static boolean isActive() {
@@ -525,23 +524,23 @@ public class MaceElytraTargetModule extends Module {
     }
 
     private static void executeAction() {
-        SharedKt.getMc().options.field_1903.method_23481(0);
+        SharedKt.getMc().options.field_1903.method_23481(false);
     }
 
     static {
-        KProperty[] var32 = new KProperty[30];
+        KProperty[] items = new KProperty[30];
         INSTANCE = new MaceElytraTargetModule();
         heightSetting = VisibleRenderHelper.registerSetting(INSTANCE, "height", 25, new IntRange(25, 60));
         swapDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "elytra-delay", 2, new IntRange(0, 40));
         fireworkDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "firework-delay", 8, new IntRange(0, 40));
-        offHandFireworkSetting = VisibleRenderHelper.registerSetting(INSTANCE, "offhand-firework");
-        alternativeFireworkSwapSetting = VisibleRenderHelper.registerSetting(INSTANCE, "alt-firework-swap", 0, null, this::isActive);
-        pauseWhileEatingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-while-eating");
-        minimizeClicksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "minimize-clicks");
-        peekAssistSetting = VisibleRenderHelper.registerSetting(INSTANCE, "peek-assist");
-        windBurstSyncSetting = VisibleRenderHelper.registerSetting(INSTANCE, "wind-burst-sync", 1, null, this::isActive2);
-        boostSetting = VisibleRenderHelper.registerSetting(INSTANCE, "boost");
-        customSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "custom-speed", 0, null, this::isActive3);
+        offHandFireworkSetting = VisibleRenderHelper.registerSetting(INSTANCE, "offhand-firework", true);
+        alternativeFireworkSwapSetting = VisibleRenderHelper.registerSetting(INSTANCE, "alt-firework-swap", false, null, this::isActive);
+        pauseWhileEatingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-while-eating", true);
+        minimizeClicksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "minimize-clicks", false);
+        peekAssistSetting = VisibleRenderHelper.registerSetting(INSTANCE, "peek-assist", true);
+        windBurstSyncSetting = VisibleRenderHelper.registerSetting(INSTANCE, "wind-burst-sync", true, null, this::isActive2);
+        boostSetting = VisibleRenderHelper.registerSetting(INSTANCE, "boost", false);
+        customSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "custom-speed", false, null, this::isActive3);
         degrees0Setting = VisibleRenderHelper.registerSetting(INSTANCE, "0-degrees", 0.15F, RangesKt.rangeTo(0.0F, 1.0F), null, this::isActive4);
         degrees5Setting = VisibleRenderHelper.registerSetting(INSTANCE, "5-degrees", 0.15F, RangesKt.rangeTo(0.0F, 1.0F), null, this::isActive5);
         degrees10Setting = VisibleRenderHelper.registerSetting(INSTANCE, "10-degrees", 0.15F, RangesKt.rangeTo(0.0F, 1.0F), null, this::isActive6);
@@ -564,27 +563,27 @@ public class MaceElytraTargetModule extends Module {
         serviceComponent38 = new ServiceComponent38();
         serviceComponent382 = new ServiceComponent38();
         serviceComponent383 = new ServiceComponent38();
-        var32 = new Pair[19];
-        var32[0] = TuplesKt.to(Float.valueOf(0.0F), Float.valueOf(0.155F));
-        var32[1] = TuplesKt.to(Float.valueOf(5.0F), Float.valueOf(0.16F));
-        var32[2] = TuplesKt.to(Float.valueOf(10.0F), Float.valueOf(0.19F));
-        var32[3] = TuplesKt.to(Float.valueOf(15.0F), Float.valueOf(0.22F));
-        var32[4] = TuplesKt.to(Float.valueOf(20.0F), Float.valueOf(0.22F));
-        var32[5] = TuplesKt.to(Float.valueOf(25.0F), Float.valueOf(0.27F));
-        var32[6] = TuplesKt.to(Float.valueOf(30.0F), Float.valueOf(0.28F));
-        var32[7] = TuplesKt.to(Float.valueOf(35.0F), Float.valueOf(0.34F));
-        var32[8] = TuplesKt.to(Float.valueOf(40.0F), Float.valueOf(0.37F));
-        var32[9] = TuplesKt.to(Float.valueOf(45.0F), Float.valueOf(0.37F));
-        var32[10] = TuplesKt.to(Float.valueOf(50.0F), Float.valueOf(0.34F));
-        var32[11] = TuplesKt.to(Float.valueOf(55.0F), Float.valueOf(0.34F));
-        var32[12] = TuplesKt.to(Float.valueOf(60.0F), Float.valueOf(0.2F));
-        var32[13] = TuplesKt.to(Float.valueOf(65.0F), Float.valueOf(0.18F));
-        var32[14] = TuplesKt.to(Float.valueOf(70.0F), Float.valueOf(0.16F));
-        var32[15] = TuplesKt.to(Float.valueOf(75.0F), Float.valueOf(0.16F));
-        var32[16] = TuplesKt.to(Float.valueOf(80.0F), Float.valueOf(0.13F));
-        var32[17] = TuplesKt.to(Float.valueOf(85.0F), Float.valueOf(0.13F));
-        var32[18] = TuplesKt.to(Float.valueOf(90.0F), Float.valueOf(0.13F));
-        hashMap = MapsKt.hashMapOf();
+        items = new Pair[19];
+        items[0] = TuplesKt.to(Float.valueOf(0.0F), Float.valueOf(0.155F));
+        items[1] = TuplesKt.to(Float.valueOf(5.0F), Float.valueOf(0.16F));
+        items[2] = TuplesKt.to(Float.valueOf(10.0F), Float.valueOf(0.19F));
+        items[3] = TuplesKt.to(Float.valueOf(15.0F), Float.valueOf(0.22F));
+        items[4] = TuplesKt.to(Float.valueOf(20.0F), Float.valueOf(0.22F));
+        items[5] = TuplesKt.to(Float.valueOf(25.0F), Float.valueOf(0.27F));
+        items[6] = TuplesKt.to(Float.valueOf(30.0F), Float.valueOf(0.28F));
+        items[7] = TuplesKt.to(Float.valueOf(35.0F), Float.valueOf(0.34F));
+        items[8] = TuplesKt.to(Float.valueOf(40.0F), Float.valueOf(0.37F));
+        items[9] = TuplesKt.to(Float.valueOf(45.0F), Float.valueOf(0.37F));
+        items[10] = TuplesKt.to(Float.valueOf(50.0F), Float.valueOf(0.34F));
+        items[11] = TuplesKt.to(Float.valueOf(55.0F), Float.valueOf(0.34F));
+        items[12] = TuplesKt.to(Float.valueOf(60.0F), Float.valueOf(0.2F));
+        items[13] = TuplesKt.to(Float.valueOf(65.0F), Float.valueOf(0.18F));
+        items[14] = TuplesKt.to(Float.valueOf(70.0F), Float.valueOf(0.16F));
+        items[15] = TuplesKt.to(Float.valueOf(75.0F), Float.valueOf(0.16F));
+        items[16] = TuplesKt.to(Float.valueOf(80.0F), Float.valueOf(0.13F));
+        items[17] = TuplesKt.to(Float.valueOf(85.0F), Float.valueOf(0.13F));
+        items[18] = TuplesKt.to(Float.valueOf(90.0F), Float.valueOf(0.13F));
+        hashMap = MapsKt.hashMapOf(items);
     }
 
 }

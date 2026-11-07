@@ -42,104 +42,104 @@ public class AvoidModule extends Module {
     }
 
     private boolean getUnloaded() {
-        return (Boolean) unloadedSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) unloadedSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getVoidAir() {
-        return (Boolean) voidAirSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) voidAirSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getCactus() {
-        return (Boolean) cactusSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) cactusSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getFire() {
-        return (Boolean) fireSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) fireSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getBerryBush() {
-        return (Boolean) berryBushSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) berryBushSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getPowderSnow() {
-        return (Boolean) powderSnowSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) powderSnowSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getLava() {
-        return (Boolean) lavaSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) lavaSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private boolean getTrapString() {
-        return (Boolean) trapStringSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) trapStringSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private boolean getPlate() {
-        return (Boolean) plateSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) plateSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private boolean getTurtleEggs() {
-        return (Boolean) turtleEggsSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Boolean) turtleEggsSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private void onCollisionEvent(CollisionEvent arg0) {
         BlockState state = arg0.getState();
-        int var37 = 0;
-        boolean var38 = INSTANCE.getUnloaded();
+        boolean flag = INSTANCE.getUnloaded();
         if (arg0.getPos().method_10264() < SharedKt.getWorld().method_31607()) {
         } else {
+            boolean flag2 = INSTANCE.getVoidAir();
         }
-        boolean var39 = INSTANCE.getVoidAir();
         if (Intrinsics.areEqual(state.getBlock(), Blocks.field_10029)) {
         } else {
+            boolean flag3 = INSTANCE.getCactus();
         }
-        boolean var40 = INSTANCE.getCactus();
         if (!(Intrinsics.areEqual(state.getBlock(), Blocks.field_10036))) {
             if (Intrinsics.areEqual(state.getBlock(), Blocks.field_22089)) {
+            } else {
+                boolean flag4 = INSTANCE.getFire();
             }
-        } else {
         }
-        boolean var41 = INSTANCE.getFire();
         if (Intrinsics.areEqual(state.getBlock(), Blocks.field_16999)) {
         } else {
+            boolean flag5 = INSTANCE.getBerryBush();
         }
-        boolean var42 = INSTANCE.getBerryBush();
         if (Intrinsics.areEqual(state.getBlock(), Blocks.field_27879)) {
         } else {
+            boolean flag6 = INSTANCE.getPowderSnow();
         }
-        boolean var43 = INSTANCE.getPowderSnow();
         if (Intrinsics.areEqual(state.getBlock(), Blocks.field_10164)) {
         } else {
+            boolean flag7 = INSTANCE.getLava();
         }
-        boolean var44 = INSTANCE.getLava();
         if (!(state.getBlock() instanceof class_2440)) {
             if (!(Intrinsics.areEqual(state.getBlock(), Blocks.field_10224))) {
                 if (Intrinsics.areEqual(state.getBlock(), Blocks.field_10582)) {
+                } else {
+                    boolean flag8 = INSTANCE.getPlate();
                 }
             }
-        } else {
         }
-        boolean var45 = INSTANCE.getPlate();
         if (state.getBlock() instanceof class_2538) {
-            if ((Boolean) state.method_11654((class_2769) class_2537.field_11669)) {
+            if (((Boolean) state.method_11654(((class_2769) class_2537.field_11669)))) {
+            } else {
+                boolean flag9 = INSTANCE.getTrapString();
             }
         } else {
         }
-        }
-        boolean var46 = INSTANCE.getTrapString();
         if (state.getBlock() instanceof class_2542) {
         } else {
+            boolean flag10 = INSTANCE.getTurtleEggs();
         }
-        boolean var47 = INSTANCE.getTurtleEggs();
-        if (!(var38)) {
-            if (!(var41)) {
-                if (!(var40)) {
-                    if (!(var44)) {
-                        if (!(var42)) {
-                            if (!(var43)) {
-                                if (!(var45)) {
-                                    if (!(var46)) {
-                                        if (!(var39)) {
-                                            if (var47) {
+        if (!(flag)) {
+            if (!(flag4)) {
+                if (!(flag3)) {
+                    if (!(flag7)) {
+                        if (!(flag5)) {
+                            if (!(flag6)) {
+                                if (!(flag8)) {
+                                    if (!(flag9)) {
+                                        if (!(flag2)) {
+                                            if (flag10) {
+                                                arg0.setState(Blocks.field_10566.method_9564());
                                             }
                                         }
                                     }
@@ -149,23 +149,22 @@ public class AvoidModule extends Module {
                     }
                 }
             }
-            arg0.setState(Blocks.field_10566.method_9564());
         }
     }
 
     static {
-        KProperty[] var26 = new KProperty[10];
+        KProperty[] items = new KProperty[10];
         INSTANCE = new AvoidModule();
-        unloadedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "unloaded");
-        voidAirSetting = VisibleRenderHelper.registerSetting(INSTANCE, "void-air");
-        cactusSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cactus");
-        fireSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire");
-        berryBushSetting = VisibleRenderHelper.registerSetting(INSTANCE, "berry-bush");
-        powderSnowSetting = VisibleRenderHelper.registerSetting(INSTANCE, "powder-snow");
-        lavaSetting = VisibleRenderHelper.registerSetting(INSTANCE, "lava");
-        trapStringSetting = VisibleRenderHelper.registerSetting(INSTANCE, "trap-string");
-        plateSetting = VisibleRenderHelper.registerSetting(INSTANCE, "plate");
-        turtleEggsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "turtle-eggs");
+        unloadedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "unloaded", false);
+        voidAirSetting = VisibleRenderHelper.registerSetting(INSTANCE, "void-air", false);
+        cactusSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cactus", false);
+        fireSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire", false);
+        berryBushSetting = VisibleRenderHelper.registerSetting(INSTANCE, "berry-bush", false);
+        powderSnowSetting = VisibleRenderHelper.registerSetting(INSTANCE, "powder-snow", false);
+        lavaSetting = VisibleRenderHelper.registerSetting(INSTANCE, "lava", false);
+        trapStringSetting = VisibleRenderHelper.registerSetting(INSTANCE, "trap-string", false);
+        plateSetting = VisibleRenderHelper.registerSetting(INSTANCE, "plate", false);
+        turtleEggsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "turtle-eggs", false);
     }
 
 }

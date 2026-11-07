@@ -22,7 +22,7 @@ public class RangeVisibleSettingPropertyImpl extends VisibleSettingProperty {
     }
 
     public String toString() {
-        return String.valueOf((Number) this.getObject2());
+        return String.valueOf(((Number) this.getObject2()));
     }
 
     private static boolean isActive() {

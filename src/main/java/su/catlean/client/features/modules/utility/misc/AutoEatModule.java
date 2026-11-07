@@ -43,31 +43,31 @@ public class AutoEatModule extends Module {
     }
 
     private int getHunger() {
-        return (Number) hungerSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) hungerSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getSwapBack() {
-        return (Boolean) swapBackSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) swapBackSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getGapple() {
-        return (Boolean) gappleSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) gappleSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getChorus() {
-        return (Boolean) chorusSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) chorusSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getRottenFlesh() {
-        return (Boolean) rottenFleshSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) rottenFleshSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getSpiderEye() {
-        return (Boolean) spiderEyeSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) spiderEyeSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getPufferfish() {
-        return (Boolean) pufferfishSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) pufferfishSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
@@ -94,28 +94,28 @@ public class AutoEatModule extends Module {
     }
 
     private boolean checkCondition() {
-        int var19 = 0;
-        if (var19 < 9) {
-            ItemStack stack = SharedKt.getPlayer().method_31548().method_5438();
+        int index = 0;
+        if (index < 9) {
+            ItemStack stack = SharedKt.getPlayer().method_31548().method_5438(index);
             if (!(this.getGapple())) {
                 if (stack.getItem() == Items.field_8367) {
+                } else {
+                    if (!(this.getChorus())) {
+                    }
+                    if (!(this.getRottenFlesh())) {
+                    }
+                    if (!(this.getSpiderEye())) {
+                    }
+                    if (!(this.getPufferfish())) {
+                        if (stack.method_57353().method_57832(class_9334.field_50075) && stack.getItem() != Items.field_8463 && stack.getItem() != Items.field_8233 && stack.getItem() != Items.field_8511 && stack.getItem() != Items.field_8680 && stack.getItem() != Items.field_8323) {
+                            countValue = SharedKt.getPlayer().method_31548().method_67532();
+                            ItemPacketHelper.INSTANCE.executeAction(index);
+                            return true;
+                        }
+                    }
                 }
             } else {
-                if (!(this.getChorus())) {
-                }
-                if (!(this.getRottenFlesh())) {
-                }
-                if (!(this.getSpiderEye())) {
-                }
-                if (!(this.getPufferfish())) {
-                    if (stack.method_57353().method_57832(class_9334.field_50075) && stack.getItem() != Items.field_8463 && stack.getItem() != Items.field_8233 && stack.getItem() != Items.field_8511 && stack.getItem() != Items.field_8680 && stack.getItem() != Items.field_8323) {
-                    }
-                    countValue = SharedKt.getPlayer().method_31548().method_67532();
-                    ItemPacketHelper.INSTANCE.executeAction();
-                    return true;
-                }
             }
-        }
         }
         return false;
     }
@@ -125,8 +125,7 @@ public class AutoEatModule extends Module {
         } else {
         }
         ItemStack stack = SharedKt.getPlayer().method_6079();
-        Object var18 = stack;
-        stack = var18.getItem();
+        stack = stack.getItem();
         if (!(this.getGapple())) {
         }
         if (!(this.getChorus())) {
@@ -136,9 +135,9 @@ public class AutoEatModule extends Module {
         if (!(this.getSpiderEye())) {
         }
         if (!(this.getPufferfish())) {
-            if (var18.method_57353().method_57832(class_9334.field_50075) && stack != Items.field_8463 && stack != Items.field_8367 && stack != Items.field_8233 && stack != Items.field_8511 && stack != Items.field_8680 && stack != Items.field_8323) {
+            if (stack.method_57353().method_57832(class_9334.field_50075) && stack != Items.field_8463 && stack != Items.field_8367 && stack != Items.field_8233 && stack != Items.field_8511 && stack != Items.field_8680 && stack != Items.field_8323) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -152,15 +151,15 @@ public class AutoEatModule extends Module {
     }
 
     static {
-        KProperty[] var28 = new KProperty[7];
+        KProperty[] items = new KProperty[7];
         INSTANCE = new AutoEatModule();
         hungerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "Hunger", 8, new IntRange(0, 20));
-        swapBackSetting = VisibleRenderHelper.registerSetting(INSTANCE, "swap-back");
-        gappleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "gapple");
-        chorusSetting = VisibleRenderHelper.registerSetting(INSTANCE, "chorus");
-        rottenFleshSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotten-flesh");
-        spiderEyeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "spider-eye");
-        pufferfishSetting = VisibleRenderHelper.registerSetting(INSTANCE, "puffer-fish");
+        swapBackSetting = VisibleRenderHelper.registerSetting(INSTANCE, "swap-back", true);
+        gappleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "gapple", true);
+        chorusSetting = VisibleRenderHelper.registerSetting(INSTANCE, "chorus", false);
+        rottenFleshSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotten-flesh", false);
+        spiderEyeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "spider-eye", false);
+        pufferfishSetting = VisibleRenderHelper.registerSetting(INSTANCE, "puffer-fish", false);
         countValue = -1;
     }
 

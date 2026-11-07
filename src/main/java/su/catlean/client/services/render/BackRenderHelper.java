@@ -68,42 +68,37 @@ public class BackRenderHelper {
         if (enabledFlag2) {
         } else {
         }
-        1.0F.executeAction(0.0F);
-        int var26 = (SharedKt.getMc().method_22683().method_4486() / 2.0F);
-        float var27 = 5.0F;
-        float var28 = 220.0F;
-        float var29 = 16.0F;
-        StackShaderComponent2.executeAction(context.method_51448(), (var26 - (var28 / 2.0F)), 5.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-        Iterable var30 = (Iterable) itemList;
-        int var31 = 0;
-        int var32 = 0;
-        Iterator iterator = var30.iterator();
+        this.executeAction(0.0F);
+        int index = (SharedKt.getMc().method_22683().method_4486() / 2.0F);
+        float factor = 5.0F;
+        float factor2 = 220.0F;
+        float factor3 = 16.0F;
+        StackShaderComponent2.executeAction(context.method_51448(), (index - (factor2 / 2.0F)), factor, factor2, factor3, 5.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+        Iterable iterable = ((Iterable) itemList);
+        int index2 = 0;
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var34 = iterator.next();
-            int var35 = var32;
-            if (var35 < 0) {
+            Object element = iterator.next();
+            if (index2 < 0) {
                 CollectionsKt.throwIndexOverflow();
             }
-            AnimationServiceComponent var36 = (AnimationServiceComponent) var34;
-            int var37 = var35;
-            int var38 = 0;
-            1.0F.executeAction(0.0F);
-            float var40 = (((var26 - (var28 / 2.0F)) + var36.getNumericValue()) + 2.0F);
-            if (var37 == 4) {
+            AnimationServiceComponent animationServiceComponent = ((AnimationServiceComponent) element);
+            this.executeAction(0.0F);
+            int index3 = (((index - (factor2 / 2.0F)) + animationServiceComponent.getNumericValue()) + 2.0F);
+            if (index2 == 4) {
             } else {
             }
-            float var41 = (1.0F - easingServiceComponent.getNumericValue());
-            StackShaderComponent2.executeAction(context.method_51448(), (var27 + 2), 40.0F, (var29 - 4.0F), 4.0F, (2.0F * var36.getEasingServiceComponent().getNumericValue()), (var36.getEasingServiceComponent().getNumericValue() / 5.0F), NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-            if (var37 == 4 && enabledFlag2) {
+            float factor4 = (1.0F - easingServiceComponent.getNumericValue());
+            StackShaderComponent2.executeAction(context.method_51448(), index3, (factor + 2), 40.0F, (factor3 - 4.0F), 4.0F, (2.0F * animationServiceComponent.getEasingServiceComponent().getNumericValue()), (animationServiceComponent.getEasingServiceComponent().getNumericValue() / 5.0F), factor4, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+            if (index2 == 4 && enabledFlag2) {
             } else {
             }
-            if (Intrinsics.areEqual(var36.getString(), "Search") && !(Intrinsics.areEqual(SharedKt.getMc().currentScreen, CatleanInterfaceRenderHelper.INSTANCE))) {
+            if (Intrinsics.areEqual(animationServiceComponent.getString(), "Search") && !(Intrinsics.areEqual(SharedKt.getMc().currentScreen, CatleanInterfaceRenderHelper.INSTANCE))) {
             } else {
             }
-            float var24 = var41;
-            "Back".render(var36.getString(), (var40 + 20.0F), (var27 + 7.0F), PolygonShaderComponent.INSTANCE, Color.WHITE.resolveColor(0.3F));
+            "Back".render(animationServiceComponent.getString(), (index3 + 20.0F), (factor + 7.0F), PolygonShaderComponent.INSTANCE, Color.WHITE.resolveColor(0.3F, factor4));
         }
-        this.render(context, mouseX, mouseY);
+        this.render(context, mouseX, mouseY, index, factor, factor2, factor3);
         REDGuiElement.INSTANCE.render(context, mouseX, mouseY);
     }
 
@@ -113,148 +108,141 @@ public class BackRenderHelper {
         } else {
         }
         textValue.render(System.currentTimeMillis(), ("" + "_"), ((arg3 - (arg5 / 2.0F)) + 6.0F), (arg4 + 2.0F), PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE, easingServiceComponent.getNumericValue()));
-        Map var23 = this.resolveMap();
-        StackShaderComponent2.executeAction(arg0.method_51448(), (arg3 - (arg5 / 2.0F)), ((arg4 + arg6) + 4.0F), arg5, ((var23.size() * 14.0F) + 4.0F), 5.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-        Iterable var24 = CollectionsKt.withIndex((Iterable) var23.entrySet());
-        int var25 = 0;
-        Iterator iterator = var24.iterator();
+        Map map = this.resolveMap();
+        StackShaderComponent2.executeAction(arg0.method_51448(), (arg3 - (arg5 / 2.0F)), ((arg4 + arg6) + 4.0F), arg5, ((map.size() * 14.0F) + 4.0F), 5.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+        Iterable iterable = CollectionsKt.withIndex(((Iterable) map.entrySet()));
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var27 = iterator.next();
-            IndexedValue var28 = (IndexedValue) var27;
-            int var29 = 0;
-            int var30 = var28.component1();
-            Entry var31 = (Entry) var28.component2();
-            String var32 = (String) var31.getKey();
-            Function0 var33 = (Function0) var31.getValue();
-            float var34 = ((arg3 - (arg5 / 2.0F)) + 6.0F);
-            float var35 = (((arg4 + arg6) + 6.0F) + (14.0F * var30));
-            float var36 = (var34 - 2.0F);
-            float var37 = ((var34 + arg5) - 4.0F);
-            int var38 = arg1;
-            if (var36 <= var38) {
+            Object element = iterator.next();
+            IndexedValue indexedValue = ((IndexedValue) element);
+            int index = indexedValue.component1();
+            Entry entry = ((Entry) indexedValue.component2());
+            String text = ((String) entry.getKey());
+            Function0 function0 = ((Function0) entry.getValue());
+            float factor = ((arg3 - (arg5 / 2.0F)) + 6.0F);
+            float factor2 = (((arg4 + arg6) + 6.0F) + (14.0F * index));
+            float factor3 = (factor - 2.0F);
+            float factor4 = ((factor + arg5) - 4.0F);
+            int index2 = arg1;
+            if (factor3 <= index2) {
             } else {
-            }
-            if (var38 <= var37) {
-                var36 = (var35 - 2.0F);
-                var37 = (var35 + 11.0F);
-                var38 = arg2;
-                if (var36 <= var38) {
-                } else {
+                if (index2 <= factor4) {
+                    factor3 = (factor2 - 2.0F);
+                    factor4 = (factor2 + 11.0F);
+                    index2 = arg2;
+                    if (factor3 <= index2) {
+                    } else {
+                        if (index2 <= factor4) {
+                            StackShaderComponent2.executeAction(arg0.method_51448(), (factor - 4.0F), factor2, (arg5 - 4.0F), 14.0F, 4.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+                            function0 = function0;
+                        }
+                    }
                 }
-                if (var38 <= var37) {
-                    StackShaderComponent2.executeAction(arg0.method_51448(), (var34 - 4.0F), (arg5 - 4.0F), 14.0F, 4.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-                    function0 = var33;
-                }
             }
-            SFMServiceComponent.resolveFontRenderHelper3().render(arg0, (var35 + 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE, easingServiceComponent.getNumericValue()));
+            SFMServiceComponent.resolveFontRenderHelper3().render(arg0, text, factor, (factor2 + 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE, easingServiceComponent.getNumericValue()));
         }
     }
 
     private Map resolveMap() {
-        Map var4 = (Map) new LinkedHashMap();
-        if (!((CharSequence) textValue.length())) {
-            return var4;
+        Map map = ((Map) new LinkedHashMap());
+        if (!(((CharSequence) textValue).length())) {
+            return map;
         }
-        String var5 = StringsKt.replace$default(textValue, " ", "-").toLowerCase(Locale.ROOT);
-        Object var6 = var5;
-        int var7 = 0;
-        int var8 = var6.length();
-        if (var7 < var8) {
-            char var9 = var6.charAt();
-            if (StringsKt.contains$default((CharSequence) "\u0439\u0446\u0443\u043a\u0435\u043d\u0433\u0448\u0449\u0437\u0445\u044a\u0444\u044b\u0432\u0430\u043f\u0440\u043e\u043b\u0434\u0436\u044d\u044f\u0447\u0441\u043c\u0438\u0442\u044c\u0431\u044e")) {
-                var5 = StringsKt.replace$default("qwertyuiop[]asdfghjkl;'zxcvbnm,.".charAt(StringsKt.indexOf$default((CharSequence) "\u0439\u0446\u0443\u043a\u0435\u043d\u0433\u0448\u0449\u0437\u0445\u044a\u0444\u044b\u0432\u0430\u043f\u0440\u043e\u043b\u0434\u0436\u044d\u044f\u0447\u0441\u043c\u0438\u0442\u044c\u0431\u044e")));
+        String text = StringsKt.replace$default(textValue, " ", "-", false).toLowerCase(Locale.ROOT);
+        String text2 = text;
+        int index = 0;
+        int index2 = text2.length();
+        if (index < index2) {
+            char ch = text2.charAt(index);
+            if (StringsKt.contains$default(((CharSequence) "\u0439\u0446\u0443\u043a\u0435\u043d\u0433\u0448\u0449\u0437\u0445\u044a\u0444\u044b\u0432\u0430\u043f\u0440\u043e\u043b\u0434\u0436\u044d\u044f\u0447\u0441\u043c\u0438\u0442\u044c\u0431\u044e"), ch, false)) {
+                text = StringsKt.replace$default(text, ch, "qwertyuiop[]asdfghjkl;'zxcvbnm,.".charAt(StringsKt.indexOf$default(((CharSequence) "\u0439\u0446\u0443\u043a\u0435\u043d\u0433\u0448\u0449\u0437\u0445\u044a\u0444\u044b\u0432\u0430\u043f\u0440\u043e\u043b\u0434\u0436\u044d\u044f\u0447\u0441\u043c\u0438\u0442\u044c\u0431\u044e"), ch, 0, false)), false);
             }
         }
-        var6 = EnabledServiceComponent.INSTANCE.getArrayList2().iterator();
-        while (var6.hasNext()) {
-            var7 = (Module) var6.next();
-            if (var4.size() < 10) {
-                var8 = (Iterable) var7.getList();
-                Object var17 = var4;
-                var9 = 0;
-                Object var10 = var8;
-                Collection var11 = (Collection) new ArrayList();
-                int var12 = 0;
-                Iterator iterator = var10.iterator();
+        text2 = EnabledServiceComponent.INSTANCE.getArrayList2().iterator();
+        while (text2.hasNext()) {
+            index = ((Module) text2.next());
+            if (map.size() < 10) {
+                index2 = ((Iterable) index.getList());
+                Map map2 = map;
+                ch = 0;
+                int index3 = index2;
+                Collection collection = ((Collection) new ArrayList());
+                int index4 = 0;
+                Iterator iterator = index3.iterator();
                 while (iterator.hasNext()) {
-                    Object var14 = iterator.next();
-                    VisibleSettingProperty var15 = (VisibleSettingProperty) var14;
-                    int var16 = 0;
-                    if (!(StringsKt.contains$default((CharSequence) var15.getString(), (CharSequence) var5))) {
-                        if (StringsKt.contains$default((CharSequence) StringsKt.replace$default(var15.getString(), "-", ""), (CharSequence) var5)) {
+                    Object element = iterator.next();
+                    VisibleSettingProperty visibleSettingProperty = ((VisibleSettingProperty) element);
+                    if (!(StringsKt.contains$default(((CharSequence) visibleSettingProperty.getString()), ((CharSequence) text), false))) {
+                        if (StringsKt.contains$default(((CharSequence) StringsKt.replace$default(visibleSettingProperty.getString(), "-", "", false)), ((CharSequence) text), false)) {
+                        } else {
                         }
-                    } else {
                     }
-                    var11.add();
+                    collection.add(element);
                 }
-                var8 = (Iterable) var11;
-                var9 = 0;
-                var10 = var8;
-                var11 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-                var12 = 0;
-                iterator = var10.iterator();
+                index2 = ((Iterable) collection);
+                ch = 0;
+                index3 = index2;
+                collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(index2, 10)));
+                index4 = 0;
+                iterator = index3.iterator();
                 while (iterator.hasNext()) {
-                    var14 = iterator.next();
-                    var15 = (VisibleSettingProperty) var14;
-                    Object var18 = var11;
-                    var16 = 0;
-                    var18.add(TuplesKt.to((var7.getString2() + " \u2192 " + var15.getString2()), this::resolveUnit));
+                    element = iterator.next();
+                    visibleSettingProperty = ((VisibleSettingProperty) element);
+                    collection.add(TuplesKt.to((index.getString2() + " \u2192 " + visibleSettingProperty.getString2()), this::resolveUnit));
                 }
-                MapsKt.putAll((Iterable) var11);
-                var9 = (Iterable) var7.getList();
-                var10 = 0;
-                var11 = var9.iterator();
-                if (var11.hasNext()) {
-                    var12 = var11.next();
-                    iterator = (String) var12;
-                    var14 = 0;
+                MapsKt.putAll(map2, ((Iterable) collection));
+                ch = ((Iterable) index.getList());
+                index3 = 0;
+                collection = ch.iterator();
+                while (collection.hasNext()) {
+                    index4 = collection.next();
+                    iterator = ((String) index4);
+                    element = 0;
+                }
+                index2 = ((String) null);
+                if (!(StringsKt.contains$default(((CharSequence) index.getString()), ((CharSequence) text), false)) && index2 == null) {
+                }
+                if (index2 == null) {
                 } else {
                 }
-                var8 = (String) null;
-                if (!(StringsKt.contains$default((CharSequence) var7.getString(), (CharSequence) var5)) && var8 == null) {
-                }
-                if (var8 == null) {
-                } else {
-                }
-                var7.getString2().put((var7.getString2() + " (" + var8 + ")"), this::resolveUnit2);
+                index.getString2().put((index.getString2() + " (" + index2 + ")"), this::resolveUnit2);
             }
         }
-        return var4;
+        return map;
     }
 
     public boolean checkCondition(double mouseX, double mouseY, int button) {
-        int var13 = ((SharedKt.getMc().method_22683().method_4486() / 2.0F) - 108.0F);
-        Iterable var14 = (Iterable) itemList;
-        int var15 = 0;
-        Iterator iterator = var14.iterator();
-        if (iterator.hasNext()) {
-            Object var17 = iterator.next();
-            AnimationServiceComponent var18 = (AnimationServiceComponent) var17;
-            int var19 = 0;
+        int index = ((SharedKt.getMc().method_22683().method_4486() / 2.0F) - 108.0F);
+        Iterable iterable = ((Iterable) itemList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            AnimationServiceComponent animationServiceComponent = ((AnimationServiceComponent) element);
             if (enabledFlag2) {
-                if (Intrinsics.areEqual(var18.getString(), "Search")) {
-                }
-                float var20 = (var13 + var18.getNumericValue());
-                if (var20 <= mouseX) {
-                } else {
-                }
-                if (7.0D <= mouseY) {
-                } else {
-                }
-                if (mouseX <= (var20 + 40.0F) && mouseY <= 19.0D) {
-                    var18.getFunction0().invoke();
-                    return true;
+                if (Intrinsics.areEqual(animationServiceComponent.getString(), "Search")) {
+                    int index2 = (index + animationServiceComponent.getNumericValue());
+                    if (index2 <= mouseX) {
+                    } else {
+                    }
+                    if (7.0D <= mouseY) {
+                    } else {
+                        if (mouseX <= (index2 + 40.0F) && mouseY <= 19.0D) {
+                            animationServiceComponent.getFunction0().invoke();
+                            return true;
+                        }
+                    }
                 }
             }
         }
         if (function0 == null) {
             enabledFlag2 = 0;
-        }
-        if (function0 != null) {
-            function0.invoke();
         } else {
+            if (function0 != null) {
+                function0.invoke();
+            } else {
+            }
+            return true;
         }
-        return true;
         if (enabledFlag) {
             REDGuiElement.INSTANCE.executeAction(mouseX, mouseY, button);
         }
@@ -295,17 +283,17 @@ public class BackRenderHelper {
     }
 
     private static Unit getUnit() {
-        SharedKt.getMc().method_1507((Screen) CatleanInterfaceRenderHelper.INSTANCE);
+        SharedKt.getMc().method_1507(((Screen) CatleanInterfaceRenderHelper.INSTANCE));
         return Unit.INSTANCE;
     }
 
     private static Unit getUnit2() {
-        SharedKt.getMc().method_1507((Screen) CatleanPanelScreenGuiElement.INSTANCE);
+        SharedKt.getMc().method_1507(((Screen) CatleanPanelScreenGuiElement.INSTANCE));
         return Unit.INSTANCE;
     }
 
     private static Unit getUnit3() {
-        SharedKt.getMc().method_1507((Screen) CatleanWidgetEditorRenderHelper.INSTANCE);
+        SharedKt.getMc().method_1507(((Screen) CatleanWidgetEditorRenderHelper.INSTANCE));
         return Unit.INSTANCE;
     }
 
@@ -336,14 +324,14 @@ public class BackRenderHelper {
         INSTANCE = new BackRenderHelper();
         easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_EXPO);
         textValue = "";
-        AnimationServiceComponent[] var33 = new AnimationServiceComponent[5];
-        var33[0] = new AnimationServiceComponent(0.0F, "UI", null, this::getUnit);
-        var33[1] = new AnimationServiceComponent(44.0F, "Windows", null, this::getUnit2);
-        var33[2] = new AnimationServiceComponent(88.0F, "Hud", null, this::getUnit3);
-        var33[3] = new AnimationServiceComponent(132.0F, "Theme", null, this::getUnit4);
-        var33[4] = new AnimationServiceComponent(176.0F, "Search", null, this::getUnit5);
-        itemList = CollectionsKt.mutableListOf();
-        animationServiceComponent = (AnimationServiceComponent) itemList.get(0);
+        AnimationServiceComponent[] items = new AnimationServiceComponent[5];
+        items[0] = new AnimationServiceComponent(0.0F, "UI", null, this::getUnit);
+        items[1] = new AnimationServiceComponent(44.0F, "Windows", null, this::getUnit2);
+        items[2] = new AnimationServiceComponent(88.0F, "Hud", null, this::getUnit3);
+        items[3] = new AnimationServiceComponent(132.0F, "Theme", null, this::getUnit4);
+        items[4] = new AnimationServiceComponent(176.0F, "Search", null, this::getUnit5);
+        itemList = CollectionsKt.mutableListOf(items);
+        animationServiceComponent = ((AnimationServiceComponent) itemList.get(0));
         animationServiceComponent2 = animationServiceComponent;
     }
 

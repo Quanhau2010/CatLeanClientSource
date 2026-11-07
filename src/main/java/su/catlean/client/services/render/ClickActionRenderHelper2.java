@@ -29,7 +29,7 @@ public class ClickActionRenderHelper2 extends TitleRenderHelperImpl {
     }
 
     protected List resolveList() {
-        return CollectionsKt.toList((Iterable) class_7923.field_41178);
+        return CollectionsKt.toList(((Iterable) class_7923.field_41178));
     }
 
     protected String resolveString(Item item) {
@@ -49,34 +49,29 @@ public class ClickActionRenderHelper2 extends TitleRenderHelperImpl {
 
     protected void executeAction(Item item) {
         this.function1.invoke(item);
-        List positions = this.itemList;
-        int var6 = 0;
-        if (!(var4)) {
-            if (positions.contains(item)) {
+        List list = this.itemList;
+        if (!(__UNDEF_KEY__)) {
+            if (list.contains(item)) {
             } else {
             }
         }
-        positions.add(item);
+        list.add(item);
     }
 
     public String resolveString(Object item) {
-        long var4 = (0L ^ 65279083500531L);
-        return this.resolveString((Item) item);
+        return this.resolveString(((Item) item));
     }
 
     public boolean checkCondition(Object item) {
-        long var4 = (0L ^ 49399548081729L);
-        return this.checkCondition((Item) item);
+        return this.checkCondition(((Item) item));
     }
 
     public void render(DrawContext context, float x, float y, Object component) {
-        long var7 = (0L ^ 52143984131262L);
-        this.render(context, x, y, (Item) component);
+        this.render(context, x, y, ((Item) component));
     }
 
     public void executeAction(Object item) {
-        long var4 = (0L ^ 103613740616024L);
-        this.executeAction((Item) item);
+        this.executeAction(((Item) item));
     }
 
 }

@@ -58,8 +58,6 @@ public class RotationServiceComponent5 implements Contract2 {
     }
 
     public void executeAction(MoveFixServiceComponent rotation) {
-        int var5 = (((0L << 48) | ((0L << 32) >>> 16)) | ((0L << 48) >>> 48));
-        long var7 = (var5 ^ 51433702095905L);
         function02.invoke();
         function02 = this::getUnit3;
         OffhandModule.INSTANCE.updateValue(1);
@@ -70,68 +68,65 @@ public class RotationServiceComponent5 implements Contract2 {
     }
 
     public void updateValue() {
-        int var14 = this.computeValue();
-        boolean var15 = !(SharedKt.getMc().currentScreen instanceof class_476);
+        int index = this.computeValue();
+        boolean flag = !(SharedKt.getMc().currentScreen instanceof class_476);
         EventPacketHelper2.INSTANCE.updateValue5();
-        RunnableServiceComponent2.executeAction(2, 0, 0, this::executeAction2);
-        if (var14 < 9) {
+        RunnableServiceComponent2.executeAction(2, 0, false, this::executeAction2);
+        if (index < 9) {
         } else {
         }
-        int var16 = var14;
-        Function0 var17 = this::resolveUnit;
-        function0 = var17;
-        function02 = var17;
+        Function0 function0 = this::resolveUnit;
+        function0 = function0;
+        function02 = function0;
     }
 
     public int computeValue() {
-        int var6 = -1;
-        double var7 = 0.0D;
-        int var9 = 0;
-        if (var9 < 37) {
-            if (var9 == 36) {
+        int index = -1;
+        double offset = 0.0D;
+        int index2 = 0;
+        if (index2 < 37) {
+            if (index2 == 36) {
                 Iterator iterator = SharedKt.getPlayer().method_6079().method_57353().iterator();
-                if (iterator.hasNext()) {
-                    class_9336 var11 = (class_9336) iterator.next();
-                    Iterator iterator2 = (class_9285) var11.comp_2444().comp_2393().iterator();
+                while (iterator.hasNext()) {
+                    class_9336 class9336 = ((class_9336) iterator.next());
+                    Iterator iterator2 = ((class_9285) class9336.comp_2444()).comp_2393().iterator();
                     while (iterator2.hasNext()) {
                     }
-                    class_9287 var13 = (class_9287) iterator2.next();
-                    var7 = var13.comp_2396().comp_2449();
-                    var6 = -1;
-                }
-                iterator = SharedKt.getPlayer().method_31548().method_5438().method_57353().iterator();
-                if (iterator.hasNext()) {
-                    var11 = (class_9336) iterator.next();
-                    iterator2 = (class_9285) var11.comp_2444().comp_2393().iterator();
-                    while (iterator2.hasNext()) {
+                    class_9287 class9287 = ((class_9287) iterator2.next());
+                    offset = class9287.comp_2396().comp_2449();
+                    index = -1;
+                    iterator = SharedKt.getPlayer().method_31548().method_5438(index2).method_57353().iterator();
+                    while (iterator.hasNext()) {
+                        class9336 = ((class_9336) iterator.next());
+                        iterator2 = ((class_9285) class9336.comp_2444()).comp_2393().iterator();
+                        while (iterator2.hasNext()) {
+                        }
+                        class9287 = ((class_9287) iterator2.next());
+                        offset = class9287.comp_2396().comp_2449();
+                        index = index2;
                     }
-                    var13 = (class_9287) iterator2.next();
-                    var7 = var13.comp_2396().comp_2449();
-                    var6 = var9;
                 }
             }
         }
-        if (var6 == -1) {
-            var9 = 0;
-            if (var9 < 37) {
-                iterator = (Iterable) SharedKt.getPlayer().method_31548().method_5438().method_57353();
-                var11 = 0;
-                if (iterator instanceof Collection && (Collection) iterator.isEmpty()) {
+        if (index == -1) {
+            index2 = 0;
+            if (index2 < 37) {
+                iterator = ((Iterable) SharedKt.getPlayer().method_31548().method_5438(index2).method_57353());
+                class9336 = 0;
+                if (iterator instanceof Collection && ((Collection) iterator).isEmpty()) {
                 } else {
                     iterator2 = iterator.iterator();
-                    if (iterator2.hasNext()) {
-                        var13 = iterator2.next();
-                        class_9336 var14 = (class_9336) var13;
-                        int var15 = 0;
-                    } else {
+                    while (iterator2.hasNext()) {
+                        class9287 = iterator2.next();
+                        class_9336 class93362 = ((class_9336) class9287);
                     }
                 }
                 if (0) {
-                    var6 = var9;
+                    index = index2;
                 }
             }
         }
-        return var6;
+        return index;
     }
 
     public void executeAction() {
@@ -156,12 +151,12 @@ public class RotationServiceComponent5 implements Contract2 {
     }
 
     private static Unit resolveUnit(int arg0, boolean arg1) {
-        GuiMoveModule.INSTANCE.updateValue(1);
+        GuiMoveModule.INSTANCE.updateValue(true);
         if (!(SharedKt.getPlayer().field_7512.method_34255().isEmpty())) {
-            HandServiceComponent.e(-999);
+            HandServiceComponent.e(-999, 0, null, false);
         }
         HandServiceComponent.executeAction(arg0, 40, class_1713.field_7791, arg1);
-        GuiMoveModule.INSTANCE.updateValue(0);
+        GuiMoveModule.INSTANCE.updateValue(false);
         OffhandModule.INSTANCE.updateValue(15);
         return Unit.INSTANCE;
     }

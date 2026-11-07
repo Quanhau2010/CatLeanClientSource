@@ -44,7 +44,7 @@ public class ItemScrollerModule extends Module {
     }
 
     public int getDelay() {
-        if ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]) != null) {
+        if (((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0])) != null) {
         }
         return null;
     }
@@ -59,13 +59,13 @@ public class ItemScrollerModule extends Module {
         if (!(ServiceComponent13.checkCondition(341))) {
         }
         if (ServiceComponent13.checkCondition(344) && ServiceComponent13.checkCondition(345) && arg0.getAction() == class_1713.field_7795 && !(enabledFlag2)) {
-            Item var12 = (class_1735) SharedKt.getPlayer().field_7512.field_7761.get(arg0.getId()).method_7677().getItem();
+            Item item = ((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(arg0.getId())).method_7677().getItem();
             enabledFlag2 = 1;
-            int var13 = 0;
-            int var14 = SharedKt.getPlayer().field_7512.field_7761.size();
-            if (var13 < var14) {
-                if (Intrinsics.areEqual((class_1735) SharedKt.getPlayer().field_7512.field_7761.get().method_7677().getItem())) {
-                    HandServiceComponent.executeAction(1, class_1713.field_7795, 0);
+            int index = 0;
+            int index2 = SharedKt.getPlayer().field_7512.field_7761.size();
+            if (index < index2) {
+                if (Intrinsics.areEqual(((class_1735) SharedKt.getPlayer().field_7512.field_7761.get(index)).method_7677().getItem(), item)) {
+                    HandServiceComponent.executeAction(index, 1, class_1713.field_7795, false);
                 }
             }
             enabledFlag2 = 0;
@@ -75,30 +75,26 @@ public class ItemScrollerModule extends Module {
         if (!(ServiceComponent13.checkCondition(341))) {
         }
         enabledFlag2 = 1;
-        var12 = 0;
-        var13 = SharedKt.getPlayer().field_7512.field_7761.size();
-        if (var12 < var13) {
-            HandServiceComponent.executeAction(1, class_1713.field_7795, 0);
+        item = 0;
+        index = SharedKt.getPlayer().field_7512.field_7761.size();
+        if (item < index) {
+            HandServiceComponent.executeAction(item, 1, class_1713.field_7795, false);
         }
         enabledFlag2 = 0;
     }
 
     private void onInputEvent(InputEvent arg0) {
-        if (var4 == null) {
-        }
-        if (var4 == null) {
-        }
         enabledFlag = arg0.getAction() == Action.Press;
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
-        (MouseHandlerAccessor) SharedKt.getMc().field_1729.iMouseClick(SharedKt.getMc().method_22683().method_4490(), new class_11910(0, 0), 0);
-        (MouseHandlerAccessor) SharedKt.getMc().field_1729.iMouseClick(SharedKt.getMc().method_22683().method_4490(), new class_11910(0, 1), 1);
+        ((MouseHandlerAccessor) SharedKt.getMc().field_1729).iMouseClick(SharedKt.getMc().method_22683().method_4490(), new class_11910(0, 0), 0);
+        ((MouseHandlerAccessor) SharedKt.getMc().field_1729).iMouseClick(SharedKt.getMc().method_22683().method_4490(), new class_11910(0, 1), 1);
         serviceComponent10.executeAction();
     }
 
     static {
-        KProperty[] var26 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new ItemScrollerModule();
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 75, new IntRange(0, 200));
         serviceComponent10 = new ServiceComponent10();

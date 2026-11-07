@@ -23,7 +23,7 @@ public class FireWorkVelocityEvent extends Event {
 
     public boolean call(Vec3d vec) {
         velocity = vec;
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }

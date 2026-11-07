@@ -6,25 +6,18 @@ import net.minecraft.class_630;
 
 public enum OptionMode3 {
 
+    HEAD,
+    BODY,
+    LEFT_ARM,
+    RIGHT_ARM,
+    LEFT_LEG,
+    RIGHT_LEG;
+
     private final Function1 function1;
     private final Function1 function12;
     private final double preciseValue;
     private final double preciseValue2;
-    public static final OptionMode3 HEAD;
-    public static final OptionMode3 BODY;
-    public static final OptionMode3 LEFT_ARM;
-    public static final OptionMode3 RIGHT_ARM;
-    public static final OptionMode3 LEFT_LEG;
-    public static final OptionMode3 RIGHT_LEG;
     private static String textValue;
-
-    OptionMode3(String arg0, int arg1, Function1 arg2, Function1 arg3, double arg4, double arg5) {
-        super(arg0, arg1);
-        this.function1 = arg2;
-        this.function12 = arg3;
-        this.preciseValue = arg4;
-        this.preciseValue2 = arg5;
-    }
 
     public Function1 getFunction1() {
         return this.function1;

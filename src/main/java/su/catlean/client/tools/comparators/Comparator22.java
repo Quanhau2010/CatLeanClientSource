@@ -13,12 +13,9 @@ public class Comparator22 implements Comparator {
     }
 
     public int compare(Object b) {
-        BlockPos blockPos = (BlockPos) b;
-        int var8 = 0;
-        blockPos = (BlockPos) 0L;
-        Comparable var9 = (Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1022(blockPos.toCenterPos()));
-        var8 = 0;
-        return ComparisonsKt.compareValues((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1022(blockPos.toCenterPos())));
+        BlockPos blockPos = ((BlockPos) b);
+        Comparable comparable = ((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1022(blockPos.toCenterPos())));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1022(blockPos.toCenterPos()))));
     }
 
 }

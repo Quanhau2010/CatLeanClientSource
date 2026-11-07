@@ -1,6 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.util.math.BlockPos;
 import su.catlean.SharedKt;
@@ -15,16 +14,6 @@ public class ServiceComponent128 {
         this.blockPos = pos;
         this.factorValue = progress;
         this.factorValue2 = prevProgress;
-    }
-
-    public ServiceComponent128(BlockPos arg0, float arg1, float arg2, int arg3, DefaultConstructorMarker arg4) {
-        if ((arg3 & 2)) {
-            arg1 = 0.0F;
-        }
-        if ((arg3 & 4)) {
-            arg2 = 0.0F;
-        }
-        this(arg0, arg1, arg2);
     }
 
     public BlockPos getMinecraftObject() {

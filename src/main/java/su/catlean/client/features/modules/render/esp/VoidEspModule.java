@@ -47,15 +47,15 @@ public class VoidEspModule extends Module {
     }
 
     private VoidEspMode getMode() {
-        return (VoidEspMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((VoidEspMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private Color getColor() {
-        return (Color) colorSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Color) colorSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private int getRange() {
-        return (Number) rangeSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) rangeSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setRange(int value) {
@@ -63,32 +63,30 @@ public class VoidEspModule extends Module {
     }
 
     private void onRender3DEvent(Render3DEvent arg0) {
-        Iterable var27 = (Iterable) itemList;
-        int var28 = 0;
-        Iterator iterator = var27.iterator();
-        if (iterator.hasNext()) {
-            Object var30 = iterator.next();
-            BlockPos blockPos = (BlockPos) var30;
-            int var32 = 0;
-            Box var33 = new Box(blockPos);
-            if (var26) {
-                TextShaderComponent2.checkCondition(var33.method_35578(blockPos.method_10264()), INSTANCE.getColor());
-                int var20 = 4;
-                Color var22 = PolygonShaderComponent.INSTANCE.resolveColor(INSTANCE.getColor(), 1.0F);
-                Box var23 = var33.method_35578(blockPos.method_10264());
+        Iterable iterable = ((Iterable) itemList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            BlockPos blockPos = ((BlockPos) element);
+            Box box = new Box(blockPos);
+            if (__UNDEF_KEY__) {
+                TextShaderComponent2.checkCondition(box.method_35578(blockPos.method_10264()), INSTANCE.getColor());
+                int index = 4;
+                Color color = PolygonShaderComponent.INSTANCE.resolveColor(INSTANCE.getColor(), 1.0F);
+                Box box2 = box.method_35578(blockPos.method_10264());
             }
-            TextShaderComponent2.checkCondition(INSTANCE.getColor());
-            var20 = 8;
-            int var21 = 1;
-            var23 = INSTANCE.getColor();
-            Vec3d vec = new Vec3d(var33.field_1320, var33.field_1322, var33.field_1321);
-            Vec3d vec2 = new Vec3d(var33.field_1323, var33.field_1322, var33.field_1324);
-            TextShaderComponent2.checkCondition(vec2, vec);
-            var20 = 8;
-            var21 = 1;
-            var23 = INSTANCE.getColor();
-            vec = new Vec3d(var33.field_1323, var33.field_1322, var33.field_1321);
-            vec2 = new Vec3d(var33.field_1320, var33.field_1322, var33.field_1324);
+            TextShaderComponent2.checkCondition(box, INSTANCE.getColor());
+            index = 8;
+            int index2 = 1;
+            box2 = INSTANCE.getColor();
+            Vec3d vec = new Vec3d(box.field_1320, box.field_1322, box.field_1321);
+            Vec3d vec2 = new Vec3d(box.field_1323, box.field_1322, box.field_1324);
+            TextShaderComponent2.checkCondition(vec2, vec, box2, color, index2, index);
+            index = 8;
+            index2 = 1;
+            box2 = INSTANCE.getColor();
+            vec = new Vec3d(box.field_1323, box.field_1322, box.field_1321);
+            vec2 = new Vec3d(box.field_1320, box.field_1322, box.field_1324);
         }
     }
 
@@ -97,26 +95,26 @@ public class VoidEspModule extends Module {
     }
 
     private List resolveList() {
-        List<BlockPos> positions = new ArrayList();
-        double var11 = (SharedKt.getPlayer().getX() - this.getRange());
-        double var12 = (SharedKt.getPlayer().getX() + this.getRange());
-        if (var11 < var12) {
-            double var13 = (SharedKt.getPlayer().getZ() - this.getRange());
-            double var14 = (SharedKt.getPlayer().getZ() + this.getRange());
-            if (var13 < var14) {
-                BlockPos blockPos = BlockPos.method_49637(SharedKt.getWorld().method_31607());
-                if (var9) {
+        List<BlockPos> list = new ArrayList();
+        double offset = (SharedKt.getPlayer().getX() - this.getRange());
+        double offset2 = (SharedKt.getPlayer().getX() + this.getRange());
+        if (offset < offset2) {
+            double offset3 = (SharedKt.getPlayer().getZ() - this.getRange());
+            double offset4 = (SharedKt.getPlayer().getZ() + this.getRange());
+            if (offset3 < offset4) {
+                BlockPos blockPos = BlockPos.method_49637(offset, SharedKt.getWorld().method_31607(), offset3);
+                if (__UNDEF_KEY__) {
                     if (!(Intrinsics.areEqual(SharedKt.getWorld().getBlockState(blockPos).getBlock(), Blocks.field_9987))) {
-                        positions.add(blockPos);
+                        list.add(blockPos);
                     }
                 }
             }
         }
-        return positions;
+        return list;
     }
 
     static {
-        KProperty[] var32 = new KProperty[3];
+        KProperty[] items = new KProperty[3];
         INSTANCE = new VoidEspModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", VoidEspMode.CROSS);
         colorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "color", Color.WHITE);

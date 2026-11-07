@@ -49,30 +49,30 @@ public class BufferServiceComponent3 implements class_11281 {
     }
 
     public static BufferServiceComponent3 resolveBufferServiceComponent3(BufferServiceComponent3 arg0, float arg1, float arg2, float arg3, int arg4, Object arg5) {
-        if ((arg4 & 1)) {
+        if ((arg4 & 1) != 0) {
             arg1 = arg0.factorValue;
         }
-        if ((arg4 & 2)) {
+        if ((arg4 & 2) != 0) {
             arg2 = arg0.factorValue2;
         }
-        if ((arg4 & 4)) {
+        if ((arg4 & 4) != 0) {
             arg3 = arg0.factorValue3;
         }
         return arg0.resolveBufferServiceComponent3(arg1, arg2, arg3);
     }
 
     public String toString() {
-        float var3 = this.factorValue3;
-        float var4 = this.factorValue2;
-        float var5 = this.factorValue;
-        return ("UniformData(halfTexelSizeX=" + var5 + ", halfTexelSizeY=" + var4 + ", offset=" + var3 + ")");
+        float factor = this.factorValue3;
+        float factor2 = this.factorValue2;
+        float factor3 = this.factorValue;
+        return ("UniformData(halfTexelSizeX=" + factor3 + ", halfTexelSizeY=" + factor2 + ", offset=" + factor + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue3));
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -82,14 +82,14 @@ public class BufferServiceComponent3 implements class_11281 {
         if (!(other instanceof BufferServiceComponent3)) {
             return false;
         }
-        BufferServiceComponent3 var5 = (BufferServiceComponent3) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        BufferServiceComponent3 bufferServiceComponent3 = ((BufferServiceComponent3) other);
+        if (Float.compare(this.factorValue, bufferServiceComponent3.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, bufferServiceComponent3.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, bufferServiceComponent3.factorValue3)) {
             return false;
         }
         return true;

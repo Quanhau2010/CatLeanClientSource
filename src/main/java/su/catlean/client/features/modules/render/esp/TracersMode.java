@@ -4,19 +4,15 @@ import su.catlean.client.types.OptionMode6;
 
 public enum TracersMode {
 
-    private final OptionMode6 optionMode6;
-    public static final TracersMode ARROWS_1;
-    public static final TracersMode ARROWS_2;
-    public static final TracersMode ARROWS_3;
-    public static final TracersMode ARROWS_4;
-    public static final TracersMode ARROWS_5;
-    public static final TracersMode LINES;
-    private static int countValue;
+    ARROWS_1,
+    ARROWS_2,
+    ARROWS_3,
+    ARROWS_4,
+    ARROWS_5,
+    LINES;
 
-    TracersMode(String arg0, int arg1, OptionMode6 arg2) {
-        super(arg0, arg1);
-        this.optionMode6 = arg2;
-    }
+    private final OptionMode6 optionMode6;
+    private static int countValue;
 
     public OptionMode6 getOptionMode6() {
         return this.optionMode6;

@@ -21,7 +21,7 @@ public class AspectModule extends Module {
     }
 
     public float getRatio() {
-        if ((Number) ratioSetting.getValue(this, DELEGATED_PROPERTIES[0]) != null) {
+        if (((Number) ratioSetting.getValue(this, DELEGATED_PROPERTIES[0])) != null) {
         }
         return null;
     }
@@ -36,7 +36,7 @@ public class AspectModule extends Module {
     }
 
     static {
-        KProperty[] var22 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new AspectModule();
         ratioSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ratio", 1.0F, RangesKt.rangeTo(0.1F, 10.0F));
     }

@@ -21,8 +21,8 @@ public class LevelRendererMixin {
     private boolean renderHook(boolean spectator) {
         if (!(SetupTerrainEvent.INSTANCE.call())) {
             if (spectator) {
+            } else {
             }
-        } else {
         }
         return false;
     }

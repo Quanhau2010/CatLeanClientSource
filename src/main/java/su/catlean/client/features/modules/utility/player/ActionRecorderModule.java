@@ -37,19 +37,19 @@ public class ActionRecorderModule extends Module {
     }
 
     private ActionServiceComponent2 getRecordButton() {
-        return (ActionServiceComponent2) recordButtonSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((ActionServiceComponent2) recordButtonSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private ActionServiceComponent2 getButton() {
-        return (ActionServiceComponent2) buttonSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((ActionServiceComponent2) buttonSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private ActionServiceComponent2 getReset() {
-        return (ActionServiceComponent2) resetSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((ActionServiceComponent2) resetSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getRewindOnDone() {
-        return (Boolean) rewindOnDoneSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) rewindOnDoneSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void onTickEvent(TickEvent arg0) {
@@ -58,7 +58,7 @@ public class ActionRecorderModule extends Module {
         }
         if (enabledFlag) {
             lookupMap.put(Integer.valueOf(countValue), new ServiceComponent8(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455(), SharedKt.getMc().options.field_1894.method_1434(), SharedKt.getMc().options.field_1881.method_1434(), SharedKt.getMc().options.field_1913.method_1434(), SharedKt.getMc().options.field_1849.method_1434(), SharedKt.getMc().options.field_1832.method_1434(), SharedKt.getMc().options.field_1903.method_1434(), SharedKt.getMc().options.field_1904.method_1434(), SharedKt.getMc().options.field_1886.method_1434()));
-            countValue = (var13 + 1);
+            countValue = (__UNDEF_KEY__ + 1);
         }
         if (countValue >= lookupMap.size()) {
             enabledFlag3 = 1;
@@ -69,30 +69,30 @@ public class ActionRecorderModule extends Module {
             countValue = 0;
         }
         this.updateValue();
-        SharedKt.getPlayer().method_64578(var13.getNumericValue(), 0, var13.getNumericValue2(), 0);
-        SharedKt.getMc().options.field_1894.method_23481(var13.isActive());
-        SharedKt.getMc().options.field_1881.method_23481(var13.isActive2());
-        SharedKt.getMc().options.field_1913.method_23481(var13.isActive3());
-        SharedKt.getMc().options.field_1849.method_23481(var13.isActive4());
-        SharedKt.getMc().options.field_1832.method_23481(var13.isActive5());
-        SharedKt.getMc().options.field_1903.method_23481(var13.isActive6());
-        SharedKt.getMc().options.field_1904.method_23481(var13.isActive7());
-        SharedKt.getMc().options.field_1886.method_23481(var13.isActive8());
+        SharedKt.getPlayer().method_64578(this.getNumericValue(), false, this.getNumericValue2(), false);
+        SharedKt.getMc().options.field_1894.method_23481(this.isActive());
+        SharedKt.getMc().options.field_1881.method_23481(this.isActive2());
+        SharedKt.getMc().options.field_1913.method_23481(this.isActive3());
+        SharedKt.getMc().options.field_1849.method_23481(this.isActive4());
+        SharedKt.getMc().options.field_1832.method_23481(this.isActive5());
+        SharedKt.getMc().options.field_1903.method_23481(this.isActive6());
+        SharedKt.getMc().options.field_1904.method_23481(this.isActive7());
+        SharedKt.getMc().options.field_1886.method_23481(this.isActive8());
         this.updateValue();
     }
 
     private void updateValue() {
         if (this.getRewindOnDone()) {
             if (enabledFlag3) {
-                int var6 = countValue;
-                countValue = (var6 + -1);
+                int index = countValue;
+                countValue = (index + -1);
             } else {
-                var6 = countValue;
-                countValue = (var6 + 1);
+                index = countValue;
+                countValue = (index + 1);
             }
         } else {
-            var6 = countValue;
-            countValue = (var6 + 1);
+            index = countValue;
+            countValue = (index + 1);
             countValue = 0;
             enabledFlag3 = 0;
         }
@@ -132,13 +132,13 @@ public class ActionRecorderModule extends Module {
     }
 
     static {
-        KProperty[] var28 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new ActionRecorderModule();
         recordButtonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "record-/-stop", this::getUnit, null, this::isActive);
         buttonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "play-/-stop", this::getUnit2, null, this::isActive2);
-        resetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "reset", this::getUnit3, null, null, -2365153831806828532L);
-        rewindOnDoneSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rewind-on-done", 0, null, null, -1431384115810140148L);
-        lookupMap = (Map) new LinkedHashMap();
+        resetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "reset", this::getUnit3);
+        rewindOnDoneSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rewind-on-done", false);
+        lookupMap = ((Map) new LinkedHashMap());
     }
 
 }

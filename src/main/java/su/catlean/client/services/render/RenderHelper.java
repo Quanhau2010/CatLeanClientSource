@@ -70,37 +70,37 @@ public class RenderHelper {
         if (!(this.enabledFlag)) {
         } else {
         }
-        1.0F.executeAction(0.0F);
-        int var20 = ((SharedKt.getMc().method_22683().method_4486() / 2.0F) - (this.factorValue / 2.0F));
-        int var21 = (((SharedKt.getMc().method_22683().method_4502() / 2.0F) - (this.factorValue2 / 2.0F)) - 50.0F);
+        this.executeAction(0.0F);
+        int index = ((SharedKt.getMc().method_22683().method_4486() / 2.0F) - (this.factorValue / 2.0F));
+        int index2 = (((SharedKt.getMc().method_22683().method_4502() / 2.0F) - (this.factorValue2 / 2.0F)) - 50.0F);
         context.method_51448().pushMatrix();
-        context.method_51448().translate((var20 + (this.factorValue / 2.0F)), (var21 + (this.factorValue2 / 2.0F)));
+        context.method_51448().translate((index + (this.factorValue / 2.0F)), (index2 + (this.factorValue2 / 2.0F)));
         context.method_51448().scale(Math.clamp(this.easingServiceComponent.getNumericValue(), 0.0F, 2.0F), Math.clamp(this.easingServiceComponent.getNumericValue(), 0.0F, 2.0F));
-        context.method_51448().translate((var20 + (this.factorValue / 2.0F)), (var21 + (this.factorValue2 / 2.0F)));
-        StackShaderComponent2.executeAction(context.method_51448(), this.factorValue, this.factorValue2, 7.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-        Color[] var22 = new Color[1];
-        var22[0] = new Color(1157627903, 1);
-        PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), (var20 + 6), (var21 + 24), (this.factorValue - 12), 0.5F);
-        var22 = ((var20 + this.factorValue) - 25);
-        float var23 = ((var20 + this.factorValue) - 5);
-        int var24 = mouseX;
-        if (var22 <= var24) {
+        context.method_51448().translate((index + (this.factorValue / 2.0F)), (index2 + (this.factorValue2 / 2.0F)));
+        StackShaderComponent2.executeAction(context.method_51448(), index, index2, this.factorValue, this.factorValue2, 7.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+        Color[] items = new Color[1];
+        items[0] = new Color(1157627903, true);
+        PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), (index + 6), (index2 + 24), (this.factorValue - 12), 0.5F, items);
+        items = ((index + this.factorValue) - 25);
+        int index3 = ((index + this.factorValue) - 5);
+        int index4 = mouseX;
+        if (items <= index4) {
         } else {
-        }
-        if (var24 <= var23) {
-            var22 = (var21 + 5.0F);
-            var23 = (var21 + 25.0F);
-            var24 = mouseY;
-            if (var22 <= var24) {
-            } else {
+            if (index4 <= index3) {
+                items = (index2 + 5.0F);
+                index3 = (index2 + 25.0F);
+                index4 = mouseY;
+                if (items <= index4) {
+                } else {
+                    if (index4 <= index3) {
+                        StackShaderComponent2.executeAction(context.method_51448(), ((index + this.factorValue) - 25), (index2 + 5), 20.0F, 15.0F, 4.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4().brighter(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+                        MissingnoRenderHelper.executeAction(REDGuiElement.INSTANCE.getMissingnoRenderHelper(), ((Matrix3x2f) context.method_51448()), ((index + this.factorValue) - 19.5D), (index2 + 5.5D), 0.0F, 0.0F, NewThemeRenderHelper.INSTANCE.getColor7(), null, 0.0F);
+                    }
+                }
             }
-            if (var24 <= var23) {
-                StackShaderComponent2.executeAction(context.method_51448(), ((var20 + this.factorValue) - 25), (var21 + 5), 20.0F, 15.0F, 4.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4().brighter(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-                MissingnoRenderHelper.executeAction(REDGuiElement.INSTANCE.getMissingnoRenderHelper(), (Matrix3x2f) context.method_51448(), ((var20 + this.factorValue) - 19.5D), (var21 + 5.5D), 0.0F, 0.0F, NewThemeRenderHelper.INSTANCE.getColor7(), null, 0.0F);
-            }
         }
-        StackShaderComponent2.executeAction(context.method_51448(), ((var20 + this.factorValue) - 25), (var21 + 5), 20.0F, 15.0F, 4.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-        MissingnoRenderHelper.executeAction(REDGuiElement.INSTANCE.getMissingnoRenderHelper(), (Matrix3x2f) context.method_51448(), ((var20 + this.factorValue) - 19.5D), (var21 + 5.5D), 0.0F, 0.0F, NewThemeRenderHelper.INSTANCE.getColor8(), null, 0.0F);
+        StackShaderComponent2.executeAction(context.method_51448(), ((index + this.factorValue) - 25), (index2 + 5), 20.0F, 15.0F, 4.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
+        MissingnoRenderHelper.executeAction(REDGuiElement.INSTANCE.getMissingnoRenderHelper(), ((Matrix3x2f) context.method_51448()), ((index + this.factorValue) - 19.5D), (index2 + 5.5D), 0.0F, 0.0F, NewThemeRenderHelper.INSTANCE.getColor8(), null, 0.0F);
         this.render(context, mouseX, mouseY);
         context.method_51448().popMatrix();
         if (SelectRenderHelperImpl.serviceComponent62.getRenderHelper() == null) {
@@ -114,26 +114,23 @@ public class RenderHelper {
     }
 
     public void executeAction(int mouseX, int mouseY) {
-        long var6 = (0L ^ 86391959954688L);
-        int var9 = ((SharedKt.getMc().method_22683().method_4486() / 2.0F) - (this.factorValue / 2.0F));
-        int var10 = (((SharedKt.getMc().method_22683().method_4502() / 2.0F) - (this.factorValue2 / 2.0F)) - 50.0F);
-        float var11 = ((var9 + this.factorValue) - 25);
-        float var12 = ((var9 + this.factorValue) - 5);
-        int var13 = mouseX;
-        if (var11 <= var13) {
+        int index = ((SharedKt.getMc().method_22683().method_4486() / 2.0F) - (this.factorValue / 2.0F));
+        int index2 = (((SharedKt.getMc().method_22683().method_4502() / 2.0F) - (this.factorValue2 / 2.0F)) - 50.0F);
+        int index3 = ((index + this.factorValue) - 25);
+        int index4 = ((index + this.factorValue) - 5);
+        int index5 = mouseX;
+        if (index3 <= index5) {
         } else {
-        }
-        if (var13 <= var12) {
-            var11 = (var10 + 5.0F);
-            var12 = (var10 + 25.0F);
-            var13 = mouseY;
-            if (0L > 0L && var8) {
-                if (var11 <= var13) {
+            if (index5 <= index4) {
+                index3 = (index2 + 5.0F);
+                index4 = (index2 + 25.0F);
+                index5 = mouseY;
+                if (index3 <= index5) {
+                } else {
+                    if (index5 <= index4) {
+                        this.enabledFlag = true;
+                    }
                 }
-            } else {
-            }
-            if (var13 <= var12) {
-                this.enabledFlag = 1;
             }
         }
     }
@@ -142,7 +139,7 @@ public class RenderHelper {
     }
 
     public void executeAction(int key) {
-        this.enabledFlag = 1;
+        this.enabledFlag = true;
     }
 
     public void executeAction() {

@@ -28,7 +28,7 @@ public class RenderNameTagEvent extends Event {
 
     public boolean call(class_10017 state) {
         this.setState(state);
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }

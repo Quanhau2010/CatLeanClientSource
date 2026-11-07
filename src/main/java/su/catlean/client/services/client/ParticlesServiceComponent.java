@@ -1,8 +1,6 @@
 package su.catlean.client.services.client;
 
-import java.util.ArrayList;
 import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 
 public class ParticlesServiceComponent {
@@ -13,13 +11,6 @@ public class ParticlesServiceComponent {
     public ParticlesServiceComponent(int playerId, List particles) {
         this.countValue = playerId;
         this.itemList = particles;
-    }
-
-    public ParticlesServiceComponent(int arg0, List arg1, int arg2, DefaultConstructorMarker arg3) {
-        if ((arg2 & 2)) {
-            arg1 = new ArrayList();
-        }
-        this(arg0, arg1);
     }
 
     public int getNumericValue() {
@@ -43,10 +34,10 @@ public class ParticlesServiceComponent {
     }
 
     public static ParticlesServiceComponent resolveParticlesServiceComponent(ParticlesServiceComponent arg0, int arg1, List arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.countValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.itemList;
         }
         return arg0.resolveParticlesServiceComponent(arg1, arg2);
@@ -57,9 +48,9 @@ public class ParticlesServiceComponent {
     }
 
     public int hashCode() {
-        int var3 = Integer.hashCode(this.countValue);
-        var3 = ((var3 * 163747238772736031L) + this.itemList.hashCode());
-        return var3;
+        int index = Integer.hashCode(this.countValue);
+        index = ((index * 31) + this.itemList.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -69,11 +60,11 @@ public class ParticlesServiceComponent {
         if (!(other instanceof ParticlesServiceComponent)) {
             return false;
         }
-        ParticlesServiceComponent var5 = (ParticlesServiceComponent) other;
-        if (this.countValue != var5.countValue) {
+        ParticlesServiceComponent particlesServiceComponent = ((ParticlesServiceComponent) other);
+        if (this.countValue != particlesServiceComponent.countValue) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        if (!(Intrinsics.areEqual(this.itemList, particlesServiceComponent.itemList))) {
             return false;
         }
         return true;

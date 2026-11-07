@@ -1,6 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.item.Item;
 import su.catlean.client.features.modules.Module;
@@ -17,19 +16,6 @@ public class ItemServiceComponent {
         this.enabledFlag = another;
         this.enabledFlag2 = enchanted;
         this.textValue = name;
-    }
-
-    public ItemServiceComponent(Item arg0, boolean arg1, boolean arg2, String arg3, int arg4, DefaultConstructorMarker arg5) {
-        if ((arg4 & 2)) {
-            arg1 = 0;
-        }
-        if ((arg4 & 4)) {
-            arg2 = 0;
-        }
-        if ((arg4 & 8)) {
-            arg3 = "";
-        }
-        this(arg0, arg1, arg2, arg3);
     }
 
     public Item getMinecraftObject() {
@@ -69,16 +55,16 @@ public class ItemServiceComponent {
     }
 
     public static ItemServiceComponent resolveItemServiceComponent(ItemServiceComponent arg0, Item arg1, boolean arg2, boolean arg3, String arg4, int arg5, Object arg6) {
-        if ((arg5 & 1)) {
+        if ((arg5 & 1) != 0) {
             arg1 = arg0.minecraftRef;
         }
-        if ((arg5 & 2)) {
+        if ((arg5 & 2) != 0) {
             arg2 = arg0.enabledFlag;
         }
-        if ((arg5 & 4)) {
+        if ((arg5 & 4) != 0) {
             arg3 = arg0.enabledFlag2;
         }
-        if ((arg5 & 8)) {
+        if ((arg5 & 8) != 0) {
             arg4 = arg0.textValue;
         }
         if (arg0.resolveItemServiceComponent(arg1, arg2, arg3, arg4) != null) {
@@ -87,21 +73,21 @@ public class ItemServiceComponent {
     }
 
     public String toString() {
-        String var3 = this.textValue;
-        boolean var4 = this.enabledFlag2;
-        boolean var5 = this.enabledFlag;
-        Item var6 = this.minecraftRef;
-        return ("RequiredItem(item=" + var6 + ", another=" + var5 + ", enchanted=" + var4 + ", name=" + var3 + ")");
+        String text = this.textValue;
+        boolean flag = this.enabledFlag2;
+        boolean flag2 = this.enabledFlag;
+        Item item = this.minecraftRef;
+        return ("RequiredItem(item=" + item + ", another=" + flag2 + ", enchanted=" + flag + ", name=" + text + ")");
     }
 
     public int hashCode() {
-        int var4 = this.minecraftRef.hashCode();
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag2));
-        var4 = ((var4 * 31) + this.textValue.hashCode());
-        if (var3 != null) {
+        int index = this.minecraftRef.hashCode();
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag2));
+        index = ((index * 31) + this.textValue.hashCode());
+        if (__UNDEF_KEY__ != null) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -111,17 +97,17 @@ public class ItemServiceComponent {
         if (!(other instanceof ItemServiceComponent)) {
             return false;
         }
-        ItemServiceComponent var5 = (ItemServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        ItemServiceComponent itemServiceComponent = ((ItemServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.minecraftRef, itemServiceComponent.minecraftRef))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != itemServiceComponent.enabledFlag) {
             return false;
         }
-        if (this.enabledFlag2 != var5.enabledFlag2) {
+        if (this.enabledFlag2 != itemServiceComponent.enabledFlag2) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        if (!(Intrinsics.areEqual(this.textValue, itemServiceComponent.textValue))) {
             return false;
         }
         return true;

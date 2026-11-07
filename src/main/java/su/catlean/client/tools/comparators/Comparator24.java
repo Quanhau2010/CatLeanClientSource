@@ -15,12 +15,9 @@ public class Comparator24 implements Comparator {
     }
 
     public int compare(Object b) {
-        class_3965 var7 = (class_3965) 0L;
-        int var8 = 0;
-        var7 = (class_3965) b;
-        Comparable var9 = (Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(var7.method_17784()));
-        var8 = 0;
-        return ComparisonsKt.compareValues((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(var7.method_17784())));
+        class_3965 class3965 = ((class_3965) b);
+        Comparable comparable = ((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(this.method_17784())));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(class3965.method_17784()))));
     }
 
     public static void updateValue(int arg0) {

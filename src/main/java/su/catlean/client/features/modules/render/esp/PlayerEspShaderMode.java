@@ -2,16 +2,13 @@ package su.catlean.client.features.modules.render.esp;
 
 public enum PlayerEspShaderMode {
 
-    public static final PlayerEspShaderMode MIRROR;
-    public static final PlayerEspShaderMode DEFAULT;
-    public static final PlayerEspShaderMode BLOOM;
-    public static final PlayerEspShaderMode DOUBLE;
-    public static final PlayerEspShaderMode CAMOUFLAGE;
-    private static int countValue;
+    MIRROR,
+    DEFAULT,
+    BLOOM,
+    DOUBLE,
+    CAMOUFLAGE;
 
-    PlayerEspShaderMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static int countValue;
 
     public static void updateValue(int arg0) {
         countValue = arg0;

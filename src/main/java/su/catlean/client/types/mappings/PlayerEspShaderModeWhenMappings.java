@@ -7,13 +7,13 @@ public class PlayerEspShaderModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[PlayerEspShaderMode.values()];
-        var0[PlayerEspShaderMode.MIRROR.ordinal()] = 1;
-        var0[PlayerEspShaderMode.DEFAULT.ordinal()] = 2;
-        var0[PlayerEspShaderMode.BLOOM.ordinal()] = 3;
-        var0[PlayerEspShaderMode.DOUBLE.ordinal()] = 4;
-        var0[PlayerEspShaderMode.CAMOUFLAGE.ordinal()] = 5;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[PlayerEspShaderMode.values()];
+        element[PlayerEspShaderMode.MIRROR.ordinal()] = 1;
+        element[PlayerEspShaderMode.DEFAULT.ordinal()] = 2;
+        element[PlayerEspShaderMode.BLOOM.ordinal()] = 3;
+        element[PlayerEspShaderMode.DOUBLE.ordinal()] = 4;
+        element[PlayerEspShaderMode.CAMOUFLAGE.ordinal()] = 5;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

@@ -17,14 +17,11 @@ public class Comparator9 implements Comparator {
     }
 
     public int compare(Object b) {
-        Entity entity = 0L;
-        int var12 = 0;
-        entity = b;
-        Comparable var13 = (Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(AutoShearModule.INSTANCE.resolveMinecraftObject(entity)));
-        var12 = 0;
-        if (var10 != null) {
+        Entity entity = b;
+        Comparable comparable = ((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(AutoShearModule.INSTANCE.resolveMinecraftObject())));
+        if (__UNDEF_KEY__ != null) {
         }
-        return ComparisonsKt.compareValues((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(AutoShearModule.INSTANCE.resolveMinecraftObject(entity))));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(SharedKt.getPlayer().getEyePos().method_1025(AutoShearModule.INSTANCE.resolveMinecraftObject(entity)))));
     }
 
     public static void updateValue(int[] arg0) {

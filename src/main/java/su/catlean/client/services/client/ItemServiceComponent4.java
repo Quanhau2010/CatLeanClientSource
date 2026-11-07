@@ -18,8 +18,8 @@ public class ItemServiceComponent4 {
     public static boolean checkCondition(ItemStack item) {
         if (!(item.method_31573(class_3489.field_48294)) && !(item.method_31573(class_3489.field_48295)) && !(item.method_31573(class_3489.field_48296))) {
             if (item.method_31573(class_3489.field_48297)) {
+            } else {
             }
-        } else {
         }
         return false;
     }

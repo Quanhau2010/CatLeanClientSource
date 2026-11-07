@@ -57,29 +57,19 @@ public class FontRenderHelper implements Closeable {
     }
 
     public void render(DrawContext context, String s, float x, float y, Color color) {
-        v(this, context.method_51448(), s, x, y, color);
+        v(this, context.method_51448(), s, x, y, color, false);
     }
 
     public void executeAction(Matrix3x2fStack m, String s, float x, float y, Color color, boolean gradient, int offset) {
-        float var12 = this.factorValue2;
-        float var13 = var12;
-        Font var27 = this.font2;
-        Font var26 = this.font;
-        ObjectArrayList positions = this.objectArrayList;
-        Char2ObjectArrayMap var24 = this.char2ObjectArrayMap;
-        int var23 = this.countValue;
-        int var22 = offset;
-        int var21 = gradient;
-        Object var20 = color;
-        float var19 = y;
-        float var18 = x;
-        Object var17 = s;
-        Object var16 = m;
-        TextShaderComponent var15 = TextShaderComponent.INSTANCE;
-        int var14 = 0;
+        float factor = this.factorValue2;
+        Font font = this.font2;
+        Font font2 = this.font;
+        ObjectArrayList list = this.objectArrayList;
+        Char2ObjectArrayMap char2ObjectArrayMap = this.char2ObjectArrayMap;
+        int index = this.countValue;
+        TextShaderComponent textShaderComponent = TextShaderComponent.INSTANCE;
         this.factorValue2 = (this.factorValue2 + 0.1F);
-        Unit var28 = Unit.INSTANCE;
-        var15.executeAction(positions, this.object2ObjectOpenHashMap2);
+        textShaderComponent.executeAction(m, s, x, y, color, gradient, offset, index, char2ObjectArrayMap, list, font2, font, factor, this.object2ObjectOpenHashMap2);
     }
 
     public void executeAction(Matrix3x2fStack m, String s, float x, float y, Color color, boolean gradient, int offset) {
@@ -87,11 +77,11 @@ public class FontRenderHelper implements Closeable {
     }
 
     public void executeAction(Matrix3x2fStack m, String s, float x, float y, Color color) {
-        v(this, m, s, (x - (this.computeValue(s) / 2.0F)), (y - (TextShaderComponent.INSTANCE.computeValue(s, this.char2ObjectArrayMap, this.objectArrayList, this.font, this.font2, this.countValue) / 2.0F)), color);
+        v(this, m, s, (x - (this.computeValue(s) / 2.0F)), (y - (TextShaderComponent.INSTANCE.computeValue(s, this.char2ObjectArrayMap, this.objectArrayList, this.font, this.font2, this.countValue) / 2.0F)), color, false);
     }
 
     public void render(DrawContext context, String s, float x, float y, Color color) {
-        v(this, context.method_51448(), s, (x - (this.computeValue(s) / 2.0F)), (y - (TextShaderComponent.INSTANCE.computeValue(s, this.char2ObjectArrayMap, this.objectArrayList, this.font, this.font2, this.countValue) / 2.0F)), color);
+        v(this, context.method_51448(), s, (x - (this.computeValue(s) / 2.0F)), (y - (TextShaderComponent.INSTANCE.computeValue(s, this.char2ObjectArrayMap, this.objectArrayList, this.font, this.font2, this.countValue) / 2.0F)), color, false);
     }
 
     public void executeAction() {
@@ -104,24 +94,19 @@ public class FontRenderHelper implements Closeable {
     }
 
     public void close() {
-        Object var1 = this;
-        FontRenderHelper var2 = (FontRenderHelper) var1;
-        int var3 = 0;
-        var2.objectArrayList.removeIf(this::checkCondition);
-        var2.char2ObjectArrayMap.clear();
-        var2 = Result.constructor-impl(Unit.INSTANCE);
-        var2 = Result.constructor-impl(ResultKt.createFailure());
+        FontRenderHelper fontRenderHelper = ((FontRenderHelper) this);
+        int index = 0;
+        fontRenderHelper.objectArrayList.removeIf(this::checkCondition);
+        fontRenderHelper.char2ObjectArrayMap.clear();
+        fontRenderHelper = Result.constructor_impl(Unit.INSTANCE);
+        fontRenderHelper = Result.constructor_impl(ResultKt.createFailure(index));
     }
 
     public void render(DrawContext context, String s, float x, float y, int offset) {
-        int var10 = offset;
-        int var11 = 1;
-        Color var12 = Color.WHITE;
-        float var13 = y;
-        float var14 = x;
-        Object var15 = s;
-        Matrix3x2fStack var16 = context.method_51448();
-        this.executeAction();
+        int index = 1;
+        Color color = Color.WHITE;
+        Matrix3x2fStack matrix3x2fStack = context.method_51448();
+        this.executeAction(matrix3x2fStack, s, x, y, color, index, offset);
     }
 
     public void render(DrawContext context, String s, float x, float y, int i) {
@@ -134,7 +119,7 @@ public class FontRenderHelper implements Closeable {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     public static void updateValue(int[] arg0) {

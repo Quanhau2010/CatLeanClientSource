@@ -13,12 +13,9 @@ public class Comparator17 implements Comparator {
     }
 
     public int compare(Object b) {
-        ColorRenderHelper2 var8 = (ColorRenderHelper2) 0L;
-        int var9 = 0;
-        var8 = (ColorRenderHelper2) b;
-        Comparable var10 = (Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(var8.getMinecraftObject().toCenterPos()));
-        var9 = 0;
-        if (ComparisonsKt.compareValues((Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(var8.getMinecraftObject().toCenterPos()))) != null) {
+        ColorRenderHelper2 colorRenderHelper2 = ((ColorRenderHelper2) b);
+        Comparable comparable = ((Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(this.getMinecraftObject().toCenterPos())));
+        if (ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(colorRenderHelper2.getMinecraftObject().toCenterPos())))) != null) {
         }
         return null;
     }

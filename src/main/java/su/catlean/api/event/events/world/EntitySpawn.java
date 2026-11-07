@@ -23,7 +23,7 @@ public class EntitySpawn extends Event {
     }
 
     public boolean call(Entity entity) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         entity = entity;
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

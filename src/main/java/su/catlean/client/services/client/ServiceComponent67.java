@@ -9,10 +9,10 @@ public class ServiceComponent67 {
     private static Module[] moduleArray;
 
     static {
-        Object var2 = new int[ChestStealerSortMode.values()];
-        var2[ChestStealerSortMode.NONE.ordinal()] = 1;
-        var2[ChestStealerSortMode.WHITE_LIST.ordinal()] = 2;
-        countValueArray = var2;
+        Object element = new int[ChestStealerSortMode.values()];
+        element[ChestStealerSortMode.NONE.ordinal()] = 1;
+        element[ChestStealerSortMode.WHITE_LIST.ordinal()] = 2;
+        countValueArray = element;
     }
 
     public static void updateValue(Module[] arg0) {

@@ -47,10 +47,10 @@ public class CmdRecord {
     }
 
     public static CmdRecord resolveCmdRecord(CmdRecord arg0, OptionMode arg1, PidRecord arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.optionMode;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.pidRecord;
         }
         return arg0.resolveCmdRecord(arg1, arg2);
@@ -61,9 +61,9 @@ public class CmdRecord {
     }
 
     public int hashCode() {
-        int var3 = this.optionMode.hashCode();
-        var3 = ((var3 * -4540695697992712161L) + this.pidRecord.hashCode());
-        return var3;
+        int index = this.optionMode.hashCode();
+        index = ((index * 31) + this.pidRecord.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -73,20 +73,19 @@ public class CmdRecord {
         if (!(other instanceof CmdRecord)) {
             return false;
         }
-        CmdRecord var5 = (CmdRecord) other;
-        if (this.optionMode != var5.optionMode) {
+        CmdRecord cmdRecord = ((CmdRecord) other);
+        if (this.optionMode != cmdRecord.optionMode) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.pidRecord, var5.pidRecord))) {
+        if (!(Intrinsics.areEqual(this.pidRecord, cmdRecord.pidRecord))) {
             return false;
         }
         return true;
     }
 
     public static void executeAction(CmdRecord self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        Lazy[] var3 = lazyArray;
-        output.encodeSerializableElement(serialDesc, 0, (SerializationStrategy) var3[0].getValue(), self.optionMode);
-        output.encodeSerializableElement(serialDesc, 1, (SerializationStrategy) PidRecordSerializer.INSTANCE, self.pidRecord);
+        output.encodeSerializableElement(serialDesc, 0, ((SerializationStrategy) lazyArray[0].getValue()), self.optionMode);
+        output.encodeSerializableElement(serialDesc, 1, ((SerializationStrategy) PidRecordSerializer.INSTANCE), self.pidRecord);
     }
 
     public CmdRecord(int seen0, OptionMode cmd, PidRecord args, SerializationConstructorMarker serializationConstructorMarker) {
@@ -107,10 +106,10 @@ public class CmdRecord {
 
     static {
         serviceComponent77 = new ServiceComponent77();
-        Lazy[] var16 = new Lazy[2];
-        var16[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
-        var16[1] = null;
-        lazyArray = var16;
+        Lazy[] items = new Lazy[2];
+        items[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
+        items[1] = null;
+        lazyArray = items;
     }
 
 }

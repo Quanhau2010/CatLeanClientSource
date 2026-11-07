@@ -14,8 +14,8 @@ public class ServiceComponent17 {
     }
 
     private static Unit resolveUnit(JsonBuilder arg0) {
-        arg0.setIgnoreUnknownKeys(1);
-        arg0.setLenient(1);
+        arg0.setIgnoreUnknownKeys(true);
+        arg0.setLenient(true);
         return Unit.INSTANCE;
     }
 

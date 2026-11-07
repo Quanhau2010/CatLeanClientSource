@@ -29,7 +29,7 @@ public class NoCameraClipModule extends Module {
     }
 
     private float getDistance() {
-        return (Number) distanceSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) distanceSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setDistance(float value) {
@@ -50,7 +50,7 @@ public class NoCameraClipModule extends Module {
     }
 
     static {
-        KProperty[] var32 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new NoCameraClipModule();
         distanceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "distance", 3.0F, RangesKt.rangeTo(1.0F, 20.0F));
         easingServiceComponent = new EasingServiceComponent(TpYawSmootherMode.OUT_QUINT);

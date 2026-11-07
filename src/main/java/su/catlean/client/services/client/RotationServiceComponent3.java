@@ -20,28 +20,16 @@ public class RotationServiceComponent3 implements Contract2 {
     private RotationServiceComponent3() {
     }
 
-    public void executeAction(int arg0, long arg1) {
-        int var4 = ((arg0 << 32) | ((arg1 << 32) >>> 32));
-        long var6 = ((var4 ^ 20745683030457L) >>> 32);
-        long var7 = (((var4 ^ 20745683030457L) << 32) >>> 32);
-        long var9 = (var4 ^ 16782221287606L);
-        long var11 = ((var4 ^ 134691496928949L) >>> 32);
-        long var12 = (((var4 ^ 134691496928949L) << 32) >>> 56);
-        long var13 = (((var4 ^ 134691496928949L) << 40) >>> 40);
+    public void executeAction(long arg0) {
         enabledFlag = SharedKt.getPlayer().method_6030().getItem().method_7853(SharedKt.getPlayer().method_6030()) == class_1839.field_8949;
-        if (arg1 >= 0L) {
+        if (arg0 >= 0L) {
             if (AuraModule.INSTANCE.getWhileShielding() != AuraWhileShieldingMode.UNPRESS) {
             }
         }
-        SharedKt.getInteractionManager().method_2897((PlayerEntity) SharedKt.getPlayer());
+        SharedKt.getInteractionManager().method_2897(((PlayerEntity) SharedKt.getPlayer()));
     }
 
     public void executeAction(MoveFixServiceComponent rotation) {
-        int var5 = (((0L << 48) | ((0L << 32) >>> 16)) | ((0L << 48) >>> 48));
-        long var7 = (var5 ^ 100624651377200L);
-        long var9 = ((var5 ^ 66102524677371L) >>> 32);
-        long var10 = (((var5 ^ 66102524677371L) << 32) >>> 56);
-        long var11 = (((var5 ^ 66102524677371L) << 40) >>> 40);
         HandServiceComponent.resolveMinecraftObject(Hand.field_5810, rotation.getNumericValue(), rotation.getNumericValue2());
     }
 

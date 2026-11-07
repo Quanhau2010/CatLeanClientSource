@@ -42,67 +42,65 @@ public class TridentBoostModule extends Module {
     }
 
     private TridentBoostMode getMode() {
-        return (TridentBoostMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((TridentBoostMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private float getFactor() {
-        return (Number) factorSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) factorSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     public int getCooldown() {
-        if ((Number) cooldownSetting.getValue(this, DELEGATED_PROPERTIES[2]) != null) {
+        if (((Number) cooldownSetting.getValue(this, DELEGATED_PROPERTIES[2])) != null) {
         }
         return null;
     }
 
     private boolean getAnyWeather() {
-        return (Boolean) anyWeatherSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) anyWeatherSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     public void onTridentUseEvent(TridentUseEvent e) {
         if (SharedKt.getPlayer().method_6048() >= this.getCooldown()) {
-            float var20 = class_1890.method_60123(SharedKt.getPlayer().method_6030(), (LivingEntity) SharedKt.getPlayer());
+            float factor = class_1890.method_60123(SharedKt.getPlayer().method_6030(), ((LivingEntity) SharedKt.getPlayer()));
             if (!(this.getAnyWeather())) {
             }
-            if (SharedKt.getPlayer().method_5721() && var20 > 0.0F) {
-                float var21 = SharedKt.getPlayer().method_36454();
-                float var22 = SharedKt.getPlayer().method_36455();
-                double var23 = (Math.sin((var21 * 0.017453292F)) * Math.cos((var22 * 0.017453292F)));
-                double var24 = Math.sin((var22 * 0.017453292F));
-                double var25 = (Math.cos((var21 * 0.017453292F)) * Math.cos((var22 * 0.017453292F)));
-                double var26 = Math.sqrt((((var23 * var23) + (var24 * var24)) + (var25 * var25)));
+            if (SharedKt.getPlayer().method_5721() && factor > 0.0F) {
+                float factor2 = SharedKt.getPlayer().method_36454();
+                float factor3 = SharedKt.getPlayer().method_36455();
+                double offset = (Math.sin((factor2 * 0.017453292F)) * Math.cos((factor3 * 0.017453292F)));
+                double offset2 = Math.sin((factor3 * 0.017453292F));
+                double offset3 = (Math.cos((factor2 * 0.017453292F)) * Math.cos((factor3 * 0.017453292F)));
+                double offset4 = Math.sqrt((((offset * offset) + (offset2 * offset2)) + (offset3 * offset3)));
                 if (this.getMode() == TridentBoostMode.Factor) {
                 } else {
                 }
-                float var27 = this.getFactor();
-                var23 = (var23 * (var27 / var26));
-                var24 = (var24 * (var27 / var26));
-                var25 = (var25 * (var27 / var26));
-                SharedKt.getPlayer().method_5762();
+                float factor4 = this.getFactor();
+                offset = (offset * (factor4 / offset4));
+                offset2 = (offset2 * (factor4 / offset4));
+                offset3 = (offset3 * (factor4 / offset4));
+                SharedKt.getPlayer().method_5762(offset, offset2, offset3);
                 SharedKt.getPlayer().method_40126(20, 8.0F, SharedKt.getPlayer().method_6030());
                 if (SharedKt.getPlayer().isOnGround()) {
                     SharedKt.getPlayer().method_5784(class_1313.field_6308, new Vec3d(0.0D, 1.1999999284744263D, 0.0D));
                 }
-                class_6880 var28 = (class_6880) class_1890.method_60165(SharedKt.getPlayer().method_6030(), class_9701.field_51654).orElse(class_3417.field_15001);
-                SharedKt.getWorld().method_43129(null, SharedKt.getPlayer(), (class_3414) var28.comp_349(), class_3419.field_15248, 1.0F, 1.0F);
+                class_6880 class6880 = ((class_6880) class_1890.method_60165(SharedKt.getPlayer().method_6030(), class_9701.field_51654).orElse(class_3417.field_15001));
+                SharedKt.getWorld().method_43129(null, SharedKt.getPlayer(), ((class_3414) class6880.comp_349()), class_3419.field_15248, 1.0F, 1.0F);
             }
         }
         e.cancel();
     }
 
     public void onTridentWeatherEvent(TridentWeatherEvent e) {
-        if (var7 != null) {
-        }
         e.cancel();
     }
 
     static {
-        KProperty[] var32 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new TridentBoostModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", TridentBoostMode.Motion);
         factorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "factor", 1.0F, RangesKt.rangeTo(0.1F, 20.0F));
         cooldownSetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 10, new IntRange(0, 20));
-        anyWeatherSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rain-spoof");
+        anyWeatherSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rain-spoof", true);
     }
 
 }

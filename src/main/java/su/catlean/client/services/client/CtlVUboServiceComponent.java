@@ -23,7 +23,7 @@ public class CtlVUboServiceComponent {
     static {
         INSTANCE = new CtlVUboServiceComponent();
         countValue = new Std140SizeCalculator().putMat4f().putMat4f().get();
-        minecraftRef = new class_11280(countValue);
+        minecraftRef = new class_11280(countValue, 0);
     }
 
 }

@@ -7,11 +7,11 @@ public class SpeedBoostAngleModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[SpeedBoostAngleMode.values()];
-        var0[SpeedBoostAngleMode.SERVER.ordinal()] = 1;
-        var0[SpeedBoostAngleMode.CLIENT.ordinal()] = 2;
-        var0[SpeedBoostAngleMode.PREDICT.ordinal()] = 3;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[SpeedBoostAngleMode.values()];
+        element[SpeedBoostAngleMode.SERVER.ordinal()] = 1;
+        element[SpeedBoostAngleMode.CLIENT.ordinal()] = 2;
+        element[SpeedBoostAngleMode.PREDICT.ordinal()] = 3;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

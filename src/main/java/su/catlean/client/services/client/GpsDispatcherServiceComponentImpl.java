@@ -16,10 +16,8 @@ public class GpsDispatcherServiceComponentImpl extends DispatcherServiceComponen
     }
 
     public void executeAction(LiteralArgumentBuilder builder) {
-        long var4 = (0L ^ 131983109906692L);
-        long var6 = (0L ^ 61473902788714L);
         builder.then(this.resolveLiteralArgumentBuilder("off").executes(this::computeValue));
-        builder.then(this.resolveRequiredArgumentBuilder("x", (ArgumentType) IntegerArgumentType.integer()).then(this.resolveRequiredArgumentBuilder("z", (ArgumentType) IntegerArgumentType.integer()).executes(this::computeValue2)));
+        builder.then(this.resolveRequiredArgumentBuilder("x", ((ArgumentType) IntegerArgumentType.integer())).then(this.resolveRequiredArgumentBuilder("z", ((ArgumentType) IntegerArgumentType.integer())).executes(this::computeValue2)));
         builder.executes(this::computeValue3);
     }
 
@@ -29,9 +27,9 @@ public class GpsDispatcherServiceComponentImpl extends DispatcherServiceComponen
     }
 
     private static int computeValue2(CommandContext arg0) {
-        Integer var1 = (Integer) arg0.getArgument("x", Integer.TYPE);
-        Integer var2 = (Integer) arg0.getArgument("z", Integer.TYPE);
-        WHITEServiceComponent.INSTANCE.updateValue(new BlockPos(0));
+        Integer integer = ((Integer) arg0.getArgument("x", Integer.TYPE));
+        Integer integer2 = ((Integer) arg0.getArgument("z", Integer.TYPE));
+        WHITEServiceComponent.INSTANCE.updateValue(new BlockPos(integer, 0, integer2));
         return 1;
     }
 

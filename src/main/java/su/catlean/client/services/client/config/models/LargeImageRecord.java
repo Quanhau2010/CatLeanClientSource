@@ -61,35 +61,35 @@ public class LargeImageRecord {
     }
 
     public static LargeImageRecord resolveLargeImageRecord(LargeImageRecord arg0, String arg1, String arg2, String arg3, String arg4, int arg5, Object arg6) {
-        if ((arg5 & 1)) {
+        if ((arg5 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg5 & 2)) {
+        if ((arg5 & 2) != 0) {
             arg2 = arg0.textValue2;
         }
-        if ((arg5 & 4)) {
+        if ((arg5 & 4) != 0) {
             arg3 = arg0.textValue3;
         }
-        if ((arg5 & 8)) {
+        if ((arg5 & 8) != 0) {
             arg4 = arg0.textValue4;
         }
         return arg0.resolveLargeImageRecord(arg1, arg2, arg3, arg4);
     }
 
     public String toString() {
-        String var3 = this.textValue4;
-        String var4 = this.textValue3;
-        String var5 = this.textValue2;
-        String var6 = this.textValue;
-        return ("ActivityAsset(largeImage=" + var6 + ", largeText=" + var5 + ", smallImage=" + var4 + ", smallText=" + var3 + ")");
+        String text = this.textValue4;
+        String text2 = this.textValue3;
+        String text3 = this.textValue2;
+        String text4 = this.textValue;
+        return ("ActivityAsset(largeImage=" + text4 + ", largeText=" + text3 + ", smallImage=" + text2 + ", smallText=" + text + ")");
     }
 
     public int hashCode() {
-        boolean var4 = this.textValue != null;
-        var4 = ((var4 * 31) + this.textValue2 != null);
-        var4 = ((var4 * 31) + this.textValue3 != null);
-        var4 = ((var4 * 31) + this.textValue4 != null);
-        return var4;
+        boolean flag = this.textValue != null;
+        flag = ((flag * 31) + this.textValue2 != null);
+        flag = ((flag * 31) + this.textValue3 != null);
+        flag = ((flag * 31) + this.textValue4 != null);
+        return flag;
     }
 
     public boolean equals(Object other) {
@@ -99,27 +99,27 @@ public class LargeImageRecord {
         if (!(other instanceof LargeImageRecord)) {
             return false;
         }
-        LargeImageRecord var5 = (LargeImageRecord) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        LargeImageRecord largeImageRecord = ((LargeImageRecord) other);
+        if (!(Intrinsics.areEqual(this.textValue, largeImageRecord.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, largeImageRecord.textValue2))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue3, var5.textValue3))) {
+        if (!(Intrinsics.areEqual(this.textValue3, largeImageRecord.textValue3))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue4, var5.textValue4))) {
+        if (!(Intrinsics.areEqual(this.textValue4, largeImageRecord.textValue4))) {
             return false;
         }
         return true;
     }
 
     public static void executeAction(LargeImageRecord self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        output.encodeNullableSerializableElement(serialDesc, 0, (SerializationStrategy) StringSerializer.INSTANCE, self.textValue);
-        output.encodeNullableSerializableElement(serialDesc, 1, (SerializationStrategy) StringSerializer.INSTANCE, self.textValue2);
-        output.encodeNullableSerializableElement(serialDesc, 2, (SerializationStrategy) StringSerializer.INSTANCE, self.textValue3);
-        output.encodeNullableSerializableElement(serialDesc, 3, (SerializationStrategy) StringSerializer.INSTANCE, self.textValue4);
+        output.encodeNullableSerializableElement(serialDesc, 0, ((SerializationStrategy) StringSerializer.INSTANCE), self.textValue);
+        output.encodeNullableSerializableElement(serialDesc, 1, ((SerializationStrategy) StringSerializer.INSTANCE), self.textValue2);
+        output.encodeNullableSerializableElement(serialDesc, 2, ((SerializationStrategy) StringSerializer.INSTANCE), self.textValue3);
+        output.encodeNullableSerializableElement(serialDesc, 3, ((SerializationStrategy) StringSerializer.INSTANCE), self.textValue4);
     }
 
     public LargeImageRecord(int seen0, String largeImage, String largeText, String smallImage, String smallText, SerializationConstructorMarker serializationConstructorMarker) {

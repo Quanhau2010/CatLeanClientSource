@@ -20,19 +20,19 @@ public class CatLean implements IPasteable {
     }
 
     public void onInitializeClient() {
-        ServiceComponent99.executeAction((IPasteable) this);
-        ServiceComponent68.executeAction((IPasteable) this);
+        ServiceComponent99.executeAction(((IPasteable) this));
+        ServiceComponent68.executeAction(((IPasteable) this));
     }
 
     private void onInitEvent(InitEvent arg0) {
         PreLaunch.INSTANCE.executeAction();
-        SfMediumServiceComponent.executeAction((IPasteable) this);
+        SfMediumServiceComponent.executeAction(((IPasteable) this));
         KeyServiceComponent.INSTANCE.executeAction();
         System.setProperty("java.version", ("CatVM " + System.getProperty("java.version")));
     }
 
     private void onPostTitleScreenInitEvent(PostTitleScreenInitEvent arg0) {
-        SharedKt.getMc().method_1507((Screen) new WarningGuiElement());
+        SharedKt.getMc().method_1507(((Screen) new WarningGuiElement()));
     }
 
     static {

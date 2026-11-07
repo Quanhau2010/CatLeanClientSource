@@ -59,30 +59,30 @@ public class EvtRecord {
     }
 
     public static EvtRecord resolveEvtRecord(EvtRecord arg0, OptionMode4 arg1, OptionMode arg2, UserRecord arg3, int arg4, Object arg5) {
-        if ((arg4 & 1)) {
+        if ((arg4 & 1) != 0) {
             arg1 = arg0.optionMode4;
         }
-        if ((arg4 & 2)) {
+        if ((arg4 & 2) != 0) {
             arg2 = arg0.optionMode;
         }
-        if ((arg4 & 4)) {
+        if ((arg4 & 4) != 0) {
             arg3 = arg0.userRecord;
         }
         return arg0.resolveEvtRecord(arg1, arg2, arg3);
     }
 
     public String toString() {
-        UserRecord var3 = this.userRecord;
-        OptionMode var4 = this.optionMode;
-        OptionMode4 var5 = this.optionMode4;
-        return ("PacketPayload(evt=" + var5 + ", cmd=" + var4 + ", data=" + var3 + ")");
+        UserRecord userRecord = this.userRecord;
+        OptionMode optionMode = this.optionMode;
+        OptionMode4 optionMode4 = this.optionMode4;
+        return ("PacketPayload(evt=" + optionMode4 + ", cmd=" + optionMode + ", data=" + userRecord + ")");
     }
 
     public int hashCode() {
-        boolean var4 = this.optionMode4 != null;
-        var4 = ((var4 * 31) + this.optionMode != null);
-        var4 = ((var4 * 31) + this.userRecord.hashCode());
-        return var4;
+        boolean flag = this.optionMode4 != null;
+        flag = ((flag * 31) + this.optionMode != null);
+        flag = ((flag * 31) + this.userRecord.hashCode());
+        return flag;
     }
 
     public boolean equals(Object other) {
@@ -92,24 +92,23 @@ public class EvtRecord {
         if (!(other instanceof EvtRecord)) {
             return false;
         }
-        EvtRecord var5 = (EvtRecord) other;
-        if (this.optionMode4 != var5.optionMode4) {
+        EvtRecord evtRecord = ((EvtRecord) other);
+        if (this.optionMode4 != evtRecord.optionMode4) {
             return false;
         }
-        if (this.optionMode != var5.optionMode) {
+        if (this.optionMode != evtRecord.optionMode) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.userRecord, var5.userRecord))) {
+        if (!(Intrinsics.areEqual(this.userRecord, evtRecord.userRecord))) {
             return false;
         }
         return true;
     }
 
     public static void executeAction(EvtRecord self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        Lazy[] var3 = lazyArray;
-        output.encodeNullableSerializableElement(serialDesc, 0, (SerializationStrategy) var3[0].getValue(), self.optionMode4);
-        output.encodeNullableSerializableElement(serialDesc, 1, (SerializationStrategy) var3[1].getValue(), self.optionMode);
-        output.encodeSerializableElement(serialDesc, 2, (SerializationStrategy) UserRecordSerializer.INSTANCE, self.userRecord);
+        output.encodeNullableSerializableElement(serialDesc, 0, ((SerializationStrategy) lazyArray[0].getValue()), self.optionMode4);
+        output.encodeNullableSerializableElement(serialDesc, 1, ((SerializationStrategy) lazyArray[1].getValue()), self.optionMode);
+        output.encodeSerializableElement(serialDesc, 2, ((SerializationStrategy) UserRecordSerializer.INSTANCE), self.userRecord);
     }
 
     public EvtRecord(int seen0, OptionMode4 evt, OptionMode cmd, UserRecord data, SerializationConstructorMarker serializationConstructorMarker) {
@@ -135,11 +134,11 @@ public class EvtRecord {
 
     static {
         serviceComponent25 = new ServiceComponent25();
-        Lazy[] var22 = new Lazy[3];
-        var22[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
-        var22[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer2);
-        var22[2] = null;
-        lazyArray = var22;
+        Lazy[] items = new Lazy[3];
+        items[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
+        items[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer2);
+        items[2] = null;
+        lazyArray = items;
     }
 
 }

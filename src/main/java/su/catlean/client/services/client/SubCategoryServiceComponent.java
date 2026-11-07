@@ -54,19 +54,19 @@ public class SubCategoryServiceComponent {
     }
 
     public String toString() {
-        EasingServiceComponent var3 = this.easingServiceComponent;
-        SubCategory var4 = this.subCategory;
-        float var5 = this.factorValue2;
-        float var6 = this.factorValue;
-        return ("Selector(x=" + var6 + ", w=" + var5 + ", subCategory=" + var4 + ", animation=" + var3 + ")");
+        EasingServiceComponent easingServiceComponent = this.easingServiceComponent;
+        SubCategory subCategory = this.subCategory;
+        float factor = this.factorValue2;
+        float factor2 = this.factorValue;
+        return ("Selector(x=" + factor2 + ", w=" + factor + ", subCategory=" + subCategory + ", animation=" + easingServiceComponent + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + this.subCategory.hashCode());
-        var3 = ((var3 * 31) + this.easingServiceComponent.hashCode());
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + this.subCategory.hashCode());
+        index = ((index * 31) + this.easingServiceComponent.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -76,17 +76,17 @@ public class SubCategoryServiceComponent {
         if (!(other instanceof SubCategoryServiceComponent)) {
             return false;
         }
-        SubCategoryServiceComponent var5 = (SubCategoryServiceComponent) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        SubCategoryServiceComponent subCategoryServiceComponent = ((SubCategoryServiceComponent) other);
+        if (Float.compare(this.factorValue, subCategoryServiceComponent.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, subCategoryServiceComponent.factorValue2)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.subCategory, var5.subCategory))) {
+        if (!(Intrinsics.areEqual(this.subCategory, subCategoryServiceComponent.subCategory))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.easingServiceComponent, var5.easingServiceComponent))) {
+        if (!(Intrinsics.areEqual(this.easingServiceComponent, subCategoryServiceComponent.easingServiceComponent))) {
             return false;
         }
         return true;

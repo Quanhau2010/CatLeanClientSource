@@ -22,25 +22,20 @@ public abstract class OpcodeServiceComponent2 {
     }
 
     public void executeAction(OptionMode2 opcode, JsonElement element) {
-        Map var8 = MapsKt.toMutableMap((Map) JsonElementKt.getJsonObject(element));
-        var8.put("nonce", JsonElementKt.JsonPrimitive(UUID.randomUUID().toString()));
-        Json var9 = ServiceComponent80.getJson();
-        JsonObject var10 = new JsonObject();
-        int var11 = 0;
-        var9.getSerializersModule();
-        var9 = var9.encodeToString((SerializationStrategy) JsonObject.Companion.serializer());
-        var9 = var9.getBytes(Charsets.UTF_8);
-        var10 = var9;
-        var11 = 0;
-        ByteBuffer var12 = ByteBuffer.allocate((var10 + -394760223815892984L));
-        Object var13 = var12;
-        Object var14 = this;
-        int var15 = 0;
-        var13.putInt(ServiceComponent52.computeValue(opcode.ordinal()));
-        var13.putInt(ServiceComponent52.computeValue());
-        var13.put();
-        var13.flip();
-        var14.executeAction();
+        Map map = MapsKt.toMutableMap(((Map) JsonElementKt.getJsonObject(element)));
+        map.put("nonce", JsonElementKt.JsonPrimitive(UUID.randomUUID().toString()));
+        Json json = ServiceComponent80.getJson();
+        JsonObject element2 = new JsonObject(map);
+        json.getSerializersModule();
+        json = json.encodeToString(((SerializationStrategy) JsonObject.Companion.serializer()), element2);
+        json = json.getBytes(Charsets.UTF_8);
+        element2 = json;
+        ByteBuffer byteBuffer = ByteBuffer.allocate((element2 + 8));
+        byteBuffer.putInt(ServiceComponent52.computeValue(opcode.ordinal()));
+        byteBuffer.putInt(ServiceComponent52.computeValue(element2));
+        byteBuffer.put(element2);
+        byteBuffer.flip();
+        this.executeAction(byteBuffer);
     }
 
     protected void executeAction(ByteBuffer arg0) {

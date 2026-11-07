@@ -23,7 +23,7 @@ public class RenderParticleEvent extends Event {
     }
 
     public boolean call(class_703 particle) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         particle = particle;
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

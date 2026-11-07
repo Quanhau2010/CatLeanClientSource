@@ -76,11 +76,11 @@ public class PearlChaserModule extends Module {
     }
 
     private boolean getOnlyTarget() {
-        return (Boolean) onlyTargetSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) onlyTargetSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private WindHopSwitchMode getSwitch() {
-        return (WindHopSwitchMode) switchSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((WindHopSwitchMode) switchSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void onAfterEntitySpawn(AfterEntitySpawn arg0) {
@@ -91,7 +91,7 @@ public class PearlChaserModule extends Module {
         blockPos = null;
         if (this.getOnlyTarget()) {
             if (AuraModule.INSTANCE.getTarget() != null && AuraModule.INSTANCE.getEnabled() && AuraModule.INSTANCE.getTarget() instanceof PlayerEntity) {
-                PlayerEntity player = (PlayerEntity) AuraModule.INSTANCE.getTarget();
+                PlayerEntity player = ((PlayerEntity) AuraModule.INSTANCE.getTarget());
                 if (!(hashMap.containsKey(player))) {
                 }
             }
@@ -100,14 +100,14 @@ public class PearlChaserModule extends Module {
                 if (!(hashMap.containsKey(player))) {
                 }
             }
-            player = (Map) new HashMap((Map) hashMap);
-            int var34 = 0;
-            while (var35.hasNext()) {
-                Entry var36 = (Entry) var35.next();
-                Object var37 = var36;
-                int var38 = 0;
-                if ((SharedKt.getNumericValue() - (Number) var37.getValue().longValue()) > timestampValue) {
-                    hashMap.remove(var37.getKey());
+            player = ((Map) new HashMap(((Map) hashMap)));
+            int index = 0;
+            while (iterator.hasNext()) {
+                Entry entry = ((Entry) this.next());
+                Entry entry2 = entry;
+                int index2 = 0;
+                if ((SharedKt.getNumericValue() - ((Number) entry2.getValue()).longValue()) > timestampValue) {
+                    hashMap.remove(entry2.getKey());
                 }
             }
         }
@@ -119,48 +119,46 @@ public class PearlChaserModule extends Module {
         }
         player = SharedKt.getWorld().method_18112().iterator();
         while (player.hasNext()) {
-            var34 = player.next();
-            if ((class_1684) var34.method_5628() == countValue2) {
+            index = player.next();
+            if (((class_1684) index).method_5628() == countValue2) {
             }
-            var36 = (Iterable) SharedKt.getWorld().getPlayers();
-            var37 = 0;
-            var38 = var36;
-            Collection var39 = (Collection) new ArrayList();
-            int var40 = 0;
-            Iterator iterator = var38.iterator();
-            while (iterator.hasNext()) {
-                Object var43 = iterator.next();
-                AbstractClientPlayerEntity player2 = (AbstractClientPlayerEntity) var43;
-                int var46 = 0;
+            entry = ((Iterable) SharedKt.getWorld().getPlayers());
+            entry2 = 0;
+            index2 = entry;
+            Collection collection = ((Collection) new ArrayList());
+            int index3 = 0;
+            Iterator iterator2 = index2.iterator();
+            while (iterator2.hasNext()) {
+                Object element = iterator2.next();
+                AbstractClientPlayerEntity player2 = ((AbstractClientPlayerEntity) element);
                 if (!(hashMap.containsKey(player2))) {
                 }
-                var39.add();
+                collection.add(element);
             }
-            var36 = (Iterable) var39;
-            var37 = 0;
-            var38 = var36.iterator();
-            if (!(var38.hasNext())) {
+            entry = ((Iterable) collection);
+            entry2 = 0;
+            index2 = entry.iterator();
+            if (!(index2.hasNext())) {
             } else {
-                var39 = var38.next();
-                if (!(var38.hasNext())) {
+                collection = index2.next();
+                if (!(index2.hasNext())) {
                 } else {
-                    var40 = (AbstractClientPlayerEntity) var39;
-                    iterator = 0;
-                    var40 = var40.method_5707(INSTANCE.resolveMinecraftObject());
-                    iterator = var38.next();
-                    var43 = (AbstractClientPlayerEntity) iterator;
+                    index3 = ((AbstractClientPlayerEntity) collection);
+                    iterator2 = 0;
+                    index3 = index3.method_5707(INSTANCE.resolveMinecraftObject(index));
+                    iterator2 = index2.next();
+                    element = ((AbstractClientPlayerEntity) iterator2);
                     player2 = 0;
-                    var43 = var43.method_5707(INSTANCE.resolveMinecraftObject());
-                    if (Double.compare() > 0) {
-                        var39 = iterator;
-                        var40 = var43;
+                    element = element.method_5707(INSTANCE.resolveMinecraftObject(index));
+                    if (Double.compare(index3, element) > 0) {
+                        collection = iterator2;
+                        index3 = element;
                     }
                 }
             }
-            var37 = var35;
-            var38 = 0;
-            blockPos = INSTANCE.resolveMinecraftObject(INSTANCE.resolveMinecraftObject(), (class_1684) var34.method_18798());
-            countValue = (class_1684) var34.method_5628();
+            index2 = 0;
+            blockPos = INSTANCE.resolveMinecraftObject(INSTANCE.resolveMinecraftObject(index), ((class_1684) index).method_18798());
+            countValue = ((class_1684) index).method_5628();
         }
         if (blockPos == null) {
             return;
@@ -169,55 +167,54 @@ public class PearlChaserModule extends Module {
             return;
         }
         player = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(blockPos.toCenterPos()).getNumericValue();
-        var34 = this.computeValue(blockPos, player);
-        if (Float.isNaN()) {
+        index = this.computeValue(blockPos, player);
+        if (Float.isNaN(index)) {
             return;
         }
-        if (blockPos.method_19770(var35.toCenterPos()) > 36.0D) {
+        if (blockPos.method_19770(this.toCenterPos()) > 36.0D) {
             return;
         }
-        var36 = new MoveFixServiceComponent(player, Math.clamp(-89.0F, 89.0F));
-        SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(150, this::resolveUnit2));
+        entry = new MoveFixServiceComponent(player, Math.clamp(index, -89.0F, 89.0F), false);
+        SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(entry, 150, this::resolveUnit2));
         blockPos = null;
         serviceComponent10.executeAction();
     }
 
     private float computeValue(BlockPos arg0, float arg1) {
         Vec3d vec = SharedKt.getPlayer().getEyePos();
-        List<BlockPos> positions = new ArrayList();
-        float var14 = (arg1 - 10);
-        float var15 = (arg1 + 10);
-        if (var14 <= var15) {
-            int var16 = 10;
-            if (-86 < var16) {
-                if (var17.toCenterPos().method_1022(arg0.toCenterPos()) < 5.0D) {
-                    positions.add(TuplesKt.to(Float.valueOf()));
+        List<BlockPos> list = new ArrayList();
+        float factor = (arg1 - 10);
+        float factor2 = (arg1 + 10);
+        if (factor <= factor2) {
+            int index = 10;
+            if (-86 < index) {
+                if (this.toCenterPos().method_1022(arg0.toCenterPos()) < 5.0D) {
+                    list.add(TuplesKt.to(Float.valueOf(index)));
                 }
             }
-            if (var14 != var15) {
+            if (factor != factor2) {
             }
         }
-        var15 = (Iterable) positions;
-        var16 = 0;
-        if (!(var17.hasNext())) {
+        factor2 = ((Iterable) list);
+        index = 0;
+        if (!(this.hasNext())) {
         } else {
-            Object var18 = var17.next();
-            if (!(var17.hasNext())) {
+            Object element = this.next();
+            if (!(this.hasNext())) {
             } else {
-                Pair var19 = (Pair) var18;
-                int var21 = 0;
-                var19 = (BlockPos) var19.getFirst().toCenterPos().method_1022(arg0.toCenterPos());
-                var21 = var17.next();
-                Pair var22 = (Pair) var21;
-                int var24 = 0;
-                var22 = (BlockPos) var22.getFirst().toCenterPos().method_1022(arg0.toCenterPos());
-                if (Double.compare() > 0) {
-                    var18 = var21;
-                    var19 = var22;
+                Pair pair = ((Pair) element);
+                int index2 = 0;
+                pair = ((BlockPos) pair.getFirst()).toCenterPos().method_1022(arg0.toCenterPos());
+                index2 = this.next();
+                Pair pair2 = ((Pair) index2);
+                pair2 = ((BlockPos) pair2.getFirst()).toCenterPos().method_1022(arg0.toCenterPos());
+                if (Double.compare(pair, pair2) > 0) {
+                    element = index2;
+                    pair = pair2;
                 }
             }
         }
-        if ((Pair) var18 != null) {
+        if (((Pair) element) != null) {
         } else {
         }
         return Float.NaN;
@@ -228,35 +225,34 @@ public class PearlChaserModule extends Module {
     }
 
     private BlockPos resolveMinecraftObject(Vec3d arg0, Vec3d arg1) {
-        Object var13 = arg1;
-        Object var14 = arg0;
-        Object var15 = arg0;
-        int var16 = 0;
-        if (var16 < 201) {
-            var13 = var13.method_1031(0.0D, -0.03D, 0.0D);
-            var13 = this.resolveMinecraftObject();
-            class_3965 var17 = SharedKt.getWorld().method_17742(new class_3959(class_3960.field_17559, class_242.field_1348, SharedKt.getPlayer()));
-            if (var12 == null) {
-                if (var17.method_17783() != class_240.field_1333) {
+        Vec3d vec = arg1;
+        Vec3d vec2 = arg0;
+        Vec3d vec3 = arg0;
+        int index = 0;
+        if (index < 201) {
+            vec = vec.method_1031(0.0D, -0.03D, 0.0D);
+            vec = this.resolveMinecraftObject(vec, vec2);
+            class_3965 class3965 = SharedKt.getWorld().method_17742(new class_3959(vec3, vec2, class_3960.field_17559, class_242.field_1348, SharedKt.getPlayer()));
+            if (__UNDEF_KEY__ == null) {
+                if (class3965.method_17783() != class_240.field_1333) {
+                    return class3965.method_17777();
                 }
-                return var17.method_17777();
             }
             Iterator iterator = SharedKt.getWorld().method_18112().iterator();
-            if (iterator.hasNext()) {
+            while (iterator.hasNext()) {
                 Entity entity = iterator.next();
-                if (var12 == null) {
+                if (__UNDEF_KEY__ == null) {
                 }
-                Object var20 = var14;
-                Vec3d vec = var14.method_1019();
-                Optional var22 = entity.method_5829().method_992(vec);
-                if (var12 == null) {
-                    if (var22.isEmpty()) {
+                Vec3d vec4 = vec2.method_1019(vec);
+                Optional optional = entity.method_5829().method_992(vec2, vec4);
+                if (__UNDEF_KEY__ == null) {
+                    if (optional.isEmpty()) {
                     }
                 }
-                return BlockPos.ofFloored(var22.get());
+                return BlockPos.ofFloored(optional.get());
             }
-            var15 = var14;
-            var14 = var14.method_1019();
+            vec3 = vec2;
+            vec2 = vec2.method_1019(vec);
         }
         return null;
     }
@@ -265,15 +261,15 @@ public class PearlChaserModule extends Module {
         if (SharedKt.getWorld().getBlockState(BlockPos.ofFloored(arg1)).getBlock() instanceof FluidBlock) {
         } else {
         }
-        return 0.8D.method_1021(0.99D);
+        return this.method_1021(0.99D);
     }
 
     private Vec3d resolveMinecraftObject(float arg0, float arg1) {
-        double var8 = 0.017453292519943295D;
-        double var10 = (Math.sin((arg1 * var8)) * Math.cos((arg0 * var8)));
-        double var12 = Math.sin((arg0 * var8));
-        double var14 = (Math.cos((arg1 * var8)) * Math.cos((arg0 * var8)));
-        if (var7 == null) {
+        double offset = 0.017453292519943295D;
+        double offset2 = (Math.sin((arg1 * offset)) * Math.cos((arg0 * offset)));
+        double offset3 = Math.sin((arg0 * offset));
+        double offset4 = (Math.cos((arg1 * offset)) * Math.cos((arg0 * offset)));
+        if (__UNDEF_KEY__ == null) {
             if (SharedKt.getPlayer().isOnGround()) {
             } else {
             }
@@ -286,7 +282,7 @@ public class PearlChaserModule extends Module {
     }
 
     private static double computeValue(Function1 arg0, Object arg1) {
-        return (Number) arg0.invoke(arg1);
+        return ((Number) arg0.invoke(arg1));
     }
 
     private static Unit resolveUnit(AfterEntitySpawn arg0, AbstractClientPlayerEntity arg1) {
@@ -302,7 +298,7 @@ public class PearlChaserModule extends Module {
 
     private static Unit resolveUnit(MoveFixServiceComponent arg0) {
         HandServiceComponent.resolveMinecraftObject(Hand.field_5808, arg0.getNumericValue(), arg0.getNumericValue2());
-        PacketPacketHelper.handlePacket((Packet) new class_2879(Hand.field_5808));
+        PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
         return Unit.INSTANCE;
     }
 
@@ -312,9 +308,9 @@ public class PearlChaserModule extends Module {
     }
 
     static {
-        KProperty[] var33 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new PearlChaserModule();
-        onlyTargetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-target");
+        onlyTargetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "only-target", false);
         switchSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch", WindHopSwitchMode.SILENT_FULL);
         serviceComponent10 = new ServiceComponent10();
         hashMap = new HashMap();

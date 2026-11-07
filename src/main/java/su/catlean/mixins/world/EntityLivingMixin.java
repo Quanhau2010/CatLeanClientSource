@@ -24,7 +24,7 @@ public abstract class EntityLivingMixin {
     }
 
     public void travelHook(Vec3d movementInput, CallbackInfo ci) {
-        if ((LivingEntity) this != MinecraftClient.method_1551().player) {
+        if (((LivingEntity) this) != MinecraftClient.method_1551().player) {
             return;
         }
         MinecraftClient.method_1551().player.method_5784(class_1313.field_6308, PreElytraEvent.INSTANCE.getVec());
@@ -32,7 +32,7 @@ public abstract class EntityLivingMixin {
     }
 
     public void travelPostHook(Vec3d movementInput, CallbackInfo ci) {
-        if ((LivingEntity) this != MinecraftClient.method_1551().player) {
+        if (((LivingEntity) this) != MinecraftClient.method_1551().player) {
             return;
         }
         MinecraftClient.method_1551().player.method_5784(class_1313.field_6308, AfterElytraEvent.INSTANCE.getVec());
@@ -40,25 +40,25 @@ public abstract class EntityLivingMixin {
     }
 
     public void isGlidingHook(CallbackInfoReturnable cir) {
-        if ((LivingEntity) this != MinecraftClient.method_1551().player) {
+        if (((LivingEntity) this) != MinecraftClient.method_1551().player) {
             return;
         }
         cir.setReturnValue(Boolean.valueOf(FallFlyingEvent.INSTANCE.getValue()));
     }
 
     private void jumpHook(CallbackInfo info) {
-        if ((LivingEntity) this != MinecraftClient.method_1551().player) {
+        if (((LivingEntity) this) != MinecraftClient.method_1551().player) {
             return;
         }
-        LivingEntity entity = (LivingEntity) this;
+        LivingEntity entity = ((LivingEntity) this);
         info.cancel();
         Vec3d vec = entity.method_18798();
         entity.method_18800(vec.field_1352, Math.max(JumpEvent.INSTANCE.getY(), vec.field_1351), vec.field_1350);
         if (entity.method_5624()) {
-            float var4 = (JumpEvent.INSTANCE.getYaw() * 0.017453292F);
-            entity.method_45319(new Vec3d((Math.sin() * JumpEvent.INSTANCE.getXz()), 0.0D, (Math.cos() * JumpEvent.INSTANCE.getXz())));
+            float factor = (JumpEvent.INSTANCE.getYaw() * 0.017453292F);
+            entity.method_45319(new Vec3d((Math.sin(factor) * JumpEvent.INSTANCE.getXz()), 0.0D, (Math.cos(factor) * JumpEvent.INSTANCE.getXz())));
         }
-        entity.field_64356 = 1;
+        entity.field_64356 = true;
     }
 
     private boolean setSprintingHook(boolean sprinting) {

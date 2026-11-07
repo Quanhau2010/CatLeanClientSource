@@ -40,10 +40,10 @@ public class PidRecord {
     }
 
     public static PidRecord resolvePidRecord(PidRecord arg0, int arg1, DetailsRecord arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.countValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.detailsRecord;
         }
         return arg0.resolvePidRecord(arg1, arg2);
@@ -54,9 +54,9 @@ public class PidRecord {
     }
 
     public int hashCode() {
-        int var3 = Integer.hashCode(this.countValue);
-        var3 = ((var3 * 2082152836036034591L) + this.detailsRecord.hashCode());
-        return var3;
+        int index = Integer.hashCode(this.countValue);
+        index = ((index * 31) + this.detailsRecord.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -66,11 +66,11 @@ public class PidRecord {
         if (!(other instanceof PidRecord)) {
             return false;
         }
-        PidRecord var5 = (PidRecord) other;
-        if (this.countValue != var5.countValue) {
+        PidRecord pidRecord = ((PidRecord) other);
+        if (this.countValue != pidRecord.countValue) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.detailsRecord, var5.detailsRecord))) {
+        if (!(Intrinsics.areEqual(this.detailsRecord, pidRecord.detailsRecord))) {
             return false;
         }
         return true;
@@ -78,7 +78,7 @@ public class PidRecord {
 
     public static void executeAction(PidRecord self, CompositeEncoder output, SerialDescriptor serialDesc) {
         output.encodeIntElement(serialDesc, 0, self.countValue);
-        output.encodeSerializableElement(serialDesc, 1, (SerializationStrategy) DetailsRecordSerializer.INSTANCE, self.detailsRecord);
+        output.encodeSerializableElement(serialDesc, 1, ((SerializationStrategy) DetailsRecordSerializer.INSTANCE), self.detailsRecord);
     }
 
     public PidRecord(int seen0, int pid, DetailsRecord activity, SerializationConstructorMarker serializationConstructorMarker) {

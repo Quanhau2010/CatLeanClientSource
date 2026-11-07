@@ -32,9 +32,11 @@ public class ServiceComponent45 implements Contract9 {
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         Iterator iterator = concurrentHashMap.entrySet().iterator();
-        long var9 = (Number) (Entry) iterator.next().getValue().longValue();
-        if (var7 != null) {
-            iterator.remove();
+        while (iterator.hasNext()) {
+            long time = ((Number) ((Entry) iterator.next()).getValue()).longValue();
+            if (__UNDEF_KEY__ != null) {
+                iterator.remove();
+            }
         }
     }
 

@@ -30,11 +30,11 @@ public class ServiceComponent65 {
         file = new File((System.getProperty("user.home") + "/.ctl"));
         file2 = new File((file + "/inventories"));
         file3 = new File((file + "/stashes"));
-        File[] var11 = new File[3];
-        var11[0] = file;
-        var11[1] = file2;
-        var11[2] = file3;
-        fileArray = var11;
+        File[] items = new File[3];
+        items[0] = file;
+        items[1] = file2;
+        items[2] = file3;
+        fileArray = items;
     }
 
     public static void updateValue(String[] arg0) {

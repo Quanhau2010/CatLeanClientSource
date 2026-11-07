@@ -96,15 +96,15 @@ public class NukerModule extends Module {
     }
 
     private NukerFilterMode getFilter() {
-        return (NukerFilterMode) filterSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((NukerFilterMode) filterSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private NukerSortMode getSort() {
-        return (NukerSortMode) sortSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((NukerSortMode) sortSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private BlocksServiceComponent getSelectedBlocks() {
-        return (BlocksServiceComponent) selectedBlocksSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((BlocksServiceComponent) selectedBlocksSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setSelectedBlocks(BlocksServiceComponent value) {
@@ -112,39 +112,39 @@ public class NukerModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private float getRange() {
-        return (Number) rangeSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Number) rangeSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private int getYawAngle() {
-        return (Number) yawAngleSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) yawAngleSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getIgnoreWalls() {
-        return (Boolean) ignoreWallsSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) ignoreWallsSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private boolean getFlatten() {
-        return (Boolean) flattenSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) flattenSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private boolean getCreative() {
-        return (Boolean) creativeSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) creativeSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private boolean getAvoidLava() {
-        return (Boolean) avoidLavaSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Boolean) avoidLavaSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     public void onAttackBlockEvent(AttackBlockEvent e) {
         if (SharedKt.getWorld().method_22347(e.getPos())) {
             return;
         }
-        Block var9 = SharedKt.getWorld().getBlockState(e.getPos()).getBlock();
-        minecraftRef = var9;
+        Block block = SharedKt.getWorld().getBlockState(e.getPos()).getBlock();
+        minecraftRef = block;
     }
 
     public void onBlockStateEvent(BlockStateEvent e) {
@@ -159,65 +159,65 @@ public class NukerModule extends Module {
     public void onPlayerUpdateEvent(PlayerUpdateEvent e) {
         this.updateValue();
         if (vec3dServiceComponent != null) {
-            Block var57 = SharedKt.getWorld().getBlockState(vec3dServiceComponent.getMinecraftObject()).getBlock();
-            if (!(Intrinsics.areEqual(minecraftRef))) {
+            Block block = SharedKt.getWorld().getBlockState(vec3dServiceComponent.getMinecraftObject()).getBlock();
+            if (!(Intrinsics.areEqual(block, minecraftRef))) {
             }
             if (this.getFilter() != NukerFilterMode.Select && EventPacketHelper2.INSTANCE.computeValue(vec3dServiceComponent.getMinecraftObject().toCenterPos()) <= (this.getRange() * this.getRange())) {
-                if (Intrinsics.areEqual(Blocks.AIR)) {
+                if (Intrinsics.areEqual(block, Blocks.AIR)) {
+                    vec3dServiceComponent = null;
+                    this.updateValue();
                 }
-                vec3dServiceComponent = null;
-                this.updateValue();
             }
         }
         if (SharedKt.getMc().options.field_1886.method_1434() || vec3dServiceComponent == null) {
             return;
         }
-        var57 = vec3dServiceComponent.getMinecraftObject();
+        block = vec3dServiceComponent.getMinecraftObject();
         if (!(this.getCreative())) {
-            double var58 = class_3532.method_15338(((Math.toDegrees(Math.atan2((var57.field_1350 - SharedKt.getPlayer().getZ()), (var57.field_1352 - SharedKt.getPlayer().getX()))) - 90.0F) - EventPacketHelper2.INSTANCE.computeValue()));
-            double var60 = (Math.toDegrees(Math.atan2((var57.field_1351 - SharedKt.getPlayer().getEyePos().field_1351), Math.sqrt((Math.pow((var57.field_1352 - SharedKt.getPlayer().getX()), 2.0D) + Math.pow((var57.field_1350 - SharedKt.getPlayer().getZ()), 2.0D))))) - EventPacketHelper2.INSTANCE.computeValue2());
-            float var61 = class_3532.method_15363(class_3532.method_15379(), this.getYawAngle(), this.getYawAngle());
-            float var62 = class_3532.method_15363(this.getYawAngle(), this.getYawAngle());
-            enabledFlag = class_3532.method_15379() <= this.getYawAngle();
-            if (var58 > 0.0D) {
+            double offset = class_3532.method_15338(((Math.toDegrees(Math.atan2((block.field_1350 - SharedKt.getPlayer().getZ()), (block.field_1352 - SharedKt.getPlayer().getX()))) - 90.0F) - EventPacketHelper2.INSTANCE.computeValue()));
+            double offset2 = (Math.toDegrees(Math.atan2((block.field_1351 - SharedKt.getPlayer().getEyePos().field_1351), Math.sqrt((Math.pow((block.field_1352 - SharedKt.getPlayer().getX()), 2.0D) + Math.pow((block.field_1350 - SharedKt.getPlayer().getZ()), 2.0D))))) - EventPacketHelper2.INSTANCE.computeValue2());
+            float factor = class_3532.method_15363(class_3532.method_15379(offset), this.getYawAngle(), this.getYawAngle());
+            float factor2 = class_3532.method_15363(offset2, this.getYawAngle(), this.getYawAngle());
+            enabledFlag = class_3532.method_15379(offset) <= this.getYawAngle();
+            if (offset > 0.0D) {
             } else {
             }
-            float var63 = (var61 + var61);
-            float var64 = class_3532.method_15363((EventPacketHelper2.INSTANCE.computeValue2() + var62), -90.0F, 90.0F);
-            SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(new MoveFixServiceComponent(), 0, this::getUnit));
+            float factor3 = (factor + factor);
+            float factor4 = class_3532.method_15363((EventPacketHelper2.INSTANCE.computeValue2() + factor2), -90.0F, 90.0F);
+            SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(0, this::getUnit));
         }
         if (this.getCreative() && serviceComponent10.checkCondition2(this.getDelay())) {
-            var58 = (Math.floor(this.getRange()) + 1);
-            List positions = new ArrayList();
-            var60 = BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()));
-            var61 = var58;
-            if (var61 <= var58) {
-                var62 = var58;
-                if (var62 <= var58) {
-                    var63 = var58;
-                    positions.add(var60.method_10069());
-                    if (var63 <= var58 && var63 != var58) {
+            offset = (Math.floor(this.getRange()) + 1);
+            List list = new ArrayList();
+            offset2 = BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()));
+            factor = offset;
+            if (factor <= offset) {
+                factor2 = offset;
+                if (factor2 <= offset) {
+                    factor3 = offset;
+                    list.add(offset2.method_10069(factor, factor2, factor3));
+                    if (factor3 <= offset && factor3 != offset) {
                     }
-                    if (var62 != var58) {
+                    if (factor2 != offset) {
                     }
                 }
-                if (var61 != var58) {
+                if (factor != offset) {
                 }
             }
-            var62 = (Iterable) positions;
-            var63 = 0;
-            var61 = CollectionsKt.sortedWith((Comparator) new Comparator7()).iterator();
-            while (var61.hasNext()) {
-                var62 = (BlockPos) var61.next();
+            factor2 = ((Iterable) list);
+            factor3 = 0;
+            factor = CollectionsKt.sortedWith(factor2, ((Comparator) new Comparator7())).iterator();
+            while (factor.hasNext()) {
+                factor2 = ((BlockPos) factor.next());
                 if (this.getFlatten()) {
                 }
                 if (this.getAvoidLava()) {
                 }
-                var63 = SharedKt.getWorld().getBlockState();
-                Block var55 = var63.getBlock();
+                factor3 = SharedKt.getWorld().getBlockState(factor2);
+                Block block2 = factor3.getBlock();
                 PacketPacketHelper.executeAction(this::resolveMinecraftObject);
                 PacketPacketHelper.executeAction(this::resolveMinecraftObject2);
-                SharedKt.getWorld().method_8501(Blocks.AIR.method_9564());
+                SharedKt.getWorld().method_8501(factor2, Blocks.AIR.method_9564());
                 SharedKt.getPlayer().method_6104(Hand.field_5808);
             }
         }
@@ -230,14 +230,14 @@ public class NukerModule extends Module {
         }
         if (SharedKt.getMc().options.field_1886.method_1434()) {
             if (arg0 >= 0) {
-                if (var22 == null) {
+                if (__UNDEF_KEY__ == null) {
                     if (SpeedMineModule.INSTANCE.getMode() != SpeedMineMode.DAMAGE) {
-                    }
-                }
-                if (arg2 >= 0 && arg1 >= 0) {
-                    if (!(SpeedMineModule.INSTANCE.checkCondition2())) {
-                        SpeedMineModule.INSTANCE.executeAction(vec3dServiceComponent.getMinecraftObject(), vec3dServiceComponent.getMinecraftObject());
-                        return;
+                        if (arg2 >= 0 && arg1 >= 0) {
+                            if (!(SpeedMineModule.INSTANCE.checkCondition2())) {
+                                SpeedMineModule.INSTANCE.executeAction(vec3dServiceComponent.getMinecraftObject(), vec3dServiceComponent.getMinecraftObject());
+                                return;
+                            }
+                        }
                     }
                 }
             }
@@ -253,76 +253,76 @@ public class NukerModule extends Module {
         if (!(this.getCreative()) && vec3dServiceComponent != null) {
             BlockPos blockPos = vec3dServiceComponent.getMinecraftObject();
         }
-        int var14 = 4;
-        Color var16 = PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), 1.0F);
-        Box var17 = new Box(blockPos);
-        TextShaderComponent2.checkCondition();
+        int index = 4;
+        Color color = PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), 1.0F);
+        Box box = new Box(blockPos);
+        TextShaderComponent2.checkCondition(box, color, index);
         TextShaderComponent2.checkCondition(new Box(blockPos), PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), 0.5F));
     }
 
     private Vec3dServiceComponent resolveVec3dServiceComponent(short arg0, short arg1, int arg2) {
-        double var40 = (Math.floor(this.getRange()) + 1);
-        List positions = new ArrayList();
+        double offset = (Math.floor(this.getRange()) + 1);
+        List list = new ArrayList();
         BlockPos blockPos = BlockPos.ofFloored(this.resolveMinecraftObject(SharedKt.getPlayer()));
-        int var43 = var40;
-        if (var43 <= var40) {
-            int var44 = var40;
+        double offset2 = offset;
+        if (offset2 <= offset) {
+            double offset3 = offset;
             if (arg1 > 0) {
-                if (var44 <= var40) {
-                }
-                int var45 = var40;
-                positions.add(blockPos.method_10069());
-                if (var45 <= var40 && var45 != var40 && arg0 >= 0) {
-                }
-                if (arg2 < 0) {
-                    if (var44 != var40) {
+                if (offset3 <= offset) {
+                    double offset4 = offset;
+                    list.add(blockPos.method_10069(offset2, offset3, offset4));
+                    if (offset4 <= offset && offset4 != offset && arg0 >= 0) {
+                    }
+                    if (arg2 < 0) {
+                        if (offset3 != offset) {
+                        }
                     }
                 }
             }
-            if (var43 != var40) {
+            if (offset2 != offset) {
             }
         }
-        var44 = (Iterable) positions;
-        var45 = 0;
-        var43 = CollectionsKt.sortedWith((Comparator) new Comparator15()).iterator();
-        if (var43.hasNext()) {
-            var44 = (BlockPos) var43.next();
+        offset3 = ((Iterable) list);
+        offset4 = 0;
+        offset2 = CollectionsKt.sortedWith(offset3, ((Comparator) new Comparator15())).iterator();
+        while (offset2.hasNext()) {
+            offset3 = ((BlockPos) offset2.next());
             if (SpeedMineModule.INSTANCE.getEnabled()) {
-                if (arg0 >= 0 && var39 == null) {
+                if (arg0 >= 0 && __UNDEF_KEY__ == null) {
                 }
             }
             if (this.getFlatten()) {
                 if (arg2 <= 0) {
-                    if (var39 == null) {
+                    if (__UNDEF_KEY__ == null) {
                     }
                 }
             }
             if (arg1 > 0) {
-                if (var39 == null) {
+                if (__UNDEF_KEY__ == null) {
                 }
             }
-            if (arg2 <= 0 && var39 == null) {
+            if (arg2 <= 0 && __UNDEF_KEY__ == null) {
                 if (this.getAvoidLava()) {
                 }
             }
-            var45 = SharedKt.getWorld().getBlockState();
-            Block var38 = var45.getBlock();
-            if (arg1 >= 0 && var39 == null) {
+            offset4 = SharedKt.getWorld().getBlockState(offset3);
+            Block block = offset4.getBlock();
+            if (arg1 >= 0 && __UNDEF_KEY__ == null) {
             }
             if (this.getIgnoreWalls()) {
-                class_3965 var46 = VecPacketHelper.resolveMinecraftObject(new class_3959(SharedKt.getPlayer().getEyePos(), var44.toCenterPos(), class_3960.field_17558, class_242.field_1348, SharedKt.getPlayer()));
-                return new Vec3dServiceComponent(var46.method_17784(), var46.method_17780());
+                class_3965 class3965 = VecPacketHelper.resolveMinecraftObject(new class_3959(SharedKt.getPlayer().getEyePos(), offset3.toCenterPos(), class_3960.field_17558, class_242.field_1348, SharedKt.getPlayer()), offset3);
+                return new Vec3dServiceComponent(offset3, class3965.method_17784(), class3965.method_17780());
             }
-            var46 = 0;
-            int var47 = 0;
-            if (var47 < 5) {
-                int var48 = 0;
-                if (var48 < 5) {
-                    float var49 = 0.25F;
-                    Vec3d vec = new Vec3d((var44.method_10263() + (var46 * var49)), (var44.method_10264() + (var47 * var49)), (var44.method_10260() + (var48 * var49)));
-                    class_3965 var51 = SharedKt.getWorld().method_17742(new class_3959(SharedKt.getPlayer().getEyePos(), vec, class_3960.field_17559, class_242.field_1348, SharedKt.getPlayer()));
-                    if (var51.method_17783() == class_240.field_1332 && Intrinsics.areEqual(var51.method_17777())) {
-                        return new Vec3dServiceComponent(vec, var51.method_17780());
+            class3965 = 0;
+            int index = 0;
+            if (index < 5) {
+                int index2 = 0;
+                if (index2 < 5) {
+                    float factor = 0.25F;
+                    Vec3d vec = new Vec3d((offset3.method_10263() + (class3965 * factor)), (offset3.method_10264() + (index * factor)), (offset3.method_10260() + (index2 * factor)));
+                    class_3965 class39652 = SharedKt.getWorld().method_17742(new class_3959(SharedKt.getPlayer().getEyePos(), vec, class_3960.field_17559, class_242.field_1348, SharedKt.getPlayer()));
+                    if (class39652.method_17783() == class_240.field_1332 && Intrinsics.areEqual(class39652.method_17777(), offset3)) {
+                        return new Vec3dServiceComponent(offset3, vec, class39652.method_17780());
                     }
                 }
             }
@@ -332,8 +332,8 @@ public class NukerModule extends Module {
 
     private boolean checkCondition(int arg0, BlockPos arg1) {
         Iterator iterator = ServiceComponent28.enumEntries.iterator();
-        if (iterator.hasNext()) {
-            Direction var10 = (Direction) iterator.next();
+        while (iterator.hasNext()) {
+            Direction direction = ((Direction) iterator.next());
             return true;
         }
         return false;
@@ -346,23 +346,23 @@ public class NukerModule extends Module {
     }
 
     private boolean checkCondition(short arg0, char arg1, Block arg2, int arg3) {
-        boolean var12 = this.getSelectedBlocks().getList().contains(arg2);
+        boolean flag = this.getSelectedBlocks().getList().contains(arg2);
         if (!(Intrinsics.areEqual(arg2, Blocks.field_9987)) && !(Intrinsics.areEqual(arg2, Blocks.AIR)) && !(Intrinsics.areEqual(arg2, Blocks.field_10543)) && !(arg2 instanceof FluidBlock)) {
         } else {
             if (arg0 >= 0) {
-                if (var11 == null) {
+                if (__UNDEF_KEY__ == null) {
                 }
             }
             if (arg1 > 0) {
-                if (var11 == null) {
+                if (__UNDEF_KEY__ == null) {
                 }
             }
             if (arg3 > 0) {
-                if (var11 == null) {
+                if (__UNDEF_KEY__ == null) {
                 }
             }
             if (arg3 >= 0) {
-                if (var11 == null) {
+                if (__UNDEF_KEY__ == null) {
                 }
             }
         }
@@ -374,11 +374,11 @@ public class NukerModule extends Module {
     }
 
     private static Packet resolveMinecraftObject(BlockPos arg0, int arg1) {
-        return (Packet) new class_2846(class_2847.field_12968, arg0, Direction.UP, arg1);
+        return ((Packet) new class_2846(class_2847.field_12968, arg0, Direction.UP, arg1));
     }
 
     private static Packet resolveMinecraftObject2(BlockPos arg0, int arg1) {
-        return (Packet) new class_2846(class_2847.field_12973, arg0, Direction.UP, arg1);
+        return ((Packet) new class_2846(class_2847.field_12973, arg0, Direction.UP, arg1));
     }
 
     public static NukerSortMode resolveNukerSortMode(NukerModule $this) {
@@ -386,20 +386,20 @@ public class NukerModule extends Module {
     }
 
     static {
-        KProperty[] var42 = new KProperty[10];
+        KProperty[] items = new KProperty[10];
         INSTANCE = new NukerModule();
         filterSetting = VisibleRenderHelper.registerSetting(INSTANCE, "filter", NukerFilterMode.Select);
         sortSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sort", NukerSortMode.FOV);
-        int var38 = 12;
-        BlocksServiceComponent var41 = new BlocksServiceComponent();
-        selectedBlocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks");
+        int index = 12;
+        BlocksServiceComponent blocksServiceComponent = new BlocksServiceComponent();
+        selectedBlocksSetting = VisibleRenderHelper.registerSetting(INSTANCE, "blocks", blocksServiceComponent, index);
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 25, new IntRange(0, 1000));
         rangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "range", 4.2F, RangesKt.rangeTo(3.0F, 7.0F));
         yawAngleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "degrees-per-tick", 35, new IntRange(5, 180));
-        ignoreWallsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-walls");
-        flattenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "flatten");
-        creativeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "creative");
-        avoidLavaSetting = VisibleRenderHelper.registerSetting(INSTANCE, "avoid-lava");
+        ignoreWallsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-walls", false);
+        flattenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "flatten", false);
+        creativeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "creative", false);
+        avoidLavaSetting = VisibleRenderHelper.registerSetting(INSTANCE, "avoid-lava", false);
         serviceComponent10 = new ServiceComponent10();
     }
 

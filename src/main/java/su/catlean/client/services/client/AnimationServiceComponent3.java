@@ -7,14 +7,14 @@ public class AnimationServiceComponent3 {
     private final float factorValue;
     private final float factorValue2;
     private final float factorValue3;
-    private final Enum enum;
+    private final Enum enumValue;
     private final EasingServiceComponent easingServiceComponent;
 
     public AnimationServiceComponent3(float x, float y, float w, Enum value, EasingServiceComponent animation) {
         this.factorValue = x;
         this.factorValue2 = y;
         this.factorValue3 = w;
-        this.enum = value;
+        this.enumValue = value;
         this.easingServiceComponent = animation;
     }
 
@@ -31,7 +31,7 @@ public class AnimationServiceComponent3 {
     }
 
     public Enum getEnum() {
-        return this.enum;
+        return this.enumValue;
     }
 
     public EasingServiceComponent getEasingServiceComponent() {
@@ -51,7 +51,7 @@ public class AnimationServiceComponent3 {
     }
 
     public Enum getEnum2() {
-        return this.enum;
+        return this.enumValue;
     }
 
     public EasingServiceComponent getEasingServiceComponent2() {
@@ -63,21 +63,21 @@ public class AnimationServiceComponent3 {
     }
 
     public String toString() {
-        EasingServiceComponent var3 = this.easingServiceComponent;
-        Enum var4 = this.enum;
-        float var5 = this.factorValue3;
-        float var6 = this.factorValue2;
-        float var7 = this.factorValue;
-        return ("Selector(x=" + var7 + ", y=" + var6 + ", w=" + var5 + ", value=" + var4 + ", animation=" + var3 + ")");
+        EasingServiceComponent easingServiceComponent = this.easingServiceComponent;
+        Enum value = this.enumValue;
+        float factor = this.factorValue3;
+        float factor2 = this.factorValue2;
+        float factor3 = this.factorValue;
+        return ("Selector(x=" + factor3 + ", y=" + factor2 + ", w=" + factor + ", value=" + value + ", animation=" + easingServiceComponent + ")");
     }
 
     public int hashCode() {
-        int var3 = Float.hashCode(this.factorValue);
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue3));
-        var3 = ((var3 * 31) + this.enum.hashCode());
-        var3 = ((var3 * 31) + this.easingServiceComponent.hashCode());
-        return var3;
+        int index = Float.hashCode(this.factorValue);
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + this.enumValue.hashCode());
+        index = ((index * 31) + this.easingServiceComponent.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -87,20 +87,20 @@ public class AnimationServiceComponent3 {
         if (!(other instanceof AnimationServiceComponent3)) {
             return false;
         }
-        AnimationServiceComponent3 var5 = (AnimationServiceComponent3) other;
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        AnimationServiceComponent3 animationServiceComponent3 = ((AnimationServiceComponent3) other);
+        if (Float.compare(this.factorValue, animationServiceComponent3.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, animationServiceComponent3.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, animationServiceComponent3.factorValue3)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.enum, var5.enum))) {
+        if (!(Intrinsics.areEqual(this.enumValue, animationServiceComponent3.enumValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.easingServiceComponent, var5.easingServiceComponent))) {
+        if (!(Intrinsics.areEqual(this.easingServiceComponent, animationServiceComponent3.easingServiceComponent))) {
             return false;
         }
         return true;

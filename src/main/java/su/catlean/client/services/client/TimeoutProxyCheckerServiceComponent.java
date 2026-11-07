@@ -27,20 +27,20 @@ public class TimeoutProxyCheckerServiceComponent extends ChannelInitializer {
     }
 
     protected void executeAction(SocketChannel ch) {
-        ChannelHandler[] var5 = new ChannelHandler[1];
-        var5[0] = new FlowControlHandler();
-        var5 = new ChannelHandler[1];
+        ChannelHandler[] items = new ChannelHandler[1];
+        items[0] = new FlowControlHandler();
+        items = new ChannelHandler[1];
         if (this.idRecord12.isActive()) {
         } else {
         }
-        0[(ProxyHandler) new Socks4ProxyHandler((SocketAddress) new InetSocketAddress(this.idRecord12.getString2(), this.idRecord12.getNumericValue()), this.idRecord12.getString3())] = (ProxyHandler) new Socks5ProxyHandler((SocketAddress) new InetSocketAddress(this.idRecord12.getString2(), this.idRecord12.getNumericValue()), this.idRecord12.getString3(), this.idRecord12.getString4());
-        var5 = new ChannelHandler[1];
-        var5[0] = new CtxServiceComponent();
-        var5.addLast().addLast();
+        0[((ProxyHandler) new Socks4ProxyHandler(((SocketAddress) new InetSocketAddress(this.idRecord12.getString2(), this.idRecord12.getNumericValue())), this.idRecord12.getString3()))] = ((ProxyHandler) new Socks5ProxyHandler(((SocketAddress) new InetSocketAddress(this.idRecord12.getString2(), this.idRecord12.getNumericValue())), this.idRecord12.getString3(), this.idRecord12.getString4()));
+        items = new ChannelHandler[1];
+        items[0] = new CtxServiceComponent();
+        items.addLast(items).addLast(items);
     }
 
     public void initChannel(Channel p0) {
-        this.executeAction((SocketChannel) p0);
+        this.executeAction(((SocketChannel) p0));
     }
 
 }

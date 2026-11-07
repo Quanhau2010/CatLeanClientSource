@@ -20,7 +20,7 @@ public class StackServiceComponent3 {
     }
 
     public static int computeValue(ItemStack stack, class_5321 enchantment) {
-        return class_1890.method_8225((class_6880) SharedKt.getWorld().method_30349().method_58561(enchantment).get(), stack);
+        return class_1890.method_8225(((class_6880) SharedKt.getWorld().method_30349().method_58561(enchantment).get()), stack);
     }
 
     public static void updateValue(int[] arg0) {

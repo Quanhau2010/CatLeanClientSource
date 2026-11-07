@@ -6,7 +6,7 @@ import net.minecraft.util.math.Direction;
 public class ServiceComponent42 {
 
     static {
-        enumEntries = EnumEntriesKt.enumEntries((Enum[]) Direction.values());
+        enumEntries = EnumEntriesKt.enumEntries(((Enum[]) Direction.values()));
     }
 
 }

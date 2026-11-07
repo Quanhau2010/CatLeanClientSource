@@ -30,51 +30,51 @@ public class UrlServiceComponent {
     }
 
     public class_2960 resolveMinecraftObject(String url) {
-        if ((class_2960) concurrentHashMap.get(url) != null) {
-            class_2960 var6 = (class_2960) concurrentHashMap.get(url);
-            int var7 = 0;
-            return var6;
+        if (((class_2960) concurrentHashMap.get(url)) != null) {
+            class_2960 class2960 = ((class_2960) concurrentHashMap.get(url));
+            return class2960;
         }
-        CompletableFuture var5 = (CompletableFuture) concurrentHashMap2.computeIfAbsent(url, this::resolveCompletableFuture);
         return minecraftRef;
     }
 
     public BufferedImage resolveBufferedImage(BufferedImage image) {
-        int var4 = image.getWidth();
-        int var5 = image.getHeight();
-        int var6 = Math.min();
-        int var7 = ((var4 - var6) / 2);
-        int var8 = ((var5 - var6) / 2);
-        return image.getSubimage();
+        int index = image.getWidth();
+        int index2 = image.getHeight();
+        int index3 = Math.min(index, index2);
+        int index4 = ((index - index3) / 2);
+        int index5 = ((index2 - index3) / 2);
+        return image.getSubimage(index4, index5, index3, index3);
     }
 
     public class_1011 resolveMinecraftObject(class_1011 image) {
-        int var8 = 64;
-        int var9 = 32;
-        int var10 = image.method_4307();
-        int var11 = image.method_4323();
-        int var12 = image.method_4323();
-        if (var8 >= var10) {
-            if (0L > 0) {
-                if (var7 == null) {
+        int index = 64;
+        int index2 = 32;
+        int index3 = image.method_4307();
+        int index4 = image.method_4323();
+        int index5 = image.method_4323();
+        if (index >= index3) {
+            if (__UNDEF_KEY__ > 0) {
+                if (__UNDEF_KEY__ == null) {
+                    if (index2 < index5) {
+                        index = (index * 2);
+                        index2 = (index2 * 2);
+                    }
                 }
-                if (var9 < var12) {
-                }
-                var8 = (var8 * 2);
             }
-            var9 = (var9 * 2);
         }
-        class_1011 var13 = new class_1011(1);
-        int var14 = 0;
-        if (var15 < var11) {
-            var13.method_61941(image.method_61940());
-            if (var14 < var10 && 0L > 0 && var7 == null) {
+        class_1011 class1011 = new class_1011(index, index2, true);
+        int index6 = 0;
+        if (index6 < index3) {
+            int index7 = 0;
+            if (index7 < index4) {
+                class1011.method_61941(index6, index7, image.method_61940(index6, index7));
             }
         }
         image.close();
-        if (0L > 0) {
+        if (__UNDEF_KEY__ <= 0 || __UNDEF_KEY__ != null || __UNDEF_KEY__ > 0) {
+            continue;
         }
-        return var13;
+        return class1011;
     }
 
     private static String resolveString(int arg0) {
@@ -82,32 +82,29 @@ public class UrlServiceComponent {
     }
 
     private static void executeAction(class_2960 arg0, class_1011 arg1, String arg2, CompletableFuture arg3, int arg4) {
-        SharedKt.getMc().method_1531().method_4616(arg0, (class_1044) new class_1043(this::resolveString, arg1));
+        SharedKt.getMc().method_1531().method_4616(arg0, ((class_1044) new class_1043(this::resolveString, arg1)));
         arg3.complete(arg0);
         concurrentHashMap2.remove(arg2);
     }
 
     private static void executeAction(String arg0, CompletableFuture arg1) {
-        class_2960 var8 = StringServiceComponent2.resolveMinecraftObject(("catlean-img-" + (Random.Default.nextFloat() * 100000)));
-        InputStream var9 = URI.create(arg0).toURL().openStream();
-        class_1011 var10 = class_1011.method_4309();
+        class_2960 class2960 = StringServiceComponent2.resolveMinecraftObject(("catlean-img-" + (Random.Default.nextFloat() * 100000)));
+        InputStream inputStream = URI.create(arg0).toURL().openStream();
+        class_1011 class1011 = class_1011.method_4309(inputStream);
         countValue = (countValue + 1);
-        int var11 = countValue;
         SharedKt.getMc().execute(this::executeAction);
         arg1.complete(minecraftRef);
         concurrentHashMap2.remove(arg0);
     }
 
     private static CompletableFuture resolveCompletableFuture(String arg0, String arg1) {
-        CompletableFuture var4 = new CompletableFuture();
-        Object var5 = var4;
-        int var6 = 0;
+        CompletableFuture completableFuture = new CompletableFuture();
         new Thread(this::executeAction).start();
-        return var4;
+        return completableFuture;
     }
 
     private static CompletableFuture resolveCompletableFuture(Function1 arg0, Object arg1) {
-        return (CompletableFuture) arg0.invoke(arg1);
+        return ((CompletableFuture) arg0.invoke(arg1));
     }
 
     static {

@@ -20,39 +20,37 @@ public class IdRecord10Serializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, IdRecord10 value) {
-        SerialDescriptor var5 = serialDescriptor;
-        CompositeEncoder var6 = encoder.beginStructure();
-        IdRecord10.executeAction(value);
-        var6.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        IdRecord10.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public IdRecord10 resolveIdRecord10(Decoder decoder) {
-        SerialDescriptor var7 = serialDescriptor;
-        int var8 = 1;
-        int var10 = 0;
-        CompositeDecoder var13 = decoder.beginStructure();
-        if (var6 != null) {
-            if (var13.decodeSequentially()) {
+        int index = 1;
+        int index2 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        if (__UNDEF_KEY__ != null) {
+            if (compositeDecoder.decodeSequentially()) {
+                String text = compositeDecoder.decodeStringElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                String text2 = compositeDecoder.decodeStringElement(serialDescriptor, 1);
+                index2 = (index2 | 2);
             }
-            String var11 = var13.decodeStringElement(0);
-            var10 = (var10 | 1);
-            String var12 = var13.decodeStringElement(1);
-            var10 = (var10 | 2);
         }
-        if (var6 == null && var8) {
-            int var9 = var13.decodeElementIndex();
-            if (var6 != null) {
-                if (var6 != null) {
+        if (__UNDEF_KEY__ == null && index) {
+            int index3 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ != null) {
+                if (__UNDEF_KEY__ != null) {
                 }
-                var8 = 0;
-                var11 = var13.decodeStringElement(0);
-                var10 = (var10 | 1);
-                var12 = var13.decodeStringElement(1);
-                var10 = (var10 | 2);
+                index = 0;
+                text = compositeDecoder.decodeStringElement(serialDescriptor, 0);
+                index2 = (index2 | 1);
+                text2 = compositeDecoder.decodeStringElement(serialDescriptor, 1);
+                index2 = (index2 | 2);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var13.endStructure();
         }
-        return new IdRecord10(null);
+        return new IdRecord10(index2, text, text2);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -60,10 +58,10 @@ public class IdRecord10Serializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        KSerializer[] var1 = new KSerializer[2];
-        var1[0] = StringSerializer.INSTANCE;
-        var1[1] = StringSerializer.INSTANCE;
-        return var1;
+        KSerializer[] items = new KSerializer[2];
+        items[0] = StringSerializer.INSTANCE;
+        items[1] = StringSerializer.INSTANCE;
+        return items;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -71,7 +69,7 @@ public class IdRecord10Serializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (IdRecord10) value);
+        this.executeAction(encoder, ((IdRecord10) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -80,10 +78,10 @@ public class IdRecord10Serializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new IdRecord10Serializer();
-        PluginGeneratedSerialDescriptor var11 = new PluginGeneratedSerialDescriptor("su.catlean.sh", (GeneratedSerializer) INSTANCE, 2);
-        var11.addElement("id", 0);
-        var11.addElement("value", 0);
-        serialDescriptor = (SerialDescriptor) var11;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.sh", ((GeneratedSerializer) INSTANCE), 2);
+        pluginGeneratedSerialDescriptor.addElement("id", false);
+        pluginGeneratedSerialDescriptor.addElement("value", false);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

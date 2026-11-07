@@ -15,7 +15,7 @@ public class CatLeanKt {
 
     static {
         textValue = "catlean";
-        modContainer = (ModContainer) FabricLoader.getInstance().getModContainer("catlean").orElseThrow();
+        modContainer = ((ModContainer) FabricLoader.getInstance().getModContainer("catlean").orElseThrow());
     }
 
 }

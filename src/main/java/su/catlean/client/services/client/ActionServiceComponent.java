@@ -1,6 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import su.catlean.SharedKt;
 import su.catlean.client.features.modules.Module;
 
@@ -17,19 +16,6 @@ public class ActionServiceComponent {
         this.fieldValue = priority;
         this.enabledFlag = tick;
         this.timestampValue = time;
-    }
-
-    public ActionServiceComponent(Runnable arg0, int arg1, byte arg2, boolean arg3, long arg4, int arg5, DefaultConstructorMarker arg6) {
-        if ((arg5 & 4)) {
-            arg2 = 10;
-        }
-        if ((arg5 & 8)) {
-            arg3 = 1;
-        }
-        if ((arg5 & 16)) {
-            arg4 = SharedKt.getNumericValue();
-        }
-        this(arg0, arg1, arg2, arg3, arg4);
     }
 
     public Runnable getRunnable() {

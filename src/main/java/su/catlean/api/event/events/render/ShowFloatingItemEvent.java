@@ -27,7 +27,7 @@ public class ShowFloatingItemEvent extends Event {
     }
 
     public boolean call(ItemStack item) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         this.setItem(item);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

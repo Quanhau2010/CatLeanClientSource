@@ -24,7 +24,7 @@ public class SprintModule extends Module {
     }
 
     private boolean getPauseInWater() {
-        return (Boolean) pauseInWaterSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) pauseInWaterSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public boolean isActive() {
@@ -45,13 +45,13 @@ public class SprintModule extends Module {
         }
         if (this.getPauseInWater()) {
         }
-        SharedKt.getPlayer().method_5728(1);
+        SharedKt.getPlayer().method_5728(true);
     }
 
     static {
-        KProperty[] var22 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new SprintModule();
-        pauseInWaterSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-in-water");
+        pauseInWaterSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-in-water", false);
     }
 
 }

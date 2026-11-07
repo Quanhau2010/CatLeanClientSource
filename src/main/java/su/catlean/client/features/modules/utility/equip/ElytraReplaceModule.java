@@ -28,16 +28,13 @@ public class ElytraReplaceModule extends Module {
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         ItemStack stack = SharedKt.getPlayer().getEquippedStack(EquipmentSlot.CHEST);
-        StackServiceComponent2 var21 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition);
-        int var22 = 0;
-        if (var21.isActive()) {
-            Object var23 = var21;
-            int var24 = 0;
-            HandServiceComponent.e(var23.getNumericValue());
-            HandServiceComponent.e();
-            HandServiceComponent.e(var23.getNumericValue());
-            TitleRenderHelper.executeAction(INSTANCE.getString2(), MessageServiceComponent.Z(INSTANCE, "replaced", new Object[0]), 2, OptionMode16.INFO);
-            MessageServiceComponent.S(INSTANCE, MessageServiceComponent.Z(INSTANCE, "replaced", new Object[0]));
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition);
+        if (stackServiceComponent2.isActive()) {
+            HandServiceComponent.e(stackServiceComponent2.getNumericValue(), 0, null, false);
+            HandServiceComponent.e(6, 0, null, false);
+            HandServiceComponent.e(stackServiceComponent2.getNumericValue(), 0, null, true);
+            TitleRenderHelper.executeAction(INSTANCE.getString2(), MessageServiceComponent.Z(INSTANCE, "replaced", new Object[0], false), 2, OptionMode16.INFO);
+            MessageServiceComponent.S(INSTANCE, MessageServiceComponent.Z(INSTANCE, "replaced", new Object[0], false), false);
         }
     }
 

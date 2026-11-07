@@ -33,7 +33,7 @@ public class Render3DEvent extends Event {
     }
 
     public boolean call(MatrixStack stack, Matrix4f projection) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         stack = stack;
         projection = projection;
         Gofra.INSTANCE.drain(this);

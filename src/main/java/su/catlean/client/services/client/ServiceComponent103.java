@@ -8,14 +8,14 @@ public class ServiceComponent103 {
     private static String[] textValueArray;
 
     static {
-        Object var9 = new int[Direction.values()];
-        var9[Direction.EAST.ordinal()] = 1;
-        var9[Direction.SOUTH.ordinal()] = 2;
-        var9[Direction.NORTH.ordinal()] = 3;
-        var9[Direction.WEST.ordinal()] = 4;
-        var9[Direction.UP.ordinal()] = 5;
-        var9[Direction.DOWN.ordinal()] = 0L;
-        countValueArray = var9;
+        Object element = new int[Direction.values()];
+        element[Direction.EAST.ordinal()] = 1;
+        element[Direction.SOUTH.ordinal()] = 2;
+        element[Direction.NORTH.ordinal()] = 3;
+        element[Direction.WEST.ordinal()] = 4;
+        element[Direction.UP.ordinal()] = 5;
+        element[Direction.DOWN.ordinal()] = 0;
+        countValueArray = element;
     }
 
     public static void updateValue(String[] arg0) {

@@ -17,10 +17,10 @@ public class MixinNetworkThreadUtils {
         if (MinecraftClient.method_1551().player == null) {
             return;
         }
-        Packet var3 = this.comp_4822;
-        if (var3 instanceof class_8042) {
-            class_8042 var2 = (class_8042) var3;
-            var2.method_48324().forEach(this::lambda$afterPacketApply$0);
+        Packet packet = this.comp_4822;
+        if (packet instanceof class_8042) {
+            class_8042 class8042 = ((class_8042) packet);
+            class8042.method_48324().forEach(this::lambda$afterPacketApply$0);
         } else {
         }
     }

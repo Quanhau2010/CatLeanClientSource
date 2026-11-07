@@ -5,7 +5,6 @@ import java.util.List;
 import kotlin.Lazy;
 import kotlin.LazyKt;
 import kotlin.LazyThreadSafetyMode;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlinx.serialization.KSerializer;
 import kotlinx.serialization.SerializationStrategy;
@@ -28,19 +27,6 @@ public class SettingMacrosRecord {
         this.itemList = settingMacros;
         this.itemList2 = chatMacros;
         this.itemList3 = itemMacros;
-    }
-
-    public SettingMacrosRecord(List arg0, List arg1, List arg2, int arg3, DefaultConstructorMarker arg4) {
-        if ((arg3 & 1)) {
-            arg0 = new ArrayList();
-        }
-        if ((arg3 & 2)) {
-            arg1 = new ArrayList();
-        }
-        if ((arg3 & 4)) {
-            arg2 = new ArrayList();
-        }
-        this(arg0, arg1, arg2);
     }
 
     public List getList() {
@@ -72,30 +58,30 @@ public class SettingMacrosRecord {
     }
 
     public static SettingMacrosRecord resolveSettingMacrosRecord(SettingMacrosRecord arg0, List arg1, List arg2, List arg3, int arg4, Object arg5) {
-        if ((arg4 & 1)) {
+        if ((arg4 & 1) != 0) {
             arg1 = arg0.itemList;
         }
-        if ((arg4 & 2)) {
+        if ((arg4 & 2) != 0) {
             arg2 = arg0.itemList2;
         }
-        if ((arg4 & 4)) {
+        if ((arg4 & 4) != 0) {
             arg3 = arg0.itemList3;
         }
         return arg0.resolveSettingMacrosRecord(arg1, arg2, arg3);
     }
 
     public String toString() {
-        List positions = this.itemList3;
-        List positions2 = this.itemList2;
-        List positions3 = this.itemList;
-        return ("MacroConfig(settingMacros=" + positions3 + ", chatMacros=" + positions2 + ", itemMacros=" + positions + ")");
+        List list = this.itemList3;
+        List list2 = this.itemList2;
+        List list3 = this.itemList;
+        return ("MacroConfig(settingMacros=" + list3 + ", chatMacros=" + list2 + ", itemMacros=" + list + ")");
     }
 
     public int hashCode() {
-        int var3 = this.itemList.hashCode();
-        var3 = ((var3 * 31) + this.itemList2.hashCode());
-        var3 = ((var3 * 31) + this.itemList3.hashCode());
-        return var3;
+        int index = this.itemList.hashCode();
+        index = ((index * 31) + this.itemList2.hashCode());
+        index = ((index * 31) + this.itemList3.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -105,67 +91,66 @@ public class SettingMacrosRecord {
         if (!(other instanceof SettingMacrosRecord)) {
             return false;
         }
-        SettingMacrosRecord var5 = (SettingMacrosRecord) other;
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        SettingMacrosRecord settingMacrosRecord = ((SettingMacrosRecord) other);
+        if (!(Intrinsics.areEqual(this.itemList, settingMacrosRecord.itemList))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.itemList2, var5.itemList2))) {
+        if (!(Intrinsics.areEqual(this.itemList2, settingMacrosRecord.itemList2))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.itemList3, var5.itemList3))) {
+        if (!(Intrinsics.areEqual(this.itemList3, settingMacrosRecord.itemList3))) {
             return false;
         }
         return true;
     }
 
     public static void setValue(SettingMacrosRecord self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        Lazy[] var6 = lazyArray;
         if (output.shouldEncodeElementDefault(serialDesc, 0)) {
         } else {
         }
         if (!(Intrinsics.areEqual(self.itemList, new ArrayList()))) {
-            output.encodeSerializableElement(serialDesc, 0, (SerializationStrategy) var6[0].getValue(), self.itemList);
+            output.encodeSerializableElement(serialDesc, 0, ((SerializationStrategy) lazyArray[0].getValue()), self.itemList);
         }
         if (output.shouldEncodeElementDefault(serialDesc, 1)) {
         } else {
         }
         if (!(Intrinsics.areEqual(self.itemList2, new ArrayList()))) {
-            output.encodeSerializableElement(serialDesc, 1, (SerializationStrategy) var6[1].getValue(), self.itemList2);
+            output.encodeSerializableElement(serialDesc, 1, ((SerializationStrategy) lazyArray[1].getValue()), self.itemList2);
         }
         if (output.shouldEncodeElementDefault(serialDesc, 2)) {
         } else {
         }
-        output.encodeSerializableElement(serialDesc, 2, (SerializationStrategy) var6[2].getValue(), self.itemList3);
+        output.encodeSerializableElement(serialDesc, 2, ((SerializationStrategy) lazyArray[2].getValue()), self.itemList3);
     }
 
     public SettingMacrosRecord(int seen0, List settingMacros, List chatMacros, List itemMacros, SerializationConstructorMarker serializationConstructorMarker) {
-        if ((0 & seen0)) {
+        if ((0 & seen0) != 0) {
             PluginExceptionsKt.throwMissingFieldException(seen0, 0, SettingMacrosRecordSerializer.INSTANCE.getDescriptor());
         }
-        if (!((seen0 & 1))) {
+        if ((seen0 & 1) == 0) {
             this.itemList = new ArrayList();
         }
         this.itemList = settingMacros;
-        if (!((seen0 & 2))) {
+        if ((seen0 & 2) == 0) {
             this.itemList2 = new ArrayList();
         }
         this.itemList2 = chatMacros;
-        if (!((seen0 & 4))) {
+        if ((seen0 & 4) == 0) {
             this.itemList3 = new ArrayList();
         }
         this.itemList3 = itemMacros;
     }
 
     private static KSerializer getKSerializer() {
-        return (KSerializer) new ArrayListSerializer((KSerializer) IdRecord11Serializer.INSTANCE);
+        return ((KSerializer) new ArrayListSerializer(((KSerializer) IdRecord11Serializer.INSTANCE)));
     }
 
     private static KSerializer getKSerializer2() {
-        return (KSerializer) new ArrayListSerializer((KSerializer) IdRecord9Serializer.INSTANCE);
+        return ((KSerializer) new ArrayListSerializer(((KSerializer) IdRecord9Serializer.INSTANCE)));
     }
 
     private static KSerializer getKSerializer3() {
-        return (KSerializer) new ArrayListSerializer((KSerializer) IdRecordSerializer.INSTANCE);
+        return ((KSerializer) new ArrayListSerializer(((KSerializer) IdRecordSerializer.INSTANCE)));
     }
 
     public SettingMacrosRecord() {
@@ -178,11 +163,11 @@ public class SettingMacrosRecord {
 
     static {
         serviceComponent104 = new ServiceComponent104();
-        Lazy[] var22 = new Lazy[3];
-        var22[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
-        var22[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer2);
-        var22[2] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer3);
-        lazyArray = var22;
+        Lazy[] items = new Lazy[3];
+        items[0] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
+        items[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer2);
+        items[2] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer3);
+        lazyArray = items;
     }
 
 }

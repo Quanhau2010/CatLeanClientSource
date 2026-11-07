@@ -44,12 +44,7 @@ public class StackServiceComponent2 {
     }
 
     private boolean checkCondition2() {
-        if (var3 == null) {
-            if (this.countValue < 9) {
-            }
-        } else {
-        }
-        return false;
+        return this.countValue < 9;
     }
 
     public void updateValue() {
@@ -57,8 +52,7 @@ public class StackServiceComponent2 {
     }
 
     public void executeAction(Function1 action) {
-        int var8 = 0;
-        if (var7 == null) {
+        if (__UNDEF_KEY__ == null) {
         }
         action.invoke(this);
     }
@@ -80,13 +74,13 @@ public class StackServiceComponent2 {
     }
 
     public static StackServiceComponent2 resolveStackServiceComponent2(StackServiceComponent2 arg0, int arg1, boolean arg2, ItemStack arg3, int arg4, Object arg5) {
-        if ((arg4 & 1)) {
+        if ((arg4 & 1) != 0) {
             arg1 = arg0.countValue;
         }
-        if ((arg4 & 2)) {
+        if ((arg4 & 2) != 0) {
             arg2 = arg0.enabledFlag;
         }
-        if ((arg4 & 4)) {
+        if ((arg4 & 4) != 0) {
             arg3 = arg0.itemStack;
         }
         return arg0.resolveStackServiceComponent2(arg1, arg2, arg3);
@@ -94,16 +88,16 @@ public class StackServiceComponent2 {
 
     public String toString() {
         ItemStack stack = this.itemStack;
-        boolean var4 = this.enabledFlag;
-        int var5 = this.countValue;
-        return ("SearchInvResult(slot=" + var5 + ", found=" + var4 + ", stack=" + stack + ")");
+        boolean flag = this.enabledFlag;
+        int index = this.countValue;
+        return ("SearchInvResult(slot=" + index + ", found=" + flag + ", stack=" + stack + ")");
     }
 
     public int hashCode() {
-        int var3 = Integer.hashCode(this.countValue);
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        var3 = ((var3 * 31) + this.itemStack.hashCode());
-        return var3;
+        int index = Integer.hashCode(this.countValue);
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        index = ((index * 31) + this.itemStack.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -113,14 +107,14 @@ public class StackServiceComponent2 {
         if (!(other instanceof StackServiceComponent2)) {
             return false;
         }
-        StackServiceComponent2 var5 = (StackServiceComponent2) other;
-        if (this.countValue != var5.countValue) {
+        StackServiceComponent2 stackServiceComponent2 = ((StackServiceComponent2) other);
+        if (this.countValue != stackServiceComponent2.countValue) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != stackServiceComponent2.enabledFlag) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.itemStack, var5.itemStack))) {
+        if (!(Intrinsics.areEqual(this.itemStack, stackServiceComponent2.itemStack))) {
             return false;
         }
         return true;
@@ -132,7 +126,7 @@ public class StackServiceComponent2 {
 
     static {
         stackServiceComponent = new StackServiceComponent();
-        INSTANCE = new StackServiceComponent2(-1, 0, ItemStack.field_8037);
+        INSTANCE = new StackServiceComponent2(-1, false, ItemStack.field_8037);
     }
 
     public static void updateValue(Module[] arg0) {

@@ -12,7 +12,7 @@ public class AfterElytraEvent extends ElytraEvent {
     }
 
     public boolean call(Vec3d vec) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         this.setVec(vec);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

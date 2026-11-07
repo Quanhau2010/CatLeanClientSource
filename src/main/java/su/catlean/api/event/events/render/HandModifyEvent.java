@@ -53,7 +53,7 @@ public class HandModifyEvent extends Event {
     }
 
     public boolean call(Hand hand, MatrixStack stack, ItemStack item, boolean eating) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         stack = stack;
         hand = hand;
         item = item;

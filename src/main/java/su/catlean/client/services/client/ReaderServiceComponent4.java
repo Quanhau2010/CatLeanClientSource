@@ -23,14 +23,14 @@ public class ReaderServiceComponent4 implements ArgumentType {
     }
 
     public String resolveString(StringReader reader) {
-        String var6 = reader.readString();
-        if (!(PlayerEntityHelper.INSTANCE.checkCondition())) {
+        String text = reader.readString();
+        if (!(PlayerEntityHelper.INSTANCE.checkCondition(text))) {
         }
-        return var6;
+        return text;
     }
 
     public CompletableFuture listSuggestions(CommandContext context, SuggestionsBuilder builder) {
-        return class_2172.method_9265((Iterable) ProxyGuiElement.INSTANCE.getJsonServiceComponent2().resolveList(), builder);
+        return class_2172.method_9265(((Iterable) ProxyGuiElement.INSTANCE.getJsonServiceComponent2().resolveList()), builder);
     }
 
     public List resolveList() {
@@ -38,9 +38,9 @@ public class ReaderServiceComponent4 implements ArgumentType {
     }
 
     private static Message resolveMessage(Object arg0) {
-        Object[] var6 = new Object[1];
-        var6[0] = arg0;
-        return (Message) class_2561.method_43470(KeyServiceComponent.INSTANCE.resolveString("commands.friend.not-exist"));
+        Object[] items = new Object[1];
+        items[0] = arg0;
+        return ((Message) class_2561.method_43470(KeyServiceComponent.INSTANCE.resolveString("commands.friend.not-exist", items)));
     }
 
     public Object parse(StringReader p0) {
@@ -48,7 +48,7 @@ public class ReaderServiceComponent4 implements ArgumentType {
     }
 
     public Collection getExamples() {
-        return (Collection) this.resolveList();
+        return ((Collection) this.resolveList());
     }
 
     static {

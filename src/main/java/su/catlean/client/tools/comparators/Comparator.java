@@ -16,14 +16,11 @@ public class Comparator implements java.util.Comparator {
     }
 
     public int compare(Object b) {
-        BlockPos blockPos = (BlockPos) 0L;
-        int var7 = 0;
-        blockPos = (BlockPos) b;
-        Comparable var8 = (Comparable) Double.valueOf(this.playerEntity.getEyePos().method_1022(blockPos.toCenterPos()));
-        var7 = 0;
-        if (var5 != null) {
+        BlockPos blockPos = ((BlockPos) b);
+        Comparable comparable = ((Comparable) Double.valueOf(this.playerEntity.getEyePos().method_1022(this.toCenterPos())));
+        if (__UNDEF_KEY__ != null) {
         }
-        return ComparisonsKt.compareValues((Comparable) Double.valueOf(this.playerEntity.getEyePos().method_1022(blockPos.toCenterPos())));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(this.playerEntity.getEyePos().method_1022(blockPos.toCenterPos()))));
     }
 
     public static void updateValue(Module[] arg0) {

@@ -2,17 +2,14 @@ package su.catlean.client.features.modules.movement.basic;
 
 public enum WindHopSwitchMode {
 
-    public static final WindHopSwitchMode NORMAL;
-    public static final WindHopSwitchMode SILENT;
-    public static final WindHopSwitchMode INVENTORY_SILENT;
-    public static final WindHopSwitchMode INVENTORY_NORMAL;
-    public static final WindHopSwitchMode SILENT_FULL;
-    public static final WindHopSwitchMode NORMAL_FULL;
-    private static int[] countValueArray;
+    NORMAL,
+    SILENT,
+    INVENTORY_SILENT,
+    INVENTORY_NORMAL,
+    SILENT_FULL,
+    NORMAL_FULL;
 
-    WindHopSwitchMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static int[] countValueArray;
 
     public static void updateValue(int[] arg0) {
         countValueArray = arg0;

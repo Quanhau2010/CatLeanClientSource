@@ -93,11 +93,11 @@ public class SpeedModule extends Module {
     }
 
     private SpeedMode getMode() {
-        return (SpeedMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((SpeedMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getUseTimer() {
-        return (Boolean) useTimerSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) useTimerSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setUseTimer(boolean value) {
@@ -105,7 +105,7 @@ public class SpeedModule extends Module {
     }
 
     private boolean getPauseInLiquids() {
-        return (Boolean) pauseInLiquidsSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) pauseInLiquidsSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setPauseInLiquids(boolean value) {
@@ -113,7 +113,7 @@ public class SpeedModule extends Module {
     }
 
     private boolean getPauseWhileSneaking() {
-        return (Boolean) pauseWhileSneakingSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) pauseWhileSneakingSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setPauseWhileSneaking(boolean value) {
@@ -121,19 +121,19 @@ public class SpeedModule extends Module {
     }
 
     private int getFireWorkSlot() {
-        return (Number) fireWorkSlotSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Number) fireWorkSlotSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private boolean getArmorStands() {
-        return (Boolean) armorStandsSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) armorStandsSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private float getDistance() {
-        return (Number) distanceSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Number) distanceSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private void setDistance(float value) {
@@ -141,7 +141,7 @@ public class SpeedModule extends Module {
     }
 
     private float getSpeed() {
-        return (Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private void setSpeed(float value) {
@@ -149,7 +149,7 @@ public class SpeedModule extends Module {
     }
 
     private float getGroundSpeed() {
-        return (Number) groundSpeedSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Number) groundSpeedSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private void setGroundSpeed(float value) {
@@ -157,7 +157,7 @@ public class SpeedModule extends Module {
     }
 
     private SpeedBoostAngleMode getBoostAngle() {
-        return (SpeedBoostAngleMode) boostAngleSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((SpeedBoostAngleMode) boostAngleSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private void setBoostAngle(SpeedBoostAngleMode value) {
@@ -165,7 +165,7 @@ public class SpeedModule extends Module {
     }
 
     private float getPredictTicks() {
-        return (Number) predictTicksSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Number) predictTicksSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private void setPredictTicks(float value) {
@@ -173,7 +173,7 @@ public class SpeedModule extends Module {
     }
 
     private int getRollBackTicks() {
-        return (Number) rollBackTicksSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Number) rollBackTicksSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private void setRollBackTicks(int value) {
@@ -191,31 +191,19 @@ public class SpeedModule extends Module {
 
     private void onPreSyncEvent(PreSyncEvent arg0) {
         if (SharedKt.getPlayer().method_52535()) {
-            if (var20 && var20) {
-            }
         }
-        if (var20) {
-            if (this.getPauseInLiquids() || SharedKt.getPlayer().method_5715()) {
-                return;
-            }
+        if (this.getPauseInLiquids() || SharedKt.getPlayer().method_5715()) {
+            return;
         }
-        int var21 = 0;
+        int index = 0;
         Iterator iterator = SharedKt.getWorld().method_20812(SharedKt.getPlayer(), SharedKt.getPlayer().method_5829().method_1009(0.5D, 0.0D, 0.5D).method_989(0.0D, -1.0D, 0.0D)).iterator();
-        if (iterator.hasNext()) {
-            class_265 var23 = (class_265) iterator.next();
-            var21 = 1;
+        while (iterator.hasNext()) {
+            class_265 class265 = ((class_265) iterator.next());
+            index = 1;
         }
-        if (EventPacketHelper2.INSTANCE.checkCondition()) {
-            if (var21) {
-                if (var20 && var20 && var20) {
-                    if (EventPacketHelper2.INSTANCE.getNumericValue() <= 0.0D) {
-                        SharedKt.getPlayer().method_24830(1);
-                        SharedKt.getPlayer().method_6043();
-                    }
-                }
-            }
-        }
-        if (var20) {
+        if (EventPacketHelper2.INSTANCE.checkCondition() && index && EventPacketHelper2.INSTANCE.getNumericValue() <= 0.0D) {
+            SharedKt.getPlayer().method_24830(true);
+            SharedKt.getPlayer().method_6043();
         }
         ServiceComponent98.INSTANCE.updateValue2(1.088F);
         SharedKt.getPlayer().method_5762(0.0D, -0.003D, 0.0D);
@@ -223,330 +211,209 @@ public class SpeedModule extends Module {
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (SharedKt.getPlayer().method_52535()) {
-            if (!(var69) && !(var69)) {
-            }
         }
-        if (!(var69)) {
-            if (this.getPauseInLiquids() || SharedKt.getPlayer().method_5715()) {
-                return;
-            }
+        if (this.getPauseInLiquids() || SharedKt.getPlayer().method_5715()) {
+            return;
         }
-        if (!(var69)) {
-            EntityHelper3.INSTANCE.executeAction(this.getRollBackTicks());
-            if (!(var69)) {
-                if (this.getMode() == SpeedMode.GRIM_ENTITY && EventPacketHelper2.INSTANCE.checkCondition()) {
+        EntityHelper3.INSTANCE.executeAction(this.getRollBackTicks());
+        if (this.getMode() == SpeedMode.GRIM_ENTITY && EventPacketHelper2.INSTANCE.checkCondition()) {
+            int index = 0;
+            Iterable iterable = SharedKt.getWorld().method_18112();
+            int index2 = 0;
+            Iterable iterable2 = iterable;
+            Collection collection = ((Collection) new ArrayList());
+            Iterator iterator = iterable2.iterator();
+            while (iterator.hasNext()) {
+                Object element = iterator.next();
+                Entity entity = element;
+                if (entity instanceof class_1531) {
                 }
-                int var70 = 0;
-                Iterable var72 = SharedKt.getWorld().method_18112();
-                int var73 = 0;
-                Object var74 = var72;
-                Collection var75 = (Collection) new ArrayList();
-                int var76 = 0;
-                Iterator iterator = var74.iterator();
-                if (iterator.hasNext()) {
-                    Object var78 = iterator.next();
-                    Entity entity = var78;
-                    int var80 = 0;
-                    if (!(var69)) {
-                        if (!(var69)) {
-                        }
-                        if (!(var69)) {
-                            if (entity instanceof class_1531) {
-                                if (!(var69)) {
-                                }
-                            }
-                        }
-                        if (!(var69)) {
-                            if (!(entity instanceof LivingEntity)) {
-                                if (!(var69)) {
-                                    if (!(Intrinsics.areEqual(entity, SharedKt.getPlayer())) && INSTANCE.getArmorStands() && entity instanceof class_1690) {
-                                    }
-                                }
-                            }
-                        } else {
-                        }
-                        var75.add();
-                    }
-                    Iterator iterator2 = var75.iterator();
-                    if (iterator2.hasNext()) {
-                        var72 = iterator2.next();
-                        var73 = SharedKt.getPlayer().method_5829().method_1014(this.getDistance()).method_994(var72.method_5829());
-                        var75 = EntityHelper3.INSTANCE.getMap();
-                        var76 = 0;
-                        if (!(var69)) {
-                            if (!(var69)) {
-                                if (var75.isEmpty()) {
-                                }
-                            }
-                            iterator = var75.entrySet().iterator();
-                            if (iterator.hasNext()) {
-                                var78 = (Entry) iterator.next();
-                                entity = var78;
-                                var80 = 0;
-                                if (!(var69)) {
-                                    if ((Number) entity.getKey() == var72.method_5628()) {
-                                    }
-                                    Iterable var81 = (Iterable) entity.getValue();
-                                    int var82 = 0;
-                                    if (var81 instanceof Collection) {
-                                        if (!(var69) && !(var69)) {
-                                            if ((Collection) var81.isEmpty()) {
-                                            }
-                                        }
-                                    }
-                                    Iterator iterator3 = var81.iterator();
-                                    if (iterator3.hasNext()) {
-                                        Object var84 = iterator3.next();
-                                        Box var85 = (Box) var84;
-                                        int var86 = 0;
-                                    } else {
-                                    }
-                                }
-                            } else {
-                            }
-                            var74 = 0;
-                            if (!(var69)) {
-                                if (!(var74)) {
-                                }
-                            }
-                        }
-                    }
-                    if (SharedKt.getPlayer().isOnGround()) {
-                    }
-                    iterator2 = this.getSpeed();
-                    var75 = AuraModule.INSTANCE.getTarget();
-                    if (AuraModule.INSTANCE.getEnabled() && var75 != null) {
-                    }
-                    var72 = new NoWhenBranchMatchedException();
-                    var74 = EventPacketHelper2.process(((iterator2 / 100.0F) * var70), 0, 0.0F, 0.0F);
-                    var75 = 0;
-                    SharedKt.getPlayer().method_5762(var74[0], 0.0D, var74[1]);
-                }
-            }
-            var70 = countValue2;
-            countValue2 = (var70 + -1);
-        }
-        var70 = ItemPacketHelper.INSTANCE.computeValue();
-        var72 = new Item[1];
-        var72[0] = Items.FIREWORK_ROCKET;
-        iterator2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        var72 = Intrinsics.areEqual(SharedKt.getPlayer().method_6079().getItem(), Items.FIREWORK_ROCKET);
-        if (!(var69)) {
-            if (!(iterator2.isActive())) {
-                var74 = new Item[1];
-                var74[0] = Items.FIREWORK_ROCKET;
-                var73 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-                if (!(var69)) {
-                    if (var73.isActive()) {
-                        HandServiceComponent.e(var73.getNumericValue(), (this.getFireWorkSlot() - 1), class_1713.field_7791);
+                if (!(entity instanceof LivingEntity)) {
+                    if (!(Intrinsics.areEqual(entity, SharedKt.getPlayer())) && INSTANCE.getArmorStands() && entity instanceof class_1690) {
+                    } else {
                     }
                 }
+                collection.add(element);
             }
+            Iterator iterator2 = collection.iterator();
+            while (iterator2.hasNext()) {
+                iterable = iterator2.next();
+                index2 = SharedKt.getPlayer().method_5829().method_1014(this.getDistance()).method_994(iterable.method_5829());
+                collection = EntityHelper3.INSTANCE.getMap();
+                if (collection.isEmpty()) {
+                }
+                iterator = collection.entrySet().iterator();
+                while (iterator.hasNext()) {
+                    element = ((Entry) iterator.next());
+                    entity = element;
+                    if (((Number) entity.getKey()) == iterable.method_5628()) {
+                        Iterable iterable3 = ((Iterable) entity.getValue());
+                        if (iterable3 instanceof Collection && ((Collection) iterable3).isEmpty()) {
+                        }
+                        Iterator iterator3 = iterable3.iterator();
+                        while (iterator3.hasNext()) {
+                            Object element2 = iterator3.next();
+                            Box box = ((Box) element2);
+                        }
+                    }
+                }
+                iterable2 = 0;
+                if (!(iterable2)) {
+                }
+            }
+            if (SharedKt.getPlayer().isOnGround()) {
+            }
+            iterator2 = this.getSpeed();
+            collection = AuraModule.INSTANCE.getTarget();
+            if (AuraModule.INSTANCE.getEnabled() && collection != null) {
+            }
+            iterable = new NoWhenBranchMatchedException();
+            iterable2 = EventPacketHelper2.process(((iterator2 / 100.0F) * index), false, 0.0F, 0.0F, iterable);
+            collection = 0;
+            SharedKt.getPlayer().method_5762(iterable2[0], 0.0D, iterable2[1]);
         }
-        if (!(var69)) {
+        index = countValue2;
+        countValue2 = (index + -1);
+        index = ItemPacketHelper.INSTANCE.computeValue();
+        iterable = new Item[1];
+        iterable[0] = Items.FIREWORK_ROCKET;
+        iterator2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(iterable);
+        iterable = Intrinsics.areEqual(SharedKt.getPlayer().method_6079().getItem(), Items.FIREWORK_ROCKET);
+        if (!(iterator2.isActive())) {
+            iterable2 = new Item[1];
+            iterable2[0] = Items.FIREWORK_ROCKET;
+            index2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(iterable2);
+            if (index2.isActive()) {
+                HandServiceComponent.e(index2.getNumericValue(), (this.getFireWorkSlot() - 1), class_1713.field_7791, false);
+            }
         }
         if (!(iterator2.isActive())) {
-            if (!(var69) && !(var69)) {
-            }
         }
-        if (!(var69)) {
+        if (index != -2) {
+            HandServiceComponent.e(index, 0, null, false);
+            HandServiceComponent.e(6, 0, null, false);
+            HandServiceComponent.e(index, 0, null, true);
         }
-        if (!(var69)) {
+        ElytraSwapModule.INSTANCE.updateValue(true);
+        PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12982)));
+        SharedKt.getPlayer().startFallFlying();
+        index2 = SharedKt.getPlayer().method_31548().method_67532();
+        if (index2 != iterator2.getNumericValue() && !(iterable)) {
+            ItemPacketHelper.INSTANCE.executeAction(iterator2.getNumericValue());
         }
-        if (!(var69)) {
-        }
-        if (!(var69)) {
-            if (var70 != -2) {
-                HandServiceComponent.e();
-                HandServiceComponent.e();
-                HandServiceComponent.e();
-            }
-            ElytraSwapModule.INSTANCE.updateValue(1);
-            PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12982));
-            SharedKt.getPlayer().startFallFlying();
-        }
-        var73 = SharedKt.getPlayer().method_31548().method_67532();
-        if (var73 != iterator2.getNumericValue()) {
-            if (!(var69) && !(var69)) {
-                if (!(var72)) {
-                    ItemPacketHelper.INSTANCE.executeAction(iterator2.getNumericValue());
-                }
-            }
-        }
-        if (var72) {
+        if (iterable) {
         }
         HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
-        if (!(var69)) {
-            if (!(var69)) {
-                if (var73 != iterator2.getNumericValue() && !(var72)) {
-                    ItemPacketHelper.INSTANCE.executeAction();
-                }
-            }
-            if (!(var69)) {
-            }
-            if (var70 != -2) {
-                HandServiceComponent.e();
-                HandServiceComponent.e();
-                HandServiceComponent.e();
-            }
+        if (index2 != iterator2.getNumericValue() && !(iterable)) {
+            ItemPacketHelper.INSTANCE.executeAction(index2);
+        }
+        if (index != -2) {
+            HandServiceComponent.e(index, 0, null, false);
+            HandServiceComponent.e(6, 0, null, false);
+            HandServiceComponent.e(index, 0, null, true);
         }
         countValue2 = this.getDelay();
     }
 
     private void onMoveEvent(MoveEvent arg0) {
-        if (!(var29)) {
-            if (SharedKt.getPlayer().method_31549().field_7479) {
-                return;
-            }
+        if (SharedKt.getPlayer().method_31549().field_7479) {
+            return;
         }
-        if (!(var29)) {
-            if (SharedKt.getPlayer().isFallFlying()) {
-                return;
-            }
+        if (SharedKt.getPlayer().isFallFlying()) {
+            return;
         }
-        if (!(var29)) {
-            if (SharedKt.getPlayer().method_7344().method_7586() <= 6) {
-                return;
-            }
+        if (SharedKt.getPlayer().method_7344().method_7586() <= 6) {
+            return;
         }
-        if (!(var29)) {
-            if (arg0.getCancelled()) {
-                return;
-            }
+        if (arg0.getCancelled()) {
+            return;
         }
         if (SharedKt.getPlayer().method_52535()) {
-            if (!(var29) && !(var29)) {
-            }
         }
-        if (!(var29)) {
-            if (this.getPauseInLiquids() || SharedKt.getPlayer().method_5715()) {
-                return;
-            }
+        if (this.getPauseInLiquids() || SharedKt.getPlayer().method_5715()) {
+            return;
         }
-        if (!(var29)) {
-            if (this.getMode() != SpeedMode.NCP) {
-            }
-            if (!(var29)) {
-                if (this.getMode() == SpeedMode.STRICT_STRAFE) {
-                }
-                if (!(var29)) {
-                    if (EventPacketHelper2.INSTANCE.checkCondition()) {
-                        if (!(var29)) {
-                        }
-                        if (this.getUseTimer()) {
-                            ServiceComponent98.INSTANCE.updateValue2(1.088F);
-                        }
+        if (this.getMode() != SpeedMode.NCP) {
+            if (this.getMode() == SpeedMode.STRICT_STRAFE) {
+                if (EventPacketHelper2.INSTANCE.checkCondition()) {
+                    if (this.getUseTimer()) {
+                        ServiceComponent98.INSTANCE.updateValue2(1.088F);
                     }
-                    if (!(var29)) {
-                        if (!(var29)) {
-                        }
-                        if (this.getMode() == SpeedMode.NCP && SharedKt.getPlayer().field_3913.method_3128().field_1342 <= 0.0F && factorValue > 0.0F) {
-                        }
+                    if (this.getMode() == SpeedMode.NCP && SharedKt.getPlayer().field_3913.method_3128().field_1342 <= 0.0F && factorValue > 0.0F) {
                     } else {
                     }
-                    float var30 = EventPacketHelper2.INSTANCE.getNumericValue();
+                    float factor = EventPacketHelper2.INSTANCE.getNumericValue();
                     if (SharedKt.getPlayer().field_5976) {
-                        if (!(var29) && !(var29)) {
-                            if (!(StepModule.INSTANCE.getEnabled())) {
-                            }
-                        }
-                    } else {
-                    }
-                    int var31 = 0;
-                    if (!(var29)) {
-                        if (!(var29)) {
-                            if (!(var29)) {
-                                if (countValue == 1 && SharedKt.getPlayer().isOnGround() && var31) {
-                                    SharedKt.getPlayer().method_18800(SharedKt.getPlayer().method_18798().field_1352, EventPacketHelper2.INSTANCE.computeValue2(), SharedKt.getPlayer().method_18798().field_1350);
-                                    arg0.setY(EventPacketHelper2.INSTANCE.computeValue2());
-                                    preciseValue = (preciseValue * 2.149D);
-                                    countValue = 2;
-                                    if (var29) {
-                                    }
-                                }
-                            }
-                            if (!(var29)) {
-                            }
-                            if (countValue == 2) {
-                                preciseValue = (var30 - (0.66D * (var30 - EventPacketHelper2.INSTANCE.computeValue())));
-                                countValue = 3;
-                                if (var29) {
-                                }
-                            }
-                            if (!(SharedKt.getWorld().method_20812(SharedKt.getPlayer(), SharedKt.getPlayer().method_5829().method_989(0.0D, SharedKt.getPlayer().method_18798().method_10214(), 0.0D)).iterator().hasNext())) {
-                                if (!(var29) && !(var29)) {
-                                    if (SharedKt.getPlayer().field_5992) {
-                                    }
-                                }
-                                countValue = 1;
-                            }
-                            preciseValue = (var30 - (var30 / 159.0D));
+                        if (!(StepModule.INSTANCE.getEnabled())) {
+                        } else {
                         }
                     }
-                    if (!(var29)) {
-                        preciseValue = Math.max(preciseValue, EventPacketHelper2.INSTANCE.computeValue());
-                        if (this.getMode() != SpeedMode.STRICT_STRAFE) {
-                            if (SharedKt.getPlayer().field_3913.method_3128().field_1342 < 1.0F) {
-                            }
-                        }
-                    } else {
+                    int index = 0;
+                    if (countValue == 1 && SharedKt.getPlayer().isOnGround() && index) {
+                        SharedKt.getPlayer().method_18800(SharedKt.getPlayer().method_18798().field_1352, EventPacketHelper2.INSTANCE.computeValue2(), SharedKt.getPlayer().method_18798().field_1350);
+                        arg0.setY(EventPacketHelper2.INSTANCE.computeValue2());
+                        preciseValue = (preciseValue * 2.149D);
+                        countValue = 2;
                     }
-                    double var32 = 0.576D;
+                    if (countValue == 2) {
+                        preciseValue = (factor - (0.66D * (factor - EventPacketHelper2.INSTANCE.computeValue())));
+                        countValue = 3;
+                    }
+                    if (!(SharedKt.getWorld().method_20812(SharedKt.getPlayer(), SharedKt.getPlayer().method_5829().method_989(0.0D, SharedKt.getPlayer().method_18798().method_10214(), 0.0D)).iterator().hasNext())) {
+                        if (SharedKt.getPlayer().field_5992) {
+                            countValue = 1;
+                        }
+                    }
+                    preciseValue = (factor - (factor / 159.0D));
+                    preciseValue = Math.max(preciseValue, EventPacketHelper2.INSTANCE.computeValue());
+                    if (this.getMode() != SpeedMode.STRICT_STRAFE) {
+                        if (SharedKt.getPlayer().field_3913.method_3128().field_1342 < 1.0F) {
+                        } else {
+                        }
+                    }
+                    double offset = 0.576D;
                     if (this.getMode() != SpeedMode.STRICT_STRAFE) {
                         if (SharedKt.getPlayer().field_3913.method_3128().field_1342 < 1.0F) {
                         }
                     }
-                    double var34 = 0.57D;
-                    if (!(var29)) {
-                        if (SharedKt.getPlayer().method_6059(class_1294.field_5904)) {
-                            int var36 = SharedKt.getPlayer().method_6112(class_1294.field_5904).method_5578();
-                            var32 = (var32 * (1 + (0.2D * (var36 + 1))));
-                            var34 = (var34 * (1 + (0.2D * (var36 + 1))));
-                        }
+                    double offset2 = 0.57D;
+                    if (SharedKt.getPlayer().method_6059(class_1294.field_5904)) {
+                        int index2 = SharedKt.getPlayer().method_6112(class_1294.field_5904).method_5578();
+                        offset = (offset * (1 + (0.2D * (index2 + 1))));
+                        offset2 = (offset2 * (1 + (0.2D * (index2 + 1))));
                     }
-                    if (!(var29)) {
-                        if (SharedKt.getPlayer().method_6059(class_1294.field_5909)) {
-                        }
-                        var36 = SharedKt.getPlayer().method_6112(class_1294.field_5909).method_5578();
-                        var32 = (var32 / (1 + (0.2D * (var36 + 1))));
-                        var34 = (var34 / (1 + (0.2D * (var36 + 1))));
+                    if (SharedKt.getPlayer().method_6059(class_1294.field_5909)) {
+                        index2 = SharedKt.getPlayer().method_6112(class_1294.field_5909).method_5578();
+                        offset = (offset / (1 + (0.2D * (index2 + 1))));
+                        offset2 = (offset2 / (1 + (0.2D * (index2 + 1))));
                     }
                     if (countValue2 > 25) {
                     }
-                    preciseValue = Math.min();
-                    var36 = countValue2;
-                    countValue2 = (var36 + 1);
-                    if (!(var29)) {
-                        if (var36 > 50) {
-                            countValue2 = 0;
-                        }
-                        EventPacketHelper2.INSTANCE.executeAction(arg0, preciseValue);
-                        factorValue = SharedKt.getPlayer().field_3913.method_3128().field_1342;
+                    preciseValue = Math.min(offset, offset2);
+                    index2 = countValue2;
+                    countValue2 = (index2 + 1);
+                    if (index2 > 50) {
+                        countValue2 = 0;
                     }
-                    if (var29) {
-                    }
+                    EventPacketHelper2.INSTANCE.executeAction(arg0, preciseValue);
+                    factorValue = SharedKt.getPlayer().field_3913.method_3128().field_1342;
+                } else {
                     arg0.setX(0.0D);
                     arg0.setZ(0.0D);
                 }
                 arg0.cancel();
             }
         }
-        if (!(var29)) {
+        while (SharedKt.getWorld().method_20812(SharedKt.getPlayer(), SharedKt.getPlayer().method_5829().method_1009(-0.299D, 0.0D, -0.299D).method_989(0.0D, arg0.getY(), 0.0D)).iterator().hasNext()) {
+            arg0.setX((arg0.getX() * 2));
+            arg0.setZ((arg0.getZ() * 2));
+            SharedKt.getPlayer().method_18799(SharedKt.getPlayer().method_18798().method_18805(2.0D, 1.0D, 2.0D));
+            arg0.cancel();
         }
-        if (!(var29)) {
-        }
-        arg0.setX((arg0.getX() * 2));
-        arg0.setZ((arg0.getZ() * 2));
-        SharedKt.getPlayer().method_18799(SharedKt.getPlayer().method_18798().method_18805(2.0D, 1.0D, 2.0D));
-        arg0.cancel();
     }
 
     private static boolean isActive() {
-        if (var4) {
-        }
-        if (var4) {
-            if (INSTANCE.getMode() != SpeedMode.NCP && INSTANCE.getMode() != SpeedMode.STRICT_STRAFE) {
-            }
+        if (INSTANCE.getMode() != SpeedMode.NCP && INSTANCE.getMode() != SpeedMode.STRICT_STRAFE) {
             if (INSTANCE.getMode() == SpeedMode.MATRIX) {
             }
         }
@@ -582,8 +449,6 @@ public class SpeedModule extends Module {
     }
 
     private static boolean isActive9() {
-        if (!(var6)) {
-        }
         return INSTANCE.getBoostAngle() == SpeedBoostAngleMode.PREDICT;
     }
 
@@ -592,15 +457,15 @@ public class SpeedModule extends Module {
     }
 
     static {
-        KProperty[] var32 = new KProperty[13];
+        KProperty[] items = new KProperty[13];
         INSTANCE = new SpeedModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", SpeedMode.NCP);
-        useTimerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "use-timer", 0, null, this::isActive);
-        pauseInLiquidsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-in-liquids");
-        pauseWhileSneakingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-while-sneaking");
+        useTimerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "use-timer", false, null, this::isActive);
+        pauseInLiquidsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-in-liquids", false);
+        pauseWhileSneakingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-while-sneaking", false);
         fireWorkSlotSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-slot", 1, new IntRange(1, 9), null, this::isActive2);
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 8, new IntRange(1, 20), null, this::isActive3);
-        armorStandsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "armor-stands", 0, null, this::isActive4);
+        armorStandsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "armor-stands", false, null, this::isActive4);
         distanceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "distance", 1.0F, RangesKt.rangeTo(0.1F, 2.0F), null, this::isActive5);
         speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", 8.0F, RangesKt.rangeTo(0.1F, 10.0F), null, this::isActive6);
         groundSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ground-speed", 8.0F, RangesKt.rangeTo(0.1F, 10.0F), null, this::isActive7);

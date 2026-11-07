@@ -68,21 +68,21 @@ public class BindServiceComponent {
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag;
-        EasingServiceComponent var4 = this.easingServiceComponent;
-        String var5 = this.textValue3;
-        String var6 = this.textValue2;
-        String var7 = this.textValue;
-        return ("KeyBind(name=" + var7 + ", bind=" + var6 + ", extra=" + var5 + ", animation=" + var4 + ", removing=" + var3 + ")");
+        boolean flag = this.enabledFlag;
+        EasingServiceComponent easingServiceComponent = this.easingServiceComponent;
+        String text = this.textValue3;
+        String text2 = this.textValue2;
+        String text3 = this.textValue;
+        return ("KeyBind(name=" + text3 + ", bind=" + text2 + ", extra=" + text + ", animation=" + easingServiceComponent + ", removing=" + flag + ")");
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * 31) + this.textValue2.hashCode());
-        var3 = ((var3 * 31) + this.textValue3.hashCode());
-        var3 = ((var3 * 31) + this.easingServiceComponent.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.textValue2.hashCode());
+        index = ((index * 31) + this.textValue3.hashCode());
+        index = ((index * 31) + this.easingServiceComponent.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -92,20 +92,20 @@ public class BindServiceComponent {
         if (!(other instanceof BindServiceComponent)) {
             return false;
         }
-        BindServiceComponent var5 = (BindServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        BindServiceComponent bindServiceComponent = ((BindServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.textValue, bindServiceComponent.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, bindServiceComponent.textValue2))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue3, var5.textValue3))) {
+        if (!(Intrinsics.areEqual(this.textValue3, bindServiceComponent.textValue3))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.easingServiceComponent, var5.easingServiceComponent))) {
+        if (!(Intrinsics.areEqual(this.easingServiceComponent, bindServiceComponent.easingServiceComponent))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != bindServiceComponent.enabledFlag) {
             return false;
         }
         return true;

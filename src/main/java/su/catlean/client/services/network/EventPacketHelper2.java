@@ -159,11 +159,11 @@ public class EventPacketHelper2 {
     }
 
     public float computeValue() {
-        return (LocalPlayerAccessor) SharedKt.getPlayer().getLastYaw();
+        return ((LocalPlayerAccessor) SharedKt.getPlayer()).getLastYaw();
     }
 
     public float computeValue2() {
-        return (LocalPlayerAccessor) SharedKt.getPlayer().getLastPitch();
+        return ((LocalPlayerAccessor) SharedKt.getPlayer()).getLastPitch();
     }
 
     public Vec3d resolveMinecraftObject() {
@@ -175,10 +175,10 @@ public class EventPacketHelper2 {
 
     private void onSendPacket(SendPacket arg0) {
         if (arg0.getPacket() instanceof ClientCommandC2SPacket) {
-            if ((ClientCommandC2SPacket) arg0.getPacket().method_12365() == class_2849.field_12981) {
+            if (((ClientCommandC2SPacket) arg0.getPacket()).method_12365() == class_2849.field_12981) {
                 enabledFlag = 1;
             }
-            if ((ClientCommandC2SPacket) arg0.getPacket().method_12365() == class_2849.field_12985) {
+            if (((ClientCommandC2SPacket) arg0.getPacket()).method_12365() == class_2849.field_12985) {
                 enabledFlag = 0;
             }
         }
@@ -196,7 +196,7 @@ public class EventPacketHelper2 {
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        if (arg0.getPacket() instanceof class_2708 && (class_2708) arg0.getPacket().comp_3228().comp_3148().method_1022(EntityHelper.resolveMinecraftObject(SharedKt.getPlayer())) > 3.0D) {
+        if (arg0.getPacket() instanceof class_2708 && ((class_2708) arg0.getPacket()).comp_3228().comp_3148().method_1022(EntityHelper.resolveMinecraftObject(SharedKt.getPlayer())) > 3.0D) {
             timestampValue2 = SharedKt.getNumericValue();
         }
         if (arg0.getPacket() instanceof class_2708 && (SharedKt.getNumericValue() - timestampValue3) > 10000L && SharedKt.getPlayer().field_6012 > 20) {
@@ -211,18 +211,17 @@ public class EventPacketHelper2 {
         }
         if (!(AvoidModule.INSTANCE.getEnabled()) && !(AntiWebModule.INSTANCE.getEnabled()) && !(PhaseModule.INSTANCE.getEnabled())) {
             if (SpeedMineModule.INSTANCE.checkCondition()) {
+            } else {
             }
-        } else {
         }
-        1.setModifyCollisions(0);
-        double var13 = (SharedKt.getPlayer().getX() - SharedKt.getPlayer().field_6014);
-        double var15 = (SharedKt.getPlayer().getY() - SharedKt.getPlayer().field_6036);
-        double var17 = (SharedKt.getPlayer().getZ() - SharedKt.getPlayer().field_5969);
-        factorValue = Math.hypot();
-        factorValue2 = Math.sqrt((((var13 * var13) + (var15 * var15)) + (var17 * var17)));
+        this.setModifyCollisions(false);
+        double offset = (SharedKt.getPlayer().getX() - SharedKt.getPlayer().field_6014);
+        double offset2 = (SharedKt.getPlayer().getY() - SharedKt.getPlayer().field_6036);
+        double offset3 = (SharedKt.getPlayer().getZ() - SharedKt.getPlayer().field_5969);
+        factorValue = Math.hypot(offset, offset3);
+        factorValue2 = Math.sqrt((((offset * offset) + (offset2 * offset2)) + (offset3 * offset3)));
         if (SharedKt.getPlayer().isFallFlying() && Intrinsics.areEqual(SharedKt.getPlayer().getEquippedStack(EquipmentSlot.CHEST).getItem(), Items.ELYTRA)) {
-            int var19 = countValue;
-            countValue = (var19 + 1);
+            countValue = (countValue + 1);
         } else {
             countValue = 0;
         }
@@ -233,9 +232,9 @@ public class EventPacketHelper2 {
         if (!(SharedKt.getPlayer().isOnGround()) && !(SharedKt.getPlayer().method_52535())) {
             if (arg0.getY() < 0.0D) {
                 preciseValue = (preciseValue - arg0.getY());
-            } else {
                 preciseValue = 0.0D;
             }
+        } else {
         }
         enabledFlag3 = preciseValue > 0.0D;
     }
@@ -247,135 +246,135 @@ public class EventPacketHelper2 {
     public boolean checkCondition() {
         if (SharedKt.getPlayer().field_3913.method_3128().field_1342 == 0.0F) {
             if (SharedKt.getMc().player != null && SharedKt.getMc().world != null && SharedKt.getPlayer().field_3913.method_3128().field_1343 != 0.0F) {
+            } else {
             }
-        } else {
         }
         return false;
     }
 
     public double[] process(float d, boolean moveFix, float forward, float sideways, float yaw) {
-        float var14 = forward;
-        float var15 = sideways;
+        float factor = forward;
+        float factor2 = sideways;
         if (moveFix) {
-            if (0L > 0) {
+            if (__UNDEF_KEY__ > 0) {
                 if (SharedKt.getMc().options.field_1894.method_1434()) {
                 } else {
-                }
-                if (SharedKt.getMc().options.field_1881.method_1434()) {
-                } else {
-                }
-            }
-            var14 = 0.0F;
-            if (0L >= 0L) {
-                if (SharedKt.getMc().options.field_1913.method_1434()) {
-                } else {
-                }
-                if (SharedKt.getMc().options.field_1849.method_1434()) {
-                } else {
-                }
-            }
-            var15 = 0.0F;
-        }
-        float var16 = yaw;
-        if (0L >= 0) {
-            if (var14 != 0.0F) {
-            }
-            if (var15 != 0.0F) {
-                if (var15 > 0.0F) {
-                    if (var14 > 0.0F) {
+                    if (SharedKt.getMc().options.field_1881.method_1434()) {
                     } else {
-                    } else {
-                        if (var14 > 0.0F) {
-                        } else {
-                        }
                     }
                 }
-                var16 = (45.0F + -45.0F);
-                var15 = 0.0F;
             }
-            if (var14 > 0.0F) {
-            } else {
+            factor = 0.0F;
+            if (__UNDEF_KEY__ >= 0L) {
+                if (SharedKt.getMc().options.field_1913.method_1434()) {
+                } else {
+                    if (SharedKt.getMc().options.field_1849.method_1434()) {
+                    } else {
+                    }
+                }
             }
-            var14 = -1.0F;
+            factor2 = 0.0F;
         }
-        double var17 = Math.sin(Math.toRadians((var16 + 90.0F)));
-        double var19 = Math.cos(Math.toRadians((var16 + 90.0F)));
-        float var21 = (((var14 * d) * var19) + ((var15 * d) * var17));
-        float var23 = (((var14 * d) * var17) - ((var15 * d) * var19));
-        Object var25 = new double[2];
-        var25[0] = var21;
-        var25[1] = var23;
-        return var25;
+        float factor3 = yaw;
+        if (__UNDEF_KEY__ >= 0) {
+            if (factor != 0.0F) {
+                if (factor2 != 0.0F) {
+                    if (factor2 > 0.0F) {
+                        if (factor > 0.0F) {
+                        } else {
+                            if (factor > 0.0F) {
+                            } else {
+                            }
+                        }
+                    } else {
+                    }
+                    factor3 = (45.0F + -45.0F);
+                    factor2 = 0.0F;
+                }
+                if (factor > 0.0F) {
+                } else {
+                }
+                factor = -1.0F;
+            }
+        }
+        double offset = Math.sin(Math.toRadians((factor3 + 90.0F)));
+        double offset2 = Math.cos(Math.toRadians((factor3 + 90.0F)));
+        float factor4 = (((factor * d) * offset2) + ((factor2 * d) * offset));
+        float factor5 = (((factor * d) * offset) - ((factor2 * d) * offset2));
+        Object element = new double[2];
+        element[0] = factor4;
+        element[1] = factor5;
+        return element;
     }
 
     public static double[] process(EventPacketHelper2 arg0, float arg1, boolean arg2, float arg3, float arg4, float arg5, int arg6, Object arg7) {
-        if ((arg6 & 2)) {
+        if ((arg6 & 2) != 0) {
             arg2 = 0;
         }
-        if ((arg6 & 4)) {
+        if ((arg6 & 4) != 0) {
             arg3 = SharedKt.getPlayer().field_3913.method_3128().field_1342;
         }
-        if ((arg6 & 8)) {
+        if ((arg6 & 8) != 0) {
             arg4 = SharedKt.getPlayer().field_3913.method_3128().field_1343;
         }
-        if ((arg6 & 16)) {
+        if ((arg6 & 16) != 0) {
             arg5 = SharedKt.getPlayer().method_36454();
         }
         return arg0.process(arg1, arg2, arg3, arg4, arg5);
     }
 
     public void executeAction(MoveEvent event, double d) {
-        float var12 = SharedKt.getMc().player.field_3913.method_3128().field_1342;
-        float var14 = SharedKt.getMc().player.field_3913.method_3128().field_1343;
-        float var16 = SharedKt.getMc().player.method_36454();
-        if (var12 == 0.0D) {
-            if (0L <= 0 && 0L < 0) {
-                if (var14 == 0.0D) {
+        float factor = SharedKt.getMc().player.field_3913.method_3128().field_1342;
+        float factor2 = SharedKt.getMc().player.field_3913.method_3128().field_1343;
+        float factor3 = SharedKt.getMc().player.method_36454();
+        if (factor == 0.0D) {
+            if (__UNDEF_KEY__ <= 0 && __UNDEF_KEY__ < 0) {
+                if (factor2 == 0.0D) {
                     event.setX(0.0D);
                     event.setZ(0.0D);
-                }
-            } else {
-            }
-            if (0L >= 0) {
-                if (var12 != 0.0D) {
-                }
-                if (0L > 0) {
-                    if (var11 == null && 0L > 0) {
-                        if (var14 > 0.0D) {
-                            if (var12 > 0.0D) {
-                            } else {
-                            }
-                            var16 = (-45 + 45);
-                            if (0L > 0) {
-                            } else {
-                            }
-                        }
-                        if (0L > 0 && var11 == null) {
-                            if (var14 < 0.0D) {
-                                if (var12 > 0.0D) {
-                                } else {
+                } else {
+                    if (__UNDEF_KEY__ >= 0) {
+                        if (factor != 0.0D) {
+                            if (__UNDEF_KEY__ > 0) {
+                                if (__UNDEF_KEY__ == null && __UNDEF_KEY__ > 0) {
+                                    if (factor2 > 0.0D) {
+                                        if (factor > 0.0D) {
+                                        } else {
+                                        }
+                                        factor3 = (-45 + 45);
+                                        if (__UNDEF_KEY__ > 0) {
+                                            if (__UNDEF_KEY__ > 0 && __UNDEF_KEY__ == null) {
+                                                if (factor2 < 0.0D) {
+                                                    if (factor > 0.0D) {
+                                                    } else {
+                                                    }
+                                                    factor3 = (45 + -45);
+                                                }
+                                                factor2 = 0.0D;
+                                            }
+                                        }
+                                    } else {
+                                    }
                                 }
-                                var16 = (45 + -45);
+                            }
+                            if (factor > 0.0D) {
+                                if (__UNDEF_KEY__ < 0) {
+                                    factor = 1.0D;
+                                    if (factor < 0.0D) {
+                                        factor = -1.0D;
+                                    }
+                                }
+                            } else {
                             }
                         }
-                        var14 = 0.0D;
                     }
-                }
-                if (var12 > 0.0D) {
-                    if (0L < 0) {
-                        var12 = 1.0D;
-                    } else {
-                        if (var12 < 0.0D) {
-                            var12 = -1.0D;
-                        }
-                    }
+                    double offset = Math.sin(Math.toRadians((factor3 + 90.0F)));
+                    double offset2 = Math.cos(Math.toRadians((factor3 + 90.0F)));
+                    event.setX((((factor * d) * offset2) + ((factor2 * d) * offset)));
+                    event.setZ((((factor * d) * offset) - ((factor2 * d) * offset2)));
                 }
             }
-            double var17 = Math.sin(Math.toRadians((var16 + 90.0F)));
-            double var19 = Math.cos(Math.toRadians((var16 + 90.0F)));
-            event.setX((((var12 * d) * var19) + ((var14 * d) * var17)));
-            event.setZ((((var12 * d) * var17) - ((var14 * d) * var19)));
-        }
+        } else {
         }
     }
 
@@ -386,131 +385,131 @@ public class EventPacketHelper2 {
             } else {
             }
         }
-        double var9 = 0.0D;
+        double offset = 0.0D;
         if (arg1 > 0L) {
             if (SharedKt.getMc().options.field_1913.method_1434()) {
             } else {
-            }
-            if (SharedKt.getMc().options.field_1849.method_1434()) {
-            } else {
+                if (SharedKt.getMc().options.field_1849.method_1434()) {
+                } else {
+                }
             }
         }
-        double var11 = 0.0D;
-        if (var11 > 0.0D) {
-            var11 = 1.0D;
+        double offset2 = 0.0D;
+        if (offset2 > 0.0D) {
+            offset2 = 1.0D;
             if (arg0 >= 0) {
+            } else {
+                if (offset2 < 0.0D) {
+                    offset2 = -1.0D;
+                }
             }
         } else {
-            if (var11 < 0.0D) {
-                var11 = -1.0D;
-            }
         }
-        }
-        float var13 = SharedKt.getMc().player.method_36454();
-        if (var9 == 0.0D) {
+        float factor = SharedKt.getMc().player.method_36454();
+        if (offset == 0.0D) {
             if (arg1 > 0L && arg1 >= 0L) {
-                if (var11 == 0.0D) {
-                    return var13;
+                if (offset2 == 0.0D) {
+                    return factor;
                 }
             }
         }
         if (arg0 >= 0) {
-            if (var9 != 0.0D) {
-            }
-            if (arg1 > 0L) {
-                if (var8 == null && arg1 > 0L) {
-                    if (var11 > 0.0D) {
-                        if (var9 > 0.0D) {
-                        } else {
-                        }
-                        var13 = (-45.0F + -135.0F);
-                    } else {
-                    }
-                }
-                if (arg0 > 0) {
-                    if (var8 == null) {
-                        if (var11 < 0.0D) {
-                            if (var9 > 0.0D) {
+            if (offset != 0.0D) {
+                if (arg1 > 0L) {
+                    if (__UNDEF_KEY__ == null && arg1 > 0L) {
+                        if (offset2 > 0.0D) {
+                            if (offset > 0.0D) {
                             } else {
                             }
-                            var13 = (45.0F + 135.0F);
+                            factor = (-45.0F + -135.0F);
                         } else {
-                        }
-                    }
-                    if (arg1 > 0L && var8 == null) {
-                        if (var9 < 0.0D) {
-                            var13 = (var13 + 180.0F);
+                            if (arg0 > 0) {
+                                if (__UNDEF_KEY__ == null) {
+                                    if (offset2 < 0.0D) {
+                                        if (offset > 0.0D) {
+                                        } else {
+                                        }
+                                        factor = (45.0F + 135.0F);
+                                    } else {
+                                        if (arg1 > 0L && __UNDEF_KEY__ == null) {
+                                            if (offset < 0.0D) {
+                                                factor = (factor + 180.0F);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
             }
         }
         if (arg1 > 0L) {
-            if (var9 == 0.0D) {
-            }
-            if (var11 > 0.0D) {
-                if (arg1 >= 0L) {
-                    var13 = (var13 - 90.0F);
+            if (offset == 0.0D) {
+                if (offset2 > 0.0D) {
+                    if (arg1 >= 0L) {
+                        factor = (factor - 90.0F);
+                        factor = (factor + 90.0F);
+                    }
                 } else {
-                    var13 = (var13 + 90.0F);
                 }
             }
         }
-        return var13;
+        return factor;
     }
 
     public double[] process(double d) {
-        float var10 = SharedKt.getMc().player.method_36454();
-        double var11 = (d * Math.cos(Math.toRadians((var10 + 90.0F))));
-        double var13 = (d * Math.sin(Math.toRadians((var10 + 90.0F))));
-        Object var15 = new double[2];
-        var15[0] = var11;
-        var15[1] = var13;
-        return var15;
+        float factor = SharedKt.getMc().player.method_36454();
+        double offset = (d * Math.cos(Math.toRadians((factor + 90.0F))));
+        double offset2 = (d * Math.sin(Math.toRadians((factor + 90.0F))));
+        Object element = new double[2];
+        element[0] = offset;
+        element[1] = offset2;
+        return element;
     }
 
     public Entity resolveMinecraftObject(float yaw, float pitch, float distance, boolean ignoreWalls, boolean onlyLiving) {
         Vec3d vec = EntityHelper.resolveMinecraftObject(SharedKt.getPlayer()).method_1031(0.0D, SharedKt.getPlayer().method_18381(SharedKt.getPlayer().method_18376()), 0.0D);
-        double var17 = Math.pow(distance, 2);
-        var17 = var15.method_17784().method_1025(vec);
+        double offset = Math.pow(distance, 2);
+        offset = this.method_17784().method_1025(vec);
         Vec3d vec2 = this.resolveMinecraftObject(pitch, yaw);
         Vec3d vec3 = vec.method_1031((vec2.field_1352 * distance), (vec2.field_1351 * distance), (vec2.field_1350 * distance));
-        Box var21 = SharedKt.getPlayer().method_5829().method_18804(vec2.method_1021(distance)).method_1009(1.0D, 1.0D, 1.0D);
-        class_3966 var22 = class_1675.method_18075(SharedKt.getPlayer(), vec, vec3, this::checkCondition);
-        if (var22 != null) {
-            if (vec.method_1025(var22.method_17784()) >= var17) {
+        Box box = SharedKt.getPlayer().method_5829().method_18804(vec2.method_1021(distance)).method_1009(1.0D, 1.0D, 1.0D);
+        class_3966 class3966 = class_1675.method_18075(SharedKt.getPlayer(), vec, vec3, box, this::checkCondition, offset);
+        if (class3966 != null) {
+            if (vec.method_1025(class3966.method_17784()) >= offset) {
             }
-            return var22.method_17782();
+            return class3966.method_17782();
         }
         return null;
     }
 
     public static Entity resolveMinecraftObject(EventPacketHelper2 arg0, float arg1, float arg2, float arg3, boolean arg4, boolean arg5, int arg6, Object arg7) {
-        if ((arg6 & 16)) {
+        if ((arg6 & 16) != 0) {
             arg5 = 1;
         }
         return arg0.resolveMinecraftObject(arg1, arg2, arg3, arg4, arg5);
     }
 
     public class_239 resolveMinecraftObject(float yaw, float pitch, double x, double y, double z) {
-        class_239 var17 = this.resolveMinecraftObject(5.0F, yaw, pitch, x, y, z);
+        class_239 class239 = this.resolveMinecraftObject(5.0F, yaw, pitch, x, y, z);
         Vec3d vec = new Vec3d(x, y, z).method_1031(0.0D, SharedKt.getPlayer().method_18381(SharedKt.getPlayer().method_18376()), 0.0D);
-        double var19 = 25.0D;
-        if (var17.method_17783() != class_240.field_1333) {
-            var19 = var17.method_17784().method_1025(vec);
+        double offset = 25.0D;
+        if (class239.method_17783() != class_240.field_1333) {
+            offset = class239.method_17784().method_1025(vec);
         }
         Vec3d vec2 = this.resolveMinecraftObject(pitch, yaw);
         Vec3d vec3 = vec.method_1031((vec2.field_1352 * 5), (vec2.field_1351 * 5), (vec2.field_1350 * 5));
-        Box var23 = new Box((x - 0.3D), y, (z - 0.3D), (x + 0.3D), (y + 1.8D), (z + 0.3D)).method_18804(vec2.method_1021(5.0D)).method_1009(1.0D, 1.0D, 1.0D);
-        class_3966 var24 = class_1675.method_18075(SharedKt.getPlayer(), vec, vec3, this::checkCondition);
-        if (var24 != null) {
-            Entity entity = var24.method_17782();
-            Vec3d vec4 = var24.method_17784();
-            double var27 = vec.method_1025(vec4);
-            if (var27 >= var19) {
+        Box box = new Box((x - 0.3D), y, (z - 0.3D), (x + 0.3D), (y + 1.8D), (z + 0.3D)).method_18804(vec2.method_1021(5.0D)).method_1009(1.0D, 1.0D, 1.0D);
+        class_3966 class3966 = class_1675.method_18075(SharedKt.getPlayer(), vec, vec3, box, this::checkCondition, offset);
+        if (class3966 != null) {
+            Entity entity = class3966.method_17782();
+            Vec3d vec4 = class3966.method_17784();
+            double offset2 = vec.method_1025(vec4);
+            if (offset2 >= offset) {
             }
-            if (var17.method_17783() == class_240.field_1333 && entity instanceof LivingEntity) {
-                return (class_239) var24;
+            if (class239.method_17783() == class_240.field_1333 && entity instanceof LivingEntity) {
+                return ((class_239) class3966);
             }
         }
         return null;
@@ -524,44 +523,44 @@ public class EventPacketHelper2 {
         Vec3d vec = SharedKt.getPlayer().method_5836(1.0F);
         Vec3d vec2 = this.resolveMinecraftObject(pitch, yaw);
         Vec3d vec3 = vec.method_1031((vec2.field_1352 * dst), (vec2.field_1351 * dst), (vec2.field_1350 * dst));
-        return (class_239) SharedKt.getWorld().method_17742(new class_3959(vec, vec3, class_3960.field_17559, class_242.field_1348, SharedKt.getPlayer()));
+        return ((class_239) SharedKt.getWorld().method_17742(new class_3959(vec, vec3, class_3960.field_17559, class_242.field_1348, SharedKt.getPlayer())));
     }
 
     private class_239 resolveMinecraftObject(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5) {
         Vec3d vec = new Vec3d(arg3, arg4, arg5);
         Vec3d vec2 = this.resolveMinecraftObject(arg2, arg1);
         Vec3d vec3 = vec.method_1031((vec2.field_1352 * arg0), (vec2.field_1351 * arg0), (vec2.field_1350 * arg0));
-        return (class_239) SharedKt.getWorld().method_17742(new class_3959(vec, vec3, class_3960.field_17559, class_242.field_1348, SharedKt.getPlayer()));
+        return ((class_239) SharedKt.getWorld().method_17742(new class_3959(vec, vec3, class_3960.field_17559, class_242.field_1348, SharedKt.getPlayer())));
     }
 
     public double computeValue() {
-        int var8 = 0;
-        double var9 = 0.2873D;
+        int index = 0;
+        double offset = 0.2873D;
         if (SharedKt.getMc().player == null) {
             return 0.0D;
         }
         if (SharedKt.getPlayer().method_6059(class_1294.field_5904)) {
-            var8 = SharedKt.getPlayer().method_6112(class_1294.field_5904).method_5578();
-            var9 = (var9 * (1.0D + (0.2D * (var8 + 1))));
+            index = SharedKt.getPlayer().method_6112(class_1294.field_5904).method_5578();
+            offset = (offset * (1.0D + (0.2D * (index + 1))));
         }
         if (SharedKt.getPlayer().method_6059(class_1294.field_5913)) {
-            var8 = SharedKt.getPlayer().method_6112(class_1294.field_5913).method_5578();
-            var9 = (var9 / (1.0D + (0.2D * (var8 + 1))));
+            index = SharedKt.getPlayer().method_6112(class_1294.field_5913).method_5578();
+            offset = (offset / (1.0D + (0.2D * (index + 1))));
         }
         if (SharedKt.getPlayer().method_6059(class_1294.field_5909)) {
-            var8 = SharedKt.getPlayer().method_6112(class_1294.field_5909).method_5578();
-            var9 = (var9 / (1.0D + (0.2D * (var8 + 1))));
+            index = SharedKt.getPlayer().method_6112(class_1294.field_5909).method_5578();
+            offset = (offset / (1.0D + (0.2D * (index + 1))));
         }
-        return var9;
+        return offset;
     }
 
     public double computeValue2() {
-        double var6 = 0.3999999463558197D;
+        double offset = 0.3999999463558197D;
         if (SharedKt.getPlayer().method_6059(class_1294.field_5913)) {
-            int var8 = SharedKt.getPlayer().method_6112(class_1294.field_5913).method_5578();
-            var6 = (var6 + ((var8 + 1.0D) * 0.1D));
+            int index = SharedKt.getPlayer().method_6112(class_1294.field_5913).method_5578();
+            offset = (offset + ((index + 1.0D) * 0.1D));
         }
-        return var6;
+        return offset;
     }
 
     public float computeValue(ItemStack stack) {
@@ -573,23 +572,21 @@ public class EventPacketHelper2 {
     }
 
     public float computeValue(Vec3d targetPos) {
-        if (var11 == null) {
-            if (SharedKt.getMc().player == null) {
-                return 0.0F;
-            }
+        if (SharedKt.getMc().player == null) {
+            return 0.0F;
         }
         Vec3d vec = VecPacketHelper.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer());
-        double var13 = (targetPos.field_1352 - vec.field_1352);
-        double var15 = (targetPos.field_1351 - vec.field_1351);
-        double var17 = (targetPos.field_1350 - vec.field_1350);
-        return (((var13 * var13) + (var15 * var15)) + (var17 * var17));
+        double offset = (targetPos.field_1352 - vec.field_1352);
+        double offset2 = (targetPos.field_1351 - vec.field_1351);
+        double offset3 = (targetPos.field_1350 - vec.field_1350);
+        return (((offset * offset) + (offset2 * offset2)) + (offset3 * offset3));
     }
 
     public boolean checkCondition(Vec3d pos, int fov) {
-        double var8 = (pos.method_10216() - SharedKt.getMc().field_1773.method_19418().method_71156().field_1352);
-        double var10 = (pos.method_10215() - SharedKt.getMc().field_1773.method_19418().method_71156().field_1350);
-        float var12 = class_3532.method_15393((class_3532.method_15338((Math.toDegrees(Math.atan2()) - 90.0D)) - class_3532.method_15393(SharedKt.getMc().field_1773.method_19418().method_19330())));
-        return Math.abs() <= fov;
+        double offset = (pos.method_10216() - SharedKt.getMc().field_1773.method_19418().method_71156().field_1352);
+        double offset2 = (pos.method_10215() - SharedKt.getMc().field_1773.method_19418().method_71156().field_1350);
+        float factor = class_3532.method_15393((class_3532.method_15338((Math.toDegrees(Math.atan2(offset2, offset)) - 90.0D)) - class_3532.method_15393(SharedKt.getMc().field_1773.method_19418().method_19330())));
+        return Math.abs(factor) <= fov;
     }
 
     public boolean checkCondition2() {
@@ -603,15 +600,15 @@ public class EventPacketHelper2 {
 
     public Vec3d resolveMinecraftObject(float yaw, float pitch, float distance) {
         Vec3d vec = EntityHelper.resolveMinecraftObject(SharedKt.getMc().player).method_1031(0.0D, SharedKt.getPlayer().method_18381(SharedKt.getPlayer().method_18376()), 0.0D);
-        double var14 = Math.pow(distance, 2.0F);
+        double offset = Math.pow(distance, 2.0F);
         Vec3d vec2 = this.resolveMinecraftObject(pitch, yaw);
         Vec3d vec3 = vec.method_1031((vec2.field_1352 * distance), (vec2.field_1351 * distance), (vec2.field_1350 * distance));
-        Box var17 = SharedKt.getPlayer().method_5829().method_18804(vec2.method_1021(distance)).method_1009(1.0D, 1.0D, 1.0D);
-        class_3966 var18 = class_1675.method_18075(SharedKt.getPlayer(), vec, vec3, this::checkCondition2);
-        if (var12 == null) {
-            if (var18 != null) {
+        Box box = SharedKt.getPlayer().method_5829().method_18804(vec2.method_1021(distance)).method_1009(1.0D, 1.0D, 1.0D);
+        class_3966 class3966 = class_1675.method_18075(SharedKt.getPlayer(), vec, vec3, box, this::checkCondition2, offset);
+        if (__UNDEF_KEY__ == null) {
+            if (class3966 != null) {
             } else {
-                var18.method_17784();
+                class3966.method_17784();
             }
         }
         return null;
@@ -621,9 +618,9 @@ public class EventPacketHelper2 {
         if (SharedKt.getMc().player == null) {
             return 0.0F;
         }
-        double var15 = (SharedKt.getPlayer().getX() - x);
-        double var17 = (SharedKt.getPlayer().getZ() - z);
-        return ((var15 * var15) + (var17 * var17));
+        double offset = (SharedKt.getPlayer().getX() - x);
+        double offset2 = (SharedKt.getPlayer().getZ() - z);
+        return ((offset * offset) + (offset2 * offset2));
     }
 
     public float computeValue(double x, double z) {
@@ -631,79 +628,77 @@ public class EventPacketHelper2 {
     }
 
     public void updateValue4() {
-        if (var7 == null) {
-            SharedKt.getNetwork().method_52787((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12985));
-            SharedKt.getPlayer().method_5728(0);
-        }
-        SharedKt.getPlayer().field_3919 = 0;
+        SharedKt.getNetwork().method_52787(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12985)));
+        SharedKt.getPlayer().method_5728(false);
+        SharedKt.getPlayer().field_3919 = false;
     }
 
     public class_239 resolveMinecraftObject(double blockInteractionRange, double entityInteractionRange, float yaw, float pitch) {
-        double var17 = Math.max(blockInteractionRange, entityInteractionRange);
-        double var19 = class_3532.method_33723();
+        double offset = Math.max(blockInteractionRange, entityInteractionRange);
+        double offset2 = class_3532.method_33723(offset);
         Vec3d vec = SharedKt.getPlayer().getEyePos();
-        class_239 var22 = this.resolveMinecraftObject(blockInteractionRange, yaw, pitch);
-        double var23 = var22.method_17784().method_1025(vec);
-        if (var16 == null) {
-            if (var22.method_17783() != class_240.field_1333) {
-                var19 = var23;
+        class_239 class239 = this.resolveMinecraftObject(blockInteractionRange, yaw, pitch);
+        double offset3 = class239.method_17784().method_1025(vec);
+        if (__UNDEF_KEY__ == null) {
+            if (class239.method_17783() != class_240.field_1333) {
+                offset2 = offset3;
+                offset = Math.sqrt(offset3);
             }
-            var17 = Math.sqrt();
         }
         Vec3d vec2 = this.resolveMinecraftObject(pitch, yaw);
-        Vec3d vec3 = vec.method_1031((vec2.field_1352 * var17), (vec2.field_1351 * var17), (vec2.field_1350 * var17));
-        Box var27 = SharedKt.getPlayer().method_5829().method_18804(vec2.method_1021()).method_1009(1.0D, 1.0D, 1.0D);
-        class_3966 var28 = class_1675.method_18075(SharedKt.getPlayer(), vec, vec3, class_1301.field_52443);
-        if (var16 == null) {
+        Vec3d vec3 = vec.method_1031((vec2.field_1352 * offset), (vec2.field_1351 * offset), (vec2.field_1350 * offset));
+        Box box = SharedKt.getPlayer().method_5829().method_18804(vec2.method_1021(offset)).method_1009(1.0D, 1.0D, 1.0D);
+        class_3966 class3966 = class_1675.method_18075(SharedKt.getPlayer(), vec, vec3, box, class_1301.field_52443, offset2);
+        if (__UNDEF_KEY__ == null) {
         }
-        if (var16 == null) {
-            if (var28 != null && var28.method_17784().method_1025(vec) < var23) {
+        if (__UNDEF_KEY__ == null) {
+            if (class3966 != null && class3966.method_17784().method_1025(vec) < offset3) {
+            } else {
             }
-        } else {
         }
-        return this.resolveMinecraftObject(vec, blockInteractionRange);
+        return this.resolveMinecraftObject(class239, vec, blockInteractionRange);
     }
 
     private class_239 resolveMinecraftObject(class_239 arg0, Vec3d arg1, double arg2) {
         Vec3d vec = arg0.method_17784();
-        if (var10 == null) {
+        if (__UNDEF_KEY__ == null) {
             if (!(vec.method_24802(arg1, arg2))) {
+                Vec3d vec2 = arg0.method_17784();
+                Direction direction = Direction.method_10142((vec2.field_1352 - arg1.field_1352), (vec2.field_1351 - arg1.field_1351), (vec2.field_1350 - arg1.field_1350));
+                return ((class_239) class_3965.method_17778(vec2, direction, BlockPos.ofFloored(vec2)));
             }
-            Vec3d vec2 = arg0.method_17784();
-            Direction var13 = Direction.method_10142((vec2.field_1352 - arg1.field_1352), (vec2.field_1351 - arg1.field_1351), (vec2.field_1350 - arg1.field_1350));
-            return (class_239) class_3965.method_17778(vec2, BlockPos.ofFloored(vec2));
         }
         return arg0;
     }
 
     public class_239 resolveMinecraftObject(double l, float yaw, float pitch) {
         Vec3d vec = this.resolveMinecraftObject(pitch, yaw).method_1021(l);
-        return (class_239) SharedKt.getWorld().method_17742(new class_3959(SharedKt.getPlayer().getEyePos(), SharedKt.getPlayer().getEyePos().method_1019(vec), class_3960.field_17559, class_242.field_1348, SharedKt.getPlayer()));
+        return ((class_239) SharedKt.getWorld().method_17742(new class_3959(SharedKt.getPlayer().getEyePos(), SharedKt.getPlayer().getEyePos().method_1019(vec), class_3960.field_17559, class_242.field_1348, SharedKt.getPlayer())));
     }
 
     public void updateValue5() {
-        SharedKt.getMc().options.field_1894.method_23481(0);
-        SharedKt.getMc().options.field_1881.method_23481(0);
-        SharedKt.getMc().options.field_1913.method_23481(0);
-        SharedKt.getMc().options.field_1849.method_23481(0);
-        SharedKt.getMc().options.field_1903.method_23481(0);
-        SharedKt.getMc().options.field_1832.method_23481(0);
+        SharedKt.getMc().options.field_1894.method_23481(false);
+        SharedKt.getMc().options.field_1881.method_23481(false);
+        SharedKt.getMc().options.field_1913.method_23481(false);
+        SharedKt.getMc().options.field_1849.method_23481(false);
+        SharedKt.getMc().options.field_1903.method_23481(false);
+        SharedKt.getMc().options.field_1832.method_23481(false);
     }
 
     public void updateValue6() {
-        SharedKt.getMc().options.field_1894.method_23481(ServiceComponent13.checkCondition((KeyMappingAccessor) SharedKt.getMc().options.field_1894.getKey().method_1444()));
-        SharedKt.getMc().options.field_1881.method_23481(ServiceComponent13.checkCondition((KeyMappingAccessor) SharedKt.getMc().options.field_1881.getKey().method_1444()));
-        SharedKt.getMc().options.field_1913.method_23481(ServiceComponent13.checkCondition((KeyMappingAccessor) SharedKt.getMc().options.field_1913.getKey().method_1444()));
-        SharedKt.getMc().options.field_1849.method_23481(ServiceComponent13.checkCondition((KeyMappingAccessor) SharedKt.getMc().options.field_1849.getKey().method_1444()));
-        SharedKt.getMc().options.field_1903.method_23481(ServiceComponent13.checkCondition((KeyMappingAccessor) SharedKt.getMc().options.field_1903.getKey().method_1444()));
-        SharedKt.getMc().options.field_1832.method_23481(ServiceComponent13.checkCondition((KeyMappingAccessor) SharedKt.getMc().options.field_1832.getKey().method_1444()));
+        SharedKt.getMc().options.field_1894.method_23481(ServiceComponent13.checkCondition(((KeyMappingAccessor) SharedKt.getMc().options.field_1894).getKey().method_1444()));
+        SharedKt.getMc().options.field_1881.method_23481(ServiceComponent13.checkCondition(((KeyMappingAccessor) SharedKt.getMc().options.field_1881).getKey().method_1444()));
+        SharedKt.getMc().options.field_1913.method_23481(ServiceComponent13.checkCondition(((KeyMappingAccessor) SharedKt.getMc().options.field_1913).getKey().method_1444()));
+        SharedKt.getMc().options.field_1849.method_23481(ServiceComponent13.checkCondition(((KeyMappingAccessor) SharedKt.getMc().options.field_1849).getKey().method_1444()));
+        SharedKt.getMc().options.field_1903.method_23481(ServiceComponent13.checkCondition(((KeyMappingAccessor) SharedKt.getMc().options.field_1903).getKey().method_1444()));
+        SharedKt.getMc().options.field_1832.method_23481(ServiceComponent13.checkCondition(((KeyMappingAccessor) SharedKt.getMc().options.field_1832).getKey().method_1444()));
     }
 
     private static boolean checkCondition(boolean arg0, Entity arg1) {
         if (!(arg1 instanceof LivingEntity)) {
             if (!(arg1.method_7325()) && arg1.method_5863() && !(arg0)) {
+            } else {
             }
-        } else {
         }
         return false;
     }

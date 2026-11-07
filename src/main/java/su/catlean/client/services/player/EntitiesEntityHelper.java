@@ -267,79 +267,79 @@ public class EntitiesEntityHelper {
     }
 
     public static EntitiesEntityHelper resolveEntitiesEntityHelper(EntitiesEntityHelper arg0, List arg1, PlayerEntity arg2, float arg3, float arg4, float arg5, float arg6, boolean arg7, float arg8, float arg9, boolean arg10, float arg11, boolean arg12, AutoCrystalFriendProtectionMode arg13, boolean arg14, boolean arg15, int arg16, boolean arg17, float arg18, boolean arg19, boolean arg20, boolean arg21, boolean arg22, boolean arg23, boolean arg24, boolean arg25, int arg26, Object arg27) {
-        if ((arg26 & 1)) {
+        if ((arg26 & 1) != 0) {
             arg1 = arg0.itemList;
         }
-        if ((arg26 & 2)) {
+        if ((arg26 & 2) != 0) {
             arg2 = arg0.playerEntity;
         }
-        if ((arg26 & 4)) {
+        if ((arg26 & 4) != 0) {
             arg3 = arg0.factorValue;
         }
-        if ((arg26 & 8)) {
+        if ((arg26 & 8) != 0) {
             arg4 = arg0.factorValue2;
         }
-        if ((arg26 & 16)) {
+        if ((arg26 & 16) != 0) {
             arg5 = arg0.factorValue3;
         }
-        if ((arg26 & 32)) {
+        if ((arg26 & 32) != 0) {
             arg6 = arg0.factorValue4;
         }
-        if ((arg26 & 64)) {
+        if ((arg26 & 64) != 0) {
             arg7 = arg0.enabledFlag;
         }
-        if ((arg26 & 128)) {
+        if ((arg26 & 128) != 0) {
             arg8 = arg0.factorValue5;
         }
-        if ((arg26 & 256)) {
+        if ((arg26 & 256) != 0) {
             arg9 = arg0.factorValue6;
         }
-        if ((arg26 & 512)) {
+        if ((arg26 & 512) != 0) {
             arg10 = arg0.enabledFlag2;
         }
-        if ((arg26 & 1024)) {
+        if ((arg26 & 1024) != 0) {
             arg11 = arg0.factorValue7;
         }
-        if ((arg26 & 2048)) {
+        if ((arg26 & 2048) != 0) {
             arg12 = arg0.enabledFlag3;
         }
-        if ((arg26 & 4096)) {
+        if ((arg26 & 4096) != 0) {
             arg13 = arg0.autoCrystalFriendProtectionMode;
         }
-        if ((arg26 & 8192)) {
+        if ((arg26 & 8192) != 0) {
             arg14 = arg0.enabledFlag4;
         }
-        if ((arg26 & 16384)) {
+        if ((arg26 & 16384) != 0) {
             arg15 = arg0.enabledFlag5;
         }
-        if ((arg26 & 32768)) {
+        if ((arg26 & 32768) != 0) {
             arg16 = arg0.countValue;
         }
-        if ((arg26 & 65536)) {
+        if ((arg26 & 65536) != 0) {
             arg17 = arg0.enabledFlag6;
         }
-        if ((arg26 & 131072)) {
+        if ((arg26 & 131072) != 0) {
             arg18 = arg0.factorValue8;
         }
-        if ((arg26 & 262144)) {
+        if ((arg26 & 262144) != 0) {
             arg19 = arg0.enabledFlag7;
         }
-        if ((arg26 & 524288)) {
+        if ((arg26 & 524288) != 0) {
             arg20 = arg0.enabledFlag8;
         }
-        if ((arg26 & 1048576)) {
+        if ((arg26 & 1048576) != 0) {
             arg21 = arg0.enabledFlag9;
         }
-        if ((arg26 & 2097152)) {
+        if ((arg26 & 2097152) != 0) {
             arg22 = arg0.enabledFlag10;
         }
-        if ((arg26 & 4194304)) {
+        if ((arg26 & 4194304) != 0) {
             arg23 = arg0.enabledFlag11;
         }
-        if ((arg26 & 8388608)) {
+        if ((arg26 & 8388608) != 0) {
             arg24 = arg0.enabledFlag12;
         }
-        if ((arg26 & 16777216)) {
+        if ((arg26 & 16777216) != 0) {
             arg25 = arg0.enabledFlag13;
         }
         if (arg0.resolveEntitiesEntityHelper(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16, arg17, arg18, arg19, arg20, arg21, arg22, arg23, arg24, arg25) != null) {
@@ -348,63 +348,63 @@ public class EntitiesEntityHelper {
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag13;
-        boolean var4 = this.enabledFlag12;
-        boolean var5 = this.enabledFlag11;
-        boolean var6 = this.enabledFlag10;
-        boolean var7 = this.enabledFlag9;
-        boolean var8 = this.enabledFlag8;
-        boolean var9 = this.enabledFlag7;
-        float var10 = this.factorValue8;
-        boolean var11 = this.enabledFlag6;
-        int var12 = this.countValue;
-        boolean var13 = this.enabledFlag5;
-        boolean var14 = this.enabledFlag4;
-        AutoCrystalFriendProtectionMode var15 = this.autoCrystalFriendProtectionMode;
-        boolean var16 = this.enabledFlag3;
-        float var17 = this.factorValue7;
-        boolean var18 = this.enabledFlag2;
-        float var19 = this.factorValue6;
-        float var20 = this.factorValue5;
-        boolean var21 = this.enabledFlag;
-        float var22 = this.factorValue4;
-        float var23 = this.factorValue3;
-        float var24 = this.factorValue2;
-        float var25 = this.factorValue;
+        boolean flag = this.enabledFlag13;
+        boolean flag2 = this.enabledFlag12;
+        boolean flag3 = this.enabledFlag11;
+        boolean flag4 = this.enabledFlag10;
+        boolean flag5 = this.enabledFlag9;
+        boolean flag6 = this.enabledFlag8;
+        boolean flag7 = this.enabledFlag7;
+        float factor = this.factorValue8;
+        boolean flag8 = this.enabledFlag6;
+        int index = this.countValue;
+        boolean flag9 = this.enabledFlag5;
+        boolean flag10 = this.enabledFlag4;
+        AutoCrystalFriendProtectionMode autoCrystalFriendProtectionMode = this.autoCrystalFriendProtectionMode;
+        boolean flag11 = this.enabledFlag3;
+        float factor2 = this.factorValue7;
+        boolean flag12 = this.enabledFlag2;
+        float factor3 = this.factorValue6;
+        float factor4 = this.factorValue5;
+        boolean flag13 = this.enabledFlag;
+        float factor5 = this.factorValue4;
+        float factor6 = this.factorValue3;
+        float factor7 = this.factorValue2;
+        float factor8 = this.factorValue;
         PlayerEntity player = this.playerEntity;
-        List positions = this.itemList;
-        return ("ConfigState(entities=" + positions + ", target=" + player + ", placeRange=" + var25 + ", explodeRange=" + var24 + ", maxSelfDamage=" + var23 + ", minDamage=" + var22 + ", oldVer=" + var21 + ", armorScale=" + var20 + ", facePlaceHp=" + var19 + ", overrideSelfDamage=" + var18 + ", efficiencyFactor=" + var17 + ", rayTrace=" + var16 + ", friendProtection=" + var15 + ", breakFire=" + var14 + ", ignoreTerrain=" + var13 + ", lethalMultiplier=" + var12 + ", minimizeSelfDamage=" + var11 + ", maxDamageReduction=" + var10 + ", calcShields=" + var9 + ", stringWaterRemove=" + var8 + ", grimBreakRange=" + var7 + ", explodeEChestFarm=" + var6 + ", antiPortal=" + var5 + ", antiQuiver=" + var4 + ", overrideMinDamage=" + var3 + ")");
+        List list = this.itemList;
+        return ("ConfigState(entities=" + list + ", target=" + player + ", placeRange=" + factor8 + ", explodeRange=" + factor7 + ", maxSelfDamage=" + factor6 + ", minDamage=" + factor5 + ", oldVer=" + flag13 + ", armorScale=" + factor4 + ", facePlaceHp=" + factor3 + ", overrideSelfDamage=" + flag12 + ", efficiencyFactor=" + factor2 + ", rayTrace=" + flag11 + ", friendProtection=" + autoCrystalFriendProtectionMode + ", breakFire=" + flag10 + ", ignoreTerrain=" + flag9 + ", lethalMultiplier=" + index + ", minimizeSelfDamage=" + flag8 + ", maxDamageReduction=" + factor + ", calcShields=" + flag7 + ", stringWaterRemove=" + flag6 + ", grimBreakRange=" + flag5 + ", explodeEChestFarm=" + flag4 + ", antiPortal=" + flag3 + ", antiQuiver=" + flag2 + ", overrideMinDamage=" + flag + ")");
     }
 
     public int hashCode() {
-        int var4 = this.itemList.hashCode();
-        var4 = ((var4 * 31) + this.playerEntity.hashCode());
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue2));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue3));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue4));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue5));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue6));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag2));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue7));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag3));
-        var4 = ((var4 * 31) + this.autoCrystalFriendProtectionMode.hashCode());
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag4));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag5));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag6));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue8));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag7));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag8));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag9));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag10));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag11));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag12));
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag13));
-        if (var3 != null) {
+        int index = this.itemList.hashCode();
+        index = ((index * 31) + this.playerEntity.hashCode());
+        index = ((index * 31) + Float.hashCode(this.factorValue));
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + Float.hashCode(this.factorValue4));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        index = ((index * 31) + Float.hashCode(this.factorValue5));
+        index = ((index * 31) + Float.hashCode(this.factorValue6));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag2));
+        index = ((index * 31) + Float.hashCode(this.factorValue7));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag3));
+        index = ((index * 31) + this.autoCrystalFriendProtectionMode.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag4));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag5));
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag6));
+        index = ((index * 31) + Float.hashCode(this.factorValue8));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag7));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag8));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag9));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag10));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag11));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag12));
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag13));
+        if (__UNDEF_KEY__ != null) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -414,80 +414,80 @@ public class EntitiesEntityHelper {
         if (!(other instanceof EntitiesEntityHelper)) {
             return false;
         }
-        EntitiesEntityHelper var5 = (EntitiesEntityHelper) other;
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        EntitiesEntityHelper entitiesEntityHelper = ((EntitiesEntityHelper) other);
+        if (!(Intrinsics.areEqual(this.itemList, entitiesEntityHelper.itemList))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.playerEntity, var5.playerEntity))) {
+        if (!(Intrinsics.areEqual(this.playerEntity, entitiesEntityHelper.playerEntity))) {
             return false;
         }
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        if (Float.compare(this.factorValue, entitiesEntityHelper.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, entitiesEntityHelper.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, entitiesEntityHelper.factorValue3)) {
             return false;
         }
-        if (Float.compare(this.factorValue4, var5.factorValue4)) {
+        if (Float.compare(this.factorValue4, entitiesEntityHelper.factorValue4)) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != entitiesEntityHelper.enabledFlag) {
             return false;
         }
-        if (Float.compare(this.factorValue5, var5.factorValue5)) {
+        if (Float.compare(this.factorValue5, entitiesEntityHelper.factorValue5)) {
             return false;
         }
-        if (Float.compare(this.factorValue6, var5.factorValue6)) {
+        if (Float.compare(this.factorValue6, entitiesEntityHelper.factorValue6)) {
             return false;
         }
-        if (this.enabledFlag2 != var5.enabledFlag2) {
+        if (this.enabledFlag2 != entitiesEntityHelper.enabledFlag2) {
             return false;
         }
-        if (Float.compare(this.factorValue7, var5.factorValue7)) {
+        if (Float.compare(this.factorValue7, entitiesEntityHelper.factorValue7)) {
             return false;
         }
-        if (this.enabledFlag3 != var5.enabledFlag3) {
+        if (this.enabledFlag3 != entitiesEntityHelper.enabledFlag3) {
             return false;
         }
-        if (this.autoCrystalFriendProtectionMode != var5.autoCrystalFriendProtectionMode) {
+        if (this.autoCrystalFriendProtectionMode != entitiesEntityHelper.autoCrystalFriendProtectionMode) {
             return false;
         }
-        if (this.enabledFlag4 != var5.enabledFlag4) {
+        if (this.enabledFlag4 != entitiesEntityHelper.enabledFlag4) {
             return false;
         }
-        if (this.enabledFlag5 != var5.enabledFlag5) {
+        if (this.enabledFlag5 != entitiesEntityHelper.enabledFlag5) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != entitiesEntityHelper.countValue) {
             return false;
         }
-        if (this.enabledFlag6 != var5.enabledFlag6) {
+        if (this.enabledFlag6 != entitiesEntityHelper.enabledFlag6) {
             return false;
         }
-        if (Float.compare(this.factorValue8, var5.factorValue8)) {
+        if (Float.compare(this.factorValue8, entitiesEntityHelper.factorValue8)) {
             return false;
         }
-        if (this.enabledFlag7 != var5.enabledFlag7) {
+        if (this.enabledFlag7 != entitiesEntityHelper.enabledFlag7) {
             return false;
         }
-        if (this.enabledFlag8 != var5.enabledFlag8) {
+        if (this.enabledFlag8 != entitiesEntityHelper.enabledFlag8) {
             return false;
         }
-        if (this.enabledFlag9 != var5.enabledFlag9) {
+        if (this.enabledFlag9 != entitiesEntityHelper.enabledFlag9) {
             return false;
         }
-        if (this.enabledFlag10 != var5.enabledFlag10) {
+        if (this.enabledFlag10 != entitiesEntityHelper.enabledFlag10) {
             return false;
         }
-        if (this.enabledFlag11 != var5.enabledFlag11) {
+        if (this.enabledFlag11 != entitiesEntityHelper.enabledFlag11) {
             return false;
         }
-        if (this.enabledFlag12 != var5.enabledFlag12) {
+        if (this.enabledFlag12 != entitiesEntityHelper.enabledFlag12) {
             return false;
         }
-        if (this.enabledFlag13 != var5.enabledFlag13) {
+        if (this.enabledFlag13 != entitiesEntityHelper.enabledFlag13) {
             return false;
         }
         return true;

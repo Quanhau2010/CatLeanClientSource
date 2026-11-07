@@ -27,7 +27,7 @@ public class ElytraFreezeModule extends Module {
     }
 
     private boolean getPacket() {
-        return (Boolean) packetSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) packetSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void onMoveEvent(MoveEvent arg0) {
@@ -50,16 +50,16 @@ public class ElytraFreezeModule extends Module {
     private boolean checkCondition() {
         if (SharedKt.getPlayer().isFallFlying()) {
             if (AuraModule.INSTANCE.getTarget() == null) {
+            } else {
             }
-        } else {
         }
         return AuraModule.INSTANCE.getTarget().distanceTo(SharedKt.getPlayer()) < AuraModule.INSTANCE.getAttackRange();
     }
 
     static {
-        KProperty[] var22 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new ElytraFreezeModule();
-        packetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel-packet");
+        packetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "cancel-packet", false);
     }
 
 }

@@ -2,15 +2,12 @@ package su.catlean.client.features.modules.movement.rage;
 
 public enum StepMode {
 
-    public static final StepMode NCP;
-    public static final StepMode VANILLA;
-    public static final StepMode STRICT_NCP;
-    public static final StepMode NCP_2;
-    private static boolean enabledFlag;
+    NCP,
+    VANILLA,
+    STRICT_NCP,
+    NCP_2;
 
-    StepMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static boolean enabledFlag;
 
     public static void updateValue(boolean arg0) {
         enabledFlag = arg0;

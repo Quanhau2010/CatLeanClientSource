@@ -13,12 +13,9 @@ public class Comparator6 implements Comparator {
     }
 
     public int compare(Object b) {
-        Vec3d vec = (Vec3d) 0L;
-        int var4 = 0;
-        vec = (Vec3d) b;
-        Comparable var5 = (Comparable) Double.valueOf(this.vec3d.method_1022(vec));
-        var4 = 0;
-        return ComparisonsKt.compareValues((Comparable) Double.valueOf(this.vec3d.method_1022(vec)));
+        Vec3d vec = ((Vec3d) b);
+        Comparable comparable = ((Comparable) Double.valueOf(this.vec3d.method_1022()));
+        return ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(this.vec3d.method_1022(vec))));
     }
 
 }

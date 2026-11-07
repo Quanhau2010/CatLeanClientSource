@@ -15,12 +15,12 @@ public class ServiceComponent38 {
         if (this.computeValue2() < 0) {
             this.updateValue();
         }
-        if (0L >= 0) {
-            if (!(var11)) {
+        if (__UNDEF_KEY__ >= 0) {
+            if (!(__UNDEF_KEY__)) {
+                if (this.computeValue2() >= t) {
+                } else {
+                }
             }
-            if (this.computeValue2() >= t) {
-            }
-        } else {
         }
         return false;
     }
@@ -29,11 +29,11 @@ public class ServiceComponent38 {
         if (this.computeValue2() < 0) {
             this.updateValue();
         }
-        boolean var9 = this.computeValue2() >= ms;
-        if (var9) {
+        boolean flag = this.computeValue2() >= ms;
+        if (flag) {
             this.updateValue();
         }
-        return var9;
+        return flag;
     }
 
     public void executeAction(int t) {

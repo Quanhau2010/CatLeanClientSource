@@ -86,19 +86,19 @@ public class EquipmentSlotServiceComponent {
     }
 
     public static EquipmentSlotServiceComponent resolveEquipmentSlotServiceComponent(EquipmentSlotServiceComponent arg0, EquipmentSlot arg1, int arg2, int arg3, int arg4, int arg5, int arg6, Object arg7) {
-        if ((arg6 & 1)) {
+        if ((arg6 & 1) != 0) {
             arg1 = arg0.minecraftRef;
         }
-        if ((arg6 & 2)) {
+        if ((arg6 & 2) != 0) {
             arg2 = arg0.countValue;
         }
-        if ((arg6 & 4)) {
+        if ((arg6 & 4) != 0) {
             arg3 = arg0.countValue2;
         }
-        if ((arg6 & 8)) {
+        if ((arg6 & 8) != 0) {
             arg4 = arg0.countValue3;
         }
-        if ((arg6 & 16)) {
+        if ((arg6 & 16) != 0) {
             arg5 = arg0.countValue4;
         }
         if (arg0.resolveEquipmentSlotServiceComponent(arg1, arg2, arg3, arg4, arg5) != null) {
@@ -107,23 +107,23 @@ public class EquipmentSlotServiceComponent {
     }
 
     public String toString() {
-        int var3 = this.countValue4;
-        int var4 = this.countValue3;
-        int var5 = this.countValue2;
-        int var6 = this.countValue;
-        EquipmentSlot var7 = this.minecraftRef;
-        return ("ArmorData(equipmentSlot=" + var7 + ", armorSlot=" + var6 + ", prevProt=" + var5 + ", newSlot=" + var4 + ", newProtection=" + var3 + ")");
+        int index = this.countValue4;
+        int index2 = this.countValue3;
+        int index3 = this.countValue2;
+        int index4 = this.countValue;
+        EquipmentSlot equipmentSlot = this.minecraftRef;
+        return ("ArmorData(equipmentSlot=" + equipmentSlot + ", armorSlot=" + index4 + ", prevProt=" + index3 + ", newSlot=" + index2 + ", newProtection=" + index + ")");
     }
 
     public int hashCode() {
-        int var4 = this.minecraftRef.hashCode();
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue2));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue3));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue4));
-        if (var3 != null) {
+        int index = this.minecraftRef.hashCode();
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        index = ((index * 31) + Integer.hashCode(this.countValue2));
+        index = ((index * 31) + Integer.hashCode(this.countValue3));
+        index = ((index * 31) + Integer.hashCode(this.countValue4));
+        if (__UNDEF_KEY__ != null) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -133,20 +133,20 @@ public class EquipmentSlotServiceComponent {
         if (!(other instanceof EquipmentSlotServiceComponent)) {
             return false;
         }
-        EquipmentSlotServiceComponent var5 = (EquipmentSlotServiceComponent) other;
-        if (this.minecraftRef != var5.minecraftRef) {
+        EquipmentSlotServiceComponent equipmentSlotServiceComponent = ((EquipmentSlotServiceComponent) other);
+        if (this.minecraftRef != equipmentSlotServiceComponent.minecraftRef) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != equipmentSlotServiceComponent.countValue) {
             return false;
         }
-        if (this.countValue2 != var5.countValue2) {
+        if (this.countValue2 != equipmentSlotServiceComponent.countValue2) {
             return false;
         }
-        if (this.countValue3 != var5.countValue3) {
+        if (this.countValue3 != equipmentSlotServiceComponent.countValue3) {
             return false;
         }
-        if (this.countValue4 != var5.countValue4) {
+        if (this.countValue4 != equipmentSlotServiceComponent.countValue4) {
             return false;
         }
         return true;

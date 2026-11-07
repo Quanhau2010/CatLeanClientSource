@@ -8,12 +8,12 @@ public class ServiceComponent89 {
     private static boolean enabledFlag;
 
     static {
-        Object var2 = new int[VoidEspMode.values()];
-        var2[VoidEspMode.FLAT.ordinal()] = 1;
-        var2[VoidEspMode.BOX.ordinal()] = 2;
-        var2[VoidEspMode.WIRE_FRAME.ordinal()] = 3;
-        var2[VoidEspMode.CROSS.ordinal()] = 4;
-        countValueArray = var2;
+        Object element = new int[VoidEspMode.values()];
+        element[VoidEspMode.FLAT.ordinal()] = 1;
+        element[VoidEspMode.BOX.ordinal()] = 2;
+        element[VoidEspMode.WIRE_FRAME.ordinal()] = 3;
+        element[VoidEspMode.CROSS.ordinal()] = 4;
+        countValueArray = element;
     }
 
     public static void updateValue(boolean arg0) {

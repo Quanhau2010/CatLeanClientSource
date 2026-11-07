@@ -21,7 +21,7 @@ public class ImageServiceComponent {
         this.factorValue2 = y;
         this.factorValue3 = w;
         this.factorValue4 = h;
-        this.factorValue5 = 0L;
+        this.factorValue5 = __UNDEF_KEY__;
     }
 
     public MissingnoRenderHelper getMissingnoRenderHelper() {
@@ -85,50 +85,50 @@ public class ImageServiceComponent {
     }
 
     public static ImageServiceComponent resolveImageServiceComponent(ImageServiceComponent arg0, MissingnoRenderHelper arg1, Matrix3x2f arg2, float arg3, float arg4, float arg5, float arg6, float arg7, int arg8, Object arg9) {
-        if ((arg8 & 1)) {
+        if ((arg8 & 1) != 0) {
             arg1 = arg0.missingnoRenderHelper;
         }
-        if ((arg8 & 2)) {
+        if ((arg8 & 2) != 0) {
             arg2 = arg0.matrix3x2f;
         }
-        if ((arg8 & 4)) {
+        if ((arg8 & 4) != 0) {
             arg3 = arg0.factorValue;
         }
-        if ((arg8 & 8)) {
+        if ((arg8 & 8) != 0) {
             arg4 = arg0.factorValue2;
         }
-        if ((arg8 & 16)) {
+        if ((arg8 & 16) != 0) {
             arg5 = arg0.factorValue3;
         }
-        if ((arg8 & 32)) {
+        if ((arg8 & 32) != 0) {
             arg6 = arg0.factorValue4;
         }
-        if ((arg8 & 64)) {
+        if ((arg8 & 64) != 0) {
             arg7 = arg0.factorValue5;
         }
         return arg0.resolveImageServiceComponent(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
     }
 
     public String toString() {
-        float var3 = this.factorValue5;
-        float var4 = this.factorValue4;
-        float var5 = this.factorValue3;
-        float var6 = this.factorValue2;
-        float var7 = this.factorValue;
-        Matrix3x2f var8 = this.matrix3x2f;
-        MissingnoRenderHelper var9 = this.missingnoRenderHelper;
-        return ("IconRenderState(image=" + var9 + ", m=" + var8 + ", x=" + var7 + ", y=" + var6 + ", w=" + var5 + ", h=" + var4 + ", a=" + var3 + ")");
+        float factor = this.factorValue5;
+        float factor2 = this.factorValue4;
+        float factor3 = this.factorValue3;
+        float factor4 = this.factorValue2;
+        float factor5 = this.factorValue;
+        Matrix3x2f matrix3x2f = this.matrix3x2f;
+        MissingnoRenderHelper missingnoRenderHelper = this.missingnoRenderHelper;
+        return ("IconRenderState(image=" + missingnoRenderHelper + ", m=" + matrix3x2f + ", x=" + factor5 + ", y=" + factor4 + ", w=" + factor3 + ", h=" + factor2 + ", a=" + factor + ")");
     }
 
     public int hashCode() {
-        int var4 = this.missingnoRenderHelper.hashCode();
-        var4 = ((var4 * 31) + this.matrix3x2f.hashCode());
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue2));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue3));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue4));
-        var4 = ((var4 * 31) + Float.hashCode(this.factorValue5));
-        if (var4 != null) {
+        int index = this.missingnoRenderHelper.hashCode();
+        index = ((index * 31) + this.matrix3x2f.hashCode());
+        index = ((index * 31) + Float.hashCode(this.factorValue));
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + Float.hashCode(this.factorValue3));
+        index = ((index * 31) + Float.hashCode(this.factorValue4));
+        index = ((index * 31) + Float.hashCode(this.factorValue5));
+        if (index != null) {
         }
         return null;
     }
@@ -140,26 +140,26 @@ public class ImageServiceComponent {
         if (!(other instanceof ImageServiceComponent)) {
             return false;
         }
-        ImageServiceComponent var5 = (ImageServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.missingnoRenderHelper, var5.missingnoRenderHelper))) {
+        ImageServiceComponent imageServiceComponent = ((ImageServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.missingnoRenderHelper, imageServiceComponent.missingnoRenderHelper))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.matrix3x2f, var5.matrix3x2f))) {
+        if (!(Intrinsics.areEqual(this.matrix3x2f, imageServiceComponent.matrix3x2f))) {
             return false;
         }
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        if (Float.compare(this.factorValue, imageServiceComponent.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, imageServiceComponent.factorValue2)) {
             return false;
         }
-        if (Float.compare(this.factorValue3, var5.factorValue3)) {
+        if (Float.compare(this.factorValue3, imageServiceComponent.factorValue3)) {
             return false;
         }
-        if (Float.compare(this.factorValue4, var5.factorValue4)) {
+        if (Float.compare(this.factorValue4, imageServiceComponent.factorValue4)) {
             return false;
         }
-        if (Float.compare(this.factorValue5, var5.factorValue5)) {
+        if (Float.compare(this.factorValue5, imageServiceComponent.factorValue5)) {
             return false;
         }
         return true;

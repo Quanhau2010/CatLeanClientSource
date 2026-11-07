@@ -35,7 +35,7 @@ public class ServiceComponent76 {
     }
 
     public void updateValue() {
-        BlockServiceComponent.executeAction(AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE, (DraftIdServiceComponent) itemList.get(countValue).getObject());
+        BlockServiceComponent.executeAction(AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE, ((DraftIdServiceComponent) itemList.get(countValue)).getObject());
         countValue = ((countValue + 1) % itemList.size());
     }
 

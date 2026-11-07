@@ -56,124 +56,115 @@ public class TranslatorModule extends Module {
     }
 
     private TranslatorUrLangMode getUrLang() {
-        return (TranslatorUrLangMode) urLangSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((TranslatorUrLangMode) urLangSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private TranslatorUrLangMode getOutMessages() {
-        return (TranslatorUrLangMode) outMessagesSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((TranslatorUrLangMode) outMessagesSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        if (var4 == null) {
-        }
-        class_7439 var5 = (class_7439) arg0.getPacket();
-        String var6 = var5.comp_763().getString();
+        class_7439 class7439 = ((class_7439) arg0.getPacket());
+        String text = class7439.comp_763().getString();
         Iterator iterator = itemList.iterator();
-        if (iterator.hasNext()) {
-            String var8 = (String) iterator.next();
+        while (iterator.hasNext()) {
+            String text2 = ((String) iterator.next());
             return;
         }
         iterator = RunnableServiceComponent.INSTANCE;
-        var8 = 0;
-        int var9 = 0;
-        iterator.getExecutorService().execute((Runnable) new ServiceComponent116());
+        text2 = 0;
+        iterator.getExecutorService().execute(((Runnable) new ServiceComponent116(text2, text)));
     }
 
     private void onSendPacket(SendPacket arg0) {
-        class_2797 var7 = (class_2797) arg0.getPacket();
-        if (Objects.equals(var7.comp_945(), textValue)) {
+        class_2797 class2797 = ((class_2797) arg0.getPacket());
+        if (Objects.equals(class2797.comp_945(), textValue)) {
             return;
         }
         if (!(arg0.getPacket() instanceof class_2797) || Intrinsics.areEqual(SharedKt.getPlayer().method_6047().getItem(), Items.field_8204) || Intrinsics.areEqual(SharedKt.getPlayer().method_6079().getItem(), Items.field_8204)) {
             return;
         }
-        if (StringsKt.startsWith$default(var7.comp_945(), "/")) {
+        if (StringsKt.startsWith$default(class2797.comp_945(), "/", false)) {
             return;
         }
-        RunnableServiceComponent var8 = RunnableServiceComponent.INSTANCE;
-        int var9 = 0;
-        int var10 = 0;
-        var8.getExecutorService().execute((Runnable) new ServiceComponent15());
+        RunnableServiceComponent runnableServiceComponent = RunnableServiceComponent.INSTANCE;
+        int index = 0;
+        runnableServiceComponent.getExecutorService().execute(((Runnable) new ServiceComponent15(index, class2797)));
         arg0.cancel();
     }
 
     private String resolveString(String arg0, String arg1, long arg2) {
-        StringBuilder var6 = new StringBuilder();
-        String var10 = "https://translate.google.com/m?hl=en&sl=auto&tl=%s&ie=UTF-8&prev=_m&q=%s";
-        Object[] var11 = new Object[2];
-        var11[0] = arg1;
-        Object var12 = arg0;
-        int var23 = 1;
-        Object var22 = var11;
-        int var13 = 0;
-        CharSequence var14 = (CharSequence) var12;
-        int var15 = 0;
-        int var16 = 0;
-        int var17 = (var14.length() - 1);
-        int var18 = 0;
-        if (var16 <= var17) {
-            if (var5 == null) {
-                if (!(var18)) {
+        StringBuilder stringBuilder = new StringBuilder();
+        String text = "https://translate.google.com/m?hl=en&sl=auto&tl=%s&ie=UTF-8&prev=_m&q=%s";
+        Object[] items = new Object[2];
+        items[0] = arg1;
+        String text2 = arg0;
+        int index = 1;
+        int index2 = 0;
+        CharSequence charSequence = ((CharSequence) text2);
+        int index3 = 0;
+        int index4 = (charSequence.length() - 1);
+        int index5 = 0;
+        if (index3 <= index4) {
+            if (__UNDEF_KEY__ == null) {
+                if (!(index5)) {
+                } else {
                 }
-            } else {
             }
-            int var19 = var17;
-            char var20 = var14.charAt();
-            int var21 = 0;
-            if (var5 == null) {
-                if (Intrinsics.compare(32) <= 0) {
+            char ch = charSequence.charAt(index4);
+            if (__UNDEF_KEY__ == null) {
+                if (Intrinsics.compare(ch, 32) <= 0) {
+                } else {
                 }
-            } else {
             }
-            var20 = 0;
-            if (var5 == null) {
-                if (!(var18)) {
-                    if (var5 == null) {
-                        if (!(var20)) {
+            ch = 0;
+            if (__UNDEF_KEY__ == null) {
+                if (!(index5)) {
+                    if (__UNDEF_KEY__ == null) {
+                        if (!(ch)) {
+                            index5 = 1;
                         }
-                        var18 = 1;
                     }
                 }
             }
-            if (!(var20)) {
-                if (var5 != null) {
+            if (!(ch)) {
+                if (__UNDEF_KEY__ != null) {
                 }
             }
         }
-        String var24 = var14.subSequence((var17 + 1)).toString();
-        var22[var23] = URLEncoder.encode("UTF-8");
-        URI var7 = URI.create(String.format(Arrays.copyOf()));
-        Closeable var8 = (Closeable) new BufferedReader((Reader) new InputStreamReader(var7.toURL().openStream(), "UTF-8"));
-        var10 = (BufferedReader) var8;
-        var11 = 0;
-        var13 = var10.readLine();
-        var14 = var13;
-        var15 = 0;
-        var12 = var14;
-        if (var13 != null) {
-            var6.append((var12));
-            if (var5 == null) {
+        String text3 = charSequence.subSequence(index3, (index4 + 1)).toString();
+        items[index] = URLEncoder.encode(text3, "UTF-8");
+        URI uRI = URI.create(String.format(text, Arrays.copyOf(items, items)));
+        Closeable closeable = ((Closeable) new BufferedReader(((Reader) new InputStreamReader(uRI.toURL().openStream(), "UTF-8"))));
+        text = ((BufferedReader) closeable);
+        items = 0;
+        index2 = text.readLine();
+        charSequence = index2;
+        text2 = charSequence;
+        if (index2 != null) {
+            stringBuilder.append((text2));
+            if (__UNDEF_KEY__ == null) {
             }
         }
-        var10 = Unit.INSTANCE;
-        CloseableKt.closeFinally();
-        var11 = 1;
-        Object var9 = var11;
-        CloseableKt.closeFinally();
-        var8 = var11;
-        var8.printStackTrace();
-        var8 = Pattern.compile("class=\"result-container\">([^<]*)</div>", 8).matcher((CharSequence) var6);
-        var8.find();
-        var9 = var8.group(1);
-        if (var5 == null) {
-            if (!((CharSequence) var9.length())) {
+        text = Unit.INSTANCE;
+        CloseableKt.closeFinally(closeable);
+        items = 1;
+        Object[] items2 = items;
+        CloseableKt.closeFinally(closeable, items2);
+        closeable = items;
+        closeable.printStackTrace();
+        closeable = Pattern.compile("class=\"result-container\">([^<]*)</div>", 8).matcher(((CharSequence) stringBuilder));
+        closeable.find();
+        items2 = closeable.group(1);
+        if (__UNDEF_KEY__ == null) {
+            if (!(((CharSequence) items2).length())) {
+            } else {
             }
-        } else {
         }
         if (0) {
             return "translation failed";
         }
-        return StringEscapeUtils.unescapeHtml4();
+        return StringEscapeUtils.unescapeHtml4(items2);
     }
 
     public static String resolveString(TranslatorModule $this, String text, String to) {
@@ -193,16 +184,16 @@ public class TranslatorModule extends Module {
     }
 
     static {
-        KProperty[] var26 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new TranslatorModule();
         urLangSetting = VisibleRenderHelper.registerSetting(INSTANCE, "your-language", TranslatorUrLangMode.INSTANCE35);
         outMessagesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "out-messages", TranslatorUrLangMode.INSTANCE47);
-        var26 = new String[4];
-        var26[0] = "was killed by";
-        var26[1] = "was destroyed by";
-        var26[2] = "has joined a game";
-        var26[3] = "has left the game";
-        itemList = CollectionsKt.listOf();
+        items = new String[4];
+        items[0] = "was killed by";
+        items[1] = "was destroyed by";
+        items[2] = "has joined a game";
+        items[3] = "has left the game";
+        itemList = CollectionsKt.listOf(items);
     }
 
 }

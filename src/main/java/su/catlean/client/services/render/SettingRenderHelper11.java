@@ -32,60 +32,42 @@ public class SettingRenderHelper11 extends SettingRenderHelper16 {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float factor) {
-        long var7 = (0L ^ 49494862758009L);
-        long var9 = ((0L ^ 20797107207379L) >>> 48);
-        long var10 = (((0L ^ 20797107207379L) << 16) >>> 48);
-        long var11 = (((0L ^ 20797107207379L) << 32) >>> 32);
-        long var12 = (0L ^ 39844814704388L);
-        long var14 = (0L ^ 114903264084220L);
-        long var16 = (0L ^ 120682356120742L);
-        long var18 = ((0L ^ 57758330175306L) >>> 48);
-        long var19 = (((0L ^ 57758330175306L) << 16) >>> 32);
-        long var20 = (((0L ^ 57758330175306L) << 48) >>> 48);
         this.updateValue4(14.0F);
-        float var22 = this.getNumericValue();
-        float var23 = ((this.getNumericValue() + this.getNumericValue3()) - 7.0F);
-        int var24 = mouseX;
-        if (var22 <= var24) {
+        float factor2 = this.getNumericValue();
+        float factor3 = ((this.getNumericValue() + this.getNumericValue3()) - 7.0F);
+        int index = mouseX;
+        if (factor2 <= index) {
         } else {
-        }
-        if (var24 <= var23) {
-            var22 = this.getNumericValue2();
-            var23 = (this.getNumericValue2() + 12);
-            var24 = mouseY;
-            if (0L > 0L && var21 != null) {
-                if (var22 <= var24) {
+            if (index <= factor3) {
+                factor2 = this.getNumericValue2();
+                factor3 = (this.getNumericValue2() + 12);
+                index = mouseY;
+                if (factor2 <= index) {
+                } else {
+                    if (index <= factor3) {
+                    } else {
+                    }
                 }
             } else {
             }
-            if (var24 <= var23) {
-            }
+        }
+        this.executeAction(0.0F);
+        factor2 = this.getNumericValue();
+        factor3 = ((this.getNumericValue() + this.getNumericValue3()) - 7.0F);
+        index = mouseX;
+        if (factor2 <= index) {
         } else {
-        }
-        }
-        1.0F.executeAction(0.0F);
-        var22 = this.getNumericValue();
-        var23 = ((this.getNumericValue() + this.getNumericValue3()) - 7.0F);
-        var24 = mouseX;
-        if (0L >= 0L && var21 != null) {
-            if (var22 <= var24) {
-            }
-        } else {
-        }
-        if (var24 <= var23) {
-            var22 = this.getNumericValue2();
-            var23 = (this.getNumericValue2() + 12);
-            var24 = mouseY;
-            if (0L >= 0L && var21 != null) {
-                if (var22 <= var24) {
+            if (index <= factor3) {
+                factor2 = this.getNumericValue2();
+                factor3 = (this.getNumericValue2() + 12);
+                index = mouseY;
+                if (factor2 <= index) {
+                } else {
                 }
-            } else {
-            }
-            if (0L > 0L) {
-            }
-            if (var24 <= var23 && GLFW.glfwGetPlatform() != 393219) {
-                GLFW.glfwSetCursor(SharedKt.getMc().method_22683().method_4490(), GLFW.glfwCreateStandardCursor(221188));
-                CatleanInterfaceRenderHelper.INSTANCE.updateValue(0);
+                if (index <= factor3 && GLFW.glfwGetPlatform() != 393219) {
+                    GLFW.glfwSetCursor(SharedKt.getMc().method_22683().method_4490(), GLFW.glfwCreateStandardCursor(221188));
+                    CatleanInterfaceRenderHelper.INSTANCE.updateValue(false);
+                }
             }
         }
         this.easingServiceComponent2.executeAction(0.0F);
@@ -94,25 +76,25 @@ public class SettingRenderHelper11 extends SettingRenderHelper16 {
     }
 
     public void setValue(double mouseX, double mouseY) {
-        float var9 = this.getNumericValue();
-        if (0L > 0L) {
-            if (var8 != null) {
+        float factor = this.getNumericValue();
+        if (__UNDEF_KEY__ > 0L) {
+            if (__UNDEF_KEY__ != null) {
                 if (mouseX <= ((this.getNumericValue() + this.getNumericValue3()) - 7.0F)) {
+                    if (__UNDEF_KEY__ != null) {
+                    }
+                } else {
                 }
             }
-            if (var8 != null) {
-            }
-        } else {
         }
-        var9 = this.getNumericValue2();
-        if (0L > 0L) {
-            if (var8 != null) {
+        factor = this.getNumericValue2();
+        if (__UNDEF_KEY__ > 0L) {
+            if (__UNDEF_KEY__ != null) {
                 if (mouseY <= (this.getNumericValue2() + 12)) {
+                    if (__UNDEF_KEY__ != null) {
+                    }
+                } else {
                 }
             }
-            if (var8 != null) {
-            }
-        } else {
         }
         this.easingServiceComponent2.updateValue2(1.0F);
     }

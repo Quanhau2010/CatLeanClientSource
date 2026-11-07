@@ -11,20 +11,20 @@ public class AuraEspModeWhenMappings {
     public static final int[] countValueArray2;
 
     static {
-        Object var0 = new int[AuraEspMode.values()];
-        var0[AuraEspMode.COMETS.ordinal()] = 1;
-        var0[AuraEspMode.SELECTION.ordinal()] = 2;
-        ENUM_SWITCH_MAP = var0;
-        var0 = new int[AutoCrystalAutoSwitchMode.values()];
-        var0[AutoCrystalAutoSwitchMode.INVENTORY.ordinal()] = 1;
-        var0[AutoCrystalAutoSwitchMode.SILENT.ordinal()] = 2;
-        var0[AutoCrystalAutoSwitchMode.NORMAL.ordinal()] = 3;
-        countValueArray = var0;
-        var0 = new int[AutoCrystalPredictMode.values()];
-        var0[AutoCrystalPredictMode.AUTO.ordinal()] = 1;
-        var0[AutoCrystalPredictMode.CUSTOM.ordinal()] = 2;
-        var0[AutoCrystalPredictMode.OFF.ordinal()] = 3;
-        countValueArray2 = var0;
+        Object element = new int[AuraEspMode.values()];
+        element[AuraEspMode.COMETS.ordinal()] = 1;
+        element[AuraEspMode.SELECTION.ordinal()] = 2;
+        ENUM_SWITCH_MAP = element;
+        element = new int[AutoCrystalAutoSwitchMode.values()];
+        element[AutoCrystalAutoSwitchMode.INVENTORY.ordinal()] = 1;
+        element[AutoCrystalAutoSwitchMode.SILENT.ordinal()] = 2;
+        element[AutoCrystalAutoSwitchMode.NORMAL.ordinal()] = 3;
+        countValueArray = element;
+        element = new int[AutoCrystalPredictMode.values()];
+        element[AutoCrystalPredictMode.AUTO.ordinal()] = 1;
+        element[AutoCrystalPredictMode.CUSTOM.ordinal()] = 2;
+        element[AutoCrystalPredictMode.OFF.ordinal()] = 3;
+        countValueArray2 = element;
     }
 
 }

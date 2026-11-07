@@ -50,7 +50,7 @@ public class CalcBlockBreakingDeltaEvent extends Event {
     }
 
     public boolean call(BlockPos pos, BlockState state) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         this.setBlockPos(pos);
         INSTANCE.setState(state);
         Gofra.INSTANCE.drain(this);

@@ -70,7 +70,7 @@ public class ViewModelModule extends Module {
     }
 
     private boolean getSyncHands() {
-        return (Boolean) syncHandsSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) syncHandsSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSyncHands(boolean value) {
@@ -78,7 +78,7 @@ public class ViewModelModule extends Module {
     }
 
     private SettingGroup getMainHand() {
-        return (SettingGroup) mainHandSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((SettingGroup) mainHandSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setMainHand(SettingGroup value) {
@@ -86,7 +86,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getX() {
-        return (Number) xSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) xSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setX(float value) {
@@ -94,7 +94,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getY() {
-        return (Number) ySetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) ySetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setY(float value) {
@@ -102,7 +102,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getZ() {
-        return (Number) zSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Number) zSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setZ(float value) {
@@ -110,7 +110,7 @@ public class ViewModelModule extends Module {
     }
 
     public float getScale() {
-        return (Number) scaleSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) scaleSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     public void setScale(float value) {
@@ -118,7 +118,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getYaw() {
-        return (Number) yawSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Number) yawSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setYaw(float value) {
@@ -126,7 +126,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getPitch() {
-        return (Number) pitchSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Number) pitchSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private void setPitch(float value) {
@@ -134,7 +134,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getRoll() {
-        return (Number) rollSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Number) rollSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private void setRoll(float value) {
@@ -142,7 +142,7 @@ public class ViewModelModule extends Module {
     }
 
     private boolean getRotateYaw() {
-        return (Boolean) rotateYawSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Boolean) rotateYawSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private void setRotateYaw(boolean value) {
@@ -150,7 +150,7 @@ public class ViewModelModule extends Module {
     }
 
     private boolean getRotatePitch() {
-        return (Boolean) rotatePitchSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Boolean) rotatePitchSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private void setRotatePitch(boolean value) {
@@ -158,7 +158,7 @@ public class ViewModelModule extends Module {
     }
 
     private boolean getRotateRoll() {
-        return (Boolean) rotateRollSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Boolean) rotateRollSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private void setRotateRoll(boolean value) {
@@ -166,7 +166,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getRotationSpeed() {
-        return (Number) rotationSpeedSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Number) rotationSpeedSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private void setRotationSpeed(float value) {
@@ -174,7 +174,7 @@ public class ViewModelModule extends Module {
     }
 
     private SettingGroup getOffHand() {
-        return (SettingGroup) offHandSetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((SettingGroup) offHandSetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     private void setOffHand(SettingGroup value) {
@@ -182,7 +182,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getOffX() {
-        return (Number) offXSetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Number) offXSetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     private void setOffX(float value) {
@@ -190,7 +190,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getOffY() {
-        return (Number) offYSetting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((Number) offYSetting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     private void setOffY(float value) {
@@ -198,7 +198,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getOffZ() {
-        return (Number) offZSetting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((Number) offZSetting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     private void setOffZ(float value) {
@@ -206,7 +206,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getScaleOff() {
-        return (Number) scaleOffSetting.getValue(this, DELEGATED_PROPERTIES[17]);
+        return ((Number) scaleOffSetting.getValue(this, DELEGATED_PROPERTIES[17]));
     }
 
     private void setScaleOff(float value) {
@@ -214,7 +214,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getOffYaw() {
-        return (Number) offYawSetting.getValue(this, DELEGATED_PROPERTIES[18]);
+        return ((Number) offYawSetting.getValue(this, DELEGATED_PROPERTIES[18]));
     }
 
     private void setOffYaw(float value) {
@@ -222,7 +222,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getOffPitch() {
-        return (Number) offPitchSetting.getValue(this, DELEGATED_PROPERTIES[19]);
+        return ((Number) offPitchSetting.getValue(this, DELEGATED_PROPERTIES[19]));
     }
 
     private void setOffPitch(float value) {
@@ -230,7 +230,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getOffRoll() {
-        return (Number) offRollSetting.getValue(this, DELEGATED_PROPERTIES[20]);
+        return ((Number) offRollSetting.getValue(this, DELEGATED_PROPERTIES[20]));
     }
 
     private void setOffRoll(float value) {
@@ -238,7 +238,7 @@ public class ViewModelModule extends Module {
     }
 
     private boolean getOffRotateYaw() {
-        return (Boolean) offRotateYawSetting.getValue(this, DELEGATED_PROPERTIES[21]);
+        return ((Boolean) offRotateYawSetting.getValue(this, DELEGATED_PROPERTIES[21]));
     }
 
     private void setOffRotateYaw(boolean value) {
@@ -246,7 +246,7 @@ public class ViewModelModule extends Module {
     }
 
     private boolean getOffRotatePitch() {
-        return (Boolean) offRotatePitchSetting.getValue(this, DELEGATED_PROPERTIES[22]);
+        return ((Boolean) offRotatePitchSetting.getValue(this, DELEGATED_PROPERTIES[22]));
     }
 
     private void setOffRotatePitch(boolean value) {
@@ -254,7 +254,7 @@ public class ViewModelModule extends Module {
     }
 
     private boolean getOffRotateRoll() {
-        return (Boolean) offRotateRollSetting.getValue(this, DELEGATED_PROPERTIES[23]);
+        return ((Boolean) offRotateRollSetting.getValue(this, DELEGATED_PROPERTIES[23]));
     }
 
     private void setOffRotateRoll(boolean value) {
@@ -262,7 +262,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getOffRotationSpeed() {
-        return (Number) offRotationSpeedSetting.getValue(this, DELEGATED_PROPERTIES[24]);
+        return ((Number) offRotationSpeedSetting.getValue(this, DELEGATED_PROPERTIES[24]));
     }
 
     private void setOffRotationSpeed(float value) {
@@ -270,7 +270,7 @@ public class ViewModelModule extends Module {
     }
 
     private SettingGroup getEatMod() {
-        return (SettingGroup) eatModSetting.getValue(this, DELEGATED_PROPERTIES[25]);
+        return ((SettingGroup) eatModSetting.getValue(this, DELEGATED_PROPERTIES[25]));
     }
 
     private void setEatMod(SettingGroup value) {
@@ -278,7 +278,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getEatX() {
-        return (Number) eatXSetting.getValue(this, DELEGATED_PROPERTIES[26]);
+        return ((Number) eatXSetting.getValue(this, DELEGATED_PROPERTIES[26]));
     }
 
     private void setEatX(float value) {
@@ -286,7 +286,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getEatY() {
-        return (Number) eatYSetting.getValue(this, DELEGATED_PROPERTIES[27]);
+        return ((Number) eatYSetting.getValue(this, DELEGATED_PROPERTIES[27]));
     }
 
     private void setEatY(float value) {
@@ -294,7 +294,7 @@ public class ViewModelModule extends Module {
     }
 
     private float getEatShake() {
-        return (Number) eatShakeSetting.getValue(this, DELEGATED_PROPERTIES[28]);
+        return ((Number) eatShakeSetting.getValue(this, DELEGATED_PROPERTIES[28]));
     }
 
     private void setEatShake(float value) {
@@ -353,62 +353,54 @@ public class ViewModelModule extends Module {
                 if (Math.abs((factorValue - this.getPitch())) > 90.0F) {
                 } else {
                 }
-                class_7833.field_40714.method_22907((Quaternionfc) PolygonShaderComponent.INSTANCE.rotationDegrees(factorValue.computeValue(this.getPitch(), 1.0F, TextShaderComponent2.INSTANCE.computeValue())));
+                class_7833.field_40714.method_22907(((Quaternionfc) PolygonShaderComponent.INSTANCE.rotationDegrees(factorValue.computeValue(this.getPitch(), 1.0F, TextShaderComponent2.INSTANCE.computeValue()))));
                 if (Math.abs((factorValue2 - this.getYaw())) > 90.0F) {
                 } else {
                 }
-                class_7833.field_40716.method_22907((Quaternionfc) PolygonShaderComponent.INSTANCE.rotationDegrees(factorValue2.computeValue(this.getYaw(), 1.0F, TextShaderComponent2.INSTANCE.computeValue())));
+                class_7833.field_40716.method_22907(((Quaternionfc) PolygonShaderComponent.INSTANCE.rotationDegrees(factorValue2.computeValue(this.getYaw(), 1.0F, TextShaderComponent2.INSTANCE.computeValue()))));
                 if (Math.abs((factorValue3 - this.getRoll())) > 90.0F) {
                 } else {
                 }
-                class_7833.field_40718.method_22907((Quaternionfc) PolygonShaderComponent.INSTANCE.rotationDegrees(factorValue3.computeValue(this.getRoll(), 1.0F, TextShaderComponent2.INSTANCE.computeValue())));
+                class_7833.field_40718.method_22907(((Quaternionfc) PolygonShaderComponent.INSTANCE.rotationDegrees(factorValue3.computeValue(this.getRoll(), 1.0F, TextShaderComponent2.INSTANCE.computeValue()))));
             } else {
                 arg0.getStack().method_46416(this.getOffX(), this.getOffY(), this.getOffZ());
                 arg0.getStack().method_22905(this.getScaleOff(), this.getScaleOff(), this.getScaleOff());
-                arg0.getStack().method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees(PolygonShaderComponent.INSTANCE.computeValue(factorValue4, this.getOffPitch(), TextShaderComponent2.INSTANCE.computeValue())));
-                arg0.getStack().method_22907((Quaternionfc) class_7833.field_40716.rotationDegrees(PolygonShaderComponent.INSTANCE.computeValue(factorValue5, this.getOffYaw(), TextShaderComponent2.INSTANCE.computeValue())));
-                arg0.getStack().method_22907((Quaternionfc) class_7833.field_40718.rotationDegrees(PolygonShaderComponent.INSTANCE.computeValue(factorValue6, this.getOffRoll(), TextShaderComponent2.INSTANCE.computeValue())));
+                arg0.getStack().method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees(PolygonShaderComponent.INSTANCE.computeValue(factorValue4, this.getOffPitch(), TextShaderComponent2.INSTANCE.computeValue()))));
+                arg0.getStack().method_22907(((Quaternionfc) class_7833.field_40716.rotationDegrees(PolygonShaderComponent.INSTANCE.computeValue(factorValue5, this.getOffYaw(), TextShaderComponent2.INSTANCE.computeValue()))));
+                arg0.getStack().method_22907(((Quaternionfc) class_7833.field_40718.rotationDegrees(PolygonShaderComponent.INSTANCE.computeValue(factorValue6, this.getOffRoll(), TextShaderComponent2.INSTANCE.computeValue()))));
             }
         }
     }
 
     private void render(MatrixStack arg0, float arg1, Hand arg2, ItemStack arg3) {
-        int var16 = ((SharedKt.getPlayer().method_6014() - arg1) + 1.0F);
-        float var17 = (var16 / arg3.method_7935((LivingEntity) SharedKt.getPlayer()));
-        float var18 = 0.0F;
-        if (var17 < 0.8F) {
-            var18 = class_3532.method_15379((Math.cos(((var16 / 4.0F) * 3.1415927F)) * this.getEatShake()));
-            arg0.method_46416(0.0F, 0.0F);
+        int index = ((SharedKt.getPlayer().method_6014() - arg1) + 1.0F);
+        int index2 = (index / arg3.method_7935(((LivingEntity) SharedKt.getPlayer())));
+        float factor = 0.0F;
+        if (index2 < 0.8F) {
+            factor = class_3532.method_15379((Math.cos(((index / 4.0F) * 3.1415927F)) * this.getEatShake()));
+            arg0.method_46416(0.0F, factor, 0.0F);
         }
-        var18 = (1.0F - Math.pow(27.0F));
-        boolean var19 = arg2 == Hand.field_5808;
-        arg0.method_46416((((var18 * 0.6F) * var19) * this.getEatX()), ((var18 * -0.5F) * this.getEatY()), (var18 * 0.0F));
-        arg0.method_22907((Quaternionfc) class_7833.field_40716.rotationDegrees(((var19 * var18) * 90.0F)));
-        arg0.method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees((var18 * 10.0F)));
-        arg0.method_22907((Quaternionfc) class_7833.field_40718.rotationDegrees(((var19 * var18) * 30.0F)));
+        factor = (1.0F - Math.pow(index2, 27.0F));
+        boolean flag = arg2 == Hand.field_5808;
+        arg0.method_46416((((factor * 0.6F) * flag) * this.getEatX()), ((factor * -0.5F) * this.getEatY()), (factor * 0.0F));
+        arg0.method_22907(((Quaternionfc) class_7833.field_40716.rotationDegrees(((flag * factor) * 90.0F))));
+        arg0.method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees((factor * 10.0F))));
+        arg0.method_22907(((Quaternionfc) class_7833.field_40718.rotationDegrees(((flag * factor) * 30.0F))));
     }
 
     public void render(MatrixStack matrices) {
-        if (var16 != null) {
-        }
         matrices.method_46416(this.getX(), this.getY(), this.getZ());
     }
 
     public void render(MatrixStack matrices) {
-        if (var13 != null) {
-        }
         matrices.method_46416(this.getOffX(), this.getOffY(), this.getOffZ());
     }
 
     public void render(MatrixStack matrices) {
-        if (var13 != null) {
-        }
         matrices.method_46416(this.getX(), this.getY(), this.getZ());
     }
 
     public void render2(MatrixStack matrices) {
-        if (var13 != null) {
-        }
         matrices.method_46416(this.getOffX(), this.getOffY(), this.getOffZ());
     }
 
@@ -461,9 +453,9 @@ public class ViewModelModule extends Module {
     }
 
     static {
-        KProperty[] var42 = new KProperty[29];
+        KProperty[] items = new KProperty[29];
         INSTANCE = new ViewModelModule();
-        syncHandsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sync-hands");
+        syncHandsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sync-hands", true);
         mainHandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "main-hand");
         xSetting = VisibleRenderHelper.registerSetting(INSTANCE, "x", 0.0F, RangesKt.rangeTo(-3.0F, 3.0F), INSTANCE.getMainHand());
         ySetting = VisibleRenderHelper.registerSetting(INSTANCE, "y", 0.0F, RangesKt.rangeTo(-3.0F, 3.0F), INSTANCE.getMainHand());
@@ -472,9 +464,9 @@ public class ViewModelModule extends Module {
         yawSetting = VisibleRenderHelper.registerSetting(INSTANCE, "yaw", 0.0F, RangesKt.rangeTo(-180.0F, 180.0F), INSTANCE.getMainHand());
         pitchSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pitch", 0.0F, RangesKt.rangeTo(-180.0F, 180.0F), INSTANCE.getMainHand());
         rollSetting = VisibleRenderHelper.registerSetting(INSTANCE, "roll", 0.0F, RangesKt.rangeTo(-180.0F, 180.0F), INSTANCE.getMainHand());
-        rotateYawSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotate-yaw", 0, INSTANCE.getMainHand());
-        rotatePitchSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotate-pitch", 0, INSTANCE.getMainHand());
-        rotateRollSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotate-roll", 0, INSTANCE.getMainHand());
+        rotateYawSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotate-yaw", false, INSTANCE.getMainHand());
+        rotatePitchSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotate-pitch", false, INSTANCE.getMainHand());
+        rotateRollSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotate-roll", false, INSTANCE.getMainHand());
         rotationSpeedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotation-speed", 1.0F, RangesKt.rangeTo(1.0F, 5.0F), INSTANCE.getMainHand());
         offHandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "off-hand", null, this::isActive);
         offXSetting = VisibleRenderHelper.resolveRangeVisibleSettingPropertyImpl2(INSTANCE, "off-x", 0.0F, RangesKt.rangeTo(-3.0F, 3.0F), INSTANCE.getOffHand(), this::isActive2);
@@ -484,9 +476,9 @@ public class ViewModelModule extends Module {
         offYawSetting = VisibleRenderHelper.resolveRangeVisibleSettingPropertyImpl2(INSTANCE, "off-yaw", 0.0F, RangesKt.rangeTo(-180.0F, 180.0F), INSTANCE.getOffHand(), this::isActive6);
         offPitchSetting = VisibleRenderHelper.resolveRangeVisibleSettingPropertyImpl2(INSTANCE, "off-pitch", 0.0F, RangesKt.rangeTo(-180.0F, 180.0F), INSTANCE.getOffHand(), this::isActive7);
         offRollSetting = VisibleRenderHelper.resolveRangeVisibleSettingPropertyImpl2(INSTANCE, "off-roll", 0.0F, RangesKt.rangeTo(-180.0F, 180.0F), INSTANCE.getOffHand(), this::isActive8);
-        offRotateYawSetting = VisibleRenderHelper.resolveVisibleVisibleSettingPropertyImpl(INSTANCE, "off-rotate-yaw", 0, INSTANCE.getOffHand(), this::isActive9);
-        offRotatePitchSetting = VisibleRenderHelper.resolveVisibleVisibleSettingPropertyImpl(INSTANCE, "off-rotate-pitch", 0, INSTANCE.getOffHand(), this::isActive10);
-        offRotateRollSetting = VisibleRenderHelper.resolveVisibleVisibleSettingPropertyImpl(INSTANCE, "off-rotate-roll", 0, INSTANCE.getOffHand(), this::isActive11);
+        offRotateYawSetting = VisibleRenderHelper.resolveVisibleVisibleSettingPropertyImpl(INSTANCE, "off-rotate-yaw", false, INSTANCE.getOffHand(), this::isActive9);
+        offRotatePitchSetting = VisibleRenderHelper.resolveVisibleVisibleSettingPropertyImpl(INSTANCE, "off-rotate-pitch", false, INSTANCE.getOffHand(), this::isActive10);
+        offRotateRollSetting = VisibleRenderHelper.resolveVisibleVisibleSettingPropertyImpl(INSTANCE, "off-rotate-roll", false, INSTANCE.getOffHand(), this::isActive11);
         offRotationSpeedSetting = VisibleRenderHelper.resolveRangeVisibleSettingPropertyImpl2(INSTANCE, "off-rotation-speed", 1.0F, RangesKt.rangeTo(1.0F, 5.0F), INSTANCE.getOffHand(), this::isActive12);
         eatModSetting = VisibleRenderHelper.registerSetting(INSTANCE, "eating");
         eatXSetting = VisibleRenderHelper.registerSetting(INSTANCE, "eat-x", 1.0F, RangesKt.rangeTo(-1.0F, 2.0F), INSTANCE.getEatMod());

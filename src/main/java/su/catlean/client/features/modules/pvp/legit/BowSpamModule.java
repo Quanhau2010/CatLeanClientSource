@@ -30,23 +30,22 @@ public class BowSpamModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         ClientPlayerEntity player = SharedKt.getPlayer();
-        int var15 = 0;
         if (!(Intrinsics.areEqual(player.method_6079().getItem(), Items.field_8102))) {
         }
         if (Intrinsics.areEqual(player.method_6047().getItem(), Items.field_8102) && player.method_6115() && player.method_6048() >= INSTANCE.getDelay()) {
-            SharedKt.getInteractionManager().method_2897((PlayerEntity) SharedKt.getPlayer());
+            SharedKt.getInteractionManager().method_2897(((PlayerEntity) SharedKt.getPlayer()));
             HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
             player.method_6075();
         }
     }
 
     static {
-        KProperty[] var26 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new BowSpamModule();
         delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 3, new IntRange(0, 20));
     }

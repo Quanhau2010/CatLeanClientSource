@@ -28,7 +28,7 @@ public class SetCrystalScaleEvent extends Event {
     }
 
     public float getAge() {
-        return (Number) ageSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) ageSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public void setAge(float value) {
@@ -37,14 +37,14 @@ public class SetCrystalScaleEvent extends Event {
 
     public boolean call(float age) {
         scale = 1.0F;
-        this.setCancelled(0);
+        this.setCancelled(false);
         this.setAge(age);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }
 
     static {
-        KProperty[] var0 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new SetCrystalScaleEvent();
         scale = 1.0F;
         ageSetting = Delegates.INSTANCE.notNull();

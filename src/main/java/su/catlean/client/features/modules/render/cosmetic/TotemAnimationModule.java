@@ -66,11 +66,11 @@ public class TotemAnimationModule extends Module {
     }
 
     private TotemAnimationMode getMode() {
-        return (TotemAnimationMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((TotemAnimationMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private int getSpeed() {
-        return (Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void onShowFloatingItemEvent(ShowFloatingItemEvent arg0) {
@@ -80,98 +80,86 @@ public class TotemAnimationModule extends Module {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        if (var4 == null) {
-            countValue = (countValue + -1);
-        }
+        countValue = (countValue + -1);
         itemStack = null;
     }
 
     private void onRenderFloatingItemEvent(RenderFloatingItemEvent arg0) {
-        int var32 = SharedKt.getMc().method_22683().method_4486();
-        int var33 = SharedKt.getMc().method_22683().method_4502();
-        int var34 = (this.computeValue() - countValue);
-        int var35 = ((var34 + PolygonShaderComponent.INSTANCE.computeValue()) / this.computeValue());
-        float var36 = (var35 * var35);
-        float var37 = (var35 * var36);
-        float var38 = ((((((10.25F * var37) * var36) - ((24.95F * var36) * var36)) + (25.5F * var37)) - (13.8F * var36)) + (4.0F * var35));
-        float var39 = (var38 * 3.1415927F);
+        int index = SharedKt.getMc().method_22683().method_4486();
+        int index2 = SharedKt.getMc().method_22683().method_4502();
+        int index3 = (this.computeValue() - countValue);
+        int index4 = ((index3 + PolygonShaderComponent.INSTANCE.computeValue()) / this.computeValue());
+        int index5 = (index4 * index4);
+        int index6 = (index4 * index5);
+        float factor = ((((((10.25F * index6) * index5) - ((24.95F * index5) * index5)) + (25.5F * index6)) - (13.8F * index5)) + (4.0F * index4));
+        float factor2 = (factor * 3.1415927F);
         MatrixStack matrices = new MatrixStack();
         matrices.method_22903();
-        int var41 = (var34 + PolygonShaderComponent.INSTANCE.computeValue());
-        float var42 = (50.0F + (175.0F * Math.sin()));
-        double var45 = (Math.sin(((var41 * 112) / 180.0F)) * 100);
-        double var46 = (Math.cos(((var41 * 112) / 180.0F)) * 50);
-        matrices.method_46416(((var32 / 2) + var45), ((var33 / 2) + var46), -50.0F);
-        matrices.method_22905();
-        matrices.method_46416((var32 / 2), (var33 / 2), -50.0F);
-        matrices.method_22905();
-        matrices.method_46416((var32 / 2), (var33 / 2), -50.0F);
-        matrices.method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees((var41 * 2)));
-        matrices.method_22907((Quaternionfc) class_7833.field_40718.rotationDegrees((var41 * 2)));
-        matrices.method_22905((200 - (var41 * 1.5F)), (-200 + (var41 * 1.5F)), (200 - (var41 * 1.5F)));
-        matrices.method_46416((var32 / 2), (var33 / 2), -50.0F);
-        matrices.method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees((var41 * 3)));
-        matrices.method_22905((200 - (var41 * 1.5F)), (-200 + (var41 * 1.5F)), (200 - (var41 * 1.5F)));
-        if (var31 != null && var31 != null && var31 != null && var31 != null) {
-            var45 = (Math.pow(3.0D) * 0.2F);
-            matrices.method_46416((var32 / 2), ((var33 / 2) + var45), -50.0F);
-            matrices.method_22907((Quaternionfc) class_7833.field_40718.rotationDegrees((var41 * 5)));
-            matrices.method_22905((200 - (var41 * 1.5F)), (-200 + (var41 * 1.5F)), (200 - (var41 * 1.5F)));
-            if (var31 != null) {
-                var45 = ((Math.pow(3.0D) * 0.2F) - 20);
-                matrices.method_46416((var32 / 2), ((var33 / 2) - var45), -50.0F);
-                matrices.method_22907((Quaternionfc) class_7833.field_40716.rotationDegrees(((var41 * countValue) * 2)));
-                matrices.method_22905((200 - (var41 * 1.5F)), (-200 + (var41 * 1.5F)), (200 - (var41 * 1.5F)));
-                if (var31 != null) {
-                    var45 = (Math.pow(2.0D) * 4.5F);
-                    matrices.method_46416(((var32 / 2) + var45), (var33 / 2), -50.0F);
-                    matrices.method_22907((Quaternionfc) class_7833.field_40718.rotationDegrees((var41 * 40)));
-                    matrices.method_22905((200 - (var41 * 1.5F)), (-200 + (var41 * 1.5F)), (200 - (var41 * 1.5F)));
-                    if (var31 != null && var31 != null) {
-                    }
-                }
-            }
-        }
-        int var27 = 4;
-        int var28 = 0;
-        int var29 = 1024;
-        VertexFormat var30 = class_290.field_1575;
-        FormatRenderHelper var43 = new FormatRenderHelper();
-        PolygonRenderHelper3 var44 = new PolygonRenderHelper3(PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE, (1.0F - var35)).darker());
-        minecraftRef = (class_4597) new BufferServiceComponent((class_4588) var44);
-        var45 = new class_10444();
-        SharedKt.getMc().method_65386().method_65598(itemStack.getItem().method_7854(), class_811.field_4319, (World) SharedKt.getWorld(), null, 0);
-        var45.method_65604(matrices, (class_11659) SharedKt.getMc().field_1773.method_72910(), 15728880, class_4608.field_21444, 0);
+        int index7 = (index3 + PolygonShaderComponent.INSTANCE.computeValue());
+        float factor3 = (50.0F + (175.0F * Math.sin(factor2)));
+        double offset = (Math.sin(((index7 * 112) / 180.0F)) * 100);
+        double offset2 = (Math.cos(((index7 * 112) / 180.0F)) * 50);
+        matrices.method_46416(((index / 2) + offset), ((index2 / 2) + offset2), -50.0F);
+        matrices.method_22905(factor3, factor3, factor3);
+        matrices.method_46416((index / 2), (index2 / 2), -50.0F);
+        matrices.method_22905(factor3, factor3, factor3);
+        matrices.method_46416((index / 2), (index2 / 2), -50.0F);
+        matrices.method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees((index7 * 2))));
+        matrices.method_22907(((Quaternionfc) class_7833.field_40718.rotationDegrees((index7 * 2))));
+        matrices.method_22905((200 - (index7 * 1.5F)), (-200 + (index7 * 1.5F)), (200 - (index7 * 1.5F)));
+        matrices.method_46416((index / 2), (index2 / 2), -50.0F);
+        matrices.method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees((index7 * 3))));
+        matrices.method_22905((200 - (index7 * 1.5F)), (-200 + (index7 * 1.5F)), (200 - (index7 * 1.5F)));
+        offset = (Math.pow(index7, 3.0D) * 0.2F);
+        matrices.method_46416((index / 2), ((index2 / 2) + offset), -50.0F);
+        matrices.method_22907(((Quaternionfc) class_7833.field_40718.rotationDegrees((index7 * 5))));
+        matrices.method_22905((200 - (index7 * 1.5F)), (-200 + (index7 * 1.5F)), (200 - (index7 * 1.5F)));
+        offset = ((Math.pow(index7, 3.0D) * 0.2F) - 20);
+        matrices.method_46416((index / 2), ((index2 / 2) - offset), -50.0F);
+        matrices.method_22907(((Quaternionfc) class_7833.field_40716.rotationDegrees(((index7 * countValue) * 2))));
+        matrices.method_22905((200 - (index7 * 1.5F)), (-200 + (index7 * 1.5F)), (200 - (index7 * 1.5F)));
+        offset = (Math.pow(index7, 2.0D) * 4.5F);
+        matrices.method_46416(((index / 2) + offset), (index2 / 2), -50.0F);
+        matrices.method_22907(((Quaternionfc) class_7833.field_40718.rotationDegrees((index7 * 40))));
+        matrices.method_22905((200 - (index7 * 1.5F)), (-200 + (index7 * 1.5F)), (200 - (index7 * 1.5F)));
+        int index8 = 4;
+        int index9 = 0;
+        int index10 = 1024;
+        VertexFormat vertexFormat = class_290.field_1575;
+        FormatRenderHelper formatRenderHelper = new FormatRenderHelper(vertexFormat, index10, index9, index8);
+        PolygonRenderHelper3 polygonRenderHelper3 = new PolygonRenderHelper3(formatRenderHelper, PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE, (1.0F - index4)).darker());
+        minecraftRef = ((class_4597) new BufferServiceComponent(((class_4588) polygonRenderHelper3)));
+        offset = new class_10444();
+        SharedKt.getMc().method_65386().method_65598(offset, itemStack.getItem().method_7854(), class_811.field_4319, ((World) SharedKt.getWorld()), null, 0);
+        offset.method_65604(matrices, ((class_11659) SharedKt.getMc().field_1773.method_72910()), 15728880, class_4608.field_21444, 0);
         SharedKt.getMc().field_1773.method_72911().method_73002();
         SharedKt.getMc().field_1773.method_72910().method_72953();
-        var46 = SharedKt.getMc().method_1531().method_4619(class_1059.field_64467).method_71659();
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline14(), null, null, new MatrixStack().method_23760().method_23761(), (Matrix3x2f) new Matrix3x2fStack(), MapsKt.mapOf(TuplesKt.to("Sampler0")));
+        offset2 = SharedKt.getMc().method_1531().method_4619(class_1059.field_64467).method_71659();
+        FormatRenderHelper.executeAction(formatRenderHelper, VertexUBOShaderComponent.INSTANCE.getRenderPipeline14(), null, null, new MatrixStack().method_23760().method_23761(), ((Matrix3x2f) new Matrix3x2fStack()), MapsKt.mapOf(TuplesKt.to("Sampler0", offset2)));
         minecraftRef = null;
         matrices.method_22909();
     }
 
     private void onItemCommandEvent(ItemCommandEvent arg0) {
-        if (var4 == null) {
-            arg0.setProvider(minecraftRef);
-        }
+        arg0.setProvider(minecraftRef);
         arg0.cancel();
     }
 
     private int computeValue() {
-        int var8 = (101 - this.getSpeed());
-        if (var7 == null) {
+        int index = (101 - this.getSpeed());
+        if (__UNDEF_KEY__ == null) {
             if (this.getMode() == TotemAnimationMode.FadeOut) {
-                return (var8 / 4);
+                return (index / 4);
             }
         }
         if (this.getMode() == TotemAnimationMode.Insert) {
-            return (var8 / 2);
+            return (index / 2);
         }
-        return var8;
+        return index;
     }
 
     static {
-        KProperty[] var29 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new TotemAnimationModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", TotemAnimationMode.FadeOut);
         speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", 40, new IntRange(1, 100));

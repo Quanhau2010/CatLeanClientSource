@@ -14,7 +14,7 @@ public class TrapModule extends TrapPlacementModule {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        this.executeAction(EntityPacketHelper.findTarget(this.getRange(), AutoCrystalTargetSortMode.FOV, 0, 0, 3105968912215310348L));
+        this.executeAction(EntityPacketHelper.findTarget(this.getRange(), AutoCrystalTargetSortMode.FOV, false, false));
     }
 
     static {

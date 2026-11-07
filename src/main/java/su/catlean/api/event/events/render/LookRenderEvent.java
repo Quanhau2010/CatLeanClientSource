@@ -39,7 +39,7 @@ public class LookRenderEvent extends Event {
     }
 
     public boolean call(float yaw, float pitch, float bodyYaw) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         yaw = yaw;
         pitch = pitch;
         bodyYaw = bodyYaw;

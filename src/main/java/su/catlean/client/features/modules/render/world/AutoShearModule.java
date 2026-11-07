@@ -52,7 +52,7 @@ public class AutoShearModule extends Module {
     }
 
     private WindHopSwitchMode getSwitchMode() {
-        return (WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setSwitchMode(WindHopSwitchMode value) {
@@ -60,7 +60,7 @@ public class AutoShearModule extends Module {
     }
 
     private int getDelay() {
-        return (Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) delaySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setDelay(int value) {
@@ -68,27 +68,23 @@ public class AutoShearModule extends Module {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        Iterable var24 = SharedKt.getWorld().method_18112();
-        int var25 = 0;
-        Object var26 = var24;
-        Collection var27 = (Collection) new ArrayList();
-        int var28 = 0;
-        Iterator iterator = var26.iterator();
+        Iterable iterable = SharedKt.getWorld().method_18112();
+        int index = 0;
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var30 = iterator.next();
-            Entity entity = var30;
-            int var32 = 0;
-            var27.add();
+            Object element = iterator.next();
+            collection.add(element);
         }
-        var24 = (Iterable) var27;
-        var25 = 0;
-        List positions = CollectionsKt.sortedWith((Comparator) new Comparator9());
-        var24 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
-        if (!(serviceComponent38.checkCondition(this.getDelay())) || positions.isEmpty() || !(var24.isActive())) {
+        iterable = ((Iterable) collection);
+        index = 0;
+        List list = CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator9()));
+        iterable = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(this::checkCondition, this.getSwitchMode());
+        if (!(serviceComponent38.checkCondition(this.getDelay())) || list.isEmpty() || !(iterable.isActive())) {
             return;
         }
-        var25 = CollectionsKt.first(positions);
-        SequenceServiceComponent.INSTANCE.executeAction((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var25.getEyePos()), 0, this::resolveUnit));
+        index = CollectionsKt.first(list);
+        SequenceServiceComponent.INSTANCE.executeAction(((RotationServiceComponent4) new RotationRotationServiceComponent4Impl(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(index.getEyePos()), 0, this::resolveUnit)));
     }
 
     private static boolean checkCondition(ItemStack arg0) {
@@ -96,7 +92,7 @@ public class AutoShearModule extends Module {
     }
 
     private static Unit resolveUnit(Entity arg0) {
-        SharedKt.getInteractionManager().method_2905((PlayerEntity) SharedKt.getPlayer(), arg0, Hand.field_5808);
+        SharedKt.getInteractionManager().method_2905(((PlayerEntity) SharedKt.getPlayer()), arg0, Hand.field_5808);
         SharedKt.getPlayer().method_6104(Hand.field_5808);
         return Unit.INSTANCE;
     }
@@ -107,10 +103,10 @@ public class AutoShearModule extends Module {
     }
 
     static {
-        KProperty[] var31 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new AutoShearModule();
-        switchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch", WindHopSwitchMode.SILENT_FULL, null, null, 9047720578961637388L);
-        delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 0, new IntRange(0, -115641942905192438L), null, null, 5424204637244751896L);
+        switchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch", WindHopSwitchMode.SILENT_FULL);
+        delaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 0, new IntRange(0, 10));
         serviceComponent38 = new ServiceComponent38();
     }
 

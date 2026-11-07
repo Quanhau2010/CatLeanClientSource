@@ -8,11 +8,11 @@ public class ServiceComponent97 {
     private static boolean enabledFlag;
 
     static {
-        Object var2 = new int[SpammerMode.values()];
-        var2[SpammerMode.GLOBAL.ordinal()] = 1;
-        var2[SpammerMode.LOCAL.ordinal()] = 2;
-        var2[SpammerMode.WHISPERS.ordinal()] = 3;
-        countValueArray = var2;
+        Object element = new int[SpammerMode.values()];
+        element[SpammerMode.GLOBAL.ordinal()] = 1;
+        element[SpammerMode.LOCAL.ordinal()] = 2;
+        element[SpammerMode.WHISPERS.ordinal()] = 3;
+        countValueArray = element;
     }
 
     public static void updateValue(boolean arg0) {

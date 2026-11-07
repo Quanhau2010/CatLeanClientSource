@@ -35,7 +35,7 @@ public class CollisionEvent extends Event {
     }
 
     public boolean call(BlockState state, BlockPos pos) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         this.pos = pos;
         this.state = state;
         Gofra.INSTANCE.drain(this);

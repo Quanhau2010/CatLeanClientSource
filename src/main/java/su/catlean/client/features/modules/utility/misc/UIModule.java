@@ -23,28 +23,26 @@ public class UIModule extends Module {
     }
 
     public UIModuleMode getModuleMode() {
-        return (UIModuleMode) moduleModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((UIModuleMode) moduleModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public UIModuleTextMode getModuleText() {
-        if ((UIModuleTextMode) moduleTextSetting.getValue(this, DELEGATED_PROPERTIES[1]) != null) {
+        if (((UIModuleTextMode) moduleTextSetting.getValue(this, DELEGATED_PROPERTIES[1])) != null) {
         }
         return null;
     }
 
     public UILinesMode getLinesMode() {
-        if (var8) {
-        }
-        return (UILinesMode) linesModeSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((UILinesMode) linesModeSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     static {
-        KProperty[] var28 = new KProperty[3];
+        KProperty[] items = new KProperty[3];
         INSTANCE = new UIModule();
-        moduleModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "module-mode", UIModuleMode.DEFAULT, null, null, -4536637048387272692L);
-        moduleTextSetting = VisibleRenderHelper.registerSetting(INSTANCE, "module-text", UIModuleTextMode.CENTER, null, null, 1350166967142580236L);
-        linesModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "lines-mode", UILinesMode.NEW, null, null, 1350166967142580236L);
-        INSTANCE.getBind().updateValue(-630024706791047088L);
+        moduleModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "module-mode", UIModuleMode.DEFAULT);
+        moduleTextSetting = VisibleRenderHelper.registerSetting(INSTANCE, "module-text", UIModuleTextMode.CENTER);
+        linesModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "lines-mode", UILinesMode.NEW);
+        INSTANCE.getBind().updateValue(80);
     }
 
     public static void updateValue(int arg0) {

@@ -80,11 +80,11 @@ public class CrystalChamsModule extends Module {
     }
 
     private SettingGroup getTypes() {
-        return (SettingGroup) typesSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((SettingGroup) typesSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getDefault() {
-        return (Boolean) defaultSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) defaultSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setDefault(boolean value) {
@@ -92,7 +92,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private boolean getBox() {
-        return (Boolean) boxSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) boxSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setBox(boolean value) {
@@ -100,7 +100,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private boolean getFrame() {
-        return (Boolean) frameSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) frameSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setFrame(boolean value) {
@@ -108,7 +108,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private boolean getShaderVal() {
-        return (Boolean) shaderValSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) shaderValSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setShaderVal(boolean value) {
@@ -116,27 +116,27 @@ public class CrystalChamsModule extends Module {
     }
 
     private PlayerEspRenderMode getRenderMode() {
-        return (PlayerEspRenderMode) renderModeSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((PlayerEspRenderMode) renderModeSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private PlayerEspShaderMode getShaderMode() {
-        return (PlayerEspShaderMode) shaderModeSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((PlayerEspShaderMode) shaderModeSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private Color getShaderColor() {
-        return (Color) shaderColorSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Color) shaderColorSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private Color getFillColor() {
-        return (Color) fillColorSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Color) fillColorSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private Color getLineColor() {
-        return (Color) lineColorSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Color) lineColorSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private boolean getGlass() {
-        return (Boolean) glassSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Boolean) glassSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private void setGlass(boolean value) {
@@ -144,7 +144,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private boolean getBorders() {
-        return (Boolean) bordersSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Boolean) bordersSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private void setBorders(boolean value) {
@@ -152,7 +152,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getRadiusValue() {
-        return (Number) radiusValueSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Number) radiusValueSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private void setRadiusValue(float value) {
@@ -160,7 +160,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getDistanceValue() {
-        return (Number) distanceValueSetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Number) distanceValueSetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     private void setDistanceValue(float value) {
@@ -168,7 +168,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getGlowAlphaValue() {
-        return (Number) glowAlphaValueSetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Number) glowAlphaValueSetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     private void setGlowAlphaValue(float value) {
@@ -176,7 +176,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getLineWithValue() {
-        return (Number) lineWithValueSetting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((Number) lineWithValueSetting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     private void setLineWithValue(float value) {
@@ -184,7 +184,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getAlpha() {
-        return (Number) alphaSetting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((Number) alphaSetting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     private void setAlpha(float value) {
@@ -192,11 +192,11 @@ public class CrystalChamsModule extends Module {
     }
 
     private Color getSecondColor() {
-        return (Color) secondColorSetting.getValue(this, DELEGATED_PROPERTIES[17]);
+        return ((Color) secondColorSetting.getValue(this, DELEGATED_PROPERTIES[17]));
     }
 
     private PlayerEspColorModeValueMode getColorModeValue() {
-        return (PlayerEspColorModeValueMode) colorModeValueSetting.getValue(this, DELEGATED_PROPERTIES[18]);
+        return ((PlayerEspColorModeValueMode) colorModeValueSetting.getValue(this, DELEGATED_PROPERTIES[18]));
     }
 
     private void setColorModeValue(PlayerEspColorModeValueMode value) {
@@ -204,7 +204,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private int getGlowQualityValue() {
-        return (Number) glowQualityValueSetting.getValue(this, DELEGATED_PROPERTIES[19]);
+        return ((Number) glowQualityValueSetting.getValue(this, DELEGATED_PROPERTIES[19]));
     }
 
     private void setGlowQualityValue(int value) {
@@ -212,7 +212,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getGlowRadiusValue() {
-        return (Number) glowRadiusValueSetting.getValue(this, DELEGATED_PROPERTIES[20]);
+        return ((Number) glowRadiusValueSetting.getValue(this, DELEGATED_PROPERTIES[20]));
     }
 
     private void setGlowRadiusValue(float value) {
@@ -220,7 +220,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getGlowAlphaMultValue() {
-        return (Number) glowAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[21]);
+        return ((Number) glowAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[21]));
     }
 
     private void setGlowAlphaMultValue(float value) {
@@ -228,7 +228,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getFillAlphaMultValue() {
-        return (Number) fillAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[22]);
+        return ((Number) fillAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[22]));
     }
 
     private void setFillAlphaMultValue(float value) {
@@ -236,7 +236,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getSaturation() {
-        return (Number) saturationSetting.getValue(this, DELEGATED_PROPERTIES[23]);
+        return ((Number) saturationSetting.getValue(this, DELEGATED_PROPERTIES[23]));
     }
 
     private void setSaturation(float value) {
@@ -244,7 +244,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getBrightness() {
-        return (Number) brightnessSetting.getValue(this, DELEGATED_PROPERTIES[24]);
+        return ((Number) brightnessSetting.getValue(this, DELEGATED_PROPERTIES[24]));
     }
 
     private void setBrightness(float value) {
@@ -252,7 +252,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private int getHDistance() {
-        return (Number) hDistanceSetting.getValue(this, DELEGATED_PROPERTIES[25]);
+        return ((Number) hDistanceSetting.getValue(this, DELEGATED_PROPERTIES[25]));
     }
 
     private void setHDistance(int value) {
@@ -260,7 +260,7 @@ public class CrystalChamsModule extends Module {
     }
 
     private int getVDistance() {
-        return (Number) vDistanceSetting.getValue(this, DELEGATED_PROPERTIES[26]);
+        return ((Number) vDistanceSetting.getValue(this, DELEGATED_PROPERTIES[26]));
     }
 
     private void setVDistance(int value) {
@@ -268,7 +268,7 @@ public class CrystalChamsModule extends Module {
     }
 
     public boolean getTexture() {
-        return (Boolean) textureSetting.getValue(this, DELEGATED_PROPERTIES[27]);
+        return ((Boolean) textureSetting.getValue(this, DELEGATED_PROPERTIES[27]));
     }
 
     public void setTexture(boolean value) {
@@ -276,19 +276,19 @@ public class CrystalChamsModule extends Module {
     }
 
     private float getScale() {
-        return (Number) scaleSetting.getValue(this, DELEGATED_PROPERTIES[28]);
+        return ((Number) scaleSetting.getValue(this, DELEGATED_PROPERTIES[28]));
     }
 
     private boolean getAgeScale() {
-        return (Boolean) ageScaleSetting.getValue(this, DELEGATED_PROPERTIES[29]);
+        return ((Boolean) ageScaleSetting.getValue(this, DELEGATED_PROPERTIES[29]));
     }
 
     private float getSpeed() {
-        return (Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[30]);
+        return ((Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[30]));
     }
 
     private float getAmplitude() {
-        return (Number) amplitudeSetting.getValue(this, DELEGATED_PROPERTIES[31]);
+        return ((Number) amplitudeSetting.getValue(this, DELEGATED_PROPERTIES[31]));
     }
 
     public StackRenderHelper getStackRenderHelper() {
@@ -297,7 +297,7 @@ public class CrystalChamsModule extends Module {
 
     public void onRender3DEvent(Render3DEvent e) {
         if (this.getShaderVal()) {
-            stackRenderHelper.render(e.getStack(), 1, this.getVDistance(), this.getHDistance());
+            stackRenderHelper.render(e.getStack(), true, this.getVDistance(), this.getHDistance());
         }
         if (this.getBox()) {
             FillColorRenderHelper.INSTANCE.executeAction(this.getRenderMode(), this.getFillColor(), this.getLineColor(), this.getVDistance(), this.getHDistance());
@@ -315,13 +315,11 @@ public class CrystalChamsModule extends Module {
     }
 
     public void onCrystalCreateEvent(CrystalCreateEvent e) {
-        if (var6 == null) {
-        }
         e.cancel();
     }
 
     public void onFrameBufferEvent(FrameBufferEvent event) {
-        event.setFrameBuffer((class_276) stackRenderHelper.getMinecraftObject());
+        event.setFrameBuffer(((class_276) stackRenderHelper.getMinecraftObject()));
         event.cancel();
     }
 
@@ -340,25 +338,23 @@ public class CrystalChamsModule extends Module {
     }
 
     public float computeValue(float age) {
-        if (var9 == null) {
-            if (!(this.getAgeScale())) {
-            } else {
-            }
+        if (!(this.getAgeScale())) {
+        } else {
         }
-        return (this.getScale() * (Number) TpYawSmootherMode.OUT_EXPO.getFunction1().invoke(Double.valueOf(RangesKt.coerceIn((age / 10.0D), 0.0D, 1.0D))));
+        return (this.getScale() * ((Number) TpYawSmootherMode.OUT_EXPO.getFunction1().invoke(Double.valueOf(RangesKt.coerceIn((age / 10.0D), 0.0D, 1.0D)))));
     }
 
     private float computeValue(float arg0) {
-        double var8 = ((Math.sin((arg0 * this.getSpeed())) / 2.0F) + 0.5F);
-        var8 = (((var8 * var8) + var8) * this.getAmplitude());
-        return (var8 - 1.4F);
+        double offset = ((Math.sin((arg0 * this.getSpeed())) / 2.0F) + 0.5F);
+        offset = (((offset * offset) + offset) * this.getAmplitude());
+        return (offset - 1.4F);
     }
 
     private static boolean isActive() {
         if (!(INSTANCE.getBox())) {
             if (INSTANCE.getDefault()) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -394,8 +390,8 @@ public class CrystalChamsModule extends Module {
     private static boolean isActive9() {
         if (INSTANCE.getShaderMode() != PlayerEspShaderMode.DEFAULT) {
             if (INSTANCE.getShaderMode() == PlayerEspShaderMode.BLOOM) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -441,20 +437,20 @@ public class CrystalChamsModule extends Module {
     }
 
     static {
-        KProperty[] var41 = new KProperty[32];
+        KProperty[] items = new KProperty[32];
         INSTANCE = new CrystalChamsModule();
         typesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "types", OptionMode14.BOOLS);
-        defaultSetting = VisibleRenderHelper.registerSetting(INSTANCE, "default", 0, INSTANCE.getTypes());
-        boxSetting = VisibleRenderHelper.registerSetting(INSTANCE, "box", 0, INSTANCE.getTypes());
-        frameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "frame", 0, INSTANCE.getTypes());
-        shaderValSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shader", 0, INSTANCE.getTypes());
+        defaultSetting = VisibleRenderHelper.registerSetting(INSTANCE, "default", false, INSTANCE.getTypes());
+        boxSetting = VisibleRenderHelper.registerSetting(INSTANCE, "box", false, INSTANCE.getTypes());
+        frameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "frame", false, INSTANCE.getTypes());
+        shaderValSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shader", false, INSTANCE.getTypes());
         renderModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "render-mode", PlayerEspRenderMode.BOTH, null, this::isActive);
         shaderModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shader-mode", PlayerEspShaderMode.DEFAULT, null, this::isActive2);
         shaderColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shader-color", new Color(255, 255, 255, 255), null, this::isActive3);
         fillColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fill", new Color(255, 255, 255, 120));
         lineColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "line", new Color(255, 255, 255, 255));
-        glassSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glass", 0, null, this::isActive4);
-        bordersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "border", 0, null, this::isActive5);
+        glassSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glass", false, null, this::isActive4);
+        bordersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "border", false, null, this::isActive5);
         radiusValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "radius", 6.0F, RangesKt.rangeTo(0.0F, 15.0F), null, this::isActive6);
         distanceValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "distance", 1.3F, RangesKt.rangeTo(0.0F, 15.0F), null, this::isActive7);
         glowAlphaValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glow-alpha", 1.7F, RangesKt.rangeTo(1.0F, 5.0F), null, this::isActive8);
@@ -470,9 +466,9 @@ public class CrystalChamsModule extends Module {
         brightnessSetting = VisibleRenderHelper.registerSetting(INSTANCE, "brightness", 2.0F, RangesKt.rangeTo(0.0F, 45.0F), null, this::isActive18);
         hDistanceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "max-horizontal-distance", 64, new IntRange(1, 256));
         vDistanceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "max-vertical-distance", 32, new IntRange(1, 256));
-        textureSetting = VisibleRenderHelper.registerSetting(INSTANCE, "texture");
+        textureSetting = VisibleRenderHelper.registerSetting(INSTANCE, "texture", true);
         scaleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "scale", 1.0F, RangesKt.rangeTo(0.1F, 2.0F));
-        ageScaleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "age-scale", 0, null, this::isActive19);
+        ageScaleSetting = VisibleRenderHelper.registerSetting(INSTANCE, "age-scale", false, null, this::isActive19);
         speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", 0.2F, RangesKt.rangeTo(0.0F, 1.0F));
         amplitudeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "amplitude", 0.4F, RangesKt.rangeTo(0.0F, 1.0F));
         stackRenderHelper = new StackRenderHelper();

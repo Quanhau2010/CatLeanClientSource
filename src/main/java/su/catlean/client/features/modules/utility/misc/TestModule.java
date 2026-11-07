@@ -33,82 +33,56 @@ public class TestModule extends Module {
 
     private void onRender3DEvent(Render3DEvent arg0) {
         BlockPos blockPos = BlockPos.ofFloored(SharedKt.getPlayer().getEyePos());
-        int var12 = 6;
-        IntRange var13 = new IntRange((blockPos.method_10263() - var12), (blockPos.method_10263() + var12));
-        IntRange var14 = new IntRange((blockPos.method_10264() - var12), (blockPos.method_10264() + var12));
-        IntRange var15 = new IntRange((blockPos.method_10260() - var12), (blockPos.method_10260() + var12));
-        long var63 = 0L;
-        long var65 = 0L;
-        Iterable var16 = (Iterable) var13;
-        int var17 = 0;
-        Object var18 = var16;
-        Collection var19 = (Collection) new ArrayList();
-        int var20 = 0;
-        Iterator iterator = var18.iterator();
+        int index = 6;
+        IntRange intRange = new IntRange((blockPos.method_10263() - index), (blockPos.method_10263() + index));
+        IntRange intRange2 = new IntRange((blockPos.method_10264() - index), (blockPos.method_10264() + index));
+        IntRange intRange3 = new IntRange((blockPos.method_10260() - index), (blockPos.method_10260() + index));
+        long time = 0L;
+        long time2 = 0L;
+        Iterable iterable = ((Iterable) intRange);
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            int var22 = (IntIterator) iterator.nextInt();
-            int var23 = var22;
-            int var24 = 0;
-            Iterable var25 = (Iterable) var14;
-            int var26 = 0;
-            Object var27 = var25;
-            Collection var28 = (Collection) new ArrayList();
-            int var29 = 0;
-            Iterator iterator2 = var27.iterator();
+            int index2 = ((IntIterator) iterator).nextInt();
+            Iterable iterable2 = ((Iterable) intRange2);
+            Collection collection2 = ((Collection) new ArrayList());
+            Iterator iterator2 = iterable2.iterator();
             while (iterator2.hasNext()) {
-                int var31 = (IntIterator) iterator2.nextInt();
-                int var32 = var31;
-                int var33 = 0;
-                Iterable var34 = (Iterable) var15;
-                int var35 = 0;
-                Object var36 = var34;
-                Collection var37 = (Collection) new ArrayList();
-                int var38 = 0;
-                Object var39 = var36;
-                int var40 = 0;
-                Iterator iterator3 = var39.iterator();
+                int index3 = ((IntIterator) iterator2).nextInt();
+                Iterable iterable3 = ((Iterable) intRange3);
+                Collection collection3 = ((Collection) new ArrayList());
+                Iterator iterator3 = iterable3.iterator();
                 while (iterator3.hasNext()) {
-                    int var42 = (IntIterator) iterator3.nextInt();
-                    int var43 = var42;
-                    int var44 = 0;
-                    int var45 = var43;
-                    int var46 = 0;
-                    ExplosionPosEntityHelper.INSTANCE.updateValue(0);
-                    float var47 = 0.0F;
-                    int var48 = 0;
-                    long var49 = SharedKt.getNumericValue();
-                    long var51 = var65;
-                    int var53 = 0;
-                    var47 = ExplosionPosEntityHelper.computeValue(new BlockPos().toCenterPos().method_1031(0.0D, 0.5D, 0.0D));
-                    Unit var54 = Unit.INSTANCE;
-                    var65 = (var51 + (Number) TuplesKt.to(Long.valueOf((SharedKt.getNumericValue() - var49))).getSecond().longValue());
-                    ExplosionPosEntityHelper.INSTANCE.updateValue(1);
-                    var48 = 0.0F;
-                    int var55 = 0;
-                    long var56 = SharedKt.getNumericValue();
-                    var51 = var63;
-                    int var58 = 0;
-                    var48 = ExplosionPosEntityHelper.computeValue(new BlockPos().toCenterPos().method_1031(0.0D, 0.5D, 0.0D));
-                    var54 = Unit.INSTANCE;
-                    var63 = (var51 + (Number) TuplesKt.to(Long.valueOf((SharedKt.getNumericValue() - var56))).getSecond().longValue());
-                    if (var47 != var48) {
-                        MessageServiceComponent.S(null, (INSTANCE + new BlockPos() + var47 + " != " + var48));
+                    int index4 = ((IntIterator) iterator3).nextInt();
+                    ExplosionPosEntityHelper.INSTANCE.updateValue(false);
+                    float factor = 0.0F;
+                    int index5 = 0;
+                    long time3 = SharedKt.getNumericValue();
+                    long time4 = time2;
+                    factor = ExplosionPosEntityHelper.computeValue(new BlockPos(index2, index3, index4).toCenterPos().method_1031(0.0D, 0.5D, 0.0D), null, 0, true, null, false);
+                    Unit unit = Unit.INSTANCE;
+                    time2 = (time4 + ((Number) TuplesKt.to(unit, Long.valueOf((SharedKt.getNumericValue() - time3))).getSecond()).longValue());
+                    ExplosionPosEntityHelper.INSTANCE.updateValue(true);
+                    index5 = 0.0F;
+                    long time5 = SharedKt.getNumericValue();
+                    time4 = time;
+                    index5 = ExplosionPosEntityHelper.computeValue(new BlockPos(index2, index3, index4).toCenterPos().method_1031(0.0D, 0.5D, 0.0D), null, 0, true, null, false);
+                    unit = Unit.INSTANCE;
+                    time = (time4 + ((Number) TuplesKt.to(unit, Long.valueOf((SharedKt.getNumericValue() - time5))).getSecond()).longValue());
+                    if (factor != index5) {
+                        MessageServiceComponent.S(null, (INSTANCE + new BlockPos(index2, index3, index4) + factor + " != " + index5), false);
                     }
-                    Unit var59 = Unit.INSTANCE;
-                    int var60 = 0;
-                    var37.add();
+                    Unit unit2 = Unit.INSTANCE;
+                    collection3.add(unit2);
                 }
-                Iterable var61 = (Iterable) var37;
-                CollectionsKt.addAll();
+                Iterable iterable4 = ((Iterable) collection3);
+                CollectionsKt.addAll(collection2, iterable4);
             }
-            Iterable var62 = (Iterable) var28;
-            CollectionsKt.addAll();
+            Iterable iterable5 = ((Iterable) collection2);
+            CollectionsKt.addAll(collection, iterable5);
         }
-        var16 = (((var65 - var63) / Math.max(1L)) * 100.0F);
-        int var67 = var16;
-        long var68 = var63;
-        long var70 = var65;
-        MessageServiceComponent.S(this, ("time: " + var70 + "; optimized: " + var68 + ", saved: " + var67 + "%"));
+        iterable = (((time2 - time) / Math.max(time2, 1L)) * 100.0F);
+        MessageServiceComponent.S(this, ("time: " + time2 + "; optimized: " + time + ", saved: " + iterable + "%"), false);
     }
 
     static {

@@ -9,19 +9,19 @@ public class BlockPlacementSwitchModeWhenMappings {
     public static final int[] countValueArray;
 
     static {
-        Object var9 = new int[BlockPlacementSwitchMode.values()];
-        var9[BlockPlacementSwitchMode.Normal.ordinal()] = 1;
-        var9[BlockPlacementSwitchMode.Silent.ordinal()] = 2;
-        var9[BlockPlacementSwitchMode.Alternative.ordinal()] = 3;
-        ENUM_SWITCH_MAP = var9;
-        var9 = new int[Direction.values()];
-        var9[Direction.DOWN.ordinal()] = 1;
-        var9[Direction.UP.ordinal()] = 2;
-        var9[Direction.EAST.ordinal()] = 3;
-        var9[Direction.SOUTH.ordinal()] = 4;
-        var9[Direction.WEST.ordinal()] = 5;
-        var9[Direction.NORTH.ordinal()] = 0L;
-        countValueArray = var9;
+        Object element = new int[BlockPlacementSwitchMode.values()];
+        element[BlockPlacementSwitchMode.Normal.ordinal()] = 1;
+        element[BlockPlacementSwitchMode.Silent.ordinal()] = 2;
+        element[BlockPlacementSwitchMode.Alternative.ordinal()] = 3;
+        ENUM_SWITCH_MAP = element;
+        element = new int[Direction.values()];
+        element[Direction.DOWN.ordinal()] = 1;
+        element[Direction.UP.ordinal()] = 2;
+        element[Direction.EAST.ordinal()] = 3;
+        element[Direction.SOUTH.ordinal()] = 4;
+        element[Direction.WEST.ordinal()] = 5;
+        element[Direction.NORTH.ordinal()] = 0;
+        countValueArray = element;
     }
 
 }

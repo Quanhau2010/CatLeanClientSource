@@ -93,7 +93,7 @@ public class ElytraRecastModule extends Module {
     }
 
     private boolean getGrim() {
-        return (Boolean) grimSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) grimSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setGrim(boolean value) {
@@ -101,7 +101,7 @@ public class ElytraRecastModule extends Module {
     }
 
     private boolean getTunnelsOffset() {
-        return (Boolean) tunnelsOffsetSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) tunnelsOffsetSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setTunnelsOffset(boolean value) {
@@ -109,7 +109,7 @@ public class ElytraRecastModule extends Module {
     }
 
     private ElytraRecastBypassMode getBypass() {
-        return (ElytraRecastBypassMode) bypassSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((ElytraRecastBypassMode) bypassSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setBypass(ElytraRecastBypassMode value) {
@@ -117,7 +117,7 @@ public class ElytraRecastModule extends Module {
     }
 
     private boolean getGrimDurability() {
-        return (Boolean) grimDurabilitySetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) grimDurabilitySetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setGrimDurability(boolean value) {
@@ -125,7 +125,7 @@ public class ElytraRecastModule extends Module {
     }
 
     private boolean getChangePitch() {
-        return (Boolean) changePitchSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) changePitchSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setChangePitch(boolean value) {
@@ -133,7 +133,7 @@ public class ElytraRecastModule extends Module {
     }
 
     private float getPitchValue() {
-        return (Number) pitchValueSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) pitchValueSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void setPitchValue(float value) {
@@ -141,19 +141,17 @@ public class ElytraRecastModule extends Module {
     }
 
     private boolean getAllowBroken() {
-        return (Boolean) allowBrokenSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) allowBrokenSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setAllowBroken(boolean value) {
         allowBrokenSetting.setValue(this, DELEGATED_PROPERTIES[6], Boolean.valueOf(value));
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = (arg0 ^ 67464996320865L);
+    public void updateValue() {
         enabledFlag4 = 0;
         countValue = 0;
-        if (!(var7)) {
+        if (!(__UNDEF_KEY__)) {
             if (SharedKt.getMc().player != null) {
                 factorValue5 = SharedKt.getPlayer().method_36454();
             }
@@ -191,23 +189,21 @@ public class ElytraRecastModule extends Module {
     }
 
     private void onJumpEvent(JumpEvent arg0) {
-        if (!(var6)) {
-            arg0.setYaw(factorValue5);
-        }
+        arg0.setYaw(factorValue5);
         arg0.cancel();
     }
 
     private void onFallFlyingEvent(FallFlyingEvent arg0) {
         if (this.getGrim()) {
-            arg0.setValue(1);
+            arg0.setValue(true);
             arg0.cancel();
         } else {
-            boolean var10 = arg0.getValue();
-            if (enabledFlag && !(var10)) {
+            boolean flag = arg0.getValue();
+            if (enabledFlag && !(flag)) {
                 arg0.setValue(this.checkCondition());
                 arg0.cancel();
             }
-            enabledFlag = var10;
+            enabledFlag = flag;
         }
     }
 
@@ -223,19 +219,18 @@ public class ElytraRecastModule extends Module {
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (!(this.getChangePitch())) {
             if (this.getGrim()) {
+                if (this.getGrim()) {
+                } else {
+                }
+                SequenceServiceComponent.INSTANCE.executeAction(new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), this.getPitchValue(), false), 201);
             }
-            if (this.getGrim()) {
-            } else {
-            }
-            factorValue5.<init>(SharedKt.getPlayer().method_36454(), this.getPitchValue());
-            new MoveFixServiceComponent.executeAction(new MoveFixServiceComponent, 201);
         }
         if (countValue > 0) {
-            int var35 = countValue;
-            countValue = (var35 + -1);
-            SharedKt.getMc().options.field_1903.method_23481(0);
-            SharedKt.getMc().options.field_1894.method_23481(0);
-            SharedKt.getMc().options.field_1867.method_23481(0);
+            int index = countValue;
+            countValue = (index + -1);
+            SharedKt.getMc().options.field_1903.method_23481(false);
+            SharedKt.getMc().options.field_1894.method_23481(false);
+            SharedKt.getMc().options.field_1867.method_23481(false);
             this.updateValue();
             this.updateValue2();
             this.executeAction();
@@ -249,18 +244,18 @@ public class ElytraRecastModule extends Module {
         if (!(SharedKt.getPlayer().isFallFlying()) || !(this.checkCondition())) {
             return;
         }
-        SharedKt.getPlayer().method_5728(1);
-        SharedKt.getMc().options.field_1903.method_23481(1);
-        SharedKt.getMc().options.field_1894.method_23481(1);
-        SharedKt.getMc().options.field_1867.method_23481(1);
+        SharedKt.getPlayer().method_5728(true);
+        SharedKt.getMc().options.field_1903.method_23481(true);
+        SharedKt.getMc().options.field_1894.method_23481(true);
+        SharedKt.getMc().options.field_1867.method_23481(true);
         if (EventPacketHelper2.INSTANCE.getNumericValue() > 1.0D) {
         } else {
         }
-        var35 = EventPacketHelper2.INSTANCE.getNumericValue();
+        index = EventPacketHelper2.INSTANCE.getNumericValue();
         if (SharedKt.getPlayer().isOnGround()) {
             enabledFlag3 = 0;
         }
-        if (var35 > 0.0F) {
+        if (index > 0.0F) {
             if (!(enabledFlag3) && this.checkCondition2()) {
                 if (queue2.size() > 20) {
                     this.updateValue2();
@@ -274,7 +269,7 @@ public class ElytraRecastModule extends Module {
                 enabledFlag = 1;
             }
         }
-        (LivingEntityAccessor) SharedKt.getPlayer().setLastJumpCooldown(0);
+        ((LivingEntityAccessor) SharedKt.getPlayer()).setLastJumpCooldown(0);
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
@@ -290,7 +285,7 @@ public class ElytraRecastModule extends Module {
             arg0.cancel();
         }
         arg0.cancel();
-        queue2.add((class_6373) arg0.getPacket());
+        queue2.add(((class_6373) arg0.getPacket()));
     }
 
     private void onSendPacket(SendPacket arg0) {
@@ -298,60 +293,60 @@ public class ElytraRecastModule extends Module {
             arg0.cancel();
             queue.add(arg0.getPacket());
         }
-        double var19 = (LocalPlayerAccessor) SharedKt.getPlayer().getLastBaseY();
-        boolean var21 = this.computeValue() >= 0.4D;
+        double offset = ((LocalPlayerAccessor) SharedKt.getPlayer()).getLastBaseY();
+        boolean flag = this.computeValue(offset) >= 0.4D;
         if (arg0.getPacket() instanceof class_6374) {
             if (enabledFlag) {
                 if (SharedKt.getPlayer().isFallFlying()) {
                     if (!(SharedKt.getWorld().method_18026(SharedKt.getPlayer().method_5829().method_989(0.0D, -1.0D, 0.0D)))) {
                         if (enabledFlag5) {
-                            if (this.computeValue() >= 0.8D) {
-                            }
-                            if (!(enabledFlag5)) {
-                                if (this.computeValue() < 0.4D) {
+                            if (this.computeValue(offset) >= 0.8D) {
+                                if (!(enabledFlag5)) {
+                                    if (this.computeValue(offset) < 0.4D) {
+                                        linkedList.add(((class_6374) arg0.getPacket()));
+                                        arg0.cancel();
+                                    }
                                 }
-                                linkedList.add((class_6374) arg0.getPacket());
-                                arg0.cancel();
                             }
                         }
                     }
-                    if (var21) {
+                    if (flag) {
+                        this.updateValue3();
                         this.updateValue3();
                     }
                 } else {
-                    this.updateValue3();
                 }
+            } else {
             }
         }
-        }
-        PlayerMoveC2SPacket var22 = (PlayerMoveC2SPacket) arg0.getPacket();
+        PlayerMoveC2SPacket playerMoveC2SPacket = ((PlayerMoveC2SPacket) arg0.getPacket());
         if (enabledFlag) {
             if (SharedKt.getPlayer().isFallFlying()) {
-                if (var22.method_12268(preciseValue) < preciseValue) {
+                if (playerMoveC2SPacket.method_12268(preciseValue) < preciseValue) {
                     enabledFlag5 = 1;
                 } else {
-                    if (var22.method_12268(preciseValue) > preciseValue) {
+                    if (playerMoveC2SPacket.method_12268(preciseValue) > preciseValue) {
                         enabledFlag5 = 0;
                     }
                 }
-                preciseValue = var22.method_12268(preciseValue);
+                preciseValue = playerMoveC2SPacket.method_12268(preciseValue);
                 if (!(SharedKt.getWorld().method_18026(SharedKt.getPlayer().method_5829().method_989(0.0D, -1.0D, 0.0D)))) {
                     if (enabledFlag5) {
-                        if (this.computeValue(var22.method_12268()) >= 0.8D) {
-                        }
-                        if (!(enabledFlag5)) {
-                            if (this.computeValue() < 0.4D) {
+                        if (this.computeValue(playerMoveC2SPacket.method_12268(offset)) >= 0.8D) {
+                            if (!(enabledFlag5)) {
+                                if (this.computeValue(offset) < 0.4D) {
+                                    linkedList2.add(playerMoveC2SPacket);
+                                    arg0.cancel();
+                                }
                             }
-                            linkedList2.add();
-                            arg0.cancel();
                         }
                     }
                 }
                 this.executeAction();
+            } else {
+                this.executeAction();
             }
         } else {
-            this.executeAction();
-        }
         }
     }
 
@@ -359,81 +354,67 @@ public class ElytraRecastModule extends Module {
         return (arg0 - Math.floor(arg0));
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 64129331416845L);
-        long var5 = (arg0 ^ 73907896531847L);
-        long var7 = ((arg0 ^ 29281619393040L) >>> 32);
-        long var8 = (((arg0 ^ 29281619393040L) << 32) >>> 48);
-        long var9 = (((arg0 ^ 29281619393040L) << 48) >>> 48);
-        long var10 = (arg0 ^ 43815837977696L);
-        long var12 = (arg0 ^ 114558609552098L);
-        long var14 = ((arg0 ^ 44030506242343L) >>> 48);
-        long var15 = (((arg0 ^ 44030506242343L) << 16) >>> 32);
-        long var16 = (((arg0 ^ 44030506242343L) << 48) >>> 48);
-        if (!(ServiceComponent13.checkCondition((KeyMappingAccessor) SharedKt.getMc().options.field_1894.getKey().method_1444()))) {
-            SharedKt.getMc().options.field_1894.method_23481(0);
+    public void updateValue2() {
+        if (!(ServiceComponent13.checkCondition(((KeyMappingAccessor) SharedKt.getMc().options.field_1894).getKey().method_1444()))) {
+            SharedKt.getMc().options.field_1894.method_23481(false);
         }
-        if (arg0 > 0L) {
-            if (!(ServiceComponent13.checkCondition((KeyMappingAccessor) SharedKt.getMc().options.field_1903.getKey().method_1444()))) {
-                SharedKt.getMc().options.field_1903.method_23481(0);
-            }
-            enabledFlag = 0;
-            enabledFlag2 = 0;
-            this.updateValue();
-            this.updateValue2();
-            this.executeAction();
-            this.updateValue3();
+        if (!(ServiceComponent13.checkCondition(((KeyMappingAccessor) SharedKt.getMc().options.field_1903).getKey().method_1444()))) {
+            SharedKt.getMc().options.field_1903.method_23481(false);
         }
-        if (arg0 > 0L) {
-        }
+        enabledFlag = 0;
+        enabledFlag2 = 0;
+        this.updateValue();
+        this.updateValue2();
+        this.executeAction();
+        this.updateValue3();
     }
 
     private boolean checkCondition(int arg0, long arg1) {
         if (this.checkCondition()) {
-            int var24 = ItemPacketHelper.INSTANCE.computeValue();
+            int index = ItemPacketHelper.INSTANCE.computeValue();
             if (arg1 >= 0L) {
-                if (!(var23)) {
+                if (!(__UNDEF_KEY__)) {
                     if (arg0 >= 0) {
-                        if (!(var23)) {
-                            if (var24 != -2 && var24 != -1 && this.getGrimDurability() && this.getGrim()) {
-                                HandServiceComponent.e();
-                                HandServiceComponent.e();
+                        if (!(__UNDEF_KEY__)) {
+                            if (index != -2 && index != -1 && this.getGrimDurability() && this.getGrim()) {
+                                HandServiceComponent.e(index, 0, null, false);
+                                HandServiceComponent.e(6, 0, null, false);
                             }
-                            ElytraSwapModule.INSTANCE.updateValue(1);
+                            ElytraSwapModule.INSTANCE.updateValue(true);
                             SharedKt.getPlayer().startFallFlying();
-                            PacketPacketHelper.handlePacket((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12982));
+                            PacketPacketHelper.handlePacket(((Packet) new ClientCommandC2SPacket(SharedKt.getPlayer(), class_2849.field_12982)));
                         }
                     }
                 }
             }
             if (arg0 > 0) {
                 if (arg1 > 0L) {
-                    if (!(var23)) {
-                        if (var24 != -2 && var24 != -1 && this.getGrimDurability() && this.getGrim()) {
-                            HandServiceComponent.e();
-                            HandServiceComponent.e();
+                    if (!(__UNDEF_KEY__)) {
+                        if (index != -2 && index != -1 && this.getGrimDurability() && this.getGrim()) {
+                            HandServiceComponent.e(6, 0, null, false);
+                            HandServiceComponent.e(index, 0, null, true);
                         }
                     }
                 }
                 if (arg0 >= 0) {
-                    if (!(var23)) {
-                    }
-                }
-                if (arg1 >= 0L) {
-                }
-                if (var24 == -2 && this.getGrimDurability() && this.getGrim()) {
-                    Item[] var26 = new Item[6];
-                    var26[0] = Items.NETHERITE_CHESTPLATE;
-                    var26[1] = Items.DIAMOND_CHESTPLATE;
-                    var26[2] = Items.IRON_CHESTPLATE;
-                    var26[3] = Items.GOLDEN_CHESTPLATE;
-                    var26[4] = Items.LEATHER_CHESTPLATE;
-                    var26[5] = Items.CHAINMAIL_CHESTPLATE;
-                    StackServiceComponent2 var25 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-                    if (var25.isActive()) {
-                        HandServiceComponent.e(var25.getNumericValue());
-                        HandServiceComponent.e();
-                        HandServiceComponent.e(var25.getNumericValue());
+                    if (!(__UNDEF_KEY__)) {
+                        if (arg1 >= 0L) {
+                        }
+                        if (index == -2 && this.getGrimDurability() && this.getGrim()) {
+                            Item[] items = new Item[6];
+                            items[0] = Items.NETHERITE_CHESTPLATE;
+                            items[1] = Items.DIAMOND_CHESTPLATE;
+                            items[2] = Items.IRON_CHESTPLATE;
+                            items[3] = Items.GOLDEN_CHESTPLATE;
+                            items[4] = Items.LEATHER_CHESTPLATE;
+                            items[5] = Items.CHAINMAIL_CHESTPLATE;
+                            StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+                            if (stackServiceComponent2.isActive()) {
+                                HandServiceComponent.e(stackServiceComponent2.getNumericValue(), 0, null, false);
+                                HandServiceComponent.e(6, 0, null, false);
+                                HandServiceComponent.e(stackServiceComponent2.getNumericValue(), 0, null, true);
+                            }
+                        }
                     }
                 }
             }
@@ -448,11 +429,11 @@ public class ElytraRecastModule extends Module {
             if (!(this.checkCondition(stack))) {
                 if (stack.method_31574(Items.ELYTRA) && this.getAllowBroken()) {
                     if (this.getGrim()) {
-                    }
-                    if (this.getGrimDurability() && ItemPacketHelper.INSTANCE.computeValue() != -1) {
+                        if (this.getGrimDurability() && ItemPacketHelper.INSTANCE.computeValue() != -1) {
+                        } else {
+                        }
                     }
                 }
-            } else {
             }
             return false;
         }
@@ -466,8 +447,8 @@ public class ElytraRecastModule extends Module {
     private boolean checkCondition2() {
         if (!(this.getGrimDurability())) {
             if (this.getTunnelsOffset()) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -475,19 +456,19 @@ public class ElytraRecastModule extends Module {
     private void updateValue() {
         enabledFlag4 = 1;
         if (!(queue.isEmpty())) {
-            PacketPacketHelper.handlePacket((Packet) queue.poll());
+            PacketPacketHelper.handlePacket(((Packet) queue.poll()));
         }
         enabledFlag4 = 0;
     }
 
     private void updateValue2() {
-        (class_6373) queue2.poll().method_36949((class_8705) SharedKt.getNetwork());
+        ((class_6373) queue2.poll()).method_36949(((class_8705) SharedKt.getNetwork()));
     }
 
     private void updateValue3() {
         enabledFlag4 = 1;
         if (!(linkedList.isEmpty())) {
-            PacketPacketHelper.handlePacket((Packet) linkedList.poll());
+            PacketPacketHelper.handlePacket(((Packet) linkedList.poll()));
         }
         enabledFlag4 = 0;
         factorValue5 = SharedKt.getPlayer().method_36454();
@@ -496,7 +477,7 @@ public class ElytraRecastModule extends Module {
     private void executeAction(int arg0, int arg1) {
         enabledFlag4 = 1;
         if (!(linkedList2.isEmpty())) {
-            PacketPacketHelper.handlePacket((Packet) linkedList2.poll());
+            PacketPacketHelper.handlePacket(((Packet) linkedList2.poll()));
             if (arg0 >= 0) {
             }
         }
@@ -524,17 +505,17 @@ public class ElytraRecastModule extends Module {
     }
 
     static {
-        KProperty[] var30 = new KProperty[7];
+        KProperty[] items = new KProperty[7];
         INSTANCE = new ElytraRecastModule();
-        grimSetting = VisibleRenderHelper.registerSetting(INSTANCE, "grim");
-        tunnelsOffsetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "tunnels-offset");
+        grimSetting = VisibleRenderHelper.registerSetting(INSTANCE, "grim", true);
+        tunnelsOffsetSetting = VisibleRenderHelper.registerSetting(INSTANCE, "tunnels-offset", true);
         bypassSetting = VisibleRenderHelper.registerSetting(INSTANCE, "bypass", ElytraRecastBypassMode.SEMI, null, this::isActive);
-        grimDurabilitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "grim-durability", 1, null, this::isActive2);
-        changePitchSetting = VisibleRenderHelper.registerSetting(INSTANCE, "change-pitch", 1, null, this::isActive3);
+        grimDurabilitySetting = VisibleRenderHelper.registerSetting(INSTANCE, "grim-durability", true, null, this::isActive2);
+        changePitchSetting = VisibleRenderHelper.registerSetting(INSTANCE, "change-pitch", true, null, this::isActive3);
         pitchValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pitch", 87.0F, RangesKt.rangeTo(0.0F, 90.0F), null, this::isActive4);
-        allowBrokenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "allow-broken", 1, null, this::isActive5);
-        queue = (Queue) new LinkedList();
-        queue2 = (Queue) new LinkedList();
+        allowBrokenSetting = VisibleRenderHelper.registerSetting(INSTANCE, "allow-broken", true, null, this::isActive5);
+        queue = ((Queue) new LinkedList());
+        queue2 = ((Queue) new LinkedList());
         linkedList = new LinkedList();
         linkedList2 = new LinkedList();
         enabledFlag5 = 1;

@@ -20,23 +20,20 @@ public class MinValueServiceComponent {
     }
 
     public String resolveString(String id, Number minValue, String orElse) {
-        Iterable var10 = (Iterable) itemList;
-        int var11 = 0;
-        Iterator iterator = var10.iterator();
-        if (iterator.hasNext()) {
-            Object var13 = iterator.next();
-            OverrideNameServiceComponent var14 = (OverrideNameServiceComponent) var13;
-            int var15 = 0;
-        } else {
+        Iterable iterable = ((Iterable) itemList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            OverrideNameServiceComponent overrideNameServiceComponent = ((OverrideNameServiceComponent) element);
         }
-        if ((OverrideNameServiceComponent) null != null) {
-            if (0L >= 0) {
-                if ((OverrideNameServiceComponent) null.getString2() == null) {
+        if (((OverrideNameServiceComponent) null) != null) {
+            if (__UNDEF_KEY__ >= 0) {
+                if (((OverrideNameServiceComponent) null).getString2() == null) {
                 }
             }
         }
-        if (0L >= 0) {
-            if (var9 != null) {
+        if (__UNDEF_KEY__ >= 0) {
+            if (__UNDEF_KEY__ != null) {
             }
         }
         return orElse;

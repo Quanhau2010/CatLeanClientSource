@@ -10,11 +10,11 @@ public class HoldServiceComponent extends MutablePropertyReference0Impl {
     }
 
     public Object get() {
-        return Boolean.valueOf((IdRecord11) this.receiver.isActive());
+        return Boolean.valueOf(((IdRecord11) this.receiver).isActive());
     }
 
     public void set(Object value) {
-        (IdRecord11) this.receiver.updateValue((Boolean) value);
+        ((IdRecord11) this.receiver).updateValue(((Boolean) value));
     }
 
 }

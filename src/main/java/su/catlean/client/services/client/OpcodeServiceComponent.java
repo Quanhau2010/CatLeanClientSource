@@ -39,9 +39,9 @@ public class OpcodeServiceComponent {
     }
 
     public int hashCode() {
-        int var3 = this.optionMode2.hashCode();
-        var3 = ((var3 * -613162136905973729L) + this.evtRecord.hashCode());
-        return var3;
+        int index = this.optionMode2.hashCode();
+        index = ((index * 31) + this.evtRecord.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -51,11 +51,11 @@ public class OpcodeServiceComponent {
         if (!(other instanceof OpcodeServiceComponent)) {
             return false;
         }
-        OpcodeServiceComponent var5 = (OpcodeServiceComponent) other;
-        if (this.optionMode2 != var5.optionMode2) {
+        OpcodeServiceComponent opcodeServiceComponent = ((OpcodeServiceComponent) other);
+        if (this.optionMode2 != opcodeServiceComponent.optionMode2) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.evtRecord, var5.evtRecord))) {
+        if (!(Intrinsics.areEqual(this.evtRecord, opcodeServiceComponent.evtRecord))) {
             return false;
         }
         return true;

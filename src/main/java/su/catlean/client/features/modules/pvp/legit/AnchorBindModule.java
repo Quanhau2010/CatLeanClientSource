@@ -50,63 +50,60 @@ public class AnchorBindModule extends Module {
     }
 
     private int getAnchorDelay() {
-        return (Number) anchorDelaySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) anchorDelaySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getRandomizeDelay() {
-        return (Boolean) randomizeDelaySetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) randomizeDelaySetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private KeyRecord getAnchorBind() {
-        return (KeyRecord) anchorBindSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((KeyRecord) anchorBindSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (this.getAnchorDelay() > 0) {
         } else {
         }
-        Item[] var27 = new Item[1];
-        var27[0] = Items.field_8801;
-        int var26 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2().getNumericValue();
-        var27 = Intrinsics.areEqual(SharedKt.getPlayer().method_31548().method_5438(SharedKt.getPlayer().method_31548().method_67532()).getItem(), Items.field_8801);
-        Item[] var29 = new Item[1];
-        var29[0] = Items.field_23141;
-        int var28 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2().getNumericValue();
-        var29 = SharedKt.getPlayer().method_31548().method_67532();
-        boolean var30 = Intrinsics.areEqual(SharedKt.getWorld().getBlockState((class_3965) SharedKt.getMc().field_1765.method_17777()).getBlock(), Blocks.field_23152);
-        if (!(ServiceComponent13.checkCondition(this.getAnchorBind().getNumericValue())) || !(((this.getAnchorDelay() * 5) + 10).checkCondition(2)) || var26 == -1 || var28 == -1) {
+        Item[] items = new Item[1];
+        items[0] = Items.field_8801;
+        int index = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items).getNumericValue();
+        items = Intrinsics.areEqual(SharedKt.getPlayer().method_31548().method_5438(SharedKt.getPlayer().method_31548().method_67532()).getItem(), Items.field_8801);
+        Item[] items2 = new Item[1];
+        items2[0] = Items.field_23141;
+        int index2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items2).getNumericValue();
+        items2 = SharedKt.getPlayer().method_31548().method_67532();
+        boolean flag = Intrinsics.areEqual(SharedKt.getWorld().getBlockState(((class_3965) SharedKt.getMc().field_1765).method_17777()).getBlock(), Blocks.field_23152);
+        if (!(ServiceComponent13.checkCondition(this.getAnchorBind().getNumericValue())) || !(((this.getAnchorDelay() * 5) + 10).checkCondition(2)) || index == -1 || index2 == -1) {
             return;
         }
-        if (var30) {
-            Object var31 = new int[2];
-            var31[0] = var26;
-            var31[1] = var29;
-            this.executeAction();
+        if (flag) {
+            Object element = new int[2];
+            element[0] = index;
+            element[1] = items2;
+            this.executeAction(element);
         } else {
-            var31 = new int[3];
-            var31[0] = var28;
-            var31[1] = var26;
-            if (var27) {
+            element = new int[3];
+            element[0] = index2;
+            element[1] = index;
+            if (items) {
             } else {
             }
-            2[var28] = var29;
-            var31.executeAction();
+            2[index2] = items2;
+            element.executeAction(element);
         }
     }
 
     private void executeAction(int[] arg0) {
-        Function0 var5 = this::getUnit;
-        Iterable var6 = (Iterable) ArraysKt.reversed(arg0);
-        int var7 = 0;
-        Iterator iterator = var6.iterator();
-        if (iterator.hasNext()) {
-            Object var9 = iterator.next();
-            int var10 = (Number) var9;
-            int var11 = 0;
-            Object var12 = var5;
-            var5 = this::resolveUnit;
+        Function0 function0 = this::getUnit;
+        Iterable iterable = ((Iterable) ArraysKt.reversed(arg0));
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            int index = ((Number) element);
+            function0 = this::resolveUnit;
         }
-        var5.invoke();
+        function0.invoke();
     }
 
     private static Unit getUnit() {
@@ -118,11 +115,11 @@ public class AnchorBindModule extends Module {
     }
 
     private static void updateValue2(Function0 arg0) {
-        (MinecraftAccessor) SharedKt.getMc().idoItemUse();
+        ((MinecraftAccessor) SharedKt.getMc()).idoItemUse();
         if (INSTANCE.getRandomizeDelay()) {
         } else {
         }
-        (INSTANCE.getAnchorDelay() - 2).executeAction((RangeServiceComponent.f((ClosedRange) new IntRange(-1, 1)) + 0), -10, INSTANCE.getAnchorDelay() > 0, this::updateValue);
+        (INSTANCE.getAnchorDelay() - 2).executeAction((RangeServiceComponent.f(((ClosedRange) new IntRange(-1, 1)), false) + 0), -10, INSTANCE.getAnchorDelay() > 0, this::updateValue);
     }
 
     private static Unit resolveUnit(int arg0, Function0 arg1) {
@@ -130,16 +127,16 @@ public class AnchorBindModule extends Module {
         if (INSTANCE.getRandomizeDelay()) {
         } else {
         }
-        (INSTANCE.getAnchorDelay() - 2).executeAction((RangeServiceComponent.f((ClosedRange) new IntRange(-1, 1)) + 0), -10, INSTANCE.getAnchorDelay() > 0, this::updateValue2);
+        (INSTANCE.getAnchorDelay() - 2).executeAction((RangeServiceComponent.f(((ClosedRange) new IntRange(-1, 1)), false) + 0), -10, INSTANCE.getAnchorDelay() > 0, this::updateValue2);
         return Unit.INSTANCE;
     }
 
     static {
-        KProperty[] var36 = new KProperty[3];
+        KProperty[] items = new KProperty[3];
         INSTANCE = new AnchorBindModule();
         anchorDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "delay", 1, new IntRange(0, 5));
-        randomizeDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "randomize-delay");
-        anchorBindSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anchor-bind", new KeyRecord());
+        randomizeDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "randomize-delay", false);
+        anchorBindSetting = VisibleRenderHelper.registerSetting(INSTANCE, "anchor-bind", new KeyRecord(0, false, false));
         serviceComponent38 = new ServiceComponent38();
     }
 

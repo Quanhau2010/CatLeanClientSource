@@ -47,18 +47,15 @@ public class AiDataCollectorModule extends Module {
         countValue = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 57052227101120L) >>> 48);
-        long var4 = (((arg0 ^ 57052227101120L) << 16) >>> 48);
-        long var5 = (((arg0 ^ 57052227101120L) << 32) >>> 32);
-        String[] var8 = new String[3];
-        var8[0] = ".ctl";
-        var8[1] = "ai";
-        var8[2] = "data.csv";
-        String var7 = Paths.get(System.getProperty("user.home")).toString();
-        file = new File();
-        if (var6 != null) {
-            if (arg0 > 0L && file == null) {
+    public void updateValue() {
+        String[] items = new String[3];
+        items[0] = ".ctl";
+        items[1] = "ai";
+        items[2] = "data.csv";
+        String text = Paths.get(System.getProperty("user.home"), items).toString();
+        file = new File(text);
+        if (__UNDEF_KEY__ != null) {
+            if (file == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("outputFile");
             }
         }
@@ -68,39 +65,38 @@ public class AiDataCollectorModule extends Module {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        if (EntityPacketHelper.findTarget(6.0F, AutoCrystalTargetSortMode.DISTANCE) == null) {
-            EntityPacketHelper.findTarget(6.0F, AutoCrystalTargetSortMode.DISTANCE);
+        if (EntityPacketHelper.findTarget(6.0F, AutoCrystalTargetSortMode.DISTANCE, false, false) == null) {
+            EntityPacketHelper.findTarget(6.0F, AutoCrystalTargetSortMode.DISTANCE, false, false);
             return;
         }
-        if (SharedKt.getMc().field_1765 instanceof class_3966 && Intrinsics.areEqual((class_3966) SharedKt.getMc().field_1765.method_17782())) {
+        if (SharedKt.getMc().field_1765 instanceof class_3966 && Intrinsics.areEqual(((class_3966) SharedKt.getMc().field_1765).method_17782())) {
         } else {
         }
-        float var23 = 0.0F;
-        MoveFixServiceComponent var24 = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var22.getEyePos());
-        float var25 = ((var24.getNumericValue() - SharedKt.getPlayer().method_36454()) / 180.0F);
-        float var26 = ((var24.getNumericValue2() - SharedKt.getPlayer().method_36455()) / 90.0F);
-        MoveFixServiceComponent var27 = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var22.method_5829().method_1005());
-        float var28 = ((var27.getNumericValue() - SharedKt.getPlayer().method_36454()) / 180.0F);
-        float var29 = ((var27.getNumericValue2() - SharedKt.getPlayer().method_36455()) / 90.0F);
-        MoveFixServiceComponent var30 = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(this.resolveMinecraftObject());
-        float var31 = ((var30.getNumericValue() - SharedKt.getPlayer().method_36454()) / 180.0F);
-        float var32 = ((var30.getNumericValue2() - SharedKt.getPlayer().method_36455()) / 90.0F);
-        double var33 = (SharedKt.getPlayer().getX() - var22.getX());
-        double var35 = (SharedKt.getPlayer().getY() - var22.getY());
-        double var37 = (SharedKt.getPlayer().getZ() - var22.getZ());
-        float var39 = ((SharedKt.getPlayer().method_36454() - factorValue) / 180.0F);
-        float var40 = ((SharedKt.getPlayer().method_36455() - factorValue2) / 90.0F);
+        float factor = 0.0F;
+        MoveFixServiceComponent moveFixServiceComponent = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(this.getEyePos());
+        float factor2 = ((moveFixServiceComponent.getNumericValue() - SharedKt.getPlayer().method_36454()) / 180.0F);
+        float factor3 = ((moveFixServiceComponent.getNumericValue2() - SharedKt.getPlayer().method_36455()) / 90.0F);
+        MoveFixServiceComponent moveFixServiceComponent2 = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(this.method_5829().method_1005());
+        float factor4 = ((moveFixServiceComponent2.getNumericValue() - SharedKt.getPlayer().method_36454()) / 180.0F);
+        float factor5 = ((moveFixServiceComponent2.getNumericValue2() - SharedKt.getPlayer().method_36455()) / 90.0F);
+        MoveFixServiceComponent moveFixServiceComponent3 = MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(this.resolveMinecraftObject());
+        float factor6 = ((moveFixServiceComponent3.getNumericValue() - SharedKt.getPlayer().method_36454()) / 180.0F);
+        float factor7 = ((moveFixServiceComponent3.getNumericValue2() - SharedKt.getPlayer().method_36455()) / 90.0F);
+        double offset = (SharedKt.getPlayer().getX() - this.getX());
+        double offset2 = (SharedKt.getPlayer().getY() - this.getY());
+        double offset3 = (SharedKt.getPlayer().getZ() - this.getZ());
+        float factor8 = ((SharedKt.getPlayer().method_36454() - factorValue) / 180.0F);
+        float factor9 = ((SharedKt.getPlayer().method_36455() - factorValue2) / 90.0F);
         factorValue = SharedKt.getPlayer().method_36454();
         factorValue2 = SharedKt.getPlayer().method_36455();
-        double var41 = (SharedKt.getPlayer().getEyePos().method_1022(var22.getEyePos()) / 6.0F);
-        double var43 = (SharedKt.getPlayer().getEyePos().method_1022(this.resolveMinecraftObject()) / 6.0F);
-        Vec3d vec = new Vec3d((var22.getX() - var22.field_6014), (var22.getY() - var22.field_6036), (var22.getZ() - var22.field_5969));
+        double offset4 = (SharedKt.getPlayer().getEyePos().method_1022(this.getEyePos()) / 6.0F);
+        double offset5 = (SharedKt.getPlayer().getEyePos().method_1022(this.resolveMinecraftObject()) / 6.0F);
+        Vec3d vec = new Vec3d((this.getX() - this.field_6014), (this.getY() - this.field_6036), (this.getZ() - this.field_5969));
         Vec3d vec2 = SharedKt.getPlayer().method_18798();
-        String var47 = (var39 + var40 + var25 + var26 + var28 + var29 + var31 + var32 + var33 + var35 + var37 + EventPacketHelper2.INSTANCE.getNumericValue() + var23 + var43 + var41 + vec.field_1352 + vec.field_1351 + vec.field_1350 + vec2.field_1352 + vec2.field_1351 + vec2.field_1350 + SharedKt.getPlayer().method_7261(0.5F));
-        this.executeAction();
-        int var48 = countValue;
-        countValue = (var48 + 1);
-        MessageServiceComponent.S(this, ("saved " + countValue + " lines"));
+        String text = (factor8 + factor9 + factor2 + factor3 + factor4 + factor5 + factor6 + factor7 + offset + offset2 + offset3 + EventPacketHelper2.INSTANCE.getNumericValue() + factor + offset5 + offset4 + vec.field_1352 + vec.field_1351 + vec.field_1350 + vec2.field_1352 + vec2.field_1351 + vec2.field_1350 + SharedKt.getPlayer().method_7261(0.5F));
+        this.executeAction(text);
+        countValue = (countValue + 1);
+        MessageServiceComponent.S(this, ("saved " + countValue + " lines"), false);
     }
 
     private void executeAction(String arg0) {
@@ -112,24 +108,22 @@ public class AiDataCollectorModule extends Module {
         if (file == null) {
             Intrinsics.throwUninitializedPropertyAccessException("outputFile");
         }
-        Closeable var4 = (Closeable) new FileWriter(null, 1);
-        FileWriter var6 = (FileWriter) var4;
-        int var7 = 0;
-        if (!((Collection) concurrentLinkedQueue.isEmpty())) {
-            if (var3 != null) {
-            }
+        Closeable closeable = ((Closeable) new FileWriter(null, true));
+        FileWriter fileWriter = ((FileWriter) closeable);
+        int index = 0;
+        if (!(((Collection) concurrentLinkedQueue).isEmpty())) {
         }
         if (0) {
-            var6.append((CharSequence) concurrentLinkedQueue.poll());
-            var6.append((CharSequence) "\n");
+            fileWriter.append(((CharSequence) concurrentLinkedQueue.poll()));
+            fileWriter.append(((CharSequence) "\n"));
         }
-        var6 = Unit.INSTANCE;
-        CloseableKt.closeFinally();
-        var7 = 1;
-        Object var5 = var7;
-        CloseableKt.closeFinally();
-        var4 = var7;
-        System.out.println(("\u041e\u0448\u0438\u0431\u043a\u0430 \u0437\u0430\u043f\u0438\u0441\u0438 \u0432 \u0444\u0430\u0439\u043b: " + var4.getMessage()));
+        fileWriter = Unit.INSTANCE;
+        CloseableKt.closeFinally(closeable);
+        index = 1;
+        int index2 = index;
+        CloseableKt.closeFinally(closeable, index2);
+        closeable = index;
+        System.out.println(("\u041e\u0448\u0438\u0431\u043a\u0430 \u0437\u0430\u043f\u0438\u0441\u0438 \u0432 \u0444\u0430\u0439\u043b: " + closeable.getMessage()));
     }
 
     static {

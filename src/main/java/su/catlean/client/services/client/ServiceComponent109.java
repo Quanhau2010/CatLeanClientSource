@@ -10,16 +10,16 @@ public class ServiceComponent109 {
     private static int[] countValueArray3;
 
     static {
-        Object var2 = new int[ScaffoldTimingMode.values()];
-        var2[ScaffoldTimingMode.SEQUENTIAL.ordinal()] = 1;
-        var2[ScaffoldTimingMode.VANILLA.ordinal()] = 2;
-        var2[ScaffoldTimingMode.GRIM.ordinal()] = 3;
-        countValueArray = var2;
-        var2 = new int[ScaffoldAutoSwitchMode.values()];
-        var2[ScaffoldAutoSwitchMode.Inventory.ordinal()] = 1;
-        var2[ScaffoldAutoSwitchMode.Normal.ordinal()] = 2;
-        var2[ScaffoldAutoSwitchMode.Silent.ordinal()] = 3;
-        countValueArray2 = var2;
+        Object element = new int[ScaffoldTimingMode.values()];
+        element[ScaffoldTimingMode.SEQUENTIAL.ordinal()] = 1;
+        element[ScaffoldTimingMode.VANILLA.ordinal()] = 2;
+        element[ScaffoldTimingMode.GRIM.ordinal()] = 3;
+        countValueArray = element;
+        element = new int[ScaffoldAutoSwitchMode.values()];
+        element[ScaffoldAutoSwitchMode.Inventory.ordinal()] = 1;
+        element[ScaffoldAutoSwitchMode.Normal.ordinal()] = 2;
+        element[ScaffoldAutoSwitchMode.Silent.ordinal()] = 3;
+        countValueArray2 = element;
     }
 
     public static void updateValue(int[] arg0) {

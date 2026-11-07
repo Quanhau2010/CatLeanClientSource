@@ -32,7 +32,6 @@ public class IdRecord11 implements Contract8 {
         this.textValue4 = pressValue;
         this.textValue5 = releaseValue;
         this.enabledFlag2 = hold;
-        !(var11);
     }
 
     public String getString() {
@@ -136,57 +135,57 @@ public class IdRecord11 implements Contract8 {
     }
 
     public static IdRecord11 resolveIdRecord11(IdRecord11 arg0, String arg1, KeyRecord arg2, boolean arg3, String arg4, String arg5, String arg6, String arg7, boolean arg8, int arg9, Object arg10) {
-        if ((arg9 & 1)) {
+        if ((arg9 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg9 & 2)) {
+        if ((arg9 & 2) != 0) {
             arg2 = arg0.keyRecord;
         }
-        if ((arg9 & 4)) {
+        if ((arg9 & 4) != 0) {
             arg3 = arg0.enabledFlag;
         }
-        if ((arg9 & 8)) {
+        if ((arg9 & 8) != 0) {
             arg4 = arg0.textValue2;
         }
-        if ((arg9 & 16)) {
+        if ((arg9 & 16) != 0) {
             arg5 = arg0.textValue3;
         }
-        if ((arg9 & 32)) {
+        if ((arg9 & 32) != 0) {
             arg6 = arg0.textValue4;
         }
-        if ((arg9 & 64)) {
+        if ((arg9 & 64) != 0) {
             arg7 = arg0.textValue5;
         }
-        if ((arg9 & 128)) {
+        if ((arg9 & 128) != 0) {
             arg8 = arg0.enabledFlag2;
         }
         return arg0.resolveIdRecord11(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag2;
-        String var4 = this.textValue5;
-        String var5 = this.textValue4;
-        String var6 = this.textValue3;
-        String var7 = this.textValue2;
-        boolean var8 = this.enabledFlag;
-        KeyRecord var9 = this.keyRecord;
-        String var10 = this.textValue;
-        return ("SettingMacro(id=" + var10 + ", bind=" + var9 + ", enabled=" + var8 + ", module=" + var7 + ", setting=" + var6 + ", pressValue=" + var5 + ", releaseValue=" + var4 + ", hold=" + var3 + ")");
+        boolean flag = this.enabledFlag2;
+        String text = this.textValue5;
+        String text2 = this.textValue4;
+        String text3 = this.textValue3;
+        String text4 = this.textValue2;
+        boolean flag2 = this.enabledFlag;
+        KeyRecord keyRecord = this.keyRecord;
+        String text5 = this.textValue;
+        return ("SettingMacro(id=" + text5 + ", bind=" + keyRecord + ", enabled=" + flag2 + ", module=" + text4 + ", setting=" + text3 + ", pressValue=" + text2 + ", releaseValue=" + text + ", hold=" + flag + ")");
     }
 
     public int hashCode() {
-        int var4 = this.textValue.hashCode();
-        var4 = ((var4 * 31) + this.keyRecord.hashCode());
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag));
-        var4 = ((var4 * 31) + this.textValue2.hashCode());
-        var4 = ((var4 * 31) + this.textValue3.hashCode());
-        var4 = ((var4 * 31) + this.textValue4.hashCode());
-        var4 = ((var4 * 31) + this.textValue5.hashCode());
-        var4 = ((var4 * 31) + Boolean.hashCode(this.enabledFlag2));
-        if (!(var3)) {
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.keyRecord.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        index = ((index * 31) + this.textValue2.hashCode());
+        index = ((index * 31) + this.textValue3.hashCode());
+        index = ((index * 31) + this.textValue4.hashCode());
+        index = ((index * 31) + this.textValue5.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag2));
+        if (!(__UNDEF_KEY__)) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -196,29 +195,29 @@ public class IdRecord11 implements Contract8 {
         if (!(other instanceof IdRecord11)) {
             return false;
         }
-        IdRecord11 var5 = (IdRecord11) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord11 idRecord11 = ((IdRecord11) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord11.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.keyRecord, var5.keyRecord))) {
+        if (!(Intrinsics.areEqual(this.keyRecord, idRecord11.keyRecord))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != idRecord11.enabledFlag) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, idRecord11.textValue2))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue3, var5.textValue3))) {
+        if (!(Intrinsics.areEqual(this.textValue3, idRecord11.textValue3))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue4, var5.textValue4))) {
+        if (!(Intrinsics.areEqual(this.textValue4, idRecord11.textValue4))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue5, var5.textValue5))) {
+        if (!(Intrinsics.areEqual(this.textValue5, idRecord11.textValue5))) {
             return false;
         }
-        if (this.enabledFlag2 != var5.enabledFlag2) {
+        if (this.enabledFlag2 != idRecord11.enabledFlag2) {
             return false;
         }
         return true;
@@ -226,7 +225,7 @@ public class IdRecord11 implements Contract8 {
 
     public static void executeAction(IdRecord11 self, CompositeEncoder output, SerialDescriptor serialDesc) {
         output.encodeStringElement(serialDesc, 0, self.getString());
-        output.encodeSerializableElement(serialDesc, 1, (SerializationStrategy) KeyRecordSerializer.INSTANCE, self.getKeyRecord());
+        output.encodeSerializableElement(serialDesc, 1, ((SerializationStrategy) KeyRecordSerializer.INSTANCE), self.getKeyRecord());
         output.encodeBooleanElement(serialDesc, 2, self.isActive());
         output.encodeStringElement(serialDesc, 3, self.textValue2);
         output.encodeStringElement(serialDesc, 4, self.textValue3);

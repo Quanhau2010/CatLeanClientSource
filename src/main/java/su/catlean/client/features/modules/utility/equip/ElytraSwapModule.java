@@ -66,35 +66,35 @@ public class ElytraSwapModule extends Module {
     }
 
     private ElytraSwapMode getMode() {
-        return (ElytraSwapMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((ElytraSwapMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private KeyRecord getSwitchButton() {
-        return (KeyRecord) switchButtonSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((KeyRecord) switchButtonSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private KeyRecord getFireWorkButton() {
-        return (KeyRecord) fireWorkButtonSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((KeyRecord) fireWorkButtonSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getStartFireWork() {
-        return (Boolean) startFireWorkSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) startFireWorkSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private ElytraSwapFireWorkMode getFireWorkMode() {
-        return (ElytraSwapFireWorkMode) fireWorkModeSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((ElytraSwapFireWorkMode) fireWorkModeSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private ElytraSwapSwapMode getSwapMode() {
-        return (ElytraSwapSwapMode) swapModeSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((ElytraSwapSwapMode) swapModeSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private ElytraSwapHotBarSwapMode getHotBarSwapMode() {
-        return (ElytraSwapHotBarSwapMode) hotBarSwapModeSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((ElytraSwapHotBarSwapMode) hotBarSwapModeSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private boolean getSwapOnLand() {
-        return (Boolean) swapOnLandSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) swapOnLandSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     public boolean isActive() {
@@ -105,11 +105,8 @@ public class ElytraSwapModule extends Module {
         enabledFlag = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 32978412894279L);
-        long var5 = (arg0 ^ 10016030373321L);
-        long var7 = (arg0 ^ 9607710392669L);
-        executeAction(this);
+    public void updateValue() {
+        executeAction(this, true, false);
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
@@ -117,7 +114,7 @@ public class ElytraSwapModule extends Module {
             enabledFlag2 = 1;
         }
         if (Intrinsics.areEqual(SharedKt.getPlayer().method_31548().method_5438(38).getItem(), Items.ELYTRA)) {
-            this.executeAction(0, 1);
+            this.executeAction(false, true);
         }
         enabledFlag2 = 0;
     }
@@ -131,87 +128,81 @@ public class ElytraSwapModule extends Module {
 
     private void onInputEvent(InputEvent arg0) {
         if (arg0.getKey() == this.getSwitchButton().getNumericValue()) {
-            executeAction(this);
+            executeAction(this, false, false);
         }
         this.updateValue();
     }
 
     private void updateValue() {
-        RunnableServiceComponent2.executeAction(0, -10, 0, this::executeAction);
+        RunnableServiceComponent2.executeAction(0, -10, false, this::executeAction);
     }
 
     public int computeValue(short arg0) {
-        Item[] var10 = minecraftRefArray;
-        int var11 = 0;
-        Object var12 = var10;
-        if (var11 < var12) {
-            Object var13 = var10[var11];
-            Item[] var15 = new Item[1];
-            var15[0] = var13;
-            StackServiceComponent2 var14 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-            if (var14.isActive()) {
-                return var14.getNumericValue();
+        int index = 0;
+        if (index < minecraftRefArray) {
+            Object element = minecraftRefArray[index];
+            Item[] items = new Item[1];
+            items[0] = element;
+            StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+            if (stackServiceComponent2.isActive()) {
+                return stackServiceComponent2.getNumericValue();
             }
         }
         return -1;
     }
 
     private int computeValue(byte arg0, int arg1, int arg2) {
-        int var11 = -1;
-        int var12 = -1;
-        int var13 = 0;
-        if (var13 < 37) {
+        int index = -1;
+        int index2 = -1;
+        int index3 = 0;
+        if (index3 < 37) {
             if (arg1 > 0) {
                 if (SharedKt.getMc().player != null && SharedKt.getMc().player.method_31548() != null) {
                 } else {
-                    SharedKt.getMc().player.method_31548().method_5438();
+                    SharedKt.getMc().player.method_31548().method_5438(index3);
                 }
             }
-            if (arg2 > 0 && var10 != null) {
+            if (arg2 > 0 && __UNDEF_KEY__ != null) {
             }
-            if (Intrinsics.areEqual(var14.getItem(), Items.ELYTRA) && ElytraRecastModule.INSTANCE.checkCondition()) {
-                int var15 = 0;
-                class_9304 var16 = class_1890.method_57532();
-                Iterable var17 = (Iterable) var16.method_57534();
-                int var18 = 0;
-                Iterator iterator = var17.iterator();
+            if (Intrinsics.areEqual(this.getItem(), Items.ELYTRA) && ElytraRecastModule.INSTANCE.checkCondition()) {
+                int index4 = 0;
+                class_9304 class9304 = class_1890.method_57532();
+                Iterable iterable = ((Iterable) class9304.method_57534());
+                Iterator iterator = iterable.iterator();
                 while (iterator.hasNext()) {
-                    Object var20 = iterator.next();
-                    class_6880 var21 = (class_6880) var20;
-                    int var22 = 0;
+                    Object element = iterator.next();
+                    class_6880 class6880 = ((class_6880) element);
                     if (arg0 >= 0) {
-                        if (var10 != null) {
-                            if (var21 != null) {
-                                Object var23 = var21;
-                                int var24 = 0;
-                                var15 = (var15 + var16.method_57536());
+                        if (__UNDEF_KEY__ != null) {
+                            if (class6880 != null) {
+                                index4 = (index4 + class9304.method_57536(class6880));
                             } else {
                             }
-                        }
-                        if (arg0 >= 0) {
+                            if (arg0 >= 0) {
+                            }
                         }
                     }
                 }
-                if (var15 > var12) {
-                    var12 = var15;
+                if (index4 > index2) {
+                    index2 = index4;
                     if (arg0 >= 0) {
-                        if (var13 < 9) {
+                        if (index3 < 9) {
+                        } else {
                         }
-                    } else {
                     }
-                    var11 = var13;
+                    index = index3;
                 }
             }
         }
-        return var11;
+        return index;
     }
 
     private void executeAction(boolean arg0, boolean arg1) {
-        RunnableServiceComponent2.executeAction(0, -10, 0, this::executeAction);
+        RunnableServiceComponent2.executeAction(0, -10, false, this::executeAction);
     }
 
     private static void executeAction(ElytraSwapModule arg0, boolean arg1, boolean arg2, int arg3, Object arg4) {
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = 0;
         }
         arg0.executeAction(arg1, arg2);
@@ -220,22 +211,22 @@ public class ElytraSwapModule extends Module {
     private void executeAction(int arg0, boolean arg1) {
         if (36 <= arg0) {
         } else {
-        }
-        if (arg0 < 45) {
-            if (this.getHotBarSwapMode() == ElytraSwapHotBarSwapMode.DEFAULT) {
-                HandServiceComponent.executeAction(6, (arg0 - 36), class_1713.field_7791, 1);
-            } else {
-                ItemPacketHelper.executeAction((arg0 - 36));
-            } else {
-                if (this.getSwapMode() == ElytraSwapSwapMode.DEFAULT) {
-                    HandServiceComponent.e(arg0);
-                    HandServiceComponent.e();
-                    HandServiceComponent.e(arg0);
+            if (arg0 < 45) {
+                if (this.getHotBarSwapMode() == ElytraSwapHotBarSwapMode.DEFAULT) {
+                    HandServiceComponent.executeAction(6, (arg0 - 36), class_1713.field_7791, true);
                 } else {
-                    HandServiceComponent.e(arg0, 7, class_1713.field_7791);
-                    HandServiceComponent.e(6, 7, class_1713.field_7791);
-                    HandServiceComponent.executeAction(arg0, 7, class_1713.field_7791, 1);
+                    ItemPacketHelper.executeAction((arg0 - 36));
+                    if (this.getSwapMode() == ElytraSwapSwapMode.DEFAULT) {
+                        HandServiceComponent.e(arg0, 0, null, false);
+                        HandServiceComponent.e(6, 0, null, false);
+                        HandServiceComponent.e(arg0, 0, null, true);
+                    } else {
+                        HandServiceComponent.e(arg0, 7, class_1713.field_7791, false);
+                        HandServiceComponent.e(6, 7, class_1713.field_7791, false);
+                        HandServiceComponent.executeAction(arg0, 7, class_1713.field_7791, true);
+                    }
                 }
+            } else {
             }
         }
         countValue = SharedKt.getPlayer().field_6012;
@@ -243,7 +234,7 @@ public class ElytraSwapModule extends Module {
     }
 
     private void executeAction() {
-        RunnableServiceComponent2.executeAction(-1, -10, 0, this::executeAction2);
+        RunnableServiceComponent2.executeAction(-1, -10, false, this::executeAction2);
     }
 
     private static boolean isActive2() {
@@ -267,110 +258,110 @@ public class ElytraSwapModule extends Module {
     }
 
     private static void executeAction() {
-        Item[] var31 = new Item[1];
-        var31[0] = Items.FIREWORK_ROCKET;
-        StackServiceComponent2 var30 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        Item[] var32 = new Item[1];
-        var32[0] = Items.FIREWORK_ROCKET;
-        var31 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
+        Item[] items = new Item[1];
+        items[0] = Items.FIREWORK_ROCKET;
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+        Item[] items2 = new Item[1];
+        items2[0] = Items.FIREWORK_ROCKET;
+        items = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items2);
         ItemPacketHelper.INSTANCE.updateValue();
-        if (var30.isActive()) {
-            var30.updateValue();
+        if (stackServiceComponent2.isActive()) {
+            stackServiceComponent2.updateValue();
         } else {
-            if (var31.isActive()) {
-                HandServiceComponent.executeAction(var31.getNumericValue(), SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, 1);
+            if (items.isActive()) {
+                HandServiceComponent.executeAction(items.getNumericValue(), SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, true);
             } else {
-                MessageServiceComponent.S(INSTANCE, MessageServiceComponent.resolveString(INSTANCE, "no-fireworks", new Object[0], 1));
+                MessageServiceComponent.S(INSTANCE, MessageServiceComponent.resolveString(INSTANCE, "no-fireworks", new Object[0], true), false);
                 return;
             }
         }
         HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
-        PacketPacketHelper.handlePacket((Packet) new class_2879(Hand.field_5808));
+        PacketPacketHelper.handlePacket(((Packet) new class_2879(Hand.field_5808)));
         ItemPacketHelper.INSTANCE.updateValue2();
-        HandServiceComponent.executeAction(var31.getNumericValue(), SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, 1);
+        HandServiceComponent.executeAction(items.getNumericValue(), SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, true);
     }
 
     private static void executeAction(boolean arg0, boolean arg1) {
         if (Intrinsics.areEqual(SharedKt.getPlayer().method_31548().method_5438(38).getItem(), Items.ELYTRA)) {
-            int var34 = INSTANCE.computeValue();
-            if (var34 != -1) {
-                if (var34 >= 36) {
+            int index = INSTANCE.computeValue();
+            if (index != -1) {
+                if (index >= 36) {
                 } else {
                 }
-                int var29 = 4;
-                ItemStack stack = (var34 - 36).method_5438().method_7972();
-                class_1661 var31 = SharedKt.getPlayer().method_31548();
-                int var32 = 0;
-                MessageServiceComponent.e(MessageServiceComponent.Z(INSTANCE, "done-chestplate", new Object[0]), OptionMode16.SUCCESS, stack);
-                INSTANCE.executeAction(0);
-                TitleRenderHelper.INSTANCE.updateValue(1);
+                int index2 = 4;
+                ItemStack stack = (index - 36).method_5438(index).method_7972();
+                class_1661 class1661 = SharedKt.getPlayer().method_31548();
+                int index3 = 0;
+                MessageServiceComponent.e(MessageServiceComponent.Z(INSTANCE, "done-chestplate", new Object[0], false), OptionMode16.SUCCESS, index3, class1661, stack, index2);
+                INSTANCE.executeAction(index, false);
+                TitleRenderHelper.INSTANCE.updateValue(true);
                 INSTANCE.updateValue2();
-                TitleRenderHelper.INSTANCE.updateValue(0);
+                TitleRenderHelper.INSTANCE.updateValue(false);
             } else {
                 if (INSTANCE) {
-                    INSTANCE.executeAction(MessageServiceComponent.Z(INSTANCE, "no-chestplate", new Object[0]));
+                    INSTANCE.executeAction(MessageServiceComponent.Z(INSTANCE, "no-chestplate", new Object[0], false));
                 } else {
-                    MessageServiceComponent.S(INSTANCE, MessageServiceComponent.Z(INSTANCE, "no-chestplate", new Object[0]));
-                } else {
-                    var34 = INSTANCE.computeValue();
-                    if (var34 != -1) {
-                        if (var34 >= 36) {
+                    MessageServiceComponent.S(INSTANCE, MessageServiceComponent.Z(INSTANCE, "no-chestplate", new Object[0], false), false);
+                    index = INSTANCE.computeValue();
+                    if (index != -1) {
+                        if (index >= 36) {
                         } else {
                         }
-                        var29 = 4;
-                        stack = (var34 - 36).method_5438().method_7972();
-                        var31 = SharedKt.getPlayer().method_31548();
-                        var32 = 0;
-                        MessageServiceComponent.e(MessageServiceComponent.Z(INSTANCE, "done-elytra", new Object[0]), OptionMode16.SUCCESS, stack);
-                        INSTANCE.executeAction(1);
-                        TitleRenderHelper.INSTANCE.updateValue(1);
+                        index2 = 4;
+                        stack = (index - 36).method_5438(index).method_7972();
+                        class1661 = SharedKt.getPlayer().method_31548();
+                        index3 = 0;
+                        MessageServiceComponent.e(MessageServiceComponent.Z(INSTANCE, "done-elytra", new Object[0], false), OptionMode16.SUCCESS, index3, class1661, stack, index2);
+                        INSTANCE.executeAction(index, true);
+                        TitleRenderHelper.INSTANCE.updateValue(true);
                         INSTANCE.updateValue2();
-                        TitleRenderHelper.INSTANCE.updateValue(0);
+                        TitleRenderHelper.INSTANCE.updateValue(false);
                     } else {
                         if (INSTANCE) {
-                            INSTANCE.executeAction(MessageServiceComponent.resolveString(INSTANCE, "no-elytra", new Object[0], 1));
+                            INSTANCE.executeAction(MessageServiceComponent.resolveString(INSTANCE, "no-elytra", new Object[0], true));
                         } else {
-                            MessageServiceComponent.S(INSTANCE, MessageServiceComponent.resolveString(INSTANCE, "no-elytra", new Object[0], 1));
+                            MessageServiceComponent.S(INSTANCE, MessageServiceComponent.resolveString(INSTANCE, "no-elytra", new Object[0], true), false);
                         }
                     }
                 }
             }
+        } else {
         }
     }
 
     private static void executeAction2() {
         if (Intrinsics.areEqual(SharedKt.getPlayer().method_31548().method_5438(38).getItem(), Items.ELYTRA)) {
             if (SharedKt.getPlayer().isFallFlying()) {
-                SharedKt.getMc().options.field_1903.method_23481(0);
+                SharedKt.getMc().options.field_1903.method_23481(false);
             } else {
                 SharedKt.getMc().options.field_1903.method_23481(!(((SharedKt.getPlayer().field_6012 - countValue) % 2)));
                 INSTANCE.executeAction();
-            } else {
-                SharedKt.getMc().options.field_1903.method_23481(1);
+                SharedKt.getMc().options.field_1903.method_23481(true);
                 INSTANCE.executeAction();
             }
+        } else {
         }
     }
 
     static {
-        KProperty[] var33 = new KProperty[8];
+        KProperty[] items = new KProperty[8];
         INSTANCE = new ElytraSwapModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", ElytraSwapMode.ENABLE);
-        switchButtonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch-button", new KeyRecord(), null, this::isActive2);
-        fireWorkButtonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-work-button", new KeyRecord(), null, this::isActive3);
-        startFireWorkSetting = VisibleRenderHelper.registerSetting(INSTANCE, "start-fire-work", 0, null, this::isActive4);
+        switchButtonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch-button", new KeyRecord(0, false, false), null, this::isActive2);
+        fireWorkButtonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-work-button", new KeyRecord(0, false, false), null, this::isActive3);
+        startFireWorkSetting = VisibleRenderHelper.registerSetting(INSTANCE, "start-fire-work", false, null, this::isActive4);
         fireWorkModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "fire-work-mode", ElytraSwapFireWorkMode.SILENT, null, this::isActive5);
         swapModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "swap-mode", ElytraSwapSwapMode.ALT);
         hotBarSwapModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hotbar-swap-mode", ElytraSwapHotBarSwapMode.DEFAULT);
-        swapOnLandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "swap-on-land", 0, null, this::isActive6);
-        var33 = new Item[6];
-        var33[0] = Items.NETHERITE_CHESTPLATE;
-        var33[1] = Items.DIAMOND_CHESTPLATE;
-        var33[2] = Items.CHAINMAIL_CHESTPLATE;
-        var33[3] = Items.IRON_CHESTPLATE;
-        var33[4] = Items.GOLDEN_CHESTPLATE;
-        var33[5] = Items.LEATHER_CHESTPLATE;
-        minecraftRefArray = var33;
+        swapOnLandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "swap-on-land", false, null, this::isActive6);
+        items = new Item[6];
+        items[0] = Items.NETHERITE_CHESTPLATE;
+        items[1] = Items.DIAMOND_CHESTPLATE;
+        items[2] = Items.CHAINMAIL_CHESTPLATE;
+        items[3] = Items.IRON_CHESTPLATE;
+        items[4] = Items.GOLDEN_CHESTPLATE;
+        items[5] = Items.LEATHER_CHESTPLATE;
+        minecraftRefArray = items;
     }
 
     public static void updateValue2(boolean arg0) {

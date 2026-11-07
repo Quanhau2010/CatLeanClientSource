@@ -41,11 +41,11 @@ public class AutoSweetBerriesModule extends BlockPlacementModule {
     private static final VisibleVisibleSettingPropertyImpl directionsSetting;
 
     private AutoSweetBerriesModule() {
-        super("auto-sweet-berries", SubCategoriesKt.getAttackCategory());
+        super("auto-sweet-berries", SubCategoriesKt.getAttackCategory(), 0, false);
     }
 
     private AutoSweetBerriesTargetMode getTargetMode() {
-        return (AutoSweetBerriesTargetMode) targetModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((AutoSweetBerriesTargetMode) targetModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setTargetMode(AutoSweetBerriesTargetMode value) {
@@ -53,7 +53,7 @@ public class AutoSweetBerriesModule extends BlockPlacementModule {
     }
 
     private boolean getDirections() {
-        return (Boolean) directionsSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) directionsSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setDirections(boolean value) {
@@ -61,10 +61,10 @@ public class AutoSweetBerriesModule extends BlockPlacementModule {
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        PlayerEntity player = EntityPacketHelper.findTarget(this.getRange(), AutoCrystalTargetSortMode.FOV);
+        PlayerEntity player = EntityPacketHelper.findTarget(this.getRange(), AutoCrystalTargetSortMode.FOV, false, false);
         if (this.getTargetMode() == AutoSweetBerriesTargetMode.AUTO) {
             if (AuraModule.INSTANCE.getEnabled() && AuraModule.INSTANCE.getTarget() != null && AuraModule.INSTANCE.getTarget() instanceof PlayerEntity) {
-                player = (PlayerEntity) AuraModule.INSTANCE.getTarget();
+                player = ((PlayerEntity) AuraModule.INSTANCE.getTarget());
             }
             if (AutoCrystalModule.INSTANCE.getEnabled() && AutoCrystalModule.INSTANCE.getTarget() != null) {
                 player = AutoCrystalModule.INSTANCE.getTarget();
@@ -76,17 +76,17 @@ public class AutoSweetBerriesModule extends BlockPlacementModule {
         } else {
             Iterator iterator = SharedKt.getWorld().getPlayers().iterator();
             while (iterator.hasNext()) {
-                AbstractClientPlayerEntity player2 = (AbstractClientPlayerEntity) iterator.next();
-                if (Intrinsics.areEqual(player2, SharedKt.getMc().player) || EntityHelper4.isFriend((PlayerEntity) player2) || player2.distanceTo(SharedKt.getMc().player) > this.getRange() || TargetEntityHelper.INSTANCE.checkCondition2((PlayerEntity) player2)) {
+                AbstractClientPlayerEntity player2 = ((AbstractClientPlayerEntity) iterator.next());
+                if (Intrinsics.areEqual(player2, SharedKt.getMc().player) || EntityHelper4.isFriend(((PlayerEntity) player2)) || player2.distanceTo(SharedKt.getMc().player) > this.getRange() || TargetEntityHelper.INSTANCE.checkCondition2(((PlayerEntity) player2))) {
                     continue;
                 }
-                this.executeAction((PlayerEntity) player2);
+                this.executeAction(((PlayerEntity) player2));
             }
         }
     }
 
     private void executeAction(long arg0, PlayerEntity arg1, short arg2) {
-        List<BlockPos> positions = new ArrayList();
+        List<BlockPos> list = new ArrayList();
         BlockPos blockPos = BlockPos.ofFloored(PlayerEntityHelper2.INSTANCE.predictPosition(arg1, TargetEntityHelper.INSTANCE.getPredictTicks(arg1)));
         BlockState state = SharedKt.getWorld().getBlockState(blockPos);
         BlockState state2 = SharedKt.getWorld().getBlockState(blockPos.down());
@@ -94,52 +94,50 @@ public class AutoSweetBerriesModule extends BlockPlacementModule {
         }
         if (Intrinsics.areEqual(state2.getBlock(), Blocks.field_10566) && !(state.getBlock() instanceof FluidBlock)) {
             Entity entity = SharedKt.getMc().player;
-            if (arg2 >= 0 && var24) {
+            if (arg2 >= 0 && __UNDEF_KEY__) {
                 if (!(Intrinsics.areEqual(blockPos, BlockPos.ofFloored(this.resolveMinecraftObject(entity))))) {
-                    positions.add(blockPos);
+                    list.add(blockPos);
                 }
             }
         }
         if (this.getDirections()) {
-            Iterable var30 = (Iterable) ServiceComponent42.enumEntries;
-            int var31 = 0;
-            Object var32 = var30;
-            Collection var33 = (Collection) new ArrayList();
-            int var34 = 0;
-            Iterator iterator = var32.iterator();
+            Iterable iterable = ((Iterable) ServiceComponent42.enumEntries);
+            int index = 0;
+            Iterable iterable2 = iterable;
+            Collection collection = ((Collection) new ArrayList());
+            Iterator iterator = iterable2.iterator();
             while (iterator.hasNext()) {
-                Object var36 = iterator.next();
-                Direction var37 = (Direction) var36;
-                int var38 = 0;
+                Object element = iterator.next();
+                Direction direction = ((Direction) element);
                 if (arg2 > 0) {
                 }
-                var33.add();
+                collection.add(element);
             }
-            Iterator iterator2 = var33.iterator();
+            Iterator iterator2 = collection.iterator();
             while (iterator2.hasNext()) {
-                var30 = (Direction) iterator2.next();
-                var31 = blockPos.offset();
-                var32 = SharedKt.getWorld().getBlockState();
-                var33 = SharedKt.getWorld().getBlockState(var31.down());
+                iterable = ((Direction) iterator2.next());
+                index = blockPos.offset(iterable);
+                iterable2 = SharedKt.getWorld().getBlockState(index);
+                collection = SharedKt.getWorld().getBlockState(index.down());
                 if (arg0 >= 0L) {
-                    if (var24) {
-                    }
-                    if (!(var33.getBlock() instanceof class_2372)) {
-                        if (arg2 >= 0) {
-                            if (var24) {
+                    if (__UNDEF_KEY__) {
+                        if (!(collection.getBlock() instanceof class_2372)) {
+                            if (arg2 >= 0) {
+                                if (__UNDEF_KEY__) {
+                                }
                             }
                         }
-                    }
-                    if (arg0 > 0L) {
-                        if (var24) {
-                            entity = SharedKt.getMc().player;
+                        if (arg0 > 0L) {
+                            if (__UNDEF_KEY__) {
+                                entity = SharedKt.getMc().player;
+                            }
                         }
+                        list.add(index);
                     }
-                    positions.add();
                 }
             }
         }
-        BlockPlacementModule.placeBlocks(this, positions);
+        BlockPlacementModule.placeBlocks(this, list, false, false, null, false);
     }
 
     protected List resolveList() {
@@ -151,10 +149,10 @@ public class AutoSweetBerriesModule extends BlockPlacementModule {
     }
 
     static {
-        KProperty[] var29 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new AutoSweetBerriesModule();
         targetModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "target-mode", AutoSweetBerriesTargetMode.AUTO);
-        directionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "directions");
+        directionsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "directions", false);
     }
 
 }

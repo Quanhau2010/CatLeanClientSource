@@ -21,7 +21,7 @@ public class FlagEvent extends Event {
     }
 
     public boolean call(class_2708 pos) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         this.pos = pos;
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

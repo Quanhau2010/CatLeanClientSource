@@ -43,80 +43,77 @@ public class CatleanWidgetEditorRenderHelper extends Screen {
             CatleanInterfaceRenderHelper.INSTANCE.method_25420(context, mouseX, mouseY, delta);
         }
         this.method_25394(context, mouseX, mouseY, delta);
-        int var28 = SharedKt.getMc().method_22683().method_4486();
-        int var29 = SharedKt.getMc().method_22683().method_4502();
+        int index = SharedKt.getMc().method_22683().method_4486();
+        int index2 = SharedKt.getMc().method_22683().method_4502();
         if (enabledFlag3) {
             factorValue3 = (mouseX - factorValue);
             factorValue4 = (mouseY - factorValue2);
         }
-        float var30 = (factorValue3 - 4.0F);
-        float var31 = ((factorValue3 - 4.0F) + 100.0F);
-        int var32 = mouseX;
-        if (var30 <= var32) {
+        float factor = (factorValue3 - 4.0F);
+        float factor2 = ((factorValue3 - 4.0F) + 100.0F);
+        int index3 = mouseX;
+        if (factor <= index3) {
         } else {
-        }
-        if (var32 <= var31) {
-            var30 = (factorValue4 - 8.0F);
-            var31 = (factorValue4 - 5.0F);
-            var32 = mouseY;
-            if (var30 <= var32) {
+            if (index3 <= factor2) {
+                factor = (factorValue4 - 8.0F);
+                factor2 = (factorValue4 - 5.0F);
+                index3 = mouseY;
+                if (factor <= index3) {
+                } else {
+                }
             } else {
+                enabledFlag2 = index3 <= factor2;
             }
-        } else {
         }
-        enabledFlag2 = var32 <= var31;
         if (enabledFlag2) {
         } else {
         }
-        1.0F.executeAction(0.0F);
+        this.executeAction(0.0F);
         if (factorValue3 == -1.0F && factorValue4 == -1.0F) {
-            factorValue3 = ((var28 / 2.0F) - 58);
+            factorValue3 = ((index / 2.0F) - 58);
             factorValue4 = 50.0F;
         }
-        PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), 5.0F, 5.0F, (var28 - 10.0F), (var29 - 10.0F), Color.WHITE);
+        PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), 5.0F, 5.0F, (index - 10.0F), (index2 - 10.0F), Color.WHITE);
         if (Math.abs((mouseX - factorValue5)) > 1.0F && Math.abs((mouseY - factorValue6)) > 1.0F && enabledFlag && POSITIONCOLORRenderHelper.INSTANCE.getCheckRenderHelper() == null && !(enabledFlag3)) {
-            var30 = Math.min(factorValue5, mouseX);
-            var31 = Math.min(factorValue6, mouseY);
-            var32 = Math.abs((factorValue5 - mouseX));
-            float var33 = Math.abs((factorValue6 - mouseY));
-            PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), Color.WHITE);
+            factor = Math.min(factorValue5, mouseX);
+            factor2 = Math.min(factorValue6, mouseY);
+            index3 = Math.abs((factorValue5 - mouseX));
+            float factor3 = Math.abs((factorValue6 - mouseY));
+            PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), factor, factor2, index3, factor3, Color.WHITE);
         }
         StackShaderComponent2.executeAction(context.method_51448(), (factorValue3 - 4.0F), (factorValue4 - 14.0F), 116.0F, ((arrayList.size() * 15.0F) + 15.0F), 7.0F, 2.0F, 0.0F, 1.0F, NewThemeRenderHelper.INSTANCE.getColor4(), NewThemeRenderHelper.INSTANCE.getColor6(), 0.0F, 0.0F, 0.0F);
-        var30 = PolygonShaderComponent.INSTANCE.resolveColor(new Color(1157627903, 1), PolygonShaderComponent.INSTANCE.resolveColor(Color.white, 0.5F), easingServiceComponent.getNumericValue());
-        ColorValue1RenderHelper.executeAction((factorValue3 + 4.0F), (factorValue4 - 8.0F), 100.0F, 3.0F, 1.5F, context.method_51448(), 0.0F);
-        var31 = 0.0F;
-        var32 = (Iterable) arrayList;
-        var33 = 0;
-        Iterator iterator = var32.iterator();
+        factor = PolygonShaderComponent.INSTANCE.resolveColor(new Color(1157627903, true), PolygonShaderComponent.INSTANCE.resolveColor(Color.white, 0.5F), easingServiceComponent.getNumericValue());
+        ColorValue1RenderHelper.executeAction((factorValue3 + 4.0F), (factorValue4 - 8.0F), 100.0F, 3.0F, 1.5F, factor, factor, factor, factor, context.method_51448(), 0.0F);
+        factor2 = 0.0F;
+        index3 = ((Iterable) arrayList);
+        factor3 = 0;
+        Iterator iterator = index3.iterator();
         while (iterator.hasNext()) {
-            Object var35 = iterator.next();
-            WidgetRenderHelper var36 = (WidgetRenderHelper) var35;
-            int var37 = 0;
-            var36.render(context, mouseX, mouseY, factorValue3, (factorValue4 + var31));
-            var31 = (var31 + 15.0F);
+            Object element = iterator.next();
+            WidgetRenderHelper widgetRenderHelper = ((WidgetRenderHelper) element);
+            widgetRenderHelper.render(context, mouseX, mouseY, factorValue3, (factorValue4 + factor2));
+            factor2 = (factor2 + 15.0F);
         }
         BackRenderHelper.INSTANCE.render(context, mouseX, mouseY);
     }
 
     public boolean method_25402(class_11909 click, boolean doubled) {
-        double var10 = click.comp_4798();
-        double var12 = click.comp_4799();
-        int var14 = click.method_74245();
-        BackRenderHelper.INSTANCE.checkCondition();
+        double offset = click.comp_4798();
+        double offset2 = click.comp_4799();
+        int index = click.method_74245();
+        BackRenderHelper.INSTANCE.checkCondition(offset, offset2, index);
         enabledFlag = 1;
-        factorValue5 = var10;
-        factorValue6 = var12;
+        factorValue5 = offset;
+        factorValue6 = offset2;
         enabledFlag3 = enabledFlag2;
-        factorValue = (var10 - factorValue3);
-        factorValue2 = (var12 - factorValue4);
-        Iterable var15 = (Iterable) arrayList;
-        int var16 = 0;
-        Iterator iterator = var15.iterator();
+        factorValue = (offset - factorValue3);
+        factorValue2 = (offset2 - factorValue4);
+        Iterable iterable = ((Iterable) arrayList);
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var18 = iterator.next();
-            WidgetRenderHelper var19 = (WidgetRenderHelper) var18;
-            int var20 = 0;
-            var19.executeAction();
+            Object element = iterator.next();
+            WidgetRenderHelper widgetRenderHelper = ((WidgetRenderHelper) element);
+            widgetRenderHelper.executeAction(offset, offset2);
         }
         if (this.method_25402(click, doubled) != null) {
         }
@@ -124,22 +121,22 @@ public class CatleanWidgetEditorRenderHelper extends Screen {
     }
 
     public boolean method_25406(class_11909 click) {
-        double var6 = click.comp_4798();
-        double var8 = click.comp_4799();
-        int var10 = click.method_74245();
+        double offset = click.comp_4798();
+        double offset2 = click.comp_4799();
+        int index = click.method_74245();
         enabledFlag = 0;
         enabledFlag3 = 0;
-        BackRenderHelper.INSTANCE.executeAction();
+        BackRenderHelper.INSTANCE.executeAction(offset, offset2, index);
         return this.method_25406(click);
     }
 
     public boolean method_25400(class_11905 input) {
-        if (var6 != null) {
+        if (__UNDEF_KEY__ != null) {
             if (ArraysKt.firstOrNull(input.method_74226().toCharArray()) != null) {
             } else {
                 ArraysKt.firstOrNull(input.method_74226().toCharArray()).charValue();
+                return this.method_25400(input);
             }
-            return this.method_25400(input);
         }
         BackRenderHelper.INSTANCE.executeAction();
         return this.method_25400(input);
@@ -163,14 +160,12 @@ public class CatleanWidgetEditorRenderHelper extends Screen {
         factorValue5 = -1.0F;
         factorValue6 = -1.0F;
         arrayList = new ArrayList();
-        Iterable var36 = (Iterable) POSITIONCOLORRenderHelper.INSTANCE.getList();
-        int var37 = 0;
-        Iterator iterator = var36.iterator();
-        if (iterator.hasNext()) {
-            Object var39 = iterator.next();
-            CheckRenderHelper var40 = (CheckRenderHelper) var39;
-            int var41 = 0;
-            arrayList.add(new WidgetRenderHelper());
+        Iterable iterable = ((Iterable) POSITIONCOLORRenderHelper.INSTANCE.getList());
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            CheckRenderHelper checkRenderHelper = ((CheckRenderHelper) element);
+            arrayList.add(new WidgetRenderHelper(checkRenderHelper));
         }
     }
 

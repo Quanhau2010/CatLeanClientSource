@@ -18,9 +18,8 @@ public class ServiceComponent129 implements Grouping {
     }
 
     public Object keyOf(Object element) {
-        class_1542 var6 = (class_1542) element;
-        int var7 = 0;
-        return ServiceComponent86.resolveString(var6.method_6983().method_7964());
+        class_1542 class1542 = ((class_1542) element);
+        return ServiceComponent86.resolveString(class1542.method_6983().method_7964());
     }
 
 }

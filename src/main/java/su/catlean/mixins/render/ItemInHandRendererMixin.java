@@ -21,18 +21,18 @@ public class ItemInHandRendererMixin {
     }
 
     private void onRenderItem(AbstractClientPlayerEntity player, float tickProgress, float pitch, Hand hand, float swingProgress, ItemStack item, float equipProgress, MatrixStack matrices, class_11659 orderedRenderCommandQueue, CallbackInfo ci) {
-        HandModifyEvent.INSTANCE.call(hand, matrices, item, 0);
+        HandModifyEvent.INSTANCE.call(hand, matrices, item, false);
     }
 
     private void applyEatOrDrinkTransformationHook(MatrixStack matrices, float tickDelta, class_1306 arm, ItemStack stack, PlayerEntity player, CallbackInfo ci) {
         if (MinecraftClient.method_1551().options.method_42552().method_41753() == class_1306.field_6183) {
             if (arm == class_1306.field_6183) {
             } else {
-            } else {
                 if (arm == class_1306.field_6183) {
                 } else {
                 }
             }
+        } else {
         }
         ci.cancel();
     }

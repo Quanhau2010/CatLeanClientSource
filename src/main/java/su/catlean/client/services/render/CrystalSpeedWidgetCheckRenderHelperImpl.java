@@ -16,21 +16,18 @@ public class CrystalSpeedWidgetCheckRenderHelperImpl extends CheckRenderHelper {
     }
 
     public void render(DrawContext context) {
-        long var4 = (0L ^ 116853176505585L);
-        if (var6) {
-            if ((DamageDataServiceComponent) AutoCrystalModule.INSTANCE.getAtomicReference().get() != null && (DamageDataServiceComponent) AutoCrystalModule.INSTANCE.getAtomicReference().get().getServiceComponent95() != null) {
+        if (__UNDEF_KEY__) {
+            if (((DamageDataServiceComponent) AutoCrystalModule.INSTANCE.getAtomicReference().get()) != null && ((DamageDataServiceComponent) AutoCrystalModule.INSTANCE.getAtomicReference().get()).getServiceComponent95() != null) {
             } else {
             }
         }
-        if (0L >= 0L) {
-            if ((DamageDataServiceComponent) AutoCrystalModule.INSTANCE.getAtomicReference().get() != null && (DamageDataServiceComponent) AutoCrystalModule.INSTANCE.getAtomicReference().get().getServiceComponent95() != null) {
-            } else {
-            }
+        if (((DamageDataServiceComponent) AutoCrystalModule.INSTANCE.getAtomicReference().get()) != null && ((DamageDataServiceComponent) AutoCrystalModule.INSTANCE.getAtomicReference().get()).getServiceComponent95() != null) {
+        } else {
         }
-        float var7 = (((0.0F / 0.0F) * 4235680804396597258L) / 10.0F);
-        long var8 = AutoCrystalModule.INSTANCE.getNumericValue2();
-        long var10 = AutoCrystalModule.INSTANCE.getNumericValue();
-        this.render(context, (ServiceComponent.INSTANCE.getNumericValue() + " c/s | " + var10 + " ping | " + var8 + " cpu | " + var7 + " ef."));
+        float factor = (((0.0F / 0.0F) * 10) / 10.0F);
+        long time = AutoCrystalModule.INSTANCE.getNumericValue2();
+        long time2 = AutoCrystalModule.INSTANCE.getNumericValue();
+        this.render(context, (ServiceComponent.INSTANCE.getNumericValue() + " c/s | " + time2 + " ping | " + time + " cpu | " + factor + " ef."));
     }
 
     static {

@@ -39,8 +39,8 @@ public class ItemsServiceComponent2 {
         if (!(other instanceof ItemsServiceComponent2)) {
             return false;
         }
-        ItemsServiceComponent2 var5 = (ItemsServiceComponent2) other;
-        if (!(Intrinsics.areEqual(this.itemList, var5.itemList))) {
+        ItemsServiceComponent2 itemsServiceComponent2 = ((ItemsServiceComponent2) other);
+        if (!(Intrinsics.areEqual(this.itemList, itemsServiceComponent2.itemList))) {
             return false;
         }
         return true;

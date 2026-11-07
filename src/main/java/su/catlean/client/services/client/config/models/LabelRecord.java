@@ -39,10 +39,10 @@ public class LabelRecord {
     }
 
     public static LabelRecord resolveLabelRecord(LabelRecord arg0, String arg1, String arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.textValue2;
         }
         return arg0.resolveLabelRecord(arg1, arg2);
@@ -53,9 +53,9 @@ public class LabelRecord {
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * -3981489057677967329L) + this.textValue2.hashCode());
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.textValue2.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -65,11 +65,11 @@ public class LabelRecord {
         if (!(other instanceof LabelRecord)) {
             return false;
         }
-        LabelRecord var5 = (LabelRecord) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        LabelRecord labelRecord = ((LabelRecord) other);
+        if (!(Intrinsics.areEqual(this.textValue, labelRecord.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, labelRecord.textValue2))) {
             return false;
         }
         return true;

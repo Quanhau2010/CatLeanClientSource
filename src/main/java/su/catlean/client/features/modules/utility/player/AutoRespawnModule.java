@@ -43,68 +43,52 @@ public class AutoRespawnModule extends Module {
     }
 
     private boolean getDeathCoords() {
-        return (Boolean) deathCoordsSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) deathCoordsSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private AutoRespawnDeathCommandMode getDeathCommand() {
-        return (AutoRespawnDeathCommandMode) deathCommandSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((AutoRespawnDeathCommandMode) deathCommandSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private String getKit() {
-        return (String) kitSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((String) kitSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private String getCommand() {
-        return (String) commandSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((String) commandSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private AutoRespawnCommandTimingMode getCommandTiming() {
-        return (AutoRespawnCommandTimingMode) commandTimingSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((AutoRespawnCommandTimingMode) commandTimingSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        if (var17 == null) {
-            if (SharedKt.getMc().currentScreen instanceof class_418) {
-                if (var17 == null) {
-                    countValue = (countValue + 1);
-                    if (var17 == null) {
-                    }
-                    if (this.getDeathCoords()) {
-                        MessageServiceComponent.S(null, (this + MessageServiceComponent.Z(this, "respawn-message", new Object[0]) + SharedKt.getPlayer().getX() + " Z: " + SharedKt.getPlayer().getZ()));
-                    }
-                    SharedKt.getPlayer().method_7331();
-                    SharedKt.getMc().method_1507(null);
-                    if (var17 == null) {
-                    }
-                    if (this.getCommandTiming() == AutoRespawnCommandTimingMode.DELAYED) {
-                        RunnableServiceComponent var18 = RunnableServiceComponent.INSTANCE;
-                        int var19 = 1000;
-                        int var20 = 0;
-                        var18.getExecutorService().execute((Runnable) new ServiceComponent57());
-                    }
-                    enabledFlag = 0;
-                }
+        if (SharedKt.getMc().currentScreen instanceof class_418) {
+            countValue = (countValue + 1);
+            if (this.getDeathCoords()) {
+                MessageServiceComponent.S(null, (this + MessageServiceComponent.Z(this, "respawn-message", new Object[0], false) + SharedKt.getPlayer().getX() + " Z: " + SharedKt.getPlayer().getZ()), false);
             }
+            SharedKt.getPlayer().method_7331();
+            SharedKt.getMc().method_1507(null);
+            if (this.getCommandTiming() == AutoRespawnCommandTimingMode.DELAYED) {
+                RunnableServiceComponent runnableServiceComponent = RunnableServiceComponent.INSTANCE;
+                int index = 1000;
+                runnableServiceComponent.getExecutorService().execute(((Runnable) new ServiceComponent57(index)));
+            }
+            enabledFlag = 0;
+        } else {
+            enabledFlag = 1;
         }
-        enabledFlag = 1;
     }
 
     private void onReceivePacket(ReceivePacket arg0) {
-        if (var14 == null) {
-        }
-        class_2663 var15 = (class_2663) arg0.getPacket();
-        if (var15.method_11470() != 3) {
-            if (var14 == null && var14 == null) {
-            }
-        }
-        if (var14 == null) {
+        class_2663 class2663 = ((class_2663) arg0.getPacket());
+        if (class2663.method_11470() != 3) {
         }
         this.updateValue();
     }
 
     public void updateValue() {
-        if (var13 == null) {
-        }
         PacketPacketHelper.executeAction(("kit " + this.getKit()));
         PacketPacketHelper.executeAction("back");
         PacketPacketHelper.executeAction("home");
@@ -120,9 +104,9 @@ public class AutoRespawnModule extends Module {
     }
 
     static {
-        KProperty[] var30 = new KProperty[5];
+        KProperty[] items = new KProperty[5];
         INSTANCE = new AutoRespawnModule();
-        deathCoordsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "death-coords");
+        deathCoordsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "death-coords", true);
         deathCommandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "death-command", AutoRespawnDeathCommandMode.KIT);
         kitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "kit-name", "kitname", null, this::isActive);
         commandSetting = VisibleRenderHelper.registerSetting(INSTANCE, "command", "/ebal", null, this::isActive2);

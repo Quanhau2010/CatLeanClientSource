@@ -13,7 +13,7 @@ public class ServiceComponent108 implements Runnable {
     }
 
     public void run() {
-        HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F, -33419497012461562L);
+        HandServiceComponent.K(Hand.field_5808, 0.0F, 0.0F);
         SharedKt.getPlayer().method_6104(Hand.field_5808);
         AutoFishModule.getServiceComponent10().executeAction();
     }

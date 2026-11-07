@@ -15,8 +15,7 @@ public class ServiceComponent100 implements Runnable {
 
     public void run() {
         Thread.sleep(this.countValue);
-        int var6 = 0;
-        SharedKt.getMc().method_40000((Runnable) ServiceComponent108.INSTANCE);
+        SharedKt.getMc().method_40000(((Runnable) ServiceComponent108.INSTANCE));
     }
 
     public static void updateValue(String[] arg0) {

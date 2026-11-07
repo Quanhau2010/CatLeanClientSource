@@ -62,99 +62,93 @@ public class EventPacketHelper {
         if (playerEntity == null || vec3d == null || vec3d2 == null || AntiKnockBackModule.INSTANCE.resolveMinecraftObject(entity).method_1025(vec3d) < 1.0D) {
             return;
         }
-        int var15 = 0;
-        var15 = 360;
-        if (var15 >= 180) {
+        int index = 0;
+        index = 360;
+        if (index >= 180) {
         } else {
         }
-        Vec3d vec = vec3d;
-        Vec3d vec2 = vec3d2;
-        Vec3d vec3 = TextShaderComponent2.INSTANCE.resolveMinecraftObject(vec2, vec, entity);
-        int var17 = 0;
-        TextShaderComponent2.INSTANCE.render(event.getStack(), vec3, playerEntity, (var15 / 360.0F), 1);
+        Vec3d vec = TextShaderComponent2.INSTANCE.resolveMinecraftObject(vec3d2, vec3d, entity);
+        TextShaderComponent2.INSTANCE.render(event.getStack(), vec, playerEntity, (index / 360.0F), true);
     }
 
     public void executeAction(ReceivePacket e) {
         if (playerEntity == null || !(playerEntity.isAlive())) {
             return;
         }
-        Packet var15 = e.getPacket();
-        Object var16 = var15;
-        if (var16 instanceof class_2797 || var16 instanceof class_7439 || var16 instanceof class_2761 || var16 instanceof class_7472 || var16 instanceof class_2767 || var16 instanceof class_2770 || var16 instanceof class_5894 || var16 instanceof class_2749 || var16 instanceof class_2629) {
+        Packet packet = e.getPacket();
+        Packet packet2 = packet;
+        if (packet2 instanceof class_2797 || packet2 instanceof class_7439 || packet2 instanceof class_2761 || packet2 instanceof class_7472 || packet2 instanceof class_2767 || packet2 instanceof class_2770 || packet2 instanceof class_5894 || packet2 instanceof class_2749 || packet2 instanceof class_2629) {
             return;
         }
-        if (!(var16 instanceof class_2708)) {
-            if (var16 instanceof class_2661) {
+        if (!(packet2 instanceof class_2708)) {
+            if (packet2 instanceof class_2661) {
+                this.executeAction();
+                return;
             }
-            this.executeAction();
-            return;
         }
-        if (var15 instanceof class_2684) {
-            class_7422 var17 = new class_7422();
-            var17.method_43494(vec3d);
-            var16 = var17.method_43489((class_2684) var15.method_36150(), (class_2684) var15.method_36151(), (class_2684) var15.method_36152());
+        if (packet instanceof class_2684) {
+            class_7422 class7422 = new class_7422();
+            class7422.method_43494(vec3d);
+            packet2 = class7422.method_43489(((class_2684) packet).method_36150(), ((class_2684) packet).method_36151(), ((class_2684) packet).method_36152());
             timestampValue = SharedKt.getNumericValue();
             return;
         }
-        if (!(Intrinsics.areEqual((class_2684) var15.method_11645((World) SharedKt.getWorld()), playerEntity)) || var15 instanceof class_2777) {
+        if (!(Intrinsics.areEqual(((class_2684) packet).method_11645(((World) SharedKt.getWorld())), playerEntity)) || packet instanceof class_2777) {
             return;
         }
-        if (var15 instanceof class_10264) {
-            var17 = playerEntity;
-            if (var17 != null) {
+        if (packet instanceof class_10264) {
+            class7422 = playerEntity;
+            if (class7422 != null) {
             } else {
             }
-            var16 = (class_10264) var15.comp_3224().comp_3148();
+            packet2 = ((class_10264) packet).comp_3224().comp_3148();
             return;
         }
-        if ((class_10264) var15.comp_3223() != var17.method_5628() || var16 != null) {
+        if (((class_10264) packet).comp_3223() != class7422.method_5628() || packet2 != null) {
             return;
         }
-        concurrentLinkedQueue.add(new PacketPacketHelper2(SharedKt.getNumericValue()));
+        concurrentLinkedQueue.add(new PacketPacketHelper2(packet, SharedKt.getNumericValue()));
         e.cancel();
     }
 
     public void updateValue() {
-        if (!(var8)) {
-        }
-        if (!(var8)) {
-        }
-        if (!(var8)) {
-            if (AuraModule.INSTANCE.getEnabled() && AuraModule.INSTANCE.getTarget() != null && AuraModule.INSTANCE.getTarget() instanceof PlayerEntity) {
-            }
+        if (AuraModule.INSTANCE.getEnabled() && AuraModule.INSTANCE.getTarget() != null && AuraModule.INSTANCE.getTarget() instanceof PlayerEntity) {
         } else {
         }
-        if (!(var8)) {
-            if (var9 == null) {
-                this.executeAction();
-                return;
-            }
+        if (__UNDEF_KEY__ == null) {
+            this.executeAction();
+            return;
         }
-        if (!(var8)) {
-            if (!(Intrinsics.areEqual(playerEntity))) {
-                this.executeAction();
-                vec3d = AntiKnockBackModule.INSTANCE.resolveMinecraftObject();
-            }
+        if (!(Intrinsics.areEqual(playerEntity))) {
+            this.executeAction();
+            vec3d = AntiKnockBackModule.INSTANCE.resolveMinecraftObject();
         }
-        playerEntity = var9;
+        playerEntity = __UNDEF_KEY__;
     }
 
     public void executeAction(short arg0, int arg1) {
         if (SharedKt.getMc().world != null) {
-            if (var10 || arg1 >= 0) {
-                return;
+            if (arg1 >= 0) {
+                if (!(__UNDEF_KEY__)) {
+                    if (SharedKt.getMc().player == null) {
+                        concurrentLinkedQueue.clear();
+                        playerEntity = null;
+                        vec3d = null;
+                        return;
+                    }
+                }
+                if (arg1 > 0) {
+                }
             }
-        }
-        if (!(var10)) {
         }
         if (arg1 >= 0) {
-            if (SharedKt.getMc().player != null && playerEntity.isAlive()) {
-                executeAction(this);
-            }
-            if (arg0 < 0) {
-                if (var10) {
+            if (playerEntity != null && playerEntity.isAlive()) {
+                executeAction(this, false);
+                if (arg0 < 0) {
+                    if (__UNDEF_KEY__) {
+                        this.executeAction();
+                    }
                 }
-                this.executeAction();
             }
         }
         concurrentLinkedQueue2.removeIf(this::checkCondition);
@@ -165,7 +159,7 @@ public class EventPacketHelper {
     }
 
     public static void executeAction(EventPacketHelper arg0, boolean arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
             arg1 = 0;
         }
         arg0.updateValue(arg1);
@@ -178,50 +172,40 @@ public class EventPacketHelper {
     }
 
     private static boolean handlePacket(Packet arg0) {
-        EventPacketHelper var5 = INSTANCE;
-        Object var6 = var5;
-        int var7 = 0;
-        arg0.method_65081((class_2547) SharedKt.getNetwork());
-        var6 = Result.constructor-impl(Unit.INSTANCE);
-        var6 = Result.constructor-impl(ResultKt.createFailure());
+        int index = 0;
+        arg0.method_65081(((class_2547) SharedKt.getNetwork()));
         return true;
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static boolean checkCondition(boolean arg0, PacketPacketHelper2 arg1) {
         if (!(arg0)) {
             if (arg1.getNumericValue() <= (SharedKt.getNumericValue() - AuraModule.INSTANCE.getMoveDelay())) {
+            } else {
             }
-        } else {
         }
-        int var7 = 0;
-        int var8 = var7;
-        int var9 = 0;
-        if (var8) {
+        int index = 0;
+        if (index) {
             concurrentLinkedQueue2.add(arg1.getMinecraftObject());
         }
-        return var7;
+        return index;
     }
 
     private static boolean checkCondition2(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static boolean checkCondition(PacketPacketHelper2 arg0) {
-        EventPacketHelper var5 = INSTANCE;
-        Object var6 = var5;
-        int var7 = 0;
-        arg0.getMinecraftObject().method_65081((class_2547) SharedKt.getNetwork());
-        var6 = Result.constructor-impl(Unit.INSTANCE);
-        var6 = Result.constructor-impl(ResultKt.createFailure());
+        int index = 0;
+        arg0.getMinecraftObject().method_65081(((class_2547) SharedKt.getNetwork()));
         return true;
     }
 
     private static boolean checkCondition3(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     static {

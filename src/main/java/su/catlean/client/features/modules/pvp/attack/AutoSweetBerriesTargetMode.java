@@ -2,13 +2,10 @@ package su.catlean.client.features.modules.pvp.attack;
 
 public enum AutoSweetBerriesTargetMode {
 
-    public static final AutoSweetBerriesTargetMode AUTO;
-    public static final AutoSweetBerriesTargetMode ALL;
-    private static boolean enabledFlag;
+    AUTO,
+    ALL;
 
-    AutoSweetBerriesTargetMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static boolean enabledFlag;
 
     public static void updateValue(boolean arg0) {
         enabledFlag = arg0;

@@ -295,35 +295,31 @@ public class TextureShaderComponent {
             this.preciseValue14 = 0.0D;
             this.preciseValue15 = 0.0D;
         }
-        Iterable var16 = SharedKt.getWorld().method_18112();
-        int var17 = 0;
-        Object var18 = var16;
-        Collection var19 = (Collection) new ArrayList();
-        int var20 = 0;
-        Iterator iterator = var18.iterator();
+        Iterable iterable = SharedKt.getWorld().method_18112();
+        int index = 0;
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
             if (arg0 > 0) {
             }
-            Object var22 = iterator.next();
-            Entity entity = var22;
-            int var24 = 0;
-            var19.add();
+            Object element = iterator.next();
+            collection.add(element);
         }
-        Iterator iterator2 = var19.iterator();
+        Iterator iterator2 = collection.iterator();
         while (iterator2.hasNext()) {
-            var16 = iterator2.next();
-            var17 = (this.preciseValue - var16.getX());
-            var19 = (this.preciseValue3 - var16.getZ());
-            this.preciseValue4 = (var17 * 0.5D);
+            iterable = iterator2.next();
+            index = (this.preciseValue - iterable.getX());
+            collection = (this.preciseValue3 - iterable.getZ());
+            this.preciseValue4 = (index * 0.5D);
             if (arg0 > 0) {
-                this.preciseValue6 = (var19 * 0.5D);
+                this.preciseValue6 = (collection * 0.5D);
+                this.preciseValue = (this.preciseValue + this.preciseValue4);
+                this.preciseValue2 = (this.preciseValue2 + this.preciseValue5);
+                this.preciseValue3 = (this.preciseValue3 + this.preciseValue6);
+                this.preciseValue7 = (this.preciseValue7 + this.preciseValue13);
+                this.preciseValue8 = (this.preciseValue8 + this.preciseValue14);
+                this.preciseValue9 = (this.preciseValue9 + this.preciseValue15);
             }
-            this.preciseValue = (this.preciseValue + this.preciseValue4);
-            this.preciseValue2 = (this.preciseValue2 + this.preciseValue5);
-            this.preciseValue3 = (this.preciseValue3 + this.preciseValue6);
-            this.preciseValue7 = (this.preciseValue7 + this.preciseValue13);
-            this.preciseValue8 = (this.preciseValue8 + this.preciseValue14);
-            this.preciseValue9 = (this.preciseValue9 + this.preciseValue15);
         }
         iterator2 = this.countValue;
         this.countValue = (iterator2 + 1);
@@ -331,25 +327,24 @@ public class TextureShaderComponent {
     }
 
     public void render(MatrixStack stack) {
-        class_4184 var36 = SharedKt.getMc().field_1773.method_19418();
-        GpuTextureView var38 = SharedKt.getMc().method_1531().method_4619(this.minecraftRef).method_71659();
-        int var20 = 4;
-        int var21 = 0;
-        int var22 = 12;
-        VertexFormat var23 = class_290.field_1575;
-        FormatRenderHelper var39 = new FormatRenderHelper();
-        Color var19 = PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE, (RangesKt.coerceIn(((DismembermentModule.INSTANCE.getLifeTime() * 20) - this.countValue), 0, 3) / 3.0F));
-        var20 = this.optionMode3;
-        var21 = var17.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue12, this.preciseValue9);
-        var23 = var17.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue11, this.preciseValue8);
-        double var25 = (var17.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue10, this.preciseValue7) + 180.0D);
-        double var27 = (var17.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue18, this.preciseValue3) - var36.method_71156().field_1350);
-        double var29 = ((this.optionMode3.getNumericValue2() + this.optionMode3.getNumericValue()) - var36.method_71156().field_1351);
-        double var31 = var17.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue17, this.preciseValue2);
-        double var33 = (var17.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue16, this.preciseValue) - var36.method_71156().field_1352);
-        Object var34 = var39;
-        stack.render(this.minecraftRef2);
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline17(), null, null, new MatrixStack().method_23760().method_23761(), null, MapsKt.mapOf(TuplesKt.to("Sampler0")));
+        class_4184 class4184 = SharedKt.getMc().field_1773.method_19418();
+        GpuTextureView gpuTextureView = SharedKt.getMc().method_1531().method_4619(this.minecraftRef).method_71659();
+        int index = 4;
+        int index2 = 0;
+        int index3 = 12;
+        VertexFormat vertexFormat = class_290.field_1575;
+        FormatRenderHelper formatRenderHelper = new FormatRenderHelper(vertexFormat, index3, index2, index);
+        Color color = PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE, (RangesKt.coerceIn(((DismembermentModule.INSTANCE.getLifeTime() * 20) - this.countValue), 0, 3) / 3.0F));
+        index = this.optionMode3;
+        index2 = this.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue12, this.preciseValue9);
+        vertexFormat = this.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue11, this.preciseValue8);
+        double offset = (this.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue10, this.preciseValue7) + 180.0D);
+        double offset2 = (this.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue18, this.preciseValue3) - class4184.method_71156().field_1350);
+        double offset3 = ((this.optionMode3.getNumericValue2() + this.optionMode3.getNumericValue()) - class4184.method_71156().field_1351);
+        double offset4 = this.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue17, this.preciseValue2);
+        double offset5 = (this.computeValue(PolygonShaderComponent.INSTANCE, this.preciseValue16, this.preciseValue) - class4184.method_71156().field_1352);
+        stack.render(this.minecraftRef2, formatRenderHelper, offset5, offset4, offset3, offset2, offset, vertexFormat, index2, index, color);
+        FormatRenderHelper.executeAction(formatRenderHelper, VertexUBOShaderComponent.INSTANCE.getRenderPipeline17(), null, null, new MatrixStack().method_23760().method_23761(), null, MapsKt.mapOf(TuplesKt.to("Sampler0", gpuTextureView)));
     }
 
 }

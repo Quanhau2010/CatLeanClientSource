@@ -35,10 +35,10 @@ public class BlockPosServiceComponent {
     }
 
     public static BlockPosServiceComponent resolveBlockPosServiceComponent(BlockPosServiceComponent arg0, BlockPos arg1, float arg2, int arg3, Object arg4) {
-        if ((arg3 & 1)) {
+        if ((arg3 & 1) != 0) {
             arg1 = arg0.blockPos;
         }
-        if ((arg3 & 2)) {
+        if ((arg3 & 2) != 0) {
             arg2 = arg0.factorValue;
         }
         return arg0.resolveBlockPosServiceComponent(arg1, arg2);
@@ -49,9 +49,9 @@ public class BlockPosServiceComponent {
     }
 
     public int hashCode() {
-        int var4 = this.blockPos.hashCode();
-        var4 = ((var4 * 4032238704780115999L) + Float.hashCode(this.factorValue));
-        if (var4 != null) {
+        int index = this.blockPos.hashCode();
+        index = ((index * 31) + Float.hashCode(this.factorValue));
+        if (index != null) {
         }
         return null;
     }
@@ -63,11 +63,11 @@ public class BlockPosServiceComponent {
         if (!(other instanceof BlockPosServiceComponent)) {
             return false;
         }
-        BlockPosServiceComponent var5 = (BlockPosServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.blockPos, var5.blockPos))) {
+        BlockPosServiceComponent blockPosServiceComponent = ((BlockPosServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.blockPos, blockPosServiceComponent.blockPos))) {
             return false;
         }
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        if (Float.compare(this.factorValue, blockPosServiceComponent.factorValue)) {
             return false;
         }
         return true;

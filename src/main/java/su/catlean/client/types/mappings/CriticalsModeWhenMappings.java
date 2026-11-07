@@ -9,16 +9,16 @@ public class CriticalsModeWhenMappings {
     public static final int[] countValueArray;
 
     static {
-        Object var0 = new int[CriticalsMode.values()];
-        var0[CriticalsMode.NCP.ordinal()] = 1;
-        var0[CriticalsMode.CUSTOM.ordinal()] = 2;
-        ENUM_SWITCH_MAP = var0;
-        var0 = new int[CriticalsNcpMode.values()];
-        var0[CriticalsNcpMode.OLD.ordinal()] = 1;
-        var0[CriticalsNcpMode.NORMAL.ordinal()] = 2;
-        var0[CriticalsNcpMode.NEW.ordinal()] = 3;
-        var0[CriticalsNcpMode.STRICT.ordinal()] = 4;
-        countValueArray = var0;
+        Object element = new int[CriticalsMode.values()];
+        element[CriticalsMode.NCP.ordinal()] = 1;
+        element[CriticalsMode.CUSTOM.ordinal()] = 2;
+        ENUM_SWITCH_MAP = element;
+        element = new int[CriticalsNcpMode.values()];
+        element[CriticalsNcpMode.OLD.ordinal()] = 1;
+        element[CriticalsNcpMode.NORMAL.ordinal()] = 2;
+        element[CriticalsNcpMode.NEW.ordinal()] = 3;
+        element[CriticalsNcpMode.STRICT.ordinal()] = 4;
+        countValueArray = element;
     }
 
 }

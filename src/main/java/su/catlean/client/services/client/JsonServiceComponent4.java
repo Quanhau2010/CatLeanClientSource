@@ -24,12 +24,10 @@ public class JsonServiceComponent4 implements Contract3 {
     }
 
     public ModulesConfigRecord resolveModulesConfigRecord() {
-        if (var3 == null) {
-            if (this.modulesConfigRecord != null) {
-                return this.modulesConfigRecord;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("data");
+        if (this.modulesConfigRecord != null) {
+            return this.modulesConfigRecord;
         }
+        Intrinsics.throwUninitializedPropertyAccessException("data");
         return null;
     }
 
@@ -37,33 +35,25 @@ public class JsonServiceComponent4 implements Contract3 {
         this.modulesConfigRecord = value;
     }
 
-    public void updateValue(long arg0) {
-        long var3 = ((arg0 ^ 117038982073452L) >>> 48);
-        long var4 = (((arg0 ^ 117038982073452L) << 16) >>> 32);
-        long var5 = (((arg0 ^ 117038982073452L) << 48) >>> 48);
-        long var6 = (arg0 ^ 9504272317057L);
+    public void updateValue() {
         if (this.file.createNewFile()) {
         }
-        ModulesConfigRecord var11 = new ModulesConfigRecord();
-        Json var8 = this.json;
-        String var9 = FilesKt.readText$default(this.file);
-        int var10 = 0;
-        var8.getSerializersModule();
-        var8 = (ModulesConfigRecord) var8.decodeFromString((DeserializationStrategy) ModulesConfigRecord.serviceComponent21.getKSerializer());
-        var9 = var11;
+        ModulesConfigRecord modulesConfigRecord = new ModulesConfigRecord(null, null, null, null, false);
+        Json json = this.json;
+        String text = FilesKt.readText$default(this.file);
+        json.getSerializersModule();
+        json = ((ModulesConfigRecord) json.decodeFromString(((DeserializationStrategy) ModulesConfigRecord.serviceComponent21.getKSerializer()), text));
+        text = modulesConfigRecord;
         SharedKt.getLogger().warn("Shared data are not loaded from file for some reasons.");
-        var8 = new ModulesConfigRecord();
-        var11.executeAction();
+        json = new ModulesConfigRecord(null, null, null, null, false);
+        modulesConfigRecord.executeAction(json);
     }
 
-    public void executeAction(int arg0, int arg1, byte arg2) {
-        int var4 = (((arg0 << 32) | ((arg1 << 40) >>> 32)) | ((arg2 << 56) >>> 56));
-        long var6 = (var4 ^ 116852923442287L);
-        Json var8 = this.json;
-        ModulesConfigRecord var9 = this.resolveModulesConfigRecord();
-        int var10 = 0;
-        var8.getSerializersModule();
-        FilesKt.writeText$default(this.file, var8.encodeToString((SerializationStrategy) ModulesConfigRecord.serviceComponent21.getKSerializer()));
+    public void executeAction() {
+        Json json = this.json;
+        ModulesConfigRecord modulesConfigRecord = this.resolveModulesConfigRecord();
+        json.getSerializersModule();
+        FilesKt.writeText$default(this.file, json.encodeToString(((SerializationStrategy) ModulesConfigRecord.serviceComponent21.getKSerializer()), modulesConfigRecord));
     }
 
     public static void updateValue(String arg0) {

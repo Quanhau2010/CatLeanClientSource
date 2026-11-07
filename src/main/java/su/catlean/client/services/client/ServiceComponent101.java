@@ -1,6 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import net.minecraft.util.math.Vec3d;
 import su.catlean.client.features.modules.Module;
@@ -16,16 +15,6 @@ public class ServiceComponent101 {
         this.vec3d = pos;
         this.countValue = color;
         this.countValue2 = age;
-    }
-
-    public ServiceComponent101(Vec3d arg0, int arg1, int arg2, int arg3, DefaultConstructorMarker arg4) {
-        if ((arg3 & 2)) {
-            arg1 = -1;
-        }
-        if ((arg3 & 4)) {
-            arg2 = 0;
-        }
-        this(arg0, arg1, arg2);
     }
 
     public Vec3d getMinecraftObject() {
@@ -65,13 +54,13 @@ public class ServiceComponent101 {
     }
 
     public static ServiceComponent101 resolveServiceComponent101(ServiceComponent101 arg0, Vec3d arg1, int arg2, int arg3, int arg4, Object arg5) {
-        if ((arg4 & 1)) {
+        if ((arg4 & 1) != 0) {
             arg1 = arg0.vec3d;
         }
-        if ((arg4 & 2)) {
+        if ((arg4 & 2) != 0) {
             arg2 = arg0.countValue;
         }
-        if ((arg4 & 4)) {
+        if ((arg4 & 4) != 0) {
             arg3 = arg0.countValue2;
         }
         if (arg0.resolveServiceComponent101(arg1, arg2, arg3) != null) {
@@ -80,19 +69,19 @@ public class ServiceComponent101 {
     }
 
     public String toString() {
-        int var3 = this.countValue2;
-        int var4 = this.countValue;
+        int index = this.countValue2;
+        int index2 = this.countValue;
         Vec3d vec = this.vec3d;
-        return ("Effect(pos=" + vec + ", color=" + var4 + ", age=" + var3 + ")");
+        return ("Effect(pos=" + vec + ", color=" + index2 + ", age=" + index + ")");
     }
 
     public int hashCode() {
-        int var4 = this.vec3d.hashCode();
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue));
-        var4 = ((var4 * 31) + Integer.hashCode(this.countValue2));
-        if (!(var3)) {
+        int index = this.vec3d.hashCode();
+        index = ((index * 31) + Integer.hashCode(this.countValue));
+        index = ((index * 31) + Integer.hashCode(this.countValue2));
+        if (!(__UNDEF_KEY__)) {
         }
-        return var4;
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -102,14 +91,14 @@ public class ServiceComponent101 {
         if (!(other instanceof ServiceComponent101)) {
             return false;
         }
-        ServiceComponent101 var5 = (ServiceComponent101) other;
-        if (!(Intrinsics.areEqual(this.vec3d, var5.vec3d))) {
+        ServiceComponent101 serviceComponent101 = ((ServiceComponent101) other);
+        if (!(Intrinsics.areEqual(this.vec3d, serviceComponent101.vec3d))) {
             return false;
         }
-        if (this.countValue != var5.countValue) {
+        if (this.countValue != serviceComponent101.countValue) {
             return false;
         }
-        if (this.countValue2 != var5.countValue2) {
+        if (this.countValue2 != serviceComponent101.countValue2) {
             return false;
         }
         return true;

@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.Locale;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.KProperty;
 import kotlin.text.StringsKt;
 import kotlinx.serialization.json.Json;
@@ -32,48 +31,30 @@ public abstract class VisibleSettingProperty {
         this.object2 = value;
         this.settingGroup = group;
         this.function0 = visible;
-        StringBuilder var8 = new StringBuilder();
-        Object var9 = var8;
-        Object var20 = this;
-        int var10 = 0;
-        String[] var11 = new String[1];
-        var11[0] = "-";
-        var11 = (Iterable) StringsKt.split$default((CharSequence) this.textValue);
-        int var12 = 0;
-        Object var13 = var11;
-        Collection var14 = (Collection) new ArrayList();
-        int var15 = 0;
-        Iterator iterator = var13.iterator();
+        StringBuilder stringBuilder = new StringBuilder();
+        String[] items = new String[1];
+        items[0] = "-";
+        items = ((Iterable) StringsKt.split$default(((CharSequence) this.textValue), items, false));
+        String[] items2 = items;
+        Collection collection = ((Collection) new ArrayList());
+        int index = 0;
+        Iterator iterator = items2.iterator();
         while (iterator.hasNext()) {
-            Object var17 = iterator.next();
-            String var18 = (String) var17;
-            int var19 = 0;
-            var14.add();
+            Object element = iterator.next();
+            String text = ((String) element);
+            collection.add(element);
         }
-        var11 = (Iterable) var14;
-        var12 = 0;
-        var13 = var11.iterator();
-        while (var13.hasNext()) {
-            var14 = var13.next();
-            var15 = (String) var14;
+        items = ((Iterable) collection);
+        items2 = items.iterator();
+        while (items2.hasNext()) {
+            collection = items2.next();
+            index = ((String) collection);
             iterator = 0;
-            var9.append(" ");
-            var9.append(var15.substring(0, 1).toUpperCase(Locale.ROOT));
-            var9.append(var15.substring(1).toLowerCase(Locale.ROOT));
+            stringBuilder.append(" ");
+            stringBuilder.append(index.substring(0, 1).toUpperCase(Locale.ROOT));
+            stringBuilder.append(index.substring(1).toLowerCase(Locale.ROOT));
         }
-        var20.textValue2 = var8.toString();
-    }
-
-    public VisibleSettingProperty(String arg0, Object arg1, Object arg2, SettingGroup arg3, Function0 arg4, int arg5, DefaultConstructorMarker arg6) {
-        if ((arg5 & 4)) {
-            arg2 = arg1;
-        }
-        if ((arg5 & 8)) {
-        }
-        if ((arg5 & 16)) {
-            arg4 = this::isActive;
-        }
-        this(arg0, arg1, arg2, arg3, arg4);
+        this.textValue2 = stringBuilder.toString();
     }
 
     public String getString() {
@@ -132,8 +113,8 @@ public abstract class VisibleSettingProperty {
     }
 
     private static Unit resolveUnit(JsonBuilder arg0) {
-        arg0.setIgnoreUnknownKeys(1);
-        arg0.setEncodeDefaults(1);
+        arg0.setIgnoreUnknownKeys(true);
+        arg0.setEncodeDefaults(true);
         return Unit.INSTANCE;
     }
 

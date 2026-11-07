@@ -36,36 +36,36 @@ public class WarningGuiElement extends Screen {
     }
 
     public void method_25394(DrawContext context, int mouseX, int mouseY, float delta) {
-        int var26 = (this.field_22789 / 2.0F);
-        int var27 = (this.field_22790 / 2.0F);
-        Color[] var28 = new Color[1];
-        var28[0] = new Color(-1072689136);
-        PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), 0.0F, 0.0F, this.field_22789, this.field_22790);
-        String[] var29 = new String[1];
-        var29[0] = ", ";
-        var28 = StringsKt.split$default((CharSequence) KeyServiceComponent.INSTANCE.resolveString("gui.version.confirm", new Object[0]));
-        var29 = 0.0F;
-        Iterator iterator = var28.iterator();
+        int index = (this.field_22789 / 2.0F);
+        int index2 = (this.field_22790 / 2.0F);
+        Color[] items = new Color[1];
+        items[0] = new Color(-1072689136);
+        PolygonShaderComponent.INSTANCE.executeAction(context.method_51448(), 0.0F, 0.0F, this.field_22789, this.field_22790, items);
+        String[] items2 = new String[1];
+        items2[0] = ", ";
+        items = StringsKt.split$default(((CharSequence) KeyServiceComponent.INSTANCE.resolveString("gui.version.confirm", new Object[0])), items2, false);
+        items2 = 0.0F;
+        Iterator iterator = items.iterator();
         while (iterator.hasNext()) {
-            String var31 = (String) iterator.next();
-            SFMServiceComponent.resolveFontRenderHelper7().render(context, ((var27 - 10.0F) + var29), PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE, 0.5F));
-            var29 = (var29 + 23.0F);
+            String text = ((String) iterator.next());
+            SFMServiceComponent.resolveFontRenderHelper7().render(context, text, index, ((index2 - 10.0F) + items2), PolygonShaderComponent.INSTANCE.resolveColor(Color.WHITE, 0.5F));
+            items2 = (items2 + 23.0F);
         }
         iterator = 360;
         if (iterator >= 180) {
         } else {
         }
-        var31 = PolygonShaderComponent.INSTANCE.resolveColor(Color.RED, Color.YELLOW, (iterator / 360.0F));
-        MissingnoRenderHelper.executeAction(this.missingnoRenderHelper, (Matrix3x2f) context.method_51448(), (var26 - 16.0D), (var27 - 60.0D), 0.0F, 0.0F, null, 0.0F);
-        this.labelRenderHelper2.render((var26 - 110.0F), (var27 + 40.0F), mouseX, mouseY, context);
-        this.labelRenderHelper.render((var26 + 10.0F), (var27 + 40.0F), mouseX, mouseY, context);
+        text = PolygonShaderComponent.INSTANCE.resolveColor(Color.RED, Color.YELLOW, (iterator / 360.0F));
+        MissingnoRenderHelper.executeAction(this.missingnoRenderHelper, ((Matrix3x2f) context.method_51448()), (index - 16.0D), (index2 - 60.0D), 0.0F, 0.0F, text, null, 0.0F);
+        this.labelRenderHelper2.render((index - 110.0F), (index2 + 40.0F), mouseX, mouseY, context);
+        this.labelRenderHelper.render((index + 10.0F), (index2 + 40.0F), mouseX, mouseY, context);
     }
 
     public boolean method_25402(class_11909 click, boolean doubled) {
-        double var7 = click.comp_4798();
-        double var9 = click.comp_4799();
-        this.labelRenderHelper.executeAction();
-        this.labelRenderHelper2.executeAction();
+        double offset = click.comp_4798();
+        double offset2 = click.comp_4799();
+        this.labelRenderHelper.executeAction(offset, offset2);
+        this.labelRenderHelper2.executeAction(offset, offset2);
         return this.method_25402(click, doubled);
     }
 
@@ -73,8 +73,8 @@ public class WarningGuiElement extends Screen {
     }
 
     private static Unit getUnit() {
-        String var2 = "https://catlean.su/";
-        class_156.method_668().method_673(URI.create());
+        String text = "https://catlean.su/";
+        class_156.method_668().method_673(URI.create(text));
         return Unit.INSTANCE;
     }
 

@@ -1,6 +1,7 @@
 package su.catlean.client.features.modules.render.cosmetic;
 
 import com.mojang.blaze3d.buffers.GpuBufferSlice;
+import com.mojang.blaze3d.pipeline.RenderPipeline;
 import com.mojang.blaze3d.systems.CommandEncoder;
 import com.mojang.blaze3d.systems.GpuDevice;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -111,7 +112,7 @@ public class HandChamsModule extends Module {
     }
 
     private PlayerEspShaderMode getHandsMode() {
-        return (PlayerEspShaderMode) handsModeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((PlayerEspShaderMode) handsModeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setHandsMode(PlayerEspShaderMode value) {
@@ -119,7 +120,7 @@ public class HandChamsModule extends Module {
     }
 
     private Color getHandsColor() {
-        return (Color) handsColorSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Color) handsColorSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setHandsColor(Color value) {
@@ -127,7 +128,7 @@ public class HandChamsModule extends Module {
     }
 
     private boolean getGlass() {
-        return (Boolean) glassSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) glassSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setGlass(boolean value) {
@@ -135,7 +136,7 @@ public class HandChamsModule extends Module {
     }
 
     private float getAlpha() {
-        return (Number) alphaSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) alphaSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setAlpha(float value) {
@@ -143,7 +144,7 @@ public class HandChamsModule extends Module {
     }
 
     private boolean getBorders() {
-        return (Boolean) bordersSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) bordersSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setBorders(boolean value) {
@@ -151,7 +152,7 @@ public class HandChamsModule extends Module {
     }
 
     private float getRadiusValue() {
-        return (Number) radiusValueSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) radiusValueSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void setRadiusValue(float value) {
@@ -159,7 +160,7 @@ public class HandChamsModule extends Module {
     }
 
     private float getDistanceValue() {
-        return (Number) distanceValueSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Number) distanceValueSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setDistanceValue(float value) {
@@ -167,7 +168,7 @@ public class HandChamsModule extends Module {
     }
 
     private float getGlowAlphaValue() {
-        return (Number) glowAlphaValueSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Number) glowAlphaValueSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private void setGlowAlphaValue(float value) {
@@ -175,7 +176,7 @@ public class HandChamsModule extends Module {
     }
 
     private float getLineWithValue() {
-        return (Number) lineWithValueSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Number) lineWithValueSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private void setLineWithValue(float value) {
@@ -183,7 +184,7 @@ public class HandChamsModule extends Module {
     }
 
     private PlayerEspColorModeValueMode getColorModeValue() {
-        return (PlayerEspColorModeValueMode) colorModeValueSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((PlayerEspColorModeValueMode) colorModeValueSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private void setColorModeValue(PlayerEspColorModeValueMode value) {
@@ -191,7 +192,7 @@ public class HandChamsModule extends Module {
     }
 
     private Color getSecondColor() {
-        return (Color) secondColorSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Color) secondColorSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private void setSecondColor(Color value) {
@@ -199,7 +200,7 @@ public class HandChamsModule extends Module {
     }
 
     private int getGlowQualityValue() {
-        return (Number) glowQualityValueSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Number) glowQualityValueSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private void setGlowQualityValue(int value) {
@@ -207,7 +208,7 @@ public class HandChamsModule extends Module {
     }
 
     private float getGlowRadiusValue() {
-        return (Number) glowRadiusValueSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Number) glowRadiusValueSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private void setGlowRadiusValue(float value) {
@@ -215,7 +216,7 @@ public class HandChamsModule extends Module {
     }
 
     private float getGlowAlphaMultValue() {
-        return (Number) glowAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Number) glowAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     private void setGlowAlphaMultValue(float value) {
@@ -223,7 +224,7 @@ public class HandChamsModule extends Module {
     }
 
     private float getFillAlphaMultValue() {
-        return (Number) fillAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Number) fillAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     private void setFillAlphaMultValue(float value) {
@@ -231,7 +232,7 @@ public class HandChamsModule extends Module {
     }
 
     private float getSaturation() {
-        return (Number) saturationSetting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((Number) saturationSetting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     private void setSaturation(float value) {
@@ -239,7 +240,7 @@ public class HandChamsModule extends Module {
     }
 
     private float getBrightness() {
-        return (Number) brightnessSetting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((Number) brightnessSetting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     private void setBrightness(float value) {
@@ -247,9 +248,7 @@ public class HandChamsModule extends Module {
     }
 
     private void onFrameBufferEvent(FrameBufferEvent arg0) {
-        if (!(var4)) {
-            arg0.setFrameBuffer((class_276) minecraftRef);
-        }
+        arg0.setFrameBuffer(((class_276) minecraftRef));
         arg0.cancel();
     }
 
@@ -263,20 +262,20 @@ public class HandChamsModule extends Module {
         if (minecraftRef == null || minecraftRef2 == null || minecraftRef3 == null) {
             return;
         }
-        GofraState.INSTANCE.setModifyBuffer(1);
+        GofraState.INSTANCE.setModifyBuffer(true);
         enabledFlag2 = 1;
         this.executeAction(this.getHandsMode(), this.getHandsColor(), minecraftRef, minecraftRef2, this.getGlass(), this.getBorders(), this.getRadiusValue(), this.getDistanceValue(), this.getGlowAlphaValue(), this.getLineWithValue(), this.getColorModeValue().ordinal(), this.getHandsColor(), this.getSecondColor(), this.getGlowQualityValue(), this.getGlowRadiusValue(), this.getGlowAlphaMultValue(), this.getFillAlphaMultValue(), this.getSaturation(), this.getBrightness(), this.getAlpha());
         enabledFlag2 = 0;
-        GofraState.INSTANCE.setModifyBuffer(0);
+        GofraState.INSTANCE.setModifyBuffer(false);
     }
 
     public void onRender3DEvent(Render3DEvent event) {
-        GofraState.INSTANCE.setModifyBuffer(1);
+        GofraState.INSTANCE.setModifyBuffer(true);
         enabledFlag2 = 1;
         this.executeAction();
         this.render(event.getStack());
         enabledFlag2 = 0;
-        GofraState.INSTANCE.setModifyBuffer(0);
+        GofraState.INSTANCE.setModifyBuffer(false);
     }
 
     public void executeAction(PlayerEspShaderMode mode, Color color, class_6364 frameBuffer, class_6364 secondary, boolean glass, boolean borders, float radiusValue, float distanceValue, float glowAlphaValue, float lineWithValue, int colorModev, Color color1v, Color color2v, int glowQualityV, float glowRadiusV, float glowAlphaMultV, float fillAlphaMultV, float saturationV, float brightnessV, float alpha) {
@@ -296,25 +295,23 @@ public class HandChamsModule extends Module {
 
     private void executeAction(Color arg0, class_6364 arg1, class_6364 arg2, float arg3, float arg4, float arg5, float arg6) {
         this.executeAction(arg0, arg6, arg1);
-        float var23 = arg3;
-        float var24 = arg4;
-        if (var22) {
-            if (countValue != var23) {
-            }
-            int var25 = var23;
-            if (-1 < var25) {
-                factorValueArray[var25] = this.computeValue();
-                if (var22) {
+        if (__UNDEF_KEY__) {
+            if (countValue != arg3) {
+                float factor = arg3;
+                if (-1 < factor) {
+                    factorValueArray[factor] = this.computeValue(factor);
+                    if (__UNDEF_KEY__) {
+                        countValue = arg3;
+                    }
                 }
-                countValue = var23;
             }
         }
-        var25 = new Matrix4f().set(factorValueArray[0], factorValueArray[1], factorValueArray[2], factorValueArray[3], factorValueArray[4], factorValueArray[5], factorValueArray[6], factorValueArray[7], factorValueArray[8], factorValueArray[9], factorValueArray[10], factorValueArray[11], factorValueArray[12], factorValueArray[13], factorValueArray[14], factorValueArray[15]);
-        FormatRenderHelper.executeAction(new FormatRenderHelper().resolveFormatRenderHelper(), VertexUBOShaderComponent.INSTANCE.getRenderPipeline5(), (class_276) arg2, CtlEspBloomUboServiceComponent.INSTANCE.getMinecraftObject().method_71102((class_11281) new TexelSizeRenderHelper(new class_241((1.0F / SharedKt.getMc().method_22683().method_4486()), (1.0F / SharedKt.getMc().method_22683().method_4502())), new class_241(0.0F), arg5, arg0)), null, null, MapsKt.mapOf(TuplesKt.to("Sampler1", arg1.method_71639())));
-        Pair[] var26 = new Pair[2];
-        var26[0] = TuplesKt.to("Sampler0", arg1.method_71639());
-        var26[1] = TuplesKt.to("Sampler1", arg2.method_71639());
-        FormatRenderHelper.executeAction(new FormatRenderHelper().resolveFormatRenderHelper(), VertexUBOShaderComponent.INSTANCE.getRenderPipeline5(), SharedKt.getMc().method_1522(), CtlEspBloomUboServiceComponent.INSTANCE.getMinecraftObject().method_71102((class_11281) new TexelSizeRenderHelper(new class_241((1.0F / SharedKt.getMc().method_22683().method_4486()), (1.0F / SharedKt.getMc().method_22683().method_4502())), new class_241(0.0F), arg5, arg0)), null, null, MapsKt.mapOf());
+        factor = new Matrix4f().set(factorValueArray[0], factorValueArray[1], factorValueArray[2], factorValueArray[3], factorValueArray[4], factorValueArray[5], factorValueArray[6], factorValueArray[7], factorValueArray[8], factorValueArray[9], factorValueArray[10], factorValueArray[11], factorValueArray[12], factorValueArray[13], factorValueArray[14], factorValueArray[15]);
+        FormatRenderHelper.executeAction(new FormatRenderHelper(null, 0, false).resolveFormatRenderHelper(), VertexUBOShaderComponent.INSTANCE.getRenderPipeline5(), ((class_276) arg2), CtlEspBloomUboServiceComponent.INSTANCE.getMinecraftObject().method_71102(((class_11281) new TexelSizeRenderHelper(arg3, arg5, factor, arg0))), null, null, MapsKt.mapOf(TuplesKt.to("Sampler1", arg1.method_71639())));
+        Pair[] items = new Pair[2];
+        items[0] = TuplesKt.to("Sampler0", arg1.method_71639());
+        items[1] = TuplesKt.to("Sampler1", arg2.method_71639());
+        FormatRenderHelper.executeAction(new FormatRenderHelper(null, 0, false).resolveFormatRenderHelper(), VertexUBOShaderComponent.INSTANCE.getRenderPipeline5(), SharedKt.getMc().method_1522(), CtlEspBloomUboServiceComponent.INSTANCE.getMinecraftObject().method_71102(((class_11281) new TexelSizeRenderHelper(arg3, arg5, factor, arg0))), null, null, MapsKt.mapOf(items));
     }
 
     private void executeAction(short arg0, int arg1) {
@@ -323,13 +320,13 @@ public class HandChamsModule extends Module {
         }
         if (arg1 <= 0) {
             if (SharedKt.getMc().method_1522().field_1482 == minecraftRef.field_1482) {
+                if (SharedKt.getMc().method_1522().field_1481 != minecraftRef.field_1481) {
+                    minecraftRef.method_1234(SharedKt.getMc().method_1522().field_1482, SharedKt.getMc().method_1522().field_1481);
+                }
             }
-            if (SharedKt.getMc().method_1522().field_1481 != minecraftRef.field_1481) {
-            }
-            minecraftRef.method_1234(SharedKt.getMc().method_1522().field_1482, SharedKt.getMc().method_1522().field_1481);
         }
-        CommandEncoder var9 = RenderSystem.getDevice().createCommandEncoder();
-        var9.clearColorAndDepthTextures(minecraftRef.method_30277(), 0, minecraftRef.method_30278(), 1.0D);
+        CommandEncoder commandEncoder = RenderSystem.getDevice().createCommandEncoder();
+        commandEncoder.clearColorAndDepthTextures(minecraftRef.method_30277(), 0, minecraftRef.method_30278(), 1.0D);
         if (arg0 >= 0) {
             if (minecraftRef2 == null) {
                 minecraftRef2 = new class_6364(SharedKt.getMc().method_1522().field_1482, SharedKt.getMc().method_1522().field_1481);
@@ -337,12 +334,12 @@ public class HandChamsModule extends Module {
         }
         if (arg1 < 0) {
             if (SharedKt.getMc().method_1522().field_1482 == minecraftRef2.field_1482) {
+                if (SharedKt.getMc().method_1522().field_1481 != minecraftRef2.field_1481) {
+                    minecraftRef2.method_1234(SharedKt.getMc().method_1522().field_1482, SharedKt.getMc().method_1522().field_1481);
+                }
             }
-            if (SharedKt.getMc().method_1522().field_1481 != minecraftRef2.field_1481) {
-            }
-            minecraftRef2.method_1234(SharedKt.getMc().method_1522().field_1482, SharedKt.getMc().method_1522().field_1481);
         }
-        var9.clearColorAndDepthTextures(minecraftRef2.method_30277(), 0, minecraftRef2.method_30278(), 1.0D);
+        commandEncoder.clearColorAndDepthTextures(minecraftRef2.method_30277(), 0, minecraftRef2.method_30278(), 1.0D);
         if (arg0 >= 0) {
             if (minecraftRef3 == null) {
                 minecraftRef3 = new class_6364(SharedKt.getMc().method_1522().field_1482, SharedKt.getMc().method_1522().field_1481);
@@ -350,81 +347,80 @@ public class HandChamsModule extends Module {
         }
         if (arg1 < 0) {
             if (SharedKt.getMc().method_1522().field_1482 == minecraftRef3.field_1482) {
+                if (SharedKt.getMc().method_1522().field_1481 != minecraftRef3.field_1481) {
+                    minecraftRef3.method_1234(SharedKt.getMc().method_1522().field_1482, SharedKt.getMc().method_1522().field_1481);
+                }
             }
-            if (SharedKt.getMc().method_1522().field_1481 != minecraftRef3.field_1481) {
-            }
-            minecraftRef3.method_1234(SharedKt.getMc().method_1522().field_1482, SharedKt.getMc().method_1522().field_1481);
         }
-        var9.clearColorAndDepthTextures(minecraftRef3.method_30277(), 0, minecraftRef3.method_30278(), 1.0D);
+        commandEncoder.clearColorAndDepthTextures(minecraftRef3.method_30277(), 0, minecraftRef3.method_30278(), 1.0D);
     }
 
     private void render(MatrixStack arg0) {
         RenderSystem.backupProjectionMatrix();
-        if (!(var17)) {
+        if (!(__UNDEF_KEY__)) {
             enabledFlag = 0;
             this.executeAction(SharedKt.getMc().field_1773.method_19418(), TextShaderComponent2.INSTANCE.computeValue(), arg0.method_23760().method_23761());
             if (this.getHandsMode() == PlayerEspShaderMode.MIRROR) {
+            } else {
             }
-        } else {
         }
         enabledFlag = 0;
         RenderSystem.restoreProjectionMatrix();
     }
 
     private void executeAction(int arg0, Color arg1, Color arg2, int arg3, float arg4, float arg5, float arg6, float arg7, float arg8, class_6364 arg9) {
-        FormatRenderHelper.executeAction(new FormatRenderHelper().resolveFormatRenderHelper(), VertexUBOShaderComponent.INSTANCE.getRenderPipeline3(), SharedKt.getMc().method_1522(), CtlEspDoubleGlowUboServiceComponent.INSTANCE.getMinecraftObject().method_71102((class_11281) new ColorRenderHelper(Math.abs(PolygonShaderComponent.INSTANCE.computeValue(((SharedKt.getPlayer().field_6012 - 1) / 6.0F), (SharedKt.getPlayer().field_6012 / 6.0F), PolygonShaderComponent.INSTANCE.computeValue())), arg1, arg2, arg0, arg3, arg4, arg5, 1, arg6, new class_241((1.0F / arg9.field_1482), (1.0F / arg9.field_1481)), arg7, arg8)), null, null, MapsKt.mapOf(TuplesKt.to("Sampler0", arg9.method_71639())));
+        FormatRenderHelper.executeAction(new FormatRenderHelper(null, 0, false).resolveFormatRenderHelper(), VertexUBOShaderComponent.INSTANCE.getRenderPipeline3(), SharedKt.getMc().method_1522(), CtlEspDoubleGlowUboServiceComponent.INSTANCE.getMinecraftObject().method_71102(((class_11281) new ColorRenderHelper(Math.abs(PolygonShaderComponent.INSTANCE.computeValue(((SharedKt.getPlayer().field_6012 - 1) / 6.0F), (SharedKt.getPlayer().field_6012 / 6.0F), PolygonShaderComponent.INSTANCE.computeValue())), arg1, arg2, arg0, arg3, arg4, arg5, 1, arg6, arg7, arg8))), null, null, MapsKt.mapOf(TuplesKt.to("Sampler0", arg9.method_71639())));
     }
 
     private void executeAction(Color arg0, float arg1, class_6364 arg2) {
-        FormatRenderHelper.executeAction(new FormatRenderHelper().resolveFormatRenderHelper(), VertexUBOShaderComponent.INSTANCE.getRenderPipeline(), SharedKt.getMc().method_1522(), CtlEspDefaultUboServiceComponent.INSTANCE.getMinecraftObject().method_71102((class_11281) new ColorRenderHelper5((1.0F / arg2.field_1482), (1.0F / arg2.field_1481), arg0, arg1)), null, null, MapsKt.mapOf(TuplesKt.to("Sampler0", arg2.method_71639())));
+        FormatRenderHelper.executeAction(new FormatRenderHelper(null, 0, false).resolveFormatRenderHelper(), VertexUBOShaderComponent.INSTANCE.getRenderPipeline(), SharedKt.getMc().method_1522(), CtlEspDefaultUboServiceComponent.INSTANCE.getMinecraftObject().method_71102(((class_11281) new ColorRenderHelper5((1.0F / arg2.field_1482), (1.0F / arg2.field_1481), arg0, arg1))), null, null, MapsKt.mapOf(TuplesKt.to("Sampler0", arg2.method_71639())));
     }
 
     private void executeAction(Color arg0, Color arg1, Color arg2, Color arg3, float arg4, class_6364 arg5) {
-        FormatRenderHelper.executeAction(new FormatRenderHelper().resolveFormatRenderHelper(), VertexUBOShaderComponent.INSTANCE.getRenderPipeline2(), SharedKt.getMc().method_1522(), CtlEspCamouflageUboServiceComponent.INSTANCE.getMinecraftObject().method_71102((class_11281) new Color1RenderHelper((1.0F / arg5.field_1482), (1.0F / arg5.field_1481), arg0, arg1, arg2, arg3, arg4, Math.abs(PolygonShaderComponent.INSTANCE.computeValue(((SharedKt.getPlayer().field_6012 - 1) / 1000.0F), (SharedKt.getPlayer().field_6012 / 1000.0F), PolygonShaderComponent.INSTANCE.computeValue())))), null, null, MapsKt.mapOf(TuplesKt.to("Sampler0", arg5.method_71639())));
+        FormatRenderHelper.executeAction(new FormatRenderHelper(null, 0, false).resolveFormatRenderHelper(), VertexUBOShaderComponent.INSTANCE.getRenderPipeline2(), SharedKt.getMc().method_1522(), CtlEspCamouflageUboServiceComponent.INSTANCE.getMinecraftObject().method_71102(((class_11281) new Color1RenderHelper((1.0F / arg5.field_1482), (1.0F / arg5.field_1481), arg0, arg1, arg2, arg3, arg4, Math.abs(PolygonShaderComponent.INSTANCE.computeValue(((SharedKt.getPlayer().field_6012 - 1) / 1000.0F), (SharedKt.getPlayer().field_6012 / 1000.0F), PolygonShaderComponent.INSTANCE.computeValue()))))), null, null, MapsKt.mapOf(TuplesKt.to("Sampler0", arg5.method_71639())));
     }
 
     private void executeAction(class_6364 arg0, Color arg1, boolean arg2, boolean arg3, float arg4) {
-        0.0F.<init>(0.0F, 0.5F);
         if (arg2) {
         } else {
         }
-        float var18 = arg4;
-        float var19 = arg4;
-        float var20 = 0.0F;
-        float var21 = 1.0F;
-        Pair[] var27 = new Pair[2];
-        var27[0] = TuplesKt.to("Sampler0", arg0.method_71639());
-        var27[1] = TuplesKt.to("Sampler1", CtlBlurserviceFbShaderComponent.INSTANCE.getGpuTextureView());
-        var19 = 24;
-        var20 = MapsKt.mapOf();
-        GpuBufferSlice var23 = new UViewOffsetRenderHelper.method_71102((class_11281) new class_241(new class_241((1.0F / arg0.field_1482), (1.0F / arg0.field_1481)), arg1));
-        UViewOffsetRenderHelper var24 = new UViewOffsetRenderHelper;
-        class_11280 var25 = CtlEspMirrorUboServiceComponent.INSTANCE.getMinecraftObject();
-        class_276 var26 = SharedKt.getMc().method_1522();
-        FormatRenderHelper.executeAction();
+        float factor = arg4;
+        float factor2 = arg4;
+        float factor3 = 0.0F;
+        float factor4 = 1.0F;
+        Pair[] items = new Pair[2];
+        items[0] = TuplesKt.to("Sampler0", arg0.method_71639());
+        items[1] = TuplesKt.to("Sampler1", CtlBlurserviceFbShaderComponent.INSTANCE.getGpuTextureView());
+        factor2 = 24;
+        factor3 = MapsKt.mapOf(items);
+        GpuBufferSlice gpuBufferSlice = CtlEspMirrorUboServiceComponent.INSTANCE.getMinecraftObject().method_71102(((class_11281) new UViewOffsetRenderHelper(arg1, factor4, factor3, factor2, factor)));
+        class_276 class276 = SharedKt.getMc().method_1522();
+        RenderPipeline renderPipeline = VertexUBOShaderComponent.INSTANCE.getRenderPipeline4();
+        FormatRenderHelper formatRenderHelper = new FormatRenderHelper(null, 0, false).resolveFormatRenderHelper();
+        FormatRenderHelper.executeAction(formatRenderHelper, renderPipeline, class276, gpuBufferSlice, factor4, factor3, factor2, factor);
     }
 
     private void executeAction(class_4184 arg0, float arg1, Matrix4f arg2) {
         if (AspectModule.INSTANCE.getEnabled()) {
         } else {
         }
-        Matrix4f var13 = SharedKt.getMc().field_1773.method_22973((GameRendererAccessor) SharedKt.getMc().field_1773.iGetFov(arg0, arg1, 0));
-        RenderSystem.setProjectionMatrix((GameRendererAccessor) SharedKt.getMc().field_1773.getLevelProjectionMatrixBuffer().method_71123(), class_10366.field_54953);
+        Matrix4f matrix4f = SharedKt.getMc().field_1773.method_22973(((GameRendererAccessor) SharedKt.getMc().field_1773).iGetFov(arg0, arg1, false));
+        RenderSystem.setProjectionMatrix(((GameRendererAccessor) SharedKt.getMc().field_1773).getLevelProjectionMatrixBuffer().method_71123(matrix4f), class_10366.field_54953);
         MatrixStack matrices = new MatrixStack();
         matrices.method_22903();
-        matrices.method_34425((Matrix4fc) arg2.invert(new Matrix4f()));
-        Matrix4fStack var15 = RenderSystem.getModelViewStack();
-        var15.pushMatrix().mul((Matrix4fc) arg2);
-        (GameRendererAccessor) SharedKt.getMc().field_1773.itiltViewWhenHurt(matrices, arg1);
-        if ((Boolean) SharedKt.getMc().options.method_42448().method_41753()) {
-            (GameRendererAccessor) SharedKt.getMc().field_1773.ibobView(matrices, arg1);
+        matrices.method_34425(((Matrix4fc) arg2.invert(new Matrix4f())));
+        Matrix4fStack matrix4fStack = RenderSystem.getModelViewStack();
+        matrix4fStack.pushMatrix().mul(((Matrix4fc) arg2));
+        ((GameRendererAccessor) SharedKt.getMc().field_1773).itiltViewWhenHurt(matrices, arg1);
+        if (((Boolean) SharedKt.getMc().options.method_42448().method_41753())) {
+            ((GameRendererAccessor) SharedKt.getMc().field_1773).ibobView(matrices, arg1);
         }
-        boolean var16 = (LivingEntity) SharedKt.getMc().method_1560().method_6113();
+        boolean flag = ((LivingEntity) SharedKt.getMc().method_1560()).method_6113();
         if (SharedKt.getMc().options.method_31044().method_31034()) {
-            if (!(var16)) {
+            if (!(flag)) {
                 if (!(SharedKt.getMc().options.field_1842)) {
                     if (SharedKt.getMc().interactionManager.method_2920() != class_1934.field_9219) {
-                        SharedKt.getMc().field_1773.field_4012.method_22976(arg1, matrices, (class_11659) SharedKt.getMc().field_1773.method_72910(), SharedKt.getPlayer(), SharedKt.getMc().method_1561().method_23839(SharedKt.getPlayer(), arg1));
+                        SharedKt.getMc().field_1773.field_4012.method_22976(arg1, matrices, ((class_11659) SharedKt.getMc().field_1773.method_72910()), SharedKt.getPlayer(), SharedKt.getMc().method_1561().method_23839(SharedKt.getPlayer(), arg1));
                     }
                 }
             }
@@ -432,7 +428,7 @@ public class HandChamsModule extends Module {
         SharedKt.getMc().field_1773.method_72911().method_73002();
         SharedKt.getMc().method_22940().method_23000().method_22993();
         SharedKt.getMc().field_1773.method_72910().method_72953();
-        var15.popMatrix();
+        matrix4fStack.popMatrix();
         matrices.method_22909();
     }
 
@@ -467,8 +463,8 @@ public class HandChamsModule extends Module {
     private static boolean isActive7() {
         if (INSTANCE.getHandsMode() != PlayerEspShaderMode.DEFAULT && INSTANCE.getHandsMode() != PlayerEspShaderMode.BLOOM) {
             if (INSTANCE.getHandsMode() == PlayerEspShaderMode.CAMOUFLAGE) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -480,8 +476,8 @@ public class HandChamsModule extends Module {
     private static boolean isActive9() {
         if (INSTANCE.getHandsMode() != PlayerEspShaderMode.DOUBLE) {
             if (INSTANCE.getHandsMode() == PlayerEspShaderMode.CAMOUFLAGE) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -511,13 +507,13 @@ public class HandChamsModule extends Module {
     }
 
     static {
-        KProperty[] var35 = new KProperty[17];
+        KProperty[] items = new KProperty[17];
         INSTANCE = new HandChamsModule();
         handsModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", PlayerEspShaderMode.MIRROR);
         handsColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "color", new Color(200, 200, 255));
-        glassSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glass", 0, null, this::isActive);
+        glassSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glass", false, null, this::isActive);
         alphaSetting = VisibleRenderHelper.registerSetting(INSTANCE, "alpha", 0.2F, RangesKt.rangeTo(0.0F, 2.0F), null, this::isActive2);
-        bordersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "border", 0, null, this::isActive3);
+        bordersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "border", false, null, this::isActive3);
         radiusValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "radius", 6.0F, RangesKt.rangeTo(0.0F, 15.0F), null, this::isActive4);
         distanceValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "distance", 1.3F, RangesKt.rangeTo(0.0F, 15.0F), null, this::isActive5);
         glowAlphaValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glow-alpha", 1.7F, RangesKt.rangeTo(1.0F, 5.0F), null, this::isActive6);

@@ -26,15 +26,15 @@ public class SwitchModeServiceComponent implements Contract2 {
             if (switchMode == AuraSwitchMode.NONE) {
                 if (!(ItemServiceComponent4.checkCondition(stack)) && !(stack.getItem() instanceof class_1743) && !(stack.getItem() instanceof class_1835)) {
                     if (stack.getItem() instanceof class_9362) {
-                    }
-                } else {
-                } else {
-                    if (!(ItemPacketHelper.INSTANCE.resolveStackServiceComponent2().isActive())) {
-                        if (ItemPacketHelper.INSTANCE.resolveStackServiceComponent23().isActive()) {
-                        }
                     } else {
+                        if (!(ItemPacketHelper.INSTANCE.resolveStackServiceComponent2().isActive())) {
+                            if (ItemPacketHelper.INSTANCE.resolveStackServiceComponent23().isActive()) {
+                            } else {
+                            }
+                        }
                     }
                 }
+            } else {
             }
             return false;
         }
@@ -42,60 +42,44 @@ public class SwitchModeServiceComponent implements Contract2 {
     }
 
     public void executeAction(boolean silent) {
-        StackServiceComponent2 var14 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        if (var14.isActive()) {
-            var14.updateValue();
-            var14.updateValue();
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
+        if (stackServiceComponent2.isActive()) {
+            stackServiceComponent2.updateValue();
+            stackServiceComponent2.updateValue();
             return;
         }
-        StackServiceComponent2 var15 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent23();
-        if (0L < 0 || 0L >= 0) {
+        StackServiceComponent2 stackServiceComponent22 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent23();
+        if (__UNDEF_KEY__ < 0 || __UNDEF_KEY__ >= 0) {
             return;
         }
-        if (0L >= 0 && var15.isActive()) {
-            var15.updateValue();
+        if (__UNDEF_KEY__ >= 0 && stackServiceComponent22.isActive()) {
+            stackServiceComponent22.updateValue();
         }
-        var15.updateValue();
+        stackServiceComponent22.updateValue();
     }
 
     public static void executeAction(SwitchModeServiceComponent arg0, boolean arg1, int arg2, Object arg3) {
-        if ((arg2 & 1)) {
+        if ((arg2 & 1) != 0) {
             arg1 = 0;
         }
         arg0.executeAction(arg1);
     }
 
-    public void executeAction(int arg0, long arg1) {
-        int var4 = ((arg0 << 32) | ((arg1 << 32) >>> 32));
-        long var6 = ((var4 ^ 51486216026542L) >>> 48);
-        long var7 = (((var4 ^ 51486216026542L) << 16) >>> 32);
-        long var8 = (((var4 ^ 51486216026542L) << 48) >>> 48);
-        long var9 = ((var4 ^ 104070571286828L) >>> 8);
-        long var11 = (((var4 ^ 104070571286828L) << 56) >>> 56);
-        long var12 = (var4 ^ 16782221287606L);
-        if (var14) {
-            countValue = SharedKt.getPlayer().method_31548().method_67532();
-        }
-        this.executeAction(1);
+    public void executeAction() {
+        countValue = SharedKt.getPlayer().method_31548().method_67532();
+        this.executeAction(true);
     }
 
     public void executeAction(MoveFixServiceComponent rotation) {
-        int var5 = (((0L << 48) | ((0L << 32) >>> 16)) | ((0L << 48) >>> 48));
-        long var7 = ((var5 ^ 26629572807522L) >>> 8);
-        long var9 = (((var5 ^ 26629572807522L) << 56) >>> 56);
-        long var10 = (var5 ^ 75397077659784L);
-        this.updateValue();
-    }
-
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 102883187979937L);
         this.updateValue();
     }
 
     public void updateValue() {
-        if (var5) {
-            ItemPacketHelper.INSTANCE.executeAction(countValue);
-        }
+        this.updateValue();
+    }
+
+    public void updateValue() {
+        ItemPacketHelper.INSTANCE.executeAction(countValue);
         countValue = -1;
     }
 

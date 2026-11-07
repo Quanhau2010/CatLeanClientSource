@@ -45,11 +45,11 @@ public class MainhandTotemModule extends Module {
     }
 
     private float getHp() {
-        return (Number) hpSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) hpSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private boolean getPauseOnEating() {
-        return (Boolean) pauseOnEatingSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Boolean) pauseOnEatingSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
@@ -58,15 +58,15 @@ public class MainhandTotemModule extends Module {
     }
 
     public void onReceivePacket(ReceivePacket e) {
-        Packet var21 = e.getPacket();
-        if (var20) {
+        Packet packet = e.getPacket();
+        if (__UNDEF_KEY__) {
         }
-        if (var20) {
-            if (var21 instanceof class_2604) {
-                if (var20) {
-                    if (Intrinsics.areEqual((class_2604) var21.method_11169(), class_1299.field_6110)) {
-                        if (var20) {
-                            if ((this.computeValue() - ExplosionPosEntityHelper.computeValue(new Vec3d((class_2604) var21.method_11175(), (class_2604) var21.method_11174(), (class_2604) var21.method_11176()), (PlayerEntity) SharedKt.getPlayer())) <= this.getHp()) {
+        if (__UNDEF_KEY__) {
+            if (packet instanceof class_2604) {
+                if (__UNDEF_KEY__) {
+                    if (Intrinsics.areEqual(((class_2604) packet).method_11169(), class_1299.field_6110)) {
+                        if (__UNDEF_KEY__) {
+                            if ((this.computeValue() - ExplosionPosEntityHelper.computeValue(new Vec3d(((class_2604) packet).method_11175(), ((class_2604) packet).method_11174(), ((class_2604) packet).method_11176()), ((PlayerEntity) SharedKt.getPlayer()), 3, false, null, false)) <= this.getHp()) {
                                 this.executeAction(this.computeValue());
                             }
                         }
@@ -74,12 +74,12 @@ public class MainhandTotemModule extends Module {
                 }
             }
         }
-        if (var20) {
-            if (var21 instanceof class_2663) {
-                if (var20) {
-                    if ((class_2663) var21.method_11470() == 35) {
-                        if (var20) {
-                            if (Intrinsics.areEqual((class_2663) var21.method_11469((World) SharedKt.getWorld()), SharedKt.getPlayer())) {
+        if (__UNDEF_KEY__) {
+            if (packet instanceof class_2663) {
+                if (__UNDEF_KEY__) {
+                    if (((class_2663) packet).method_11470() == 35) {
+                        if (__UNDEF_KEY__) {
+                            if (Intrinsics.areEqual(((class_2663) packet).method_11469(((World) SharedKt.getWorld())), SharedKt.getPlayer())) {
                                 this.executeAction(this.computeValue());
                             }
                         }
@@ -87,13 +87,13 @@ public class MainhandTotemModule extends Module {
                 }
             }
         }
-        if (var20) {
-            if (var20) {
+        if (__UNDEF_KEY__) {
+            if (__UNDEF_KEY__) {
+                if (RunnableServiceComponent.INSTANCE.checkCondition() && packet instanceof class_2749 && this.computeValue() <= this.getHp()) {
+                    this.executeAction(this.computeValue());
+                    System.out.println(("Mainhand Totem Error: " + this.getLocalizedMessage()));
+                }
             }
-            if (RunnableServiceComponent.INSTANCE.checkCondition() && var21 instanceof class_2749 && this.computeValue() <= this.getHp()) {
-            }
-            this.executeAction(this.computeValue());
-            System.out.println(("Mainhand Totem Error: " + var22.getLocalizedMessage()));
         }
     }
 
@@ -104,23 +104,23 @@ public class MainhandTotemModule extends Module {
         if (SharedKt.getPlayer().method_6115() && this.getPauseOnEating()) {
             return;
         }
-        Item var16 = Items.field_8288;
-        if (ItemPacketHelper.INSTANCE.computeValue() <= 1 && OffhandModule.INSTANCE.getEnabled()) {
+        Item item = Items.field_8288;
+        if (ItemPacketHelper.INSTANCE.computeValue(item) <= 1 && OffhandModule.INSTANCE.getEnabled()) {
             return;
         }
         ItemPacketHelper.INSTANCE.executeAction(arg0);
     }
 
     private int computeValue() {
-        Item[] var10 = new Item[1];
-        var10[0] = Items.field_8288;
-        StackServiceComponent2 var9 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2();
-        if (var9.isActive()) {
-            if (var9.getNumericValue() == SharedKt.getPlayer().method_31548().method_67532()) {
+        Item[] items = new Item[1];
+        items[0] = Items.field_8288;
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(items);
+        if (stackServiceComponent2.isActive()) {
+            if (stackServiceComponent2.getNumericValue() == SharedKt.getPlayer().method_31548().method_67532()) {
+            } else {
             }
-        } else {
         }
-        return var9.getNumericValue();
+        return stackServiceComponent2.getNumericValue();
     }
 
     private float computeValue() {
@@ -128,10 +128,10 @@ public class MainhandTotemModule extends Module {
     }
 
     static {
-        KProperty[] var28 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new MainhandTotemModule();
         hpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "hp", 16.0F, RangesKt.rangeTo(0.0F, 36.0F));
-        pauseOnEatingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-while-eating");
+        pauseOnEatingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-while-eating", false);
         serviceComponent10 = new ServiceComponent10();
     }
 

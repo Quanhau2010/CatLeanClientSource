@@ -23,7 +23,7 @@ public class CtlEspDoubleGlowUboServiceComponent {
     static {
         INSTANCE = new CtlEspDoubleGlowUboServiceComponent();
         countValue = new Std140SizeCalculator().putFloat().putVec4().putVec4().putInt().putInt().putFloat().putFloat().putInt().putFloat().putVec2().putFloat().putFloat().get();
-        minecraftRef = new class_11280(countValue);
+        minecraftRef = new class_11280(countValue, 0);
     }
 
 }

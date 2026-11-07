@@ -19,19 +19,19 @@ public class Branch {
 
     public Branch(Class klass, Object obj, Method method) {
         this.eventTarget = method.getParameters()[0].getType();
-        this.priority = (Flow) method.getAnnotation(Flow.class).priority();
-        Class[] var4 = new Class[2];
-        var4[0] = Class.class;
-        var4[1] = Lookup.class;
-        this.privateLookupInMethod = MethodHandles.class.getDeclaredMethod("privateLookupIn");
-        Object[] var6 = new Object[2];
-        var6[0] = klass;
-        var6[1] = MethodHandles.lookup();
-        var4 = (Lookup) this.privateLookupInMethod.invoke(null);
-        MethodType var5 = MethodType.methodType(Void.TYPE, method.getParameters()[0].getType());
-        var6 = var4.findVirtual(klass, method.getName());
-        MethodType var7 = MethodType.methodType(Consumer.class, klass);
-        this.consumer = LambdaMetafactory.metafactory("accept", MethodType.methodType(Void.TYPE, Object.class)).getTarget().invoke(obj);
+        this.priority = ((Flow) method.getAnnotation(Flow.class)).priority();
+        Class[] items = new Class[2];
+        items[0] = Class.class;
+        items[1] = Lookup.class;
+        this.privateLookupInMethod = MethodHandles.class.getDeclaredMethod("privateLookupIn", items);
+        Object[] items2 = new Object[2];
+        items2[0] = klass;
+        items2[1] = MethodHandles.lookup();
+        items = ((Lookup) this.privateLookupInMethod.invoke(null, items2));
+        MethodType methodType = MethodType.methodType(Void.TYPE, method.getParameters()[0].getType());
+        items2 = items.findVirtual(klass, method.getName(), methodType);
+        MethodType methodType2 = MethodType.methodType(Consumer.class, klass);
+        this.consumer = LambdaMetafactory.metafactory(items, "accept", methodType2, MethodType.methodType(Void.TYPE, Object.class), items2, methodType).getTarget().invoke(obj);
     }
 
     public Class getEventTarget() {

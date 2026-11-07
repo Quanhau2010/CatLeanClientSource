@@ -92,40 +92,40 @@ public class IdRecord implements Contract8 {
     }
 
     public static IdRecord resolveIdRecord(IdRecord arg0, String arg1, KeyRecord arg2, boolean arg3, String arg4, boolean arg5, int arg6, Object arg7) {
-        if ((arg6 & 1)) {
+        if ((arg6 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg6 & 2)) {
+        if ((arg6 & 2) != 0) {
             arg2 = arg0.keyRecord;
         }
-        if ((arg6 & 4)) {
+        if ((arg6 & 4) != 0) {
             arg3 = arg0.enabledFlag;
         }
-        if ((arg6 & 8)) {
+        if ((arg6 & 8) != 0) {
             arg4 = arg0.textValue2;
         }
-        if ((arg6 & 16)) {
+        if ((arg6 & 16) != 0) {
             arg5 = arg0.enabledFlag2;
         }
         return arg0.resolveIdRecord(arg1, arg2, arg3, arg4, arg5);
     }
 
     public String toString() {
-        boolean var3 = this.enabledFlag2;
-        String var4 = this.textValue2;
-        boolean var5 = this.enabledFlag;
-        KeyRecord var6 = this.keyRecord;
-        String var7 = this.textValue;
-        return ("ItemMacro(id=" + var7 + ", bind=" + var6 + ", enabled=" + var5 + ", item=" + var4 + ", legit=" + var3 + ")");
+        boolean flag = this.enabledFlag2;
+        String text = this.textValue2;
+        boolean flag2 = this.enabledFlag;
+        KeyRecord keyRecord = this.keyRecord;
+        String text2 = this.textValue;
+        return ("ItemMacro(id=" + text2 + ", bind=" + keyRecord + ", enabled=" + flag2 + ", item=" + text + ", legit=" + flag + ")");
     }
 
     public int hashCode() {
-        int var3 = this.textValue.hashCode();
-        var3 = ((var3 * 31) + this.keyRecord.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag));
-        var3 = ((var3 * 31) + this.textValue2.hashCode());
-        var3 = ((var3 * 31) + Boolean.hashCode(this.enabledFlag2));
-        return var3;
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.keyRecord.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag));
+        index = ((index * 31) + this.textValue2.hashCode());
+        index = ((index * 31) + Boolean.hashCode(this.enabledFlag2));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -135,20 +135,20 @@ public class IdRecord implements Contract8 {
         if (!(other instanceof IdRecord)) {
             return false;
         }
-        IdRecord var5 = (IdRecord) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord idRecord = ((IdRecord) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.keyRecord, var5.keyRecord))) {
+        if (!(Intrinsics.areEqual(this.keyRecord, idRecord.keyRecord))) {
             return false;
         }
-        if (this.enabledFlag != var5.enabledFlag) {
+        if (this.enabledFlag != idRecord.enabledFlag) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.textValue2, var5.textValue2))) {
+        if (!(Intrinsics.areEqual(this.textValue2, idRecord.textValue2))) {
             return false;
         }
-        if (this.enabledFlag2 != var5.enabledFlag2) {
+        if (this.enabledFlag2 != idRecord.enabledFlag2) {
             return false;
         }
         return true;
@@ -156,7 +156,7 @@ public class IdRecord implements Contract8 {
 
     public static void executeAction(IdRecord self, CompositeEncoder output, SerialDescriptor serialDesc) {
         output.encodeStringElement(serialDesc, 0, self.getString());
-        output.encodeSerializableElement(serialDesc, 1, (SerializationStrategy) KeyRecordSerializer.INSTANCE, self.getKeyRecord());
+        output.encodeSerializableElement(serialDesc, 1, ((SerializationStrategy) KeyRecordSerializer.INSTANCE), self.getKeyRecord());
         output.encodeBooleanElement(serialDesc, 2, self.isActive());
         output.encodeStringElement(serialDesc, 3, self.textValue2);
         output.encodeBooleanElement(serialDesc, 4, self.enabledFlag2);

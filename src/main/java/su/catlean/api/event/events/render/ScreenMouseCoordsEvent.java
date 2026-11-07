@@ -30,7 +30,7 @@ public class ScreenMouseCoordsEvent extends Event {
     }
 
     public boolean call(int x, int y) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         countValue = x;
         countValue2 = y;

@@ -1,6 +1,5 @@
 package su.catlean.client.services.client;
 
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import net.minecraft.item.ItemStack;
 
 public class StackServiceComponent {
@@ -13,11 +12,7 @@ public class StackServiceComponent {
     }
 
     public StackServiceComponent2 resolveStackServiceComponent2(ItemStack stack) {
-        return new StackServiceComponent2(2631281915411301351L, 1, stack);
-    }
-
-    public StackServiceComponent(DefaultConstructorMarker $constructor_marker) {
-        this();
+        return new StackServiceComponent2(999, true, stack);
     }
 
 }

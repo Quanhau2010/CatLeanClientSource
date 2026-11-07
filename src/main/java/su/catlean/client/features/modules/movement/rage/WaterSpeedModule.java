@@ -35,18 +35,14 @@ public class WaterSpeedModule extends Module {
     }
 
     private WaterSpeedMode getMode() {
-        return (WaterSpeedMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((WaterSpeedMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private float getSpeed() {
-        return (Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = ((arg0 ^ 77511230170736L) >>> 32);
-        long var4 = (((arg0 ^ 77511230170736L) << 32) >>> 40);
-        long var5 = (((arg0 ^ 77511230170736L) << 56) >>> 56);
-        long var6 = (arg0 ^ 29647348875563L);
+    public void updateValue2() {
         SharedKt.getPlayer().method_6016(class_1294.field_5900);
     }
 
@@ -65,14 +61,14 @@ public class WaterSpeedModule extends Module {
     private void onSprintEvent(SprintEvent arg0) {
         if (!(SharedKt.getPlayer().method_5799())) {
         }
-        arg0.setSprinting(1);
+        arg0.setSprinting(true);
     }
 
     static {
-        KProperty[] var29 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new WaterSpeedModule();
-        modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", WaterSpeedMode.DolphinGrace, null, null, -6306088554145513460L);
-        speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", 2.0F, RangesKt.rangeTo(1.0F, 10.0F), null, null, -8974660200254406632L);
+        modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", WaterSpeedMode.DolphinGrace);
+        speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", 2.0F, RangesKt.rangeTo(1.0F, 10.0F));
     }
 
 }

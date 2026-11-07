@@ -13,19 +13,12 @@ public class SettingServiceComponent extends SettingRenderHelper6 {
     }
 
     public void setValue(int mouseX) {
-        long var4 = ((0L ^ 13989052645633L) >>> 32);
-        long var5 = (((0L ^ 13989052645633L) << 32) >>> 48);
-        long var6 = (((0L ^ 13989052645633L) << 48) >>> 48);
-        float var8 = Math.clamp(((mouseX - this.getNumericValue()) / (this.getNumericValue3() - 7.0F)), 0.0F, 1.0F);
-        this.getVisibleSettingProperty().updateValue(Integer.valueOf(MathKt.roundToInt((this.resolveIntRange().getFirst() + ((this.resolveIntRange().getLast() - this.resolveIntRange().getFirst()) * var8)))));
+        float factor = Math.clamp(((mouseX - this.getNumericValue()) / (this.getNumericValue3() - 7.0F)), 0.0F, 1.0F);
+        this.getVisibleSettingProperty().updateValue(Integer.valueOf(MathKt.roundToInt((this.resolveIntRange().getFirst() + ((this.resolveIntRange().getLast() - this.resolveIntRange().getFirst()) * factor)))));
     }
 
-    public float computeValue(char arg0, long arg1) {
-        int var4 = ((arg0 << 48) | ((arg1 << 16) >>> 16));
-        long var6 = ((var4 ^ 43274661890022L) >>> 32);
-        long var7 = (((var4 ^ 43274661890022L) << 32) >>> 48);
-        long var8 = (((var4 ^ 43274661890022L) << 48) >>> 48);
-        return Math.clamp((((Number) this.getVisibleSettingProperty().getObject2() - this.resolveIntRange().getFirst()) / (this.resolveIntRange().getLast() - this.resolveIntRange().getFirst())), 0.0F, 1.0F);
+    public float computeValue() {
+        return Math.clamp(((((Number) this.getVisibleSettingProperty().getObject2()) - this.resolveIntRange().getFirst()) / (this.resolveIntRange().getLast() - this.resolveIntRange().getFirst())), 0.0F, 1.0F);
     }
 
     public Integer resolveInteger(String value) {
@@ -37,19 +30,15 @@ public class SettingServiceComponent extends SettingRenderHelper6 {
     }
 
     public void setValue() {
-        this.updateValue(0);
+        this.updateValue(false);
     }
 
     public Number resolveNumber(String value) {
-        int var5 = (((0L << 32) | ((0L << 48) >>> 32)) | ((0L << 48) >>> 48));
-        long var7 = (var5 ^ 29274642336829L);
-        return (Number) this.resolveInteger(value);
+        return ((Number) this.resolveInteger(value));
     }
 
     public Number resolveNumber(Number current, int step) {
-        int var6 = (((0L << 32) | ((0L << 48) >>> 32)) | ((0L << 48) >>> 48));
-        long var8 = (var6 ^ 74496559134582L);
-        return (Number) this.resolveInteger(current, step);
+        return ((Number) this.resolveInteger(current, step));
     }
 
 }

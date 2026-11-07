@@ -12,12 +12,9 @@ public class Comparator3 implements Comparator {
     }
 
     public int compare(Object b) {
-        ItemsServiceComponent var10 = (ItemsServiceComponent) b;
-        int var11 = 0;
-        var10 = (ItemsServiceComponent) 0L;
-        Comparable var12 = (Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(var10.resolveMinecraftObject()));
-        var11 = 0;
-        if (ComparisonsKt.compareValues((Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(var10.resolveMinecraftObject()))) != null) {
+        ItemsServiceComponent itemsServiceComponent = ((ItemsServiceComponent) b);
+        Comparable comparable = ((Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(itemsServiceComponent.resolveMinecraftObject())));
+        if (ComparisonsKt.compareValues(comparable, ((Comparable) Double.valueOf(SharedKt.getPlayer().method_5707(itemsServiceComponent.resolveMinecraftObject())))) != null) {
         }
         return null;
     }

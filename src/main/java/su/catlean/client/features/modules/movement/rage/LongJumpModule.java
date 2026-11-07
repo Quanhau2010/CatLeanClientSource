@@ -42,23 +42,23 @@ public class LongJumpModule extends Module {
     }
 
     private boolean getUseTimer() {
-        return (Boolean) useTimerSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) useTimerSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private float getTimerValue() {
-        return (Number) timerValueSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) timerValueSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getJumpDisable() {
-        return (Boolean) jumpDisableSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) jumpDisableSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private float getSpeed() {
-        return (Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private float getMaxDistance() {
-        return (Number) maxDistanceSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Number) maxDistanceSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     public void onMoveEvent(MoveEvent e) {
@@ -76,17 +76,17 @@ public class LongJumpModule extends Module {
             e.setY((0.42D + this.computeValue()));
             factorValue = (factorValue * 2.149F);
             countValue = (countValue + 1);
-            float var34 = (0.66F * (factorValue2 - EventPacketHelper2.INSTANCE.computeValue()));
-            factorValue = (factorValue2 - var34);
+            float factor = (0.66F * (factorValue2 - EventPacketHelper2.INSTANCE.computeValue()));
+            factorValue = (factorValue2 - factor);
             countValue = (countValue + 1);
             if (!(SharedKt.getPlayer().field_5992)) {
-                if (SharedKt.getWorld().method_20812(SharedKt.getPlayer(), SharedKt.getPlayer().method_5829().method_1009(-0.2D, SharedKt.getPlayer().method_18798().method_10214(), -0.2D)).iterator().hasNext()) {
+                while (SharedKt.getWorld().method_20812(SharedKt.getPlayer(), SharedKt.getPlayer().method_5829().method_1009(-0.2D, SharedKt.getPlayer().method_18798().method_10214(), -0.2D)).iterator().hasNext()) {
+                    if (this.getJumpDisable()) {
+                        this.updateValue2();
+                    }
+                    countValue = 0;
+                    factorValue2 = 0.0F;
                 }
-                if (this.getJumpDisable()) {
-                    this.updateValue2();
-                }
-                countValue = 0;
-                factorValue2 = 0.0F;
             }
             factorValue = (factorValue2 - (factorValue2 / 159.0F));
         }
@@ -99,8 +99,7 @@ public class LongJumpModule extends Module {
         this.updateValue2();
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 41571510600469L);
+    public void updateValue() {
         this.updateValue();
     }
 
@@ -122,13 +121,13 @@ public class LongJumpModule extends Module {
     }
 
     public void onPreSyncEvent(PreSyncEvent eventSync) {
-        if (var10 != null) {
+        if (__UNDEF_KEY__ != null) {
             if (EventPacketHelper2.INSTANCE.checkCondition()) {
                 factorValue2 = Math.hypot((SharedKt.getPlayer().getX() - SharedKt.getPlayer().field_6014), (SharedKt.getPlayer().getZ() - SharedKt.getPlayer().field_5969));
+                if (__UNDEF_KEY__ == null) {
+                    this.updateValue();
+                }
             }
-            if (var10 == null) {
-            }
-            this.updateValue();
         }
     }
 
@@ -137,13 +136,13 @@ public class LongJumpModule extends Module {
     }
 
     static {
-        KProperty[] var28 = new KProperty[5];
+        KProperty[] items = new KProperty[5];
         INSTANCE = new LongJumpModule();
-        useTimerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timer", 0, null, null, 4401930454324740108L);
-        timerValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timer-speed", 1.0F, RangesKt.rangeTo(0.5F, 3.0F), null, this::isActive, -6501035169795801080L);
-        jumpDisableSetting = VisibleRenderHelper.registerSetting(INSTANCE, "jump-disable", 1, null, null, -4931050724176953332L);
-        speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", 1.35F, RangesKt.rangeTo(0.1F, 10.0F), null, null, -6751389096947482600L);
-        maxDistanceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "max-distance", 10.0F, RangesKt.rangeTo(5.0F, 40.0F), null, null, -9084180491912871912L);
+        useTimerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timer", false);
+        timerValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timer-speed", 1.0F, RangesKt.rangeTo(0.5F, 3.0F), null, this::isActive);
+        jumpDisableSetting = VisibleRenderHelper.registerSetting(INSTANCE, "jump-disable", true);
+        speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", 1.35F, RangesKt.rangeTo(0.1F, 10.0F));
+        maxDistanceSetting = VisibleRenderHelper.registerSetting(INSTANCE, "max-distance", 10.0F, RangesKt.rangeTo(5.0F, 40.0F));
     }
 
 }

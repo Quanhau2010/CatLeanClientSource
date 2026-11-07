@@ -53,7 +53,7 @@ public class TexelSizeRenderHelper implements class_11281 {
     }
 
     public void method_71104(ByteBuffer buffer) {
-        Std140Builder.intoBuffer(buffer).putVec2(this.minecraftRef.field_1343, this.minecraftRef.field_1342).putVec2(this.minecraftRef2.field_1343, this.minecraftRef2.field_1342).putFloat(this.factorValue).putFloat(this.factorValue2).putMat4f((Matrix4fc) this.matrix4f).putVec4(PolygonShaderComponent.INSTANCE.computeValue(this.colorValue), PolygonShaderComponent.INSTANCE.computeValue(this.colorValue), PolygonShaderComponent.INSTANCE.computeValue(this.colorValue), PolygonShaderComponent.INSTANCE.computeValue2(this.colorValue));
+        Std140Builder.intoBuffer(buffer).putVec2(this.minecraftRef.field_1343, this.minecraftRef.field_1342).putVec2(this.minecraftRef2.field_1343, this.minecraftRef2.field_1342).putFloat(this.factorValue).putFloat(this.factorValue2).putMat4f(((Matrix4fc) this.matrix4f)).putVec4(PolygonShaderComponent.INSTANCE.computeValue(this.colorValue), PolygonShaderComponent.INSTANCE.computeValue(this.colorValue), PolygonShaderComponent.INSTANCE.computeValue(this.colorValue), PolygonShaderComponent.INSTANCE.computeValue2(this.colorValue));
     }
 
     public class_241 getMinecraftObject3() {
@@ -85,55 +85,55 @@ public class TexelSizeRenderHelper implements class_11281 {
     }
 
     public static TexelSizeRenderHelper resolveTexelSizeRenderHelper(TexelSizeRenderHelper arg0, class_241 arg1, class_241 arg2, float arg3, float arg4, Matrix4f arg5, Color arg6, int arg7, Object arg8, char arg9) {
-        if ((arg7 & 1)) {
+        if ((arg7 & 1) != 0) {
             arg1 = arg0.minecraftRef;
         }
         if (arg9 >= 0) {
-            if (var16 == null) {
-                if ((arg7 & 2)) {
+            if (__UNDEF_KEY__ == null) {
+                if ((arg7 & 2) != 0) {
                     arg2 = arg0.minecraftRef2;
                 }
             }
         }
         if (arg9 > 0) {
-            if (var16 == null) {
-                if ((arg7 & 4)) {
+            if (__UNDEF_KEY__ == null) {
+                if ((arg7 & 4) != 0) {
                     arg3 = arg0.factorValue;
                 }
             }
         }
-        if (arg9 >= 0 && var16 == null) {
-            if ((arg7 & 8)) {
+        if (arg9 >= 0 && __UNDEF_KEY__ == null) {
+            if ((arg7 & 8) != 0) {
                 arg4 = arg0.factorValue2;
             }
         }
-        if ((arg7 & 16)) {
+        if ((arg7 & 16) != 0) {
             arg5 = arg0.matrix4f;
         }
-        if ((arg7 & 32)) {
+        if ((arg7 & 32) != 0) {
             arg6 = arg0.colorValue;
         }
         return arg0.resolveTexelSizeRenderHelper(arg1, arg2, arg3, arg4, arg5, arg6);
     }
 
     public String toString() {
-        Color var3 = this.colorValue;
-        Matrix4f var4 = this.matrix4f;
-        float var5 = this.factorValue2;
-        float var6 = this.factorValue;
-        class_241 var7 = this.minecraftRef2;
-        class_241 var8 = this.minecraftRef;
-        return ("UniformData(texelSize=" + var8 + ", direction=" + var7 + ", radius=" + var6 + ", glowAlpha=" + var5 + ", matrix=" + var4 + ", color=" + var3 + ")");
+        Color color = this.colorValue;
+        Matrix4f matrix4f = this.matrix4f;
+        float factor = this.factorValue2;
+        float factor2 = this.factorValue;
+        class_241 class241 = this.minecraftRef2;
+        class_241 class2412 = this.minecraftRef;
+        return ("UniformData(texelSize=" + class2412 + ", direction=" + class241 + ", radius=" + factor2 + ", glowAlpha=" + factor + ", matrix=" + matrix4f + ", color=" + color + ")");
     }
 
     public int hashCode() {
-        int var3 = this.minecraftRef.hashCode();
-        var3 = ((var3 * 31) + this.minecraftRef2.hashCode());
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        var3 = ((var3 * 31) + this.matrix4f.hashCode());
-        var3 = ((var3 * 31) + this.colorValue.hashCode());
-        return var3;
+        int index = this.minecraftRef.hashCode();
+        index = ((index * 31) + this.minecraftRef2.hashCode());
+        index = ((index * 31) + Float.hashCode(this.factorValue));
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        index = ((index * 31) + this.matrix4f.hashCode());
+        index = ((index * 31) + this.colorValue.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -143,23 +143,23 @@ public class TexelSizeRenderHelper implements class_11281 {
         if (!(other instanceof TexelSizeRenderHelper)) {
             return false;
         }
-        TexelSizeRenderHelper var5 = (TexelSizeRenderHelper) other;
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        TexelSizeRenderHelper texelSizeRenderHelper = ((TexelSizeRenderHelper) other);
+        if (!(Intrinsics.areEqual(this.minecraftRef, texelSizeRenderHelper.minecraftRef))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.minecraftRef2, var5.minecraftRef2))) {
+        if (!(Intrinsics.areEqual(this.minecraftRef2, texelSizeRenderHelper.minecraftRef2))) {
             return false;
         }
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        if (Float.compare(this.factorValue, texelSizeRenderHelper.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, texelSizeRenderHelper.factorValue2)) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.matrix4f, var5.matrix4f))) {
+        if (!(Intrinsics.areEqual(this.matrix4f, texelSizeRenderHelper.matrix4f))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue, var5.colorValue))) {
+        if (!(Intrinsics.areEqual(this.colorValue, texelSizeRenderHelper.colorValue))) {
             return false;
         }
         return true;

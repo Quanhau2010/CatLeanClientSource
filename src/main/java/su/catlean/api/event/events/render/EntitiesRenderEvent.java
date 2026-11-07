@@ -23,7 +23,7 @@ public class EntitiesRenderEvent extends Event {
     }
 
     public boolean call(MatrixStack stack) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         stack = stack;
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();

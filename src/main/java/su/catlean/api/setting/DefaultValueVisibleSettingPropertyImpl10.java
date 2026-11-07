@@ -11,23 +11,18 @@ public class DefaultValueVisibleSettingPropertyImpl10 extends VisibleSettingProp
     }
 
     public void setValue(String setting) {
-        Object[] var5 = this.getObject().getClass().getEnumConstants();
-        Object var12 = this;
-        int var6 = 0;
-        int var7 = 0;
-        Object var8 = var5;
-        if (var7 < var8) {
-            Object var9 = var5[var7];
-            Enum var10 = var9;
-            int var11 = 0;
-            if (0L < 0L || var4 == null || 0L >= 0L) {
+        Object[] items = this.getObject().getClass().getEnumConstants();
+        int index = 0;
+        if (index < items) {
+            Object element = items[index];
+            if (__UNDEF_KEY__ < 0L || __UNDEF_KEY__ == null || __UNDEF_KEY__ >= 0L) {
                 continue;
             }
         }
-        if (var10.name() == null) {
-            var10.name();
+        if (element.name() == null) {
+            element.name();
         }
-        var12.updateValue(this.getObject());
+        this.updateValue(this.getObject());
     }
 
     public String toString() {

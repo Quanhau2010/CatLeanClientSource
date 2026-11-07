@@ -70,46 +70,44 @@ public class EntryPacketHelper {
             return;
         }
         copyOnWriteArrayList.removeIf(this::checkCondition);
-        Iterable var8 = (Iterable) copyOnWriteArrayList;
-        int var9 = 0;
-        itemList = CollectionsKt.toMutableList((Collection) CollectionsKt.sortedWith((Comparator) new Comparator16()));
+        Iterable iterable = ((Iterable) copyOnWriteArrayList);
+        itemList = CollectionsKt.toMutableList(((Collection) CollectionsKt.sortedWith(iterable, ((Comparator) new Comparator16()))));
     }
 
     private void onAfterReceivePacket(AfterReceivePacket arg0) {
         if (!(StaffWidgetCheckRenderHelperImpl.INSTANCE.getEnabled())) {
             return;
         }
-        class_5900 var14 = (class_5900) arg0.getPacket();
-        Iterator iterator = var14.method_34178().iterator();
+        class_5900 class5900 = ((class_5900) arg0.getPacket());
+        Iterator iterator = class5900.method_34178().iterator();
         while (iterator.hasNext()) {
-            String var16 = (String) iterator.next();
-            ProfileServiceComponent var17 = new ProfileServiceComponent(new GameProfile(UUID.fromString("66123666-622-6666-6666-666612366600")), 1);
-            if (Intrinsics.areEqual(var17.getGameProfile().name(), SharedKt.getPlayer().method_7334().name())) {
+            String text = ((String) iterator.next());
+            ProfileServiceComponent profileServiceComponent = new ProfileServiceComponent(true);
+            if (Intrinsics.areEqual(profileServiceComponent.getGameProfile().name(), SharedKt.getPlayer().method_7334().name())) {
                 return;
             }
-            String var20 = this.resolveMinecraftObject(var17.getMinecraftObject()).getString();
-            CharSequence var19 = (CharSequence) class_3544.method_15440(var20.toLowerCase(Locale.getDefault()));
-            var20 = new Regex(" ");
-            int var21 = 0;
-            var19 = var20.split();
-            var20 = 0;
-            if (!(var19.isEmpty())) {
-                var21 = var19.listIterator(var19.size());
-                if (var21.hasPrevious()) {
-                    String var22 = (String) var21.previous();
-                    int var23 = 0;
+            String text2 = this.resolveMinecraftObject(profileServiceComponent.getMinecraftObject()).getString();
+            CharSequence charSequence = ((CharSequence) class_3544.method_15440(text2.toLowerCase(Locale.getDefault())));
+            text2 = new Regex(" ");
+            int index = 0;
+            charSequence = text2.split(charSequence, index);
+            text2 = 0;
+            if (!(charSequence.isEmpty())) {
+                index = charSequence.listIterator(charSequence.size());
+                if (index.hasPrevious()) {
+                    String text3 = ((String) index.previous());
+                } else {
                 }
             } else {
             }
-        }
-        var19 = (Collection) CollectionsKt.emptyList();
-        var20 = 0;
-        var21 = var19;
-        String[] var18 = (String[]) var21.toArray(new String[0]);
-        var19 = RunnableServiceComponent.INSTANCE;
-        var20 = 250;
-        var21 = 0;
-        var19.getExecutorService().execute((Runnable) new ServiceComponent19());
+            charSequence = ((Collection) CollectionsKt.emptyList());
+            text2 = 0;
+            index = charSequence;
+            String[] items = ((String[]) index.toArray(new String[0]));
+            charSequence = RunnableServiceComponent.INSTANCE;
+            text2 = 250;
+            index = 0;
+            charSequence.getExecutorService().execute(((Runnable) new ServiceComponent19(text2, profileServiceComponent, items)));
         }
     }
 
@@ -117,38 +115,37 @@ public class EntryPacketHelper {
         if (entry.method_2971() != null) {
         } else {
         }
-        return this.resolveMinecraftObject(entry, class_268.method_1142((class_270) entry.method_2955(), (class_2561) class_2561.method_43470(entry.method_2966().name())));
+        return this.resolveMinecraftObject(entry, class_268.method_1142(((class_270) entry.method_2955()), ((class_2561) class_2561.method_43470(entry.method_2966().name()))));
     }
 
     private class_5250 resolveMinecraftObject(class_640 arg0, class_5250 arg1) {
         if (arg0.method_2958() == class_1934.field_9219) {
         } else {
         }
-        Object var5 = arg1;
-        return var5;
+        return arg1;
     }
 
     private void executeAction(String[] arg0) {
     }
 
     private boolean checkCondition(String arg0) {
-        Object var7 = arg0;
-        var7 = class_3544.method_15440(var7.toLowerCase(Locale.ROOT));
-        if (var6 != null) {
-            if (StringsKt.contains$default((CharSequence) var7, (CharSequence) "\u00a7")) {
+        String text = arg0;
+        text = class_3544.method_15440(text.toLowerCase(Locale.ROOT));
+        if (__UNDEF_KEY__ != null) {
+            if (StringsKt.contains$default(((CharSequence) text), ((CharSequence) "\u00a7"), false)) {
                 return false;
             }
         }
-        String[] var9 = new String[1];
-        var9[0] = " ";
-        Iterator iterator = StringsKt.split$default((CharSequence) var7).iterator();
-        if (iterator.hasNext()) {
-            var9 = (String) iterator.next();
+        String[] items = new String[1];
+        items[0] = " ";
+        Iterator iterator = StringsKt.split$default(((CharSequence) text), items, false).iterator();
+        while (iterator.hasNext()) {
+            items = ((String) iterator.next());
             return true;
         }
         iterator = SharedKt.getPlayer().field_3944.method_2880().iterator();
-        if (iterator.hasNext()) {
-            var9 = (class_640) iterator.next();
+        while (iterator.hasNext()) {
+            items = ((class_640) iterator.next());
             return true;
         }
         return false;
@@ -156,59 +153,58 @@ public class EntryPacketHelper {
 
     public PlayerEntity resolveMinecraftObject(String name) {
         Iterator iterator = SharedKt.getWorld().getPlayers().iterator();
-        if (iterator.hasNext()) {
-            AbstractClientPlayerEntity player = (AbstractClientPlayerEntity) iterator.next();
-            return (PlayerEntity) player;
+        while (iterator.hasNext()) {
+            AbstractClientPlayerEntity player = ((AbstractClientPlayerEntity) iterator.next());
+            return ((PlayerEntity) player);
         }
         return null;
     }
 
     private int computeValue(ProfileServiceComponent arg0, long arg1) {
-        Object var8 = new char[1];
-        var8[0] = 32;
-        List positions = StringsKt.split$default((CharSequence) class_3544.method_15440(arg0.resolveString().toLowerCase(Locale.ROOT)));
-        var8 = 11;
-        Iterator iterator = positions.iterator();
+        Object element = new char[1];
+        element[0] = 32;
+        List list = StringsKt.split$default(((CharSequence) class_3544.method_15440(arg0.resolveString().toLowerCase(Locale.ROOT))), element, false);
+        element = 11;
+        Iterator iterator = list.iterator();
         while (iterator.hasNext()) {
-            String var10 = (String) iterator.next();
-            Object var12 = var10;
-            if (!(var12.equals("st.helper"))) {
-                if (!(var12.equals("ml.admin"))) {
-                    if (!(var12.equals("\u0430\u0434\u043c\u0438\u043d")) && !(var12.equals("admin"))) {
-                        if (!(var12.equals("gl.moder"))) {
-                            if (!(var12.equals("j.moder"))) {
-                                if (!(var12.equals("s.moder")) && !(var12.equals("st.moder"))) {
-                                    if (!(var12.equals("yt+"))) {
-                                        if (!(var12.equals("helper"))) {
-                                            if (!(var12.equals("helper+"))) {
-                                                if (!(var12.equals("yt"))) {
-                                                    if (!(var12.equals("\u043c\u043e\u0434\u0435\u0440\u0430\u0442\u043e\u0440")) && !(var12.equals("moder"))) {
-                                                    } else {
-                                                    } else {
-                                                    } else {
-                                                    } else {
-                                                    } else {
-                                                    } else {
-                                                    } else {
-                                                    } else {
-                                                    } else {
-                                                    } else {
+            String text = ((String) iterator.next());
+            if (!(text.equals("st.helper"))) {
+                if (!(text.equals("ml.admin"))) {
+                    if (!(text.equals("\u0430\u0434\u043c\u0438\u043d")) && !(text.equals("admin"))) {
+                        if (!(text.equals("gl.moder"))) {
+                            if (!(text.equals("j.moder"))) {
+                                if (!(text.equals("s.moder")) && !(text.equals("st.moder"))) {
+                                    if (!(text.equals("yt+"))) {
+                                        if (!(text.equals("helper"))) {
+                                            if (!(text.equals("helper+"))) {
+                                                if (!(text.equals("yt"))) {
+                                                    if (!(text.equals("\u043c\u043e\u0434\u0435\u0440\u0430\u0442\u043e\u0440")) && !(text.equals("moder"))) {
                                                     } else {
                                                     }
+                                                } else {
                                                 }
+                                            } else {
+                                                int index = 11;
                                             }
+                                        } else {
                                         }
+                                    } else {
                                     }
+                                } else {
                                 }
+                            } else {
                             }
+                        } else {
+                            element = index;
                         }
+                    } else {
                     }
+                } else {
                 }
+            } else {
             }
-            int var11 = 11;
-            var8 = var11;
         }
-        return var8;
+        return element;
     }
 
     private static boolean checkCondition(ProfileServiceComponent arg0) {
@@ -216,15 +212,15 @@ public class EntryPacketHelper {
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static boolean checkCondition(String arg0, String arg1) {
-        return StringsKt.startsWith$default(arg0, arg1);
+        return StringsKt.startsWith$default(arg0, arg1, false);
     }
 
     private static boolean checkCondition2(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     public static int computeValue(EntryPacketHelper $this, ProfileServiceComponent employee) {
@@ -247,23 +243,23 @@ public class EntryPacketHelper {
         INSTANCE = new EntryPacketHelper();
         copyOnWriteArrayList = new CopyOnWriteArrayList();
         itemList = new ArrayList();
-        String[] var22 = new String[15];
-        var22[0] = "\u0430\u0434\u043c\u0438\u043d";
-        var22[1] = "admin";
-        var22[2] = "ml.admin";
-        var22[3] = "moder";
-        var22[4] = "st.moder";
-        var22[5] = "s.moder";
-        var22[6] = "gl.moder";
-        var22[7] = "j.moder";
-        var22[8] = "\u043c\u043e\u0434\u0435\u0440\u0430\u0442\u043e\u0440";
-        var22[9] = "\u043c\u043e\u0434\u0435\u0440";
-        var22[10] = "st.helper";
-        var22[11] = "\u0445\u0435\u043b\u043f\u0435\u0440";
-        var22[12] = "helper";
-        var22[13] = "helper";
-        var22[14] = "yt";
-        textValueArray = var22;
+        String[] items = new String[15];
+        items[0] = "\u0430\u0434\u043c\u0438\u043d";
+        items[1] = "admin";
+        items[2] = "ml.admin";
+        items[3] = "moder";
+        items[4] = "st.moder";
+        items[5] = "s.moder";
+        items[6] = "gl.moder";
+        items[7] = "j.moder";
+        items[8] = "\u043c\u043e\u0434\u0435\u0440\u0430\u0442\u043e\u0440";
+        items[9] = "\u043c\u043e\u0434\u0435\u0440";
+        items[10] = "st.helper";
+        items[11] = "\u0445\u0435\u043b\u043f\u0435\u0440";
+        items[12] = "helper";
+        items[13] = "helper";
+        items[14] = "yt";
+        textValueArray = items;
     }
 
 }

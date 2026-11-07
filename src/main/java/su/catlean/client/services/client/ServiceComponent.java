@@ -17,15 +17,14 @@ public class ServiceComponent {
     }
 
     public void updateValue() {
-        long var4 = SharedKt.getNumericValue();
-        arrayDeque.addLast(Long.valueOf());
-        if ((Long) arrayDeque.firstOrNull() != null) {
-            long var6 = (Number) (Long) arrayDeque.firstOrNull().longValue();
-            int var8 = 0;
+        long time = SharedKt.getNumericValue();
+        arrayDeque.addLast(Long.valueOf(time));
+        if (((Long) arrayDeque.firstOrNull()) != null) {
+            long time2 = ((Number) ((Long) arrayDeque.firstOrNull())).longValue();
         } else {
-        }
-        if ((var6 + -7051340584878865432L) < var4 == 1) {
-            arrayDeque.removeFirst();
+            if ((time2 + 1000) < time == 1) {
+                arrayDeque.removeFirst();
+            }
         }
         countValue = arrayDeque.size();
     }

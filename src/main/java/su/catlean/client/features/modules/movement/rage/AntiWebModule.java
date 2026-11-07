@@ -45,7 +45,7 @@ public class AntiWebModule extends Module {
     }
 
     private AntiWebMode getMode() {
-        return (AntiWebMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((AntiWebMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setMode(AntiWebMode value) {
@@ -53,7 +53,7 @@ public class AntiWebModule extends Module {
     }
 
     private float getTimer() {
-        return (Number) timerSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) timerSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setTimer(float value) {
@@ -61,7 +61,7 @@ public class AntiWebModule extends Module {
     }
 
     private float getSpeed() {
-        return (Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setSpeed(float value) {
@@ -69,7 +69,7 @@ public class AntiWebModule extends Module {
     }
 
     private boolean getGrim() {
-        return (Boolean) grimSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) grimSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setGrim(boolean value) {
@@ -80,8 +80,8 @@ public class AntiWebModule extends Module {
         if (this.getMode() == AntiWebMode.TIMER && !(SharedKt.getMc().player.isOnGround())) {
             ServiceComponent98.INSTANCE.updateValue2(this.getTimer());
         }
-        double[] var21 = EventPacketHelper2.process(this.getSpeed(), 0, 0.0F, 0.0F, 0.0F);
-        SharedKt.getPlayer().method_18800(var21[0], 0.0D, var21[1]);
+        double[] items = EventPacketHelper2.process(this.getSpeed(), false, 0.0F, 0.0F, 0.0F);
+        SharedKt.getPlayer().method_18800(items[0], 0.0D, items[1]);
         if (SharedKt.getMc().options.field_1903.method_1434()) {
             SharedKt.getPlayer().method_18799(SharedKt.getPlayer().method_18798().method_1031(0.0D, this.getSpeed(), 0.0D));
         }
@@ -95,7 +95,7 @@ public class AntiWebModule extends Module {
     }
 
     public void onCobWebEvent(CobWebEvent e) {
-        e.setCancelled(1);
+        e.setCancelled(true);
         if (this.getMode() == AntiWebMode.IGNORE && this.getGrim()) {
             PacketPacketHelper.executeAction(this::resolveMinecraftObject);
         }
@@ -114,16 +114,16 @@ public class AntiWebModule extends Module {
     }
 
     private static Packet resolveMinecraftObject(CobWebEvent arg0, int arg1) {
-        return (Packet) new class_2846(class_2847.field_12973, arg0.getPos(), Direction.UP, arg1);
+        return ((Packet) new class_2846(class_2847.field_12973, arg0.getPos(), Direction.UP, arg1));
     }
 
     static {
-        KProperty[] var30 = new KProperty[4];
+        KProperty[] items = new KProperty[4];
         INSTANCE = new AntiWebModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", AntiWebMode.SOLID);
         timerSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timer", 20.0F, RangesKt.rangeTo(1.0F, 50.0F), null, this::isActive);
         speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", 0.3F, RangesKt.rangeTo(0.0F, 10.0F), null, this::isActive2);
-        grimSetting = VisibleRenderHelper.registerSetting(INSTANCE, "grim", 0, null, this::isActive3);
+        grimSetting = VisibleRenderHelper.registerSetting(INSTANCE, "grim", false, null, this::isActive3);
     }
 
 }

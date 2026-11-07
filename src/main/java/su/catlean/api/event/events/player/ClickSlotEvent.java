@@ -49,7 +49,7 @@ public class ClickSlotEvent extends Event {
     }
 
     public boolean call(class_1713 action, int id, int button, int syncId) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         action = action;
         countValue = id;
         button = button;

@@ -2,14 +2,11 @@ package su.catlean.client.features.modules.movement.rage;
 
 public enum WaterSpeedMode {
 
-    public static final WaterSpeedMode DolphinGrace;
-    public static final WaterSpeedMode Vanilla;
-    public static final WaterSpeedMode Legit;
-    private static int[] countValueArray;
+    DolphinGrace,
+    Vanilla,
+    Legit;
 
-    WaterSpeedMode(String arg0, int arg1) {
-        super(arg0, arg1);
-    }
+    private static int[] countValueArray;
 
     public static void updateValue(int[] arg0) {
         countValueArray = arg0;

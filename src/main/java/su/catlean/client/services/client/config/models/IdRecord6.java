@@ -207,80 +207,80 @@ public class IdRecord6 {
     }
 
     public static IdRecord6 resolveIdRecord6(IdRecord6 arg0, String arg1, Color arg2, Color arg3, Color arg4, Color arg5, Color arg6, Color arg7, Color arg8, Color arg9, Color arg10, Color arg11, Color arg12, Color arg13, int arg14, Object arg15) {
-        if ((arg14 & 1)) {
+        if ((arg14 & 1) != 0) {
             arg1 = arg0.textValue;
         }
-        if ((arg14 & 2)) {
+        if ((arg14 & 2) != 0) {
             arg2 = arg0.colorValue;
         }
-        if ((arg14 & 4)) {
+        if ((arg14 & 4) != 0) {
             arg3 = arg0.colorValue2;
         }
-        if ((arg14 & 8)) {
+        if ((arg14 & 8) != 0) {
             arg4 = arg0.colorValue3;
         }
-        if ((arg14 & 16)) {
+        if ((arg14 & 16) != 0) {
             arg5 = arg0.colorValue4;
         }
-        if ((arg14 & 32)) {
+        if ((arg14 & 32) != 0) {
             arg6 = arg0.colorValue5;
         }
-        if ((arg14 & 64)) {
+        if ((arg14 & 64) != 0) {
             arg7 = arg0.colorValue6;
         }
-        if ((arg14 & 128)) {
+        if ((arg14 & 128) != 0) {
             arg8 = arg0.colorValue7;
         }
-        if ((arg14 & 256)) {
+        if ((arg14 & 256) != 0) {
             arg9 = arg0.colorValue8;
         }
-        if ((arg14 & 512)) {
+        if ((arg14 & 512) != 0) {
             arg10 = arg0.colorValue9;
         }
-        if ((arg14 & 1024)) {
+        if ((arg14 & 1024) != 0) {
             arg11 = arg0.colorValue10;
         }
-        if ((arg14 & 2048)) {
+        if ((arg14 & 2048) != 0) {
             arg12 = arg0.colorValue11;
         }
-        if ((arg14 & 4096)) {
+        if ((arg14 & 4096) != 0) {
             arg13 = arg0.colorValue12;
         }
         return arg0.resolveIdRecord6(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11, arg12, arg13);
     }
 
     public String toString() {
-        Color var3 = this.colorValue12;
-        Color var4 = this.colorValue11;
-        Color var5 = this.colorValue10;
-        Color var6 = this.colorValue9;
-        Color var7 = this.colorValue8;
-        Color var8 = this.colorValue7;
-        Color var9 = this.colorValue6;
-        Color var10 = this.colorValue5;
-        Color var11 = this.colorValue4;
-        Color var12 = this.colorValue3;
-        Color var13 = this.colorValue2;
-        Color var14 = this.colorValue;
-        String var15 = this.textValue;
-        return ("ThemeConfig(id=" + var15 + ", primaryColor=" + var14 + ", secondaryColor=" + var13 + ", blurColor=" + var12 + ", widgetBlurColor=" + var11 + ", outlineColor=" + var10 + ", textColor=" + var9 + ", nonactiveTextColor=" + var8 + ", slidersColor=" + var7 + ", nonActiveModuleColor=" + var6 + ", moduleColor=" + var5 + ", moduleOutlineColor=" + var4 + ", nonActiveOutlineModuleColor=" + var3 + ")");
+        Color color = this.colorValue12;
+        Color color2 = this.colorValue11;
+        Color color3 = this.colorValue10;
+        Color color4 = this.colorValue9;
+        Color color5 = this.colorValue8;
+        Color color6 = this.colorValue7;
+        Color color7 = this.colorValue6;
+        Color color8 = this.colorValue5;
+        Color color9 = this.colorValue4;
+        Color color10 = this.colorValue3;
+        Color color11 = this.colorValue2;
+        Color color12 = this.colorValue;
+        String text = this.textValue;
+        return ("ThemeConfig(id=" + text + ", primaryColor=" + color12 + ", secondaryColor=" + color11 + ", blurColor=" + color10 + ", widgetBlurColor=" + color9 + ", outlineColor=" + color8 + ", textColor=" + color7 + ", nonactiveTextColor=" + color6 + ", slidersColor=" + color5 + ", nonActiveModuleColor=" + color4 + ", moduleColor=" + color3 + ", moduleOutlineColor=" + color2 + ", nonActiveOutlineModuleColor=" + color + ")");
     }
 
     public int hashCode() {
-        int var4 = this.textValue.hashCode();
-        var4 = ((var4 * 31) + this.colorValue.hashCode());
-        var4 = ((var4 * 31) + this.colorValue2.hashCode());
-        var4 = ((var4 * 31) + this.colorValue3.hashCode());
-        var4 = ((var4 * 31) + this.colorValue4.hashCode());
-        var4 = ((var4 * 31) + this.colorValue5.hashCode());
-        var4 = ((var4 * 31) + this.colorValue6.hashCode());
-        var4 = ((var4 * 31) + this.colorValue7.hashCode());
-        var4 = ((var4 * 31) + this.colorValue8.hashCode());
-        var4 = ((var4 * 31) + this.colorValue9.hashCode());
-        var4 = ((var4 * 31) + this.colorValue10.hashCode());
-        var4 = ((var4 * 31) + this.colorValue11.hashCode());
-        var4 = ((var4 * 31) + this.colorValue12.hashCode());
-        if (var4 != null) {
+        int index = this.textValue.hashCode();
+        index = ((index * 31) + this.colorValue.hashCode());
+        index = ((index * 31) + this.colorValue2.hashCode());
+        index = ((index * 31) + this.colorValue3.hashCode());
+        index = ((index * 31) + this.colorValue4.hashCode());
+        index = ((index * 31) + this.colorValue5.hashCode());
+        index = ((index * 31) + this.colorValue6.hashCode());
+        index = ((index * 31) + this.colorValue7.hashCode());
+        index = ((index * 31) + this.colorValue8.hashCode());
+        index = ((index * 31) + this.colorValue9.hashCode());
+        index = ((index * 31) + this.colorValue10.hashCode());
+        index = ((index * 31) + this.colorValue11.hashCode());
+        index = ((index * 31) + this.colorValue12.hashCode());
+        if (index != null) {
         }
         return null;
     }
@@ -292,64 +292,63 @@ public class IdRecord6 {
         if (!(other instanceof IdRecord6)) {
             return false;
         }
-        IdRecord6 var5 = (IdRecord6) other;
-        if (!(Intrinsics.areEqual(this.textValue, var5.textValue))) {
+        IdRecord6 idRecord6 = ((IdRecord6) other);
+        if (!(Intrinsics.areEqual(this.textValue, idRecord6.textValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue, var5.colorValue))) {
+        if (!(Intrinsics.areEqual(this.colorValue, idRecord6.colorValue))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue2, var5.colorValue2))) {
+        if (!(Intrinsics.areEqual(this.colorValue2, idRecord6.colorValue2))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue3, var5.colorValue3))) {
+        if (!(Intrinsics.areEqual(this.colorValue3, idRecord6.colorValue3))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue4, var5.colorValue4))) {
+        if (!(Intrinsics.areEqual(this.colorValue4, idRecord6.colorValue4))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue5, var5.colorValue5))) {
+        if (!(Intrinsics.areEqual(this.colorValue5, idRecord6.colorValue5))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue6, var5.colorValue6))) {
+        if (!(Intrinsics.areEqual(this.colorValue6, idRecord6.colorValue6))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue7, var5.colorValue7))) {
+        if (!(Intrinsics.areEqual(this.colorValue7, idRecord6.colorValue7))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue8, var5.colorValue8))) {
+        if (!(Intrinsics.areEqual(this.colorValue8, idRecord6.colorValue8))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue9, var5.colorValue9))) {
+        if (!(Intrinsics.areEqual(this.colorValue9, idRecord6.colorValue9))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue10, var5.colorValue10))) {
+        if (!(Intrinsics.areEqual(this.colorValue10, idRecord6.colorValue10))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue11, var5.colorValue11))) {
+        if (!(Intrinsics.areEqual(this.colorValue11, idRecord6.colorValue11))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.colorValue12, var5.colorValue12))) {
+        if (!(Intrinsics.areEqual(this.colorValue12, idRecord6.colorValue12))) {
             return false;
         }
         return true;
     }
 
     public static void executeAction(IdRecord6 self, CompositeEncoder output, SerialDescriptor serialDesc) {
-        Lazy[] var6 = lazyArray;
         output.encodeStringElement(serialDesc, 0, self.textValue);
-        output.encodeSerializableElement(serialDesc, 1, (SerializationStrategy) var6[1].getValue(), self.colorValue);
-        output.encodeSerializableElement(serialDesc, 2, (SerializationStrategy) var6[2].getValue(), self.colorValue2);
-        output.encodeSerializableElement(serialDesc, 3, (SerializationStrategy) var6[3].getValue(), self.colorValue3);
-        output.encodeSerializableElement(serialDesc, 4, (SerializationStrategy) var6[4].getValue(), self.colorValue4);
-        output.encodeSerializableElement(serialDesc, 5, (SerializationStrategy) var6[5].getValue(), self.colorValue5);
-        output.encodeSerializableElement(serialDesc, 6, (SerializationStrategy) var6[6].getValue(), self.colorValue6);
-        output.encodeSerializableElement(serialDesc, 7, (SerializationStrategy) var6[7].getValue(), self.colorValue7);
-        output.encodeSerializableElement(serialDesc, 8, (SerializationStrategy) var6[8].getValue(), self.colorValue8);
-        output.encodeSerializableElement(serialDesc, 9, (SerializationStrategy) var6[9].getValue(), self.colorValue9);
-        output.encodeSerializableElement(serialDesc, 10, (SerializationStrategy) var6[10].getValue(), self.colorValue10);
-        output.encodeSerializableElement(serialDesc, 11, (SerializationStrategy) var6[11].getValue(), self.colorValue11);
-        output.encodeSerializableElement(serialDesc, 12, (SerializationStrategy) var6[12].getValue(), self.colorValue12);
+        output.encodeSerializableElement(serialDesc, 1, ((SerializationStrategy) lazyArray[1].getValue()), self.colorValue);
+        output.encodeSerializableElement(serialDesc, 2, ((SerializationStrategy) lazyArray[2].getValue()), self.colorValue2);
+        output.encodeSerializableElement(serialDesc, 3, ((SerializationStrategy) lazyArray[3].getValue()), self.colorValue3);
+        output.encodeSerializableElement(serialDesc, 4, ((SerializationStrategy) lazyArray[4].getValue()), self.colorValue4);
+        output.encodeSerializableElement(serialDesc, 5, ((SerializationStrategy) lazyArray[5].getValue()), self.colorValue5);
+        output.encodeSerializableElement(serialDesc, 6, ((SerializationStrategy) lazyArray[6].getValue()), self.colorValue6);
+        output.encodeSerializableElement(serialDesc, 7, ((SerializationStrategy) lazyArray[7].getValue()), self.colorValue7);
+        output.encodeSerializableElement(serialDesc, 8, ((SerializationStrategy) lazyArray[8].getValue()), self.colorValue8);
+        output.encodeSerializableElement(serialDesc, 9, ((SerializationStrategy) lazyArray[9].getValue()), self.colorValue9);
+        output.encodeSerializableElement(serialDesc, 10, ((SerializationStrategy) lazyArray[10].getValue()), self.colorValue10);
+        output.encodeSerializableElement(serialDesc, 11, ((SerializationStrategy) lazyArray[11].getValue()), self.colorValue11);
+        output.encodeSerializableElement(serialDesc, 12, ((SerializationStrategy) lazyArray[12].getValue()), self.colorValue12);
     }
 
     public IdRecord6(int seen0, String id, Color primaryColor, Color secondaryColor, Color blurColor, Color widgetBlurColor, Color outlineColor, Color textColor, Color nonactiveTextColor, Color slidersColor, Color nonActiveModuleColor, Color moduleColor, Color moduleOutlineColor, Color nonActiveOutlineModuleColor, SerializationConstructorMarker serializationConstructorMarker) {
@@ -372,51 +371,51 @@ public class IdRecord6 {
     }
 
     private static KSerializer getKSerializer() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer2() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer3() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer4() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer5() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer6() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer7() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer8() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer9() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer10() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer11() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     private static KSerializer getKSerializer12() {
-        return (KSerializer) new ColorRenderHelper4();
+        return ((KSerializer) new ColorRenderHelper4());
     }
 
     public static Lazy[] process() {
@@ -425,21 +424,21 @@ public class IdRecord6 {
 
     static {
         serviceComponent3 = new ServiceComponent3();
-        Lazy[] var22 = new Lazy[13];
-        var22[0] = null;
-        var22[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
-        var22[2] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer2);
-        var22[3] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer3);
-        var22[4] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer4);
-        var22[5] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer5);
-        var22[6] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer6);
-        var22[7] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer7);
-        var22[8] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer8);
-        var22[9] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer9);
-        var22[10] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer10);
-        var22[11] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer11);
-        var22[12] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer12);
-        lazyArray = var22;
+        Lazy[] items = new Lazy[13];
+        items[0] = null;
+        items[1] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer);
+        items[2] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer2);
+        items[3] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer3);
+        items[4] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer4);
+        items[5] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer5);
+        items[6] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer6);
+        items[7] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer7);
+        items[8] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer8);
+        items[9] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer9);
+        items[10] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer10);
+        items[11] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer11);
+        items[12] = LazyKt.lazy(LazyThreadSafetyMode.PUBLICATION, this::getKSerializer12);
+        lazyArray = items;
     }
 
     public static void updateValue(String[] arg0) {

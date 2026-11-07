@@ -18,42 +18,34 @@ public class TargetEntityHelper3 extends ZEROEntityHelper {
     }
 
     public MoveFixServiceComponent resolveMoveFixServiceComponent(Entity target, MoveFixServiceComponent currentRotation, boolean attackTick) {
-        long var6 = ((0L ^ 74965760972846L) >>> 56);
-        long var7 = (((0L ^ 74965760972846L) << 8) >>> 8);
-        long var9 = (0L ^ 76083599961676L);
-        long var11 = (0L ^ 38753063586444L);
-        long var13 = (0L ^ 42077792783538L);
-        long var15 = (0L ^ 43306842265647L);
         if (attackTick) {
-            if (0L > 0L) {
-                countValue = AuraModule.INSTANCE.checkCondition2();
-            } else {
-            }
+            countValue = AuraModule.INSTANCE.checkCondition2();
+        } else {
             if (countValue > 0) {
-                int var18 = countValue;
-                countValue = (var18 + -1);
+                int index = countValue;
+                countValue = (index + -1);
             }
         }
-        var18 = this.resolveMinecraftObject(target);
-        double var19 = class_3532.method_15338(((Math.toDegrees(Math.atan2((var18.field_1350 - SharedKt.getPlayer().getZ()), (var18.field_1352 - SharedKt.getPlayer().getX()))) - 90) - currentRotation.getNumericValue()));
-        double var21 = (Math.toDegrees(Math.atan2((var18.field_1351 - (AuraModule.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()).field_1351 + SharedKt.getPlayer().method_18381(SharedKt.getPlayer().method_18376()))), Math.hypot((var18.field_1352 - SharedKt.getPlayer().getX()), (var18.field_1350 - SharedKt.getPlayer().getZ())))) - currentRotation.getNumericValue2());
+        index = this.resolveMinecraftObject(target);
+        double offset = class_3532.method_15338(((Math.toDegrees(Math.atan2((index.field_1350 - SharedKt.getPlayer().getZ()), (index.field_1352 - SharedKt.getPlayer().getX()))) - 90) - currentRotation.getNumericValue()));
+        double offset2 = (Math.toDegrees(Math.atan2((index.field_1351 - (AuraModule.INSTANCE.resolveMinecraftObject(SharedKt.getPlayer()).field_1351 + SharedKt.getPlayer().method_18381(SharedKt.getPlayer().method_18376()))), Math.hypot((index.field_1352 - SharedKt.getPlayer().getX()), (index.field_1350 - SharedKt.getPlayer().getZ())))) - currentRotation.getNumericValue2());
         if (!(SharedKt.getPlayer().isFallFlying())) {
         } else {
         }
-        double var23 = 180.0D;
+        double offset3 = 180.0D;
         if (!(SharedKt.getPlayer().isFallFlying())) {
             if (!((SharedKt.getPlayer().field_6012 % 25))) {
             } else {
             }
         } else {
         }
-        double var25 = 90.0D;
-        float var27 = (currentRotation.getNumericValue() + RangesKt.coerceIn());
-        float var29 = ((currentRotation.getNumericValue2() + RangesKt.coerceIn()) + Math.sin());
+        double offset4 = 90.0D;
+        float factor = (currentRotation.getNumericValue() + RangesKt.coerceIn(offset, offset3, offset3));
+        float factor2 = ((currentRotation.getNumericValue2() + RangesKt.coerceIn(offset2, offset4, offset4)) + Math.sin(offset));
         if (countValue > 0) {
         } else {
         }
-        return new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455());
+        return new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455(), false);
     }
 
     public boolean isActive2() {

@@ -57,7 +57,7 @@ public class WaterPushEvent extends Event {
     }
 
     public boolean call(BlockPos pos, class_3611 fluid, class_3610 state, Vec3d vec) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         pos = pos;
         this.setVec(vec);
         fluid = fluid;

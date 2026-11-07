@@ -25,7 +25,7 @@ public class SwingArmEvent extends Event {
     }
 
     public float getSwingProgress() {
-        return (Number) swingProgressSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) swingProgressSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public void setSwingProgress(float value) {
@@ -45,7 +45,7 @@ public class SwingArmEvent extends Event {
     }
 
     private int getArmX() {
-        return (Number) armXSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) armXSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setArmX(int value) {
@@ -65,7 +65,7 @@ public class SwingArmEvent extends Event {
     }
 
     public boolean call(float swingProgress, MatrixStack matrices, int armX, class_1306 arm) {
-        this.setCancelled(0);
+        this.setCancelled(false);
         this.setSwingProgress(swingProgress);
         this.setMatrices(matrices);
         this.setArm(arm);
@@ -75,7 +75,7 @@ public class SwingArmEvent extends Event {
     }
 
     static {
-        KProperty[] var0 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new SwingArmEvent();
         swingProgressSetting = Delegates.INSTANCE.notNull();
         armXSetting = Delegates.INSTANCE.notNull();

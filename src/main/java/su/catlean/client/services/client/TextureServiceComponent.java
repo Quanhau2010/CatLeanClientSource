@@ -39,9 +39,9 @@ public class TextureServiceComponent {
     }
 
     public int hashCode() {
-        int var3 = this.minecraftRef.hashCode();
-        var3 = ((var3 * -6788907989920120801L) + this.matrix3x2f.hashCode());
-        return var3;
+        int index = this.minecraftRef.hashCode();
+        index = ((index * 31) + this.matrix3x2f.hashCode());
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -51,11 +51,11 @@ public class TextureServiceComponent {
         if (!(other instanceof TextureServiceComponent)) {
             return false;
         }
-        TextureServiceComponent var5 = (TextureServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.minecraftRef, var5.minecraftRef))) {
+        TextureServiceComponent textureServiceComponent = ((TextureServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.minecraftRef, textureServiceComponent.minecraftRef))) {
             return false;
         }
-        if (!(Intrinsics.areEqual(this.matrix3x2f, var5.matrix3x2f))) {
+        if (!(Intrinsics.areEqual(this.matrix3x2f, textureServiceComponent.matrix3x2f))) {
             return false;
         }
         return true;

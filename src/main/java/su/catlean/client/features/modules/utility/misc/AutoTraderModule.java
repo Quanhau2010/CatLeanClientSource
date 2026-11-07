@@ -74,11 +74,11 @@ public class AutoTraderModule extends Module {
     }
 
     private boolean getBuy() {
-        return (Boolean) buySetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) buySetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private ItemsServiceComponent2 getBuyItem() {
-        return (ItemsServiceComponent2) buyItemSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((ItemsServiceComponent2) buyItemSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setBuyItem(ItemsServiceComponent2 value) {
@@ -86,11 +86,11 @@ public class AutoTraderModule extends Module {
     }
 
     private boolean getSell() {
-        return (Boolean) sellSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) sellSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private ItemsServiceComponent2 getSellItem() {
-        return (ItemsServiceComponent2) sellItemSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((ItemsServiceComponent2) sellItemSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setSellItem(ItemsServiceComponent2 value) {
@@ -98,7 +98,7 @@ public class AutoTraderModule extends Module {
     }
 
     private int getInteractDelay() {
-        return (Number) interactDelaySetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Number) interactDelaySetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setInteractDelay(int value) {
@@ -106,7 +106,7 @@ public class AutoTraderModule extends Module {
     }
 
     private int getTradeDelay() {
-        return (Number) tradeDelaySetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Number) tradeDelaySetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void setTradeDelay(int value) {
@@ -115,44 +115,44 @@ public class AutoTraderModule extends Module {
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
         if (countValue > 0) {
-            int var26 = countValue;
-            countValue = (var26 + -1);
+            int index = countValue;
+            countValue = (index + -1);
         }
         if (countValue2 > 0) {
-            var26 = countValue2;
-            countValue2 = (var26 + -1);
+            index = countValue2;
+            countValue2 = (index + -1);
             return;
         }
         lookupMap.entrySet().removeIf(this::checkCondition);
         if (SharedKt.getMc().currentScreen instanceof class_492) {
-            var26 = (class_492) SharedKt.getMc().currentScreen;
-            class_1728 var27 = (class_1728) var26.method_17577();
-            class_1916 var28 = var27.method_17438();
-            int var29 = 0;
-            int var30 = (Collection) var28.size();
-            if (var29 < var30) {
-                class_1914 var31 = (class_1914) var28.get();
-                if (this.checkCondition()) {
-                    var27.method_20215();
-                    var27.method_7650();
-                    PacketPacketHelper.handlePacket((Packet) new class_2863());
-                    GuiMoveModule.INSTANCE.updateValue(1);
-                    HandServiceComponent.e(2, 0, class_1713.field_7794);
-                    GuiMoveModule.INSTANCE.updateValue(0);
+            index = ((class_492) SharedKt.getMc().currentScreen);
+            class_1728 class1728 = ((class_1728) index.method_17577());
+            class_1916 class1916 = class1728.method_17438();
+            int index2 = 0;
+            int index3 = ((Collection) class1916).size();
+            if (index2 < index3) {
+                class_1914 class1914 = ((class_1914) class1916.get(index2));
+                if (this.checkCondition(class1914)) {
+                    class1728.method_20215(index2);
+                    class1728.method_7650(index2);
+                    PacketPacketHelper.handlePacket(((Packet) new class_2863(index2)));
+                    GuiMoveModule.INSTANCE.updateValue(true);
+                    HandServiceComponent.e(2, 0, class_1713.field_7794, false);
+                    GuiMoveModule.INSTANCE.updateValue(false);
                     countValue2 = this.getTradeDelay();
                     return;
                 }
-                if (!(var27.method_7611(0).method_7677().isEmpty())) {
-                    GuiMoveModule.INSTANCE.updateValue(1);
-                    HandServiceComponent.e(0, 0, class_1713.field_7794);
-                    GuiMoveModule.INSTANCE.updateValue(0);
+                if (!(class1728.method_7611(0).method_7677().isEmpty())) {
+                    GuiMoveModule.INSTANCE.updateValue(true);
+                    HandServiceComponent.e(0, 0, class_1713.field_7794, false);
+                    GuiMoveModule.INSTANCE.updateValue(false);
                     countValue2 = this.getTradeDelay();
                     return;
                 }
-                if (!(var27.method_7611(1).method_7677().isEmpty())) {
-                    GuiMoveModule.INSTANCE.updateValue(1);
-                    HandServiceComponent.e(1, 0, class_1713.field_7794);
-                    GuiMoveModule.INSTANCE.updateValue(0);
+                if (!(class1728.method_7611(1).method_7677().isEmpty())) {
+                    GuiMoveModule.INSTANCE.updateValue(true);
+                    HandServiceComponent.e(1, 0, class_1713.field_7794, false);
+                    GuiMoveModule.INSTANCE.updateValue(false);
                     countValue2 = this.getTradeDelay();
                     return;
                 }
@@ -160,66 +160,65 @@ public class AutoTraderModule extends Module {
             }
             SharedKt.getPlayer().method_7346();
         } else {
-            var27 = SharedKt.getWorld().method_18112();
-            var28 = 0;
-            var29 = var27;
-            var30 = (Collection) new ArrayList();
-            var31 = 0;
-            Iterator iterator = var29.iterator();
+            class1728 = SharedKt.getWorld().method_18112();
+            class1916 = 0;
+            index2 = class1728;
+            index3 = ((Collection) new ArrayList());
+            class1914 = 0;
+            Iterator iterator = index2.iterator();
             while (iterator.hasNext()) {
-                Object var33 = iterator.next();
-                Entity entity = var33;
-                int var35 = 0;
-                var30.add();
+                Object element = iterator.next();
+                Entity entity = element;
+                index3.add(element);
             }
-            var27 = (Iterable) var30;
-            var28 = 0;
-            var29 = var27.iterator();
-            if (!(var29.hasNext())) {
+            class1728 = ((Iterable) index3);
+            class1916 = 0;
+            index2 = class1728.iterator();
+            if (!(index2.hasNext())) {
             } else {
-                var30 = var29.next();
-                if (!(var29.hasNext())) {
+                index3 = index2.next();
+                if (!(index2.hasNext())) {
                 } else {
-                    var31 = var30;
+                    class1914 = index3;
                     iterator = 0;
-                    var31 = var31.distanceTo(SharedKt.getPlayer());
-                    iterator = var29.next();
-                    var33 = iterator;
+                    class1914 = class1914.distanceTo(SharedKt.getPlayer());
+                    iterator = index2.next();
+                    element = iterator;
                     entity = 0;
-                    var33 = var33.distanceTo(SharedKt.getPlayer());
-                    if (Float.compare() > 0) {
-                        var30 = iterator;
-                        var31 = var33;
+                    element = element.distanceTo(SharedKt.getPlayer());
+                    if (Float.compare(class1914, element) > 0) {
+                        index3 = iterator;
+                        class1914 = element;
                     }
                 }
             }
-            var26 = var30;
-            SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(var26.getEyePos().method_1031((Math.random() * 0.2D), 0.0D, (Math.random() * 0.2D))), 0, this::resolveUnit));
+            index = index3;
+            SequenceServiceComponent.INSTANCE.executeAction(new RotationServiceComponent4(MoveFixServiceComponent.vectorServiceComponent.resolveMoveFixServiceComponent(index.getEyePos().method_1031((Math.random() * 0.2D), 0.0D, (Math.random() * 0.2D))), 0, this::resolveUnit));
         }
     }
 
     private boolean checkCondition(short arg0, class_1914 arg1, int arg2, short arg3) {
         Iterator iterator = this.getBuyItem().getList().iterator();
-        if (iterator.hasNext()) {
-            Item var25 = (Item) iterator.next();
-            boolean var26 = Intrinsics.areEqual(arg1.method_8250().getItem());
-            int var20 = 2;
-            int var21 = 0;
-            Item var22 = arg1.method_19272().getItem();
-            boolean var27 = arg1.method_19272().method_7947() <= ItemPacketHelper.computeValue();
+        while (iterator.hasNext()) {
+            Item item = ((Item) iterator.next());
+            boolean flag = Intrinsics.areEqual(arg1.method_8250().getItem(), item);
+            int index = 2;
+            int index2 = 0;
+            Item item2 = arg1.method_19272().getItem();
+            boolean flag2 = arg1.method_19272().method_7947() <= ItemPacketHelper.computeValue(item2, index2, index);
             if (arg0 >= 0) {
-                if (var23) {
+                if (__UNDEF_KEY__) {
                 }
             }
             if (arg0 >= 0) {
-                if (var23) {
+                if (__UNDEF_KEY__) {
                 }
             }
-            boolean var28 = this.getBuy();
-            if (var28) {
+            boolean flag3 = this.getBuy();
+            if (flag3) {
                 if (arg2 >= 0) {
-                    if (var23) {
-                        if (!(var27)) {
+                    if (__UNDEF_KEY__) {
+                        if (!(flag2)) {
                         }
                     }
                 }
@@ -228,77 +227,77 @@ public class AutoTraderModule extends Module {
         }
         iterator = this.getSellItem().getList().iterator();
         if (arg2 >= 0) {
-            if (iterator.hasNext()) {
-            }
-            var25 = (Item) iterator.next();
-            var26 = Intrinsics.areEqual(arg1.method_19272().getItem());
-            if (arg0 >= 0) {
-                if (var23) {
-                }
-                var20 = 2;
-                var21 = 0;
-                var22 = arg1.method_19272().getItem();
-                var27 = arg1.method_19272().method_7947() <= ItemPacketHelper.computeValue();
+            while (iterator.hasNext()) {
+                item = ((Item) iterator.next());
+                flag = Intrinsics.areEqual(arg1.method_19272().getItem(), item);
                 if (arg0 >= 0) {
-                    if (var23) {
-                        if (var26) {
-                        }
-                    }
-                    if (arg0 >= 0) {
-                        if (var23) {
-                            if (!(arg1.method_8255())) {
+                    if (__UNDEF_KEY__) {
+                        index = 2;
+                        index2 = 0;
+                        item2 = arg1.method_19272().getItem();
+                        flag2 = arg1.method_19272().method_7947() <= ItemPacketHelper.computeValue(item2, index2, index);
+                        if (arg0 >= 0) {
+                            if (__UNDEF_KEY__) {
+                                if (flag) {
+                                    if (arg0 >= 0) {
+                                        if (__UNDEF_KEY__) {
+                                            if (!(arg1.method_8255())) {
+                                            } else {
+                                                flag3 = this.getSell();
+                                            }
+                                        }
+                                    }
+                                } else {
+                                }
                             }
                         }
-                    }
-                } else {
-                }
-            }
-            var28 = this.getSell();
-            if (var28) {
-                if (arg3 > 0) {
-                    if (var23) {
-                        if (!(var27)) {
+                        if (flag3) {
+                            if (arg3 > 0) {
+                                if (__UNDEF_KEY__) {
+                                    if (!(flag2)) {
+                                    }
+                                }
+                            }
                         }
+                        return true;
                     }
                 }
             }
-            return true;
-        }
         }
         return false;
     }
 
     private static boolean checkCondition(Entry arg0) {
-        int var6 = (Number) arg0.getValue();
-        if (var5) {
-            if ((SharedKt.getPlayer().field_6012 - var6) > 160) {
+        int index = ((Number) arg0.getValue());
+        if (__UNDEF_KEY__) {
+            if ((SharedKt.getPlayer().field_6012 - index) > 160) {
+            } else {
             }
-        } else {
         }
         return false;
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static Unit resolveUnit(Entity arg0) {
-        SharedKt.getInteractionManager().method_2905((PlayerEntity) SharedKt.getPlayer(), arg0, Hand.field_5808);
+        SharedKt.getInteractionManager().method_2905(((PlayerEntity) SharedKt.getPlayer()), arg0, Hand.field_5808);
         countValue3 = arg0.method_5628();
         countValue = INSTANCE.getInteractDelay();
         return Unit.INSTANCE;
     }
 
     static {
-        KProperty[] var32 = new KProperty[6];
+        KProperty[] items = new KProperty[6];
         INSTANCE = new AutoTraderModule();
-        buySetting = VisibleRenderHelper.registerSetting(INSTANCE, "buy");
+        buySetting = VisibleRenderHelper.registerSetting(INSTANCE, "buy", true);
         buyItemSetting = VisibleRenderHelper.registerSetting(INSTANCE, "buy-item", new ItemsServiceComponent2());
-        sellSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sell");
+        sellSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sell", false);
         sellItemSetting = VisibleRenderHelper.registerSetting(INSTANCE, "sell-item", new ItemsServiceComponent2());
         interactDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "open-delay", 12, new IntRange(0, 40));
         tradeDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "trade-delay", 3, new IntRange(0, 40));
-        lookupMap = (Map) new LinkedHashMap();
+        lookupMap = ((Map) new LinkedHashMap());
     }
 
 }

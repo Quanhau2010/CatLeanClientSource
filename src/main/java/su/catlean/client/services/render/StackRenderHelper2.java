@@ -47,113 +47,108 @@ public class StackRenderHelper2 {
     }
 
     public void render(MatrixStack stack, Color lineColor, Color friendLineColor, boolean extraPart) {
-        Iterable var43 = SharedKt.getWorld().method_18112();
-        int var44 = 0;
-        Object var45 = var43;
-        Collection var46 = (Collection) new ArrayList();
-        int var47 = 0;
-        Iterator iterator = var45.iterator();
+        Iterable iterable = SharedKt.getWorld().method_18112();
+        int index = 0;
+        Iterable iterable2 = iterable;
+        Collection collection = ((Collection) new ArrayList());
+        Iterator iterator = iterable2.iterator();
         while (iterator.hasNext()) {
-            Object var49 = iterator.next();
-            var46.add();
+            Object element = iterator.next();
+            collection.add(element);
         }
-        List positions = var46;
-        if (positions.isEmpty()) {
+        if (collection.isEmpty()) {
             return;
         }
-        var43 = PolygonShaderComponent.INSTANCE.computeValue();
-        int var38 = 1;
-        int var39 = (9 * positions.size());
-        VertexFormat var40 = class_290.field_1576;
-        var44 = new FormatRenderHelper();
-        var45 = SharedKt.getMc().field_1773.method_19418();
-        var46 = (Iterable) positions;
-        var47 = 0;
-        iterator = var46.iterator();
+        iterable = PolygonShaderComponent.INSTANCE.computeValue();
+        int index2 = 1;
+        int index3 = (9 * collection.size());
+        VertexFormat vertexFormat = class_290.field_1576;
+        index = new FormatRenderHelper(vertexFormat, index3, index2);
+        iterable2 = SharedKt.getMc().field_1773.method_19418();
+        collection = ((Iterable) collection);
+        iterator = collection.iterator();
         while (iterator.hasNext()) {
-            var49 = iterator.next();
-            PlayerEntity player = (PlayerEntity) var49;
-            int var51 = 0;
+            element = iterator.next();
+            PlayerEntity player = ((PlayerEntity) element);
             if (SharedKt.getMc().options.method_31044() == class_5498.field_26664 && !(FreeCamModule.INSTANCE.getEnabled())) {
                 if (!(Intrinsics.areEqual(SharedKt.getMc().player, player))) {
-                }
-                stack.method_22903();
-                stack.method_22907((Quaternionfc) class_7833.field_40716.rotationDegrees((var45.method_19330() + 180.0F)));
-                stack.method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees(var45.method_19329()));
-                if (EntityHelper4.isFriend(player)) {
-                } else {
-                }
-                Object var52 = lineColor;
-                Vec3d vec = TextShaderComponent2.resolveMinecraftObject(player, 0.0F);
-                class_591 var54 = (class_591) (class_1007) SharedKt.getMc().method_1561().method_3953(player).method_4038();
-                class_10017 var55 = SharedKt.getMc().method_1561().method_3953(player).method_62425(player, TextShaderComponent2.INSTANCE.computeValue());
-                class_10055 var56 = (class_10055) var55;
-                if (Intrinsics.areEqual(player, SharedKt.getPlayer()) && SequenceServiceComponent.INSTANCE.getMoveFixServiceComponent2() != null && SequenceServiceComponent.INSTANCE.getMoveFixServiceComponent() != null) {
-                } else {
-                }
-                var55 = class_3532.method_17821(player.field_6220, player.field_6283);
-                if (Intrinsics.areEqual(player, SharedKt.getPlayer())) {
-                } else {
-                }
-                float var57 = player.method_5695();
-                var54.method_62110();
-                boolean var58 = player.method_20232();
-                boolean var60 = player.isFallFlying();
-                stack.method_22904(vec.field_1352, vec.field_1351, vec.field_1350);
-                if (var58) {
-                    stack.method_46416(0.0F, 0.35F, 0.0F);
-                }
-                stack.method_22907((Quaternionfc) class_7833.field_40715.rotationDegrees((var55 + 180)));
-                if (!(var58)) {
-                    if (var60) {
+                    stack.method_22903();
+                    stack.method_22907(((Quaternionfc) class_7833.field_40716.rotationDegrees((iterable2.method_19330() + 180.0F))));
+                    stack.method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees(iterable2.method_19329())));
+                    if (EntityHelper4.isFriend(player)) {
+                    } else {
                     }
-                    stack.method_22907((Quaternionfc) class_7833.field_40713.rotationDegrees((80 + var57)));
-                }
-                if (var58) {
-                    stack.method_46416(0.0F, -0.95F, 0.0F);
-                }
-                0.15F.resolveFormatRenderHelper(0.6F, 0.7F, 0.23F, 0.0F).resolveFormatRenderHelper();
-                stack.method_22903();
-                0.0F.method_46416(1.05F, 1.4F, 0.0F);
-                INSTANCE.render(var54.field_3398, 0.3F, stack);
-                stack.method_22903();
-                0.0F.method_46416(0.5F, 0.7F, 0.0F);
-                stack.method_22907((Quaternionfc) class_7833.field_40718.rotation(var54.field_3398.field_3674));
-                stack.method_22907((Quaternionfc) class_7833.field_40715.rotation(var54.field_3398.field_3675));
-                stack.method_22907((Quaternionfc) class_7833.field_40713.rotation(1.1F));
-                var44.resolveFormatRenderHelper(stack.method_23760().method_23761(), 0.0F, 0.0F, 0.0F).resolveFormatRenderHelper().resolveFormatRenderHelper(stack.method_23760().method_23761(), 0.0F, 0.3F, 0.0F).resolveFormatRenderHelper();
-                stack.method_22909();
-                stack.method_22903();
-                0.6F.method_46416(0.7F, 0.23F, 0.0F);
-                INSTANCE.render(var54.field_3392, -0.6F, stack);
-                stack.method_22903();
-                0.6F.method_46416(0.7F, 0.23F, 0.0F);
-                INSTANCE.render(var54.field_3397, -0.6F, stack);
-                stack.method_22903();
-                0.37F.method_46416(1.05F, 1.35F, 0.0F);
-                INSTANCE.render(var54.field_3401, -0.55F, stack);
-                stack.method_22903();
-                -0.37F.method_46416(1.05F, 1.35F, 0.0F);
-                INSTANCE.render(var54.field_27433, -0.55F, stack);
-                if (var58) {
-                    stack.method_46416(0.0F, 0.95F, 0.0F);
-                }
-                if (!(var58)) {
-                    if (var60) {
+                    Vec3d vec = TextShaderComponent2.resolveMinecraftObject(player, 0.0F);
+                    class_591 class591 = ((class_591) ((class_1007) SharedKt.getMc().method_1561().method_3953(player)).method_4038());
+                    class_10017 class10017 = SharedKt.getMc().method_1561().method_3953(player).method_62425(player, TextShaderComponent2.INSTANCE.computeValue());
+                    class_10055 class10055 = ((class_10055) class10017);
+                    if (Intrinsics.areEqual(player, SharedKt.getPlayer()) && SequenceServiceComponent.INSTANCE.getMoveFixServiceComponent2() != null && SequenceServiceComponent.INSTANCE.getMoveFixServiceComponent() != null) {
+                    } else {
                     }
-                    stack.method_22907((Quaternionfc) class_7833.field_40714.rotationDegrees((90 + var57)));
+                    class10017 = class_3532.method_17821(iterable, player.field_6220, player.field_6283);
+                    if (Intrinsics.areEqual(player, SharedKt.getPlayer())) {
+                    } else {
+                    }
+                    float factor = player.method_5695(iterable);
+                    class591.method_62110(class10055);
+                    boolean flag = player.method_20232();
+                    boolean flag2 = player.isFallFlying();
+                    stack.method_22904(vec.field_1352, vec.field_1351, vec.field_1350);
+                    if (flag) {
+                        stack.method_46416(0.0F, 0.35F, 0.0F);
+                    }
+                    stack.method_22907(((Quaternionfc) class_7833.field_40715.rotationDegrees((class10017 + 180))));
+                    if (!(flag)) {
+                        if (flag2) {
+                            stack.method_22907(((Quaternionfc) class_7833.field_40713.rotationDegrees((80 + factor))));
+                        }
+                    }
+                    if (flag) {
+                        stack.method_46416(0.0F, -0.95F, 0.0F);
+                    }
+                    this.resolveFormatRenderHelper(0.6F, 0.7F, 0.23F, 0.0F).resolveFormatRenderHelper(lineColor);
+                    stack.method_22903();
+                    this.method_46416(1.05F, 1.4F, 0.0F);
+                    INSTANCE.render(class591.field_3398, 0.3F, stack, lineColor, index);
+                    stack.method_22903();
+                    this.method_46416(0.5F, 0.7F, 0.0F);
+                    stack.method_22907(((Quaternionfc) class_7833.field_40718.rotation(class591.field_3398.field_3674)));
+                    stack.method_22907(((Quaternionfc) class_7833.field_40715.rotation(class591.field_3398.field_3675)));
+                    stack.method_22907(((Quaternionfc) class_7833.field_40713.rotation(1.1F)));
+                    index.resolveFormatRenderHelper(stack.method_23760().method_23761(), 0.0F, 0.0F, 0.0F).resolveFormatRenderHelper(lineColor).resolveFormatRenderHelper(stack.method_23760().method_23761(), 0.0F, 0.3F, 0.0F).resolveFormatRenderHelper(lineColor);
+                    stack.method_22909();
+                    stack.method_22903();
+                    this.method_46416(0.7F, 0.23F, 0.0F);
+                    INSTANCE.render(class591.field_3392, -0.6F, stack, lineColor, index);
+                    stack.method_22903();
+                    this.method_46416(0.7F, 0.23F, 0.0F);
+                    INSTANCE.render(class591.field_3397, -0.6F, stack, lineColor, index);
+                    stack.method_22903();
+                    this.method_46416(1.05F, 1.35F, 0.0F);
+                    INSTANCE.render(class591.field_3401, -0.55F, stack, lineColor, index);
+                    stack.method_22903();
+                    this.method_46416(1.05F, 1.35F, 0.0F);
+                    INSTANCE.render(class591.field_27433, -0.55F, stack, lineColor, index);
+                    if (flag) {
+                        stack.method_46416(0.0F, 0.95F, 0.0F);
+                    }
+                    if (!(flag)) {
+                        if (flag2) {
+                            stack.method_22907(((Quaternionfc) class_7833.field_40714.rotationDegrees((90 + factor))));
+                        }
+                    }
+                    if (flag) {
+                        stack.method_46416(0.0F, -0.35F, 0.0F);
+                    }
+                    stack.method_22907(((Quaternionfc) class_7833.field_40716.rotationDegrees((class10017 + 180))));
+                    stack.method_22904(vec.field_1352, vec.field_1351, vec.field_1350);
+                    stack.method_22909();
                 }
-                if (var58) {
-                    stack.method_46416(0.0F, -0.35F, 0.0F);
-                }
-                stack.method_22907((Quaternionfc) class_7833.field_40716.rotationDegrees((var55 + 180)));
-                stack.method_22904(vec.field_1352, vec.field_1351, vec.field_1350);
-                stack.method_22909();
             }
         }
         GL32C.glEnable(2848);
         GL32C.glHint(3154, 4354);
-        FormatRenderHelper.executeAction(VertexUBOShaderComponent.INSTANCE.getRenderPipeline25(), null, null, stack.method_23760().method_23761());
+        FormatRenderHelper.executeAction(index, VertexUBOShaderComponent.INSTANCE.getRenderPipeline25(), null, null, stack.method_23760().method_23761());
         GL32C.glDisable(2848);
     }
 
@@ -165,12 +160,12 @@ public class StackRenderHelper2 {
 
     private void render(MatrixStack arg0, class_630 arg1) {
         if (arg1.field_3674 != 0.0F) {
-            arg0.method_22907((Quaternionfc) class_7833.field_40718.rotation(arg1.field_3674));
+            arg0.method_22907(((Quaternionfc) class_7833.field_40718.rotation(arg1.field_3674)));
         }
         if (arg1.field_3675 != 0.0F) {
-            arg0.method_22907((Quaternionfc) class_7833.field_40715.rotation(arg1.field_3675));
+            arg0.method_22907(((Quaternionfc) class_7833.field_40715.rotation(arg1.field_3675)));
         }
-        arg0.method_22907((Quaternionfc) class_7833.field_40713.rotation(arg1.field_3654));
+        arg0.method_22907(((Quaternionfc) class_7833.field_40713.rotation(arg1.field_3654)));
     }
 
     static {

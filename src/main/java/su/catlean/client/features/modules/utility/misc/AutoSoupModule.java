@@ -33,11 +33,11 @@ public class AutoSoupModule extends Module {
     }
 
     private float getHealth() {
-        return (Number) healthSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) healthSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private WindHopSwitchMode getSwitchMode() {
-        return (WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((WindHopSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setSwitchMode(WindHopSwitchMode value) {
@@ -54,7 +54,7 @@ public class AutoSoupModule extends Module {
     }
 
     static {
-        KProperty[] var29 = new KProperty[2];
+        KProperty[] items = new KProperty[2];
         INSTANCE = new AutoSoupModule();
         healthSetting = VisibleRenderHelper.registerSetting(INSTANCE, "min-health", 5.0F, RangesKt.rangeTo(1.0F, 20.0F));
         switchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch", WindHopSwitchMode.SILENT_FULL);

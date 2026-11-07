@@ -40,27 +40,27 @@ public class TriggerModule extends Module {
     }
 
     private float getAttackRange() {
-        return (Number) attackRangeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) attackRangeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private int getReactVal() {
-        return (Number) reactValSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) reactValSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private boolean getWhileAttackPressed() {
-        return (Boolean) whileAttackPressedSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Boolean) whileAttackPressedSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getAutoJump() {
-        return (Boolean) autoJumpSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) autoJumpSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getIgnoreWalls() {
-        return (Boolean) ignoreWallsSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) ignoreWallsSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private boolean getPauseEating() {
-        return (Boolean) pauseEatingSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) pauseEatingSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
@@ -73,30 +73,29 @@ public class TriggerModule extends Module {
         if (!(SharedKt.getMc().options.field_1903.method_1434()) && SharedKt.getPlayer().isOnGround() && this.getAutoJump()) {
             SharedKt.getPlayer().method_6043();
         }
-        Entity entity = EventPacketHelper2.resolveMinecraftObject(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455(), this.getAttackRange(), this.getIgnoreWalls());
+        Entity entity = EventPacketHelper2.resolveMinecraftObject(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455(), this.getAttackRange(), this.getIgnoreWalls(), false);
         if (entity instanceof PlayerEntity) {
-            if (entity != null && !(EntityHelper4.isFriend((PlayerEntity) entity))) {
+            if (entity != null && !(EntityHelper4.isFriend(((PlayerEntity) entity)))) {
+                if (countValue >= this.getReactVal() && RotationServiceComponent.INSTANCE.checkCondition()) {
+                    SharedKt.getInteractionManager().method_2918(((PlayerEntity) SharedKt.getPlayer()), entity);
+                    SharedKt.getPlayer().method_6104(Hand.field_5808);
+                }
+                countValue = (countValue + 1);
+            } else {
+                countValue = 0;
             }
-            if (countValue >= this.getReactVal() && RotationServiceComponent.INSTANCE.checkCondition()) {
-                SharedKt.getInteractionManager().method_2918((PlayerEntity) SharedKt.getPlayer(), entity);
-                SharedKt.getPlayer().method_6104(Hand.field_5808);
-            }
-            int var32 = countValue;
-            countValue = (var32 + 1);
-        } else {
-            countValue = 0;
         }
     }
 
     static {
-        KProperty[] var30 = new KProperty[6];
+        KProperty[] items = new KProperty[6];
         INSTANCE = new TriggerModule();
         attackRangeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "range", 3.0F, RangesKt.rangeTo(1.0F, 7.0F));
         reactValSetting = VisibleRenderHelper.registerSetting(INSTANCE, "react-val", 1, new IntRange(0, 10));
-        whileAttackPressedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "while-attack-pressed");
-        autoJumpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "auto-jump");
-        ignoreWallsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-walls");
-        pauseEatingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-while-eating");
+        whileAttackPressedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "while-attack-pressed", false);
+        autoJumpSetting = VisibleRenderHelper.registerSetting(INSTANCE, "auto-jump", false);
+        ignoreWallsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "ignore-walls", false);
+        pauseEatingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "pause-while-eating", false);
     }
 
 }

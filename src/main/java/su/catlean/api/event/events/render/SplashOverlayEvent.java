@@ -85,7 +85,7 @@ public class SplashOverlayEvent extends Event {
         reloadStartTime = reloadStartTime;
         reload = reload;
         exceptionHandler = exceptionHandler;
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }

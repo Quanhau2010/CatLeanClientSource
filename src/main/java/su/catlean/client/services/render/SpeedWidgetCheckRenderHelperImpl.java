@@ -23,31 +23,23 @@ public class SpeedWidgetCheckRenderHelperImpl extends CheckRenderHelper {
     }
 
     private boolean getBps() {
-        return (Boolean) bpsSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Boolean) bpsSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public void render(DrawContext context) {
-        long var4 = ((0L ^ 86294490406460L) >>> 48);
-        long var5 = (((0L ^ 86294490406460L) << 16) >>> 32);
-        long var6 = (((0L ^ 86294490406460L) << 48) >>> 48);
-        long var7 = (0L ^ 116853176505585L);
-        long var9 = ((0L ^ 28405077213452L) >>> 48);
-        long var10 = (((0L ^ 28405077213452L) << 16) >>> 48);
-        long var11 = (((0L ^ 28405077213452L) << 32) >>> 32);
-        long var12 = (0L ^ 95236895637490L);
-        if (var14) {
+        if (__UNDEF_KEY__) {
             if (!(this.getBps())) {
-                String var16 = "%.1f";
-                Object[] var17 = new Object[1];
-                var17[0] = Double.valueOf((Math.rint((this.computeValue() * ServiceComponent98.INSTANCE.getNumericValue())) * 0.1D));
+                String text = "%.1f";
+                Object[] items = new Object[1];
+                items[0] = Double.valueOf((Math.rint((this.computeValue() * ServiceComponent98.INSTANCE.getNumericValue())) * 0.1D));
             } else {
+                text = "%.1f";
+                items = new Object[1];
+                items[0] = Double.valueOf((Math.rint((this.computeValue() * ServiceComponent98.INSTANCE.getNumericValue())) * 0.1D));
             }
-            var16 = "%.1f";
-            var17 = new Object[1];
-            var17[0] = Double.valueOf((Math.rint((this.computeValue() * ServiceComponent98.INSTANCE.getNumericValue())) * 0.1D));
         }
-        String var15 = (String.format(Arrays.copyOf()) + " b/s");
-        this.render(context);
+        String text2 = (String.format(text, Arrays.copyOf(items, items)) + " b/s");
+        this.render(context, text2);
     }
 
     private float computeValue() {
@@ -65,9 +57,9 @@ public class SpeedWidgetCheckRenderHelperImpl extends CheckRenderHelper {
     }
 
     static {
-        KProperty[] var23 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new SpeedWidgetCheckRenderHelperImpl();
-        bpsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "bps");
+        bpsSetting = VisibleRenderHelper.registerSetting(INSTANCE, "bps", false);
     }
 
 }

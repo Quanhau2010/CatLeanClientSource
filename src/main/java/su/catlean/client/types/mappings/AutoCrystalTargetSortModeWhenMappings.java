@@ -7,11 +7,11 @@ public class AutoCrystalTargetSortModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[AutoCrystalTargetSortMode.values()];
-        var0[AutoCrystalTargetSortMode.FOV.ordinal()] = 1;
-        var0[AutoCrystalTargetSortMode.HEALTH.ordinal()] = 2;
-        var0[AutoCrystalTargetSortMode.DISTANCE.ordinal()] = 3;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[AutoCrystalTargetSortMode.values()];
+        element[AutoCrystalTargetSortMode.FOV.ordinal()] = 1;
+        element[AutoCrystalTargetSortMode.HEALTH.ordinal()] = 2;
+        element[AutoCrystalTargetSortMode.DISTANCE.ordinal()] = 3;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

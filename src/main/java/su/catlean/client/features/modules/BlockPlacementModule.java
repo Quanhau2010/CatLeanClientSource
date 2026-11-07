@@ -9,7 +9,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt;
 import kotlin.jvm.functions.Function0;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.MutablePropertyReference1;
 import kotlin.jvm.internal.MutablePropertyReference1Impl;
 import kotlin.jvm.internal.PropertyReference1;
@@ -101,34 +100,24 @@ public abstract class BlockPlacementModule extends Module {
         this.timingSetting = VisibleRenderHelper.registerSetting(this, "timing", BlockPlacementTimingMode.Vanilla);
         this.blocksPerActionSetting = VisibleRenderHelper.registerSetting(this, "blocks-per-action", 6, new IntRange(2, 20), null, this::checkCondition);
         this.delayPerActionSetting = VisibleRenderHelper.registerSetting(this, "delay-per-action", 0, new IntRange(0, 10), null, this::checkCondition2);
-        this.rotateSetting = VisibleRenderHelper.registerSetting(this, "rotate");
-        this.grimSilentSetting = VisibleRenderHelper.registerSetting(this, "grim-silent", 0, null, this::checkCondition3);
+        this.rotateSetting = VisibleRenderHelper.registerSetting(this, "rotate", true);
+        this.grimSilentSetting = VisibleRenderHelper.registerSetting(this, "grim-silent", false, null, this::checkCondition3);
         this.placeModeSetting = VisibleRenderHelper.registerSetting(this, "place-mode", BlockPlacementPlaceMode.Normal);
         this.interactSetting = VisibleRenderHelper.registerSetting(this, "interact", BlockPlacementInteractMode.Strict);
         this.switchSetting = VisibleRenderHelper.registerSetting(this, "switch", BlockPlacementSwitchMode.Silent);
         this.rangeSetting = VisibleRenderHelper.registerSetting(this, "range", 4.0F, RangesKt.rangeTo(2.0F, 10.0F), null, this::checkCondition4);
         this.wallRangeSetting = VisibleRenderHelper.registerSetting(this, "wall-range", 4.0F, RangesKt.rangeTo(2.0F, 10.0F), null, this::checkCondition5);
         this.pauseGroupSetting = VisibleRenderHelper.registerSetting(this, "pause", OptionMode14.BOOLS);
-        this.miningSetting = VisibleRenderHelper.registerSetting(this, "mining", 0, this.getPauseGroup());
-        this.eatingSetting = VisibleRenderHelper.registerSetting(this, "eating", 0, this.getPauseGroup());
-        this.inventorySetting = VisibleRenderHelper.registerSetting(this, "inventory", 0, this.getPauseGroup());
-        this.blinkSetting = VisibleRenderHelper.registerSetting(this, "blink", 0, this.getPauseGroup());
+        this.miningSetting = VisibleRenderHelper.registerSetting(this, "mining", false, this.getPauseGroup());
+        this.eatingSetting = VisibleRenderHelper.registerSetting(this, "eating", false, this.getPauseGroup());
+        this.inventorySetting = VisibleRenderHelper.registerSetting(this, "inventory", false, this.getPauseGroup());
+        this.blinkSetting = VisibleRenderHelper.registerSetting(this, "blink", false, this.getPauseGroup());
         this.renderSetting = VisibleRenderHelper.registerSetting(this, "render", BlockPlacementRenderMode.BOTH);
         this.renderAnimationSetting = VisibleRenderHelper.registerSetting(this, "animation", BlockPlacementRenderAnimationMode.Fade);
-        this.syncColorsSetting = VisibleRenderHelper.registerSetting(this, "sync-colors");
+        this.syncColorsSetting = VisibleRenderHelper.registerSetting(this, "sync-colors", false);
         this.fillColorSetting = VisibleRenderHelper.registerSetting(this, "fill-color", Color.WHITE, null, this::checkCondition6);
         this.outlineColorSetting = VisibleRenderHelper.registerSetting(this, "outline-color", Color.WHITE, null, this::checkCondition7);
         this.serviceComponent10 = new ServiceComponent10();
-    }
-
-    public BlockPlacementModule(String arg0, SubCategory arg1, int arg2, boolean arg3, int arg4, DefaultConstructorMarker arg5) {
-        if ((arg4 & 4)) {
-            arg2 = 150;
-        }
-        if ((arg4 & 8)) {
-            arg3 = 1;
-        }
-        this(arg0, arg1, arg2, arg3);
     }
 
     public int getNumericValue() {
@@ -136,7 +125,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     private BlockPlacementTimingMode getTiming() {
-        return (BlockPlacementTimingMode) this.timingSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((BlockPlacementTimingMode) this.timingSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private void setTiming(BlockPlacementTimingMode value) {
@@ -144,7 +133,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     private int getBlocksPerAction() {
-        return (Number) this.blocksPerActionSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((Number) this.blocksPerActionSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private void setBlocksPerAction(int value) {
@@ -152,7 +141,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     private int getDelayPerAction() {
-        return (Number) this.delayPerActionSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((Number) this.delayPerActionSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private void setDelayPerAction(int value) {
@@ -160,7 +149,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected boolean getRotate() {
-        return (Boolean) this.rotateSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) this.rotateSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     protected void setRotate(boolean value) {
@@ -168,7 +157,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected boolean getGrimSilent() {
-        return (Boolean) this.grimSilentSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) this.grimSilentSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     protected void setGrimSilent(boolean value) {
@@ -176,7 +165,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected BlockPlacementPlaceMode getPlaceMode() {
-        return (BlockPlacementPlaceMode) this.placeModeSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((BlockPlacementPlaceMode) this.placeModeSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     protected void setPlaceMode(BlockPlacementPlaceMode value) {
@@ -184,7 +173,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected BlockPlacementInteractMode getInteract() {
-        return (BlockPlacementInteractMode) this.interactSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((BlockPlacementInteractMode) this.interactSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     protected void setInteract(BlockPlacementInteractMode value) {
@@ -192,7 +181,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected BlockPlacementSwitchMode getSwitch() {
-        return (BlockPlacementSwitchMode) this.switchSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((BlockPlacementSwitchMode) this.switchSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     protected void setSwitch(BlockPlacementSwitchMode value) {
@@ -200,7 +189,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected float getRange() {
-        return (Number) this.rangeSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Number) this.rangeSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     protected void setRange(float value) {
@@ -208,7 +197,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected float getWallRange() {
-        return (Number) this.wallRangeSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Number) this.wallRangeSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     protected void setWallRange(float value) {
@@ -216,27 +205,27 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected SettingGroup getPauseGroup() {
-        return (SettingGroup) this.pauseGroupSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((SettingGroup) this.pauseGroupSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     protected boolean getMining() {
-        return (Boolean) this.miningSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Boolean) this.miningSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     protected boolean getEating() {
-        return (Boolean) this.eatingSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Boolean) this.eatingSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     protected boolean getInventory() {
-        return (Boolean) this.inventorySetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Boolean) this.inventorySetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     protected boolean getBlink() {
-        return (Boolean) this.blinkSetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Boolean) this.blinkSetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     protected BlockPlacementRenderMode getRender() {
-        return (BlockPlacementRenderMode) this.renderSetting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((BlockPlacementRenderMode) this.renderSetting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     protected void setRender(BlockPlacementRenderMode value) {
@@ -244,7 +233,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected BlockPlacementRenderAnimationMode getRenderAnimation() {
-        return (BlockPlacementRenderAnimationMode) this.renderAnimationSetting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((BlockPlacementRenderAnimationMode) this.renderAnimationSetting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     protected void setRenderAnimation(BlockPlacementRenderAnimationMode value) {
@@ -252,15 +241,15 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected boolean getSyncColors() {
-        return (Boolean) this.syncColorsSetting.getValue(this, DELEGATED_PROPERTIES[17]);
+        return ((Boolean) this.syncColorsSetting.getValue(this, DELEGATED_PROPERTIES[17]));
     }
 
     protected Color getFillColor() {
-        return (Color) this.fillColorSetting.getValue(this, DELEGATED_PROPERTIES[18]);
+        return ((Color) this.fillColorSetting.getValue(this, DELEGATED_PROPERTIES[18]));
     }
 
     protected Color getOutlineColor() {
-        return (Color) this.outlineColorSetting.getValue(this, DELEGATED_PROPERTIES[19]);
+        return ((Color) this.outlineColorSetting.getValue(this, DELEGATED_PROPERTIES[19]));
     }
 
     protected ServiceComponent10 getServiceComponent10() {
@@ -268,107 +257,83 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     protected void onReceivePacket(ReceivePacket e) {
-        PacketPacketHelper.handlePacket((Packet) new class_2815((class_3944) e.getPacket().method_17592()));
+        PacketPacketHelper.handlePacket(((Packet) new class_2815(((class_3944) e.getPacket()).method_17592())));
         e.cancel();
     }
 
     protected boolean placeBlocks(List positions, boolean async, boolean ignoreStrict, List blocks, boolean invertSelection) {
-        Iterable var11 = (Iterable) blocks;
-        int var23 = ignoreStrict;
-        int var22 = async;
-        Object var21 = positions;
-        Object var20 = this;
-        int var12 = 0;
-        Object var13 = var11;
-        Collection var14 = (Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(10));
-        int var15 = 0;
-        Iterator iterator = var13.iterator();
-        if (iterator.hasNext()) {
-            Object var17 = iterator.next();
-            Block var18 = (Block) var17;
-            if (var10 == null) {
-                Object var24 = var14;
-                int var19 = 0;
-                var24.add(var18.method_8389());
+        Iterable iterable = ((Iterable) blocks);
+        Collection collection = ((Collection) new ArrayList(CollectionsKt.collectionSizeOrDefault(iterable, 10)));
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            Block block = ((Block) element);
+            if (__UNDEF_KEY__ == null) {
+                Collection collection2 = collection;
+                collection2.add(block.method_8389());
             }
         }
-        var24 = var14;
-        return var20.placeBlocks(invertSelection);
+        collection2 = collection;
+        return this.placeBlocks(positions, async, ignoreStrict, collection2, invertSelection);
     }
 
     public static boolean placeBlocks(BlockPlacementModule arg0, List arg1, boolean arg2, boolean arg3, List arg4, boolean arg5, int arg6, Object arg7) {
         if (arg7 != null) {
         }
-        if (var14 == null) {
-            if ((arg6 & 2)) {
-                arg2 = 0;
-            }
+        if ((arg6 & 2) != 0) {
+            arg2 = 0;
         }
-        if (var14 == null) {
-            if ((arg6 & 4)) {
-                arg3 = 0;
-            }
+        if ((arg6 & 4) != 0) {
+            arg3 = 0;
         }
-        if (var14 == null) {
-            if ((arg6 & 8)) {
-                arg4 = arg0.resolveList();
-            }
+        if ((arg6 & 8) != 0) {
+            arg4 = arg0.resolveList();
         }
-        if (var14 == null) {
-            if ((arg6 & 16)) {
-                arg5 = 0;
-            }
+        if ((arg6 & 16) != 0) {
+            arg5 = 0;
         }
         return arg0.placeBlocks(arg1, arg2, arg3, arg4, arg5);
     }
 
     protected boolean placeBlocks(List positions, boolean async, boolean ignoreStrict, List blocks, boolean invertSelection) {
         if (this.countValue2 > 0) {
-            int var17 = this.countValue2;
-            this.countValue2 = (var17 + -1);
+            int index = this.countValue2;
+            this.countValue2 = (index + -1);
             return false;
         }
         if (positions.isEmpty()) {
             return false;
         }
-        var17 = this.getBlocksPerAction();
-        int var18 = 0;
+        index = this.getBlocksPerAction();
+        int index2 = 0;
         Iterator iterator = positions.iterator();
         while (iterator.hasNext()) {
-            BlockPos blockPos = (BlockPos) iterator.next();
-            if (var17 <= 0) {
+            BlockPos blockPos = ((BlockPos) iterator.next());
+            if (index <= 0) {
             } else {
-                var18 = 1;
+                index2 = 1;
                 if (this.getTiming() == BlockPlacementTimingMode.Instant) {
                     this.countValue2 = this.getDelayPerAction();
                 }
             }
         }
-        return var18;
+        return index2;
     }
 
     public static boolean placeBlocks(BlockPlacementModule arg0, List arg1, boolean arg2, boolean arg3, List arg4, boolean arg5, int arg6, Object arg7) {
         if (arg7 != null) {
         }
-        if (var14 == null) {
-            if ((arg6 & 2)) {
-                arg2 = 0;
-            }
+        if ((arg6 & 2) != 0) {
+            arg2 = 0;
         }
-        if (var14 == null) {
-            if ((arg6 & 4)) {
-                arg3 = 0;
-            }
+        if ((arg6 & 4) != 0) {
+            arg3 = 0;
         }
-        if (var14 == null) {
-            if ((arg6 & 8)) {
-                arg4 = arg0.resolveList2();
-            }
+        if ((arg6 & 8) != 0) {
+            arg4 = arg0.resolveList2();
         }
-        if (var14 == null) {
-            if ((arg6 & 16)) {
-                arg5 = 0;
-            }
+        if ((arg6 & 16) != 0) {
+            arg5 = 0;
         }
         return arg0.placeBlocks(arg1, arg2, arg3, arg4, arg5);
     }
@@ -377,23 +342,21 @@ public abstract class BlockPlacementModule extends Module {
         if (arg4) {
         } else {
         }
-        StackServiceComponent2 var79 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(arg1);
-        if (!(var79.isActive())) {
+        StackServiceComponent2 stackServiceComponent2 = ItemPacketHelper.INSTANCE.resolveStackServiceComponent2(arg1);
+        if (!(stackServiceComponent2.isActive())) {
             return false;
         }
         if (this.placeBlocks()) {
             return false;
         }
-        RotationServiceComponent4 var80 = VecPacketHelper.resolveRotationServiceComponent4(arg0, var79.getNumericValue(), BlockPlacementInteractMode.Vanilla, this.getInteract(), this.getPlaceMode(), this.getOptionMode15(), this.getRange(), this.getWallRange(), this.countValue, this.getSwitch(), null, this.getGrimSilent());
-        if (var80 != null) {
-            Object var81 = var80;
-            int var82 = 0;
+        RotationServiceComponent4 rotationServiceComponent4 = VecPacketHelper.resolveRotationServiceComponent4(arg0, stackServiceComponent2.getNumericValue(), BlockPlacementInteractMode.Vanilla, this.getInteract(), this.getPlaceMode(), this.getOptionMode15(), this.getRange(), this.getWallRange(), this.countValue, this.getSwitch(), null, this.getGrimSilent());
+        if (rotationServiceComponent4 != null) {
             Entity entity = this.resolveMinecraftObject(arg0);
             if (entity != null) {
                 if (this.placeBlocks(entity)) {
-                    class_2824 var84 = class_2824.method_34206(SharedKt.getPlayer(), SharedKt.getPlayer().method_5715());
-                    ServiceComponent93.executeAction(entity.method_5628());
-                    PacketPacketHelper.handlePacket((Packet) var84);
+                    class_2824 class2824 = class_2824.method_34206(SharedKt.getPlayer(), SharedKt.getPlayer().method_5715());
+                    ServiceComponent93.executeAction(class2824, entity.method_5628());
+                    PacketPacketHelper.handlePacket(((Packet) class2824));
                     SharedKt.getPlayer().method_6104(Hand.field_5808);
                 } else {
                     return false;
@@ -401,22 +364,22 @@ public abstract class BlockPlacementModule extends Module {
             }
             if (this.getRotate()) {
                 if (this.getTiming() == BlockPlacementTimingMode.Instant) {
-                    SequenceServiceComponent.INSTANCE.executeAction();
+                    SequenceServiceComponent.INSTANCE.executeAction(rotationServiceComponent4);
                 } else {
-                    SequenceServiceComponent.INSTANCE.executeAction();
+                    SequenceServiceComponent.INSTANCE.executeAction(rotationServiceComponent4);
                 }
             }
             if (!(arg2)) {
                 if (!(this.getRotate())) {
+                    if (this.getRotate() && this.getGrimSilent() && this.getTiming() == BlockPlacementTimingMode.Instant) {
+                        SequenceServiceComponent.INSTANCE.executeAction(rotationServiceComponent4.getMoveFixServiceComponent().getNumericValue(), rotationServiceComponent4.getMoveFixServiceComponent().getNumericValue2());
+                    }
+                    rotationServiceComponent4.getFunction0().invoke();
+                    if (this.getRotate() && this.getGrimSilent() && this.getTiming() == BlockPlacementTimingMode.Instant) {
+                        SequenceServiceComponent.INSTANCE.executeAction(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455());
+                    }
+                    rotationServiceComponent4.executeAction(this::getUnit);
                 }
-                if (this.getRotate() && this.getGrimSilent() && this.getTiming() == BlockPlacementTimingMode.Instant) {
-                    SequenceServiceComponent.INSTANCE.executeAction(var81.getMoveFixServiceComponent().getNumericValue(), var81.getMoveFixServiceComponent().getNumericValue2());
-                }
-                var80.getFunction0().invoke();
-                if (this.getRotate() && this.getGrimSilent() && this.getTiming() == BlockPlacementTimingMode.Instant) {
-                    SequenceServiceComponent.INSTANCE.executeAction(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455());
-                }
-                var80.executeAction(this::getUnit);
             }
             if (this.getRender() != BlockPlacementRenderMode.NONE) {
                 if (this.getSyncColors()) {
@@ -425,11 +388,11 @@ public abstract class BlockPlacementModule extends Module {
                 if (this.getSyncColors()) {
                 } else {
                 }
-                BlockPlacementRenderMode var74 = this.getRender();
-                BlockPlacementRenderAnimationMode var75 = this.getRenderAnimation();
-                Color var76 = this.getFillColor();
-                Color var77 = PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), 1.0F);
-                PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), 1.0F).executeAction(this.getOutlineColor());
+                BlockPlacementRenderMode blockPlacementRenderMode = this.getRender();
+                BlockPlacementRenderAnimationMode blockPlacementRenderAnimationMode = this.getRenderAnimation();
+                Color color = this.getFillColor();
+                Color color2 = PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), 1.0F);
+                PolygonShaderComponent.INSTANCE.resolveColor(NewThemeRenderHelper.INSTANCE.getColor2(), 1.0F).executeAction(this.getOutlineColor(), color2, color, blockPlacementRenderAnimationMode, blockPlacementRenderMode);
             }
             AutoMendModule.INSTANCE.getServiceComponent10().executeAction();
             this.serviceComponent10.executeAction();
@@ -441,26 +404,21 @@ public abstract class BlockPlacementModule extends Module {
     private static boolean placeBlocks(BlockPlacementModule arg0, BlockPos arg1, List arg2, boolean arg3, boolean arg4, boolean arg5, int arg6, Object arg7) {
         if (arg7 != null) {
         }
-        if ((arg6 & 16)) {
+        if ((arg6 & 16) != 0) {
             arg5 = 0;
         }
         return arg0.placeBlocks(arg1, arg2, arg3, arg4, arg5);
     }
 
     protected boolean placeBlocks(Entity crystal) {
-        long var4 = (0L ^ 79616959566951L);
         return !(this.placeBlocks());
     }
 
     private Entity resolveMinecraftObject(BlockPos arg0) {
-        Iterable var7 = (Iterable) SharedKt.getWorld().method_18467(Entity.class, new Box(arg0));
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
-        if (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            Entity entity = var10;
-            int var12 = 0;
-        } else {
+        Iterable iterable = ((Iterable) SharedKt.getWorld().method_18467(Entity.class, new Box(arg0)));
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
         }
         return null;
     }
@@ -469,16 +427,16 @@ public abstract class BlockPlacementModule extends Module {
         if (BoxShrinkerModule.INSTANCE.getEnabled()) {
         } else {
         }
-        return !((Collection) LivingEntity.class.method_18467(new Box(bp).method_1009(-1.0E-12D, 0.0D, -1.0E-12D), new Box(bp)).isEmpty());
+        return !(((Collection) LivingEntity.class.method_18467(new Box(bp).method_1009(-1.0E-12D, 0.0D, -1.0E-12D), new Box(bp))).isEmpty());
     }
 
     protected List resolveList() {
-        Block[] var3 = new Block[4];
-        var3[0] = Blocks.OBSIDIAN;
-        var3[1] = Blocks.ENDER_CHEST;
-        var3[2] = Blocks.field_22108;
-        var3[3] = Blocks.field_23152;
-        return CollectionsKt.listOf();
+        Block[] items = new Block[4];
+        items[0] = Blocks.OBSIDIAN;
+        items[1] = Blocks.ENDER_CHEST;
+        items[2] = Blocks.field_22108;
+        items[3] = Blocks.field_23152;
+        return CollectionsKt.listOf(items);
     }
 
     protected List resolveList2() {
@@ -517,8 +475,6 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     private static boolean checkCondition3(BlockPlacementModule arg0) {
-        if (var7 == null) {
-        }
         return arg0.getTiming() == BlockPlacementTimingMode.Instant;
     }
 
@@ -547,7 +503,7 @@ public abstract class BlockPlacementModule extends Module {
     }
 
     static {
-        KProperty[] var22 = new KProperty[20];
+        KProperty[] items = new KProperty[20];
     }
 
     public static void updateValue(int[] arg0) {

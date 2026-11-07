@@ -23,45 +23,43 @@ public class UserRecordSerializer implements GeneratedSerializer {
     }
 
     public void executeAction(Encoder encoder, UserRecord value) {
-        SerialDescriptor var5 = serialDescriptor;
-        CompositeEncoder var6 = encoder.beginStructure();
-        UserRecord.executeAction(value);
-        var6.endStructure();
+        CompositeEncoder compositeEncoder = encoder.beginStructure(serialDescriptor);
+        UserRecord.executeAction(value, compositeEncoder, serialDescriptor);
+        compositeEncoder.endStructure(serialDescriptor);
     }
 
     public UserRecord resolveUserRecord(Decoder decoder) {
-        SerialDescriptor var7 = serialDescriptor;
-        int var8 = 1;
-        int var10 = 0;
-        CompositeDecoder var14 = decoder.beginStructure();
-        if (var6 == null) {
-            if (var14.decodeSequentially()) {
+        int index = 1;
+        int index2 = 0;
+        CompositeDecoder compositeDecoder = decoder.beginStructure(serialDescriptor);
+        if (__UNDEF_KEY__ == null) {
+            if (compositeDecoder.decodeSequentially()) {
+                IdRecord2 idRecord2 = ((IdRecord2) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) IdRecord2Serializer.INSTANCE)));
+                index2 = (index2 | 1);
+                Integer integer = ((Integer) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) IntSerializer.INSTANCE)));
+                index2 = (index2 | 2);
+                String text = ((String) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 2, ((DeserializationStrategy) StringSerializer.INSTANCE)));
+                index2 = (index2 | 4);
             }
-            IdRecord2 var11 = (IdRecord2) var14.decodeNullableSerializableElement(0, (DeserializationStrategy) IdRecord2Serializer.INSTANCE);
-            var10 = (var10 | 1);
-            Integer var12 = (Integer) var14.decodeNullableSerializableElement(1, (DeserializationStrategy) IntSerializer.INSTANCE);
-            var10 = (var10 | 2);
-            String var13 = (String) var14.decodeNullableSerializableElement(2, (DeserializationStrategy) StringSerializer.INSTANCE);
-            var10 = (var10 | 4);
         }
-        if (var6 != null && var8) {
-            int var9 = var14.decodeElementIndex();
-            if (var6 == null) {
-                if (var6 == null) {
+        if (__UNDEF_KEY__ != null && index) {
+            int index3 = compositeDecoder.decodeElementIndex(serialDescriptor);
+            if (__UNDEF_KEY__ == null) {
+                if (__UNDEF_KEY__ == null) {
                 }
-                var8 = 0;
-                var11 = (IdRecord2) var14.decodeNullableSerializableElement(0, (DeserializationStrategy) IdRecord2Serializer.INSTANCE);
-                var10 = (var10 | 1);
-                var12 = (Integer) var14.decodeNullableSerializableElement(1, (DeserializationStrategy) IntSerializer.INSTANCE);
-                var10 = (var10 | 2);
-                var13 = (String) var14.decodeNullableSerializableElement(2, (DeserializationStrategy) StringSerializer.INSTANCE);
-                var10 = (var10 | 4);
+                index = 0;
+                idRecord2 = ((IdRecord2) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 0, ((DeserializationStrategy) IdRecord2Serializer.INSTANCE), idRecord2));
+                index2 = (index2 | 1);
+                integer = ((Integer) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 1, ((DeserializationStrategy) IntSerializer.INSTANCE), integer));
+                index2 = (index2 | 2);
+                text = ((String) compositeDecoder.decodeNullableSerializableElement(serialDescriptor, 2, ((DeserializationStrategy) StringSerializer.INSTANCE), text));
+                index2 = (index2 | 4);
+                compositeDecoder.endStructure(serialDescriptor);
             }
-            var14.endStructure();
         }
-        if (new UserRecord(null) != null) {
+        if (new UserRecord(index2, idRecord2, integer, text) != null) {
         }
-        return new UnknownFieldException();
+        return new UnknownFieldException(index3);
     }
 
     public SerialDescriptor getDescriptor() {
@@ -69,11 +67,11 @@ public class UserRecordSerializer implements GeneratedSerializer {
     }
 
     public KSerializer[] childSerializers() {
-        KSerializer[] var1 = new KSerializer[3];
-        var1[0] = BuiltinSerializersKt.getNullable((KSerializer) IdRecord2Serializer.INSTANCE);
-        var1[1] = BuiltinSerializersKt.getNullable((KSerializer) IntSerializer.INSTANCE);
-        var1[2] = BuiltinSerializersKt.getNullable((KSerializer) StringSerializer.INSTANCE);
-        return var1;
+        KSerializer[] items = new KSerializer[3];
+        items[0] = BuiltinSerializersKt.getNullable(((KSerializer) IdRecord2Serializer.INSTANCE));
+        items[1] = BuiltinSerializersKt.getNullable(((KSerializer) IntSerializer.INSTANCE));
+        items[2] = BuiltinSerializersKt.getNullable(((KSerializer) StringSerializer.INSTANCE));
+        return items;
     }
 
     public KSerializer[] typeParametersSerializers() {
@@ -81,7 +79,7 @@ public class UserRecordSerializer implements GeneratedSerializer {
     }
 
     public void serialize(Encoder encoder, Object value) {
-        this.executeAction(encoder, (UserRecord) value);
+        this.executeAction(encoder, ((UserRecord) value));
     }
 
     public Object deserialize(Decoder decoder) {
@@ -90,11 +88,11 @@ public class UserRecordSerializer implements GeneratedSerializer {
 
     static {
         INSTANCE = new UserRecordSerializer();
-        PluginGeneratedSerialDescriptor var11 = new PluginGeneratedSerialDescriptor("su.catlean.y9", (GeneratedSerializer) INSTANCE, 3);
-        var11.addElement("user", 0);
-        var11.addElement("code", 0);
-        var11.addElement("message", 0);
-        serialDescriptor = (SerialDescriptor) var11;
+        PluginGeneratedSerialDescriptor pluginGeneratedSerialDescriptor = new PluginGeneratedSerialDescriptor("su.catlean.y9", ((GeneratedSerializer) INSTANCE), 3);
+        pluginGeneratedSerialDescriptor.addElement("user", false);
+        pluginGeneratedSerialDescriptor.addElement("code", false);
+        pluginGeneratedSerialDescriptor.addElement("message", false);
+        serialDescriptor = ((SerialDescriptor) pluginGeneratedSerialDescriptor);
     }
 
 }

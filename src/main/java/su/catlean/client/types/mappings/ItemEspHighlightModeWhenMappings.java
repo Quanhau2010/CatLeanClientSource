@@ -9,14 +9,14 @@ public class ItemEspHighlightModeWhenMappings {
     public static final int[] countValueArray;
 
     static {
-        Object var0 = new int[ItemEspHighlightMode.values()];
-        var0[ItemEspHighlightMode.BOX.ordinal()] = 1;
-        var0[ItemEspHighlightMode.OUTLINE.ordinal()] = 2;
-        ENUM_SWITCH_MAP = var0;
-        var0 = new int[ItemEspFilterMode.values()];
-        var0[ItemEspFilterMode.NONE.ordinal()] = 1;
-        var0[ItemEspFilterMode.WHITE_LIST.ordinal()] = 2;
-        countValueArray = var0;
+        Object element = new int[ItemEspHighlightMode.values()];
+        element[ItemEspHighlightMode.BOX.ordinal()] = 1;
+        element[ItemEspHighlightMode.OUTLINE.ordinal()] = 2;
+        ENUM_SWITCH_MAP = element;
+        element = new int[ItemEspFilterMode.values()];
+        element[ItemEspFilterMode.NONE.ordinal()] = 1;
+        element[ItemEspFilterMode.WHITE_LIST.ordinal()] = 2;
+        countValueArray = element;
     }
 
 }

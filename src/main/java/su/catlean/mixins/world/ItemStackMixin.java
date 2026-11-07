@@ -15,11 +15,11 @@ public class ItemStackMixin {
     }
 
     private void onFinishUsing(World world, LivingEntity entity, CallbackInfoReturnable cir) {
-        FinishUsingItemEvent.INSTANCE.call((ItemStack) this);
+        FinishUsingItemEvent.INSTANCE.call(((ItemStack) this));
     }
 
     private void onRenewItem(int bobbingAnimationTime, CallbackInfo ci) {
-        StackCollectEvent.INSTANCE.setItemStack((ItemStack) this);
+        StackCollectEvent.INSTANCE.setItemStack(((ItemStack) this));
         StackCollectEvent.INSTANCE.call();
     }
 

@@ -22,7 +22,7 @@ public class SendMessageEvent extends Event {
 
     public boolean call(String message) {
         message = message;
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }

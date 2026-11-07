@@ -55,19 +55,19 @@ public class SideServiceComponent {
     }
 
     public String toString() {
-        float var3 = this.factorValue2;
-        float var4 = this.factorValue;
-        Direction var5 = this.minecraftRef;
+        float factor = this.factorValue2;
+        float factor2 = this.factorValue;
+        Direction direction = this.minecraftRef;
         BlockPos blockPos = this.blockPos;
-        return ("RenderPosition(pos=" + blockPos + ", side=" + var5 + ", damage=" + var4 + ", selfDamage=" + var3 + ")");
+        return ("RenderPosition(pos=" + blockPos + ", side=" + direction + ", damage=" + factor2 + ", selfDamage=" + factor + ")");
     }
 
     public int hashCode() {
-        int var3 = this.blockPos.hashCode();
-        var3 = ((var3 * 31) + this.minecraftRef.hashCode());
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue));
-        var3 = ((var3 * 31) + Float.hashCode(this.factorValue2));
-        return var3;
+        int index = this.blockPos.hashCode();
+        index = ((index * 31) + this.minecraftRef.hashCode());
+        index = ((index * 31) + Float.hashCode(this.factorValue));
+        index = ((index * 31) + Float.hashCode(this.factorValue2));
+        return index;
     }
 
     public boolean equals(Object other) {
@@ -77,17 +77,17 @@ public class SideServiceComponent {
         if (!(other instanceof SideServiceComponent)) {
             return false;
         }
-        SideServiceComponent var5 = (SideServiceComponent) other;
-        if (!(Intrinsics.areEqual(this.blockPos, var5.blockPos))) {
+        SideServiceComponent sideServiceComponent = ((SideServiceComponent) other);
+        if (!(Intrinsics.areEqual(this.blockPos, sideServiceComponent.blockPos))) {
             return false;
         }
-        if (this.minecraftRef != var5.minecraftRef) {
+        if (this.minecraftRef != sideServiceComponent.minecraftRef) {
             return false;
         }
-        if (Float.compare(this.factorValue, var5.factorValue)) {
+        if (Float.compare(this.factorValue, sideServiceComponent.factorValue)) {
             return false;
         }
-        if (Float.compare(this.factorValue2, var5.factorValue2)) {
+        if (Float.compare(this.factorValue2, sideServiceComponent.factorValue2)) {
             return false;
         }
         return true;

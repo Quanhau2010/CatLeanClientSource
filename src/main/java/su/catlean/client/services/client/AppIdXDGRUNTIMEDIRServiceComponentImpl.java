@@ -32,7 +32,7 @@ public class AppIdXDGRUNTIMEDIRServiceComponentImpl extends XDGRUNTIMEDIRService
     }
 
     public Long getAppId() {
-        return (Long) appIdSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Long) appIdSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public void setAppId(Long value) {
@@ -40,7 +40,7 @@ public class AppIdXDGRUNTIMEDIRServiceComponentImpl extends XDGRUNTIMEDIRService
     }
 
     public String getDetails() {
-        return (String) detailsSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((String) detailsSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     public void setDetails(String value) {
@@ -48,7 +48,7 @@ public class AppIdXDGRUNTIMEDIRServiceComponentImpl extends XDGRUNTIMEDIRService
     }
 
     public String getState() {
-        return (String) stateSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((String) stateSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     public void setState(String value) {
@@ -56,7 +56,7 @@ public class AppIdXDGRUNTIMEDIRServiceComponentImpl extends XDGRUNTIMEDIRService
     }
 
     public Pair getLargeImage() {
-        return (Pair) largeImageSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Pair) largeImageSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     public void setLargeImage(Pair value) {
@@ -64,7 +64,7 @@ public class AppIdXDGRUNTIMEDIRServiceComponentImpl extends XDGRUNTIMEDIRService
     }
 
     public Pair getSmallImage() {
-        return (Pair) smallImageSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Pair) smallImageSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     public void setSmallImage(Pair value) {
@@ -72,7 +72,7 @@ public class AppIdXDGRUNTIMEDIRServiceComponentImpl extends XDGRUNTIMEDIRService
     }
 
     public Pair getButton1() {
-        return (Pair) button1Setting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Pair) button1Setting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     public void setButton1(Pair value) {
@@ -80,7 +80,7 @@ public class AppIdXDGRUNTIMEDIRServiceComponentImpl extends XDGRUNTIMEDIRService
     }
 
     public Pair getButton2() {
-        return (Pair) button2Setting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Pair) button2Setting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     public void setButton2(Pair value) {
@@ -88,68 +88,65 @@ public class AppIdXDGRUNTIMEDIRServiceComponentImpl extends XDGRUNTIMEDIRService
     }
 
     public DetailsRecord resolveDetailsRecord() {
-        List positions = new ArrayList();
+        List list = new ArrayList();
         if (this.getButton1() != null) {
-            Pair var16 = this.getButton1();
-            int var17 = 0;
-            positions.add(new LabelRecord((String) var16.getFirst(), (String) var16.getSecond()));
+            Pair pair = this.getButton1();
+            int index = 0;
+            list.add(new LabelRecord(((String) pair.getFirst()), ((String) pair.getSecond())));
         } else {
         }
         if (this.getButton2() != null) {
-            var16 = this.getButton2();
-            var17 = 0;
-            positions.add(new LabelRecord((String) var16.getFirst(), (String) var16.getSecond()));
+            pair = this.getButton2();
+            index = 0;
+            list.add(new LabelRecord(((String) pair.getFirst()), ((String) pair.getSecond())));
         } else {
         }
-        String var14 = this.getDetails();
-        String var15 = this.getState();
+        String text = this.getDetails();
+        String text2 = this.getState();
         if (this.getLargeImage() == null) {
             if (this.getSmallImage() != null) {
-            }
-            if (this.getLargeImage() != null) {
+                if (this.getLargeImage() != null) {
+                } else {
+                }
+                if (this.getLargeImage() != null) {
+                } else {
+                }
+                if (this.getSmallImage() != null) {
+                } else {
+                }
+                if (this.getSmallImage() != null) {
+                } else {
+                }
             } else {
             }
-            if (this.getLargeImage() != null) {
-            } else {
-            }
-            if (this.getSmallImage() != null) {
-            } else {
-            }
-            if (this.getSmallImage() != null) {
-            } else {
-            }
-        } else {
         }
-        new LargeImageRecord()(new StartRecord, new StartRecord, this.getNumericValue());
+        index = new StartRecord(this.getNumericValue());
         return null;
     }
 
     private ReadWriteProperty resolveReadWriteProperty(boolean arg0, Object arg1) {
-        Delegates var3 = Delegates.INSTANCE;
-        Object var4 = arg1;
-        int var5 = 0;
-        return (ReadWriteProperty) new PropertySettingProperty(arg0);
+        return ((ReadWriteProperty) new PropertySettingProperty(arg1, arg0));
     }
 
     public void executeAction() {
         ServiceComponent76.INSTANCE.updateValue(0);
-        ServiceComponent76.INSTANCE.updateValue(1);
+        ServiceComponent76.INSTANCE.updateValue(true);
     }
 
     public void executeAction2() {
-        ServiceComponent76.INSTANCE.updateValue(0);
+        ServiceComponent76.INSTANCE.updateValue(false);
     }
 
     static {
-        KProperty[] var28 = new KProperty[7];
+        KProperty[] items = new KProperty[7];
         INSTANCE = new AppIdXDGRUNTIMEDIRServiceComponentImpl();
-        appIdSetting = F(INSTANCE);
-        detailsSetting = F(INSTANCE);
-        stateSetting = F(INSTANCE);
-        largeImageSetting = F(INSTANCE);
-        smallImageSetting = F(INSTANCE);
-        button1Setting = F(INSTANCE);
-        button2Setting = F(INSTANCE);
+        appIdSetting = F(INSTANCE, true);
+        detailsSetting = F(INSTANCE, false);
+        stateSetting = F(INSTANCE, false);
+        largeImageSetting = F(INSTANCE, false);
+        smallImageSetting = F(INSTANCE, false);
+        button1Setting = F(INSTANCE, false);
+        button2Setting = F(INSTANCE, false);
     }
 
     public static void updateValue(String[] arg0) {

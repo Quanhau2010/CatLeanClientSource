@@ -28,7 +28,7 @@ public class FilesDraggedEvent extends Event {
 
     public boolean call(List paths) {
         this.setPaths(paths);
-        this.setCancelled(0);
+        this.setCancelled(false);
         Gofra.INSTANCE.drain(this);
         return this.getCancelled();
     }

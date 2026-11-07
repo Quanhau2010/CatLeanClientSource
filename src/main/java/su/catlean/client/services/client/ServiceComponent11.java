@@ -15,8 +15,8 @@ public class ServiceComponent11 implements Contract7 {
     public boolean checkCondition(ItemStack it) {
         if (!(ItemServiceComponent4.checkCondition(it)) && !(ItemServiceComponent4.checkCondition2(it)) && !(it.getItem() instanceof class_1743)) {
             if (it.getItem() instanceof class_1821) {
+            } else {
             }
-        } else {
         }
         return false;
     }

@@ -7,11 +7,11 @@ public class LevitationControlModeWhenMappings {
     public static final int[] ENUM_SWITCH_MAP;
 
     static {
-        Object var0 = new int[LevitationControlMode.values()];
-        var0[LevitationControlMode.NCP.ordinal()] = 1;
-        var0[LevitationControlMode.DEFAULT.ordinal()] = 2;
-        var0[LevitationControlMode.ANTI.ordinal()] = 3;
-        ENUM_SWITCH_MAP = var0;
+        Object element = new int[LevitationControlMode.values()];
+        element[LevitationControlMode.NCP.ordinal()] = 1;
+        element[LevitationControlMode.DEFAULT.ordinal()] = 2;
+        element[LevitationControlMode.ANTI.ordinal()] = 3;
+        ENUM_SWITCH_MAP = element;
     }
 
 }

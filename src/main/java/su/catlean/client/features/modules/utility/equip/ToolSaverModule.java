@@ -30,7 +30,7 @@ public class ToolSaverModule extends Module {
     }
 
     private int getSavePercent() {
-        return (Number) savePercentSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((Number) savePercentSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public void onPlayerUpdateEvent(PlayerUpdateEvent e) {
@@ -38,14 +38,14 @@ public class ToolSaverModule extends Module {
         if (!(ItemServiceComponent4.checkCondition2(stack)) && !(ItemServiceComponent4.checkCondition(stack)) && !(stack.getItem() instanceof class_1743) && !(stack.getItem() instanceof class_1794) && !(stack.getItem() instanceof class_1821)) {
             return;
         }
-        int var20 = (stack.method_7936() - stack.method_7919());
-        float var21 = ((var20 / stack.method_7936()) * 100.0F);
+        int index = (stack.method_7936() - stack.method_7919());
+        int index2 = ((index / stack.method_7936()) * 100.0F);
         SharedKt.getPlayer().method_31548().method_61496(((SharedKt.getPlayer().method_31548().method_67532() + 1) % 8));
-        MessageServiceComponent.S(this, MessageServiceComponent.Z(this, "switch-message", new Object[0]));
+        MessageServiceComponent.S(this, MessageServiceComponent.Z(this, "switch-message", new Object[0], false), false);
     }
 
     static {
-        KProperty[] var26 = new KProperty[1];
+        KProperty[] items = new KProperty[1];
         INSTANCE = new ToolSaverModule();
         savePercentSetting = VisibleRenderHelper.registerSetting(INSTANCE, "save-percent", 10, new IntRange(1, 50));
     }

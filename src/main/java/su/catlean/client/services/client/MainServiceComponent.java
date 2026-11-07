@@ -29,16 +29,14 @@ public class MainServiceComponent implements Contract9 {
 
     private void onTickEvent(TickEvent arg0) {
         if (RPCModule.INSTANCE.getEnabled()) {
-            AppIdXDGRUNTIMEDIRServiceComponentImpl var17 = AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE;
-            Object var18 = var17;
-            int var19 = 0;
-            var18.setAppId(Long.valueOf(1324838037661945876L));
-            if ((CharSequence) INSTANCE.resolveString().length() > 0) {
-                var18.setDetails(INSTANCE.resolveString());
+            AppIdXDGRUNTIMEDIRServiceComponentImpl appIdXDGRUNTIMEDIRServiceComponentImpl = AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE;
+            appIdXDGRUNTIMEDIRServiceComponentImpl.setAppId(Long.valueOf(1324838037661945876L));
+            if (((CharSequence) INSTANCE.resolveString()).length() > 0) {
+                appIdXDGRUNTIMEDIRServiceComponentImpl.setDetails(INSTANCE.resolveString());
             }
-            var18.setLargeImage(TuplesKt.to("main", "By Pan4ur & 06ED"));
-            var18.setButton1(TuplesKt.to("Get", "https://catlean.su/"));
-            var18.setState(INSTANCE.resolveString2());
+            appIdXDGRUNTIMEDIRServiceComponentImpl.setLargeImage(TuplesKt.to("main", "By Pan4ur & 06ED"));
+            appIdXDGRUNTIMEDIRServiceComponentImpl.setButton1(TuplesKt.to("Get", "https://catlean.su/"));
+            appIdXDGRUNTIMEDIRServiceComponentImpl.setState(INSTANCE.resolveString2());
         } else {
             AppIdXDGRUNTIMEDIRServiceComponentImpl.INSTANCE.resolveUnit();
         }
@@ -60,11 +58,11 @@ public class MainServiceComponent implements Contract9 {
 
     private void onPostTitleScreenInitEvent(PostTitleScreenInitEvent arg0) {
         if (!(enabledFlag) && !(ProxyGuiElement.INSTANCE.getJsonServiceComponent4().resolveModulesConfigRecord().isActive())) {
-            AssistantModule.INSTANCE.setEnabled(1);
-            RPCModule.INSTANCE.setEnabled(1);
-            MoveFixModule.INSTANCE.setEnabled(1);
-            SharedKt.getMc().method_1507((Screen) new CatleanDiscordConfirmGuiElement());
-            ProxyGuiElement.INSTANCE.getJsonServiceComponent4().resolveModulesConfigRecord().updateValue(1);
+            AssistantModule.INSTANCE.setEnabled(true);
+            RPCModule.INSTANCE.setEnabled(true);
+            MoveFixModule.INSTANCE.setEnabled(true);
+            SharedKt.getMc().method_1507(((Screen) new CatleanDiscordConfirmGuiElement()));
+            ProxyGuiElement.INSTANCE.getJsonServiceComponent4().resolveModulesConfigRecord().updateValue(true);
         }
         enabledFlag = 1;
     }

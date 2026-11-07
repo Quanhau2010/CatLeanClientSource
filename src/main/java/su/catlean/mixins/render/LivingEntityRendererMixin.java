@@ -24,7 +24,7 @@ public class LivingEntityRendererMixin {
 
     private void renderHook(class_10042 state, MatrixStack matrixStack, class_11659 orderedRenderCommandQueue, class_12075 cameraRenderState, CallbackInfo ci) {
         this.prevState = state;
-        class_10055 var6 = (class_10055) state;
+        class_10055 class10055 = ((class_10055) state);
         LookRenderEvent.INSTANCE.call(state.field_53447, state.field_53448, state.field_53446);
         state.field_53447 = LookRenderEvent.INSTANCE.getYaw();
         state.field_53448 = LookRenderEvent.INSTANCE.getPitch();
@@ -32,8 +32,8 @@ public class LivingEntityRendererMixin {
     }
 
     private void renderHook(Args args) {
-        class_10042 var3 = this.prevState;
-        class_10055 var2 = (class_10055) var3;
+        class_10042 class10042 = this.prevState;
+        class_10055 class10055 = ((class_10055) class10042);
         args.set(6, Integer.valueOf(this.withAlpha(new Color(654311423), EntityAlphaEvent.INSTANCE.getAlpha()).getRGB()));
     }
 

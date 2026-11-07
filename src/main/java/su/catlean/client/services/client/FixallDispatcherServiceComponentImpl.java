@@ -23,23 +23,21 @@ public class FixallDispatcherServiceComponentImpl extends DispatcherServiceCompo
     }
 
     public void executeAction(LiteralArgumentBuilder builder) {
-        long var4 = (0L ^ 61473902788714L);
-        builder.then(this.resolveRequiredArgumentBuilder("delay", (ArgumentType) IntegerArgumentType.integer()).executes(this::computeValue));
+        builder.then(this.resolveRequiredArgumentBuilder("delay", ((ArgumentType) IntegerArgumentType.integer())).executes(this::computeValue));
         builder.executes(this::computeValue2);
     }
 
     public void executeAction(long delay) {
         SharedKt.getNetwork().method_45730("fix hand");
-        SharedKt.getInteractionManager().method_2906(SharedKt.getPlayer().field_7512.field_7763, 1, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, (PlayerEntity) SharedKt.getPlayer());
-        RunnableServiceComponent var12 = RunnableServiceComponent.INSTANCE;
-        int var13 = 0;
-        int var14 = 0;
-        var12.getExecutorService().execute((Runnable) new ServiceComponent50(delay));
+        SharedKt.getInteractionManager().method_2906(SharedKt.getPlayer().field_7512.field_7763, 1, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, ((PlayerEntity) SharedKt.getPlayer()));
+        RunnableServiceComponent runnableServiceComponent = RunnableServiceComponent.INSTANCE;
+        int index = 0;
+        runnableServiceComponent.getExecutorService().execute(((Runnable) new ServiceComponent50(index, delay)));
     }
 
     private static int computeValue(CommandContext arg0) {
-        int var5 = (Number) arg0.getArgument("delay", Integer.TYPE);
-        INSTANCE.executeAction();
+        int index = ((Number) arg0.getArgument("delay", Integer.TYPE));
+        INSTANCE.executeAction(index);
         return 1;
     }
 

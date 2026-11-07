@@ -53,38 +53,38 @@ public class RenderHelper5 {
         this.factorValue11 = this.factorValue2;
         this.factorValue12 = this.factorValue3;
         this.factorValue13 = this.factorValue7;
-        if (var37 != null) {
+        if (__UNDEF_KEY__ != null) {
             if (ParticlesModule.resolveParticlesPhysicsMode() == ParticlesPhysicsMode.RAIN) {
             }
         }
-        ParticlesModule var36 = ParticlesModule.INSTANCE;
-        80.countValue = (ParticlesModule.computeValue() + (ParticlesModule.computeValue() * RangeServiceComponent.p((ClosedRange) RangesKt.rangeTo(0.0F, 0.5F))));
+        ParticlesModule particlesModule = ParticlesModule.INSTANCE;
+        this.countValue = (ParticlesModule.computeValue(particlesModule) + (ParticlesModule.computeValue() * RangeServiceComponent.p(((ClosedRange) RangesKt.rangeTo(0.0F, 0.5F)), false)));
         this.countValue2 = this.countValue;
-        this.countValue3 = (360 * RangeServiceComponent.p((ClosedRange) RangesKt.rangeTo(0.0F, 1.0F)));
-        if (var37 != null) {
-            var36 = ParticlesModule.INSTANCE;
+        this.countValue3 = (360 * RangeServiceComponent.p(((ClosedRange) RangesKt.rangeTo(0.0F, 1.0F)), false));
+        if (__UNDEF_KEY__ != null) {
+            particlesModule = ParticlesModule.INSTANCE;
         }
         PolygonShaderComponent.INSTANCE.resolveColor(18, this.countValue3, 1.0F, 1.0F).colorValue = new NoWhenBranchMatchedException();
-        class_3965 var38 = ExplosionPosEntityHelper.resolveMinecraftObject(new Vec3d(this.factorValue, this.factorValue2, this.factorValue3), new Vec3d(this.factorValue, (this.factorValue2 - 128.0D), this.factorValue3));
-        if (var37 != null) {
-            if (var38 != null) {
-            }
-            BlockPos blockPos = var38.method_17777();
-            if (var37 != null) {
-                if (blockPos != null) {
-                }
-                BlockPos blockPos2 = blockPos.up();
-                if (var37 != null) {
-                    if (blockPos2 != null) {
+        class_3965 class3965 = ExplosionPosEntityHelper.resolveMinecraftObject(new Vec3d(this.factorValue, this.factorValue2, this.factorValue3), new Vec3d(this.factorValue, (this.factorValue2 - 128.0D), this.factorValue3), false, null, false);
+        if (__UNDEF_KEY__ != null) {
+            if (class3965 != null) {
+                BlockPos blockPos = class3965.method_17777();
+                if (__UNDEF_KEY__ != null) {
+                    if (blockPos != null) {
+                        BlockPos blockPos2 = blockPos.up();
+                        if (__UNDEF_KEY__ != null) {
+                            if (blockPos2 != null) {
+                            } else {
+                            }
+                        }
+                    } else {
                     }
                 }
+            } else {
+                blockPos2.method_10264().factorValue14 = this.factorValue2;
             }
-        } else {
         }
-        }
-        }
-        blockPos2.method_10264().factorValue14 = this.factorValue2;
-        if (0L >= 0) {
+        if (__UNDEF_KEY__ >= 0) {
         }
     }
 

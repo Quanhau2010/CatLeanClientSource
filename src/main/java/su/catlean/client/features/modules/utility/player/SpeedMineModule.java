@@ -118,95 +118,95 @@ public class SpeedMineModule extends Module {
     }
 
     public SpeedMineMode getMode() {
-        return (SpeedMineMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((SpeedMineMode) modeSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     public SpeedMineTimingMode getTiming() {
-        return (SpeedMineTimingMode) timingSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((SpeedMineTimingMode) timingSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     public SpeedMineRebreakMode getRebreak() {
-        return (SpeedMineRebreakMode) rebreakSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((SpeedMineRebreakMode) rebreakSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private boolean getAwaitAutoCrystal() {
-        return (Boolean) awaitAutoCrystalSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((Boolean) awaitAutoCrystalSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private boolean getInstantAsync() {
-        return (Boolean) instantAsyncSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) instantAsyncSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     public boolean getDoubleMine() {
-        return (Boolean) doubleMineSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) doubleMineSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private SpeedMineDoubleMinePacketOrderMode getDoubleMinePacketOrder() {
-        return (SpeedMineDoubleMinePacketOrderMode) doubleMinePacketOrderSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((SpeedMineDoubleMinePacketOrderMode) doubleMinePacketOrderSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private SpeedMineStartMode getStartMode() {
-        return (SpeedMineStartMode) startModeSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((SpeedMineStartMode) startModeSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     public SpeedMineSwitchMode getSwitchMode() {
-        return (SpeedMineSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((SpeedMineSwitchMode) switchModeSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private boolean getSwapDelay() {
-        return (Boolean) swapDelaySetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Boolean) swapDelaySetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private SpeedMineSwapTimingMode getSwapTiming() {
-        return (SpeedMineSwapTimingMode) swapTimingSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((SpeedMineSwapTimingMode) swapTimingSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private float getFactor() {
-        return (Number) factorSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Number) factorSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private float getSpeed() {
-        return (Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Number) speedSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private boolean getRotate() {
-        return (Boolean) rotateSetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Boolean) rotateSetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     private boolean getAwait() {
-        return (Boolean) awaitSetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Boolean) awaitSetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     private boolean getPhase() {
-        return (Boolean) phaseSetting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((Boolean) phaseSetting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     public boolean getResetOnSwitch() {
-        return (Boolean) resetOnSwitchSetting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((Boolean) resetOnSwitchSetting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     private SpeedMinePauseEatMode getPauseEat() {
-        return (SpeedMinePauseEatMode) pauseEatSetting.getValue(this, DELEGATED_PROPERTIES[17]);
+        return ((SpeedMinePauseEatMode) pauseEatSetting.getValue(this, DELEGATED_PROPERTIES[17]));
     }
 
     private SettingGroup getRenderGroup() {
-        return (SettingGroup) renderGroupSetting.getValue(this, DELEGATED_PROPERTIES[18]);
+        return ((SettingGroup) renderGroupSetting.getValue(this, DELEGATED_PROPERTIES[18]));
     }
 
     private SpeedMineRenderMode getRenderMode() {
-        return (SpeedMineRenderMode) renderModeSetting.getValue(this, DELEGATED_PROPERTIES[19]);
+        return ((SpeedMineRenderMode) renderModeSetting.getValue(this, DELEGATED_PROPERTIES[19]));
     }
 
     private SpeedMineSelectionMode getSelection() {
-        return (SpeedMineSelectionMode) selectionSetting.getValue(this, DELEGATED_PROPERTIES[20]);
+        return ((SpeedMineSelectionMode) selectionSetting.getValue(this, DELEGATED_PROPERTIES[20]));
     }
 
     private Color getStartColor() {
-        return (Color) startColorSetting.getValue(this, DELEGATED_PROPERTIES[21]);
+        return ((Color) startColorSetting.getValue(this, DELEGATED_PROPERTIES[21]));
     }
 
     private Color getEndColor() {
-        return (Color) endColorSetting.getValue(this, DELEGATED_PROPERTIES[22]);
+        return ((Color) endColorSetting.getValue(this, DELEGATED_PROPERTIES[22]));
     }
 
     public AtomicBoolean getAtomicBoolean() {
@@ -225,66 +225,40 @@ public class SpeedMineModule extends Module {
         linkedList = value;
     }
 
-    public void updateValue2(long arg0) {
-        long var3 = (arg0 ^ 37449534539012L);
+    public void updateValue2() {
         this.executeAction(OptionMode9.TOGGLE);
     }
 
-    public void updateValue(long arg0) {
-        long var3 = (arg0 ^ 6194460963406L);
+    public void updateValue() {
         this.executeAction(OptionMode9.TOGGLE);
     }
 
     private void executeAction(OptionMode9 arg0) {
-        Iterable var7 = (Iterable) linkedList;
-        int var8 = 0;
-        Iterator iterator = var7.iterator();
-        if (iterator.hasNext()) {
-            Object var10 = iterator.next();
-            ReasonPacketHelper var11 = (ReasonPacketHelper) var10;
-            int var12 = 0;
-            var11.executeAction(arg0);
+        Iterable iterable = ((Iterable) linkedList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            ReasonPacketHelper reasonPacketHelper = ((ReasonPacketHelper) element);
+            reasonPacketHelper.executeAction(arg0);
         }
         linkedList.clear();
         blockPos = null;
-        atomicBoolean.set(0);
+        atomicBoolean.set(false);
     }
 
     private void onPlayerUpdateEvent(PlayerUpdateEvent arg0) {
-        if (var21) {
-        }
-        if (SharedKt.getPlayer().method_31549().field_7477 || var21) {
+        if (SharedKt.getPlayer().method_31549().field_7477 || SharedKt.getPlayer().method_6115()) {
             return;
         }
-        if (atomicBoolean.get()) {
-            if (var21) {
-                if (this.getPauseEat() == SpeedMinePauseEatMode.PAUSE) {
-                    return;
-                }
-                if (var21) {
-                }
-                if (this.getPauseEat() == SpeedMinePauseEatMode.RESET) {
-                    this.executeAction(OptionMode9.EATING);
-                }
-            }
+        if (this.getMode() == SpeedMineMode.DAMAGE && ((InteractionManagerAccessor) SharedKt.getInteractionManager()).getCurBlockDamageMP() < this.getSpeed()) {
+            ((InteractionManagerAccessor) SharedKt.getInteractionManager()).setCurBlockDamageMP(this.getSpeed());
         }
-        if (var21) {
-            if (this.getMode() == SpeedMineMode.DAMAGE && (InteractionManagerAccessor) SharedKt.getInteractionManager().getCurBlockDamageMP() < this.getSpeed()) {
+        Iterator iterator = ((Map) concurrentHashMap).entrySet().iterator();
+        while (iterator.hasNext()) {
+            Entry entry = ((Entry) iterator.next());
+            if ((SharedKt.getNumericValue() - ((Number) entry.getValue()).longValue()) <= 200L) {
             }
-            (InteractionManagerAccessor) SharedKt.getInteractionManager().setCurBlockDamageMP(this.getSpeed());
-        }
-        Iterator iterator = (Map) concurrentHashMap.entrySet().iterator();
-        if (iterator.hasNext()) {
-            Entry var23 = (Entry) iterator.next();
-            if (var21) {
-                if (var21) {
-                    if ((SharedKt.getNumericValue() - (Number) var23.getValue().longValue()) <= 200L) {
-                        if (var21) {
-                        }
-                    }
-                    concurrentHashMap.remove(var23.getKey());
-                }
-            }
+            concurrentHashMap.remove(entry.getKey());
         }
         linkedList.removeIf(this::checkCondition);
     }
@@ -297,101 +271,82 @@ public class SpeedMineModule extends Module {
         if (this.getMode() == SpeedMineMode.DAMAGE) {
             return;
         }
-        Iterable var43 = (Iterable) linkedList;
-        int var44 = 0;
-        Iterator iterator = var43.iterator();
-        if (iterator.hasNext()) {
-            Object var46 = iterator.next();
-            ReasonPacketHelper var47 = (ReasonPacketHelper) var46;
-            int var48 = 0;
-            if (!(var42)) {
-            }
-            if (!(var42)) {
-                if (INSTANCE.getSelection() == SpeedMineSelectionMode.REBREAK) {
-                    if (!(var42)) {
-                        if (INSTANCE.getSelection() != SpeedMineSelectionMode.ALWAYS && INSTANCE.getRebreak() == SpeedMineRebreakMode.OFF) {
-                        }
+        Iterable iterable = ((Iterable) linkedList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            ReasonPacketHelper reasonPacketHelper = ((ReasonPacketHelper) element);
+            if (INSTANCE.getSelection() == SpeedMineSelectionMode.REBREAK) {
+                if (INSTANCE.getSelection() != SpeedMineSelectionMode.ALWAYS && INSTANCE.getRebreak() == SpeedMineRebreakMode.OFF) {
+                    if (INSTANCE.getSelection() == SpeedMineSelectionMode.AIR_REBREAK && INSTANCE.getRebreak() != SpeedMineRebreakMode.OFF && SharedKt.getWorld().method_22347(reasonPacketHelper.getMinecraftObject())) {
+                        int index = 4;
+                        Color color = PolygonShaderComponent.INSTANCE.resolveColor(INSTANCE.getStartColor(), 1.0F);
+                        Box box = new Box(reasonPacketHelper.getMinecraftObject());
+                        TextShaderComponent2.checkCondition(box, color, index);
                     }
-                    if (!(var42)) {
-                    }
-                }
-                if (!(var42)) {
-                    if (INSTANCE.getSelection() == SpeedMineSelectionMode.AIR_REBREAK && INSTANCE.getRebreak() != SpeedMineRebreakMode.OFF && SharedKt.getWorld().method_22347(var47.getMinecraftObject())) {
-                    }
-                    int var38 = 4;
-                    Color var40 = PolygonShaderComponent.INSTANCE.resolveColor(INSTANCE.getStartColor(), 1.0F);
-                    Box var41 = new Box(var47.getMinecraftObject());
-                    TextShaderComponent2.checkCondition();
                 }
             }
-            if (!(SharedKt.getWorld().method_22347(var47.getMinecraftObject()))) {
-                float var49 = Math.clamp(PolygonShaderComponent.INSTANCE.computeValue(var47.getNumericValue2(), var47.getNumericValue(), TextShaderComponent2.INSTANCE.computeValue()), 0.0F, 1.0F);
-                if (!(var42)) {
-                    if (INSTANCE.getPauseEat() == SpeedMinePauseEatMode.PAUSE && SharedKt.getPlayer().method_6115()) {
-                        var49 = var47.getNumericValue();
-                    }
+            if (!(SharedKt.getWorld().method_22347(reasonPacketHelper.getMinecraftObject()))) {
+                float factor = Math.clamp(PolygonShaderComponent.INSTANCE.computeValue(reasonPacketHelper.getNumericValue2(), reasonPacketHelper.getNumericValue(), TextShaderComponent2.INSTANCE.computeValue()), 0.0F, 1.0F);
+                if (INSTANCE.getPauseEat() == SpeedMinePauseEatMode.PAUSE && SharedKt.getPlayer().method_6115()) {
+                    factor = reasonPacketHelper.getNumericValue();
                 }
-                if (!(var42)) {
-                    if (var47.getNumericValue() >= 1.0F) {
-                        var49 = 1.0F;
-                    }
+                if (reasonPacketHelper.getNumericValue() >= 1.0F) {
+                    factor = 1.0F;
                 }
-                NoWhenBranchMatchedException var50 = new NoWhenBranchMatchedException();
-                TextShaderComponent2.checkCondition(PolygonShaderComponent.INSTANCE.resolveColor(INSTANCE.getStartColor(), INSTANCE.getEndColor()));
-                TextShaderComponent2.checkCondition(PolygonShaderComponent.INSTANCE.resolveColor(PolygonShaderComponent.INSTANCE.resolveColor(INSTANCE.getStartColor(), 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(INSTANCE.getEndColor(), 1.0F)));
+                NoWhenBranchMatchedException noWhenBranchMatchedException = new NoWhenBranchMatchedException();
+                TextShaderComponent2.checkCondition(noWhenBranchMatchedException, PolygonShaderComponent.INSTANCE.resolveColor(INSTANCE.getStartColor(), INSTANCE.getEndColor(), factor));
+                TextShaderComponent2.checkCondition(noWhenBranchMatchedException, PolygonShaderComponent.INSTANCE.resolveColor(PolygonShaderComponent.INSTANCE.resolveColor(INSTANCE.getStartColor(), 1.0F), PolygonShaderComponent.INSTANCE.resolveColor(INSTANCE.getEndColor(), 1.0F), factor));
             }
         }
     }
 
     private void onAttackBlockEvent(AttackBlockEvent arg0) {
-        if (!(var13)) {
-        }
-        if (!(this.checkCondition2(arg0.getPos())) || SharedKt.getPlayer().method_31549().field_7477 || !(var13)) {
+        if (!(this.checkCondition2(arg0.getPos())) || SharedKt.getPlayer().method_31549().field_7477 || this.getMode() == SpeedMineMode.DAMAGE) {
             return;
         }
+        arg0.cancel();
         this.executeAction(arg0.getPos(), arg0.getDirection());
     }
 
     public void executeAction(BlockPos pos, Direction direction) {
-        if (!(var22)) {
+        if (!(__UNDEF_KEY__)) {
         }
-        if (!(this.checkCondition2(pos)) || SharedKt.getPlayer().method_31549().field_7477 || !(var22)) {
+        if (!(this.checkCondition2(pos)) || SharedKt.getPlayer().method_31549().field_7477 || !(__UNDEF_KEY__)) {
             return;
         }
-        if (!(var22)) {
+        if (!(__UNDEF_KEY__)) {
         }
-        if (!(var22)) {
-            if (!(var22)) {
-                if (!((Collection) linkedList.isEmpty())) {
+        if (!(__UNDEF_KEY__)) {
+            if (!(__UNDEF_KEY__)) {
+                if (!(((Collection) linkedList).isEmpty())) {
+                } else {
                 }
-            } else {
             }
             if (!(this.getDoubleMine()) && 0) {
-                (ReasonPacketHelper) linkedList.removeFirst().executeAction();
+                ((ReasonPacketHelper) linkedList.removeFirst()).executeAction();
             }
         }
-        if (!(var22)) {
-            if (!(var22)) {
+        if (!(__UNDEF_KEY__)) {
+            if (!(__UNDEF_KEY__)) {
                 if (this.getDoubleMine() && linkedList.size() >= 2) {
-                    Iterable var23 = (Iterable) linkedList;
-                    int var24 = 0;
-                    Iterator iterator = var23.iterator();
-                    if (iterator.hasNext()) {
-                        Object var26 = iterator.next();
-                        ReasonPacketHelper var27 = (ReasonPacketHelper) var26;
-                        int var28 = 0;
-                    } else {
+                    Iterable iterable = ((Iterable) linkedList);
+                    int index = 0;
+                    Iterator iterator = iterable.iterator();
+                    while (iterator.hasNext()) {
+                        Object element = iterator.next();
+                        ReasonPacketHelper reasonPacketHelper = ((ReasonPacketHelper) element);
                     }
-                    var24 = (ReasonPacketHelper) new NoSuchElementException("Collection contains no element matching the predicate.");
+                    index = ((ReasonPacketHelper) new NoSuchElementException("Collection contains no element matching the predicate."));
                     iterator = 0;
-                    var24.executeAction();
-                    linkedList.remove();
+                    index.executeAction();
+                    linkedList.remove(index);
                 }
                 blockPos2 = pos;
-            }
-            if (!(var22)) {
-            }
-            if (linkedList.size() >= 2) {
+                if (!(__UNDEF_KEY__)) {
+                    if (linkedList.size() >= 2) {
+                    }
+                }
             }
         }
         linkedList.add(new ReasonPacketHelper(pos, direction));
@@ -399,349 +354,278 @@ public class SpeedMineModule extends Module {
     }
 
     private void onAfterReceivePacket(AfterReceivePacket arg0) {
-        if (!(var17)) {
-        }
-        if (!(var17)) {
-        }
         Iterator iterator = linkedList.iterator();
-        ReasonPacketHelper var19 = (ReasonPacketHelper) iterator.next();
-        if (!(var17)) {
-        }
-        if (!(var17)) {
-        }
-        if (this.checkCondition((class_2626) arg0.getPacket().method_11309())) {
-            if (!(var17) && !(var17)) {
+        while (iterator.hasNext()) {
+            ReasonPacketHelper reasonPacketHelper = ((ReasonPacketHelper) iterator.next());
+            if (this.checkCondition(((class_2626) arg0.getPacket()).method_11309())) {
             }
+            reasonPacketHelper.checkCondition(true);
         }
-        var19.checkCondition(1);
     }
 
     private void onAfterSendPacket(AfterSendPacket arg0) {
-        if (var14) {
-            if (var14) {
-            }
-        }
-        if (var14) {
-        }
-        RunnableServiceComponent2.executeAction(0, 0, 0, this::executeAction);
+        RunnableServiceComponent2.executeAction(0, 0, false, this::executeAction);
     }
 
     private void onCollisionEvent(CollisionEvent arg0) {
-        Map var8 = (Map) concurrentHashMap;
-        int var9 = 0;
-        Object var10 = var8;
-        Map var11 = (Map) new LinkedHashMap();
-        int var12 = 0;
-        Iterator iterator = var10.entrySet().iterator();
-        if (iterator.hasNext()) {
-            Entry var14 = (Entry) iterator.next();
-            Object var15 = var14;
-            int var16 = 0;
-            if (!(var6)) {
-            }
-            var11.put(var14.getKey(), var14.getValue());
+        Map map = ((Map) concurrentHashMap);
+        Map map2 = ((Map) new LinkedHashMap());
+        Iterator iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Entry entry = ((Entry) iterator.next());
+            map2.put(entry.getKey(), entry.getValue());
         }
-        Iterator iterator2 = var11.entrySet().iterator();
-        var8 = (Entry) iterator2.next();
-        if (!(var6)) {
+        Iterator iterator2 = map2.entrySet().iterator();
+        while (iterator2.hasNext()) {
+            map = ((Entry) iterator2.next());
+            arg0.setState(Blocks.AIR.method_9564());
         }
-        arg0.setState(Blocks.AIR.method_9564());
     }
 
     public boolean checkCondition() {
-        if (var7) {
-        }
         if (this.getEnabled() && this.getPhase()) {
-            Map var8 = (Map) concurrentHashMap;
-            int var9 = 0;
-            if (var7) {
-                if (var8.isEmpty()) {
-                }
+            Map map = ((Map) concurrentHashMap);
+            if (map.isEmpty()) {
             }
-            Iterator iterator = var8.entrySet().iterator();
-            if (iterator.hasNext()) {
-                Entry var11 = (Entry) iterator.next();
-                Object var12 = var11;
-                int var13 = 0;
-                if (var7) {
-                    if ((SharedKt.getNumericValue() - (Number) var12.getValue().longValue()) < 200L) {
-                    }
-                } else {
-                }
-            } else {
+            Iterator iterator = map.entrySet().iterator();
+            while (iterator.hasNext()) {
+                Entry entry = ((Entry) iterator.next());
             }
         }
         return false;
     }
 
     public boolean checkCondition(BlockPos blockPos) {
-        Iterable var8 = (Iterable) linkedList;
-        int var9 = 0;
-        if (var8 instanceof Collection) {
-            if (!(var7) && !(var7)) {
-                if ((Collection) var8.isEmpty()) {
+        Iterable iterable = ((Iterable) linkedList);
+        if (iterable instanceof Collection) {
+            if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
+                if (((Collection) iterable).isEmpty()) {
                 }
             }
         }
-        Iterator iterator = var8.iterator();
-        if (iterator.hasNext()) {
-            Object var11 = iterator.next();
-            ReasonPacketHelper var12 = (ReasonPacketHelper) var11;
-            int var13 = 0;
-        } else {
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            ReasonPacketHelper reasonPacketHelper = ((ReasonPacketHelper) element);
         }
         return false;
     }
 
     private void updateValue() {
-        PacketPacketHelper.handlePacket((Packet) new class_2815(SharedKt.getPlayer().field_7512.field_7763));
+        PacketPacketHelper.handlePacket(((Packet) new class_2815(SharedKt.getPlayer().field_7512.field_7763)));
     }
 
     private float computeValue(BlockState arg0, BlockPos arg1, int arg2, boolean arg3) {
-        if (!(var13)) {
-            if (Intrinsics.areEqual(arg0, Blocks.AIR.method_9564())) {
-                return 0.0F;
-            }
+        if (Intrinsics.areEqual(arg0, Blocks.AIR.method_9564())) {
+            return 0.0F;
         }
-        float var14 = arg0.method_26214((class_1922) SharedKt.getWorld(), arg1);
-        if (!(var13)) {
-            if (var14 < 0.0F) {
-                return 0.0F;
-            }
+        float factor = arg0.method_26214(((class_1922) SharedKt.getWorld()), arg1);
+        if (factor < 0.0F) {
+            return 0.0F;
         }
         if (arg2 == -1) {
         }
         ItemStack stack = SharedKt.getPlayer().method_31548().method_5438(arg2);
-        Object var15 = stack;
-        if (!(var13)) {
-            if (arg0.method_29291()) {
-                if (var15.method_7951(arg0)) {
-                }
+        if (arg0.method_29291()) {
+            if (stack.method_7951(arg0)) {
+            } else {
             }
-        } else {
         }
         return (30.0F / 100.0F);
     }
 
     private boolean checkCondition(BlockPos arg0) {
-        if (!(var6)) {
-        }
-        if (!(var6)) {
-            if (AutoCrystalModule.INSTANCE.getEnabled() && AutoCrystalModule.INSTANCE.getTarget() != null && arg0.method_10264() > (AutoCrystalModule.INSTANCE.getTarget().getY() + 1)) {
-            }
+        if (AutoCrystalModule.INSTANCE.getEnabled() && AutoCrystalModule.INSTANCE.getTarget() != null && arg0.method_10264() > (AutoCrystalModule.INSTANCE.getTarget().getY() + 1)) {
         } else {
         }
         return false;
     }
 
     private float computeValue(BlockState arg0, int arg1) {
-        float var8 = 1.0F;
-        if (!(var7)) {
+        float factor = 1.0F;
+        if (!(__UNDEF_KEY__)) {
         }
         if (arg1 != -1 && !(SharedKt.getPlayer().method_31548().method_5438(arg1).isEmpty())) {
-            var8 = (var8 * SharedKt.getPlayer().method_31548().method_5438(arg1).method_7924(arg0));
+            factor = (factor * SharedKt.getPlayer().method_31548().method_5438(arg1).method_7924(arg0));
         }
-        return var8;
+        return factor;
     }
 
     private float computeValue(BlockState arg0, int arg1, boolean arg2) {
-        float var17 = this.computeValue(arg0, arg1);
-        if (var17 > 1.0F) {
-            if (!(var16) && !(var16)) {
+        float factor = this.computeValue(arg0, arg1);
+        if (factor > 1.0F) {
+            if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
                 if (arg1 != -1) {
                     ItemStack stack = SharedKt.getPlayer().method_31548().method_5438(arg1);
-                    int var19 = StackServiceComponent3.computeValue(stack, class_1893.field_9131);
-                    if (var19 > 0) {
-                        if (!(var16) && !(var16)) {
+                    int index = StackServiceComponent3.computeValue(stack, class_1893.field_9131);
+                    if (index > 0) {
+                        if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
                             if (!(stack.isEmpty())) {
-                                var17 = (var17 + (StrictMath.pow(2.0D) + 1));
+                                factor = (factor + (StrictMath.pow(index, 2.0D) + 1));
                             }
                         }
                     }
                 }
             }
         }
-        if (!(var16)) {
+        if (!(__UNDEF_KEY__)) {
             if (SharedKt.getPlayer().method_6059(class_1294.field_5917)) {
-                var17 = (var17 * (1 + ((SharedKt.getPlayer().method_6112(class_1294.field_5917).method_5578() + 1) * 0.2F)));
+                factor = (factor * (1 + ((SharedKt.getPlayer().method_6112(class_1294.field_5917).method_5578() + 1) * 0.2F)));
             }
         }
-        if (!(var16)) {
+        if (!(__UNDEF_KEY__)) {
             if (SharedKt.getPlayer().method_6059(class_1294.field_5901)) {
-                var17 = (var17 * Math.pow(0.3F, (SharedKt.getPlayer().method_6112(class_1294.field_5901).method_5578() + 1)));
+                factor = (factor * Math.pow(0.3F, (SharedKt.getPlayer().method_6112(class_1294.field_5901).method_5578() + 1)));
             }
         }
-        if (!(var16)) {
+        if (!(__UNDEF_KEY__)) {
             if (SharedKt.getPlayer().method_5869()) {
-                var17 = (var17 * SharedKt.getPlayer().method_5996(class_5134.field_51576).method_6194());
+                factor = (factor * SharedKt.getPlayer().method_5996(class_5134.field_51576).method_6194());
             }
         }
         if (!(arg2)) {
-            if (!(var16) && !(var16)) {
+            if (!(__UNDEF_KEY__) && !(__UNDEF_KEY__)) {
                 if (!(FreeCamModule.INSTANCE.getEnabled())) {
-                    var17 = (var17 / 5.0F);
+                    factor = (factor / 5.0F);
+                }
+                if (!(__UNDEF_KEY__)) {
+                    if (factor < 0.0F) {
+                    }
                 }
             }
-            if (!(var16)) {
-            }
-            if (var17 < 0.0F) {
-            }
         }
-        return (var17 * this.getFactor());
+        return (factor * this.getFactor());
     }
 
     private int computeValue(BlockPos arg0) {
-        int var7 = this.computeValue(arg0, 1);
-        if (var6) {
-            if (var7 != -1) {
-                return var7;
+        int index = this.computeValue(arg0, true);
+        if (__UNDEF_KEY__) {
+            if (index != -1) {
+                return index;
             }
         }
-        return this.computeValue(arg0, 0);
+        return this.computeValue(arg0, false);
     }
 
     private int computeValue(BlockPos arg0, boolean arg1) {
-        int var14 = -1;
+        int index = -1;
         if (arg1) {
         }
-        float var15 = 1.4E-45F;
+        float factor = 1.4E-45F;
         BlockState state = SharedKt.getWorld().getBlockState(arg0);
-        if (!(var13)) {
+        if (!(__UNDEF_KEY__)) {
             if (state.getBlock() instanceof class_2189) {
                 return -1;
             }
         }
-        int var17 = 9;
-        if (var17 < 45) {
-            if (!(var13)) {
-                if (!(var13)) {
-                    if (var17 >= 36) {
+        int index2 = 9;
+        if (index2 < 45) {
+            if (!(__UNDEF_KEY__)) {
+                if (!(__UNDEF_KEY__)) {
+                    if (index2 >= 36) {
+                    } else {
                     }
-                } else {
                 }
-                ItemStack stack = (var17 - 36).method_5438();
-                if (!(var13)) {
-                    if (!(var13)) {
+                ItemStack stack = (index2 - 36).method_5438(index2);
+                if (!(__UNDEF_KEY__)) {
+                    if (!(__UNDEF_KEY__)) {
                         if (!(stack.method_7951(state))) {
-                            if (!(var13)) {
+                            if (!(__UNDEF_KEY__)) {
                                 if (arg1) {
                                 }
                             }
                         }
                     }
-                    if (!(var13)) {
+                    if (!(__UNDEF_KEY__)) {
                         if ((stack.method_7936() - stack.method_7919()) <= 4) {
-                            if (!(var13)) {
+                            if (!(__UNDEF_KEY__)) {
                                 if (ToolSaverModule.INSTANCE.getEnabled()) {
-                                    if (!(Intrinsics.areEqual(stack, ItemStack.field_8037)) && var13 && var13) {
+                                    if (!(Intrinsics.areEqual(stack, ItemStack.field_8037)) && __UNDEF_KEY__ && __UNDEF_KEY__) {
+                                        int index3 = (StackServiceComponent3.computeValue(stack, class_1893.field_9131) + stack.method_7924(SharedKt.getWorld().getBlockState(arg0)));
+                                        if (!(__UNDEF_KEY__)) {
+                                            if (!(arg1)) {
+                                                if (!(__UNDEF_KEY__)) {
+                                                    if (index3 > factor) {
+                                                        factor = index3;
+                                                        index = index2;
+                                                        if (!(__UNDEF_KEY__)) {
+                                                            if (__UNDEF_KEY__ && index3 < factor) {
+                                                                factor = index3;
+                                                                index = index2;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
-                            }
-                        }
-                        int var19 = (StackServiceComponent3.computeValue(stack, class_1893.field_9131) + stack.method_7924(SharedKt.getWorld().getBlockState(arg0)));
-                        if (!(var13)) {
-                            if (!(arg1)) {
-                                if (!(var13)) {
-                                    if (var19 > var15) {
-                                        var15 = var19;
-                                    }
-                                    var14 = var17;
-                                }
-                            }
-                            if (!(var13)) {
-                                if (var13 && var19 < var15) {
-                                    var15 = var19;
-                                }
-                                var14 = var17;
                             }
                         }
                     }
                 }
-            }
-            if (!(var13)) {
-                if (var14 >= 36) {
+                if (!(__UNDEF_KEY__)) {
+                    if (index >= 36) {
+                    } else {
+                    }
                 }
+            } else {
             }
-        } else {
         }
-        }
-        return var14;
+        return index;
     }
 
     private boolean checkCondition2(BlockPos arg0) {
         BlockState state = SharedKt.getWorld().getBlockState(arg0);
-        if (!(var10)) {
+        if (!(__UNDEF_KEY__)) {
             if (state.getBlock().method_36555() == -1.0F) {
+            } else {
             }
-        } else {
         }
-        if (!(var10)) {
+        if (!(__UNDEF_KEY__)) {
             if (SharedKt.getPlayer().getEyePos().method_1022(arg0.toCenterPos()) > (SharedKt.getPlayer().method_55754() + 0.5F)) {
-                if (!(var10)) {
+                if (!(__UNDEF_KEY__)) {
                 }
-                if (!(var10)) {
+                if (!(__UNDEF_KEY__)) {
                     if (!(0) && this.getDoubleMine() && !(Intrinsics.areEqual(arg0, blockPos2))) {
+                    } else {
                     }
                 }
             }
-        } else {
         }
         return false;
     }
 
     private void executeAction(int arg0, int arg1) {
         if (this.getSwitchMode() != SpeedMineSwitchMode.Alternative) {
-            if (var18) {
-                if (arg0 >= 9) {
-                }
-            }
-            if (var18) {
+            if (arg0 >= 9) {
                 if (arg1 == -1) {
-                    if (var18) {
-                        if (arg0 < 9) {
-                        }
+                    if (arg0 < 9) {
                     } else {
                     }
-                    HandServiceComponent.e(arg0, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791);
-                    if (!(var18)) {
-                    }
+                    HandServiceComponent.e(arg0, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, false);
                 }
-                if (var18) {
-                    if (arg1 < 9) {
-                    }
+                if (arg1 < 9) {
                 } else {
                 }
-                HandServiceComponent.e(arg1, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791);
+                HandServiceComponent.e(arg1, SharedKt.getPlayer().method_31548().method_67532(), class_1713.field_7791, false);
+                this.updateValue();
             }
-            this.updateValue();
         }
         if (this.getSwitchMode() == SpeedMineSwitchMode.Silent) {
             ItemPacketHelper.INSTANCE.executeAction2(arg0);
-            if (!(var18) && !(var18)) {
-            }
-            ItemPacketHelper.INSTANCE.executeAction(arg0);
         }
-        AutoCrystalModule.INSTANCE.getAtomicBoolean().set(0);
-        atomicBoolean.set(0);
+        ItemPacketHelper.INSTANCE.executeAction(arg0);
+        AutoCrystalModule.INSTANCE.getAtomicBoolean().set(false);
+        atomicBoolean.set(false);
     }
 
     public boolean checkCondition2() {
-        if (var5) {
-            if (this.getDoubleMine()) {
-                if (var5) {
-                    if (linkedList.size() > 1) {
-                    }
-                }
-            } else {
+        if (this.getDoubleMine()) {
+            if (linkedList.size() > 1) {
             }
-            if (var5) {
-                if (!((Collection) linkedList.isEmpty())) {
-                }
-            } else {
-            }
-            if (var5) {
-                if ((ReasonPacketHelper) CollectionsKt.first(linkedList).getNumericValue2() == -1.0F) {
-                }
+        } else {
+            if (((ReasonPacketHelper) CollectionsKt.first(linkedList)).getNumericValue2() == -1.0F) {
             } else {
             }
         }
@@ -749,44 +633,30 @@ public class SpeedMineModule extends Module {
     }
 
     public List resolveList(boolean targetAfter) {
-        if (var11) {
-            if (linkedList.isEmpty()) {
-                return CollectionsKt.emptyList();
+        if (linkedList.isEmpty()) {
+            return CollectionsKt.emptyList();
+        }
+        ReasonPacketHelper reasonPacketHelper = ((ReasonPacketHelper) CollectionsKt.first(linkedList));
+        if (__UNDEF_KEY__ > 0) {
+            if (INSTANCE.checkCondition(reasonPacketHelper)) {
+                return CollectionsKt.listOf(reasonPacketHelper.getMinecraftObject());
             }
         }
-        if (var11) {
-            if (linkedList.size() == 1) {
-                ReasonPacketHelper var13 = (ReasonPacketHelper) CollectionsKt.first(linkedList);
-                int var14 = 0;
-                if (0L > 0) {
-                    if (INSTANCE.checkCondition()) {
-                        return CollectionsKt.listOf(var13.getMinecraftObject());
-                    }
-                }
-                if (0L > 0) {
-                }
+        if (__UNDEF_KEY__ > 0) {
+        }
+        if (!(__UNDEF_KEY__) && linkedList.size() == 2) {
+            reasonPacketHelper = ((Iterable) linkedList);
+            Iterator iterator = reasonPacketHelper.iterator();
+            while (iterator.hasNext()) {
+                Object element = iterator.next();
+                ReasonPacketHelper reasonPacketHelper2 = ((ReasonPacketHelper) element);
             }
-            if (var11) {
-            }
-            if (!(var11) && linkedList.size() == 2) {
-                var13 = (Iterable) linkedList;
-                var14 = 0;
-                Iterator iterator = var13.iterator();
-                if (iterator.hasNext()) {
-                    Object var16 = iterator.next();
-                    ReasonPacketHelper var17 = (ReasonPacketHelper) var16;
-                    int var18 = 0;
-                } else {
-                }
-                ReasonPacketHelper var12 = (ReasonPacketHelper) new NoSuchElementException("Collection contains no element matching the predicate.");
-                if (0L >= 0 && var11) {
-                    if (this.checkCondition()) {
-                        var13 = new BlockPos[2];
-                        var13[0] = (ReasonPacketHelper) CollectionsKt.first(linkedList).getMinecraftObject();
-                        var13[1] = var12.getMinecraftObject();
-                        return CollectionsKt.listOf();
-                    }
-                }
+            ReasonPacketHelper reasonPacketHelper3 = ((ReasonPacketHelper) new NoSuchElementException("Collection contains no element matching the predicate."));
+            if (__UNDEF_KEY__ >= 0) {
+                reasonPacketHelper = new BlockPos[2];
+                reasonPacketHelper[0] = ((ReasonPacketHelper) CollectionsKt.first(linkedList)).getMinecraftObject();
+                reasonPacketHelper[1] = reasonPacketHelper3.getMinecraftObject();
+                return CollectionsKt.listOf(reasonPacketHelper);
             }
         }
         if (!(serviceComponent10.checkCondition(200)) && blockPos != null && targetAfter) {
@@ -796,33 +666,19 @@ public class SpeedMineModule extends Module {
     }
 
     public static List resolveList(SpeedMineModule arg0, boolean arg1, int arg2, Object arg3) {
-        if (var9) {
-            if ((arg2 & 1)) {
-            }
-            arg1 = 1;
-        }
+        arg1 = 1;
         return arg0.resolveList(arg1);
     }
 
     private boolean checkCondition(ReasonPacketHelper arg0) {
-        if (!(var6)) {
-        }
-        if (!(var6)) {
-        }
-        if (!(var6)) {
-            if (arg0.getNumericValue() < 1.0F && (arg0.getNumericValue() + ((arg0.getNumericValue() - arg0.getNumericValue2()) * 2.5F)) >= 1.0F && !(SharedKt.getWorld().method_22347(arg0.getMinecraftObject()))) {
-            }
+        if (arg0.getNumericValue() < 1.0F && (arg0.getNumericValue() + ((arg0.getNumericValue() - arg0.getNumericValue2()) * 2.5F)) >= 1.0F && !(SharedKt.getWorld().method_22347(arg0.getMinecraftObject()))) {
         } else {
         }
         return false;
     }
 
     private static boolean isActive() {
-        if (var7) {
-        }
-        if (var7) {
-            if (INSTANCE.getMode() != SpeedMineMode.DAMAGE && INSTANCE.getRotate()) {
-            }
+        if (INSTANCE.getMode() != SpeedMineMode.DAMAGE) {
         } else {
         }
         return false;
@@ -833,14 +689,10 @@ public class SpeedMineModule extends Module {
     }
 
     private static boolean isActive3() {
-        if (!(var7)) {
-        }
         return INSTANCE.getRebreak() == SpeedMineRebreakMode.GRIM;
     }
 
     private static boolean isActive4() {
-        if (var7) {
-        }
         return INSTANCE.getRebreak() == SpeedMineRebreakMode.GRIM;
     }
 
@@ -849,22 +701,14 @@ public class SpeedMineModule extends Module {
     }
 
     private static boolean isActive6() {
-        if (var7) {
-        }
-        if (var7) {
-            if (INSTANCE.getMode() != SpeedMineMode.DAMAGE && INSTANCE.getDoubleMine()) {
-            }
+        if (INSTANCE.getMode() != SpeedMineMode.DAMAGE) {
         } else {
         }
         return false;
     }
 
     private static boolean isActive7() {
-        if (!(var7)) {
-        }
-        if (!(var7)) {
-            if (INSTANCE.getMode() != SpeedMineMode.DAMAGE && !(INSTANCE.getDoubleMine())) {
-            }
+        if (INSTANCE.getMode() != SpeedMineMode.DAMAGE && !(INSTANCE.getDoubleMine())) {
         } else {
         }
         return false;
@@ -931,22 +775,20 @@ public class SpeedMineModule extends Module {
     }
 
     private static boolean checkCondition(ReasonPacketHelper arg0) {
-        return ReasonPacketHelper.checkCondition(arg0);
+        return ReasonPacketHelper.checkCondition(arg0, false);
     }
 
     private static boolean checkCondition(Function1 arg0, Object arg1) {
-        return (Boolean) arg0.invoke(arg1);
+        return ((Boolean) arg0.invoke(arg1));
     }
 
     private static void executeAction() {
-        Iterable var5 = (Iterable) linkedList;
-        int var6 = 0;
-        Iterator iterator = var5.iterator();
-        if (iterator.hasNext()) {
-            Object var8 = iterator.next();
-            ReasonPacketHelper var9 = (ReasonPacketHelper) var8;
-            int var10 = 0;
-            var9.executeAction(OptionMode9.SWITCH);
+        Iterable iterable = ((Iterable) linkedList);
+        Iterator iterator = iterable.iterator();
+        while (iterator.hasNext()) {
+            Object element = iterator.next();
+            ReasonPacketHelper reasonPacketHelper = ((ReasonPacketHelper) element);
+            reasonPacketHelper.executeAction(OptionMode9.SWITCH);
         }
     }
 
@@ -1019,25 +861,25 @@ public class SpeedMineModule extends Module {
     }
 
     static {
-        KProperty[] var51 = new KProperty[23];
+        KProperty[] items = new KProperty[23];
         INSTANCE = new SpeedMineModule();
         modeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "mode", SpeedMineMode.PACKET);
         timingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "timing", SpeedMineTimingMode.SEQUENTIAL, null, this::isActive);
         rebreakSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rebreak", SpeedMineRebreakMode.OFF, null, this::isActive2);
-        awaitAutoCrystalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "await-auto-crystal", 1, null, this::isActive3);
-        instantAsyncSetting = VisibleRenderHelper.registerSetting(INSTANCE, "instant-async", 1, null, this::isActive4);
-        doubleMineSetting = VisibleRenderHelper.registerSetting(INSTANCE, "double-mine", 0, null, this::isActive5);
+        awaitAutoCrystalSetting = VisibleRenderHelper.registerSetting(INSTANCE, "await-auto-crystal", true, null, this::isActive3);
+        instantAsyncSetting = VisibleRenderHelper.registerSetting(INSTANCE, "instant-async", true, null, this::isActive4);
+        doubleMineSetting = VisibleRenderHelper.registerSetting(INSTANCE, "double-mine", false, null, this::isActive5);
         doubleMinePacketOrderSetting = VisibleRenderHelper.registerSetting(INSTANCE, "packet-order", SpeedMineDoubleMinePacketOrderMode.NEW, null, this::isActive6);
         startModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "start-mode", SpeedMineStartMode.ABORT, null, this::isActive7);
         switchModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "switch-mode", SpeedMineSwitchMode.Alternative, null, this::isActive8);
-        swapDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "1.21", 0, null, this::isActive9);
+        swapDelaySetting = VisibleRenderHelper.registerSetting(INSTANCE, "1.21", false, null, this::isActive9);
         swapTimingSetting = VisibleRenderHelper.registerSetting(INSTANCE, "swap-timing", SpeedMineSwapTimingMode.ONCE, null, this::isActive10);
         factorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "factor", 1.0F, RangesKt.rangeTo(0.5F, 2.0F), null, this::isActive11);
         speedSetting = VisibleRenderHelper.registerSetting(INSTANCE, "speed", 0.5F, RangesKt.rangeTo(0.0F, 1.0F), null, this::isActive12);
-        rotateSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotate", 1, null, this::isActive13);
-        awaitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "await", 1, null, this::isActive14);
-        phaseSetting = VisibleRenderHelper.registerSetting(INSTANCE, "phase", 1, null, this::isActive15);
-        resetOnSwitchSetting = VisibleRenderHelper.registerSetting(INSTANCE, "reset-on-switch", 1, null, this::isActive16);
+        rotateSetting = VisibleRenderHelper.registerSetting(INSTANCE, "rotate", true, null, this::isActive13);
+        awaitSetting = VisibleRenderHelper.registerSetting(INSTANCE, "await", true, null, this::isActive14);
+        phaseSetting = VisibleRenderHelper.registerSetting(INSTANCE, "phase", true, null, this::isActive15);
+        resetOnSwitchSetting = VisibleRenderHelper.registerSetting(INSTANCE, "reset-on-switch", true, null, this::isActive16);
         pauseEatSetting = VisibleRenderHelper.registerSetting(INSTANCE, "on-eating", SpeedMinePauseEatMode.NONE, null, this::isActive17);
         renderGroupSetting = VisibleRenderHelper.registerSetting(INSTANCE, "render", null, this::isActive18);
         renderModeSetting = VisibleRenderHelper.resolveDefaultValueVisibleSettingPropertyImpl10(INSTANCE, "render-mode", SpeedMineRenderMode.Shrink, INSTANCE.getRenderGroup(), this::isActive19);
@@ -1045,7 +887,7 @@ public class SpeedMineModule extends Module {
         startColorSetting = VisibleRenderHelper.resolveDefaultValueVisibleSettingPropertyImpl9(INSTANCE, "start", new Color(255, 0, 0, 200), INSTANCE.getRenderGroup(), this::isActive21);
         endColorSetting = VisibleRenderHelper.resolveDefaultValueVisibleSettingPropertyImpl9(INSTANCE, "end", new Color(47, 255, 0, 200), INSTANCE.getRenderGroup(), this::isActive22);
         serviceComponent10 = new ServiceComponent10();
-        atomicBoolean = new AtomicBoolean(0);
+        atomicBoolean = new AtomicBoolean(false);
         linkedList = new LinkedList();
         concurrentHashMap = new ConcurrentHashMap();
     }

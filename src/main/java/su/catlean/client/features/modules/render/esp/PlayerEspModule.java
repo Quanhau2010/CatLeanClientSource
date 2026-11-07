@@ -82,19 +82,19 @@ public class PlayerEspModule extends Module {
     }
 
     private SettingGroup getTypes() {
-        return (SettingGroup) typesSetting.getValue(this, DELEGATED_PROPERTIES[0]);
+        return ((SettingGroup) typesSetting.getValue(this, DELEGATED_PROPERTIES[0]));
     }
 
     private PlayerEspRenderMode getRenderMode() {
-        return (PlayerEspRenderMode) renderModeSetting.getValue(this, DELEGATED_PROPERTIES[1]);
+        return ((PlayerEspRenderMode) renderModeSetting.getValue(this, DELEGATED_PROPERTIES[1]));
     }
 
     private PlayerEspShaderMode getShaderMode() {
-        return (PlayerEspShaderMode) shaderModeSetting.getValue(this, DELEGATED_PROPERTIES[2]);
+        return ((PlayerEspShaderMode) shaderModeSetting.getValue(this, DELEGATED_PROPERTIES[2]));
     }
 
     private PlayerEspColorModeValueMode getColorModeValue() {
-        return (PlayerEspColorModeValueMode) colorModeValueSetting.getValue(this, DELEGATED_PROPERTIES[3]);
+        return ((PlayerEspColorModeValueMode) colorModeValueSetting.getValue(this, DELEGATED_PROPERTIES[3]));
     }
 
     private void setColorModeValue(PlayerEspColorModeValueMode value) {
@@ -102,7 +102,7 @@ public class PlayerEspModule extends Module {
     }
 
     private boolean getDefault() {
-        return (Boolean) defaultSetting.getValue(this, DELEGATED_PROPERTIES[4]);
+        return ((Boolean) defaultSetting.getValue(this, DELEGATED_PROPERTIES[4]));
     }
 
     private void setDefault(boolean value) {
@@ -110,7 +110,7 @@ public class PlayerEspModule extends Module {
     }
 
     private boolean getBox() {
-        return (Boolean) boxSetting.getValue(this, DELEGATED_PROPERTIES[5]);
+        return ((Boolean) boxSetting.getValue(this, DELEGATED_PROPERTIES[5]));
     }
 
     private void setBox(boolean value) {
@@ -118,7 +118,7 @@ public class PlayerEspModule extends Module {
     }
 
     private boolean getFrame() {
-        return (Boolean) frameSetting.getValue(this, DELEGATED_PROPERTIES[6]);
+        return ((Boolean) frameSetting.getValue(this, DELEGATED_PROPERTIES[6]));
     }
 
     private void setFrame(boolean value) {
@@ -126,7 +126,7 @@ public class PlayerEspModule extends Module {
     }
 
     private boolean getShaderVal() {
-        return (Boolean) shaderValSetting.getValue(this, DELEGATED_PROPERTIES[7]);
+        return ((Boolean) shaderValSetting.getValue(this, DELEGATED_PROPERTIES[7]));
     }
 
     private void setShaderVal(boolean value) {
@@ -134,7 +134,7 @@ public class PlayerEspModule extends Module {
     }
 
     private boolean getSkeleton() {
-        return (Boolean) skeletonSetting.getValue(this, DELEGATED_PROPERTIES[8]);
+        return ((Boolean) skeletonSetting.getValue(this, DELEGATED_PROPERTIES[8]));
     }
 
     private void setSkeleton(boolean value) {
@@ -142,7 +142,7 @@ public class PlayerEspModule extends Module {
     }
 
     private boolean getExtraPart() {
-        return (Boolean) extraPartSetting.getValue(this, DELEGATED_PROPERTIES[9]);
+        return ((Boolean) extraPartSetting.getValue(this, DELEGATED_PROPERTIES[9]));
     }
 
     private void setExtraPart(boolean value) {
@@ -150,51 +150,51 @@ public class PlayerEspModule extends Module {
     }
 
     private Color getShaderColor() {
-        return (Color) shaderColorSetting.getValue(this, DELEGATED_PROPERTIES[10]);
+        return ((Color) shaderColorSetting.getValue(this, DELEGATED_PROPERTIES[10]));
     }
 
     private Color getSkeletonColor() {
-        return (Color) skeletonColorSetting.getValue(this, DELEGATED_PROPERTIES[11]);
+        return ((Color) skeletonColorSetting.getValue(this, DELEGATED_PROPERTIES[11]));
     }
 
     private Color getSkeletonFriendColor() {
-        return (Color) skeletonFriendColorSetting.getValue(this, DELEGATED_PROPERTIES[12]);
+        return ((Color) skeletonFriendColorSetting.getValue(this, DELEGATED_PROPERTIES[12]));
     }
 
     private Color getFillColor() {
-        return (Color) fillColorSetting.getValue(this, DELEGATED_PROPERTIES[13]);
+        return ((Color) fillColorSetting.getValue(this, DELEGATED_PROPERTIES[13]));
     }
 
     private Color getLineColor() {
-        return (Color) lineColorSetting.getValue(this, DELEGATED_PROPERTIES[14]);
+        return ((Color) lineColorSetting.getValue(this, DELEGATED_PROPERTIES[14]));
     }
 
     private Color getFriendFillColor() {
-        return (Color) friendFillColorSetting.getValue(this, DELEGATED_PROPERTIES[15]);
+        return ((Color) friendFillColorSetting.getValue(this, DELEGATED_PROPERTIES[15]));
     }
 
     private Color getFriendLineColor() {
-        return (Color) friendLineColorSetting.getValue(this, DELEGATED_PROPERTIES[16]);
+        return ((Color) friendLineColorSetting.getValue(this, DELEGATED_PROPERTIES[16]));
     }
 
     private Color getSFillColor() {
-        return (Color) sFillColorSetting.getValue(this, DELEGATED_PROPERTIES[17]);
+        return ((Color) sFillColorSetting.getValue(this, DELEGATED_PROPERTIES[17]));
     }
 
     private Color getSLineColor() {
-        return (Color) sLineColorSetting.getValue(this, DELEGATED_PROPERTIES[18]);
+        return ((Color) sLineColorSetting.getValue(this, DELEGATED_PROPERTIES[18]));
     }
 
     private Color getSFriendFillColor() {
-        return (Color) sFriendFillColorSetting.getValue(this, DELEGATED_PROPERTIES[19]);
+        return ((Color) sFriendFillColorSetting.getValue(this, DELEGATED_PROPERTIES[19]));
     }
 
     private Color getSFriendLineColor() {
-        return (Color) sFriendLineColorSetting.getValue(this, DELEGATED_PROPERTIES[20]);
+        return ((Color) sFriendLineColorSetting.getValue(this, DELEGATED_PROPERTIES[20]));
     }
 
     private boolean getGlass() {
-        return (Boolean) glassSetting.getValue(this, DELEGATED_PROPERTIES[21]);
+        return ((Boolean) glassSetting.getValue(this, DELEGATED_PROPERTIES[21]));
     }
 
     private void setGlass(boolean value) {
@@ -202,7 +202,7 @@ public class PlayerEspModule extends Module {
     }
 
     private boolean getBorders() {
-        return (Boolean) bordersSetting.getValue(this, DELEGATED_PROPERTIES[22]);
+        return ((Boolean) bordersSetting.getValue(this, DELEGATED_PROPERTIES[22]));
     }
 
     private void setBorders(boolean value) {
@@ -210,7 +210,7 @@ public class PlayerEspModule extends Module {
     }
 
     private float getRadiusValue() {
-        return (Number) radiusValueSetting.getValue(this, DELEGATED_PROPERTIES[23]);
+        return ((Number) radiusValueSetting.getValue(this, DELEGATED_PROPERTIES[23]));
     }
 
     private void setRadiusValue(float value) {
@@ -218,7 +218,7 @@ public class PlayerEspModule extends Module {
     }
 
     private float getDistanceValue() {
-        return (Number) distanceValueSetting.getValue(this, DELEGATED_PROPERTIES[24]);
+        return ((Number) distanceValueSetting.getValue(this, DELEGATED_PROPERTIES[24]));
     }
 
     private void setDistanceValue(float value) {
@@ -226,7 +226,7 @@ public class PlayerEspModule extends Module {
     }
 
     private float getGlowAlphaValue() {
-        return (Number) glowAlphaValueSetting.getValue(this, DELEGATED_PROPERTIES[25]);
+        return ((Number) glowAlphaValueSetting.getValue(this, DELEGATED_PROPERTIES[25]));
     }
 
     private void setGlowAlphaValue(float value) {
@@ -234,7 +234,7 @@ public class PlayerEspModule extends Module {
     }
 
     private float getLineWidthValue() {
-        return (Number) lineWidthValueSetting.getValue(this, DELEGATED_PROPERTIES[26]);
+        return ((Number) lineWidthValueSetting.getValue(this, DELEGATED_PROPERTIES[26]));
     }
 
     private void setLineWidthValue(float value) {
@@ -242,7 +242,7 @@ public class PlayerEspModule extends Module {
     }
 
     private float getAlpha() {
-        return (Number) alphaSetting.getValue(this, DELEGATED_PROPERTIES[27]);
+        return ((Number) alphaSetting.getValue(this, DELEGATED_PROPERTIES[27]));
     }
 
     private void setAlpha(float value) {
@@ -250,11 +250,11 @@ public class PlayerEspModule extends Module {
     }
 
     private Color getSecondColor() {
-        return (Color) secondColorSetting.getValue(this, DELEGATED_PROPERTIES[28]);
+        return ((Color) secondColorSetting.getValue(this, DELEGATED_PROPERTIES[28]));
     }
 
     private int getGlowQualityValue() {
-        return (Number) glowQualityValueSetting.getValue(this, DELEGATED_PROPERTIES[29]);
+        return ((Number) glowQualityValueSetting.getValue(this, DELEGATED_PROPERTIES[29]));
     }
 
     private void setGlowQualityValue(int value) {
@@ -262,7 +262,7 @@ public class PlayerEspModule extends Module {
     }
 
     private float getGlowRadiusValue() {
-        return (Number) glowRadiusValueSetting.getValue(this, DELEGATED_PROPERTIES[30]);
+        return ((Number) glowRadiusValueSetting.getValue(this, DELEGATED_PROPERTIES[30]));
     }
 
     private void setGlowRadiusValue(float value) {
@@ -270,7 +270,7 @@ public class PlayerEspModule extends Module {
     }
 
     private float getGlowAlphaMultValue() {
-        return (Number) glowAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[31]);
+        return ((Number) glowAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[31]));
     }
 
     private void setGlowAlphaMultValue(float value) {
@@ -278,7 +278,7 @@ public class PlayerEspModule extends Module {
     }
 
     private float getFillAlphaMultValue() {
-        return (Number) fillAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[32]);
+        return ((Number) fillAlphaMultValueSetting.getValue(this, DELEGATED_PROPERTIES[32]));
     }
 
     private void setFillAlphaMultValue(float value) {
@@ -286,7 +286,7 @@ public class PlayerEspModule extends Module {
     }
 
     private float getSaturation() {
-        return (Number) saturationSetting.getValue(this, DELEGATED_PROPERTIES[33]);
+        return ((Number) saturationSetting.getValue(this, DELEGATED_PROPERTIES[33]));
     }
 
     private void setSaturation(float value) {
@@ -294,7 +294,7 @@ public class PlayerEspModule extends Module {
     }
 
     private float getBrightness() {
-        return (Number) brightnessSetting.getValue(this, DELEGATED_PROPERTIES[34]);
+        return ((Number) brightnessSetting.getValue(this, DELEGATED_PROPERTIES[34]));
     }
 
     private void setBrightness(float value) {
@@ -302,7 +302,7 @@ public class PlayerEspModule extends Module {
     }
 
     private int getHDistance() {
-        return (Number) hDistanceSetting.getValue(this, DELEGATED_PROPERTIES[35]);
+        return ((Number) hDistanceSetting.getValue(this, DELEGATED_PROPERTIES[35]));
     }
 
     private void setHDistance(int value) {
@@ -310,7 +310,7 @@ public class PlayerEspModule extends Module {
     }
 
     private int getVDistance() {
-        return (Number) vDistanceSetting.getValue(this, DELEGATED_PROPERTIES[36]);
+        return ((Number) vDistanceSetting.getValue(this, DELEGATED_PROPERTIES[36]));
     }
 
     private void setVDistance(int value) {
@@ -323,7 +323,7 @@ public class PlayerEspModule extends Module {
 
     private void onRender3DEvent(Render3DEvent arg0) {
         if (this.getShaderVal()) {
-            stackRenderHelper.render(arg0.getStack(), 0, this.getVDistance(), this.getHDistance());
+            stackRenderHelper.render(arg0.getStack(), false, this.getVDistance(), this.getHDistance());
         }
         if (this.getBox()) {
             FillColorRenderHelper.INSTANCE.executeAction(this.getRenderMode(), this.getFillColor(), this.getLineColor(), this.getFriendFillColor(), this.getFriendLineColor(), this.getVDistance(), this.getHDistance(), this.getSFillColor(), this.getSLineColor(), this.getSFriendFillColor(), this.getSFriendLineColor());
@@ -346,20 +346,16 @@ public class PlayerEspModule extends Module {
     }
 
     private void onRenderArmorEvent(RenderArmorEvent arg0) {
-        if (!(var8)) {
-        }
         arg0.cancel();
     }
 
     private void onEntityAlphaEvent(EntityAlphaEvent arg0) {
-        if (!(var8)) {
-        }
         arg0.setAlpha(0.0F);
         arg0.cancel();
     }
 
     private void onFrameBufferEvent(FrameBufferEvent arg0) {
-        arg0.setFrameBuffer((class_276) stackRenderHelper.getMinecraftObject());
+        arg0.setFrameBuffer(((class_276) stackRenderHelper.getMinecraftObject()));
         arg0.cancel();
     }
 
@@ -369,8 +365,8 @@ public class PlayerEspModule extends Module {
     private static boolean isActive() {
         if (!(INSTANCE.getBox())) {
             if (INSTANCE.getDefault()) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -438,8 +434,8 @@ public class PlayerEspModule extends Module {
     private static boolean isActive17() {
         if (INSTANCE.getShaderMode() != PlayerEspShaderMode.DEFAULT) {
             if (INSTANCE.getShaderMode() == PlayerEspShaderMode.BLOOM) {
+            } else {
             }
-        } else {
         }
         return false;
     }
@@ -477,18 +473,18 @@ public class PlayerEspModule extends Module {
     }
 
     static {
-        KProperty[] var41 = new KProperty[37];
+        KProperty[] items = new KProperty[37];
         INSTANCE = new PlayerEspModule();
         typesSetting = VisibleRenderHelper.registerSetting(INSTANCE, "types", OptionMode14.BOOLS);
         renderModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "render-mode", PlayerEspRenderMode.BOTH, null, this::isActive);
         shaderModeSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shader-mode", PlayerEspShaderMode.DEFAULT, null, this::isActive2);
         colorModeValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "color-mode", PlayerEspColorModeValueMode.RGB, null, this::isActive3);
-        defaultSetting = VisibleRenderHelper.registerSetting(INSTANCE, "default", 0, INSTANCE.getTypes());
-        boxSetting = VisibleRenderHelper.registerSetting(INSTANCE, "box", 0, INSTANCE.getTypes());
-        frameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "frame", 0, INSTANCE.getTypes());
-        shaderValSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shader", 0, INSTANCE.getTypes());
-        skeletonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "skeleton", 0, INSTANCE.getTypes());
-        extraPartSetting = VisibleRenderHelper.registerSetting(INSTANCE, "extra-part", 0, null, this::isActive4);
+        defaultSetting = VisibleRenderHelper.registerSetting(INSTANCE, "default", false, INSTANCE.getTypes());
+        boxSetting = VisibleRenderHelper.registerSetting(INSTANCE, "box", false, INSTANCE.getTypes());
+        frameSetting = VisibleRenderHelper.registerSetting(INSTANCE, "frame", false, INSTANCE.getTypes());
+        shaderValSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shader", false, INSTANCE.getTypes());
+        skeletonSetting = VisibleRenderHelper.registerSetting(INSTANCE, "skeleton", false, INSTANCE.getTypes());
+        extraPartSetting = VisibleRenderHelper.registerSetting(INSTANCE, "extra-part", false, null, this::isActive4);
         shaderColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "shader-color", new Color(255, 255, 255, 255), null, this::isActive5);
         skeletonColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "skeleton-color", new Color(255, 255, 255, 255), null, this::isActive6);
         skeletonFriendColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "skeleton-friend-color", new Color(255, 255, 255, 255), null, this::isActive7);
@@ -500,8 +496,8 @@ public class PlayerEspModule extends Module {
         sLineColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "s-line", new Color(255, 255, 255, 255), null, this::isActive9);
         sFriendFillColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "s-friend-fill", new Color(0, 255, 0, 120), null, this::isActive10);
         sFriendLineColorSetting = VisibleRenderHelper.registerSetting(INSTANCE, "s-friend-line", new Color(0, 255, 0, 255), null, this::isActive11);
-        glassSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glass", 0, null, this::isActive12);
-        bordersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "border", 0, null, this::isActive13);
+        glassSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glass", false, null, this::isActive12);
+        bordersSetting = VisibleRenderHelper.registerSetting(INSTANCE, "border", false, null, this::isActive13);
         radiusValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "radius", 6.0F, RangesKt.rangeTo(0.1F, 15.0F), null, this::isActive14);
         distanceValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "distance", 1.3F, RangesKt.rangeTo(0.1F, 15.0F), null, this::isActive15);
         glowAlphaValueSetting = VisibleRenderHelper.registerSetting(INSTANCE, "glow-alpha", 1.7F, RangesKt.rangeTo(1.0F, 5.0F), null, this::isActive16);

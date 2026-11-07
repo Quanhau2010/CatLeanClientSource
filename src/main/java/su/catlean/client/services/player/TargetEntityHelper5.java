@@ -15,9 +15,7 @@ public class TargetEntityHelper5 extends ZEROEntityHelper {
     }
 
     public MoveFixServiceComponent resolveMoveFixServiceComponent(Entity target, MoveFixServiceComponent currentRotation, boolean attackTick) {
-        long var6 = (0L ^ 38753063586444L);
-        long var8 = (0L ^ 43306842265647L);
-        return new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455(), 0, null, -6653943135179112436L);
+        return new MoveFixServiceComponent(SharedKt.getPlayer().method_36454(), SharedKt.getPlayer().method_36455(), false);
     }
 
     public Vec3d resolveMinecraftObject(Entity target) {

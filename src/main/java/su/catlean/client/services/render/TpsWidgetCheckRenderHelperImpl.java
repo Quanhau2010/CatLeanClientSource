@@ -12,11 +12,7 @@ public class TpsWidgetCheckRenderHelperImpl extends CheckRenderHelper {
     }
 
     public void render(DrawContext context) {
-        long var4 = (0L ^ 106730335067037L);
-        long var6 = (0L ^ 116853176505585L);
-        long var8 = ((0L ^ 100541977110631L) >>> 32);
-        long var10 = (((0L ^ 100541977110631L) << 32) >>> 32);
-        if (!(var11)) {
+        if (!(__UNDEF_KEY__)) {
             if (TheNetherPacketHelper.INSTANCE.checkCondition2()) {
             } else {
             }

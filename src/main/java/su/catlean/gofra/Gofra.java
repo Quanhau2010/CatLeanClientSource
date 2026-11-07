@@ -20,16 +20,13 @@ public class Gofra {
 
     public Unit drain(Object event) {
         if (branches.get(event.getClass()) != null) {
-            List positions = branches.get(event.getClass());
-            int var3 = 0;
-            Iterable var4 = (Iterable) positions;
-            int var5 = 0;
-            Iterator iterator = var4.iterator();
+            List list = branches.get(event.getClass());
+            Iterable iterable = ((Iterable) list);
+            Iterator iterator = iterable.iterator();
             while (iterator.hasNext()) {
-                Object var7 = iterator.next();
-                Branch var8 = (Branch) var7;
-                int var9 = 0;
-                var8.call(event);
+                Object element = iterator.next();
+                Branch branch = ((Branch) element);
+                branch.call(event);
             }
         } else {
         }
@@ -37,67 +34,56 @@ public class Gofra {
     }
 
     public void plugAll(Object[] listeners) {
-        Object var2 = listeners;
-        int var3 = 0;
-        int var4 = 0;
-        Object var5 = var2;
-        if (var4 < var5) {
-            Object var6 = var2[var4];
-            Object var7 = var6;
-            int var8 = 0;
-            INSTANCE.plug();
+        int index = 0;
+        if (index < listeners) {
+            Object element = listeners[index];
+            INSTANCE.plug(element);
         }
     }
 
     public void plug(Object obj) {
-        Iterable var2 = (Iterable) this.getBranches(obj);
-        int var3 = 0;
-        Iterator iterator = var2.iterator();
+        Iterable iterable = ((Iterable) this.getBranches(obj));
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var5 = iterator.next();
-            Branch var6 = (Branch) var5;
-            int var7 = 0;
-            INSTANCE.insert(branches.computeIfAbsent(var6.getEventTarget(), this::plug$lambda$5$lambda$4));
+            Object element = iterator.next();
+            Branch branch = ((Branch) element);
+            INSTANCE.insert(branches.computeIfAbsent(branch.getEventTarget(), this::plug$lambda$5$lambda$4), branch);
         }
     }
 
     public void unplug(Object obj) {
-        Iterable var2 = (Iterable) this.getBranches(obj);
-        int var3 = 0;
-        Iterator iterator = var2.iterator();
+        Iterable iterable = ((Iterable) this.getBranches(obj));
+        Iterator iterator = iterable.iterator();
         while (iterator.hasNext()) {
-            Object var5 = iterator.next();
-            Branch var6 = (Branch) var5;
-            int var7 = 0;
-            if (branches.get(var6.getEventTarget()) != null) {
-                branches.get(var6.getEventTarget()).remove();
+            Object element = iterator.next();
+            Branch branch = ((Branch) element);
+            if (branches.get(branch.getEventTarget()) != null) {
+                branches.get(branch.getEventTarget()).remove(branch);
             } else {
             }
         }
     }
 
     private void insert(List bl, Branch b) {
-        Object var3 = bl;
-        Object var10 = bl;
-        int var4 = 0;
-        int var5 = 0;
-        Iterator iterator = var3.iterator();
+        List list = bl;
+        int index = 0;
+        int index2 = 0;
+        Iterator iterator = bl.iterator();
         while (iterator.hasNext()) {
-            Object var7 = iterator.next();
-            Branch var8 = (Branch) var7;
-            int var9 = 0;
-            if (b.getPriority() > var8.getPriority()) {
+            Object element = iterator.next();
+            Branch branch = ((Branch) element);
+            if (b.getPriority() > branch.getPriority()) {
             } else {
             }
         }
-        int var11 = -1;
-        var4 = var11;
-        var5 = 0;
-        if (var4 == -1) {
+        int index3 = -1;
+        index = index3;
+        index2 = 0;
+        if (index == -1) {
         } else {
         }
-        var11 = var4;
-        var10.add(b);
+        index3 = index;
+        list.add(index3, b);
     }
 
     private List getBranches(Object obj) {
@@ -107,8 +93,8 @@ public class Gofra {
     private void getBranchesRecursive(List listeners, Class klass, Object obj) {
         Iterator iterator = ArrayIteratorKt.iterator(klass.getDeclaredMethods());
         while (iterator.hasNext()) {
-            Method var5 = (Method) iterator.next();
-            listeners.add(new Branch(klass, obj));
+            Method method = ((Method) iterator.next());
+            listeners.add(new Branch(klass, obj, method));
         }
         this.getBranchesRecursive(listeners, klass.getSuperclass(), obj);
     }
@@ -122,11 +108,9 @@ public class Gofra {
     }
 
     private static List getBranches$lambda$10(Object $obj, Object it) {
-        CopyOnWriteArrayList positions = new CopyOnWriteArrayList();
-        Object var3 = positions;
-        int var4 = 0;
-        INSTANCE.getBranchesRecursive($obj.getClass(), $obj);
-        return positions;
+        CopyOnWriteArrayList list = new CopyOnWriteArrayList();
+        INSTANCE.getBranchesRecursive(list, $obj.getClass(), $obj);
+        return list;
     }
 
     private static List getBranches$lambda$11(Function1 $tmp0, Object p0) {

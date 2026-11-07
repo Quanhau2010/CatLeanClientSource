@@ -23,26 +23,23 @@ public class ServiceComponent131 {
 
     public void executeAction(int offset, int maxAttacks, int delay, boolean swingOnce) {
         serviceComponent10.executeAction();
-        int var19 = offset;
-        int var20 = (countValue + var19);
-        Entity entity = SharedKt.getWorld().method_8469();
+        int index = offset;
+        int index2 = (countValue + index);
+        Entity entity = SharedKt.getWorld().method_8469(index2);
         if (entity != null) {
             if (entity instanceof EndCrystalEntity) {
-            }
-            class_2824 var22 = class_2824.method_34206(SharedKt.getPlayer(), SharedKt.getPlayer().method_5715());
-            int var23 = 0;
-            ServiceComponent93.executeAction();
-            SharedKt.getNetwork().method_52787((Packet) var22);
-            if (var19 == maxAttacks) {
-                SharedKt.getNetwork().method_52787((Packet) new class_2879(Hand.field_5808));
+                class_2824 class2824 = class_2824.method_34206(SharedKt.getPlayer(), SharedKt.getPlayer().method_5715());
+                ServiceComponent93.executeAction(class2824, index2);
+                SharedKt.getNetwork().method_52787(((Packet) class2824));
+                if (index == maxAttacks) {
+                    SharedKt.getNetwork().method_52787(((Packet) new class_2879(Hand.field_5808)));
+                }
             }
         }
     }
 
     public Unit resolveUnit(int id) {
-        if (var4 != null) {
-            if (id > countValue) {
-            }
+        if (id > countValue) {
             countValue = id;
         } else {
         }
